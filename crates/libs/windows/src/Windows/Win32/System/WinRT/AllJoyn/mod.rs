@@ -6,16 +6,11 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, enableaboutdata, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, enableaboutdata, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentFactoryInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29,6 +24,11 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
 }
 unsafe impl ::windows::core::Vtable for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     type Vtable = IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl;
+}
+impl ::core::clone::Clone for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b8f7505_b239_4e7b_88af_f6682575d861);
@@ -44,16 +44,11 @@ pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
 pub struct IWindowsDevicesAllJoynBusAttachmentInterop(::windows::core::IUnknown);
 impl IWindowsDevicesAllJoynBusAttachmentInterop {
     pub unsafe fn Win32Handle(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IWindowsDevicesAllJoynBusAttachmentInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusAttachmentInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -67,6 +62,11 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusAttachmentInterop {
 }
 unsafe impl ::windows::core::Vtable for IWindowsDevicesAllJoynBusAttachmentInterop {
     type Vtable = IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl;
+}
+impl ::core::clone::Clone for IWindowsDevicesAllJoynBusAttachmentInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd89c65b_b50e_4a19_9d0c_b42b783281cd);
@@ -85,16 +85,11 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectFactoryInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IWindowsDevicesAllJoynBusObjectFactoryInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -108,6 +103,11 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusObjectFactoryInterop {
 }
 unsafe impl ::windows::core::Vtable for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     type Vtable = IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl;
+}
+impl ::core::clone::Clone for IWindowsDevicesAllJoynBusObjectFactoryInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6174e506_8b95_4e36_95c0_b88fed34938c);
@@ -129,16 +129,11 @@ impl IWindowsDevicesAllJoynBusObjectInterop {
         (::windows::core::Vtable::vtable(self).AddPropertySetHandler)(::windows::core::Vtable::as_raw(self), context, ::core::mem::transmute_copy(interfacename), callback).ok()
     }
     pub unsafe fn Win32Handle(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IWindowsDevicesAllJoynBusObjectInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusObjectInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -153,6 +148,11 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusObjectInterop {
 unsafe impl ::windows::core::Vtable for IWindowsDevicesAllJoynBusObjectInterop {
     type Vtable = IWindowsDevicesAllJoynBusObjectInterop_Vtbl;
 }
+impl ::core::clone::Clone for IWindowsDevicesAllJoynBusObjectInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd78aa3d5_5054_428f_99f2_ec3a5de3c3bc);
 }
@@ -160,8 +160,8 @@ unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectIntero
 #[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub AddPropertyGetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: *mut ::core::ffi::c_void, callback: isize) -> ::windows::core::HRESULT,
-    pub AddPropertySetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: *mut ::core::ffi::c_void, callback: isize) -> ::windows::core::HRESULT,
+    pub AddPropertyGetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::std::mem::MaybeUninit<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT,
+    pub AddPropertySetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::std::mem::MaybeUninit<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT,
     pub Win32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

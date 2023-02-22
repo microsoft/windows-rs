@@ -4,6 +4,11 @@ pub struct IXsltProcessor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IXsltProcessor {
     type Vtable = IXsltProcessor_Vtbl;
 }
+impl ::core::clone::Clone for IXsltProcessor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IXsltProcessor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b64703f_550c_48c6_a90f_93a5b964518f);
 }
@@ -12,7 +17,7 @@ unsafe impl ::windows::core::Interface for IXsltProcessor {
 pub struct IXsltProcessor_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
-    pub TransformToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputnode: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TransformToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputnode: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]
     TransformToString: usize,
 }
@@ -21,6 +26,11 @@ pub struct IXsltProcessor_Vtbl {
 pub struct IXsltProcessor2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IXsltProcessor2 {
     type Vtable = IXsltProcessor2_Vtbl;
+}
+impl ::core::clone::Clone for IXsltProcessor2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXsltProcessor2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8da45c56_97a5_44cb_a8be_27d86280c70a);
@@ -39,6 +49,11 @@ pub struct IXsltProcessor2_Vtbl {
 pub struct IXsltProcessorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IXsltProcessorFactory {
     type Vtable = IXsltProcessorFactory_Vtbl;
+}
+impl ::core::clone::Clone for IXsltProcessorFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXsltProcessorFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x274146c0_9a51_4663_bf30_0ef742146f20);
@@ -65,8 +80,8 @@ impl XsltProcessor {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TransformToString)(::windows::core::Vtable::as_raw(this), inputnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).TransformToString)(::windows::core::Vtable::as_raw(this), inputnode.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -78,27 +93,22 @@ impl XsltProcessor {
     {
         let this = &::windows::core::Interface::cast::<IXsltProcessor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TransformToDocument)(::windows::core::Vtable::as_raw(this), inputnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Dom::XmlDocument>();
+            (::windows::core::Vtable::vtable(this).TransformToDocument)(::windows::core::Vtable::as_raw(this), inputnode.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateInstance(document: &super::Dom::XmlDocument) -> ::windows::core::Result<XsltProcessor> {
         Self::IXsltProcessorFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(document), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<XsltProcessor>();
+            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(document), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IXsltProcessorFactory<R, F: FnOnce(&IXsltProcessorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<XsltProcessor, IXsltProcessorFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for XsltProcessor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for XsltProcessor {
@@ -112,11 +122,12 @@ impl ::core::fmt::Debug for XsltProcessor {
         f.debug_tuple("XsltProcessor").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for XsltProcessor {
+impl ::windows::core::RuntimeType for XsltProcessor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Xsl.XsltProcessor;{7b64703f-550c-48c6-a90f-93a5b964518f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for XsltProcessor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for XsltProcessor {

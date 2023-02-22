@@ -2629,8 +2629,8 @@ impl ::core::default::Default for DHCPV6_STATELESS_PARAM_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_PARAM_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV6_STATELESS_PARAM_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCPV6_STATELESS_PARAM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2656,8 +2656,8 @@ impl ::core::default::Default for DHCP_FAILOVER_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_FAILOVER_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_FAILOVER_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_FAILOVER_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2683,8 +2683,8 @@ impl ::core::default::Default for DHCP_FAILOVER_SERVER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_FAILOVER_SERVER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_FAILOVER_SERVER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_FAILOVER_SERVER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2710,8 +2710,8 @@ impl ::core::default::Default for DHCP_FILTER_LIST_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_FILTER_LIST_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_FILTER_LIST_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_FILTER_LIST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2739,8 +2739,8 @@ impl ::core::default::Default for DHCP_FORCE_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_FORCE_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_FORCE_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_FORCE_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2780,8 +2780,8 @@ impl ::core::default::Default for DHCP_OPTION_DATA_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_DATA_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_OPTION_DATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2813,8 +2813,8 @@ impl ::core::default::Default for DHCP_OPTION_SCOPE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_SCOPE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_OPTION_SCOPE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2844,8 +2844,8 @@ impl ::core::default::Default for DHCP_OPTION_SCOPE_TYPE6 {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_TYPE6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_SCOPE_TYPE6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_OPTION_SCOPE_TYPE6 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2871,8 +2871,8 @@ impl ::core::default::Default for DHCP_OPTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_OPTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2908,8 +2908,8 @@ impl ::core::default::Default for DHCP_POLICY_FIELDS_TO_UPDATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_POLICY_FIELDS_TO_UPDATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_POLICY_FIELDS_TO_UPDATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_POLICY_FIELDS_TO_UPDATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2941,8 +2941,8 @@ impl ::core::default::Default for DHCP_POL_ATTR_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_POL_ATTR_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_POL_ATTR_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_POL_ATTR_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2976,8 +2976,8 @@ impl ::core::default::Default for DHCP_POL_COMPARATOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_POL_COMPARATOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_POL_COMPARATOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_POL_COMPARATOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3003,8 +3003,8 @@ impl ::core::default::Default for DHCP_POL_LOGIC_OPER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_POL_LOGIC_OPER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_POL_LOGIC_OPER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_POL_LOGIC_OPER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3030,8 +3030,8 @@ impl ::core::default::Default for DHCP_PROPERTY_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_PROPERTY_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_PROPERTY_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3063,8 +3063,8 @@ impl ::core::default::Default for DHCP_PROPERTY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_PROPERTY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_PROPERTY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_PROPERTY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3090,8 +3090,8 @@ impl ::core::default::Default for DHCP_SCAN_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SCAN_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SCAN_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_SCAN_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3119,8 +3119,8 @@ impl ::core::default::Default for DHCP_SEARCH_INFO_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SEARCH_INFO_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_SEARCH_INFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3148,8 +3148,8 @@ impl ::core::default::Default for DHCP_SEARCH_INFO_TYPE_V6 {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_TYPE_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SEARCH_INFO_TYPE_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_SEARCH_INFO_TYPE_V6 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3187,8 +3187,8 @@ impl ::core::default::Default for DHCP_SUBNET_ELEMENT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3216,8 +3216,8 @@ impl ::core::default::Default for DHCP_SUBNET_ELEMENT_TYPE_V6 {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_TYPE_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_TYPE_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_TYPE_V6 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3249,8 +3249,8 @@ impl ::core::default::Default for DHCP_SUBNET_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DHCP_SUBNET_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3300,8 +3300,8 @@ impl ::core::default::Default for FSM_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FSM_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FSM_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FSM_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3337,8 +3337,8 @@ impl ::core::default::Default for QuarantineStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for QuarantineStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QuarantineStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for QuarantineStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3368,8 +3368,8 @@ impl ::core::default::Default for StatusCode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for StatusCode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for StatusCode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for StatusCode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3393,8 +3393,8 @@ impl ::core::fmt::Debug for DATE_TIME {
         f.debug_struct("DATE_TIME").field("dwLowDateTime", &self.dwLowDateTime).field("dwHighDateTime", &self.dwHighDateTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DATE_TIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DATE_TIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DATE_TIME {
     fn eq(&self, other: &Self) -> bool {
@@ -3432,8 +3432,8 @@ impl ::core::fmt::Debug for DHCPAPI_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPAPI_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPAPI_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPAPI_PARAMS {
@@ -3467,8 +3467,8 @@ impl ::core::fmt::Debug for DHCPCAPI_CLASSID {
         f.debug_struct("DHCPCAPI_CLASSID").field("Flags", &self.Flags).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCPCAPI_CLASSID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPCAPI_CLASSID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCPCAPI_CLASSID {
     fn eq(&self, other: &Self) -> bool {
@@ -3503,8 +3503,8 @@ impl ::core::fmt::Debug for DHCPCAPI_PARAMS_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPCAPI_PARAMS_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPCAPI_PARAMS_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPCAPI_PARAMS_ARRAY {
@@ -3542,8 +3542,8 @@ impl ::core::fmt::Debug for DHCPDS_SERVER {
         f.debug_struct("DHCPDS_SERVER").field("Version", &self.Version).field("ServerName", &self.ServerName).field("ServerAddress", &self.ServerAddress).field("Flags", &self.Flags).field("State", &self.State).field("DsLocation", &self.DsLocation).field("DsLocType", &self.DsLocType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCPDS_SERVER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPDS_SERVER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCPDS_SERVER {
     fn eq(&self, other: &Self) -> bool {
@@ -3574,8 +3574,8 @@ impl ::core::fmt::Debug for DHCPDS_SERVERS {
         f.debug_struct("DHCPDS_SERVERS").field("Flags", &self.Flags).field("NumElements", &self.NumElements).field("Servers", &self.Servers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCPDS_SERVERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPDS_SERVERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCPDS_SERVERS {
     fn eq(&self, other: &Self) -> bool {
@@ -3651,8 +3651,8 @@ impl ::core::fmt::Debug for DHCPV4_FAILOVER_CLIENT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV4_FAILOVER_CLIENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV4_FAILOVER_CLIENT_INFO {
@@ -3710,8 +3710,8 @@ impl ::core::fmt::Debug for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
@@ -3792,8 +3792,8 @@ impl ::core::fmt::Debug for DHCPV4_FAILOVER_CLIENT_INFO_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV4_FAILOVER_CLIENT_INFO_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV4_FAILOVER_CLIENT_INFO_EX {
@@ -3848,8 +3848,8 @@ impl ::core::fmt::Debug for DHCPV6CAPI_CLASSID {
         f.debug_struct("DHCPV6CAPI_CLASSID").field("Flags", &self.Flags).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCPV6CAPI_CLASSID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV6CAPI_CLASSID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCPV6CAPI_CLASSID {
     fn eq(&self, other: &Self) -> bool {
@@ -3887,8 +3887,8 @@ impl ::core::fmt::Debug for DHCPV6CAPI_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV6CAPI_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV6CAPI_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV6CAPI_PARAMS {
@@ -3926,8 +3926,8 @@ impl ::core::fmt::Debug for DHCPV6CAPI_PARAMS_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV6CAPI_PARAMS_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV6CAPI_PARAMS_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV6CAPI_PARAMS_ARRAY {
@@ -3963,8 +3963,8 @@ impl ::core::fmt::Debug for DHCPV6Prefix {
         f.debug_struct("DHCPV6Prefix").field("prefix", &self.prefix).field("prefixLength", &self.prefixLength).field("preferredLifeTime", &self.preferredLifeTime).field("validLifeTime", &self.validLifeTime).field("status", &self.status).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCPV6Prefix {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV6Prefix {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCPV6Prefix {
     fn eq(&self, other: &Self) -> bool {
@@ -4002,8 +4002,8 @@ impl ::core::fmt::Debug for DHCPV6PrefixLeaseInformation {
         f.debug_struct("DHCPV6PrefixLeaseInformation").field("nPrefixes", &self.nPrefixes).field("prefixArray", &self.prefixArray).field("iaid", &self.iaid).field("T1", &self.T1).field("T2", &self.T2).field("MaxLeaseExpirationTime", &self.MaxLeaseExpirationTime).field("LastRenewalTime", &self.LastRenewalTime).field("status", &self.status).field("ServerId", &self.ServerId).field("ServerIdLen", &self.ServerIdLen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCPV6PrefixLeaseInformation {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV6PrefixLeaseInformation {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCPV6PrefixLeaseInformation {
     fn eq(&self, other: &Self) -> bool {
@@ -4044,8 +4044,8 @@ impl ::core::fmt::Debug for DHCPV6_BIND_ELEMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV6_BIND_ELEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV6_BIND_ELEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV6_BIND_ELEMENT {
@@ -4083,8 +4083,8 @@ impl ::core::fmt::Debug for DHCPV6_BIND_ELEMENT_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV6_BIND_ELEMENT_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV6_BIND_ELEMENT_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV6_BIND_ELEMENT_ARRAY {
@@ -4117,8 +4117,8 @@ impl ::core::fmt::Debug for DHCPV6_IP_ARRAY {
         f.debug_struct("DHCPV6_IP_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCPV6_IP_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV6_IP_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCPV6_IP_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -4153,8 +4153,8 @@ impl ::core::fmt::Debug for DHCPV6_STATELESS_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV6_STATELESS_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV6_STATELESS_PARAMS {
@@ -4188,8 +4188,8 @@ impl ::core::fmt::Debug for DHCPV6_STATELESS_SCOPE_STATS {
         f.debug_struct("DHCPV6_STATELESS_SCOPE_STATS").field("SubnetAddress", &self.SubnetAddress).field("NumStatelessClientsAdded", &self.NumStatelessClientsAdded).field("NumStatelessClientsRemoved", &self.NumStatelessClientsRemoved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_SCOPE_STATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV6_STATELESS_SCOPE_STATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCPV6_STATELESS_SCOPE_STATS {
     fn eq(&self, other: &Self) -> bool {
@@ -4219,8 +4219,8 @@ impl ::core::fmt::Debug for DHCPV6_STATELESS_STATS {
         f.debug_struct("DHCPV6_STATELESS_STATS").field("NumScopes", &self.NumScopes).field("ScopeStats", &self.ScopeStats).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_STATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCPV6_STATELESS_STATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCPV6_STATELESS_STATS {
     fn eq(&self, other: &Self) -> bool {
@@ -4258,8 +4258,8 @@ impl ::core::fmt::Debug for DHCP_ADDR_PATTERN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ADDR_PATTERN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_ADDR_PATTERN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ADDR_PATTERN {
@@ -4294,8 +4294,8 @@ impl ::core::fmt::Debug for DHCP_ALL_OPTIONS {
         f.debug_struct("DHCP_ALL_OPTIONS").field("Flags", &self.Flags).field("NonVendorOptions", &self.NonVendorOptions).field("NumVendorOptions", &self.NumVendorOptions).field("VendorOptions", &self.VendorOptions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_ALL_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_ALL_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_ALL_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -4326,8 +4326,8 @@ impl ::core::fmt::Debug for DHCP_ALL_OPTIONS_0 {
         f.debug_struct("DHCP_ALL_OPTIONS_0").field("Option", &self.Option).field("VendorName", &self.VendorName).field("ClassName", &self.ClassName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_ALL_OPTIONS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_ALL_OPTIONS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_ALL_OPTIONS_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4363,8 +4363,8 @@ impl ::core::fmt::Debug for DHCP_ALL_OPTION_VALUES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_ALL_OPTION_VALUES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES {
@@ -4404,8 +4404,8 @@ impl ::core::fmt::Debug for DHCP_ALL_OPTION_VALUES_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_ALL_OPTION_VALUES_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_0 {
@@ -4444,8 +4444,8 @@ impl ::core::fmt::Debug for DHCP_ALL_OPTION_VALUES_PB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_PB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_ALL_OPTION_VALUES_PB {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_PB {
@@ -4485,8 +4485,8 @@ impl ::core::fmt::Debug for DHCP_ALL_OPTION_VALUES_PB_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_PB_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_ALL_OPTION_VALUES_PB_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_PB_0 {
@@ -4519,8 +4519,8 @@ impl ::core::clone::Clone for DHCP_ATTRIB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ATTRIB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_ATTRIB {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ATTRIB {
@@ -4544,8 +4544,8 @@ impl ::core::clone::Clone for DHCP_ATTRIB_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ATTRIB_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_ATTRIB_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ATTRIB_0 {
@@ -4575,8 +4575,8 @@ impl ::core::fmt::Debug for DHCP_ATTRIB_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ATTRIB_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_ATTRIB_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ATTRIB_ARRAY {
@@ -4609,8 +4609,8 @@ impl ::core::fmt::Debug for DHCP_BINARY_DATA {
         f.debug_struct("DHCP_BINARY_DATA").field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_BINARY_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_BINARY_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_BINARY_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -4650,8 +4650,8 @@ impl ::core::fmt::Debug for DHCP_BIND_ELEMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_BIND_ELEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_BIND_ELEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_BIND_ELEMENT {
@@ -4689,8 +4689,8 @@ impl ::core::fmt::Debug for DHCP_BIND_ELEMENT_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_BIND_ELEMENT_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_BIND_ELEMENT_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_BIND_ELEMENT_ARRAY {
@@ -4725,8 +4725,8 @@ impl ::core::fmt::Debug for DHCP_BOOTP_IP_RANGE {
         f.debug_struct("DHCP_BOOTP_IP_RANGE").field("StartAddress", &self.StartAddress).field("EndAddress", &self.EndAddress).field("BootpAllocated", &self.BootpAllocated).field("MaxBootpAllowed", &self.MaxBootpAllowed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_BOOTP_IP_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_BOOTP_IP_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_BOOTP_IP_RANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -4769,8 +4769,8 @@ impl ::core::fmt::Debug for DHCP_CALLOUT_TABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CALLOUT_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CALLOUT_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CALLOUT_TABLE {
@@ -4804,8 +4804,8 @@ impl ::core::fmt::Debug for DHCP_CLASS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLASS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLASS_INFO {
@@ -4843,8 +4843,8 @@ impl ::core::fmt::Debug for DHCP_CLASS_INFO_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLASS_INFO_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLASS_INFO_ARRAY {
@@ -4882,8 +4882,8 @@ impl ::core::fmt::Debug for DHCP_CLASS_INFO_ARRAY_V6 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_ARRAY_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLASS_INFO_ARRAY_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLASS_INFO_ARRAY_V6 {
@@ -4926,8 +4926,8 @@ impl ::core::fmt::Debug for DHCP_CLASS_INFO_V6 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLASS_INFO_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLASS_INFO_V6 {
@@ -4990,8 +4990,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_FILTER_STATUS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_FILTER_STATUS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_FILTER_STATUS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_FILTER_STATUS_INFO {
@@ -5029,8 +5029,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
@@ -5068,8 +5068,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO {
         f.debug_struct("DHCP_CLIENT_INFO").field("ClientIpAddress", &self.ClientIpAddress).field("SubnetMask", &self.SubnetMask).field("ClientHardwareAddress", &self.ClientHardwareAddress).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientLeaseExpires", &self.ClientLeaseExpires).field("OwnerHost", &self.OwnerHost).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5099,8 +5099,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY {
         f.debug_struct("DHCP_CLIENT_INFO_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -5130,8 +5130,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_V4 {
         f.debug_struct("DHCP_CLIENT_INFO_ARRAY_V4").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_ARRAY_V4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_V4 {
     fn eq(&self, other: &Self) -> bool {
@@ -5161,8 +5161,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_V5 {
         f.debug_struct("DHCP_CLIENT_INFO_ARRAY_V5").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_ARRAY_V5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_V5 {
     fn eq(&self, other: &Self) -> bool {
@@ -5192,8 +5192,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_V6 {
         f.debug_struct("DHCP_CLIENT_INFO_ARRAY_V6").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_ARRAY_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_V6 {
     fn eq(&self, other: &Self) -> bool {
@@ -5228,8 +5228,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_VQ {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_VQ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_ARRAY_VQ {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_VQ {
@@ -5296,8 +5296,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_EX {
@@ -5335,8 +5335,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_EX_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_EX_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_EX_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_EX_ARRAY {
@@ -5401,8 +5401,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_PB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_PB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_PB {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_PB {
@@ -5440,8 +5440,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_PB_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_PB_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_PB_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_PB_ARRAY {
@@ -5480,8 +5480,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_V4 {
         f.debug_struct("DHCP_CLIENT_INFO_V4").field("ClientIpAddress", &self.ClientIpAddress).field("SubnetMask", &self.SubnetMask).field("ClientHardwareAddress", &self.ClientHardwareAddress).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientLeaseExpires", &self.ClientLeaseExpires).field("OwnerHost", &self.OwnerHost).field("bClientType", &self.bClientType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_V4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_V4 {
     fn eq(&self, other: &Self) -> bool {
@@ -5518,8 +5518,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_V5 {
         f.debug_struct("DHCP_CLIENT_INFO_V5").field("ClientIpAddress", &self.ClientIpAddress).field("SubnetMask", &self.SubnetMask).field("ClientHardwareAddress", &self.ClientHardwareAddress).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientLeaseExpires", &self.ClientLeaseExpires).field("OwnerHost", &self.OwnerHost).field("bClientType", &self.bClientType).field("AddressState", &self.AddressState).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_V5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_V5 {
     fn eq(&self, other: &Self) -> bool {
@@ -5556,8 +5556,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_V6 {
         f.debug_struct("DHCP_CLIENT_INFO_V6").field("ClientIpAddress", &self.ClientIpAddress).field("ClientDUID", &self.ClientDUID).field("AddressType", &self.AddressType).field("IAID", &self.IAID).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientValidLeaseExpires", &self.ClientValidLeaseExpires).field("ClientPrefLeaseExpires", &self.ClientPrefLeaseExpires).field("OwnerHost", &self.OwnerHost).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
@@ -5615,8 +5615,8 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_VQ {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_VQ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_CLIENT_INFO_VQ {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_VQ {
@@ -5678,8 +5678,8 @@ impl ::core::fmt::Debug for DHCP_FAILOVER_RELATIONSHIP {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_FAILOVER_RELATIONSHIP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_FAILOVER_RELATIONSHIP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_FAILOVER_RELATIONSHIP {
     fn eq(&self, other: &Self) -> bool {
@@ -5709,8 +5709,8 @@ impl ::core::fmt::Debug for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
         f.debug_struct("DHCP_FAILOVER_RELATIONSHIP_ARRAY").field("NumElements", &self.NumElements).field("pRelationships", &self.pRelationships).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -5745,8 +5745,8 @@ impl ::core::fmt::Debug for DHCP_FAILOVER_STATISTICS {
         f.debug_struct("DHCP_FAILOVER_STATISTICS").field("NumAddr", &self.NumAddr).field("AddrFree", &self.AddrFree).field("AddrInUse", &self.AddrInUse).field("PartnerAddrFree", &self.PartnerAddrFree).field("ThisAddrFree", &self.ThisAddrFree).field("PartnerAddrInUse", &self.PartnerAddrInUse).field("ThisAddrInUse", &self.ThisAddrInUse).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_FAILOVER_STATISTICS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_FAILOVER_STATISTICS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_FAILOVER_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
@@ -5782,8 +5782,8 @@ impl ::core::fmt::Debug for DHCP_FILTER_ADD_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_FILTER_ADD_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_FILTER_ADD_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_FILTER_ADD_INFO {
@@ -5821,8 +5821,8 @@ impl ::core::fmt::Debug for DHCP_FILTER_ENUM_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_FILTER_ENUM_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_FILTER_ENUM_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_FILTER_ENUM_INFO {
@@ -5860,8 +5860,8 @@ impl ::core::fmt::Debug for DHCP_FILTER_GLOBAL_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_FILTER_GLOBAL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_FILTER_GLOBAL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_FILTER_GLOBAL_INFO {
@@ -5899,8 +5899,8 @@ impl ::core::fmt::Debug for DHCP_FILTER_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_FILTER_RECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_FILTER_RECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_FILTER_RECORD {
@@ -5934,8 +5934,8 @@ impl ::core::fmt::Debug for DHCP_HOST_INFO {
         f.debug_struct("DHCP_HOST_INFO").field("IpAddress", &self.IpAddress).field("NetBiosName", &self.NetBiosName).field("HostName", &self.HostName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_HOST_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_HOST_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_HOST_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5966,8 +5966,8 @@ impl ::core::fmt::Debug for DHCP_HOST_INFO_V6 {
         f.debug_struct("DHCP_HOST_INFO_V6").field("IpAddress", &self.IpAddress).field("NetBiosName", &self.NetBiosName).field("HostName", &self.HostName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_HOST_INFO_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_HOST_INFO_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_HOST_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
@@ -5997,8 +5997,8 @@ impl ::core::fmt::Debug for DHCP_IPV6_ADDRESS {
         f.debug_struct("DHCP_IPV6_ADDRESS").field("HighOrderBits", &self.HighOrderBits).field("LowOrderBits", &self.LowOrderBits).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_IPV6_ADDRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_IPV6_ADDRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_IPV6_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
@@ -6028,8 +6028,8 @@ impl ::core::fmt::Debug for DHCP_IP_ARRAY {
         f.debug_struct("DHCP_IP_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_IP_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_IP_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_IP_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -6059,8 +6059,8 @@ impl ::core::fmt::Debug for DHCP_IP_CLUSTER {
         f.debug_struct("DHCP_IP_CLUSTER").field("ClusterAddress", &self.ClusterAddress).field("ClusterMask", &self.ClusterMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_IP_CLUSTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_IP_CLUSTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_IP_CLUSTER {
     fn eq(&self, other: &Self) -> bool {
@@ -6090,8 +6090,8 @@ impl ::core::fmt::Debug for DHCP_IP_RANGE {
         f.debug_struct("DHCP_IP_RANGE").field("StartAddress", &self.StartAddress).field("EndAddress", &self.EndAddress).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_IP_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_IP_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -6121,8 +6121,8 @@ impl ::core::fmt::Debug for DHCP_IP_RANGE_ARRAY {
         f.debug_struct("DHCP_IP_RANGE_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_IP_RANGE_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_IP_RANGE_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RANGE_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -6152,8 +6152,8 @@ impl ::core::fmt::Debug for DHCP_IP_RANGE_V6 {
         f.debug_struct("DHCP_IP_RANGE_V6").field("StartAddress", &self.StartAddress).field("EndAddress", &self.EndAddress).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_IP_RANGE_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_IP_RANGE_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RANGE_V6 {
     fn eq(&self, other: &Self) -> bool {
@@ -6183,8 +6183,8 @@ impl ::core::fmt::Debug for DHCP_IP_RESERVATION {
         f.debug_struct("DHCP_IP_RESERVATION").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_IP_RESERVATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6218,8 +6218,8 @@ impl ::core::fmt::Debug for DHCP_IP_RESERVATION_INFO {
         f.debug_struct("DHCP_IP_RESERVATION_INFO").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).field("ReservedClientName", &self.ReservedClientName).field("ReservedClientDesc", &self.ReservedClientDesc).field("bAllowedClientTypes", &self.bAllowedClientTypes).field("fOptionsPresent", &self.fOptionsPresent).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_IP_RESERVATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6250,8 +6250,8 @@ impl ::core::fmt::Debug for DHCP_IP_RESERVATION_V4 {
         f.debug_struct("DHCP_IP_RESERVATION_V4").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).field("bAllowedClientTypes", &self.bAllowedClientTypes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_V4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_IP_RESERVATION_V4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION_V4 {
     fn eq(&self, other: &Self) -> bool {
@@ -6282,8 +6282,8 @@ impl ::core::fmt::Debug for DHCP_IP_RESERVATION_V6 {
         f.debug_struct("DHCP_IP_RESERVATION_V6").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).field("InterfaceId", &self.InterfaceId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_IP_RESERVATION_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION_V6 {
     fn eq(&self, other: &Self) -> bool {
@@ -6321,8 +6321,8 @@ impl ::core::fmt::Debug for DHCP_MIB_INFO {
         f.debug_struct("DHCP_MIB_INFO").field("Discovers", &self.Discovers).field("Offers", &self.Offers).field("Requests", &self.Requests).field("Acks", &self.Acks).field("Naks", &self.Naks).field("Declines", &self.Declines).field("Releases", &self.Releases).field("ServerStartTime", &self.ServerStartTime).field("Scopes", &self.Scopes).field("ScopeInfo", &self.ScopeInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_MIB_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_MIB_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_MIB_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6389,8 +6389,8 @@ impl ::core::fmt::Debug for DHCP_MIB_INFO_V5 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_V5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_MIB_INFO_V5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_MIB_INFO_V5 {
     fn eq(&self, other: &Self) -> bool {
@@ -6445,8 +6445,8 @@ impl ::core::fmt::Debug for DHCP_MIB_INFO_V6 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_MIB_INFO_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_MIB_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
@@ -6509,8 +6509,8 @@ impl ::core::fmt::Debug for DHCP_MIB_INFO_VQ {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_VQ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_MIB_INFO_VQ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_MIB_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {
@@ -6543,8 +6543,8 @@ impl ::core::fmt::Debug for DHCP_OPTION {
         f.debug_struct("DHCP_OPTION").field("OptionID", &self.OptionID).field("OptionName", &self.OptionName).field("OptionComment", &self.OptionComment).field("DefaultValue", &self.DefaultValue).field("OptionType", &self.OptionType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_OPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -6574,8 +6574,8 @@ impl ::core::fmt::Debug for DHCP_OPTION_ARRAY {
         f.debug_struct("DHCP_OPTION_ARRAY").field("NumElements", &self.NumElements).field("Options", &self.Options).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_OPTION_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -6605,8 +6605,8 @@ impl ::core::fmt::Debug for DHCP_OPTION_DATA {
         f.debug_struct("DHCP_OPTION_DATA").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_OPTION_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -6631,8 +6631,8 @@ impl ::core::clone::Clone for DHCP_OPTION_DATA_ELEMENT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA_ELEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_DATA_ELEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_OPTION_DATA_ELEMENT {
     fn default() -> Self {
@@ -6658,8 +6658,8 @@ impl ::core::clone::Clone for DHCP_OPTION_DATA_ELEMENT_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA_ELEMENT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_DATA_ELEMENT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_OPTION_DATA_ELEMENT_0 {
     fn default() -> Self {
@@ -6685,8 +6685,8 @@ impl ::core::fmt::Debug for DHCP_OPTION_LIST {
         f.debug_struct("DHCP_OPTION_LIST").field("NumOptions", &self.NumOptions).field("Options", &self.Options).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_OPTION_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -6711,8 +6711,8 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_SCOPE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO {
     fn default() -> Self {
@@ -6734,8 +6734,8 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_SCOPE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO_0 {
     fn default() -> Self {
@@ -6754,8 +6754,8 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO6 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_SCOPE_INFO6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO6 {
     fn default() -> Self {
@@ -6775,8 +6775,8 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO6_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO6_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_SCOPE_INFO6_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO6_0 {
     fn default() -> Self {
@@ -6802,8 +6802,8 @@ impl ::core::fmt::Debug for DHCP_OPTION_VALUE {
         f.debug_struct("DHCP_OPTION_VALUE").field("OptionID", &self.OptionID).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_OPTION_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -6833,8 +6833,8 @@ impl ::core::fmt::Debug for DHCP_OPTION_VALUE_ARRAY {
         f.debug_struct("DHCP_OPTION_VALUE_ARRAY").field("NumElements", &self.NumElements).field("Values", &self.Values).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_OPTION_VALUE_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_OPTION_VALUE_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_OPTION_VALUE_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -6901,8 +6901,8 @@ impl ::core::fmt::Debug for DHCP_PERF_STATS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_PERF_STATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_PERF_STATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_PERF_STATS {
     fn eq(&self, other: &Self) -> bool {
@@ -6962,8 +6962,8 @@ impl ::core::fmt::Debug for DHCP_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_POLICY {
@@ -7001,8 +7001,8 @@ impl ::core::fmt::Debug for DHCP_POLICY_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_POLICY_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_POLICY_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_POLICY_ARRAY {
@@ -7048,8 +7048,8 @@ impl ::core::fmt::Debug for DHCP_POLICY_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_POLICY_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_POLICY_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_POLICY_EX {
@@ -7087,8 +7087,8 @@ impl ::core::fmt::Debug for DHCP_POLICY_EX_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_POLICY_EX_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_POLICY_EX_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_POLICY_EX_ARRAY {
@@ -7127,8 +7127,8 @@ impl ::core::fmt::Debug for DHCP_POL_COND {
         f.debug_struct("DHCP_POL_COND").field("ParentExpr", &self.ParentExpr).field("Type", &self.Type).field("OptionID", &self.OptionID).field("SubOptionID", &self.SubOptionID).field("VendorName", &self.VendorName).field("Operator", &self.Operator).field("Value", &self.Value).field("ValueLength", &self.ValueLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_POL_COND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_POL_COND {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_POL_COND {
     fn eq(&self, other: &Self) -> bool {
@@ -7158,8 +7158,8 @@ impl ::core::fmt::Debug for DHCP_POL_COND_ARRAY {
         f.debug_struct("DHCP_POL_COND_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_POL_COND_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_POL_COND_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_POL_COND_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -7189,8 +7189,8 @@ impl ::core::fmt::Debug for DHCP_POL_EXPR {
         f.debug_struct("DHCP_POL_EXPR").field("ParentExpr", &self.ParentExpr).field("Operator", &self.Operator).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_POL_EXPR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_POL_EXPR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_POL_EXPR {
     fn eq(&self, other: &Self) -> bool {
@@ -7220,8 +7220,8 @@ impl ::core::fmt::Debug for DHCP_POL_EXPR_ARRAY {
         f.debug_struct("DHCP_POL_EXPR_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_POL_EXPR_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_POL_EXPR_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_POL_EXPR_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -7247,8 +7247,8 @@ impl ::core::clone::Clone for DHCP_PROPERTY {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_PROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_PROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_PROPERTY {
     fn default() -> Self {
@@ -7270,8 +7270,8 @@ impl ::core::clone::Clone for DHCP_PROPERTY_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_PROPERTY_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_PROPERTY_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_PROPERTY_0 {
     fn default() -> Self {
@@ -7295,8 +7295,8 @@ impl ::core::fmt::Debug for DHCP_PROPERTY_ARRAY {
         f.debug_struct("DHCP_PROPERTY_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_PROPERTY_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_PROPERTY_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_PROPERTY_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -7326,8 +7326,8 @@ impl ::core::fmt::Debug for DHCP_RESERVATION_INFO_ARRAY {
         f.debug_struct("DHCP_RESERVATION_INFO_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_RESERVATION_INFO_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_RESERVATION_INFO_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_RESERVATION_INFO_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -7357,8 +7357,8 @@ impl ::core::fmt::Debug for DHCP_RESERVED_SCOPE {
         f.debug_struct("DHCP_RESERVED_SCOPE").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedIpSubnetAddress", &self.ReservedIpSubnetAddress).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_RESERVED_SCOPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_RESERVED_SCOPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_RESERVED_SCOPE {
     fn eq(&self, other: &Self) -> bool {
@@ -7388,8 +7388,8 @@ impl ::core::fmt::Debug for DHCP_RESERVED_SCOPE6 {
         f.debug_struct("DHCP_RESERVED_SCOPE6").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedIpSubnetAddress", &self.ReservedIpSubnetAddress).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_RESERVED_SCOPE6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_RESERVED_SCOPE6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_RESERVED_SCOPE6 {
     fn eq(&self, other: &Self) -> bool {
@@ -7419,8 +7419,8 @@ impl ::core::fmt::Debug for DHCP_SCAN_ITEM {
         f.debug_struct("DHCP_SCAN_ITEM").field("IpAddress", &self.IpAddress).field("ScanFlag", &self.ScanFlag).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SCAN_ITEM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SCAN_ITEM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SCAN_ITEM {
     fn eq(&self, other: &Self) -> bool {
@@ -7450,8 +7450,8 @@ impl ::core::fmt::Debug for DHCP_SCAN_LIST {
         f.debug_struct("DHCP_SCAN_LIST").field("NumScanItems", &self.NumScanItems).field("ScanItems", &self.ScanItems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SCAN_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SCAN_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SCAN_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -7476,8 +7476,8 @@ impl ::core::clone::Clone for DHCP_SEARCH_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SEARCH_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_SEARCH_INFO {
     fn default() -> Self {
@@ -7497,8 +7497,8 @@ impl ::core::clone::Clone for DHCP_SEARCH_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SEARCH_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_SEARCH_INFO_0 {
     fn default() -> Self {
@@ -7517,8 +7517,8 @@ impl ::core::clone::Clone for DHCP_SEARCH_INFO_V6 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SEARCH_INFO_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_SEARCH_INFO_V6 {
     fn default() -> Self {
@@ -7538,8 +7538,8 @@ impl ::core::clone::Clone for DHCP_SEARCH_INFO_V6_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_V6_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SEARCH_INFO_V6_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_SEARCH_INFO_V6_0 {
     fn default() -> Self {
@@ -7570,8 +7570,8 @@ impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO {
         f.debug_struct("DHCP_SERVER_CONFIG_INFO").field("APIProtocolSupport", &self.APIProtocolSupport).field("DatabaseName", &self.DatabaseName).field("DatabasePath", &self.DatabasePath).field("BackupPath", &self.BackupPath).field("BackupInterval", &self.BackupInterval).field("DatabaseLoggingFlag", &self.DatabaseLoggingFlag).field("RestoreFlag", &self.RestoreFlag).field("DatabaseCleanupInterval", &self.DatabaseCleanupInterval).field("DebugFlag", &self.DebugFlag).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SERVER_CONFIG_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7631,8 +7631,8 @@ impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO_V4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_V4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SERVER_CONFIG_INFO_V4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_V4 {
@@ -7677,8 +7677,8 @@ impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO_V6 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SERVER_CONFIG_INFO_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_V6 {
@@ -7747,8 +7747,8 @@ impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO_VQ {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_VQ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SERVER_CONFIG_INFO_VQ {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_VQ {
@@ -7835,8 +7835,8 @@ impl ::core::fmt::Debug for DHCP_SERVER_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SERVER_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SERVER_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_OPTIONS {
@@ -7893,8 +7893,8 @@ impl ::core::fmt::Debug for DHCP_SERVER_SPECIFIC_STRINGS {
         f.debug_struct("DHCP_SERVER_SPECIFIC_STRINGS").field("DefaultVendorClassName", &self.DefaultVendorClassName).field("DefaultUserClassName", &self.DefaultUserClassName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SERVER_SPECIFIC_STRINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SERVER_SPECIFIC_STRINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SERVER_SPECIFIC_STRINGS {
     fn eq(&self, other: &Self) -> bool {
@@ -7919,8 +7919,8 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA {
     fn default() -> Self {
@@ -7942,8 +7942,8 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_0 {
     fn default() -> Self {
@@ -7962,8 +7962,8 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V4 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V4 {
     fn default() -> Self {
@@ -7985,8 +7985,8 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     fn default() -> Self {
@@ -8005,8 +8005,8 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V5 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V5 {
     fn default() -> Self {
@@ -8028,8 +8028,8 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     fn default() -> Self {
@@ -8048,8 +8048,8 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V6 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V6 {
     fn default() -> Self {
@@ -8069,8 +8069,8 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     fn default() -> Self {
@@ -8094,8 +8094,8 @@ impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
         f.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -8125,8 +8125,8 @@ impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
         f.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     fn eq(&self, other: &Self) -> bool {
@@ -8156,8 +8156,8 @@ impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
         f.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     fn eq(&self, other: &Self) -> bool {
@@ -8187,8 +8187,8 @@ impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
         f.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     fn eq(&self, other: &Self) -> bool {
@@ -8228,8 +8228,8 @@ impl ::core::fmt::Debug for DHCP_SUBNET_INFO {
         f.debug_struct("DHCP_SUBNET_INFO").field("SubnetAddress", &self.SubnetAddress).field("SubnetMask", &self.SubnetMask).field("SubnetName", &self.SubnetName).field("SubnetComment", &self.SubnetComment).field("PrimaryHost", &self.PrimaryHost).field("SubnetState", &self.SubnetState).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -8264,8 +8264,8 @@ impl ::core::fmt::Debug for DHCP_SUBNET_INFO_V6 {
         f.debug_struct("DHCP_SUBNET_INFO_V6").field("SubnetAddress", &self.SubnetAddress).field("Prefix", &self.Prefix).field("Preference", &self.Preference).field("SubnetName", &self.SubnetName).field("SubnetComment", &self.SubnetComment).field("State", &self.State).field("ScopeId", &self.ScopeId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_INFO_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
@@ -8304,8 +8304,8 @@ impl ::core::fmt::Debug for DHCP_SUBNET_INFO_VQ {
         f.debug_struct("DHCP_SUBNET_INFO_VQ").field("SubnetAddress", &self.SubnetAddress).field("SubnetMask", &self.SubnetMask).field("SubnetName", &self.SubnetName).field("SubnetComment", &self.SubnetComment).field("PrimaryHost", &self.PrimaryHost).field("SubnetState", &self.SubnetState).field("QuarantineOn", &self.QuarantineOn).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO_VQ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUBNET_INFO_VQ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {
@@ -8335,8 +8335,8 @@ impl ::core::fmt::Debug for DHCP_SUPER_SCOPE_TABLE {
         f.debug_struct("DHCP_SUPER_SCOPE_TABLE").field("cEntries", &self.cEntries).field("pEntries", &self.pEntries).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUPER_SCOPE_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUPER_SCOPE_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SUPER_SCOPE_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -8368,8 +8368,8 @@ impl ::core::fmt::Debug for DHCP_SUPER_SCOPE_TABLE_ENTRY {
         f.debug_struct("DHCP_SUPER_SCOPE_TABLE_ENTRY").field("SubnetAddress", &self.SubnetAddress).field("SuperScopeNumber", &self.SuperScopeNumber).field("NextInSuperScope", &self.NextInSuperScope).field("SuperScopeName", &self.SuperScopeName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DHCP_SUPER_SCOPE_TABLE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DHCP_SUPER_SCOPE_TABLE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DHCP_SUPER_SCOPE_TABLE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -8399,8 +8399,8 @@ impl ::core::fmt::Debug for DWORD_DWORD {
         f.debug_struct("DWORD_DWORD").field("DWord1", &self.DWord1).field("DWord2", &self.DWord2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DWORD_DWORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWORD_DWORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DWORD_DWORD {
     fn eq(&self, other: &Self) -> bool {
@@ -8432,8 +8432,8 @@ impl ::core::fmt::Debug for SCOPE_MIB_INFO {
         f.debug_struct("SCOPE_MIB_INFO").field("Subnet", &self.Subnet).field("NumAddressesInuse", &self.NumAddressesInuse).field("NumAddressesFree", &self.NumAddressesFree).field("NumPendingOffers", &self.NumPendingOffers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCOPE_MIB_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCOPE_MIB_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -8465,8 +8465,8 @@ impl ::core::fmt::Debug for SCOPE_MIB_INFO_V5 {
         f.debug_struct("SCOPE_MIB_INFO_V5").field("Subnet", &self.Subnet).field("NumAddressesInuse", &self.NumAddressesInuse).field("NumAddressesFree", &self.NumAddressesFree).field("NumPendingOffers", &self.NumPendingOffers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_V5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCOPE_MIB_INFO_V5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCOPE_MIB_INFO_V5 {
     fn eq(&self, other: &Self) -> bool {
@@ -8498,8 +8498,8 @@ impl ::core::fmt::Debug for SCOPE_MIB_INFO_V6 {
         f.debug_struct("SCOPE_MIB_INFO_V6").field("Subnet", &self.Subnet).field("NumAddressesInuse", &self.NumAddressesInuse).field("NumAddressesFree", &self.NumAddressesFree).field("NumPendingAdvertises", &self.NumPendingAdvertises).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCOPE_MIB_INFO_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCOPE_MIB_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
@@ -8548,8 +8548,8 @@ impl ::core::fmt::Debug for SCOPE_MIB_INFO_VQ {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_VQ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCOPE_MIB_INFO_VQ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCOPE_MIB_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {

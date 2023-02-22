@@ -43,8 +43,8 @@ impl ::core::default::Default for CONDITION_OPERATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CONDITION_OPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONDITION_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CONDITION_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -74,8 +74,8 @@ impl ::core::default::Default for CONDITION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CONDITION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONDITION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CONDITION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

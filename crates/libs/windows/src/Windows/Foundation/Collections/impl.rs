@@ -40,14 +40,14 @@ where
     fn Current(&self) -> ::windows::core::Result<T>;
     fn HasCurrent(&self) -> ::windows::core::Result<bool>;
     fn MoveNext(&self) -> ::windows::core::Result<bool>;
-    fn GetMany(&self, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32>;
+    fn GetMany(&self, items: &mut [<T as ::windows::core::Type<T>>::Default]) -> ::windows::core::Result<u32>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IIterator<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterator";
 }
 impl<T: ::windows::core::RuntimeType + 'static> IIterator_Vtbl<T> {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIterator_Impl<T>, const OFFSET: isize>() -> IIterator_Vtbl<T> {
-        unsafe extern "system" fn Current<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIterator_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Current<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIterator_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::AbiType<T>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Current() {
@@ -83,7 +83,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterator_Vtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMany<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIterator_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, items_array_size: u32, items: *mut <T as ::windows::core::Abi>::Abi, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMany<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIterator_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, items_array_size: u32, items: *mut ::windows::core::AbiType<T>, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMany(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&items), items_array_size as _)) {
@@ -122,7 +122,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IKeyValuePair_Vtbl<K, V> {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IKeyValuePair_Impl<K, V>, const OFFSET: isize>() -> IKeyValuePair_Vtbl<K, V> {
-        unsafe extern "system" fn Key<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IKeyValuePair_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <K as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Key<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IKeyValuePair_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::AbiType<K>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Key() {
@@ -134,7 +134,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IKeyValuePair_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <V as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IKeyValuePair_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::AbiType<V>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -164,12 +164,12 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
 {
-    fn Lookup(&self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<V>;
+    fn Lookup(&self, key: &<K as ::windows::core::Type<K>>::Default) -> ::windows::core::Result<V>;
     fn Size(&self) -> ::windows::core::Result<u32>;
-    fn HasKey(&self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<bool>;
+    fn HasKey(&self, key: &<K as ::windows::core::Type<K>>::Default) -> ::windows::core::Result<bool>;
     fn GetView(&self) -> ::windows::core::Result<IMapView<K, V>>;
-    fn Insert(&self, key: &<K as ::windows::core::RuntimeType>::DefaultType, value: &<V as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<bool>;
-    fn Remove(&self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()>;
+    fn Insert(&self, key: &<K as ::windows::core::Type<K>>::Default, value: &<V as ::windows::core::Type<V>>::Default) -> ::windows::core::Result<bool>;
+    fn Remove(&self, key: &<K as ::windows::core::Type<K>>::Default) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IMap<K, V> {
@@ -177,7 +177,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IMap_Vtbl<K, V> {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>() -> IMap_Vtbl<K, V> {
-        unsafe extern "system" fn Lookup<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: <K as ::windows::core::Abi>::Abi, result__: *mut <V as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Lookup<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::AbiType<K>, result__: *mut ::windows::core::AbiType<V>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Lookup(::core::mem::transmute(&key)) {
@@ -201,7 +201,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasKey<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: <K as ::windows::core::Abi>::Abi, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasKey<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::AbiType<K>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HasKey(::core::mem::transmute(&key)) {
@@ -225,7 +225,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Insert<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: <K as ::windows::core::Abi>::Abi, value: <V as ::windows::core::Abi>::Abi, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Insert<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::AbiType<K>, value: ::windows::core::AbiType<V>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Insert(::core::mem::transmute(&key), ::core::mem::transmute(&value)) {
@@ -237,7 +237,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: <K as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::AbiType<K>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&key)).into()
@@ -289,7 +289,7 @@ impl<K: ::windows::core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Key<K: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMapChangedEventArgs_Impl<K>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <K as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Key<K: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMapChangedEventArgs_Impl<K>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::AbiType<K>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Key() {
@@ -318,9 +318,9 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
 {
-    fn Lookup(&self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<V>;
+    fn Lookup(&self, key: &<K as ::windows::core::Type<K>>::Default) -> ::windows::core::Result<V>;
     fn Size(&self) -> ::windows::core::Result<u32>;
-    fn HasKey(&self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<bool>;
+    fn HasKey(&self, key: &<K as ::windows::core::Type<K>>::Default) -> ::windows::core::Result<bool>;
     fn Split(&self, first: &mut ::core::option::Option<IMapView<K, V>>, second: &mut ::core::option::Option<IMapView<K, V>>) -> ::windows::core::Result<()>;
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IMapView<K, V> {
@@ -328,7 +328,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IMapView_Vtbl<K, V> {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMapView_Impl<K, V>, const OFFSET: isize>() -> IMapView_Vtbl<K, V> {
-        unsafe extern "system" fn Lookup<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMapView_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: <K as ::windows::core::Abi>::Abi, result__: *mut <V as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Lookup<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMapView_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::AbiType<K>, result__: *mut ::windows::core::AbiType<V>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Lookup(::core::mem::transmute(&key)) {
@@ -352,7 +352,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasKey<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMapView_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: <K as ::windows::core::Abi>::Abi, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasKey<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMapView_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::AbiType<K>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HasKey(::core::mem::transmute(&key)) {
@@ -488,22 +488,22 @@ where
     fn GetAt(&self, index: u32) -> ::windows::core::Result<T>;
     fn Size(&self) -> ::windows::core::Result<u32>;
     fn GetView(&self) -> ::windows::core::Result<IVectorView<T>>;
-    fn IndexOf(&self, value: &<T as ::windows::core::RuntimeType>::DefaultType, index: &mut u32) -> ::windows::core::Result<bool>;
-    fn SetAt(&self, index: u32, value: &<T as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()>;
-    fn InsertAt(&self, index: u32, value: &<T as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()>;
+    fn IndexOf(&self, value: &<T as ::windows::core::Type<T>>::Default, index: &mut u32) -> ::windows::core::Result<bool>;
+    fn SetAt(&self, index: u32, value: &<T as ::windows::core::Type<T>>::Default) -> ::windows::core::Result<()>;
+    fn InsertAt(&self, index: u32, value: &<T as ::windows::core::Type<T>>::Default) -> ::windows::core::Result<()>;
     fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
-    fn Append(&self, value: &<T as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()>;
+    fn Append(&self, value: &<T as ::windows::core::Type<T>>::Default) -> ::windows::core::Result<()>;
     fn RemoveAtEnd(&self) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32>;
-    fn ReplaceAll(&self, items: &[<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::Type<T>>::Default]) -> ::windows::core::Result<u32>;
+    fn ReplaceAll(&self, items: &[<T as ::windows::core::Type<T>>::Default]) -> ::windows::core::Result<()>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IVector<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVector";
 }
 impl<T: ::windows::core::RuntimeType + 'static> IVector_Vtbl<T> {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>() -> IVector_Vtbl<T> {
-        unsafe extern "system" fn GetAt<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAt<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows::core::AbiType<T>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAt(index) {
@@ -539,7 +539,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Vtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IndexOf<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: <T as ::windows::core::Abi>::Abi, index: *mut u32, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IndexOf<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::AbiType<T>, index: *mut u32, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IndexOf(::core::mem::transmute(&value), ::core::mem::transmute_copy(&index)) {
@@ -551,12 +551,12 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Vtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAt<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, value: <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAt<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, value: ::windows::core::AbiType<T>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAt(index, ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn InsertAt<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, value: <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertAt<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, value: ::windows::core::AbiType<T>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InsertAt(index, ::core::mem::transmute(&value)).into()
@@ -566,7 +566,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Vtbl<T> {
             let this = (*this).get_impl();
             this.RemoveAt(index).into()
         }
-        unsafe extern "system" fn Append<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Append<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::AbiType<T>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Append(::core::mem::transmute(&value)).into()
@@ -581,7 +581,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Vtbl<T> {
             let this = (*this).get_impl();
             this.Clear().into()
         }
-        unsafe extern "system" fn GetMany<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut <T as ::windows::core::Abi>::Abi, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMany<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut ::windows::core::AbiType<T>, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMany(startindex, ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&items), items_array_size as _)) {
@@ -593,7 +593,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Vtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReplaceAll<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, items_array_size: u32, items: *const <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReplaceAll<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, items_array_size: u32, items: *const ::windows::core::AbiType<T>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ReplaceAll(::core::slice::from_raw_parts(::core::mem::transmute_copy(&items), items_array_size as _)).into()
@@ -670,15 +670,15 @@ where
 {
     fn GetAt(&self, index: u32) -> ::windows::core::Result<T>;
     fn Size(&self) -> ::windows::core::Result<u32>;
-    fn IndexOf(&self, value: &<T as ::windows::core::RuntimeType>::DefaultType, index: &mut u32) -> ::windows::core::Result<bool>;
-    fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32>;
+    fn IndexOf(&self, value: &<T as ::windows::core::Type<T>>::Default, index: &mut u32) -> ::windows::core::Result<bool>;
+    fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::Type<T>>::Default]) -> ::windows::core::Result<u32>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IVectorView<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVectorView";
 }
 impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Vtbl<T> {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVectorView_Impl<T>, const OFFSET: isize>() -> IVectorView_Vtbl<T> {
-        unsafe extern "system" fn GetAt<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAt<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows::core::AbiType<T>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAt(index) {
@@ -702,7 +702,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Vtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IndexOf<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: <T as ::windows::core::Abi>::Abi, index: *mut u32, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IndexOf<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::AbiType<T>, index: *mut u32, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IndexOf(::core::mem::transmute(&value), ::core::mem::transmute_copy(&index)) {
@@ -714,7 +714,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Vtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMany<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut <T as ::windows::core::Abi>::Abi, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMany<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut ::windows::core::AbiType<T>, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMany(startindex, ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&items), items_array_size as _)) {

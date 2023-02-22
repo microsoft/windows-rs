@@ -12,16 +12,11 @@ impl IEnumVdsObject {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumVdsObject, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumVdsObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumVdsObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -35,6 +30,11 @@ impl ::core::fmt::Debug for IEnumVdsObject {
 }
 unsafe impl ::windows::core::Vtable for IEnumVdsObject {
     type Vtable = IEnumVdsObject_Vtbl;
+}
+impl ::core::clone::Clone for IEnumVdsObject {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumVdsObject {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x118610b7_8d94_4030_b5b8_500889788e4e);
@@ -65,11 +65,6 @@ impl IVdsAdmin {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsAdmin, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsAdmin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsAdmin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -83,6 +78,11 @@ impl ::core::fmt::Debug for IVdsAdmin {
 }
 unsafe impl ::windows::core::Vtable for IVdsAdmin {
     type Vtable = IVdsAdmin_Vtbl;
+}
+impl ::core::clone::Clone for IVdsAdmin {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsAdmin {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd188e97d_85aa_4d33_abc6_26299a10ffc1);
@@ -103,11 +103,6 @@ impl IVdsAdviseSink {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsAdviseSink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsAdviseSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsAdviseSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -121,6 +116,11 @@ impl ::core::fmt::Debug for IVdsAdviseSink {
 }
 unsafe impl ::windows::core::Vtable for IVdsAdviseSink {
     type Vtable = IVdsAdviseSink_Vtbl;
+}
+impl ::core::clone::Clone for IVdsAdviseSink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsAdviseSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8326cd1d_cf59_4936_b786_5efc08798e25);
@@ -146,11 +146,6 @@ impl IVdsAsync {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsAsync, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsAsync {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -164,6 +159,11 @@ impl ::core::fmt::Debug for IVdsAsync {
 }
 unsafe impl ::windows::core::Vtable for IVdsAsync {
     type Vtable = IVdsAsync_Vtbl;
+}
+impl ::core::clone::Clone for IVdsAsync {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsAsync {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5d23b6d_5a55_4492_9889_397a3c2d2dbc);
@@ -184,8 +184,8 @@ impl IVdsController {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pcontrollerprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSubSystem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsSubSystem>();
+        (::windows::core::Vtable::vtable(self).GetSubSystem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPortProperties(&self, sportnumber: i16, pportprop: *mut VDS_PORT_PROP) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPortProperties)(::windows::core::Vtable::as_raw(self), sportnumber, pportprop).ok()
@@ -200,19 +200,14 @@ impl IVdsController {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryAssociatedLuns)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryAssociatedLuns)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), status).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVdsController, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsController {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -226,6 +221,11 @@ impl ::core::fmt::Debug for IVdsController {
 }
 unsafe impl ::windows::core::Vtable for IVdsController {
     type Vtable = IVdsController_Vtbl;
+}
+impl ::core::clone::Clone for IVdsController {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsController {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb53d96e_dffb_474a_a078_790d1e2bc082);
@@ -248,16 +248,11 @@ pub struct IVdsController_Vtbl {
 pub struct IVdsControllerControllerPort(::windows::core::IUnknown);
 impl IVdsControllerControllerPort {
     pub unsafe fn QueryControllerPorts(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryControllerPorts)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryControllerPorts)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsControllerControllerPort, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsControllerControllerPort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsControllerControllerPort {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -271,6 +266,11 @@ impl ::core::fmt::Debug for IVdsControllerControllerPort {
 }
 unsafe impl ::windows::core::Vtable for IVdsControllerControllerPort {
     type Vtable = IVdsControllerControllerPort_Vtbl;
+}
+impl ::core::clone::Clone for IVdsControllerControllerPort {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsControllerControllerPort {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca5d735f_6bae_42c0_b30e_f2666045ce71);
@@ -289,12 +289,12 @@ impl IVdsControllerPort {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pportprop).ok()
     }
     pub unsafe fn GetController(&self) -> ::windows::core::Result<IVdsController> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetController)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsController>();
+        (::windows::core::Vtable::vtable(self).GetController)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryAssociatedLuns)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryAssociatedLuns)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
@@ -304,11 +304,6 @@ impl IVdsControllerPort {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsControllerPort, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsControllerPort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsControllerPort {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -322,6 +317,11 @@ impl ::core::fmt::Debug for IVdsControllerPort {
 }
 unsafe impl ::windows::core::Vtable for IVdsControllerPort {
     type Vtable = IVdsControllerPort_Vtbl;
+}
+impl ::core::clone::Clone for IVdsControllerPort {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsControllerPort {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18691d0d_4e7f_43e8_92e4_cf44beeed11c);
@@ -344,8 +344,8 @@ impl IVdsDrive {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pdriveprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSubSystem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsSubSystem>();
+        (::windows::core::Vtable::vtable(self).GetSubSystem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -363,11 +363,6 @@ impl IVdsDrive {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsDrive, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsDrive {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsDrive {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -381,6 +376,11 @@ impl ::core::fmt::Debug for IVdsDrive {
 }
 unsafe impl ::windows::core::Vtable for IVdsDrive {
     type Vtable = IVdsDrive_Vtbl;
+}
+impl ::core::clone::Clone for IVdsDrive {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsDrive {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff24efa4_aade_4b6b_898b_eaa6a20887c7);
@@ -408,11 +408,6 @@ impl IVdsDrive2 {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsDrive2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsDrive2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsDrive2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -426,6 +421,11 @@ impl ::core::fmt::Debug for IVdsDrive2 {
 }
 unsafe impl ::windows::core::Vtable for IVdsDrive2 {
     type Vtable = IVdsDrive2_Vtbl;
+}
+impl ::core::clone::Clone for IVdsDrive2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsDrive2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60b5a730_addf_4436_8ca7_5769e2d1ffa4);
@@ -441,8 +441,8 @@ pub struct IVdsDrive2_Vtbl {
 pub struct IVdsHwProvider(::windows::core::IUnknown);
 impl IVdsHwProvider {
     pub unsafe fn QuerySubSystems(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QuerySubSystems)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QuerySubSystems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Reenumerate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Reenumerate)(::windows::core::Vtable::as_raw(self)).ok()
@@ -452,11 +452,6 @@ impl IVdsHwProvider {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsHwProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsHwProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsHwProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -470,6 +465,11 @@ impl ::core::fmt::Debug for IVdsHwProvider {
 }
 unsafe impl ::windows::core::Vtable for IVdsHwProvider {
     type Vtable = IVdsHwProvider_Vtbl;
+}
+impl ::core::clone::Clone for IVdsHwProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsHwProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd99bdaae_b13a_4178_9fdb_e27f16b4603e);
@@ -492,16 +492,11 @@ impl IVdsHwProviderPrivate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryIfCreatedLun)(::windows::core::Vtable::as_raw(self), pwszdevicepath.into().abi(), pvdsluninformation, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).QueryIfCreatedLun)(::windows::core::Vtable::as_raw(self), pwszdevicepath.into().abi(), pvdsluninformation, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsHwProviderPrivate, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsHwProviderPrivate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsHwProviderPrivate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -515,6 +510,11 @@ impl ::core::fmt::Debug for IVdsHwProviderPrivate {
 }
 unsafe impl ::windows::core::Vtable for IVdsHwProviderPrivate {
     type Vtable = IVdsHwProviderPrivate_Vtbl;
+}
+impl ::core::clone::Clone for IVdsHwProviderPrivate {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsHwProviderPrivate {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98f17bf3_9f33_4f12_8714_8b4075092c2e);
@@ -537,11 +537,6 @@ impl IVdsHwProviderPrivateMpio {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsHwProviderPrivateMpio, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsHwProviderPrivateMpio {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsHwProviderPrivateMpio {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -555,6 +550,11 @@ impl ::core::fmt::Debug for IVdsHwProviderPrivateMpio {
 }
 unsafe impl ::windows::core::Vtable for IVdsHwProviderPrivateMpio {
     type Vtable = IVdsHwProviderPrivateMpio_Vtbl;
+}
+impl ::core::clone::Clone for IVdsHwProviderPrivateMpio {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsHwProviderPrivateMpio {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x310a7715_ac2b_4c6f_9827_3d742f351676);
@@ -572,8 +572,8 @@ impl IVdsHwProviderStoragePools {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: ::core::option::Option<*const VDS_POOL_ATTRIBUTES>) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryStoragePools)(::windows::core::Vtable::as_raw(self), ulflags, ullremainingfreespace, ::core::mem::transmute(ppoolattributes.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryStoragePools)(::windows::core::Vtable::as_raw(self), ulflags, ullremainingfreespace, ::core::mem::transmute(ppoolattributes.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -581,22 +581,17 @@ impl IVdsHwProviderStoragePools {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateLunInStoragePool)(::windows::core::Vtable::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(storagepoolid), pwszunmaskinglist.into().abi(), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).CreateLunInStoragePool)(::windows::core::Vtable::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(storagepoolid), pwszunmaskinglist.into().abi(), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: ::windows::core::GUID, phints2: ::core::option::Option<*const VDS_HINTS2>) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryMaxLunCreateSizeInStoragePool)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(storagepoolid), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).QueryMaxLunCreateSizeInStoragePool)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(storagepoolid), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsHwProviderStoragePools, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsHwProviderStoragePools {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsHwProviderStoragePools {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -610,6 +605,11 @@ impl ::core::fmt::Debug for IVdsHwProviderStoragePools {
 }
 unsafe impl ::windows::core::Vtable for IVdsHwProviderStoragePools {
     type Vtable = IVdsHwProviderStoragePools_Vtbl;
+}
+impl ::core::clone::Clone for IVdsHwProviderStoragePools {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsHwProviderStoragePools {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5b5937a_f188_4c79_b86c_11c920ad11b8);
@@ -636,16 +636,11 @@ pub struct IVdsHwProviderStoragePools_Vtbl {
 pub struct IVdsHwProviderType(::windows::core::IUnknown);
 impl IVdsHwProviderType {
     pub unsafe fn GetProviderType(&self) -> ::windows::core::Result<VDS_HWPROVIDER_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProviderType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<VDS_HWPROVIDER_TYPE>();
+        (::windows::core::Vtable::vtable(self).GetProviderType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsHwProviderType, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsHwProviderType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsHwProviderType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -659,6 +654,11 @@ impl ::core::fmt::Debug for IVdsHwProviderType {
 }
 unsafe impl ::windows::core::Vtable for IVdsHwProviderType {
     type Vtable = IVdsHwProviderType_Vtbl;
+}
+impl ::core::clone::Clone for IVdsHwProviderType {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsHwProviderType {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e0f5166_542d_4fc6_947a_012174240b7e);
@@ -674,16 +674,11 @@ pub struct IVdsHwProviderType_Vtbl {
 pub struct IVdsHwProviderType2(::windows::core::IUnknown);
 impl IVdsHwProviderType2 {
     pub unsafe fn GetProviderType2(&self) -> ::windows::core::Result<VDS_HWPROVIDER_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProviderType2)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<VDS_HWPROVIDER_TYPE>();
+        (::windows::core::Vtable::vtable(self).GetProviderType2)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsHwProviderType2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsHwProviderType2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsHwProviderType2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -697,6 +692,11 @@ impl ::core::fmt::Debug for IVdsHwProviderType2 {
 }
 unsafe impl ::windows::core::Vtable for IVdsHwProviderType2 {
     type Vtable = IVdsHwProviderType2_Vtbl;
+}
+impl ::core::clone::Clone for IVdsHwProviderType2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsHwProviderType2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8190236f_c4d0_4e81_8011_d69512fcc984);
@@ -715,12 +715,12 @@ impl IVdsIscsiPortal {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pportalprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSubSystem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsSubSystem>();
+        (::windows::core::Vtable::vtable(self).GetSubSystem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryAssociatedPortalGroups(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryAssociatedPortalGroups)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryAssociatedPortalGroups)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), status).ok()
@@ -729,19 +729,14 @@ impl IVdsIscsiPortal {
         (::windows::core::Vtable::vtable(self).SetIpsecTunnelAddress)(::windows::core::Vtable::as_raw(self), ptunneladdress, pdestinationaddress).ok()
     }
     pub unsafe fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIpsecSecurity)(::windows::core::Vtable::as_raw(self), pinitiatorportaladdress, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetIpsecSecurity)(::windows::core::Vtable::as_raw(self), pinitiatorportaladdress, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: ::core::option::Option<*const VDS_ISCSI_IPSEC_KEY>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetIpsecSecurity)(::windows::core::Vtable::as_raw(self), pinitiatorportaladdress, ullsecurityflags, ::core::mem::transmute(pipseckey.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVdsIscsiPortal, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsIscsiPortal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsIscsiPortal {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -755,6 +750,11 @@ impl ::core::fmt::Debug for IVdsIscsiPortal {
 }
 unsafe impl ::windows::core::Vtable for IVdsIscsiPortal {
     type Vtable = IVdsIscsiPortal_Vtbl;
+}
+impl ::core::clone::Clone for IVdsIscsiPortal {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsIscsiPortal {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa1499d_ec85_4a8a_a47b_ff69201fcd34);
@@ -779,32 +779,27 @@ impl IVdsIscsiPortalGroup {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pportalgroupprop).ok()
     }
     pub unsafe fn GetTarget(&self) -> ::windows::core::Result<IVdsIscsiTarget> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTarget)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsIscsiTarget>();
+        (::windows::core::Vtable::vtable(self).GetTarget)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryAssociatedPortals(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryAssociatedPortals)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryAssociatedPortals)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddPortal(&self, portalid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddPortal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(portalid), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).AddPortal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(portalid), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemovePortal(&self, portalid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RemovePortal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(portalid), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).RemovePortal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(portalid), &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self) -> ::windows::core::Result<IVdsAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsIscsiPortalGroup, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsIscsiPortalGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsIscsiPortalGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -818,6 +813,11 @@ impl ::core::fmt::Debug for IVdsIscsiPortalGroup {
 }
 unsafe impl ::windows::core::Vtable for IVdsIscsiPortalGroup {
     type Vtable = IVdsIscsiPortalGroup_Vtbl;
+}
+impl ::core::clone::Clone for IVdsIscsiPortalGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsIscsiPortalGroup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfef5f89d_a3dd_4b36_bf28_e7dde045c593);
@@ -843,24 +843,24 @@ impl IVdsIscsiTarget {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), ptargetprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSubSystem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsSubSystem>();
+        (::windows::core::Vtable::vtable(self).GetSubSystem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryPortalGroups(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryPortalGroups)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryPortalGroups)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryAssociatedLuns)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryAssociatedLuns)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreatePortalGroup(&self) -> ::windows::core::Result<IVdsAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePortalGroup)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).CreatePortalGroup)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self) -> ::windows::core::Result<IVdsAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> ::windows::core::Result<()>
     where
@@ -885,11 +885,6 @@ impl IVdsIscsiTarget {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsIscsiTarget, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsIscsiTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsIscsiTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -903,6 +898,11 @@ impl ::core::fmt::Debug for IVdsIscsiTarget {
 }
 unsafe impl ::windows::core::Vtable for IVdsIscsiTarget {
     type Vtable = IVdsIscsiTarget_Vtbl;
+}
+impl ::core::clone::Clone for IVdsIscsiTarget {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsIscsiTarget {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa8f5055_83e5_4bcc_aa73_19851a36a849);
@@ -933,8 +933,8 @@ impl IVdsLun {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), plunprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSubSystem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsSubSystem>();
+        (::windows::core::Vtable::vtable(self).GetSubSystem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -942,32 +942,32 @@ impl IVdsLun {
         (::windows::core::Vtable::vtable(self).GetIdentificationData)(::windows::core::Vtable::as_raw(self), pluninfo).ok()
     }
     pub unsafe fn QueryActiveControllers(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryActiveControllers)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryActiveControllers)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Extend(&self, ullnumberofbytestoadd: u64, pdriveidarray: ::core::option::Option<&[::windows::core::GUID]>) -> ::windows::core::Result<IVdsAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Extend)(::windows::core::Vtable::as_raw(self), ullnumberofbytestoadd, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).Extend)(::windows::core::Vtable::as_raw(self), ullnumberofbytestoadd, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
     }
     pub unsafe fn Shrink(&self, ullnumberofbytestoremove: u64) -> ::windows::core::Result<IVdsAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Shrink)(::windows::core::Vtable::as_raw(self), ullnumberofbytestoremove, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).Shrink)(::windows::core::Vtable::as_raw(self), ullnumberofbytestoremove, &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryPlexes(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryPlexes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryPlexes)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddPlex(&self, lunid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddPlex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lunid), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).AddPlex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lunid), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemovePlex(&self, plexid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RemovePlex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plexid), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).RemovePlex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plexid), &mut result__).from_abi(result__)
     }
     pub unsafe fn Recover(&self) -> ::windows::core::Result<IVdsAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Recover)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).Recover)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMask<P0>(&self, pwszunmaskinglist: P0) -> ::windows::core::Result<()>
     where
@@ -995,16 +995,11 @@ impl IVdsLun {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), status).ok()
     }
     pub unsafe fn QueryMaxLunExtendSize(&self, pdriveidarray: ::core::option::Option<&[::windows::core::GUID]>) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryMaxLunExtendSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).QueryMaxLunExtendSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsLun, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsLun {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsLun {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1018,6 +1013,11 @@ impl ::core::fmt::Debug for IVdsLun {
 }
 unsafe impl ::windows::core::Vtable for IVdsLun {
     type Vtable = IVdsLun_Vtbl;
+}
+impl ::core::clone::Clone for IVdsLun {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsLun {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3540a9c7_e60f_4111_a840_8bba6c2c83d8);
@@ -1069,11 +1069,6 @@ impl IVdsLun2 {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsLun2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsLun2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsLun2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1087,6 +1082,11 @@ impl ::core::fmt::Debug for IVdsLun2 {
 }
 unsafe impl ::windows::core::Vtable for IVdsLun2 {
     type Vtable = IVdsLun2_Vtbl;
+}
+impl ::core::clone::Clone for IVdsLun2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsLun2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b3a735_9efb_499a_8071_4394d9ee6fcb);
@@ -1112,16 +1112,11 @@ impl IVdsLunControllerPorts {
         (::windows::core::Vtable::vtable(self).AssociateControllerPorts)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pactivecontrollerportidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pactivecontrollerportidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinactivecontrollerportidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinactivecontrollerportidarray.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn QueryActiveControllerPorts(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryActiveControllerPorts)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryActiveControllerPorts)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsLunControllerPorts, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsLunControllerPorts {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsLunControllerPorts {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1135,6 +1130,11 @@ impl ::core::fmt::Debug for IVdsLunControllerPorts {
 }
 unsafe impl ::windows::core::Vtable for IVdsLunControllerPorts {
     type Vtable = IVdsLunControllerPorts_Vtbl;
+}
+impl ::core::clone::Clone for IVdsLunControllerPorts {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsLunControllerPorts {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x451fe266_da6d_406a_bb60_82e534f85aeb);
@@ -1154,16 +1154,11 @@ impl IVdsLunIscsi {
         (::windows::core::Vtable::vtable(self).AssociateTargets)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptargetidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptargetidarray.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn QueryAssociatedTargets(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryAssociatedTargets)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryAssociatedTargets)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsLunIscsi, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsLunIscsi {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsLunIscsi {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1177,6 +1172,11 @@ impl ::core::fmt::Debug for IVdsLunIscsi {
 }
 unsafe impl ::windows::core::Vtable for IVdsLunIscsi {
     type Vtable = IVdsLunIscsi_Vtbl;
+}
+impl ::core::clone::Clone for IVdsLunIscsi {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsLunIscsi {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d7c1e64_b59b_45ae_b86a_2c2cc6a42067);
@@ -1206,16 +1206,11 @@ impl IVdsLunMpio {
         (::windows::core::Vtable::vtable(self).SetLoadBalancePolicy)(::windows::core::Vtable::as_raw(self), policy, ::core::mem::transmute(ppaths.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ppaths.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn GetSupportedLbPolicies(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSupportedLbPolicies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetSupportedLbPolicies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsLunMpio, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsLunMpio {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsLunMpio {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1229,6 +1224,11 @@ impl ::core::fmt::Debug for IVdsLunMpio {
 }
 unsafe impl ::windows::core::Vtable for IVdsLunMpio {
     type Vtable = IVdsLunMpio_Vtbl;
+}
+impl ::core::clone::Clone for IVdsLunMpio {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsLunMpio {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c5fbae3_333a_48a1_a982_33c15788cde3);
@@ -1260,11 +1260,6 @@ impl IVdsLunNaming {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsLunNaming, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsLunNaming {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsLunNaming {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1278,6 +1273,11 @@ impl ::core::fmt::Debug for IVdsLunNaming {
 }
 unsafe impl ::windows::core::Vtable for IVdsLunNaming {
     type Vtable = IVdsLunNaming_Vtbl;
+}
+impl ::core::clone::Clone for IVdsLunNaming {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsLunNaming {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x907504cb_6b4e_4d88_a34d_17ba661fbb06);
@@ -1293,16 +1293,11 @@ pub struct IVdsLunNaming_Vtbl {
 pub struct IVdsLunNumber(::windows::core::IUnknown);
 impl IVdsLunNumber {
     pub unsafe fn GetLunNumber(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLunNumber)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetLunNumber)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsLunNumber, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsLunNumber {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsLunNumber {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1316,6 +1311,11 @@ impl ::core::fmt::Debug for IVdsLunNumber {
 }
 unsafe impl ::windows::core::Vtable for IVdsLunNumber {
     type Vtable = IVdsLunNumber_Vtbl;
+}
+impl ::core::clone::Clone for IVdsLunNumber {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsLunNumber {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3f95e46_54b3_41f9_b678_0f1871443a08);
@@ -1334,8 +1334,8 @@ impl IVdsLunPlex {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pplexprop).ok()
     }
     pub unsafe fn GetLun(&self) -> ::windows::core::Result<IVdsLun> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLun)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsLun>();
+        (::windows::core::Vtable::vtable(self).GetLun)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1354,11 +1354,6 @@ impl IVdsLunPlex {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsLunPlex, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsLunPlex {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsLunPlex {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1372,6 +1367,11 @@ impl ::core::fmt::Debug for IVdsLunPlex {
 }
 unsafe impl ::windows::core::Vtable for IVdsLunPlex {
     type Vtable = IVdsLunPlex_Vtbl;
+}
+impl ::core::clone::Clone for IVdsLunPlex {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsLunPlex {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ee1a790_5d2e_4abb_8c99_c481e8be2138);
@@ -1410,11 +1410,6 @@ impl IVdsMaintenance {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsMaintenance, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsMaintenance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsMaintenance {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1428,6 +1423,11 @@ impl ::core::fmt::Debug for IVdsMaintenance {
 }
 unsafe impl ::windows::core::Vtable for IVdsMaintenance {
     type Vtable = IVdsMaintenance_Vtbl;
+}
+impl ::core::clone::Clone for IVdsMaintenance {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsMaintenance {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaebeef3_8523_47ed_a2b9_05cecce2a1ae);
@@ -1449,11 +1449,6 @@ impl IVdsProvider {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1467,6 +1462,11 @@ impl ::core::fmt::Debug for IVdsProvider {
 }
 unsafe impl ::windows::core::Vtable for IVdsProvider {
     type Vtable = IVdsProvider_Vtbl;
+}
+impl ::core::clone::Clone for IVdsProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10c5e575_7984_4e81_a56b_431f5f92ae42);
@@ -1482,8 +1482,8 @@ pub struct IVdsProvider_Vtbl {
 pub struct IVdsProviderPrivate(::windows::core::IUnknown);
 impl IVdsProviderPrivate {
     pub unsafe fn GetObject(&self, objectid: ::windows::core::GUID, r#type: VDS_OBJECT_TYPE) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(objectid), r#type, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).GetObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(objectid), r#type, &mut result__).from_abi(result__)
     }
     pub unsafe fn OnLoad<P0, P1>(&self, pwszmachinename: P0, pcallbackobject: P1) -> ::windows::core::Result<()>
     where
@@ -1502,11 +1502,6 @@ impl IVdsProviderPrivate {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsProviderPrivate, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsProviderPrivate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsProviderPrivate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1520,6 +1515,11 @@ impl ::core::fmt::Debug for IVdsProviderPrivate {
 }
 unsafe impl ::windows::core::Vtable for IVdsProviderPrivate {
     type Vtable = IVdsProviderPrivate_Vtbl;
+}
+impl ::core::clone::Clone for IVdsProviderPrivate {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsProviderPrivate {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11f3cd41_b7e8_48ff_9472_9dff018aa292);
@@ -1540,16 +1540,11 @@ pub struct IVdsProviderPrivate_Vtbl {
 pub struct IVdsProviderSupport(::windows::core::IUnknown);
 impl IVdsProviderSupport {
     pub unsafe fn GetVersionSupport(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVersionSupport)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetVersionSupport)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsProviderSupport, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsProviderSupport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsProviderSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1563,6 +1558,11 @@ impl ::core::fmt::Debug for IVdsProviderSupport {
 }
 unsafe impl ::windows::core::Vtable for IVdsProviderSupport {
     type Vtable = IVdsProviderSupport_Vtbl;
+}
+impl ::core::clone::Clone for IVdsProviderSupport {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsProviderSupport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1732be13_e8f9_4a03_bfbc_5f616aa66ce1);
@@ -1578,8 +1578,8 @@ pub struct IVdsProviderSupport_Vtbl {
 pub struct IVdsStoragePool(::windows::core::IUnknown);
 impl IVdsStoragePool {
     pub unsafe fn GetProvider(&self) -> ::windows::core::Result<IVdsProvider> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProvider)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsProvider>();
+        (::windows::core::Vtable::vtable(self).GetProvider)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pstoragepoolprop).ok()
@@ -1595,20 +1595,15 @@ impl IVdsStoragePool {
         (::windows::core::Vtable::vtable(self).QueryDriveExtents)(::windows::core::Vtable::as_raw(self), ppextentarray, plnumberofextents).ok()
     }
     pub unsafe fn QueryAllocatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryAllocatedLuns)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryAllocatedLuns)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryAllocatedStoragePools(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryAllocatedStoragePools)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryAllocatedStoragePools)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsStoragePool, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsStoragePool {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsStoragePool {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1622,6 +1617,11 @@ impl ::core::fmt::Debug for IVdsStoragePool {
 }
 unsafe impl ::windows::core::Vtable for IVdsStoragePool {
     type Vtable = IVdsStoragePool_Vtbl;
+}
+impl ::core::clone::Clone for IVdsStoragePool {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsStoragePool {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932ca8cf_0eb3_4ba8_9620_22665d7f8450);
@@ -1651,24 +1651,24 @@ impl IVdsSubSystem {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), psubsystemprop).ok()
     }
     pub unsafe fn GetProvider(&self) -> ::windows::core::Result<IVdsProvider> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProvider)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsProvider>();
+        (::windows::core::Vtable::vtable(self).GetProvider)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryControllers(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryControllers)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryControllers)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryLuns(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryLuns)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryLuns)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryDrives(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryDrives)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryDrives)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDrive(&self, sbusnumber: i16, sslotnumber: i16) -> ::windows::core::Result<IVdsDrive> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDrive)(::windows::core::Vtable::as_raw(self), sbusnumber, sslotnumber, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsDrive>();
+        (::windows::core::Vtable::vtable(self).GetDrive)(::windows::core::Vtable::as_raw(self), sbusnumber, sslotnumber, &mut result__).from_abi(result__)
     }
     pub unsafe fn Reenumerate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Reenumerate)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1682,8 +1682,8 @@ impl IVdsSubSystem {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateLun)(::windows::core::Vtable::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), pwszunmaskinglist.into().abi(), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).CreateLun)(::windows::core::Vtable::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), pwszunmaskinglist.into().abi(), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     pub unsafe fn ReplaceDrive(&self, drivetobereplaced: ::windows::core::GUID, replacementdrive: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReplaceDrive)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(drivetobereplaced), ::core::mem::transmute(replacementdrive)).ok()
@@ -1694,16 +1694,11 @@ impl IVdsSubSystem {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: ::core::option::Option<&[::windows::core::GUID]>, phints: ::core::option::Option<*const VDS_HINTS>) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryMaxLunCreateSize)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).QueryMaxLunCreateSize)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsSubSystem, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsSubSystem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsSubSystem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1717,6 +1712,11 @@ impl ::core::fmt::Debug for IVdsSubSystem {
 }
 unsafe impl ::windows::core::Vtable for IVdsSubSystem {
     type Vtable = IVdsSubSystem_Vtbl;
+}
+impl ::core::clone::Clone for IVdsSubSystem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsSubSystem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fcee2d3_6d90_4f91_80e2_a5c7caaca9d8);
@@ -1752,8 +1752,8 @@ impl IVdsSubSystem2 {
         (::windows::core::Vtable::vtable(self).GetProperties2)(::windows::core::Vtable::as_raw(self), psubsystemprop2).ok()
     }
     pub unsafe fn GetDrive2(&self, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32) -> ::windows::core::Result<IVdsDrive> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDrive2)(::windows::core::Vtable::as_raw(self), sbusnumber, sslotnumber, ulenclosurenumber, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsDrive>();
+        (::windows::core::Vtable::vtable(self).GetDrive2)(::windows::core::Vtable::as_raw(self), sbusnumber, sslotnumber, ulenclosurenumber, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1761,22 +1761,17 @@ impl IVdsSubSystem2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateLun2)(::windows::core::Vtable::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), pwszunmaskinglist.into().abi(), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).CreateLun2)(::windows::core::Vtable::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), pwszunmaskinglist.into().abi(), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: ::core::option::Option<&[::windows::core::GUID]>, phints2: ::core::option::Option<*const VDS_HINTS2>) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryMaxLunCreateSize2)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).QueryMaxLunCreateSize2)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsSubSystem2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsSubSystem2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsSubSystem2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1790,6 +1785,11 @@ impl ::core::fmt::Debug for IVdsSubSystem2 {
 }
 unsafe impl ::windows::core::Vtable for IVdsSubSystem2 {
     type Vtable = IVdsSubSystem2_Vtbl;
+}
+impl ::core::clone::Clone for IVdsSubSystem2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsSubSystem2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe666735_7800_4a77_9d9c_40f85b87e292);
@@ -1814,16 +1814,11 @@ pub struct IVdsSubSystem2_Vtbl {
 pub struct IVdsSubSystemInterconnect(::windows::core::IUnknown);
 impl IVdsSubSystemInterconnect {
     pub unsafe fn GetSupportedInterconnects(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSupportedInterconnects)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetSupportedInterconnects)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsSubSystemInterconnect, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsSubSystemInterconnect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsSubSystemInterconnect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1837,6 +1832,11 @@ impl ::core::fmt::Debug for IVdsSubSystemInterconnect {
 }
 unsafe impl ::windows::core::Vtable for IVdsSubSystemInterconnect {
     type Vtable = IVdsSubSystemInterconnect_Vtbl;
+}
+impl ::core::clone::Clone for IVdsSubSystemInterconnect {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsSubSystemInterconnect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e6fa560_c141_477b_83ba_0b6c38f7febf);
@@ -1852,31 +1852,26 @@ pub struct IVdsSubSystemInterconnect_Vtbl {
 pub struct IVdsSubSystemIscsi(::windows::core::IUnknown);
 impl IVdsSubSystemIscsi {
     pub unsafe fn QueryTargets(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryTargets)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryTargets)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryPortals(&self) -> ::windows::core::Result<IEnumVdsObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryPortals)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumVdsObject>();
+        (::windows::core::Vtable::vtable(self).QueryPortals)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTarget<P0, P1>(&self, pwsziscsiname: P0, pwszfriendlyname: P1) -> ::windows::core::Result<IVdsAsync>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTarget)(::windows::core::Vtable::as_raw(self), pwsziscsiname.into().abi(), pwszfriendlyname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IVdsAsync>();
+        (::windows::core::Vtable::vtable(self).CreateTarget)(::windows::core::Vtable::as_raw(self), pwsziscsiname.into().abi(), pwszfriendlyname.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: ::core::option::Option<*const VDS_ISCSI_IPSEC_KEY>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetIpsecGroupPresharedKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pipseckey.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVdsSubSystemIscsi, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsSubSystemIscsi {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsSubSystemIscsi {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1890,6 +1885,11 @@ impl ::core::fmt::Debug for IVdsSubSystemIscsi {
 }
 unsafe impl ::windows::core::Vtable for IVdsSubSystemIscsi {
     type Vtable = IVdsSubSystemIscsi_Vtbl;
+}
+impl ::core::clone::Clone for IVdsSubSystemIscsi {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsSubSystemIscsi {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0027346f_40d0_4b45_8cec_5906dc0380c8);
@@ -1915,11 +1915,6 @@ impl IVdsSubSystemNaming {
     }
 }
 ::windows::core::interface_hierarchy!(IVdsSubSystemNaming, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IVdsSubSystemNaming {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVdsSubSystemNaming {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1933,6 +1928,11 @@ impl ::core::fmt::Debug for IVdsSubSystemNaming {
 }
 unsafe impl ::windows::core::Vtable for IVdsSubSystemNaming {
     type Vtable = IVdsSubSystemNaming_Vtbl;
+}
+impl ::core::clone::Clone for IVdsSubSystemNaming {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVdsSubSystemNaming {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d70faa3_9cd4_4900_aa20_6981b6aafc75);
@@ -2944,8 +2944,8 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ASYNC_OUTPUT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2979,8 +2979,8 @@ impl ::core::default::Default for VDS_CONTROLLER_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_CONTROLLER_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_CONTROLLER_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_CONTROLLER_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3012,8 +3012,8 @@ impl ::core::default::Default for VDS_DRIVE_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_DRIVE_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_DRIVE_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_DRIVE_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3047,8 +3047,8 @@ impl ::core::default::Default for VDS_DRIVE_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_DRIVE_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_DRIVE_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_DRIVE_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3090,8 +3090,8 @@ impl ::core::default::Default for VDS_FILE_SYSTEM_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_FILE_SYSTEM_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_FILE_SYSTEM_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_FILE_SYSTEM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3125,8 +3125,8 @@ impl ::core::default::Default for VDS_HBAPORT_SPEED_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_HBAPORT_SPEED_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_HBAPORT_SPEED_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_HBAPORT_SPEED_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3164,8 +3164,8 @@ impl ::core::default::Default for VDS_HBAPORT_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_HBAPORT_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_HBAPORT_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_HBAPORT_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3209,8 +3209,8 @@ impl ::core::default::Default for VDS_HBAPORT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_HBAPORT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_HBAPORT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_HBAPORT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3256,8 +3256,8 @@ impl ::core::default::Default for VDS_HEALTH {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_HEALTH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_HEALTH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_HEALTH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3291,8 +3291,8 @@ impl ::core::default::Default for VDS_HWPROVIDER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_HWPROVIDER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_HWPROVIDER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_HWPROVIDER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3326,8 +3326,8 @@ impl ::core::default::Default for VDS_INTERCONNECT_ADDRESS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_INTERCONNECT_ADDRESS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_INTERCONNECT_ADDRESS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_INTERCONNECT_ADDRESS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3357,8 +3357,8 @@ impl ::core::default::Default for VDS_INTERCONNECT_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_INTERCONNECT_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_INTERCONNECT_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_INTERCONNECT_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3388,8 +3388,8 @@ impl ::core::default::Default for VDS_IPADDRESS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_IPADDRESS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_IPADDRESS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_IPADDRESS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3417,8 +3417,8 @@ impl ::core::default::Default for VDS_ISCSI_AUTH_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ISCSI_AUTH_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ISCSI_AUTH_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_ISCSI_AUTH_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3454,8 +3454,8 @@ impl ::core::default::Default for VDS_ISCSI_IPSEC_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ISCSI_IPSEC_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ISCSI_IPSEC_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_ISCSI_IPSEC_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3481,8 +3481,8 @@ impl ::core::default::Default for VDS_ISCSI_LOGIN_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ISCSI_LOGIN_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ISCSI_LOGIN_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_ISCSI_LOGIN_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3510,8 +3510,8 @@ impl ::core::default::Default for VDS_ISCSI_LOGIN_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ISCSI_LOGIN_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ISCSI_LOGIN_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_ISCSI_LOGIN_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3543,8 +3543,8 @@ impl ::core::default::Default for VDS_ISCSI_PORTAL_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ISCSI_PORTAL_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ISCSI_PORTAL_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_ISCSI_PORTAL_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3582,8 +3582,8 @@ impl ::core::default::Default for VDS_LOADBALANCE_POLICY_ENUM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_LOADBALANCE_POLICY_ENUM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_LOADBALANCE_POLICY_ENUM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_LOADBALANCE_POLICY_ENUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3623,8 +3623,8 @@ impl ::core::default::Default for VDS_LUN_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_LUN_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_LUN_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_LUN_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3648,8 +3648,8 @@ impl ::core::default::Default for VDS_LUN_PLEX_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_LUN_PLEX_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_LUN_PLEX_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_LUN_PLEX_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3681,8 +3681,8 @@ impl ::core::default::Default for VDS_LUN_PLEX_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_LUN_PLEX_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_LUN_PLEX_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_LUN_PLEX_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3740,8 +3740,8 @@ impl ::core::default::Default for VDS_LUN_PLEX_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_LUN_PLEX_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_LUN_PLEX_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_LUN_PLEX_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3773,8 +3773,8 @@ impl ::core::default::Default for VDS_LUN_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_LUN_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_LUN_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_LUN_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3846,8 +3846,8 @@ impl ::core::default::Default for VDS_LUN_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_LUN_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_LUN_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_LUN_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3879,8 +3879,8 @@ impl ::core::default::Default for VDS_MAINTENANCE_OPERATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_MAINTENANCE_OPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_MAINTENANCE_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_MAINTENANCE_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3910,8 +3910,8 @@ impl ::core::default::Default for VDS_NF_CONTROLLER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_NF_CONTROLLER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_NF_CONTROLLER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_NF_CONTROLLER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3939,8 +3939,8 @@ impl ::core::default::Default for VDS_NF_DISK {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_NF_DISK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_NF_DISK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_NF_DISK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3970,8 +3970,8 @@ impl ::core::default::Default for VDS_NF_DRIVE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_NF_DRIVE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_NF_DRIVE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_NF_DRIVE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3997,8 +3997,8 @@ impl ::core::default::Default for VDS_NF_FILE_SYSTEM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_NF_FILE_SYSTEM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_NF_FILE_SYSTEM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_NF_FILE_SYSTEM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4026,8 +4026,8 @@ impl ::core::default::Default for VDS_NF_LUN {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_NF_LUN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_NF_LUN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_NF_LUN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4055,8 +4055,8 @@ impl ::core::default::Default for VDS_NF_PACK {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_NF_PACK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_NF_PACK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_NF_PACK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4086,8 +4086,8 @@ impl ::core::default::Default for VDS_NF_PORT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_NF_PORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_NF_PORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_NF_PORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4143,8 +4143,8 @@ impl ::core::default::Default for VDS_NOTIFICATION_TARGET_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_NOTIFICATION_TARGET_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_NOTIFICATION_TARGET_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_NOTIFICATION_TARGET_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4212,8 +4212,8 @@ impl ::core::default::Default for VDS_OBJECT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_OBJECT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_OBJECT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_OBJECT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4243,8 +4243,8 @@ impl ::core::default::Default for VDS_PATH_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PATH_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PATH_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_PATH_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4278,8 +4278,8 @@ impl ::core::default::Default for VDS_PORT_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PORT_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PORT_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_PORT_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4321,8 +4321,8 @@ impl ::core::default::Default for VDS_PROVIDER_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PROVIDER_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PROVIDER_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_PROVIDER_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4358,8 +4358,8 @@ impl ::core::default::Default for VDS_PROVIDER_LBSUPPORT_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PROVIDER_LBSUPPORT_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PROVIDER_LBSUPPORT_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_PROVIDER_LBSUPPORT_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4391,8 +4391,8 @@ impl ::core::default::Default for VDS_PROVIDER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PROVIDER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PROVIDER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_PROVIDER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4452,8 +4452,8 @@ impl ::core::default::Default for VDS_RAID_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_RAID_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_RAID_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_RAID_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4481,8 +4481,8 @@ impl ::core::default::Default for VDS_RECOVER_ACTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_RECOVER_ACTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_RECOVER_ACTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_RECOVER_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4548,8 +4548,8 @@ impl ::core::default::Default for VDS_STORAGE_BUS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_STORAGE_BUS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_STORAGE_BUS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_STORAGE_BUS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4579,8 +4579,8 @@ impl ::core::default::Default for VDS_STORAGE_IDENTIFIER_CODE_SET {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_STORAGE_IDENTIFIER_CODE_SET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_STORAGE_IDENTIFIER_CODE_SET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_STORAGE_IDENTIFIER_CODE_SET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4620,8 +4620,8 @@ impl ::core::default::Default for VDS_STORAGE_IDENTIFIER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_STORAGE_IDENTIFIER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_STORAGE_IDENTIFIER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_STORAGE_IDENTIFIER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4651,8 +4651,8 @@ impl ::core::default::Default for VDS_STORAGE_POOL_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_STORAGE_POOL_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_STORAGE_POOL_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_STORAGE_POOL_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4680,8 +4680,8 @@ impl ::core::default::Default for VDS_STORAGE_POOL_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_STORAGE_POOL_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_STORAGE_POOL_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_STORAGE_POOL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4751,8 +4751,8 @@ impl ::core::default::Default for VDS_SUB_SYSTEM_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_SUB_SYSTEM_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_SUB_SYSTEM_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4786,8 +4786,8 @@ impl ::core::default::Default for VDS_SUB_SYSTEM_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_SUB_SYSTEM_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_SUB_SYSTEM_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4841,8 +4841,8 @@ impl ::core::default::Default for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4876,8 +4876,8 @@ impl ::core::default::Default for VDS_TRANSITION_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_TRANSITION_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_TRANSITION_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_TRANSITION_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4909,8 +4909,8 @@ impl ::core::default::Default for VDS_VERSION_SUPPORT_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VDS_VERSION_SUPPORT_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_VERSION_SUPPORT_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VDS_VERSION_SUPPORT_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4928,8 +4928,8 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ASYNC_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VDS_ASYNC_OUTPUT {
     fn default() -> Self {
@@ -4953,8 +4953,8 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ASYNC_OUTPUT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VDS_ASYNC_OUTPUT_0 {
     fn default() -> Self {
@@ -4976,8 +4976,8 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_0 {
         f.debug_struct("VDS_ASYNC_OUTPUT_0_0").field("pVolumeUnk", &self.pVolumeUnk).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ASYNC_OUTPUT_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5005,8 +5005,8 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_1 {
         f.debug_struct("VDS_ASYNC_OUTPUT_0_1").field("pLunUnk", &self.pLunUnk).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ASYNC_OUTPUT_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -5036,8 +5036,8 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_2 {
         f.debug_struct("VDS_ASYNC_OUTPUT_0_2").field("ullOffset", &self.ullOffset).field("volumeId", &self.volumeId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ASYNC_OUTPUT_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5065,8 +5065,8 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_3 {
         f.debug_struct("VDS_ASYNC_OUTPUT_0_3").field("pPortalGroupUnk", &self.pPortalGroupUnk).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ASYNC_OUTPUT_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -5094,8 +5094,8 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_4 {
         f.debug_struct("VDS_ASYNC_OUTPUT_0_4").field("pTargetUnk", &self.pTargetUnk).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ASYNC_OUTPUT_0_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_4 {
     fn eq(&self, other: &Self) -> bool {
@@ -5123,8 +5123,8 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_5 {
         f.debug_struct("VDS_ASYNC_OUTPUT_0_5").field("pVolumeUnk", &self.pVolumeUnk).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ASYNC_OUTPUT_0_5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_5 {
     fn eq(&self, other: &Self) -> bool {
@@ -5152,8 +5152,8 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_6 {
         f.debug_struct("VDS_ASYNC_OUTPUT_0_6").field("pVDiskUnk", &self.pVDiskUnk).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ASYNC_OUTPUT_0_6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_6 {
     fn eq(&self, other: &Self) -> bool {
@@ -5182,8 +5182,8 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_7 {
         f.debug_struct("VDS_ASYNC_OUTPUT_0_7").field("ullReclaimedBytes", &self.ullReclaimedBytes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_7 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ASYNC_OUTPUT_0_7 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_7 {
     fn eq(&self, other: &Self) -> bool {
@@ -5213,8 +5213,8 @@ impl ::core::fmt::Debug for VDS_CONTROLLER_NOTIFICATION {
         f.debug_struct("VDS_CONTROLLER_NOTIFICATION").field("ulEvent", &self.ulEvent).field("controllerId", &self.controllerId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_CONTROLLER_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_CONTROLLER_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_CONTROLLER_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -5248,8 +5248,8 @@ impl ::core::fmt::Debug for VDS_CONTROLLER_PROP {
         f.debug_struct("VDS_CONTROLLER_PROP").field("id", &self.id).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("status", &self.status).field("health", &self.health).field("sNumberOfPorts", &self.sNumberOfPorts).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_CONTROLLER_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_CONTROLLER_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_CONTROLLER_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -5279,8 +5279,8 @@ impl ::core::fmt::Debug for VDS_DISK_NOTIFICATION {
         f.debug_struct("VDS_DISK_NOTIFICATION").field("ulEvent", &self.ulEvent).field("diskId", &self.diskId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_DISK_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_DISK_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_DISK_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -5317,8 +5317,8 @@ impl ::core::fmt::Debug for VDS_DRIVE_EXTENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VDS_DRIVE_EXTENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_DRIVE_EXTENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_DRIVE_EXTENT {
@@ -5352,8 +5352,8 @@ impl ::core::fmt::Debug for VDS_DRIVE_LETTER_NOTIFICATION {
         f.debug_struct("VDS_DRIVE_LETTER_NOTIFICATION").field("ulEvent", &self.ulEvent).field("wcLetter", &self.wcLetter).field("volumeId", &self.volumeId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_DRIVE_LETTER_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_DRIVE_LETTER_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_DRIVE_LETTER_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -5383,8 +5383,8 @@ impl ::core::fmt::Debug for VDS_DRIVE_NOTIFICATION {
         f.debug_struct("VDS_DRIVE_NOTIFICATION").field("ulEvent", &self.ulEvent).field("driveId", &self.driveId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_DRIVE_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_DRIVE_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_DRIVE_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -5421,8 +5421,8 @@ impl ::core::fmt::Debug for VDS_DRIVE_PROP {
         f.debug_struct("VDS_DRIVE_PROP").field("id", &self.id).field("ullSize", &self.ullSize).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("ulFlags", &self.ulFlags).field("status", &self.status).field("health", &self.health).field("sInternalBusNumber", &self.sInternalBusNumber).field("sSlotNumber", &self.sSlotNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_DRIVE_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_DRIVE_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_DRIVE_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -5475,8 +5475,8 @@ impl ::core::fmt::Debug for VDS_DRIVE_PROP2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_DRIVE_PROP2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_DRIVE_PROP2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_DRIVE_PROP2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5507,8 +5507,8 @@ impl ::core::fmt::Debug for VDS_FILE_SYSTEM_NOTIFICATION {
         f.debug_struct("VDS_FILE_SYSTEM_NOTIFICATION").field("ulEvent", &self.ulEvent).field("volumeId", &self.volumeId).field("dwPercentCompleted", &self.dwPercentCompleted).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_FILE_SYSTEM_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_FILE_SYSTEM_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_FILE_SYSTEM_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -5543,8 +5543,8 @@ impl ::core::fmt::Debug for VDS_HBAPORT_PROP {
         f.debug_struct("VDS_HBAPORT_PROP").field("id", &self.id).field("wwnNode", &self.wwnNode).field("wwnPort", &self.wwnPort).field("type", &self.r#type).field("status", &self.status).field("ulPortSpeed", &self.ulPortSpeed).field("ulSupportedPortSpeed", &self.ulSupportedPortSpeed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_HBAPORT_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_HBAPORT_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_HBAPORT_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -5614,8 +5614,8 @@ impl ::core::fmt::Debug for VDS_HINTS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VDS_HINTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_HINTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_HINTS {
@@ -5731,8 +5731,8 @@ impl ::core::fmt::Debug for VDS_HINTS2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VDS_HINTS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_HINTS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_HINTS2 {
@@ -5798,8 +5798,8 @@ impl ::core::fmt::Debug for VDS_INTERCONNECT {
         f.debug_struct("VDS_INTERCONNECT").field("m_addressType", &self.m_addressType).field("m_cbPort", &self.m_cbPort).field("m_pbPort", &self.m_pbPort).field("m_cbAddress", &self.m_cbAddress).field("m_pbAddress", &self.m_pbAddress).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_INTERCONNECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_INTERCONNECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_INTERCONNECT {
     fn eq(&self, other: &Self) -> bool {
@@ -5834,8 +5834,8 @@ impl ::core::fmt::Debug for VDS_IPADDRESS {
         f.debug_struct("VDS_IPADDRESS").field("type", &self.r#type).field("ipv4Address", &self.ipv4Address).field("ipv6Address", &self.ipv6Address).field("ulIpv6FlowInfo", &self.ulIpv6FlowInfo).field("ulIpv6ScopeId", &self.ulIpv6ScopeId).field("wszTextAddress", &self.wszTextAddress).field("ulPort", &self.ulPort).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_IPADDRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_IPADDRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_IPADDRESS {
     fn eq(&self, other: &Self) -> bool {
@@ -5865,8 +5865,8 @@ impl ::core::fmt::Debug for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
         f.debug_struct("VDS_ISCSI_INITIATOR_ADAPTER_PROP").field("id", &self.id).field("pwszName", &self.pwszName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -5897,8 +5897,8 @@ impl ::core::fmt::Debug for VDS_ISCSI_INITIATOR_PORTAL_PROP {
         f.debug_struct("VDS_ISCSI_INITIATOR_PORTAL_PROP").field("id", &self.id).field("address", &self.address).field("ulPortIndex", &self.ulPortIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ISCSI_INITIATOR_PORTAL_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ISCSI_INITIATOR_PORTAL_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ISCSI_INITIATOR_PORTAL_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -5928,8 +5928,8 @@ impl ::core::fmt::Debug for VDS_ISCSI_IPSEC_KEY {
         f.debug_struct("VDS_ISCSI_IPSEC_KEY").field("pKey", &self.pKey).field("ulKeySize", &self.ulKeySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ISCSI_IPSEC_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ISCSI_IPSEC_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ISCSI_IPSEC_KEY {
     fn eq(&self, other: &Self) -> bool {
@@ -5959,8 +5959,8 @@ impl ::core::fmt::Debug for VDS_ISCSI_PORTALGROUP_PROP {
         f.debug_struct("VDS_ISCSI_PORTALGROUP_PROP").field("id", &self.id).field("tag", &self.tag).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ISCSI_PORTALGROUP_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ISCSI_PORTALGROUP_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ISCSI_PORTALGROUP_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -5991,8 +5991,8 @@ impl ::core::fmt::Debug for VDS_ISCSI_PORTAL_PROP {
         f.debug_struct("VDS_ISCSI_PORTAL_PROP").field("id", &self.id).field("address", &self.address).field("status", &self.status).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ISCSI_PORTAL_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ISCSI_PORTAL_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ISCSI_PORTAL_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -6022,8 +6022,8 @@ impl ::core::fmt::Debug for VDS_ISCSI_SHARED_SECRET {
         f.debug_struct("VDS_ISCSI_SHARED_SECRET").field("pSharedSecret", &self.pSharedSecret).field("ulSharedSecretSize", &self.ulSharedSecretSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_ISCSI_SHARED_SECRET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ISCSI_SHARED_SECRET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_ISCSI_SHARED_SECRET {
     fn eq(&self, other: &Self) -> bool {
@@ -6060,8 +6060,8 @@ impl ::core::fmt::Debug for VDS_ISCSI_TARGET_PROP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VDS_ISCSI_TARGET_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_ISCSI_TARGET_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_ISCSI_TARGET_PROP {
@@ -6124,8 +6124,8 @@ impl ::core::fmt::Debug for VDS_LUN_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VDS_LUN_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_LUN_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_LUN_INFORMATION {
@@ -6158,8 +6158,8 @@ impl ::core::fmt::Debug for VDS_LUN_NOTIFICATION {
         f.debug_struct("VDS_LUN_NOTIFICATION").field("ulEvent", &self.ulEvent).field("LunId", &self.LunId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_LUN_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_LUN_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_LUN_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6196,8 +6196,8 @@ impl ::core::fmt::Debug for VDS_LUN_PLEX_PROP {
         f.debug_struct("VDS_LUN_PLEX_PROP").field("id", &self.id).field("ullSize", &self.ullSize).field("type", &self.r#type).field("status", &self.status).field("health", &self.health).field("TransitionState", &self.TransitionState).field("ulFlags", &self.ulFlags).field("ulStripeSize", &self.ulStripeSize).field("sRebuildPriority", &self.sRebuildPriority).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_LUN_PLEX_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_LUN_PLEX_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_LUN_PLEX_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -6236,8 +6236,8 @@ impl ::core::fmt::Debug for VDS_LUN_PROP {
         f.debug_struct("VDS_LUN_PROP").field("id", &self.id).field("ullSize", &self.ullSize).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("pwszUnmaskingList", &self.pwszUnmaskingList).field("ulFlags", &self.ulFlags).field("type", &self.r#type).field("status", &self.status).field("health", &self.health).field("TransitionState", &self.TransitionState).field("sRebuildPriority", &self.sRebuildPriority).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_LUN_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_LUN_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_LUN_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -6267,8 +6267,8 @@ impl ::core::fmt::Debug for VDS_MOUNT_POINT_NOTIFICATION {
         f.debug_struct("VDS_MOUNT_POINT_NOTIFICATION").field("ulEvent", &self.ulEvent).field("volumeId", &self.volumeId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_MOUNT_POINT_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_MOUNT_POINT_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_MOUNT_POINT_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6293,8 +6293,8 @@ impl ::core::clone::Clone for VDS_NOTIFICATION {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VDS_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VDS_NOTIFICATION {
     fn default() -> Self {
@@ -6327,8 +6327,8 @@ impl ::core::clone::Clone for VDS_NOTIFICATION_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VDS_NOTIFICATION_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_NOTIFICATION_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VDS_NOTIFICATION_0 {
     fn default() -> Self {
@@ -6352,8 +6352,8 @@ impl ::core::fmt::Debug for VDS_PACK_NOTIFICATION {
         f.debug_struct("VDS_PACK_NOTIFICATION").field("ulEvent", &self.ulEvent).field("packId", &self.packId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PACK_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PACK_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_PACK_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6384,8 +6384,8 @@ impl ::core::fmt::Debug for VDS_PARTITION_NOTIFICATION {
         f.debug_struct("VDS_PARTITION_NOTIFICATION").field("ulEvent", &self.ulEvent).field("diskId", &self.diskId).field("ullOffset", &self.ullOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PARTITION_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PARTITION_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_PARTITION_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6415,8 +6415,8 @@ impl ::core::fmt::Debug for VDS_PATH_ID {
         f.debug_struct("VDS_PATH_ID").field("ullSourceId", &self.ullSourceId).field("ullPathId", &self.ullPathId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PATH_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PATH_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_PATH_ID {
     fn eq(&self, other: &Self) -> bool {
@@ -6445,8 +6445,8 @@ impl ::core::clone::Clone for VDS_PATH_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PATH_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PATH_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VDS_PATH_INFO {
     fn default() -> Self {
@@ -6465,8 +6465,8 @@ impl ::core::clone::Clone for VDS_PATH_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PATH_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PATH_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VDS_PATH_INFO_0 {
     fn default() -> Self {
@@ -6485,8 +6485,8 @@ impl ::core::clone::Clone for VDS_PATH_INFO_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PATH_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PATH_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VDS_PATH_INFO_1 {
     fn default() -> Self {
@@ -6505,8 +6505,8 @@ impl ::core::clone::Clone for VDS_PATH_INFO_2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PATH_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PATH_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VDS_PATH_INFO_2 {
     fn default() -> Self {
@@ -6536,8 +6536,8 @@ impl ::core::fmt::Debug for VDS_PATH_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VDS_PATH_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PATH_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_PATH_POLICY {
@@ -6650,8 +6650,8 @@ impl ::core::fmt::Debug for VDS_POOL_ATTRIBUTES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VDS_POOL_ATTRIBUTES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_POOL_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_POOL_ATTRIBUTES {
@@ -6721,8 +6721,8 @@ impl ::core::fmt::Debug for VDS_POOL_CUSTOM_ATTRIBUTES {
         f.debug_struct("VDS_POOL_CUSTOM_ATTRIBUTES").field("pwszName", &self.pwszName).field("pwszValue", &self.pwszValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_POOL_CUSTOM_ATTRIBUTES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_POOL_CUSTOM_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_POOL_CUSTOM_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
@@ -6752,8 +6752,8 @@ impl ::core::fmt::Debug for VDS_PORTAL_GROUP_NOTIFICATION {
         f.debug_struct("VDS_PORTAL_GROUP_NOTIFICATION").field("ulEvent", &self.ulEvent).field("portalGroupId", &self.portalGroupId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PORTAL_GROUP_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PORTAL_GROUP_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_PORTAL_GROUP_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6783,8 +6783,8 @@ impl ::core::fmt::Debug for VDS_PORTAL_NOTIFICATION {
         f.debug_struct("VDS_PORTAL_NOTIFICATION").field("ulEvent", &self.ulEvent).field("portalId", &self.portalId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PORTAL_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PORTAL_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_PORTAL_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6814,8 +6814,8 @@ impl ::core::fmt::Debug for VDS_PORT_NOTIFICATION {
         f.debug_struct("VDS_PORT_NOTIFICATION").field("ulEvent", &self.ulEvent).field("portId", &self.portId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PORT_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PORT_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_PORT_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6847,8 +6847,8 @@ impl ::core::fmt::Debug for VDS_PORT_PROP {
         f.debug_struct("VDS_PORT_PROP").field("id", &self.id).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("status", &self.status).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PORT_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PORT_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_PORT_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -6884,8 +6884,8 @@ impl ::core::fmt::Debug for VDS_PROVIDER_PROP {
         f.debug_struct("VDS_PROVIDER_PROP").field("id", &self.id).field("pwszName", &self.pwszName).field("guidVersionId", &self.guidVersionId).field("pwszVersion", &self.pwszVersion).field("type", &self.r#type).field("ulFlags", &self.ulFlags).field("ulStripeSizeFlags", &self.ulStripeSizeFlags).field("sRebuildPriority", &self.sRebuildPriority).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_PROVIDER_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_PROVIDER_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_PROVIDER_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -6915,8 +6915,8 @@ impl ::core::fmt::Debug for VDS_SERVICE_NOTIFICATION {
         f.debug_struct("VDS_SERVICE_NOTIFICATION").field("ulEvent", &self.ulEvent).field("action", &self.action).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_SERVICE_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_SERVICE_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_SERVICE_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6947,8 +6947,8 @@ impl ::core::fmt::Debug for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
         f.debug_struct("VDS_STORAGE_DEVICE_ID_DESCRIPTOR").field("m_version", &self.m_version).field("m_cIdentifiers", &self.m_cIdentifiers).field("m_rgIdentifiers", &self.m_rgIdentifiers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -6980,8 +6980,8 @@ impl ::core::fmt::Debug for VDS_STORAGE_IDENTIFIER {
         f.debug_struct("VDS_STORAGE_IDENTIFIER").field("m_CodeSet", &self.m_CodeSet).field("m_Type", &self.m_Type).field("m_cbIdentifier", &self.m_cbIdentifier).field("m_rgbIdentifier", &self.m_rgbIdentifier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_STORAGE_IDENTIFIER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_STORAGE_IDENTIFIER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_STORAGE_IDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
@@ -7017,8 +7017,8 @@ impl ::core::fmt::Debug for VDS_STORAGE_POOL_DRIVE_EXTENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VDS_STORAGE_POOL_DRIVE_EXTENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_STORAGE_POOL_DRIVE_EXTENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_STORAGE_POOL_DRIVE_EXTENT {
@@ -7058,8 +7058,8 @@ impl ::core::fmt::Debug for VDS_STORAGE_POOL_PROP {
         f.debug_struct("VDS_STORAGE_POOL_PROP").field("id", &self.id).field("status", &self.status).field("health", &self.health).field("type", &self.r#type).field("pwszName", &self.pwszName).field("pwszDescription", &self.pwszDescription).field("ullTotalConsumedSpace", &self.ullTotalConsumedSpace).field("ullTotalManagedSpace", &self.ullTotalManagedSpace).field("ullRemainingFreeSpace", &self.ullRemainingFreeSpace).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_STORAGE_POOL_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_STORAGE_POOL_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_STORAGE_POOL_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -7089,8 +7089,8 @@ impl ::core::fmt::Debug for VDS_SUB_SYSTEM_NOTIFICATION {
         f.debug_struct("VDS_SUB_SYSTEM_NOTIFICATION").field("ulEvent", &self.ulEvent).field("subSystemId", &self.subSystemId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_SUB_SYSTEM_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_SUB_SYSTEM_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -7141,8 +7141,8 @@ impl ::core::fmt::Debug for VDS_SUB_SYSTEM_PROP {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_SUB_SYSTEM_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_SUB_SYSTEM_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -7197,8 +7197,8 @@ impl ::core::fmt::Debug for VDS_SUB_SYSTEM_PROP2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_PROP2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_SUB_SYSTEM_PROP2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_SUB_SYSTEM_PROP2 {
     fn eq(&self, other: &Self) -> bool {
@@ -7228,8 +7228,8 @@ impl ::core::fmt::Debug for VDS_TARGET_NOTIFICATION {
         f.debug_struct("VDS_TARGET_NOTIFICATION").field("ulEvent", &self.ulEvent).field("targetId", &self.targetId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_TARGET_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_TARGET_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_TARGET_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -7261,8 +7261,8 @@ impl ::core::fmt::Debug for VDS_VOLUME_NOTIFICATION {
         f.debug_struct("VDS_VOLUME_NOTIFICATION").field("ulEvent", &self.ulEvent).field("volumeId", &self.volumeId).field("plexId", &self.plexId).field("ulPercentCompleted", &self.ulPercentCompleted).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_VOLUME_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_VOLUME_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_VOLUME_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -7291,8 +7291,8 @@ impl ::core::fmt::Debug for VDS_WWN {
         f.debug_struct("VDS_WWN").field("rguchWwn", &self.rguchWwn).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VDS_WWN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDS_WWN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDS_WWN {
     fn eq(&self, other: &Self) -> bool {

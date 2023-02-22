@@ -465,8 +465,8 @@ pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *con
 #[inline]
 pub unsafe fn KeyCredentialManagerGetInformation() -> ::windows::core::Result<*mut KeyCredentialManagerInfo> {
     ::windows::core::link ! ( "keycredmgr.dll""system" fn KeyCredentialManagerGetInformation ( keycredentialmanagerinfo : *mut *mut KeyCredentialManagerInfo ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    KeyCredentialManagerGetInformation(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut KeyCredentialManagerInfo>();
+    KeyCredentialManagerGetInformation(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1441,8 +1441,8 @@ impl ::core::default::Default for CREDSPP_SUBMIT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CREDSPP_SUBMIT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDSPP_SUBMIT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CREDSPP_SUBMIT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1482,8 +1482,8 @@ impl ::core::default::Default for CREDUIWIN_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CREDUIWIN_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDUIWIN_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CREDUIWIN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1572,8 +1572,8 @@ impl ::core::default::Default for CREDUI_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CREDUI_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDUI_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CREDUI_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1630,8 +1630,8 @@ impl ::core::default::Default for CRED_ENUMERATE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRED_ENUMERATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRED_ENUMERATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRED_ENUMERATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1706,8 +1706,8 @@ impl ::core::default::Default for CRED_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRED_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRED_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRED_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1772,8 +1772,8 @@ impl ::core::default::Default for CRED_MARSHAL_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRED_MARSHAL_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRED_MARSHAL_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRED_MARSHAL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1803,8 +1803,8 @@ impl ::core::default::Default for CRED_PACK_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRED_PACK_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRED_PACK_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRED_PACK_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1867,8 +1867,8 @@ impl ::core::default::Default for CRED_PERSIST {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRED_PERSIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRED_PERSIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRED_PERSIST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1898,8 +1898,8 @@ impl ::core::default::Default for CRED_PROTECTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRED_PROTECTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRED_PROTECTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRED_PROTECTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1937,8 +1937,8 @@ impl ::core::default::Default for CRED_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRED_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRED_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRED_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1976,8 +1976,8 @@ impl ::core::default::Default for KeyCredentialManagerOperationErrorStates {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KeyCredentialManagerOperationErrorStates {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KeyCredentialManagerOperationErrorStates {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KeyCredentialManagerOperationErrorStates {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2038,8 +2038,8 @@ impl ::core::default::Default for KeyCredentialManagerOperationType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KeyCredentialManagerOperationType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KeyCredentialManagerOperationType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KeyCredentialManagerOperationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2067,8 +2067,8 @@ impl ::core::default::Default for READER_SEL_REQUEST_MATCH_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_MATCH_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for READER_SEL_REQUEST_MATCH_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for READER_SEL_REQUEST_MATCH_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2094,8 +2094,8 @@ impl ::core::default::Default for SCARD_SCOPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SCARD_SCOPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCARD_SCOPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SCARD_SCOPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2139,8 +2139,8 @@ impl ::core::default::Default for SCARD_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SCARD_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCARD_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SCARD_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2164,8 +2164,8 @@ impl ::core::fmt::Debug for BINARY_BLOB_CREDENTIAL_INFO {
         f.debug_struct("BINARY_BLOB_CREDENTIAL_INFO").field("cbBlob", &self.cbBlob).field("pbBlob", &self.pbBlob).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BINARY_BLOB_CREDENTIAL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BINARY_BLOB_CREDENTIAL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BINARY_BLOB_CREDENTIAL_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2195,8 +2195,8 @@ impl ::core::fmt::Debug for CERT_CREDENTIAL_INFO {
         f.debug_struct("CERT_CREDENTIAL_INFO").field("cbSize", &self.cbSize).field("rgbHashOfCert", &self.rgbHashOfCert).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_CREDENTIAL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CREDENTIAL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_CREDENTIAL_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2254,8 +2254,8 @@ impl ::core::fmt::Debug for CREDENTIALA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CREDENTIALA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDENTIALA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CREDENTIALA {
@@ -2316,8 +2316,8 @@ impl ::core::fmt::Debug for CREDENTIALW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CREDENTIALW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDENTIALW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CREDENTIALW {
@@ -2352,8 +2352,8 @@ impl ::core::fmt::Debug for CREDENTIAL_ATTRIBUTEA {
         f.debug_struct("CREDENTIAL_ATTRIBUTEA").field("Keyword", &self.Keyword).field("Flags", &self.Flags).field("ValueSize", &self.ValueSize).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CREDENTIAL_ATTRIBUTEA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDENTIAL_ATTRIBUTEA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CREDENTIAL_ATTRIBUTEA {
     fn eq(&self, other: &Self) -> bool {
@@ -2385,8 +2385,8 @@ impl ::core::fmt::Debug for CREDENTIAL_ATTRIBUTEW {
         f.debug_struct("CREDENTIAL_ATTRIBUTEW").field("Keyword", &self.Keyword).field("Flags", &self.Flags).field("ValueSize", &self.ValueSize).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CREDENTIAL_ATTRIBUTEW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDENTIAL_ATTRIBUTEW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CREDENTIAL_ATTRIBUTEW {
     fn eq(&self, other: &Self) -> bool {
@@ -2424,8 +2424,8 @@ impl ::core::fmt::Debug for CREDENTIAL_TARGET_INFORMATIONA {
         f.debug_struct("CREDENTIAL_TARGET_INFORMATIONA").field("TargetName", &self.TargetName).field("NetbiosServerName", &self.NetbiosServerName).field("DnsServerName", &self.DnsServerName).field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("DnsTreeName", &self.DnsTreeName).field("PackageName", &self.PackageName).field("Flags", &self.Flags).field("CredTypeCount", &self.CredTypeCount).field("CredTypes", &self.CredTypes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CREDENTIAL_TARGET_INFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDENTIAL_TARGET_INFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CREDENTIAL_TARGET_INFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
@@ -2463,8 +2463,8 @@ impl ::core::fmt::Debug for CREDENTIAL_TARGET_INFORMATIONW {
         f.debug_struct("CREDENTIAL_TARGET_INFORMATIONW").field("TargetName", &self.TargetName).field("NetbiosServerName", &self.NetbiosServerName).field("DnsServerName", &self.DnsServerName).field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("DnsTreeName", &self.DnsTreeName).field("PackageName", &self.PackageName).field("Flags", &self.Flags).field("CredTypeCount", &self.CredTypeCount).field("CredTypes", &self.CredTypes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CREDENTIAL_TARGET_INFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDENTIAL_TARGET_INFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CREDENTIAL_TARGET_INFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
@@ -2495,8 +2495,8 @@ impl ::core::fmt::Debug for CREDSSP_CRED {
         f.debug_struct("CREDSSP_CRED").field("Type", &self.Type).field("pSchannelCred", &self.pSchannelCred).field("pSpnegoCred", &self.pSpnegoCred).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CREDSSP_CRED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDSSP_CRED {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CREDSSP_CRED {
     fn eq(&self, other: &Self) -> bool {
@@ -2529,8 +2529,8 @@ impl ::core::fmt::Debug for CREDSSP_CRED_EX {
         f.debug_struct("CREDSSP_CRED_EX").field("Type", &self.Type).field("Version", &self.Version).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Cred", &self.Cred).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CREDSSP_CRED_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDSSP_CRED_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CREDSSP_CRED_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -2568,8 +2568,8 @@ impl ::core::fmt::Debug for CREDUI_INFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for CREDUI_INFOA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDUI_INFOA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CREDUI_INFOA {
@@ -2610,8 +2610,8 @@ impl ::core::fmt::Debug for CREDUI_INFOW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for CREDUI_INFOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREDUI_INFOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CREDUI_INFOW {
@@ -2643,8 +2643,8 @@ impl ::core::fmt::Debug for KeyCredentialManagerInfo {
         f.debug_struct("KeyCredentialManagerInfo").field("containerId", &self.containerId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KeyCredentialManagerInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KeyCredentialManagerInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KeyCredentialManagerInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -2721,8 +2721,8 @@ impl ::core::fmt::Debug for OPENCARDNAMEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPENCARDNAMEA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPENCARDNAMEA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENCARDNAMEA {
@@ -2794,8 +2794,8 @@ impl ::core::fmt::Debug for OPENCARDNAMEW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPENCARDNAMEW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPENCARDNAMEW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENCARDNAMEW {
@@ -2859,8 +2859,8 @@ impl ::core::fmt::Debug for OPENCARDNAME_EXA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for OPENCARDNAME_EXA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPENCARDNAME_EXA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OPENCARDNAME_EXA {
@@ -2924,8 +2924,8 @@ impl ::core::fmt::Debug for OPENCARDNAME_EXW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for OPENCARDNAME_EXW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPENCARDNAME_EXW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OPENCARDNAME_EXW {
@@ -2977,8 +2977,8 @@ impl ::core::fmt::Debug for OPENCARD_SEARCH_CRITERIAA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPENCARD_SEARCH_CRITERIAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENCARD_SEARCH_CRITERIAA {
@@ -3030,8 +3030,8 @@ impl ::core::fmt::Debug for OPENCARD_SEARCH_CRITERIAW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPENCARD_SEARCH_CRITERIAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENCARD_SEARCH_CRITERIAW {
@@ -3053,8 +3053,8 @@ impl ::core::clone::Clone for READER_SEL_REQUEST {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for READER_SEL_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for READER_SEL_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for READER_SEL_REQUEST {
     fn default() -> Self {
@@ -3073,8 +3073,8 @@ impl ::core::clone::Clone for READER_SEL_REQUEST_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for READER_SEL_REQUEST_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for READER_SEL_REQUEST_0 {
     fn default() -> Self {
@@ -3102,8 +3102,8 @@ impl ::core::fmt::Debug for READER_SEL_REQUEST_0_0 {
         f.debug_struct("READER_SEL_REQUEST_0_0").field("cbReaderNameOffset", &self.cbReaderNameOffset).field("cchReaderNameLength", &self.cchReaderNameLength).field("cbContainerNameOffset", &self.cbContainerNameOffset).field("cchContainerNameLength", &self.cchContainerNameLength).field("dwDesiredCardModuleVersion", &self.dwDesiredCardModuleVersion).field("dwCspFlags", &self.dwCspFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for READER_SEL_REQUEST_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for READER_SEL_REQUEST_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3134,8 +3134,8 @@ impl ::core::fmt::Debug for READER_SEL_REQUEST_0_1 {
         f.debug_struct("READER_SEL_REQUEST_0_1").field("cbSerialNumberOffset", &self.cbSerialNumberOffset).field("cbSerialNumberLength", &self.cbSerialNumberLength).field("dwDesiredCardModuleVersion", &self.dwDesiredCardModuleVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for READER_SEL_REQUEST_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for READER_SEL_REQUEST_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -3167,8 +3167,8 @@ impl ::core::fmt::Debug for READER_SEL_RESPONSE {
         f.debug_struct("READER_SEL_RESPONSE").field("cbReaderNameOffset", &self.cbReaderNameOffset).field("cchReaderNameLength", &self.cchReaderNameLength).field("cbCardNameOffset", &self.cbCardNameOffset).field("cchCardNameLength", &self.cchCardNameLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for READER_SEL_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for READER_SEL_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for READER_SEL_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
@@ -3199,8 +3199,8 @@ impl ::core::fmt::Debug for SCARD_ATRMASK {
         f.debug_struct("SCARD_ATRMASK").field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).field("rgbMask", &self.rgbMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCARD_ATRMASK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCARD_ATRMASK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCARD_ATRMASK {
     fn eq(&self, other: &Self) -> bool {
@@ -3230,8 +3230,8 @@ impl ::core::fmt::Debug for SCARD_IO_REQUEST {
         f.debug_struct("SCARD_IO_REQUEST").field("dwProtocol", &self.dwProtocol).field("cbPciLength", &self.cbPciLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCARD_IO_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCARD_IO_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCARD_IO_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -3265,8 +3265,8 @@ impl ::core::fmt::Debug for SCARD_READERSTATEA {
         f.debug_struct("SCARD_READERSTATEA").field("szReader", &self.szReader).field("pvUserData", &self.pvUserData).field("dwCurrentState", &self.dwCurrentState).field("dwEventState", &self.dwEventState).field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCARD_READERSTATEA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCARD_READERSTATEA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCARD_READERSTATEA {
     fn eq(&self, other: &Self) -> bool {
@@ -3300,8 +3300,8 @@ impl ::core::fmt::Debug for SCARD_READERSTATEW {
         f.debug_struct("SCARD_READERSTATEW").field("szReader", &self.szReader).field("pvUserData", &self.pvUserData).field("dwCurrentState", &self.dwCurrentState).field("dwEventState", &self.dwEventState).field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCARD_READERSTATEW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCARD_READERSTATEW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCARD_READERSTATEW {
     fn eq(&self, other: &Self) -> bool {
@@ -3334,8 +3334,8 @@ impl ::core::fmt::Debug for SCARD_T0_COMMAND {
         f.debug_struct("SCARD_T0_COMMAND").field("bCla", &self.bCla).field("bIns", &self.bIns).field("bP1", &self.bP1).field("bP2", &self.bP2).field("bP3", &self.bP3).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCARD_T0_COMMAND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCARD_T0_COMMAND {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCARD_T0_COMMAND {
     fn eq(&self, other: &Self) -> bool {
@@ -3362,8 +3362,8 @@ impl ::core::clone::Clone for SCARD_T0_REQUEST {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SCARD_T0_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCARD_T0_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SCARD_T0_REQUEST {
     fn default() -> Self {
@@ -3382,8 +3382,8 @@ impl ::core::clone::Clone for SCARD_T0_REQUEST_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SCARD_T0_REQUEST_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCARD_T0_REQUEST_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SCARD_T0_REQUEST_0 {
     fn default() -> Self {
@@ -3406,8 +3406,8 @@ impl ::core::fmt::Debug for SCARD_T1_REQUEST {
         f.debug_struct("SCARD_T1_REQUEST").field("ioRequest", &self.ioRequest).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCARD_T1_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCARD_T1_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCARD_T1_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -3437,8 +3437,8 @@ impl ::core::fmt::Debug for SecHandle {
         f.debug_struct("SecHandle").field("dwLower", &self.dwLower).field("dwUpper", &self.dwUpper).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecHandle {
     fn eq(&self, other: &Self) -> bool {
@@ -3468,8 +3468,8 @@ impl ::core::fmt::Debug for SecPkgContext_ClientCreds {
         f.debug_struct("SecPkgContext_ClientCreds").field("AuthBufferLen", &self.AuthBufferLen).field("AuthBuffer", &self.AuthBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_ClientCreds {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_ClientCreds {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ClientCreds {
     fn eq(&self, other: &Self) -> bool {
@@ -3498,8 +3498,8 @@ impl ::core::fmt::Debug for USERNAME_TARGET_CREDENTIAL_INFO {
         f.debug_struct("USERNAME_TARGET_CREDENTIAL_INFO").field("UserName", &self.UserName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USERNAME_TARGET_CREDENTIAL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USERNAME_TARGET_CREDENTIAL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USERNAME_TARGET_CREDENTIAL_INFO {
     fn eq(&self, other: &Self) -> bool {

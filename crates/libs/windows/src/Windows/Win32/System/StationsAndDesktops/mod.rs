@@ -365,8 +365,8 @@ impl ::core::default::Default for BROADCAST_SYSTEM_MESSAGE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -427,8 +427,8 @@ impl ::core::default::Default for BROADCAST_SYSTEM_MESSAGE_INFO {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BROADCAST_SYSTEM_MESSAGE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BROADCAST_SYSTEM_MESSAGE_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -511,8 +511,8 @@ impl ::core::default::Default for DESKTOP_ACCESS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DESKTOP_ACCESS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DESKTOP_ACCESS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DESKTOP_ACCESS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -536,8 +536,8 @@ impl ::core::default::Default for DESKTOP_CONTROL_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DESKTOP_CONTROL_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DESKTOP_CONTROL_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DESKTOP_CONTROL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -571,8 +571,8 @@ impl ::core::default::Default for USER_OBJECT_INFORMATION_INDEX {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for USER_OBJECT_INFORMATION_INDEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_OBJECT_INFORMATION_INDEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for USER_OBJECT_INFORMATION_INDEX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -603,8 +603,8 @@ impl ::core::fmt::Debug for BSMINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BSMINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BSMINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BSMINFO {
@@ -649,8 +649,8 @@ impl ::core::convert::From<::core::option::Option<HDESK>> for HDESK {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HDESK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDESK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -681,8 +681,8 @@ impl ::core::convert::From<::core::option::Option<HWINSTA>> for HWINSTA {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HWINSTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HWINSTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -707,8 +707,8 @@ impl ::core::fmt::Debug for USEROBJECTFLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for USEROBJECTFLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USEROBJECTFLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USEROBJECTFLAGS {

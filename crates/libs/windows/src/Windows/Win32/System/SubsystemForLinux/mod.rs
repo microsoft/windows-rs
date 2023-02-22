@@ -39,8 +39,8 @@ where
     P5: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" fn WslLaunch ( distributionname : :: windows::core::PCWSTR , command : :: windows::core::PCWSTR , usecurrentworkingdirectory : super::super::Foundation:: BOOL , stdin : super::super::Foundation:: HANDLE , stdout : super::super::Foundation:: HANDLE , stderr : super::super::Foundation:: HANDLE , process : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WslLaunch(distributionname.into().abi(), command.into().abi(), usecurrentworkingdirectory.into(), stdin.into(), stdout.into(), stderr.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    WslLaunch(distributionname.into().abi(), command.into().abi(), usecurrentworkingdirectory.into(), stdin.into(), stdout.into(), stderr.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -52,8 +52,8 @@ where
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" fn WslLaunchInteractive ( distributionname : :: windows::core::PCWSTR , command : :: windows::core::PCWSTR , usecurrentworkingdirectory : super::super::Foundation:: BOOL , exitcode : *mut u32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WslLaunchInteractive(distributionname.into().abi(), command.into().abi(), usecurrentworkingdirectory.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<u32>();
+    WslLaunchInteractive(distributionname.into().abi(), command.into().abi(), usecurrentworkingdirectory.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
@@ -97,8 +97,8 @@ impl ::core::default::Default for WSL_DISTRIBUTION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WSL_DISTRIBUTION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WSL_DISTRIBUTION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WSL_DISTRIBUTION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

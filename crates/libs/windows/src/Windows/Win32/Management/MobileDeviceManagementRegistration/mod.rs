@@ -14,8 +14,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "mdmregistration.dll""system" fn DiscoverManagementService ( pszupn : :: windows::core::PCWSTR , ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DiscoverManagementService(pszupn.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut MANAGEMENT_SERVICE_INFO>();
+    DiscoverManagementService(pszupn.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
@@ -25,8 +25,8 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "mdmregistration.dll""system" fn DiscoverManagementServiceEx ( pszupn : :: windows::core::PCWSTR , pszdiscoveryservicecandidate : :: windows::core::PCWSTR , ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DiscoverManagementServiceEx(pszupn.into().abi(), pszdiscoveryservicecandidate.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut MANAGEMENT_SERVICE_INFO>();
+    DiscoverManagementServiceEx(pszupn.into().abi(), pszdiscoveryservicecandidate.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
@@ -61,16 +61,16 @@ pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagemen
 #[inline]
 pub unsafe fn IsManagementRegistrationAllowed() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "mdmregistration.dll""system" fn IsManagementRegistrationAllowed ( pfismanagementregistrationallowed : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    IsManagementRegistrationAllowed(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+    IsManagementRegistrationAllowed(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "mdmregistration.dll""system" fn IsMdmUxWithoutAadAllowed ( isenrollmentallowed : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    IsMdmUxWithoutAadAllowed(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+    IsMdmUxWithoutAadAllowed(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -301,8 +301,8 @@ impl ::core::default::Default for REGISTRATION_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REGISTRATION_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REGISTRATION_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REGISTRATION_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -333,8 +333,8 @@ impl ::core::fmt::Debug for MANAGEMENT_REGISTRATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MANAGEMENT_REGISTRATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MANAGEMENT_REGISTRATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MANAGEMENT_REGISTRATION_INFO {
@@ -367,8 +367,8 @@ impl ::core::fmt::Debug for MANAGEMENT_SERVICE_INFO {
         f.debug_struct("MANAGEMENT_SERVICE_INFO").field("pszMDMServiceUri", &self.pszMDMServiceUri).field("pszAuthenticationUri", &self.pszAuthenticationUri).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MANAGEMENT_SERVICE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MANAGEMENT_SERVICE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MANAGEMENT_SERVICE_INFO {
     fn eq(&self, other: &Self) -> bool {

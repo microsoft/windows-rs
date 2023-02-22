@@ -77,7 +77,7 @@ pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysAddRefString(bstrstring: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn SysAddRefString ( bstrstring : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysAddRefString ( bstrstring : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     SysAddRefString(::core::mem::transmute_copy(bstrstring)).ok()
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -104,7 +104,7 @@ pub unsafe fn SysAllocStringLen(strin: ::core::option::Option<&[u16]>) -> ::wind
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysFreeString(bstrstring: &::windows::core::BSTR) {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn SysFreeString ( bstrstring : * mut::core::ffi::c_void ) -> ( ) );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysFreeString ( bstrstring : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> ( ) );
     SysFreeString(::core::mem::transmute_copy(bstrstring))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -113,7 +113,7 @@ pub unsafe fn SysReAllocString<P0>(pbstr: *mut ::windows::core::BSTR, psz: P0) -
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn SysReAllocString ( pbstr : *mut * mut::core::ffi::c_void , psz : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysReAllocString ( pbstr : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > , psz : :: windows::core::PCWSTR ) -> i32 );
     SysReAllocString(::core::mem::transmute(pbstr), psz.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -122,25 +122,25 @@ pub unsafe fn SysReAllocStringLen<P0>(pbstr: *mut ::windows::core::BSTR, psz: P0
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn SysReAllocStringLen ( pbstr : *mut * mut::core::ffi::c_void , psz : :: windows::core::PCWSTR , len : u32 ) -> i32 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysReAllocStringLen ( pbstr : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > , psz : :: windows::core::PCWSTR , len : u32 ) -> i32 );
     SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into().abi(), len)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysReleaseString(bstrstring: &::windows::core::BSTR) {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn SysReleaseString ( bstrstring : * mut::core::ffi::c_void ) -> ( ) );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysReleaseString ( bstrstring : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> ( ) );
     SysReleaseString(::core::mem::transmute_copy(bstrstring))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysStringByteLen(bstr: &::windows::core::BSTR) -> u32 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn SysStringByteLen ( bstr : * mut::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysStringByteLen ( bstr : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> u32 );
     SysStringByteLen(::core::mem::transmute_copy(bstr))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysStringLen(pbstr: &::windows::core::BSTR) -> u32 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn SysStringLen ( pbstr : * mut::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysStringLen ( pbstr : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> u32 );
     SysStringLen(::core::mem::transmute_copy(pbstr))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -13206,8 +13206,8 @@ impl ::core::default::Default for DUPLICATE_HANDLE_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DUPLICATE_HANDLE_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DUPLICATE_HANDLE_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DUPLICATE_HANDLE_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13266,8 +13266,8 @@ impl ::core::default::Default for HANDLE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HANDLE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HANDLE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HANDLE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13432,8 +13432,8 @@ impl ::core::default::Default for NTSTATUS_FACILITY_CODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NTSTATUS_FACILITY_CODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTSTATUS_FACILITY_CODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NTSTATUS_FACILITY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19855,8 +19855,8 @@ impl ::core::default::Default for WIN32_ERROR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WIN32_ERROR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIN32_ERROR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WIN32_ERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19879,8 +19879,8 @@ impl ::core::fmt::Debug for APP_LOCAL_DEVICE_ID {
         f.debug_struct("APP_LOCAL_DEVICE_ID").field("value", &self.value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for APP_LOCAL_DEVICE_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APP_LOCAL_DEVICE_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for APP_LOCAL_DEVICE_ID {
     fn eq(&self, other: &Self) -> bool {
@@ -19917,8 +19917,8 @@ impl ::core::convert::From<::core::option::Option<BOOL>> for BOOL {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for BOOL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BOOL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -19944,8 +19944,8 @@ impl ::core::convert::From<::core::option::Option<BOOLEAN>> for BOOLEAN {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for BOOLEAN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BOOLEAN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -19971,8 +19971,8 @@ impl ::core::convert::From<::core::option::Option<CHAR>> for CHAR {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for CHAR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CHAR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -19998,8 +19998,8 @@ impl ::core::convert::From<::core::option::Option<COLORREF>> for COLORREF {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for COLORREF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COLORREF {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20015,8 +20015,8 @@ impl ::core::clone::Clone for DECIMAL {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DECIMAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DECIMAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DECIMAL {
     fn default() -> Self {
@@ -20035,8 +20035,8 @@ impl ::core::clone::Clone for DECIMAL_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DECIMAL_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DECIMAL_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DECIMAL_0 {
     fn default() -> Self {
@@ -20060,8 +20060,8 @@ impl ::core::fmt::Debug for DECIMAL_0_0 {
         f.debug_struct("DECIMAL_0_0").field("scale", &self.scale).field("sign", &self.sign).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DECIMAL_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DECIMAL_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DECIMAL_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -20086,8 +20086,8 @@ impl ::core::clone::Clone for DECIMAL_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DECIMAL_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DECIMAL_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DECIMAL_1 {
     fn default() -> Self {
@@ -20111,8 +20111,8 @@ impl ::core::fmt::Debug for DECIMAL_1_0 {
         f.debug_struct("DECIMAL_1_0").field("Lo32", &self.Lo32).field("Mid32", &self.Mid32).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DECIMAL_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DECIMAL_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DECIMAL_1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -20142,8 +20142,8 @@ impl ::core::fmt::Debug for FILETIME {
         f.debug_struct("FILETIME").field("dwLowDateTime", &self.dwLowDateTime).field("dwHighDateTime", &self.dwHighDateTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILETIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILETIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILETIME {
     fn eq(&self, other: &Self) -> bool {
@@ -20173,8 +20173,8 @@ impl ::core::fmt::Debug for FLOAT128 {
         f.debug_struct("FLOAT128").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FLOAT128 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FLOAT128 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FLOAT128 {
     fn eq(&self, other: &Self) -> bool {
@@ -20216,8 +20216,8 @@ impl ::core::convert::From<::core::option::Option<HANDLE>> for HANDLE {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20243,8 +20243,8 @@ impl ::core::convert::From<::core::option::Option<HANDLE_PTR>> for HANDLE_PTR {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HANDLE_PTR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HANDLE_PTR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20275,8 +20275,8 @@ impl ::core::convert::From<::core::option::Option<HINSTANCE>> for HINSTANCE {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HINSTANCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HINSTANCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20294,8 +20294,8 @@ impl ::core::fmt::Debug for HLSURF__ {
         f.debug_struct("HLSURF__").field("unused", &self.unused).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HLSURF__ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HLSURF__ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HLSURF__ {
     fn eq(&self, other: &Self) -> bool {
@@ -20337,8 +20337,8 @@ impl ::core::convert::From<::core::option::Option<HRSRC>> for HRSRC {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HRSRC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HRSRC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20356,8 +20356,8 @@ impl ::core::fmt::Debug for HSPRITE__ {
         f.debug_struct("HSPRITE__").field("unused", &self.unused).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HSPRITE__ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HSPRITE__ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HSPRITE__ {
     fn eq(&self, other: &Self) -> bool {
@@ -20386,8 +20386,8 @@ impl ::core::fmt::Debug for HSTR__ {
         f.debug_struct("HSTR__").field("unused", &self.unused).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HSTR__ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HSTR__ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HSTR__ {
     fn eq(&self, other: &Self) -> bool {
@@ -20416,8 +20416,8 @@ impl ::core::fmt::Debug for HUMPD__ {
         f.debug_struct("HUMPD__").field("unused", &self.unused).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HUMPD__ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HUMPD__ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HUMPD__ {
     fn eq(&self, other: &Self) -> bool {
@@ -20454,8 +20454,8 @@ impl ::core::convert::From<::core::option::Option<HWND>> for HWND {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HWND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HWND {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20481,8 +20481,8 @@ impl ::core::convert::From<::core::option::Option<LPARAM>> for LPARAM {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for LPARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LPARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20508,8 +20508,8 @@ impl ::core::convert::From<::core::option::Option<LRESULT>> for LRESULT {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for LRESULT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LRESULT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20528,8 +20528,8 @@ impl ::core::fmt::Debug for LUID {
         f.debug_struct("LUID").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LUID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LUID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LUID {
     fn eq(&self, other: &Self) -> bool {
@@ -20566,8 +20566,8 @@ impl ::core::convert::From<::core::option::Option<NTSTATUS>> for NTSTATUS {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for NTSTATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTSTATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20586,8 +20586,8 @@ impl ::core::fmt::Debug for POINT {
         f.debug_struct("POINT").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POINT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POINT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POINT {
     fn eq(&self, other: &Self) -> bool {
@@ -20617,8 +20617,8 @@ impl ::core::fmt::Debug for POINTL {
         f.debug_struct("POINTL").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POINTL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POINTL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POINTL {
     fn eq(&self, other: &Self) -> bool {
@@ -20648,8 +20648,8 @@ impl ::core::fmt::Debug for POINTS {
         f.debug_struct("POINTS").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POINTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POINTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POINTS {
     fn eq(&self, other: &Self) -> bool {
@@ -20691,8 +20691,8 @@ impl ::core::convert::From<::core::option::Option<PSID>> for PSID {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for PSID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20713,8 +20713,8 @@ impl ::core::fmt::Debug for RECT {
         f.debug_struct("RECT").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RECT {
     fn eq(&self, other: &Self) -> bool {
@@ -20746,8 +20746,8 @@ impl ::core::fmt::Debug for RECTL {
         f.debug_struct("RECTL").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RECTL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RECTL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RECTL {
     fn eq(&self, other: &Self) -> bool {
@@ -20784,8 +20784,8 @@ impl ::core::convert::From<::core::option::Option<SHANDLE_PTR>> for SHANDLE_PTR 
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for SHANDLE_PTR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHANDLE_PTR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20804,8 +20804,8 @@ impl ::core::fmt::Debug for SIZE {
         f.debug_struct("SIZE").field("cx", &self.cx).field("cy", &self.cy).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SIZE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIZE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SIZE {
     fn eq(&self, other: &Self) -> bool {
@@ -20841,8 +20841,8 @@ impl ::core::fmt::Debug for SYSTEMTIME {
         f.debug_struct("SYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEMTIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEMTIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEMTIME {
     fn eq(&self, other: &Self) -> bool {
@@ -20873,8 +20873,8 @@ impl ::core::fmt::Debug for UNICODE_STRING {
         f.debug_struct("UNICODE_STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for UNICODE_STRING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UNICODE_STRING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNICODE_STRING {
     fn eq(&self, other: &Self) -> bool {
@@ -20911,8 +20911,8 @@ impl ::core::convert::From<::core::option::Option<VARIANT_BOOL>> for VARIANT_BOO
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for VARIANT_BOOL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VARIANT_BOOL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20938,8 +20938,8 @@ impl ::core::convert::From<::core::option::Option<WPARAM>> for WPARAM {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for WPARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WPARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;

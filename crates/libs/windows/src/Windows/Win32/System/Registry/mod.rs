@@ -2772,8 +2772,8 @@ impl ::core::default::Default for REG_CREATE_KEY_DISPOSITION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REG_CREATE_KEY_DISPOSITION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REG_CREATE_KEY_DISPOSITION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REG_CREATE_KEY_DISPOSITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2805,8 +2805,8 @@ impl ::core::default::Default for REG_NOTIFY_FILTER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REG_NOTIFY_FILTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REG_NOTIFY_FILTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REG_NOTIFY_FILTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2875,8 +2875,8 @@ impl ::core::default::Default for REG_OPEN_CREATE_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REG_OPEN_CREATE_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REG_OPEN_CREATE_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REG_OPEN_CREATE_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2935,8 +2935,8 @@ impl ::core::default::Default for REG_RESTORE_KEY_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REG_RESTORE_KEY_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REG_RESTORE_KEY_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REG_RESTORE_KEY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2988,8 +2988,8 @@ impl ::core::default::Default for REG_ROUTINE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REG_ROUTINE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REG_ROUTINE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REG_ROUTINE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3070,8 +3070,8 @@ impl ::core::default::Default for REG_SAM_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REG_SAM_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REG_SAM_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REG_SAM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3132,8 +3132,8 @@ impl ::core::default::Default for REG_SAVE_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REG_SAVE_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REG_SAVE_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REG_SAVE_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3183,8 +3183,8 @@ impl ::core::default::Default for REG_VALUE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REG_VALUE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REG_VALUE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REG_VALUE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3215,8 +3215,8 @@ impl ::core::fmt::Debug for DSKTLSYSTEMTIME {
         f.debug_struct("DSKTLSYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).field("wResult", &self.wResult).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DSKTLSYSTEMTIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSKTLSYSTEMTIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DSKTLSYSTEMTIME {
     fn eq(&self, other: &Self) -> bool {
@@ -3258,8 +3258,8 @@ impl ::core::convert::From<::core::option::Option<HKEY>> for HKEY {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HKEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HKEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
@@ -3280,8 +3280,8 @@ impl ::core::fmt::Debug for PVALUEA {
         f.debug_struct("PVALUEA").field("pv_valuename", &self.pv_valuename).field("pv_valuelen", &self.pv_valuelen).field("pv_value_context", &self.pv_value_context).field("pv_type", &self.pv_type).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PVALUEA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PVALUEA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PVALUEA {
     fn eq(&self, other: &Self) -> bool {
@@ -3313,8 +3313,8 @@ impl ::core::fmt::Debug for PVALUEW {
         f.debug_struct("PVALUEW").field("pv_valuename", &self.pv_valuename).field("pv_valuelen", &self.pv_valuelen).field("pv_value_context", &self.pv_value_context).field("pv_type", &self.pv_type).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PVALUEW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PVALUEW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PVALUEW {
     fn eq(&self, other: &Self) -> bool {
@@ -3348,8 +3348,8 @@ impl ::core::fmt::Debug for REG_PROVIDER {
         f.debug_struct("REG_PROVIDER").field("pi_flags", &self.pi_flags).field("pi_key_context", &self.pi_key_context).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REG_PROVIDER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REG_PROVIDER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for REG_PROVIDER {
     fn default() -> Self {
@@ -3375,8 +3375,8 @@ impl ::core::fmt::Debug for VALENTA {
         f.debug_struct("VALENTA").field("ve_valuename", &self.ve_valuename).field("ve_valuelen", &self.ve_valuelen).field("ve_valueptr", &self.ve_valueptr).field("ve_type", &self.ve_type).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VALENTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VALENTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VALENTA {
     fn eq(&self, other: &Self) -> bool {
@@ -3408,8 +3408,8 @@ impl ::core::fmt::Debug for VALENTW {
         f.debug_struct("VALENTW").field("ve_valuename", &self.ve_valuename).field("ve_valuelen", &self.ve_valuelen).field("ve_valueptr", &self.ve_valueptr).field("ve_type", &self.ve_type).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VALENTW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VALENTW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VALENTW {
     fn eq(&self, other: &Self) -> bool {
@@ -3440,8 +3440,8 @@ impl ::core::fmt::Debug for val_context {
         f.debug_struct("val_context").field("valuelen", &self.valuelen).field("value_context", &self.value_context).field("val_buff_ptr", &self.val_buff_ptr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for val_context {
-    type Abi = Self;
+impl ::windows::core::TypeKind for val_context {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for val_context {
     fn eq(&self, other: &Self) -> bool {

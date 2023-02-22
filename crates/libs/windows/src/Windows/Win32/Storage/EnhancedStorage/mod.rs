@@ -9,27 +9,22 @@ impl IEnhancedStorageACT {
         (::windows::core::Vtable::vtable(self).Unauthorize)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetAuthorizationState(&self) -> ::windows::core::Result<ACT_AUTHORIZATION_STATE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAuthorizationState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ACT_AUTHORIZATION_STATE>();
+        (::windows::core::Vtable::vtable(self).GetAuthorizationState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMatchingVolume(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMatchingVolume)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetMatchingVolume)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUniqueIdentity(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUniqueIdentity)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetUniqueIdentity)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut ::core::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetSilos)(::windows::core::Vtable::as_raw(self), pppienhancedstoragesilos, pcenhancedstoragesilos).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IEnhancedStorageACT, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnhancedStorageACT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnhancedStorageACT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -43,6 +38,11 @@ impl ::core::fmt::Debug for IEnhancedStorageACT {
 }
 unsafe impl ::windows::core::Vtable for IEnhancedStorageACT {
     type Vtable = IEnhancedStorageACT_Vtbl;
+}
+impl ::core::clone::Clone for IEnhancedStorageACT {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnhancedStorageACT {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e7781f4_e0f2_4239_b976_a01abab52930);
@@ -69,37 +69,32 @@ impl IEnhancedStorageACT2 {
         (::windows::core::Vtable::vtable(self).base__.Unauthorize)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetAuthorizationState(&self) -> ::windows::core::Result<ACT_AUTHORIZATION_STATE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetAuthorizationState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ACT_AUTHORIZATION_STATE>();
+        (::windows::core::Vtable::vtable(self).base__.GetAuthorizationState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMatchingVolume(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetMatchingVolume)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetMatchingVolume)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUniqueIdentity(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUniqueIdentity)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetUniqueIdentity)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut ::core::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetSilos)(::windows::core::Vtable::as_raw(self), pppienhancedstoragesilos, pcenhancedstoragesilos).ok()
     }
     pub unsafe fn GetDeviceName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDeviceName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetDeviceName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDeviceRemovable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsDeviceRemovable)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsDeviceRemovable)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnhancedStorageACT2, ::windows::core::IUnknown, IEnhancedStorageACT);
-impl ::core::clone::Clone for IEnhancedStorageACT2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnhancedStorageACT2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -113,6 +108,11 @@ impl ::core::fmt::Debug for IEnhancedStorageACT2 {
 }
 unsafe impl ::windows::core::Vtable for IEnhancedStorageACT2 {
     type Vtable = IEnhancedStorageACT2_Vtbl;
+}
+impl ::core::clone::Clone for IEnhancedStorageACT2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnhancedStorageACT2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4da57d2e_8eb3_41f6_a07e_98b52b88242b);
@@ -138,29 +138,29 @@ impl IEnhancedStorageACT3 {
         (::windows::core::Vtable::vtable(self).base__.base__.Unauthorize)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetAuthorizationState(&self) -> ::windows::core::Result<ACT_AUTHORIZATION_STATE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAuthorizationState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ACT_AUTHORIZATION_STATE>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetAuthorizationState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMatchingVolume(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetMatchingVolume)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetMatchingVolume)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUniqueIdentity(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUniqueIdentity)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetUniqueIdentity)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut ::core::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetSilos)(::windows::core::Vtable::as_raw(self), pppienhancedstoragesilos, pcenhancedstoragesilos).ok()
     }
     pub unsafe fn GetDeviceName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDeviceName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetDeviceName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDeviceRemovable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsDeviceRemovable)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.IsDeviceRemovable)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn UnauthorizeEx(&self, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnauthorizeEx)(::windows::core::Vtable::as_raw(self), dwflags).ok()
@@ -168,22 +168,17 @@ impl IEnhancedStorageACT3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsQueueFrozen(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsQueueFrozen)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsQueueFrozen)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetShellExtSupport(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetShellExtSupport)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetShellExtSupport)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnhancedStorageACT3, ::windows::core::IUnknown, IEnhancedStorageACT, IEnhancedStorageACT2);
-impl ::core::clone::Clone for IEnhancedStorageACT3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnhancedStorageACT3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -197,6 +192,11 @@ impl ::core::fmt::Debug for IEnhancedStorageACT3 {
 }
 unsafe impl ::windows::core::Vtable for IEnhancedStorageACT3 {
     type Vtable = IEnhancedStorageACT3_Vtbl;
+}
+impl ::core::clone::Clone for IEnhancedStorageACT3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnhancedStorageACT3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x022150a1_113d_11df_bb61_001aa01bbc58);
@@ -220,8 +220,8 @@ pub struct IEnhancedStorageACT3_Vtbl {
 pub struct IEnhancedStorageSilo(::windows::core::IUnknown);
 impl IEnhancedStorageSilo {
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<SILO_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<SILO_INFO>();
+        (::windows::core::Vtable::vtable(self).GetInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetActions(&self, pppienhancedstoragesiloactions: *mut *mut ::core::option::Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetActions)(::windows::core::Vtable::as_raw(self), pppienhancedstoragesiloactions, pcenhancedstoragesiloactions).ok()
@@ -232,20 +232,15 @@ impl IEnhancedStorageSilo {
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn GetPortableDevice(&self) -> ::windows::core::Result<super::super::Devices::PortableDevices::IPortableDevice> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPortableDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Devices::PortableDevices::IPortableDevice>();
+        (::windows::core::Vtable::vtable(self).GetPortableDevice)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDevicePath(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevicePath)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetDevicePath)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnhancedStorageSilo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnhancedStorageSilo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnhancedStorageSilo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -259,6 +254,11 @@ impl ::core::fmt::Debug for IEnhancedStorageSilo {
 }
 unsafe impl ::windows::core::Vtable for IEnhancedStorageSilo {
     type Vtable = IEnhancedStorageSilo_Vtbl;
+}
+impl ::core::clone::Clone for IEnhancedStorageSilo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnhancedStorageSilo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5aef78c6_2242_4703_bf49_44b29357a359);
@@ -281,23 +281,18 @@ pub struct IEnhancedStorageSilo_Vtbl {
 pub struct IEnhancedStorageSiloAction(::windows::core::IUnknown);
 impl IEnhancedStorageSiloAction {
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Invoke(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IEnhancedStorageSiloAction, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnhancedStorageSiloAction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnhancedStorageSiloAction {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -311,6 +306,11 @@ impl ::core::fmt::Debug for IEnhancedStorageSiloAction {
 }
 unsafe impl ::windows::core::Vtable for IEnhancedStorageSiloAction {
     type Vtable = IEnhancedStorageSiloAction_Vtbl;
+}
+impl ::core::clone::Clone for IEnhancedStorageSiloAction {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnhancedStorageSiloAction {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6f7f311_206f_4ff8_9c4b_27efee77a86f);
@@ -334,16 +334,11 @@ impl IEnumEnhancedStorageACT {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMatchingACT)(::windows::core::Vtable::as_raw(self), szvolume.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnhancedStorageACT>();
+        (::windows::core::Vtable::vtable(self).GetMatchingACT)(::windows::core::Vtable::as_raw(self), szvolume.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumEnhancedStorageACT, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumEnhancedStorageACT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumEnhancedStorageACT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -357,6 +352,11 @@ impl ::core::fmt::Debug for IEnumEnhancedStorageACT {
 }
 unsafe impl ::windows::core::Vtable for IEnumEnhancedStorageACT {
     type Vtable = IEnumEnhancedStorageACT_Vtbl;
+}
+impl ::core::clone::Clone for IEnumEnhancedStorageACT {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumEnhancedStorageACT {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09b224bd_1335_4631_a7ff_cfd3a92646d7);
@@ -4265,8 +4265,8 @@ impl ::core::default::Default for ACT_AUTHORIZATION_STATE_VALUE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ACT_AUTHORIZATION_STATE_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACT_AUTHORIZATION_STATE_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ACT_AUTHORIZATION_STATE_VALUE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4289,8 +4289,8 @@ impl ::core::fmt::Debug for ACT_AUTHORIZATION_STATE {
         f.debug_struct("ACT_AUTHORIZATION_STATE").field("ulState", &self.ulState).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ACT_AUTHORIZATION_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACT_AUTHORIZATION_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ACT_AUTHORIZATION_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -4376,8 +4376,8 @@ impl ::core::fmt::Debug for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
@@ -4440,8 +4440,8 @@ impl ::core::fmt::Debug for SILO_INFO {
         f.debug_struct("SILO_INFO").field("ulSTID", &self.ulSTID).field("SpecificationMajor", &self.SpecificationMajor).field("SpecificationMinor", &self.SpecificationMinor).field("ImplementationMajor", &self.ImplementationMajor).field("ImplementationMinor", &self.ImplementationMinor).field("type", &self.r#type).field("capabilities", &self.capabilities).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SILO_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SILO_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SILO_INFO {
     fn eq(&self, other: &Self) -> bool {

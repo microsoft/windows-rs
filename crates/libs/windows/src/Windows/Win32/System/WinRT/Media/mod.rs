@@ -6,16 +6,11 @@ impl IAudioFrameNative {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAudioFrameNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IAudioFrameNative {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioFrameNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29,6 +24,11 @@ impl ::core::fmt::Debug for IAudioFrameNative {
 }
 unsafe impl ::windows::core::Vtable for IAudioFrameNative {
     type Vtable = IAudioFrameNative_Vtbl;
+}
+impl ::core::clone::Clone for IAudioFrameNative {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioFrameNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20be1e2e_930f_4746_9335_3c332f255093);
@@ -51,16 +51,11 @@ impl IAudioFrameNativeFactory {
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFromMFSample)(::windows::core::Vtable::as_raw(self), data.into().abi(), forcereadonly.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateFromMFSample)(::windows::core::Vtable::as_raw(self), data.into().abi(), forcereadonly.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAudioFrameNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IAudioFrameNativeFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioFrameNativeFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -74,6 +69,11 @@ impl ::core::fmt::Debug for IAudioFrameNativeFactory {
 }
 unsafe impl ::windows::core::Vtable for IAudioFrameNativeFactory {
     type Vtable = IAudioFrameNativeFactory_Vtbl;
+}
+impl ::core::clone::Clone for IAudioFrameNativeFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioFrameNativeFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
@@ -95,23 +95,18 @@ impl IVideoFrameNative {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVideoFrameNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IVideoFrameNative {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVideoFrameNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -125,6 +120,11 @@ impl ::core::fmt::Debug for IVideoFrameNative {
 }
 unsafe impl ::windows::core::Vtable for IVideoFrameNative {
     type Vtable = IVideoFrameNative_Vtbl;
+}
+impl ::core::clone::Clone for IVideoFrameNative {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVideoFrameNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26ba702b_314a_4620_aaf6_7a51aa58fa18);
@@ -149,16 +149,11 @@ impl IVideoFrameNativeFactory {
         P2: ::std::convert::Into<::windows::core::InParam<super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFromMFSample)(::windows::core::Vtable::as_raw(self), data.into().abi(), subtype, width, height, forcereadonly.into(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), device.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateFromMFSample)(::windows::core::Vtable::as_raw(self), data.into().abi(), subtype, width, height, forcereadonly.into(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), device.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVideoFrameNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IVideoFrameNativeFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IVideoFrameNativeFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -172,6 +167,11 @@ impl ::core::fmt::Debug for IVideoFrameNativeFactory {
 }
 unsafe impl ::windows::core::Vtable for IVideoFrameNativeFactory {
     type Vtable = IVideoFrameNativeFactory_Vtbl;
+}
+impl ::core::clone::Clone for IVideoFrameNativeFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVideoFrameNativeFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);

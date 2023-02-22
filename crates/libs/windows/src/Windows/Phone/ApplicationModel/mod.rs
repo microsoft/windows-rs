@@ -4,6 +4,11 @@ pub struct IApplicationProfileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IApplicationProfileStatics {
     type Vtable = IApplicationProfileStatics_Vtbl;
 }
+impl ::core::clone::Clone for IApplicationProfileStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IApplicationProfileStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
 }
@@ -18,8 +23,8 @@ pub struct ApplicationProfile;
 impl ApplicationProfile {
     pub fn Modes() -> ::windows::core::Result<ApplicationProfileModes> {
         Self::IApplicationProfileStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Modes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ApplicationProfileModes>();
+            (::windows::core::Vtable::vtable(this).Modes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -50,8 +55,8 @@ impl ::core::default::Default for ApplicationProfileModes {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ApplicationProfileModes {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ApplicationProfileModes {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ApplicationProfileModes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -91,12 +96,8 @@ impl ::core::ops::Not for ApplicationProfileModes {
         Self(self.0.not())
     }
 }
-unsafe impl ::windows::core::RuntimeType for ApplicationProfileModes {
+impl ::windows::core::RuntimeType for ApplicationProfileModes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

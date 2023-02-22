@@ -27,8 +27,8 @@ impl ::core::convert::From<::core::option::Option<HCS_CALLBACK>> for HCS_CALLBAC
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCS_CALLBACK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_CALLBACK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

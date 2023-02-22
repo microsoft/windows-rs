@@ -14,8 +14,8 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "ondemandconnroutehelper.dll""system" fn GetInterfaceContextTableForHostName ( hostname : :: windows::core::PCWSTR , proxyname : :: windows::core::PCWSTR , flags : u32 , connectionprofilefilterrawdata : *const u8 , connectionprofilefilterrawdatasize : u32 , interfacecontexttable : *mut *mut NET_INTERFACE_CONTEXT_TABLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetInterfaceContextTableForHostName(hostname.into().abi(), proxyname.into().abi(), flags, ::core::mem::transmute(connectionprofilefilterrawdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), connectionprofilefilterrawdata.as_deref().map_or(0, |slice| slice.len() as _), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut NET_INTERFACE_CONTEXT_TABLE>();
+    GetInterfaceContextTableForHostName(hostname.into().abi(), proxyname.into().abi(), flags, ::core::mem::transmute(connectionprofilefilterrawdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), connectionprofilefilterrawdata.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
@@ -24,16 +24,16 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "ondemandconnroutehelper.dll""system" fn OnDemandGetRoutingHint ( destinationhostname : :: windows::core::PCWSTR , interfaceindex : *mut u32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OnDemandGetRoutingHint(destinationhostname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<u32>();
+    OnDemandGetRoutingHint(destinationhostname.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "ondemandconnroutehelper.dll""system" fn OnDemandRegisterNotification ( callback : ONDEMAND_NOTIFICATION_CALLBACK , callbackcontext : *const ::core::ffi::c_void , registrationhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OnDemandRegisterNotification(callback, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    OnDemandRegisterNotification(callback, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -128,8 +128,8 @@ impl ::core::default::Default for WCM_CONNECTION_COST {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCM_CONNECTION_COST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCM_CONNECTION_COST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -159,8 +159,8 @@ impl ::core::default::Default for WCM_CONNECTION_COST_SOURCE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST_SOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCM_CONNECTION_COST_SOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCM_CONNECTION_COST_SOURCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -194,8 +194,8 @@ impl ::core::default::Default for WCM_MEDIA_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCM_MEDIA_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCM_MEDIA_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCM_MEDIA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -231,8 +231,8 @@ impl ::core::default::Default for WCM_PROPERTY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCM_PROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCM_PROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCM_PROPERTY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -256,8 +256,8 @@ impl ::core::fmt::Debug for NET_INTERFACE_CONTEXT {
         f.debug_struct("NET_INTERFACE_CONTEXT").field("InterfaceIndex", &self.InterfaceIndex).field("ConfigurationName", &self.ConfigurationName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NET_INTERFACE_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_INTERFACE_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_INTERFACE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -293,8 +293,8 @@ impl ::core::fmt::Debug for NET_INTERFACE_CONTEXT_TABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NET_INTERFACE_CONTEXT_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_INTERFACE_CONTEXT_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NET_INTERFACE_CONTEXT_TABLE {
@@ -333,8 +333,8 @@ impl ::core::fmt::Debug for WCM_BILLING_CYCLE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WCM_BILLING_CYCLE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCM_BILLING_CYCLE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WCM_BILLING_CYCLE_INFO {
@@ -367,8 +367,8 @@ impl ::core::fmt::Debug for WCM_CONNECTION_COST_DATA {
         f.debug_struct("WCM_CONNECTION_COST_DATA").field("ConnectionCost", &self.ConnectionCost).field("CostSource", &self.CostSource).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCM_CONNECTION_COST_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WCM_CONNECTION_COST_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -408,8 +408,8 @@ impl ::core::fmt::Debug for WCM_DATAPLAN_STATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WCM_DATAPLAN_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCM_DATAPLAN_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WCM_DATAPLAN_STATUS {
@@ -447,8 +447,8 @@ impl ::core::fmt::Debug for WCM_POLICY_VALUE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WCM_POLICY_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCM_POLICY_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WCM_POLICY_VALUE {
@@ -482,8 +482,8 @@ impl ::core::fmt::Debug for WCM_PROFILE_INFO {
         f.debug_struct("WCM_PROFILE_INFO").field("strProfileName", &self.strProfileName).field("AdapterGUID", &self.AdapterGUID).field("Media", &self.Media).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WCM_PROFILE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCM_PROFILE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WCM_PROFILE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -513,8 +513,8 @@ impl ::core::fmt::Debug for WCM_PROFILE_INFO_LIST {
         f.debug_struct("WCM_PROFILE_INFO_LIST").field("dwNumberOfItems", &self.dwNumberOfItems).field("ProfileInfo", &self.ProfileInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WCM_PROFILE_INFO_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCM_PROFILE_INFO_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WCM_PROFILE_INFO_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -549,8 +549,8 @@ impl ::core::fmt::Debug for WCM_TIME_INTERVAL {
         f.debug_struct("WCM_TIME_INTERVAL").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WCM_TIME_INTERVAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCM_TIME_INTERVAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WCM_TIME_INTERVAL {
     fn eq(&self, other: &Self) -> bool {
@@ -585,8 +585,8 @@ impl ::core::fmt::Debug for WCM_USAGE_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WCM_USAGE_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCM_USAGE_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WCM_USAGE_DATA {

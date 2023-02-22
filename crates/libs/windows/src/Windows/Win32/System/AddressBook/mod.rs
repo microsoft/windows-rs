@@ -215,8 +215,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMAPIAdviseSink>>,
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn HrThisThreadAdviseSink ( lpadvisesink : * mut::core::ffi::c_void , lppadvisesink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HrThisThreadAdviseSink(lpadvisesink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IMAPIAdviseSink>();
+    HrThisThreadAdviseSink(lpadvisesink.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -256,8 +256,8 @@ pub unsafe fn MAPIInitIdle(lpvreserved: *mut ::core::ffi::c_void) -> i32 {
 #[inline]
 pub unsafe fn OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: ::core::option::Option<*const i8>) -> ::windows::core::Result<super::Com::IStream> {
     ::windows::core::link ! ( "mapi32.dll""system" fn OpenStreamOnFile ( lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER , ulflags : u32 , lpszfilename : *const i8 , lpszprefix : *const i8 , lppstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OpenStreamOnFile(lpallocatebuffer, lpfreebuffer, ulflags, lpszfilename, ::core::mem::transmute(lpszprefix.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::Com::IStream>();
+    OpenStreamOnFile(lpallocatebuffer, lpfreebuffer, ulflags, lpszfilename, ::core::mem::transmute(lpszprefix.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -413,8 +413,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::Com::IStream>>,
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn WrapCompressedRTFStream ( lpcompressedrtfstream : * mut::core::ffi::c_void , ulflags : u32 , lpuncompressedrtfstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WrapCompressedRTFStream(lpcompressedrtfstream.into().abi(), ulflags, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::Com::IStream>();
+    WrapCompressedRTFStream(lpcompressedrtfstream.into().abi(), ulflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -470,12 +470,12 @@ impl IABContainer {
         (::windows::core::Vtable::vtable(self).base__.base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).base__.GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetHierarchyTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, lpinterface, ulflags, lpulobjtype, ::core::mem::transmute(lppunk)).ok()
@@ -491,8 +491,8 @@ impl IABContainer {
         (::windows::core::Vtable::vtable(self).base__.GetSearchCriteria)(::windows::core::Vtable::as_raw(self), ulflags, lpprestriction, lppcontainerlist, ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulcreateflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPIProp>();
+        (::windows::core::Vtable::vtable(self).CreateEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulcreateflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn CopyEntries<P0>(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
@@ -506,16 +506,11 @@ impl IABContainer {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ResolveNames(&self, lpproptagarray: ::core::option::Option<*const SPropTagArray>, ulflags: u32, lpadrlist: *const ADRLIST) -> ::windows::core::Result<FlagList> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, lpadrlist, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<FlagList>();
+        (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, lpadrlist, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IABContainer, ::windows::core::IUnknown, IMAPIProp, IMAPIContainer);
-impl ::core::clone::Clone for IABContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IABContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -529,6 +524,11 @@ impl ::core::fmt::Debug for IABContainer {
 }
 unsafe impl ::windows::core::Vtable for IABContainer {
     type Vtable = IABContainer_Vtbl;
+}
+impl ::core::clone::Clone for IABContainer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IABContainer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -665,11 +665,6 @@ impl IAddrBook {
     }
 }
 ::windows::core::interface_hierarchy!(IAddrBook, ::windows::core::IUnknown, IMAPIProp);
-impl ::core::clone::Clone for IAddrBook {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAddrBook {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -683,6 +678,11 @@ impl ::core::fmt::Debug for IAddrBook {
 }
 unsafe impl ::windows::core::Vtable for IAddrBook {
     type Vtable = IAddrBook_Vtbl;
+}
+impl ::core::clone::Clone for IAddrBook {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAddrBook {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -780,11 +780,6 @@ impl IAttach {
     }
 }
 ::windows::core::interface_hierarchy!(IAttach, ::windows::core::IUnknown, IMAPIProp);
-impl ::core::clone::Clone for IAttach {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAttach {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -798,6 +793,11 @@ impl ::core::fmt::Debug for IAttach {
 }
 unsafe impl ::windows::core::Vtable for IAttach {
     type Vtable = IAttach_Vtbl;
+}
+impl ::core::clone::Clone for IAttach {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAttach {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -855,12 +855,12 @@ impl IDistList {
         (::windows::core::Vtable::vtable(self).base__.base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).base__.GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetHierarchyTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, lpinterface, ulflags, lpulobjtype, ::core::mem::transmute(lppunk)).ok()
@@ -876,8 +876,8 @@ impl IDistList {
         (::windows::core::Vtable::vtable(self).base__.GetSearchCriteria)(::windows::core::Vtable::as_raw(self), ulflags, lpprestriction, lppcontainerlist, ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulcreateflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPIProp>();
+        (::windows::core::Vtable::vtable(self).CreateEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulcreateflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn CopyEntries<P0>(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
@@ -891,16 +891,11 @@ impl IDistList {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ResolveNames(&self, lpproptagarray: ::core::option::Option<*const SPropTagArray>, ulflags: u32, lpadrlist: *const ADRLIST) -> ::windows::core::Result<FlagList> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, lpadrlist, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<FlagList>();
+        (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, lpadrlist, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDistList, ::windows::core::IUnknown, IMAPIProp, IMAPIContainer);
-impl ::core::clone::Clone for IDistList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDistList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -914,6 +909,11 @@ impl ::core::fmt::Debug for IDistList {
 }
 unsafe impl ::windows::core::Vtable for IDistList {
     type Vtable = IDistList_Vtbl;
+}
+impl ::core::clone::Clone for IDistList {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDistList {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -941,11 +941,6 @@ impl IMAPIAdviseSink {
     }
 }
 ::windows::core::interface_hierarchy!(IMAPIAdviseSink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMAPIAdviseSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMAPIAdviseSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -959,6 +954,11 @@ impl ::core::fmt::Debug for IMAPIAdviseSink {
 }
 unsafe impl ::windows::core::Vtable for IMAPIAdviseSink {
     type Vtable = IMAPIAdviseSink_Vtbl;
+}
+impl ::core::clone::Clone for IMAPIAdviseSink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMAPIAdviseSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1020,12 +1020,12 @@ impl IMAPIContainer {
         (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetHierarchyTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, lpinterface, ulflags, lpulobjtype, ::core::mem::transmute(lppunk)).ok()
@@ -1042,11 +1042,6 @@ impl IMAPIContainer {
     }
 }
 ::windows::core::interface_hierarchy!(IMAPIContainer, ::windows::core::IUnknown, IMAPIProp);
-impl ::core::clone::Clone for IMAPIContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMAPIContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1060,6 +1055,11 @@ impl ::core::fmt::Debug for IMAPIContainer {
 }
 unsafe impl ::windows::core::Vtable for IMAPIContainer {
     type Vtable = IMAPIContainer_Vtbl;
+}
+impl ::core::clone::Clone for IMAPIContainer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMAPIContainer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1085,8 +1085,8 @@ pub struct IMAPIContainer_Vtbl {
 pub struct IMAPIControl(::windows::core::IUnknown);
 impl IMAPIControl {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32) -> ::windows::core::Result<*mut MAPIERROR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut MAPIERROR>();
+        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn Activate(&self, ulflags: u32, uluiparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), ulflags, uluiparam).ok()
@@ -1096,11 +1096,6 @@ impl IMAPIControl {
     }
 }
 ::windows::core::interface_hierarchy!(IMAPIControl, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMAPIControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMAPIControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1114,6 +1109,11 @@ impl ::core::fmt::Debug for IMAPIControl {
 }
 unsafe impl ::windows::core::Vtable for IMAPIControl {
     type Vtable = IMAPIControl_Vtbl;
+}
+impl ::core::clone::Clone for IMAPIControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMAPIControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1174,12 +1174,12 @@ impl IMAPIFolder {
         (::windows::core::Vtable::vtable(self).base__.base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).base__.GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetHierarchyTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, lpinterface, ulflags, lpulobjtype, ::core::mem::transmute(lppunk)).ok()
@@ -1210,8 +1210,8 @@ impl IMAPIFolder {
         (::windows::core::Vtable::vtable(self).DeleteMessages)(::windows::core::Vtable::as_raw(self), lpmsglist, uluiparam, lpprogress.into().abi(), ulflags).ok()
     }
     pub unsafe fn CreateFolder(&self, ulfoldertype: u32, lpszfoldername: *const i8, lpszfoldercomment: ::core::option::Option<*const i8>, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32) -> ::windows::core::Result<IMAPIFolder> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFolder)(::windows::core::Vtable::as_raw(self), ulfoldertype, lpszfoldername, ::core::mem::transmute(lpszfoldercomment.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPIFolder>();
+        (::windows::core::Vtable::vtable(self).CreateFolder)(::windows::core::Vtable::as_raw(self), ulfoldertype, lpszfoldername, ::core::mem::transmute(lpszfoldercomment.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn CopyFolder<P0>(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, lpdestfolder: *const ::core::ffi::c_void, lpsznewfoldername: *const i8, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
@@ -1232,12 +1232,12 @@ impl IMAPIFolder {
         (::windows::core::Vtable::vtable(self).SetReadFlags)(::windows::core::Vtable::as_raw(self), lpmsglist, uluiparam, lpprogress.into().abi(), ulflags).ok()
     }
     pub unsafe fn GetMessageStatus(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMessageStatus)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetMessageStatus)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMessageStatus(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulnewstatus: u32, ulnewstatusmask: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetMessageStatus)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulnewstatus, ulnewstatusmask, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).SetMessageStatus)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulnewstatus, ulnewstatusmask, &mut result__).from_abi(result__)
     }
     pub unsafe fn SaveContentsSort(&self, lpsortcriteria: *const SSortOrderSet, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SaveContentsSort)(::windows::core::Vtable::as_raw(self), lpsortcriteria, ulflags).ok()
@@ -1250,11 +1250,6 @@ impl IMAPIFolder {
     }
 }
 ::windows::core::interface_hierarchy!(IMAPIFolder, ::windows::core::IUnknown, IMAPIProp, IMAPIContainer);
-impl ::core::clone::Clone for IMAPIFolder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMAPIFolder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1268,6 +1263,11 @@ impl ::core::fmt::Debug for IMAPIFolder {
 }
 unsafe impl ::windows::core::Vtable for IMAPIFolder {
     type Vtable = IMAPIFolder_Vtbl;
+}
+impl ::core::clone::Clone for IMAPIFolder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMAPIFolder {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1309,11 +1309,6 @@ impl IMAPIProgress {
     }
 }
 ::windows::core::interface_hierarchy!(IMAPIProgress, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMAPIProgress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMAPIProgress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1327,6 +1322,11 @@ impl ::core::fmt::Debug for IMAPIProgress {
 }
 unsafe impl ::windows::core::Vtable for IMAPIProgress {
     type Vtable = IMAPIProgress_Vtbl;
+}
+impl ::core::clone::Clone for IMAPIProgress {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMAPIProgress {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1390,11 +1390,6 @@ impl IMAPIProp {
     }
 }
 ::windows::core::interface_hierarchy!(IMAPIProp, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMAPIProp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMAPIProp {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1408,6 +1403,11 @@ impl ::core::fmt::Debug for IMAPIProp {
 }
 unsafe impl ::windows::core::Vtable for IMAPIProp {
     type Vtable = IMAPIProp_Vtbl;
+}
+impl ::core::clone::Clone for IMAPIProp {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMAPIProp {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1495,11 +1495,6 @@ impl IMAPIStatus {
     }
 }
 ::windows::core::interface_hierarchy!(IMAPIStatus, ::windows::core::IUnknown, IMAPIProp);
-impl ::core::clone::Clone for IMAPIStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMAPIStatus {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1513,6 +1508,11 @@ impl ::core::fmt::Debug for IMAPIStatus {
 }
 unsafe impl ::windows::core::Vtable for IMAPIStatus {
     type Vtable = IMAPIStatus_Vtbl;
+}
+impl ::core::clone::Clone for IMAPIStatus {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMAPIStatus {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1612,11 +1612,6 @@ impl IMAPITable {
     }
 }
 ::windows::core::interface_hierarchy!(IMAPITable, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMAPITable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMAPITable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1630,6 +1625,11 @@ impl ::core::fmt::Debug for IMAPITable {
 }
 unsafe impl ::windows::core::Vtable for IMAPITable {
     type Vtable = IMAPITable_Vtbl;
+}
+impl ::core::clone::Clone for IMAPITable {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMAPITable {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1723,11 +1723,6 @@ impl IMailUser {
     }
 }
 ::windows::core::interface_hierarchy!(IMailUser, ::windows::core::IUnknown, IMAPIProp);
-impl ::core::clone::Clone for IMailUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMailUser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1741,6 +1736,11 @@ impl ::core::fmt::Debug for IMailUser {
 }
 unsafe impl ::windows::core::Vtable for IMailUser {
     type Vtable = IMailUser_Vtbl;
+}
+impl ::core::clone::Clone for IMailUser {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMailUser {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1798,12 +1798,12 @@ impl IMessage {
         (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn GetAttachmentTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAttachmentTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).GetAttachmentTable)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenAttach(&self, ulattachmentnum: u32, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32) -> ::windows::core::Result<IAttach> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenAttach)(::windows::core::Vtable::as_raw(self), ulattachmentnum, ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAttach>();
+        (::windows::core::Vtable::vtable(self).OpenAttach)(::windows::core::Vtable::as_raw(self), ulattachmentnum, ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateAttach(&self, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32, lpulattachmentnum: *mut u32, lppattach: *mut ::core::option::Option<IAttach>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CreateAttach)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, lpulattachmentnum, ::core::mem::transmute(lppattach)).ok()
@@ -1815,8 +1815,8 @@ impl IMessage {
         (::windows::core::Vtable::vtable(self).DeleteAttach)(::windows::core::Vtable::as_raw(self), ulattachmentnum, uluiparam, lpprogress.into().abi(), ulflags).ok()
     }
     pub unsafe fn GetRecipientTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRecipientTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).GetRecipientTable)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1831,11 +1831,6 @@ impl IMessage {
     }
 }
 ::windows::core::interface_hierarchy!(IMessage, ::windows::core::IUnknown, IMAPIProp);
-impl ::core::clone::Clone for IMessage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMessage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1849,6 +1844,11 @@ impl ::core::fmt::Debug for IMessage {
 }
 unsafe impl ::windows::core::Vtable for IMessage {
     type Vtable = IMessage_Vtbl;
+}
+impl ::core::clone::Clone for IMessage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMessage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1920,15 +1920,15 @@ impl IMsgStore {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IMAPIAdviseSink>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid.unwrap_or(::std::ptr::null())), uleventmask, lpadvisesink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid.unwrap_or(::std::ptr::null())), uleventmask, lpadvisesink.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Unadvise(&self, ulconnection: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), ulconnection).ok()
     }
     pub unsafe fn CompareEntryIDs(&self, cbentryid1: u32, lpentryid1: *const ENTRYID, cbentryid2: u32, lpentryid2: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CompareEntryIDs)(::windows::core::Vtable::as_raw(self), cbentryid1, lpentryid1, cbentryid2, lpentryid2, ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).CompareEntryIDs)(::windows::core::Vtable::as_raw(self), cbentryid1, lpentryid1, cbentryid2, lpentryid2, ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32, lpulobjtype: *mut u32, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, lpulobjtype, ::core::mem::transmute(ppunk)).ok()
@@ -1940,8 +1940,8 @@ impl IMsgStore {
         (::windows::core::Vtable::vtable(self).GetReceiveFolder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszmessageclass.unwrap_or(::std::ptr::null())), ulflags, lpcbentryid, lppentryid, lppszexplicitclass).ok()
     }
     pub unsafe fn GetReceiveFolderTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReceiveFolderTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).GetReceiveFolderTable)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn StoreLogoff(&self, lpulflags: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).StoreLogoff)(::windows::core::Vtable::as_raw(self), lpulflags).ok()
@@ -1950,8 +1950,8 @@ impl IMsgStore {
         (::windows::core::Vtable::vtable(self).AbortSubmit)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulflags).ok()
     }
     pub unsafe fn GetOutgoingQueue(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOutgoingQueue)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).GetOutgoingQueue)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLockState<P0>(&self, lpmessage: P0, ullockstate: u32) -> ::windows::core::Result<()>
     where
@@ -1969,11 +1969,6 @@ impl IMsgStore {
     }
 }
 ::windows::core::interface_hierarchy!(IMsgStore, ::windows::core::IUnknown, IMAPIProp);
-impl ::core::clone::Clone for IMsgStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMsgStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1987,6 +1982,11 @@ impl ::core::fmt::Debug for IMsgStore {
 }
 unsafe impl ::windows::core::Vtable for IMsgStore {
     type Vtable = IMsgStore_Vtbl;
+}
+impl ::core::clone::Clone for IMsgStore {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMsgStore {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2061,11 +2061,6 @@ impl IProfSect {
     }
 }
 ::windows::core::interface_hierarchy!(IProfSect, ::windows::core::IUnknown, IMAPIProp);
-impl ::core::clone::Clone for IProfSect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IProfSect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2079,6 +2074,11 @@ impl ::core::fmt::Debug for IProfSect {
 }
 unsafe impl ::windows::core::Vtable for IProfSect {
     type Vtable = IProfSect_Vtbl;
+}
+impl ::core::clone::Clone for IProfSect {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IProfSect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2149,11 +2149,6 @@ impl IPropData {
     }
 }
 ::windows::core::interface_hierarchy!(IPropData, ::windows::core::IUnknown, IMAPIProp);
-impl ::core::clone::Clone for IPropData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPropData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2167,6 +2162,11 @@ impl ::core::fmt::Debug for IPropData {
 }
 unsafe impl ::windows::core::Vtable for IPropData {
     type Vtable = IPropData_Vtbl;
+}
+impl ::core::clone::Clone for IPropData {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPropData {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2185,33 +2185,28 @@ pub struct IPropData_Vtbl {
 pub struct IProviderAdmin(::windows::core::IUnknown);
 impl IProviderAdmin {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32) -> ::windows::core::Result<*mut MAPIERROR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut MAPIERROR>();
+        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProviderTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProviderTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMAPITable>();
+        (::windows::core::Vtable::vtable(self).GetProviderTable)(::windows::core::Vtable::as_raw(self), ulflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateProvider(&self, lpszprovider: *const i8, lpprops: &[SPropValue], uluiparam: usize, ulflags: u32) -> ::windows::core::Result<MAPIUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateProvider)(::windows::core::Vtable::as_raw(self), lpszprovider, lpprops.len() as _, ::core::mem::transmute(lpprops.as_ptr()), uluiparam, ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<MAPIUID>();
+        (::windows::core::Vtable::vtable(self).CreateProvider)(::windows::core::Vtable::as_raw(self), lpszprovider, lpprops.len() as _, ::core::mem::transmute(lpprops.as_ptr()), uluiparam, ulflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteProvider(&self, lpuid: *const MAPIUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteProvider)(::windows::core::Vtable::as_raw(self), lpuid).ok()
     }
     pub unsafe fn OpenProfileSection(&self, lpuid: ::core::option::Option<*const MAPIUID>, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32) -> ::windows::core::Result<IProfSect> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenProfileSection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IProfSect>();
+        (::windows::core::Vtable::vtable(self).OpenProfileSection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IProviderAdmin, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IProviderAdmin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IProviderAdmin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2225,6 +2220,11 @@ impl ::core::fmt::Debug for IProviderAdmin {
 }
 unsafe impl ::windows::core::Vtable for IProviderAdmin {
     type Vtable = IProviderAdmin_Vtbl;
+}
+impl ::core::clone::Clone for IProviderAdmin {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IProviderAdmin {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2291,11 +2291,6 @@ impl ITableData {
     }
 }
 ::windows::core::interface_hierarchy!(ITableData, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITableData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ITableData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2309,6 +2304,11 @@ impl ::core::fmt::Debug for ITableData {
 }
 unsafe impl ::windows::core::Vtable for ITableData {
     type Vtable = ITableData_Vtbl;
+}
+impl ::core::clone::Clone for ITableData {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITableData {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2362,11 +2362,6 @@ impl IWABExtInit {
     }
 }
 ::windows::core::interface_hierarchy!(IWABExtInit, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWABExtInit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWABExtInit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2380,6 +2375,11 @@ impl ::core::fmt::Debug for IWABExtInit {
 }
 unsafe impl ::windows::core::Vtable for IWABExtInit {
     type Vtable = IWABExtInit_Vtbl;
+}
+impl ::core::clone::Clone for IWABExtInit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWABExtInit {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea22ebf0_87a4_11d1_9acf_00a0c91f9c8b);
@@ -2448,8 +2448,8 @@ impl IWABObject {
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LDAPUrl)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), hwnd.into(), ulflags, lpszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMailUser>();
+        (::windows::core::Vtable::vtable(self).LDAPUrl)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), hwnd.into(), ulflags, lpszurl.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn VCardCreate<P0, P1, P2>(&self, lpiab: P0, ulflags: u32, lpszvcard: P1, lpmailuser: P2) -> ::windows::core::Result<()>
     where
@@ -2464,8 +2464,8 @@ impl IWABObject {
         P0: ::std::convert::Into<::windows::core::InParam<IAddrBook>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VCardRetrieve)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), ulflags, lpszvcard.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMailUser>();
+        (::windows::core::Vtable::vtable(self).VCardRetrieve)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), ulflags, lpszvcard.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2487,11 +2487,6 @@ impl IWABObject {
     }
 }
 ::windows::core::interface_hierarchy!(IWABObject, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWABObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWABObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2505,6 +2500,11 @@ impl ::core::fmt::Debug for IWABObject {
 }
 unsafe impl ::windows::core::Vtable for IWABObject {
     type Vtable = IWABObject_Vtbl;
+}
+impl ::core::clone::Clone for IWABObject {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWABObject {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2999,8 +2999,8 @@ impl ::core::default::Default for Gender {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for Gender {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Gender {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for Gender {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3030,8 +3030,8 @@ impl ::core::fmt::Debug for ADRENTRY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for ADRENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADRENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for ADRENTRY {
@@ -3069,8 +3069,8 @@ impl ::core::fmt::Debug for ADRLIST {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for ADRLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADRLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for ADRLIST {
@@ -3141,8 +3141,8 @@ impl ::core::fmt::Debug for ADRPARM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for ADRPARM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADRPARM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for ADRPARM {
@@ -3168,8 +3168,8 @@ impl ::core::fmt::Debug for DTBLBUTTON {
         f.debug_struct("DTBLBUTTON").field("ulbLpszLabel", &self.ulbLpszLabel).field("ulFlags", &self.ulFlags).field("ulPRControl", &self.ulPRControl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DTBLBUTTON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTBLBUTTON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DTBLBUTTON {
     fn eq(&self, other: &Self) -> bool {
@@ -3200,8 +3200,8 @@ impl ::core::fmt::Debug for DTBLCHECKBOX {
         f.debug_struct("DTBLCHECKBOX").field("ulbLpszLabel", &self.ulbLpszLabel).field("ulFlags", &self.ulFlags).field("ulPRPropertyName", &self.ulPRPropertyName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DTBLCHECKBOX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTBLCHECKBOX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DTBLCHECKBOX {
     fn eq(&self, other: &Self) -> bool {
@@ -3234,8 +3234,8 @@ impl ::core::fmt::Debug for DTBLCOMBOBOX {
         f.debug_struct("DTBLCOMBOBOX").field("ulbLpszCharsAllowed", &self.ulbLpszCharsAllowed).field("ulFlags", &self.ulFlags).field("ulNumCharsAllowed", &self.ulNumCharsAllowed).field("ulPRPropertyName", &self.ulPRPropertyName).field("ulPRTableName", &self.ulPRTableName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DTBLCOMBOBOX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTBLCOMBOBOX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DTBLCOMBOBOX {
     fn eq(&self, other: &Self) -> bool {
@@ -3267,8 +3267,8 @@ impl ::core::fmt::Debug for DTBLDDLBX {
         f.debug_struct("DTBLDDLBX").field("ulFlags", &self.ulFlags).field("ulPRDisplayProperty", &self.ulPRDisplayProperty).field("ulPRSetProperty", &self.ulPRSetProperty).field("ulPRTableName", &self.ulPRTableName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DTBLDDLBX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTBLDDLBX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DTBLDDLBX {
     fn eq(&self, other: &Self) -> bool {
@@ -3300,8 +3300,8 @@ impl ::core::fmt::Debug for DTBLEDIT {
         f.debug_struct("DTBLEDIT").field("ulbLpszCharsAllowed", &self.ulbLpszCharsAllowed).field("ulFlags", &self.ulFlags).field("ulNumCharsAllowed", &self.ulNumCharsAllowed).field("ulPropTag", &self.ulPropTag).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DTBLEDIT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTBLEDIT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DTBLEDIT {
     fn eq(&self, other: &Self) -> bool {
@@ -3331,8 +3331,8 @@ impl ::core::fmt::Debug for DTBLGROUPBOX {
         f.debug_struct("DTBLGROUPBOX").field("ulbLpszLabel", &self.ulbLpszLabel).field("ulFlags", &self.ulFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DTBLGROUPBOX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTBLGROUPBOX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DTBLGROUPBOX {
     fn eq(&self, other: &Self) -> bool {
@@ -3362,8 +3362,8 @@ impl ::core::fmt::Debug for DTBLLABEL {
         f.debug_struct("DTBLLABEL").field("ulbLpszLabelName", &self.ulbLpszLabelName).field("ulFlags", &self.ulFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DTBLLABEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTBLLABEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DTBLLABEL {
     fn eq(&self, other: &Self) -> bool {
@@ -3394,8 +3394,8 @@ impl ::core::fmt::Debug for DTBLLBX {
         f.debug_struct("DTBLLBX").field("ulFlags", &self.ulFlags).field("ulPRSetProperty", &self.ulPRSetProperty).field("ulPRTableName", &self.ulPRTableName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DTBLLBX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTBLLBX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DTBLLBX {
     fn eq(&self, other: &Self) -> bool {
@@ -3425,8 +3425,8 @@ impl ::core::fmt::Debug for DTBLMVDDLBX {
         f.debug_struct("DTBLMVDDLBX").field("ulFlags", &self.ulFlags).field("ulMVPropTag", &self.ulMVPropTag).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DTBLMVDDLBX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTBLMVDDLBX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DTBLMVDDLBX {
     fn eq(&self, other: &Self) -> bool {
@@ -3456,8 +3456,8 @@ impl ::core::fmt::Debug for DTBLMVLISTBOX {
         f.debug_struct("DTBLMVLISTBOX").field("ulFlags", &self.ulFlags).field("ulMVPropTag", &self.ulMVPropTag).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DTBLMVLISTBOX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTBLMVLISTBOX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DTBLMVLISTBOX {
     fn eq(&self, other: &Self) -> bool {
@@ -3489,8 +3489,8 @@ impl ::core::fmt::Debug for DTBLPAGE {
         f.debug_struct("DTBLPAGE").field("ulbLpszLabel", &self.ulbLpszLabel).field("ulFlags", &self.ulFlags).field("ulbLpszComponent", &self.ulbLpszComponent).field("ulContext", &self.ulContext).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DTBLPAGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTBLPAGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DTBLPAGE {
     fn eq(&self, other: &Self) -> bool {
@@ -3523,8 +3523,8 @@ impl ::core::fmt::Debug for DTBLRADIOBUTTON {
         f.debug_struct("DTBLRADIOBUTTON").field("ulbLpszLabel", &self.ulbLpszLabel).field("ulFlags", &self.ulFlags).field("ulcButtons", &self.ulcButtons).field("ulPropTag", &self.ulPropTag).field("lReturnValue", &self.lReturnValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DTBLRADIOBUTTON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTBLRADIOBUTTON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DTBLRADIOBUTTON {
     fn eq(&self, other: &Self) -> bool {
@@ -3554,8 +3554,8 @@ impl ::core::clone::Clone for DTCTL {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DTCTL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTCTL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DTCTL {
     fn default() -> Self {
@@ -3585,8 +3585,8 @@ impl ::core::clone::Clone for DTCTL_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DTCTL_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTCTL_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DTCTL_0 {
     fn default() -> Self {
@@ -3607,8 +3607,8 @@ impl ::core::clone::Clone for DTPAGE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DTPAGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTPAGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DTPAGE {
     fn default() -> Self {
@@ -3627,8 +3627,8 @@ impl ::core::clone::Clone for DTPAGE_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DTPAGE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTPAGE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DTPAGE_0 {
     fn default() -> Self {
@@ -3652,8 +3652,8 @@ impl ::core::fmt::Debug for ENTRYID {
         f.debug_struct("ENTRYID").field("abFlags", &self.abFlags).field("ab", &self.ab).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENTRYID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENTRYID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENTRYID {
     fn eq(&self, other: &Self) -> bool {
@@ -3686,8 +3686,8 @@ impl ::core::fmt::Debug for ERROR_NOTIFICATION {
         f.debug_struct("ERROR_NOTIFICATION").field("cbEntryID", &self.cbEntryID).field("lpEntryID", &self.lpEntryID).field("scode", &self.scode).field("ulFlags", &self.ulFlags).field("lpMAPIError", &self.lpMAPIError).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ERROR_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ERROR_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ERROR_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -3718,8 +3718,8 @@ impl ::core::fmt::Debug for EXTENDED_NOTIFICATION {
         f.debug_struct("EXTENDED_NOTIFICATION").field("ulEvent", &self.ulEvent).field("cb", &self.cb).field("pbEventParameters", &self.pbEventParameters).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EXTENDED_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXTENDED_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EXTENDED_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -3749,8 +3749,8 @@ impl ::core::fmt::Debug for FLATENTRY {
         f.debug_struct("FLATENTRY").field("cb", &self.cb).field("abEntry", &self.abEntry).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FLATENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FLATENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FLATENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -3781,8 +3781,8 @@ impl ::core::fmt::Debug for FLATENTRYLIST {
         f.debug_struct("FLATENTRYLIST").field("cEntries", &self.cEntries).field("cbEntries", &self.cbEntries).field("abEntries", &self.abEntries).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FLATENTRYLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FLATENTRYLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FLATENTRYLIST {
     fn eq(&self, other: &Self) -> bool {
@@ -3813,8 +3813,8 @@ impl ::core::fmt::Debug for FLATMTSIDLIST {
         f.debug_struct("FLATMTSIDLIST").field("cMTSIDs", &self.cMTSIDs).field("cbMTSIDs", &self.cbMTSIDs).field("abMTSIDs", &self.abMTSIDs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FLATMTSIDLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FLATMTSIDLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FLATMTSIDLIST {
     fn eq(&self, other: &Self) -> bool {
@@ -3844,8 +3844,8 @@ impl ::core::fmt::Debug for FlagList {
         f.debug_struct("FlagList").field("cFlags", &self.cFlags).field("ulFlag", &self.ulFlag).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FlagList {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FlagList {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FlagList {
     fn eq(&self, other: &Self) -> bool {
@@ -3878,8 +3878,8 @@ impl ::core::fmt::Debug for MAPIERROR {
         f.debug_struct("MAPIERROR").field("ulVersion", &self.ulVersion).field("lpszError", &self.lpszError).field("lpszComponent", &self.lpszComponent).field("ulLowLevelError", &self.ulLowLevelError).field("ulContext", &self.ulContext).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MAPIERROR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAPIERROR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MAPIERROR {
     fn eq(&self, other: &Self) -> bool {
@@ -3905,8 +3905,8 @@ impl ::core::clone::Clone for MAPINAMEID {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MAPINAMEID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAPINAMEID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MAPINAMEID {
     fn default() -> Self {
@@ -3925,8 +3925,8 @@ impl ::core::clone::Clone for MAPINAMEID_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MAPINAMEID_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAPINAMEID_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MAPINAMEID_0 {
     fn default() -> Self {
@@ -3949,8 +3949,8 @@ impl ::core::fmt::Debug for MAPIUID {
         f.debug_struct("MAPIUID").field("ab", &self.ab).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MAPIUID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAPIUID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MAPIUID {
     fn eq(&self, other: &Self) -> bool {
@@ -3980,8 +3980,8 @@ impl ::core::fmt::Debug for MTSID {
         f.debug_struct("MTSID").field("cb", &self.cb).field("ab", &self.ab).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MTSID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MTSID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MTSID {
     fn eq(&self, other: &Self) -> bool {
@@ -4016,8 +4016,8 @@ impl ::core::fmt::Debug for NEWMAIL_NOTIFICATION {
         f.debug_struct("NEWMAIL_NOTIFICATION").field("cbEntryID", &self.cbEntryID).field("lpEntryID", &self.lpEntryID).field("cbParentID", &self.cbParentID).field("lpParentID", &self.lpParentID).field("ulFlags", &self.ulFlags).field("lpszMessageClass", &self.lpszMessageClass).field("ulMessageFlags", &self.ulMessageFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NEWMAIL_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NEWMAIL_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NEWMAIL_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -4047,8 +4047,8 @@ impl ::core::clone::Clone for NOTIFICATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for NOTIFICATION {
@@ -4076,8 +4076,8 @@ impl ::core::clone::Clone for NOTIFICATION_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for NOTIFICATION_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NOTIFICATION_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for NOTIFICATION_0 {
@@ -4102,8 +4102,8 @@ impl ::core::fmt::Debug for NOTIFKEY {
         f.debug_struct("NOTIFKEY").field("cb", &self.cb).field("ab", &self.ab).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NOTIFKEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NOTIFKEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NOTIFKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -4141,8 +4141,8 @@ impl ::core::fmt::Debug for OBJECT_NOTIFICATION {
         f.debug_struct("OBJECT_NOTIFICATION").field("cbEntryID", &self.cbEntryID).field("lpEntryID", &self.lpEntryID).field("ulObjType", &self.ulObjType).field("cbParentID", &self.cbParentID).field("lpParentID", &self.lpParentID).field("cbOldID", &self.cbOldID).field("lpOldID", &self.lpOldID).field("cbOldParentID", &self.cbOldParentID).field("lpOldParentID", &self.lpOldParentID).field("lpPropTagArray", &self.lpPropTagArray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OBJECT_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OBJECT_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OBJECT_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -4177,8 +4177,8 @@ impl ::core::fmt::Debug for SAndRestriction {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for SAndRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SAndRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SAndRestriction {
@@ -4211,8 +4211,8 @@ impl ::core::fmt::Debug for SAppTimeArray {
         f.debug_struct("SAppTimeArray").field("cValues", &self.cValues).field("lpat", &self.lpat).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SAppTimeArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SAppTimeArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SAppTimeArray {
     fn eq(&self, other: &Self) -> bool {
@@ -4242,8 +4242,8 @@ impl ::core::fmt::Debug for SBinary {
         f.debug_struct("SBinary").field("cb", &self.cb).field("lpb", &self.lpb).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SBinary {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SBinary {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SBinary {
     fn eq(&self, other: &Self) -> bool {
@@ -4273,8 +4273,8 @@ impl ::core::fmt::Debug for SBinaryArray {
         f.debug_struct("SBinaryArray").field("cValues", &self.cValues).field("lpbin", &self.lpbin).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SBinaryArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SBinaryArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SBinaryArray {
     fn eq(&self, other: &Self) -> bool {
@@ -4305,8 +4305,8 @@ impl ::core::fmt::Debug for SBitMaskRestriction {
         f.debug_struct("SBitMaskRestriction").field("relBMR", &self.relBMR).field("ulPropTag", &self.ulPropTag).field("ulMask", &self.ulMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SBitMaskRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SBitMaskRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SBitMaskRestriction {
     fn eq(&self, other: &Self) -> bool {
@@ -4342,8 +4342,8 @@ impl ::core::fmt::Debug for SCommentRestriction {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for SCommentRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCommentRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SCommentRestriction {
@@ -4377,8 +4377,8 @@ impl ::core::fmt::Debug for SComparePropsRestriction {
         f.debug_struct("SComparePropsRestriction").field("relop", &self.relop).field("ulPropTag1", &self.ulPropTag1).field("ulPropTag2", &self.ulPropTag2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SComparePropsRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SComparePropsRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SComparePropsRestriction {
     fn eq(&self, other: &Self) -> bool {
@@ -4414,8 +4414,8 @@ impl ::core::fmt::Debug for SContentRestriction {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for SContentRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SContentRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SContentRestriction {
@@ -4453,8 +4453,8 @@ impl ::core::fmt::Debug for SCurrencyArray {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for SCurrencyArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCurrencyArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for SCurrencyArray {
@@ -4492,8 +4492,8 @@ impl ::core::fmt::Debug for SDateTimeArray {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDateTimeArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDateTimeArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDateTimeArray {
@@ -4526,8 +4526,8 @@ impl ::core::fmt::Debug for SDoubleArray {
         f.debug_struct("SDoubleArray").field("cValues", &self.cValues).field("lpdbl", &self.lpdbl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SDoubleArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDoubleArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SDoubleArray {
     fn eq(&self, other: &Self) -> bool {
@@ -4558,8 +4558,8 @@ impl ::core::fmt::Debug for SExistRestriction {
         f.debug_struct("SExistRestriction").field("ulReserved1", &self.ulReserved1).field("ulPropTag", &self.ulPropTag).field("ulReserved2", &self.ulReserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SExistRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SExistRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SExistRestriction {
     fn eq(&self, other: &Self) -> bool {
@@ -4589,8 +4589,8 @@ impl ::core::fmt::Debug for SGuidArray {
         f.debug_struct("SGuidArray").field("cValues", &self.cValues).field("lpguid", &self.lpguid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SGuidArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SGuidArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SGuidArray {
     fn eq(&self, other: &Self) -> bool {
@@ -4620,8 +4620,8 @@ impl ::core::fmt::Debug for SLPSTRArray {
         f.debug_struct("SLPSTRArray").field("cValues", &self.cValues).field("lppszA", &self.lppszA).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SLPSTRArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SLPSTRArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SLPSTRArray {
     fn eq(&self, other: &Self) -> bool {
@@ -4651,8 +4651,8 @@ impl ::core::fmt::Debug for SLargeIntegerArray {
         f.debug_struct("SLargeIntegerArray").field("cValues", &self.cValues).field("lpli", &self.lpli).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SLargeIntegerArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SLargeIntegerArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SLargeIntegerArray {
     fn eq(&self, other: &Self) -> bool {
@@ -4682,8 +4682,8 @@ impl ::core::fmt::Debug for SLongArray {
         f.debug_struct("SLongArray").field("cValues", &self.cValues).field("lpl", &self.lpl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SLongArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SLongArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SLongArray {
     fn eq(&self, other: &Self) -> bool {
@@ -4718,8 +4718,8 @@ impl ::core::fmt::Debug for SNotRestriction {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for SNotRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SNotRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SNotRestriction {
@@ -4757,8 +4757,8 @@ impl ::core::fmt::Debug for SOrRestriction {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for SOrRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SOrRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SOrRestriction {
@@ -4792,8 +4792,8 @@ impl ::core::fmt::Debug for SPropProblem {
         f.debug_struct("SPropProblem").field("ulIndex", &self.ulIndex).field("ulPropTag", &self.ulPropTag).field("scode", &self.scode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SPropProblem {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SPropProblem {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SPropProblem {
     fn eq(&self, other: &Self) -> bool {
@@ -4823,8 +4823,8 @@ impl ::core::fmt::Debug for SPropProblemArray {
         f.debug_struct("SPropProblemArray").field("cProblem", &self.cProblem).field("aProblem", &self.aProblem).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SPropProblemArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SPropProblemArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SPropProblemArray {
     fn eq(&self, other: &Self) -> bool {
@@ -4854,8 +4854,8 @@ impl ::core::fmt::Debug for SPropTagArray {
         f.debug_struct("SPropTagArray").field("cValues", &self.cValues).field("aulPropTag", &self.aulPropTag).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SPropTagArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SPropTagArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SPropTagArray {
     fn eq(&self, other: &Self) -> bool {
@@ -4885,8 +4885,8 @@ impl ::core::clone::Clone for SPropValue {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for SPropValue {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SPropValue {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for SPropValue {
@@ -4917,8 +4917,8 @@ impl ::core::fmt::Debug for SPropertyRestriction {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for SPropertyRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SPropertyRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SPropertyRestriction {
@@ -4951,8 +4951,8 @@ impl ::core::fmt::Debug for SRealArray {
         f.debug_struct("SRealArray").field("cValues", &self.cValues).field("lpflt", &self.lpflt).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SRealArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SRealArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SRealArray {
     fn eq(&self, other: &Self) -> bool {
@@ -4981,8 +4981,8 @@ impl ::core::clone::Clone for SRestriction {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for SRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for SRestriction {
@@ -5015,8 +5015,8 @@ impl ::core::clone::Clone for SRestriction_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for SRestriction_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SRestriction_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for SRestriction_0 {
@@ -5047,8 +5047,8 @@ impl ::core::fmt::Debug for SRow {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for SRow {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SRow {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SRow {
@@ -5086,8 +5086,8 @@ impl ::core::fmt::Debug for SRowSet {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for SRowSet {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SRowSet {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SRowSet {
@@ -5120,8 +5120,8 @@ impl ::core::fmt::Debug for SShortArray {
         f.debug_struct("SShortArray").field("cValues", &self.cValues).field("lpi", &self.lpi).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SShortArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SShortArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SShortArray {
     fn eq(&self, other: &Self) -> bool {
@@ -5152,8 +5152,8 @@ impl ::core::fmt::Debug for SSizeRestriction {
         f.debug_struct("SSizeRestriction").field("relop", &self.relop).field("ulPropTag", &self.ulPropTag).field("cb", &self.cb).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SSizeRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SSizeRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SSizeRestriction {
     fn eq(&self, other: &Self) -> bool {
@@ -5183,8 +5183,8 @@ impl ::core::fmt::Debug for SSortOrder {
         f.debug_struct("SSortOrder").field("ulPropTag", &self.ulPropTag).field("ulOrder", &self.ulOrder).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SSortOrder {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SSortOrder {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SSortOrder {
     fn eq(&self, other: &Self) -> bool {
@@ -5216,8 +5216,8 @@ impl ::core::fmt::Debug for SSortOrderSet {
         f.debug_struct("SSortOrderSet").field("cSorts", &self.cSorts).field("cCategories", &self.cCategories).field("cExpanded", &self.cExpanded).field("aSort", &self.aSort).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SSortOrderSet {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SSortOrderSet {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SSortOrderSet {
     fn eq(&self, other: &Self) -> bool {
@@ -5252,8 +5252,8 @@ impl ::core::fmt::Debug for SSubRestriction {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for SSubRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SSubRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SSubRestriction {
@@ -5293,8 +5293,8 @@ impl ::core::fmt::Debug for STATUS_OBJECT_NOTIFICATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for STATUS_OBJECT_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STATUS_OBJECT_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for STATUS_OBJECT_NOTIFICATION {
@@ -5327,8 +5327,8 @@ impl ::core::fmt::Debug for SWStringArray {
         f.debug_struct("SWStringArray").field("cValues", &self.cValues).field("lppszW", &self.lppszW).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SWStringArray {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SWStringArray {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SWStringArray {
     fn eq(&self, other: &Self) -> bool {
@@ -5361,8 +5361,8 @@ impl ::core::clone::Clone for TABLE_NOTIFICATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for TABLE_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TABLE_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for TABLE_NOTIFICATION {
@@ -5397,8 +5397,8 @@ impl ::core::fmt::Debug for WABEXTDISPLAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WABEXTDISPLAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WABEXTDISPLAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WABEXTDISPLAY {
@@ -5437,8 +5437,8 @@ impl ::core::fmt::Debug for WABIMPORTPARAM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WABIMPORTPARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WABIMPORTPARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WABIMPORTPARAM {
@@ -5479,8 +5479,8 @@ impl ::core::fmt::Debug for WAB_PARAM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WAB_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WAB_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WAB_PARAM {
@@ -5540,8 +5540,8 @@ impl ::core::clone::Clone for __UPV {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for __UPV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for __UPV {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for __UPV {

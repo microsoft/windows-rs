@@ -6,6 +6,11 @@ pub struct IInputActivationListenerPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInputActivationListenerPreviewStatics {
     type Vtable = IInputActivationListenerPreviewStatics_Vtbl;
 }
+impl ::core::clone::Clone for IInputActivationListenerPreviewStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInputActivationListenerPreviewStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0551ce5_0de6_5be0_a589_f737201a4582);
 }
@@ -25,8 +30,8 @@ impl InputActivationListenerPreview {
     #[cfg(feature = "UI_WindowManagement")]
     pub fn CreateForApplicationWindow(window: &super::super::WindowManagement::AppWindow) -> ::windows::core::Result<super::InputActivationListener> {
         Self::IInputActivationListenerPreviewStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateForApplicationWindow)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(window), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::InputActivationListener>();
+            (::windows::core::Vtable::vtable(this).CreateForApplicationWindow)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(window), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

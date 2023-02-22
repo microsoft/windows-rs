@@ -19,11 +19,6 @@ impl IDDEInitializer {
     }
 }
 ::windows::core::interface_hierarchy!(IDDEInitializer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDDEInitializer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDDEInitializer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37,6 +32,11 @@ impl ::core::fmt::Debug for IDDEInitializer {
 }
 unsafe impl ::windows::core::Vtable for IDDEInitializer {
     type Vtable = IDDEInitializer_Vtbl;
+}
+impl ::core::clone::Clone for IDDEInitializer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDDEInitializer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
@@ -71,8 +71,8 @@ impl ::core::default::Default for CreateProcessMethod {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CreateProcessMethod {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CreateProcessMethod {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CreateProcessMethod {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

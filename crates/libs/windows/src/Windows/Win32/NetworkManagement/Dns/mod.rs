@@ -960,8 +960,8 @@ impl ::core::default::Default for DNS_CHARSET {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CHARSET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CHARSET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DNS_CHARSET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1021,8 +1021,8 @@ impl ::core::default::Default for DNS_CONFIG_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONFIG_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONFIG_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DNS_CONFIG_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1050,8 +1050,8 @@ impl ::core::default::Default for DNS_CONNECTION_POLICY_TAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_POLICY_TAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_POLICY_TAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DNS_CONNECTION_POLICY_TAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1079,8 +1079,8 @@ impl ::core::default::Default for DNS_CONNECTION_PROXY_INFO_SWITCH {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_SWITCH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_PROXY_INFO_SWITCH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DNS_CONNECTION_PROXY_INFO_SWITCH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1112,8 +1112,8 @@ impl ::core::default::Default for DNS_CONNECTION_PROXY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_PROXY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DNS_CONNECTION_PROXY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1141,8 +1141,8 @@ impl ::core::default::Default for DNS_FREE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DNS_FREE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_FREE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DNS_FREE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1178,8 +1178,8 @@ impl ::core::default::Default for DNS_NAME_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DNS_NAME_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_NAME_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DNS_NAME_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1209,8 +1209,8 @@ impl ::core::default::Default for DNS_PROXY_INFORMATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DNS_PROXY_INFORMATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_PROXY_INFORMATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DNS_PROXY_INFORMATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1286,8 +1286,8 @@ impl ::core::default::Default for DNS_QUERY_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DNS_QUERY_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_QUERY_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DNS_QUERY_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1350,8 +1350,8 @@ impl ::core::default::Default for DNS_SECTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SECTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SECTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DNS_SECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1505,8 +1505,8 @@ impl ::core::default::Default for DNS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DNS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DNS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1524,8 +1524,8 @@ impl ::core::clone::Clone for DNS_AAAA_DATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DNS_AAAA_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_AAAA_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DNS_AAAA_DATA {
     fn default() -> Self {
@@ -1548,8 +1548,8 @@ impl ::core::clone::Clone for DNS_ADDR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_ADDR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_ADDR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_ADDR {
@@ -1572,8 +1572,8 @@ impl ::core::clone::Clone for DNS_ADDR_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_ADDR_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_ADDR_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_ADDR_0 {
@@ -1605,8 +1605,8 @@ impl ::core::clone::Clone for DNS_ADDR_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_ADDR_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_ADDR_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_ADDR_ARRAY {
@@ -1631,8 +1631,8 @@ impl ::core::fmt::Debug for DNS_APPLICATION_SETTINGS {
         f.debug_struct("DNS_APPLICATION_SETTINGS").field("Version", &self.Version).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_APPLICATION_SETTINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_APPLICATION_SETTINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_APPLICATION_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
@@ -1662,8 +1662,8 @@ impl ::core::fmt::Debug for DNS_ATMA_DATA {
         f.debug_struct("DNS_ATMA_DATA").field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_ATMA_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_ATMA_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_ATMA_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -1692,8 +1692,8 @@ impl ::core::fmt::Debug for DNS_A_DATA {
         f.debug_struct("DNS_A_DATA").field("IpAddress", &self.IpAddress).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_A_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_A_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_A_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -1723,8 +1723,8 @@ impl ::core::fmt::Debug for DNS_CONNECTION_IFINDEX_ENTRY {
         f.debug_struct("DNS_CONNECTION_IFINDEX_ENTRY").field("pwszConnectionName", &self.pwszConnectionName).field("dwIfIndex", &self.dwIfIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_IFINDEX_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_IFINDEX_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_IFINDEX_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -1754,8 +1754,8 @@ impl ::core::fmt::Debug for DNS_CONNECTION_IFINDEX_LIST {
         f.debug_struct("DNS_CONNECTION_IFINDEX_LIST").field("pConnectionIfIndexEntries", &self.pConnectionIfIndexEntries).field("nEntries", &self.nEntries).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_IFINDEX_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_IFINDEX_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_IFINDEX_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -1784,8 +1784,8 @@ impl ::core::fmt::Debug for DNS_CONNECTION_NAME {
         f.debug_struct("DNS_CONNECTION_NAME").field("wszName", &self.wszName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_NAME {
     fn eq(&self, other: &Self) -> bool {
@@ -1815,8 +1815,8 @@ impl ::core::fmt::Debug for DNS_CONNECTION_NAME_LIST {
         f.debug_struct("DNS_CONNECTION_NAME_LIST").field("cNames", &self.cNames).field("pNames", &self.pNames).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_NAME_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_NAME_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_NAME_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -1851,8 +1851,8 @@ impl ::core::fmt::Debug for DNS_CONNECTION_POLICY_ENTRY {
         f.debug_struct("DNS_CONNECTION_POLICY_ENTRY").field("pwszHost", &self.pwszHost).field("pwszAppId", &self.pwszAppId).field("cbAppSid", &self.cbAppSid).field("pbAppSid", &self.pbAppSid).field("nConnections", &self.nConnections).field("ppwszConnections", &self.ppwszConnections).field("dwPolicyEntryFlags", &self.dwPolicyEntryFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_POLICY_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_POLICY_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_POLICY_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -1882,8 +1882,8 @@ impl ::core::fmt::Debug for DNS_CONNECTION_POLICY_ENTRY_LIST {
         f.debug_struct("DNS_CONNECTION_POLICY_ENTRY_LIST").field("pPolicyEntries", &self.pPolicyEntries).field("nEntries", &self.nEntries).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_POLICY_ENTRY_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_POLICY_ENTRY_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_POLICY_ENTRY_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -1908,8 +1908,8 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_ELEMENT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_ELEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_PROXY_ELEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DNS_CONNECTION_PROXY_ELEMENT {
     fn default() -> Self {
@@ -1931,8 +1931,8 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_PROXY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DNS_CONNECTION_PROXY_INFO {
     fn default() -> Self {
@@ -1951,8 +1951,8 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_PROXY_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DNS_CONNECTION_PROXY_INFO_0 {
     fn default() -> Self {
@@ -1980,8 +1980,8 @@ impl ::core::fmt::Debug for DNS_CONNECTION_PROXY_INFO_0_0 {
         f.debug_struct("DNS_CONNECTION_PROXY_INFO_0_0").field("pwszServer", &self.pwszServer).field("pwszUsername", &self.pwszUsername).field("pwszPassword", &self.pwszPassword).field("pwszException", &self.pwszException).field("pwszExtraInfo", &self.pwszExtraInfo).field("Port", &self.Port).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_PROXY_INFO_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_PROXY_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2012,8 +2012,8 @@ impl ::core::fmt::Debug for DNS_CONNECTION_PROXY_INFO_0_1 {
         f.debug_struct("DNS_CONNECTION_PROXY_INFO_0_1").field("pwszScript", &self.pwszScript).field("pwszUsername", &self.pwszUsername).field("pwszPassword", &self.pwszPassword).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_PROXY_INFO_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_PROXY_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -2045,8 +2045,8 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_PROXY_INFO_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_CONNECTION_PROXY_INFO_EX {
@@ -2071,8 +2071,8 @@ impl ::core::fmt::Debug for DNS_CONNECTION_PROXY_LIST {
         f.debug_struct("DNS_CONNECTION_PROXY_LIST").field("cProxies", &self.cProxies).field("pProxies", &self.pProxies).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CONNECTION_PROXY_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_PROXY_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -2103,8 +2103,8 @@ impl ::core::clone::Clone for DNS_CUSTOM_SERVER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_CUSTOM_SERVER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CUSTOM_SERVER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_CUSTOM_SERVER {
@@ -2127,8 +2127,8 @@ impl ::core::clone::Clone for DNS_CUSTOM_SERVER_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_CUSTOM_SERVER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CUSTOM_SERVER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_CUSTOM_SERVER_0 {
@@ -2151,8 +2151,8 @@ impl ::core::clone::Clone for DNS_CUSTOM_SERVER_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_CUSTOM_SERVER_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_CUSTOM_SERVER_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_CUSTOM_SERVER_1 {
@@ -2177,8 +2177,8 @@ impl ::core::fmt::Debug for DNS_DHCID_DATA {
         f.debug_struct("DNS_DHCID_DATA").field("dwByteCount", &self.dwByteCount).field("DHCID", &self.DHCID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_DHCID_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_DHCID_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_DHCID_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2212,8 +2212,8 @@ impl ::core::fmt::Debug for DNS_DS_DATA {
         f.debug_struct("DNS_DS_DATA").field("wKeyTag", &self.wKeyTag).field("chAlgorithm", &self.chAlgorithm).field("chDigestType", &self.chDigestType).field("wDigestLength", &self.wDigestLength).field("wPad", &self.wPad).field("Digest", &self.Digest).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_DS_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_DS_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_DS_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2243,8 +2243,8 @@ impl ::core::clone::Clone for DNS_HEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DNS_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DNS_HEADER {
     fn default() -> Self {
@@ -2264,8 +2264,8 @@ impl ::core::clone::Clone for DNS_HEADER_EXT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DNS_HEADER_EXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_HEADER_EXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DNS_HEADER_EXT {
     fn default() -> Self {
@@ -2293,8 +2293,8 @@ impl ::core::fmt::Debug for DNS_KEY_DATA {
         f.debug_struct("DNS_KEY_DATA").field("wFlags", &self.wFlags).field("chProtocol", &self.chProtocol).field("chAlgorithm", &self.chAlgorithm).field("wKeyLength", &self.wKeyLength).field("wPad", &self.wPad).field("Key", &self.Key).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_KEY_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_KEY_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_KEY_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2329,8 +2329,8 @@ impl ::core::fmt::Debug for DNS_LOC_DATA {
         f.debug_struct("DNS_LOC_DATA").field("wVersion", &self.wVersion).field("wSize", &self.wSize).field("wHorPrec", &self.wHorPrec).field("wVerPrec", &self.wVerPrec).field("dwLatitude", &self.dwLatitude).field("dwLongitude", &self.dwLongitude).field("dwAltitude", &self.dwAltitude).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_LOC_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_LOC_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_LOC_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2359,8 +2359,8 @@ impl ::core::clone::Clone for DNS_MESSAGE_BUFFER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_MESSAGE_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_MESSAGE_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_MESSAGE_BUFFER {
@@ -2385,8 +2385,8 @@ impl ::core::fmt::Debug for DNS_MINFO_DATAA {
         f.debug_struct("DNS_MINFO_DATAA").field("pNameMailbox", &self.pNameMailbox).field("pNameErrorsMailbox", &self.pNameErrorsMailbox).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_MINFO_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_MINFO_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_MINFO_DATAA {
     fn eq(&self, other: &Self) -> bool {
@@ -2416,8 +2416,8 @@ impl ::core::fmt::Debug for DNS_MINFO_DATAW {
         f.debug_struct("DNS_MINFO_DATAW").field("pNameMailbox", &self.pNameMailbox).field("pNameErrorsMailbox", &self.pNameErrorsMailbox).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_MINFO_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_MINFO_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_MINFO_DATAW {
     fn eq(&self, other: &Self) -> bool {
@@ -2448,8 +2448,8 @@ impl ::core::fmt::Debug for DNS_MX_DATAA {
         f.debug_struct("DNS_MX_DATAA").field("pNameExchange", &self.pNameExchange).field("wPreference", &self.wPreference).field("Pad", &self.Pad).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_MX_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_MX_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_MX_DATAA {
     fn eq(&self, other: &Self) -> bool {
@@ -2480,8 +2480,8 @@ impl ::core::fmt::Debug for DNS_MX_DATAW {
         f.debug_struct("DNS_MX_DATAW").field("pNameExchange", &self.pNameExchange).field("wPreference", &self.wPreference).field("Pad", &self.Pad).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_MX_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_MX_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_MX_DATAW {
     fn eq(&self, other: &Self) -> bool {
@@ -2515,8 +2515,8 @@ impl ::core::fmt::Debug for DNS_NAPTR_DATAA {
         f.debug_struct("DNS_NAPTR_DATAA").field("wOrder", &self.wOrder).field("wPreference", &self.wPreference).field("pFlags", &self.pFlags).field("pService", &self.pService).field("pRegularExpression", &self.pRegularExpression).field("pReplacement", &self.pReplacement).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_NAPTR_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_NAPTR_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_NAPTR_DATAA {
     fn eq(&self, other: &Self) -> bool {
@@ -2550,8 +2550,8 @@ impl ::core::fmt::Debug for DNS_NAPTR_DATAW {
         f.debug_struct("DNS_NAPTR_DATAW").field("wOrder", &self.wOrder).field("wPreference", &self.wPreference).field("pFlags", &self.pFlags).field("pService", &self.pService).field("pRegularExpression", &self.pRegularExpression).field("pReplacement", &self.pReplacement).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_NAPTR_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_NAPTR_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_NAPTR_DATAW {
     fn eq(&self, other: &Self) -> bool {
@@ -2585,8 +2585,8 @@ impl ::core::fmt::Debug for DNS_NSEC3PARAM_DATA {
         f.debug_struct("DNS_NSEC3PARAM_DATA").field("chAlgorithm", &self.chAlgorithm).field("bFlags", &self.bFlags).field("wIterations", &self.wIterations).field("bSaltLength", &self.bSaltLength).field("bPad", &self.bPad).field("pbSalt", &self.pbSalt).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_NSEC3PARAM_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_NSEC3PARAM_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_NSEC3PARAM_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2621,8 +2621,8 @@ impl ::core::fmt::Debug for DNS_NSEC3_DATA {
         f.debug_struct("DNS_NSEC3_DATA").field("chAlgorithm", &self.chAlgorithm).field("bFlags", &self.bFlags).field("wIterations", &self.wIterations).field("bSaltLength", &self.bSaltLength).field("bHashLength", &self.bHashLength).field("wTypeBitMapsLength", &self.wTypeBitMapsLength).field("chData", &self.chData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_NSEC3_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_NSEC3_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_NSEC3_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2654,8 +2654,8 @@ impl ::core::fmt::Debug for DNS_NSEC_DATAA {
         f.debug_struct("DNS_NSEC_DATAA").field("pNextDomainName", &self.pNextDomainName).field("wTypeBitMapsLength", &self.wTypeBitMapsLength).field("wPad", &self.wPad).field("TypeBitMaps", &self.TypeBitMaps).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_NSEC_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_NSEC_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_NSEC_DATAA {
     fn eq(&self, other: &Self) -> bool {
@@ -2687,8 +2687,8 @@ impl ::core::fmt::Debug for DNS_NSEC_DATAW {
         f.debug_struct("DNS_NSEC_DATAW").field("pNextDomainName", &self.pNextDomainName).field("wTypeBitMapsLength", &self.wTypeBitMapsLength).field("wPad", &self.wPad).field("TypeBitMaps", &self.TypeBitMaps).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_NSEC_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_NSEC_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_NSEC_DATAW {
     fn eq(&self, other: &Self) -> bool {
@@ -2718,8 +2718,8 @@ impl ::core::fmt::Debug for DNS_NULL_DATA {
         f.debug_struct("DNS_NULL_DATA").field("dwByteCount", &self.dwByteCount).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_NULL_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_NULL_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_NULL_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2750,8 +2750,8 @@ impl ::core::fmt::Debug for DNS_NXT_DATAA {
         f.debug_struct("DNS_NXT_DATAA").field("pNameNext", &self.pNameNext).field("wNumTypes", &self.wNumTypes).field("wTypes", &self.wTypes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_NXT_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_NXT_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_NXT_DATAA {
     fn eq(&self, other: &Self) -> bool {
@@ -2782,8 +2782,8 @@ impl ::core::fmt::Debug for DNS_NXT_DATAW {
         f.debug_struct("DNS_NXT_DATAW").field("pNameNext", &self.pNameNext).field("wNumTypes", &self.wNumTypes).field("wTypes", &self.wTypes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_NXT_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_NXT_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_NXT_DATAW {
     fn eq(&self, other: &Self) -> bool {
@@ -2814,8 +2814,8 @@ impl ::core::fmt::Debug for DNS_OPT_DATA {
         f.debug_struct("DNS_OPT_DATA").field("wDataLength", &self.wDataLength).field("wPad", &self.wPad).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_OPT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_OPT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_OPT_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2846,8 +2846,8 @@ impl ::core::fmt::Debug for DNS_PROXY_INFORMATION {
         f.debug_struct("DNS_PROXY_INFORMATION").field("version", &self.version).field("proxyInformationType", &self.proxyInformationType).field("proxyName", &self.proxyName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_PROXY_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_PROXY_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_PROXY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -2876,8 +2876,8 @@ impl ::core::fmt::Debug for DNS_PTR_DATAA {
         f.debug_struct("DNS_PTR_DATAA").field("pNameHost", &self.pNameHost).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_PTR_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_PTR_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_PTR_DATAA {
     fn eq(&self, other: &Self) -> bool {
@@ -2906,8 +2906,8 @@ impl ::core::fmt::Debug for DNS_PTR_DATAW {
         f.debug_struct("DNS_PTR_DATAW").field("pNameHost", &self.pNameHost).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_PTR_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_PTR_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_PTR_DATAW {
     fn eq(&self, other: &Self) -> bool {
@@ -2941,8 +2941,8 @@ impl ::core::fmt::Debug for DNS_QUERY_CANCEL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_QUERY_CANCEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_QUERY_CANCEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_QUERY_CANCEL {
@@ -2986,8 +2986,8 @@ impl ::core::fmt::Debug for DNS_QUERY_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_QUERY_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_QUERY_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_QUERY_REQUEST {
@@ -3039,8 +3039,8 @@ impl ::core::fmt::Debug for DNS_QUERY_REQUEST3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_QUERY_REQUEST3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_QUERY_REQUEST3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_QUERY_REQUEST3 {
@@ -3073,8 +3073,8 @@ impl ::core::fmt::Debug for DNS_QUERY_RESULT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_QUERY_RESULT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_QUERY_RESULT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_QUERY_RESULT {
@@ -3112,8 +3112,8 @@ impl ::core::clone::Clone for DNS_RECORDA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_RECORDA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_RECORDA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORDA {
@@ -3219,8 +3219,8 @@ impl ::core::clone::Clone for DNS_RECORDA_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_RECORDA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_RECORDA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORDA_0 {
@@ -3244,8 +3244,8 @@ impl ::core::clone::Clone for DNS_RECORDA_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_RECORDA_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_RECORDA_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORDA_1 {
@@ -3275,8 +3275,8 @@ impl ::core::clone::Clone for DNS_RECORDW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_RECORDW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_RECORDW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORDW {
@@ -3382,8 +3382,8 @@ impl ::core::clone::Clone for DNS_RECORDW_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_RECORDW_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_RECORDW_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORDW_0 {
@@ -3407,8 +3407,8 @@ impl ::core::clone::Clone for DNS_RECORDW_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_RECORDW_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_RECORDW_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORDW_1 {
@@ -3432,8 +3432,8 @@ impl ::core::fmt::Debug for DNS_RECORD_FLAGS {
         f.debug_struct("DNS_RECORD_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_RECORD_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_RECORD_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_RECORD_FLAGS {
     fn eq(&self, other: &Self) -> bool {
@@ -3469,8 +3469,8 @@ impl ::core::clone::Clone for DNS_RECORD_OPTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_RECORD_OPTW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_RECORD_OPTW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORD_OPTW {
@@ -3494,8 +3494,8 @@ impl ::core::clone::Clone for DNS_RECORD_OPTW_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_RECORD_OPTW_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_RECORD_OPTW_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORD_OPTW_0 {
@@ -3519,8 +3519,8 @@ impl ::core::clone::Clone for DNS_RECORD_OPTW_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_RECORD_OPTW_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_RECORD_OPTW_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORD_OPTW_1 {
@@ -3550,8 +3550,8 @@ impl ::core::fmt::Debug for DNS_RRSET {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_RRSET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_RRSET {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_RRSET {
@@ -3586,8 +3586,8 @@ impl ::core::clone::Clone for DNS_SERVICE_BROWSE_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_SERVICE_BROWSE_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SERVICE_BROWSE_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_SERVICE_BROWSE_REQUEST {
@@ -3611,8 +3611,8 @@ impl ::core::clone::Clone for DNS_SERVICE_BROWSE_REQUEST_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_SERVICE_BROWSE_REQUEST_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SERVICE_BROWSE_REQUEST_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_SERVICE_BROWSE_REQUEST_0 {
@@ -3636,8 +3636,8 @@ impl ::core::fmt::Debug for DNS_SERVICE_CANCEL {
         f.debug_struct("DNS_SERVICE_CANCEL").field("reserved", &self.reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SERVICE_CANCEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SERVICE_CANCEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_SERVICE_CANCEL {
     fn eq(&self, other: &Self) -> bool {
@@ -3676,8 +3676,8 @@ impl ::core::fmt::Debug for DNS_SERVICE_INSTANCE {
         f.debug_struct("DNS_SERVICE_INSTANCE").field("pszInstanceName", &self.pszInstanceName).field("pszHostName", &self.pszHostName).field("ip4Address", &self.ip4Address).field("ip6Address", &self.ip6Address).field("wPort", &self.wPort).field("wPriority", &self.wPriority).field("wWeight", &self.wWeight).field("dwPropertyCount", &self.dwPropertyCount).field("keys", &self.keys).field("values", &self.values).field("dwInterfaceIndex", &self.dwInterfaceIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SERVICE_INSTANCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SERVICE_INSTANCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_SERVICE_INSTANCE {
     fn eq(&self, other: &Self) -> bool {
@@ -3717,8 +3717,8 @@ impl ::core::fmt::Debug for DNS_SERVICE_REGISTER_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_SERVICE_REGISTER_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SERVICE_REGISTER_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_SERVICE_REGISTER_REQUEST {
@@ -3746,8 +3746,8 @@ impl ::core::fmt::Debug for DNS_SERVICE_RESOLVE_REQUEST {
         f.debug_struct("DNS_SERVICE_RESOLVE_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("QueryName", &self.QueryName).field("pQueryContext", &self.pQueryContext).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SERVICE_RESOLVE_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SERVICE_RESOLVE_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DNS_SERVICE_RESOLVE_REQUEST {
     fn default() -> Self {
@@ -3779,8 +3779,8 @@ impl ::core::fmt::Debug for DNS_SIG_DATAA {
         f.debug_struct("DNS_SIG_DATAA").field("wTypeCovered", &self.wTypeCovered).field("chAlgorithm", &self.chAlgorithm).field("chLabelCount", &self.chLabelCount).field("dwOriginalTtl", &self.dwOriginalTtl).field("dwExpiration", &self.dwExpiration).field("dwTimeSigned", &self.dwTimeSigned).field("wKeyTag", &self.wKeyTag).field("wSignatureLength", &self.wSignatureLength).field("pNameSigner", &self.pNameSigner).field("Signature", &self.Signature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SIG_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SIG_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_SIG_DATAA {
     fn eq(&self, other: &Self) -> bool {
@@ -3818,8 +3818,8 @@ impl ::core::fmt::Debug for DNS_SIG_DATAW {
         f.debug_struct("DNS_SIG_DATAW").field("wTypeCovered", &self.wTypeCovered).field("chAlgorithm", &self.chAlgorithm).field("chLabelCount", &self.chLabelCount).field("dwOriginalTtl", &self.dwOriginalTtl).field("dwExpiration", &self.dwExpiration).field("dwTimeSigned", &self.dwTimeSigned).field("wKeyTag", &self.wKeyTag).field("wSignatureLength", &self.wSignatureLength).field("pNameSigner", &self.pNameSigner).field("Signature", &self.Signature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SIG_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SIG_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_SIG_DATAW {
     fn eq(&self, other: &Self) -> bool {
@@ -3854,8 +3854,8 @@ impl ::core::fmt::Debug for DNS_SOA_DATAA {
         f.debug_struct("DNS_SOA_DATAA").field("pNamePrimaryServer", &self.pNamePrimaryServer).field("pNameAdministrator", &self.pNameAdministrator).field("dwSerialNo", &self.dwSerialNo).field("dwRefresh", &self.dwRefresh).field("dwRetry", &self.dwRetry).field("dwExpire", &self.dwExpire).field("dwDefaultTtl", &self.dwDefaultTtl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SOA_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SOA_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_SOA_DATAA {
     fn eq(&self, other: &Self) -> bool {
@@ -3890,8 +3890,8 @@ impl ::core::fmt::Debug for DNS_SOA_DATAW {
         f.debug_struct("DNS_SOA_DATAW").field("pNamePrimaryServer", &self.pNamePrimaryServer).field("pNameAdministrator", &self.pNameAdministrator).field("dwSerialNo", &self.dwSerialNo).field("dwRefresh", &self.dwRefresh).field("dwRetry", &self.dwRetry).field("dwExpire", &self.dwExpire).field("dwDefaultTtl", &self.dwDefaultTtl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SOA_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SOA_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_SOA_DATAW {
     fn eq(&self, other: &Self) -> bool {
@@ -3924,8 +3924,8 @@ impl ::core::fmt::Debug for DNS_SRV_DATAA {
         f.debug_struct("DNS_SRV_DATAA").field("pNameTarget", &self.pNameTarget).field("wPriority", &self.wPriority).field("wWeight", &self.wWeight).field("wPort", &self.wPort).field("Pad", &self.Pad).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SRV_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SRV_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_SRV_DATAA {
     fn eq(&self, other: &Self) -> bool {
@@ -3958,8 +3958,8 @@ impl ::core::fmt::Debug for DNS_SRV_DATAW {
         f.debug_struct("DNS_SRV_DATAW").field("pNameTarget", &self.pNameTarget).field("wPriority", &self.wPriority).field("wWeight", &self.wWeight).field("wPort", &self.wPort).field("Pad", &self.Pad).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SRV_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SRV_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_SRV_DATAW {
     fn eq(&self, other: &Self) -> bool {
@@ -4017,8 +4017,8 @@ impl ::core::fmt::Debug for DNS_TKEY_DATAA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_TKEY_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_TKEY_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_TKEY_DATAA {
@@ -4079,8 +4079,8 @@ impl ::core::fmt::Debug for DNS_TKEY_DATAW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_TKEY_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_TKEY_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_TKEY_DATAW {
@@ -4117,8 +4117,8 @@ impl ::core::fmt::Debug for DNS_TLSA_DATA {
         f.debug_struct("DNS_TLSA_DATA").field("bCertUsage", &self.bCertUsage).field("bSelector", &self.bSelector).field("bMatchingType", &self.bMatchingType).field("bCertificateAssociationDataLength", &self.bCertificateAssociationDataLength).field("bPad", &self.bPad).field("bCertificateAssociationData", &self.bCertificateAssociationData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_TLSA_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_TLSA_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_TLSA_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -4176,8 +4176,8 @@ impl ::core::fmt::Debug for DNS_TSIG_DATAA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_TSIG_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_TSIG_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_TSIG_DATAA {
@@ -4238,8 +4238,8 @@ impl ::core::fmt::Debug for DNS_TSIG_DATAW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DNS_TSIG_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_TSIG_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_TSIG_DATAW {
@@ -4272,8 +4272,8 @@ impl ::core::fmt::Debug for DNS_TXT_DATAA {
         f.debug_struct("DNS_TXT_DATAA").field("dwStringCount", &self.dwStringCount).field("pStringArray", &self.pStringArray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_TXT_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_TXT_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_TXT_DATAA {
     fn eq(&self, other: &Self) -> bool {
@@ -4303,8 +4303,8 @@ impl ::core::fmt::Debug for DNS_TXT_DATAW {
         f.debug_struct("DNS_TXT_DATAW").field("dwStringCount", &self.dwStringCount).field("pStringArray", &self.pStringArray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_TXT_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_TXT_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_TXT_DATAW {
     fn eq(&self, other: &Self) -> bool {
@@ -4334,8 +4334,8 @@ impl ::core::fmt::Debug for DNS_UNKNOWN_DATA {
         f.debug_struct("DNS_UNKNOWN_DATA").field("dwByteCount", &self.dwByteCount).field("bData", &self.bData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_UNKNOWN_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_UNKNOWN_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_UNKNOWN_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -4367,8 +4367,8 @@ impl ::core::fmt::Debug for DNS_WINSR_DATAA {
         f.debug_struct("DNS_WINSR_DATAA").field("dwMappingFlag", &self.dwMappingFlag).field("dwLookupTimeout", &self.dwLookupTimeout).field("dwCacheTimeout", &self.dwCacheTimeout).field("pNameResultDomain", &self.pNameResultDomain).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_WINSR_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_WINSR_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_WINSR_DATAA {
     fn eq(&self, other: &Self) -> bool {
@@ -4400,8 +4400,8 @@ impl ::core::fmt::Debug for DNS_WINSR_DATAW {
         f.debug_struct("DNS_WINSR_DATAW").field("dwMappingFlag", &self.dwMappingFlag).field("dwLookupTimeout", &self.dwLookupTimeout).field("dwCacheTimeout", &self.dwCacheTimeout).field("pNameResultDomain", &self.pNameResultDomain).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_WINSR_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_WINSR_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_WINSR_DATAW {
     fn eq(&self, other: &Self) -> bool {
@@ -4434,8 +4434,8 @@ impl ::core::fmt::Debug for DNS_WINS_DATA {
         f.debug_struct("DNS_WINS_DATA").field("dwMappingFlag", &self.dwMappingFlag).field("dwLookupTimeout", &self.dwLookupTimeout).field("dwCacheTimeout", &self.dwCacheTimeout).field("cWinsServerCount", &self.cWinsServerCount).field("WinsServers", &self.WinsServers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_WINS_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_WINS_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_WINS_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -4460,8 +4460,8 @@ impl ::core::clone::Clone for DNS_WIRE_QUESTION {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DNS_WIRE_QUESTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_WIRE_QUESTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DNS_WIRE_QUESTION {
     fn default() -> Self {
@@ -4482,8 +4482,8 @@ impl ::core::clone::Clone for DNS_WIRE_RECORD {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DNS_WIRE_RECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_WIRE_RECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DNS_WIRE_RECORD {
     fn default() -> Self {
@@ -4508,8 +4508,8 @@ impl ::core::fmt::Debug for DNS_WKS_DATA {
         f.debug_struct("DNS_WKS_DATA").field("IpAddress", &self.IpAddress).field("chProtocol", &self.chProtocol).field("BitMask", &self.BitMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_WKS_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_WKS_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_WKS_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -4551,8 +4551,8 @@ impl ::core::convert::From<::core::option::Option<DnsContextHandle>> for DnsCont
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for DnsContextHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DnsContextHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -4571,8 +4571,8 @@ impl ::core::fmt::Debug for IP4_ARRAY {
         f.debug_struct("IP4_ARRAY").field("AddrCount", &self.AddrCount).field("AddrArray", &self.AddrArray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IP4_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP4_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP4_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -4603,8 +4603,8 @@ impl ::core::clone::Clone for IP6_ADDRESS {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for IP6_ADDRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP6_ADDRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for IP6_ADDRESS {
@@ -4629,8 +4629,8 @@ impl ::core::clone::Clone for IP6_ADDRESS {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for IP6_ADDRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP6_ADDRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for IP6_ADDRESS {
@@ -4658,8 +4658,8 @@ impl ::core::fmt::Debug for MDNS_QUERY_HANDLE {
         f.debug_struct("MDNS_QUERY_HANDLE").field("nameBuf", &self.nameBuf).field("wType", &self.wType).field("pSubscription", &self.pSubscription).field("pWnfCallbackParams", &self.pWnfCallbackParams).field("stateNameData", &self.stateNameData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MDNS_QUERY_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MDNS_QUERY_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MDNS_QUERY_HANDLE {
     fn eq(&self, other: &Self) -> bool {
@@ -4702,8 +4702,8 @@ impl ::core::fmt::Debug for MDNS_QUERY_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MDNS_QUERY_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MDNS_QUERY_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MDNS_QUERY_REQUEST {
@@ -4734,8 +4734,8 @@ impl ::core::clone::Clone for _DnsRecordOptA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for _DnsRecordOptA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DnsRecordOptA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for _DnsRecordOptA {
@@ -4759,8 +4759,8 @@ impl ::core::clone::Clone for _DnsRecordOptA_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for _DnsRecordOptA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DnsRecordOptA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for _DnsRecordOptA_0 {
@@ -4784,8 +4784,8 @@ impl ::core::clone::Clone for _DnsRecordOptA_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for _DnsRecordOptA_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DnsRecordOptA_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for _DnsRecordOptA_1 {

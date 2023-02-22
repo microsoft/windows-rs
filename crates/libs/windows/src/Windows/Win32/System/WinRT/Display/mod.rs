@@ -8,8 +8,8 @@ impl IDisplayDeviceInterop {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSharedHandle)(::windows::core::Vtable::as_raw(self), pobject.into().abi(), psecurityattributes, access, ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::HANDLE>();
+        (::windows::core::Vtable::vtable(self).CreateSharedHandle)(::windows::core::Vtable::as_raw(self), pobject.into().abi(), psecurityattributes, access, ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17,16 +17,11 @@ impl IDisplayDeviceInterop {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenSharedHandle)(::windows::core::Vtable::as_raw(self), nthandle.into(), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut ::core::ffi::c_void>();
+        (::windows::core::Vtable::vtable(self).OpenSharedHandle)(::windows::core::Vtable::as_raw(self), nthandle.into(), ::core::mem::transmute(riid), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDisplayDeviceInterop, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDisplayDeviceInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDisplayDeviceInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41,6 +36,11 @@ impl ::core::fmt::Debug for IDisplayDeviceInterop {
 unsafe impl ::windows::core::Vtable for IDisplayDeviceInterop {
     type Vtable = IDisplayDeviceInterop_Vtbl;
 }
+impl ::core::clone::Clone for IDisplayDeviceInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IDisplayDeviceInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64338358_366a_471b_bd56_dd8ef48e439b);
 }
@@ -49,7 +49,7 @@ unsafe impl ::windows::core::Interface for IDisplayDeviceInterop {
 pub struct IDisplayDeviceInterop_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub CreateSharedHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: *mut ::core::ffi::c_void, phandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub CreateSharedHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, phandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))]
     CreateSharedHandle: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -64,20 +64,15 @@ impl IDisplayPathInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSourcePresentationHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSourcePresentationHandle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::HANDLE>();
+        (::windows::core::Vtable::vtable(self).CreateSourcePresentationHandle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSourceId(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSourceId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetSourceId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDisplayPathInterop, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDisplayPathInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDisplayPathInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -91,6 +86,11 @@ impl ::core::fmt::Debug for IDisplayPathInterop {
 }
 unsafe impl ::windows::core::Vtable for IDisplayPathInterop {
     type Vtable = IDisplayPathInterop_Vtbl;
+}
+impl ::core::clone::Clone for IDisplayPathInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDisplayPathInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6ba4205_e59e_4e71_b25b_4e436d21ee3d);

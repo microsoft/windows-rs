@@ -4,6 +4,11 @@ pub struct IWindowManagementPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IWindowManagementPreview {
     type Vtable = IWindowManagementPreview_Vtbl;
 }
+impl ::core::clone::Clone for IWindowManagementPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowManagementPreview {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ef55b0d_561d_513c_a67c_2c02b69cef41);
 }
@@ -17,6 +22,11 @@ pub struct IWindowManagementPreview_Vtbl {
 pub struct IWindowManagementPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IWindowManagementPreviewStatics {
     type Vtable = IWindowManagementPreviewStatics_Vtbl;
+}
+impl ::core::clone::Clone for IWindowManagementPreviewStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWindowManagementPreviewStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f9725c6_c004_5a23_8fd2_8d092ce2704a);
@@ -45,11 +55,6 @@ impl WindowManagementPreview {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for WindowManagementPreview {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for WindowManagementPreview {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -61,11 +66,12 @@ impl ::core::fmt::Debug for WindowManagementPreview {
         f.debug_tuple("WindowManagementPreview").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for WindowManagementPreview {
+impl ::windows::core::RuntimeType for WindowManagementPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.Preview.WindowManagementPreview;{4ef55b0d-561d-513c-a67c-2c02b69cef41})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for WindowManagementPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for WindowManagementPreview {

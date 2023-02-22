@@ -61,8 +61,8 @@ impl ::core::default::Default for PWM_POLARITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PWM_POLARITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PWM_POLARITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PWM_POLARITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -85,8 +85,8 @@ impl ::core::fmt::Debug for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
         f.debug_struct("PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT").field("ActualPeriod", &self.ActualPeriod).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -118,8 +118,8 @@ impl ::core::fmt::Debug for PWM_CONTROLLER_INFO {
         f.debug_struct("PWM_CONTROLLER_INFO").field("Size", &self.Size).field("PinCount", &self.PinCount).field("MinimumPeriod", &self.MinimumPeriod).field("MaximumPeriod", &self.MaximumPeriod).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PWM_CONTROLLER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PWM_CONTROLLER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PWM_CONTROLLER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -148,8 +148,8 @@ impl ::core::fmt::Debug for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
         f.debug_struct("PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT").field("DesiredPeriod", &self.DesiredPeriod).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -178,8 +178,8 @@ impl ::core::fmt::Debug for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
         f.debug_struct("PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT").field("ActualPeriod", &self.ActualPeriod).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -208,8 +208,8 @@ impl ::core::fmt::Debug for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
         f.debug_struct("PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT").field("Percentage", &self.Percentage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -238,8 +238,8 @@ impl ::core::fmt::Debug for PWM_PIN_GET_POLARITY_OUTPUT {
         f.debug_struct("PWM_PIN_GET_POLARITY_OUTPUT").field("Polarity", &self.Polarity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PWM_PIN_GET_POLARITY_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PWM_PIN_GET_POLARITY_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PWM_PIN_GET_POLARITY_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -273,8 +273,8 @@ impl ::core::fmt::Debug for PWM_PIN_IS_STARTED_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PWM_PIN_IS_STARTED_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PWM_PIN_IS_STARTED_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PWM_PIN_IS_STARTED_OUTPUT {
@@ -306,8 +306,8 @@ impl ::core::fmt::Debug for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
         f.debug_struct("PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT").field("Percentage", &self.Percentage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -336,8 +336,8 @@ impl ::core::fmt::Debug for PWM_PIN_SET_POLARITY_INPUT {
         f.debug_struct("PWM_PIN_SET_POLARITY_INPUT").field("Polarity", &self.Polarity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PWM_PIN_SET_POLARITY_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PWM_PIN_SET_POLARITY_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PWM_PIN_SET_POLARITY_INPUT {
     fn eq(&self, other: &Self) -> bool {

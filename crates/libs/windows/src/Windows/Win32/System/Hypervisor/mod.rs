@@ -406,8 +406,8 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "winhvplatform.dll""system" fn WHvAcceptPartitionMigration ( migrationhandle : super::super::Foundation:: HANDLE , partition : *mut WHV_PARTITION_HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WHvAcceptPartitionMigration(migrationhandle.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<WHV_PARTITION_HANDLE>();
+    WHvAcceptPartitionMigration(migrationhandle.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -423,8 +423,8 @@ where
 #[inline]
 pub unsafe fn WHvAllocateVpciResource(providerid: ::core::option::Option<*const ::windows::core::GUID>, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: ::core::option::Option<&[u8]>) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "winhvplatform.dll""system" fn WHvAllocateVpciResource ( providerid : *const :: windows::core::GUID , flags : WHV_ALLOCATE_VPCI_RESOURCE_FLAGS , resourcedescriptor : *const ::core::ffi::c_void , resourcedescriptorsizeinbytes : u32 , vpciresource : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WHvAllocateVpciResource(::core::mem::transmute(providerid.unwrap_or(::std::ptr::null())), flags, ::core::mem::transmute(resourcedescriptor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.as_deref().map_or(0, |slice| slice.len() as _), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    WHvAllocateVpciResource(::core::mem::transmute(providerid.unwrap_or(::std::ptr::null())), flags, ::core::mem::transmute(resourcedescriptor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -468,8 +468,8 @@ where
 #[inline]
 pub unsafe fn WHvCreatePartition() -> ::windows::core::Result<WHV_PARTITION_HANDLE> {
     ::windows::core::link ! ( "winhvplatform.dll""system" fn WHvCreatePartition ( partition : *mut WHV_PARTITION_HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WHvCreatePartition(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<WHV_PARTITION_HANDLE>();
+    WHvCreatePartition(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -572,15 +572,15 @@ pub unsafe fn WHvEmulatorDestroyEmulator(emulator: *const ::core::ffi::c_void) -
 #[inline]
 pub unsafe fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext: *const WHV_X64_IO_PORT_ACCESS_CONTEXT) -> ::windows::core::Result<WHV_EMULATOR_STATUS> {
     ::windows::core::link ! ( "winhvemulation.dll""system" fn WHvEmulatorTryIoEmulation ( emulator : *const ::core::ffi::c_void , context : *const ::core::ffi::c_void , vpcontext : *const WHV_VP_EXIT_CONTEXT , ioinstructioncontext : *const WHV_X64_IO_PORT_ACCESS_CONTEXT , emulatorreturnstatus : *mut WHV_EMULATOR_STATUS ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WHvEmulatorTryIoEmulation(emulator, context, vpcontext, ioinstructioncontext, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<WHV_EMULATOR_STATUS>();
+    WHvEmulatorTryIoEmulation(emulator, context, vpcontext, ioinstructioncontext, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
 pub unsafe fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext: *const WHV_MEMORY_ACCESS_CONTEXT) -> ::windows::core::Result<WHV_EMULATOR_STATUS> {
     ::windows::core::link ! ( "winhvemulation.dll""system" fn WHvEmulatorTryMmioEmulation ( emulator : *const ::core::ffi::c_void , context : *const ::core::ffi::c_void , vpcontext : *const WHV_VP_EXIT_CONTEXT , mmioinstructioncontext : *const WHV_MEMORY_ACCESS_CONTEXT , emulatorreturnstatus : *mut WHV_EMULATOR_STATUS ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WHvEmulatorTryMmioEmulation(emulator, context, vpcontext, mmioinstructioncontext, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<WHV_EMULATOR_STATUS>();
+    WHvEmulatorTryMmioEmulation(emulator, context, vpcontext, mmioinstructioncontext, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -631,8 +631,8 @@ where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
     ::windows::core::link ! ( "winhvplatform.dll""system" fn WHvGetVirtualProcessorCpuidOutput ( partition : WHV_PARTITION_HANDLE , vpindex : u32 , eax : u32 , ecx : u32 , cpuidoutput : *mut WHV_CPUID_OUTPUT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WHvGetVirtualProcessorCpuidOutput(partition.into(), vpindex, eax, ecx, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<WHV_CPUID_OUTPUT>();
+    WHvGetVirtualProcessorCpuidOutput(partition.into(), vpindex, eax, ecx, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -945,8 +945,8 @@ where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
     ::windows::core::link ! ( "winhvplatform.dll""system" fn WHvStartPartitionMigration ( partition : WHV_PARTITION_HANDLE , migrationhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WHvStartPartitionMigration(partition.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    WHvStartPartitionMigration(partition.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -1106,8 +1106,8 @@ impl ::core::default::Default for GUEST_OS_MICROSOFT_IDS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GUEST_OS_MICROSOFT_IDS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GUEST_OS_MICROSOFT_IDS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GUEST_OS_MICROSOFT_IDS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1139,8 +1139,8 @@ impl ::core::default::Default for GUEST_OS_OPENSOURCE_IDS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GUEST_OS_OPENSOURCE_IDS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GUEST_OS_OPENSOURCE_IDS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GUEST_OS_OPENSOURCE_IDS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1170,8 +1170,8 @@ impl ::core::default::Default for GUEST_OS_VENDOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GUEST_OS_VENDOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GUEST_OS_VENDOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GUEST_OS_VENDOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1197,8 +1197,8 @@ impl ::core::default::Default for HDV_DEVICE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HDV_DEVICE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDV_DEVICE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HDV_DEVICE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1232,8 +1232,8 @@ impl ::core::default::Default for HDV_DOORBELL_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HDV_DOORBELL_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDV_DOORBELL_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HDV_DOORBELL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1261,8 +1261,8 @@ impl ::core::default::Default for HDV_MMIO_MAPPING_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HDV_MMIO_MAPPING_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDV_MMIO_MAPPING_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HDV_MMIO_MAPPING_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1329,8 +1329,8 @@ impl ::core::default::Default for HDV_PCI_BAR_SELECTOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HDV_PCI_BAR_SELECTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDV_PCI_BAR_SELECTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HDV_PCI_BAR_SELECTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1356,8 +1356,8 @@ impl ::core::default::Default for HDV_PCI_INTERFACE_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HDV_PCI_INTERFACE_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDV_PCI_INTERFACE_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HDV_PCI_INTERFACE_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1391,8 +1391,8 @@ impl ::core::default::Default for PAGING_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PAGING_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAGING_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PAGING_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1732,8 +1732,8 @@ impl ::core::default::Default for REGISTER_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REGISTER_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REGISTER_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REGISTER_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1763,8 +1763,8 @@ impl ::core::default::Default for VIRTUAL_PROCESSOR_ARCH {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_ARCH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_ARCH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_ARCH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1796,8 +1796,8 @@ impl ::core::default::Default for VIRTUAL_PROCESSOR_VENDOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_VENDOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_VENDOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_VENDOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1825,8 +1825,8 @@ impl ::core::default::Default for WHV_ADVISE_GPA_RANGE_CODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_CODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_ADVISE_GPA_RANGE_CODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_ADVISE_GPA_RANGE_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1852,8 +1852,8 @@ impl ::core::default::Default for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1916,8 +1916,8 @@ impl ::core::default::Default for WHV_CACHE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_CACHE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_CACHE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_CACHE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1973,8 +1973,8 @@ impl ::core::default::Default for WHV_CAPABILITY_CODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_CAPABILITY_CODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_CAPABILITY_CODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_CAPABILITY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2002,8 +2002,8 @@ impl ::core::default::Default for WHV_CREATE_VPCI_DEVICE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_CREATE_VPCI_DEVICE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2092,8 +2092,8 @@ impl ::core::default::Default for WHV_EXCEPTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_EXCEPTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_EXCEPTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_EXCEPTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2119,8 +2119,8 @@ impl ::core::default::Default for WHV_INTERRUPT_DESTINATION_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_INTERRUPT_DESTINATION_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_INTERRUPT_DESTINATION_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_INTERRUPT_DESTINATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2146,8 +2146,8 @@ impl ::core::default::Default for WHV_INTERRUPT_TRIGGER_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_INTERRUPT_TRIGGER_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_INTERRUPT_TRIGGER_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_INTERRUPT_TRIGGER_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2181,8 +2181,8 @@ impl ::core::default::Default for WHV_INTERRUPT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_INTERRUPT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_INTERRUPT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_INTERRUPT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2214,8 +2214,8 @@ impl ::core::default::Default for WHV_MAP_GPA_RANGE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_MAP_GPA_RANGE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_MAP_GPA_RANGE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_MAP_GPA_RANGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2276,8 +2276,8 @@ impl ::core::default::Default for WHV_MEMORY_ACCESS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_MEMORY_ACCESS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_MEMORY_ACCESS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2305,8 +2305,8 @@ impl ::core::default::Default for WHV_MSR_ACTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_MSR_ACTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_MSR_ACTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_MSR_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2332,8 +2332,8 @@ impl ::core::default::Default for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2359,8 +2359,8 @@ impl ::core::default::Default for WHV_NOTIFICATION_PORT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_NOTIFICATION_PORT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2384,8 +2384,8 @@ impl ::core::default::Default for WHV_PARTITION_COUNTER_SET {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PARTITION_COUNTER_SET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PARTITION_COUNTER_SET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_PARTITION_COUNTER_SET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2467,8 +2467,8 @@ impl ::core::default::Default for WHV_PARTITION_PROPERTY_CODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PARTITION_PROPERTY_CODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PARTITION_PROPERTY_CODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_PARTITION_PROPERTY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2500,8 +2500,8 @@ impl ::core::default::Default for WHV_PROCESSOR_COUNTER_SET {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_COUNTER_SET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_COUNTER_SET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_PROCESSOR_COUNTER_SET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2529,8 +2529,8 @@ impl ::core::default::Default for WHV_PROCESSOR_VENDOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_VENDOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_VENDOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_PROCESSOR_VENDOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3004,8 +3004,8 @@ impl ::core::default::Default for WHV_REGISTER_NAME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_REGISTER_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_REGISTER_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_REGISTER_NAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3029,8 +3029,8 @@ impl ::core::default::Default for WHV_RUN_VP_CANCEL_REASON {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_RUN_VP_CANCEL_REASON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_RUN_VP_CANCEL_REASON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_RUN_VP_CANCEL_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3090,8 +3090,8 @@ impl ::core::default::Default for WHV_RUN_VP_EXIT_REASON {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_RUN_VP_EXIT_REASON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_RUN_VP_EXIT_REASON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_RUN_VP_EXIT_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3129,8 +3129,8 @@ impl ::core::default::Default for WHV_TRANSLATE_GVA_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_TRANSLATE_GVA_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_TRANSLATE_GVA_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_TRANSLATE_GVA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3203,8 +3203,8 @@ impl ::core::default::Default for WHV_TRANSLATE_GVA_RESULT_CODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_TRANSLATE_GVA_RESULT_CODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_TRANSLATE_GVA_RESULT_CODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_TRANSLATE_GVA_RESULT_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3232,8 +3232,8 @@ impl ::core::default::Default for WHV_TRIGGER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_TRIGGER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_TRIGGER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_TRIGGER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3257,8 +3257,8 @@ impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3290,8 +3290,8 @@ impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3319,8 +3319,8 @@ impl ::core::default::Default for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3348,8 +3348,8 @@ impl ::core::default::Default for WHV_VPCI_DEVICE_PROPERTY_CODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_PROPERTY_CODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VPCI_DEVICE_PROPERTY_CODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VPCI_DEVICE_PROPERTY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3385,8 +3385,8 @@ impl ::core::default::Default for WHV_VPCI_DEVICE_REGISTER_SPACE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_REGISTER_SPACE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VPCI_DEVICE_REGISTER_SPACE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VPCI_DEVICE_REGISTER_SPACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3412,8 +3412,8 @@ impl ::core::default::Default for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3472,8 +3472,8 @@ impl ::core::default::Default for WHV_VPCI_MMIO_RANGE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VPCI_MMIO_RANGE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VPCI_MMIO_RANGE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_VPCI_MMIO_RANGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3538,8 +3538,8 @@ impl ::core::default::Default for WHV_X64_APIC_WRITE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_APIC_WRITE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_APIC_WRITE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_X64_APIC_WRITE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3565,8 +3565,8 @@ impl ::core::default::Default for WHV_X64_CPUID_RESULT2_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_CPUID_RESULT2_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_CPUID_RESULT2_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_X64_CPUID_RESULT2_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3627,8 +3627,8 @@ impl ::core::default::Default for WHV_X64_LOCAL_APIC_EMULATION_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_LOCAL_APIC_EMULATION_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_LOCAL_APIC_EMULATION_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_X64_LOCAL_APIC_EMULATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3654,8 +3654,8 @@ impl ::core::default::Default for WHV_X64_PENDING_EVENT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EVENT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_PENDING_EVENT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_X64_PENDING_EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3683,8 +3683,8 @@ impl ::core::default::Default for WHV_X64_PENDING_INTERRUPTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_PENDING_INTERRUPTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_PENDING_INTERRUPTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_X64_PENDING_INTERRUPTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3710,8 +3710,8 @@ impl ::core::default::Default for WHV_X64_UNSUPPORTED_FEATURE_CODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_UNSUPPORTED_FEATURE_CODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_UNSUPPORTED_FEATURE_CODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WHV_X64_UNSUPPORTED_FEATURE_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3737,8 +3737,8 @@ impl ::core::fmt::Debug for DOS_IMAGE_INFO {
         f.debug_struct("DOS_IMAGE_INFO").field("PdbName", &self.PdbName).field("ImageBaseAddress", &self.ImageBaseAddress).field("ImageSize", &self.ImageSize).field("Timestamp", &self.Timestamp).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DOS_IMAGE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOS_IMAGE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DOS_IMAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3768,8 +3768,8 @@ impl ::core::fmt::Debug for GPA_MEMORY_CHUNK {
         f.debug_struct("GPA_MEMORY_CHUNK").field("GuestPhysicalStartPageIndex", &self.GuestPhysicalStartPageIndex).field("PageCount", &self.PageCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GPA_MEMORY_CHUNK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GPA_MEMORY_CHUNK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GPA_MEMORY_CHUNK {
     fn eq(&self, other: &Self) -> bool {
@@ -3795,8 +3795,8 @@ impl ::core::clone::Clone for GUEST_OS_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for GUEST_OS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GUEST_OS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for GUEST_OS_INFO {
     fn default() -> Self {
@@ -3819,8 +3819,8 @@ impl ::core::fmt::Debug for GUEST_OS_INFO_0 {
         f.debug_struct("GUEST_OS_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GUEST_OS_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GUEST_OS_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GUEST_OS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3849,8 +3849,8 @@ impl ::core::fmt::Debug for GUEST_OS_INFO_1 {
         f.debug_struct("GUEST_OS_INFO_1").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GUEST_OS_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GUEST_OS_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GUEST_OS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -3889,8 +3889,8 @@ impl ::core::fmt::Debug for HDV_PCI_DEVICE_INTERFACE {
         f.debug_struct("HDV_PCI_DEVICE_INTERFACE").field("Version", &self.Version).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HDV_PCI_DEVICE_INTERFACE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDV_PCI_DEVICE_INTERFACE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for HDV_PCI_DEVICE_INTERFACE {
     fn default() -> Self {
@@ -3920,8 +3920,8 @@ impl ::core::fmt::Debug for HDV_PCI_PNP_ID {
         f.debug_struct("HDV_PCI_PNP_ID").field("VendorID", &self.VendorID).field("DeviceID", &self.DeviceID).field("RevisionID", &self.RevisionID).field("ProgIf", &self.ProgIf).field("SubClass", &self.SubClass).field("BaseClass", &self.BaseClass).field("SubVendorID", &self.SubVendorID).field("SubSystemID", &self.SubSystemID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HDV_PCI_PNP_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDV_PCI_PNP_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HDV_PCI_PNP_ID {
     fn eq(&self, other: &Self) -> bool {
@@ -3953,8 +3953,8 @@ impl ::core::fmt::Debug for HVSOCKET_ADDRESS_INFO {
         f.debug_struct("HVSOCKET_ADDRESS_INFO").field("SystemId", &self.SystemId).field("VirtualMachineId", &self.VirtualMachineId).field("SiloId", &self.SiloId).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HVSOCKET_ADDRESS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HVSOCKET_ADDRESS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HVSOCKET_ADDRESS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3984,8 +3984,8 @@ impl ::core::fmt::Debug for MODULE_INFO {
         f.debug_struct("MODULE_INFO").field("ProcessImageName", &self.ProcessImageName).field("Image", &self.Image).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MODULE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODULE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MODULE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4022,8 +4022,8 @@ impl ::core::fmt::Debug for SOCKADDR_HV {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for SOCKADDR_HV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SOCKADDR_HV {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for SOCKADDR_HV {
@@ -4055,8 +4055,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER {
     fn default() -> Self {
@@ -4080,8 +4080,8 @@ impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_0 {
         f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_0").field("Low64", &self.Low64).field("High64", &self.High64).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4108,8 +4108,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1 {
     fn default() -> Self {
@@ -4132,8 +4132,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_0 {
     fn default() -> Self {
@@ -4152,8 +4152,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
     fn default() -> Self {
@@ -4177,8 +4177,8 @@ impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
         f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_0_0_0").field("LastFpEip", &self.LastFpEip).field("LastFpCs", &self.LastFpCs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4205,8 +4205,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_1 {
     fn default() -> Self {
@@ -4225,8 +4225,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
     fn default() -> Self {
@@ -4249,8 +4249,8 @@ impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
         f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_1_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4280,8 +4280,8 @@ impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_2 {
         f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_2").field("Limit", &self.Limit).field("Base", &self.Base).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4307,8 +4307,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_3 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_3 {
     fn default() -> Self {
@@ -4327,8 +4327,8 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
     fn default() -> Self {
@@ -4352,8 +4352,8 @@ impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
         f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_3_0_0").field("LastFpDp", &self.LastFpDp).field("LastFpDs", &self.LastFpDs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4383,8 +4383,8 @@ impl ::core::fmt::Debug for VM_GENCOUNTER {
         f.debug_struct("VM_GENCOUNTER").field("GenerationCount", &self.GenerationCount).field("GenerationCountHigh", &self.GenerationCountHigh).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VM_GENCOUNTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VM_GENCOUNTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VM_GENCOUNTER {
     fn eq(&self, other: &Self) -> bool {
@@ -4409,8 +4409,8 @@ impl ::core::clone::Clone for WHV_ACCESS_GPA_CONTROLS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_ACCESS_GPA_CONTROLS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_ACCESS_GPA_CONTROLS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_ACCESS_GPA_CONTROLS {
     fn default() -> Self {
@@ -4434,8 +4434,8 @@ impl ::core::fmt::Debug for WHV_ACCESS_GPA_CONTROLS_0 {
         f.debug_struct("WHV_ACCESS_GPA_CONTROLS_0").field("CacheType", &self.CacheType).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_ACCESS_GPA_CONTROLS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_ACCESS_GPA_CONTROLS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_ACCESS_GPA_CONTROLS_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4459,8 +4459,8 @@ impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_ADVISE_GPA_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_ADVISE_GPA_RANGE {
     fn default() -> Self {
@@ -4479,8 +4479,8 @@ impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_POPULATE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_POPULATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_ADVISE_GPA_RANGE_POPULATE {
     fn default() -> Self {
@@ -4499,8 +4499,8 @@ impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     fn default() -> Self {
@@ -4523,8 +4523,8 @@ impl ::core::fmt::Debug for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
         f.debug_struct("WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4568,8 +4568,8 @@ impl ::core::clone::Clone for WHV_CAPABILITY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WHV_CAPABILITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_CAPABILITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WHV_CAPABILITY {
@@ -4589,8 +4589,8 @@ impl ::core::clone::Clone for WHV_CAPABILITY_FEATURES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_CAPABILITY_FEATURES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_CAPABILITY_FEATURES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_CAPABILITY_FEATURES {
     fn default() -> Self {
@@ -4613,8 +4613,8 @@ impl ::core::fmt::Debug for WHV_CAPABILITY_FEATURES_0 {
         f.debug_struct("WHV_CAPABILITY_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_CAPABILITY_FEATURES_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_CAPABILITY_FEATURES_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_CAPABILITY_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4647,8 +4647,8 @@ impl ::core::fmt::Debug for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
         f.debug_struct("WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP").field("_bitfield", &self._bitfield).field("HighestFrequencyMhz", &self.HighestFrequencyMhz).field("NominalFrequencyMhz", &self.NominalFrequencyMhz).field("LowestFrequencyMhz", &self.LowestFrequencyMhz).field("FrequencyStepMhz", &self.FrequencyStepMhz).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     fn eq(&self, other: &Self) -> bool {
@@ -4680,8 +4680,8 @@ impl ::core::fmt::Debug for WHV_CPUID_OUTPUT {
         f.debug_struct("WHV_CPUID_OUTPUT").field("Eax", &self.Eax).field("Ebx", &self.Ebx).field("Ecx", &self.Ecx).field("Edx", &self.Edx).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_CPUID_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_CPUID_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_CPUID_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -4713,8 +4713,8 @@ impl ::core::fmt::Debug for WHV_DOORBELL_MATCH_DATA {
         f.debug_struct("WHV_DOORBELL_MATCH_DATA").field("GuestAddress", &self.GuestAddress).field("Value", &self.Value).field("Length", &self.Length).field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_DOORBELL_MATCH_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_DOORBELL_MATCH_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_DOORBELL_MATCH_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -4749,8 +4749,8 @@ impl ::core::fmt::Debug for WHV_EMULATOR_CALLBACKS {
         f.debug_struct("WHV_EMULATOR_CALLBACKS").field("Size", &self.Size).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_EMULATOR_CALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_EMULATOR_CALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_EMULATOR_CALLBACKS {
     fn default() -> Self {
@@ -4776,8 +4776,8 @@ impl ::core::fmt::Debug for WHV_EMULATOR_IO_ACCESS_INFO {
         f.debug_struct("WHV_EMULATOR_IO_ACCESS_INFO").field("Direction", &self.Direction).field("Port", &self.Port).field("AccessSize", &self.AccessSize).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_EMULATOR_IO_ACCESS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_EMULATOR_IO_ACCESS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_EMULATOR_IO_ACCESS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4809,8 +4809,8 @@ impl ::core::fmt::Debug for WHV_EMULATOR_MEMORY_ACCESS_INFO {
         f.debug_struct("WHV_EMULATOR_MEMORY_ACCESS_INFO").field("GpaAddress", &self.GpaAddress).field("Direction", &self.Direction).field("AccessSize", &self.AccessSize).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_EMULATOR_MEMORY_ACCESS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_EMULATOR_MEMORY_ACCESS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_EMULATOR_MEMORY_ACCESS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4835,8 +4835,8 @@ impl ::core::clone::Clone for WHV_EMULATOR_STATUS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_EMULATOR_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_EMULATOR_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_EMULATOR_STATUS {
     fn default() -> Self {
@@ -4859,8 +4859,8 @@ impl ::core::fmt::Debug for WHV_EMULATOR_STATUS_0 {
         f.debug_struct("WHV_EMULATOR_STATUS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_EMULATOR_STATUS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_EMULATOR_STATUS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_EMULATOR_STATUS_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4885,8 +4885,8 @@ impl ::core::clone::Clone for WHV_EXTENDED_VM_EXITS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_EXTENDED_VM_EXITS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_EXTENDED_VM_EXITS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_EXTENDED_VM_EXITS {
     fn default() -> Self {
@@ -4909,8 +4909,8 @@ impl ::core::fmt::Debug for WHV_EXTENDED_VM_EXITS_0 {
         f.debug_struct("WHV_EXTENDED_VM_EXITS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_EXTENDED_VM_EXITS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_EXTENDED_VM_EXITS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_EXTENDED_VM_EXITS_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4943,8 +4943,8 @@ impl ::core::clone::Clone for WHV_HYPERCALL_CONTEXT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_HYPERCALL_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_HYPERCALL_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_HYPERCALL_CONTEXT {
     fn default() -> Self {
@@ -4963,8 +4963,8 @@ impl ::core::clone::Clone for WHV_INTERNAL_ACTIVITY_REGISTER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_INTERNAL_ACTIVITY_REGISTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_INTERNAL_ACTIVITY_REGISTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_INTERNAL_ACTIVITY_REGISTER {
     fn default() -> Self {
@@ -4987,8 +4987,8 @@ impl ::core::fmt::Debug for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
         f.debug_struct("WHV_INTERNAL_ACTIVITY_REGISTER_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5019,8 +5019,8 @@ impl ::core::fmt::Debug for WHV_INTERRUPT_CONTROL {
         f.debug_struct("WHV_INTERRUPT_CONTROL").field("_bitfield", &self._bitfield).field("Destination", &self.Destination).field("Vector", &self.Vector).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_INTERRUPT_CONTROL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_INTERRUPT_CONTROL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_INTERRUPT_CONTROL {
     fn eq(&self, other: &Self) -> bool {
@@ -5049,8 +5049,8 @@ impl ::core::clone::Clone for WHV_MEMORY_ACCESS_CONTEXT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_MEMORY_ACCESS_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_MEMORY_ACCESS_CONTEXT {
     fn default() -> Self {
@@ -5069,8 +5069,8 @@ impl ::core::clone::Clone for WHV_MEMORY_ACCESS_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_MEMORY_ACCESS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_MEMORY_ACCESS_INFO {
     fn default() -> Self {
@@ -5093,8 +5093,8 @@ impl ::core::fmt::Debug for WHV_MEMORY_ACCESS_INFO_0 {
         f.debug_struct("WHV_MEMORY_ACCESS_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_MEMORY_ACCESS_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_MEMORY_ACCESS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5124,8 +5124,8 @@ impl ::core::fmt::Debug for WHV_MEMORY_RANGE_ENTRY {
         f.debug_struct("WHV_MEMORY_RANGE_ENTRY").field("GuestAddress", &self.GuestAddress).field("SizeInBytes", &self.SizeInBytes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_MEMORY_RANGE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_MEMORY_RANGE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_MEMORY_RANGE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -5157,8 +5157,8 @@ impl ::core::fmt::Debug for WHV_MSR_ACTION_ENTRY {
         f.debug_struct("WHV_MSR_ACTION_ENTRY").field("Index", &self.Index).field("ReadAction", &self.ReadAction).field("WriteAction", &self.WriteAction).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_MSR_ACTION_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_MSR_ACTION_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_MSR_ACTION_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -5184,8 +5184,8 @@ impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_NOTIFICATION_PORT_PARAMETERS {
     fn default() -> Self {
@@ -5204,8 +5204,8 @@ impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     fn default() -> Self {
@@ -5228,8 +5228,8 @@ impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
         f.debug_struct("WHV_NOTIFICATION_PORT_PARAMETERS_0_0").field("ConnectionId", &self.ConnectionId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5271,8 +5271,8 @@ impl ::core::convert::From<::core::option::Option<WHV_PARTITION_HANDLE>> for WHV
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PARTITION_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PARTITION_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -5292,8 +5292,8 @@ impl ::core::fmt::Debug for WHV_PARTITION_MEMORY_COUNTERS {
         f.debug_struct("WHV_PARTITION_MEMORY_COUNTERS").field("Mapped4KPageCount", &self.Mapped4KPageCount).field("Mapped2MPageCount", &self.Mapped2MPageCount).field("Mapped1GPageCount", &self.Mapped1GPageCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PARTITION_MEMORY_COUNTERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PARTITION_MEMORY_COUNTERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PARTITION_MEMORY_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5350,8 +5350,8 @@ impl ::core::clone::Clone for WHV_PARTITION_PROPERTY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WHV_PARTITION_PROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PARTITION_PROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WHV_PARTITION_PROPERTY {
@@ -5379,8 +5379,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_APIC_COUNTERS {
         f.debug_struct("WHV_PROCESSOR_APIC_COUNTERS").field("MmioAccessCount", &self.MmioAccessCount).field("EoiAccessCount", &self.EoiAccessCount).field("TprAccessCount", &self.TprAccessCount).field("SentIpiCount", &self.SentIpiCount).field("SelfIpiCount", &self.SelfIpiCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_APIC_COUNTERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_APIC_COUNTERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_APIC_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5411,8 +5411,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_EVENT_COUNTERS {
         f.debug_struct("WHV_PROCESSOR_EVENT_COUNTERS").field("PageFaultCount", &self.PageFaultCount).field("ExceptionCount", &self.ExceptionCount).field("InterruptCount", &self.InterruptCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_EVENT_COUNTERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_EVENT_COUNTERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_EVENT_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5437,8 +5437,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES {
     fn default() -> Self {
@@ -5461,8 +5461,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_FEATURES_0 {
         f.debug_struct("WHV_PROCESSOR_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5487,8 +5487,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES1 {
     fn default() -> Self {
@@ -5511,8 +5511,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_FEATURES1_0 {
         f.debug_struct("WHV_PROCESSOR_FEATURES1_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_FEATURES1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5538,8 +5538,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_BANKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES_BANKS {
     fn default() -> Self {
@@ -5558,8 +5558,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_BANKS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES_BANKS_0 {
     fn default() -> Self {
@@ -5578,8 +5578,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     fn default() -> Self {
@@ -5603,8 +5603,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_INTERCEPT_COUNTER {
         f.debug_struct("WHV_PROCESSOR_INTERCEPT_COUNTER").field("Count", &self.Count).field("Time100ns", &self.Time100ns).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_INTERCEPT_COUNTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_INTERCEPT_COUNTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_INTERCEPT_COUNTER {
     fn eq(&self, other: &Self) -> bool {
@@ -5661,8 +5661,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_INTERCEPT_COUNTERS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_INTERCEPT_COUNTERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_INTERCEPT_COUNTERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_INTERCEPT_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5687,8 +5687,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_PERFMON_FEATURES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_PERFMON_FEATURES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_PERFMON_FEATURES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_PERFMON_FEATURES {
     fn default() -> Self {
@@ -5711,8 +5711,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_PERFMON_FEATURES_0 {
         f.debug_struct("WHV_PROCESSOR_PERFMON_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_PERFMON_FEATURES_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_PERFMON_FEATURES_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_PERFMON_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5742,8 +5742,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_RUNTIME_COUNTERS {
         f.debug_struct("WHV_PROCESSOR_RUNTIME_COUNTERS").field("TotalRuntime100ns", &self.TotalRuntime100ns).field("HypervisorRuntime100ns", &self.HypervisorRuntime100ns).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_RUNTIME_COUNTERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_RUNTIME_COUNTERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_RUNTIME_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5784,8 +5784,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5810,8 +5810,8 @@ impl ::core::clone::Clone for WHV_PROCESSOR_XSAVE_FEATURES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_XSAVE_FEATURES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_XSAVE_FEATURES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_PROCESSOR_XSAVE_FEATURES {
     fn default() -> Self {
@@ -5834,8 +5834,8 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_XSAVE_FEATURES_0 {
         f.debug_struct("WHV_PROCESSOR_XSAVE_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_PROCESSOR_XSAVE_FEATURES_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_PROCESSOR_XSAVE_FEATURES_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_XSAVE_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5875,8 +5875,8 @@ impl ::core::clone::Clone for WHV_REGISTER_VALUE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_REGISTER_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_REGISTER_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_REGISTER_VALUE {
     fn default() -> Self {
@@ -5899,8 +5899,8 @@ impl ::core::fmt::Debug for WHV_RUN_VP_CANCELED_CONTEXT {
         f.debug_struct("WHV_RUN_VP_CANCELED_CONTEXT").field("CancelReason", &self.CancelReason).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_RUN_VP_CANCELED_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_RUN_VP_CANCELED_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_RUN_VP_CANCELED_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -5927,8 +5927,8 @@ impl ::core::clone::Clone for WHV_RUN_VP_EXIT_CONTEXT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_RUN_VP_EXIT_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_RUN_VP_EXIT_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_RUN_VP_EXIT_CONTEXT {
     fn default() -> Self {
@@ -5960,8 +5960,8 @@ impl ::core::clone::Clone for WHV_RUN_VP_EXIT_CONTEXT_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_RUN_VP_EXIT_CONTEXT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_RUN_VP_EXIT_CONTEXT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
     fn default() -> Self {
@@ -5980,8 +5980,8 @@ impl ::core::clone::Clone for WHV_SCHEDULER_FEATURES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_SCHEDULER_FEATURES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_SCHEDULER_FEATURES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_SCHEDULER_FEATURES {
     fn default() -> Self {
@@ -6004,8 +6004,8 @@ impl ::core::fmt::Debug for WHV_SCHEDULER_FEATURES_0 {
         f.debug_struct("WHV_SCHEDULER_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_SCHEDULER_FEATURES_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_SCHEDULER_FEATURES_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_SCHEDULER_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6042,8 +6042,8 @@ impl ::core::fmt::Debug for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WHV_SRIOV_RESOURCE_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_SRIOV_RESOURCE_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WHV_SRIOV_RESOURCE_DESCRIPTOR {
@@ -6078,8 +6078,8 @@ impl ::core::fmt::Debug for WHV_SYNIC_EVENT_PARAMETERS {
         f.debug_struct("WHV_SYNIC_EVENT_PARAMETERS").field("VpIndex", &self.VpIndex).field("TargetSint", &self.TargetSint).field("Reserved", &self.Reserved).field("FlagNumber", &self.FlagNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_SYNIC_EVENT_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_SYNIC_EVENT_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_SYNIC_EVENT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -6110,8 +6110,8 @@ impl ::core::fmt::Debug for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
         f.debug_struct("WHV_SYNIC_SINT_DELIVERABLE_CONTEXT").field("DeliverableSints", &self.DeliverableSints).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6136,8 +6136,8 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES {
     fn default() -> Self {
@@ -6160,8 +6160,8 @@ impl ::core::fmt::Debug for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
         f.debug_struct("WHV_SYNTHETIC_PROCESSOR_FEATURES_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6187,8 +6187,8 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     fn default() -> Self {
@@ -6207,8 +6207,8 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     fn default() -> Self {
@@ -6226,8 +6226,8 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     fn default() -> Self {
@@ -6251,8 +6251,8 @@ impl ::core::fmt::Debug for WHV_TRANSLATE_GVA_RESULT {
         f.debug_struct("WHV_TRANSLATE_GVA_RESULT").field("ResultCode", &self.ResultCode).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_TRANSLATE_GVA_RESULT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_TRANSLATE_GVA_RESULT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_TRANSLATE_GVA_RESULT {
     fn eq(&self, other: &Self) -> bool {
@@ -6278,8 +6278,8 @@ impl ::core::clone::Clone for WHV_TRIGGER_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_TRIGGER_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_TRIGGER_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_TRIGGER_PARAMETERS {
     fn default() -> Self {
@@ -6299,8 +6299,8 @@ impl ::core::clone::Clone for WHV_TRIGGER_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_TRIGGER_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_TRIGGER_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_TRIGGER_PARAMETERS_0 {
     fn default() -> Self {
@@ -6326,8 +6326,8 @@ impl ::core::fmt::Debug for WHV_TRIGGER_PARAMETERS_0_0 {
         f.debug_struct("WHV_TRIGGER_PARAMETERS_0_0").field("LogicalDeviceId", &self.LogicalDeviceId).field("MsiAddress", &self.MsiAddress).field("MsiData", &self.MsiData).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_TRIGGER_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_TRIGGER_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_TRIGGER_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6352,8 +6352,8 @@ impl ::core::clone::Clone for WHV_UINT128 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_UINT128 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_UINT128 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_UINT128 {
     fn default() -> Self {
@@ -6377,8 +6377,8 @@ impl ::core::fmt::Debug for WHV_UINT128_0 {
         f.debug_struct("WHV_UINT128_0").field("Low64", &self.Low64).field("High64", &self.High64).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_UINT128_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_UINT128_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_UINT128_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6404,8 +6404,8 @@ impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VIRTUAL_PROCESSOR_PROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_PROPERTY {
     fn default() -> Self {
@@ -6424,8 +6424,8 @@ impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     fn default() -> Self {
@@ -6445,8 +6445,8 @@ impl ::core::clone::Clone for WHV_VPCI_DEVICE_NOTIFICATION {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_VPCI_DEVICE_NOTIFICATION {
     fn default() -> Self {
@@ -6464,8 +6464,8 @@ impl ::core::clone::Clone for WHV_VPCI_DEVICE_NOTIFICATION_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_NOTIFICATION_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_VPCI_DEVICE_NOTIFICATION_0 {
     fn default() -> Self {
@@ -6490,8 +6490,8 @@ impl ::core::fmt::Debug for WHV_VPCI_DEVICE_REGISTER {
         f.debug_struct("WHV_VPCI_DEVICE_REGISTER").field("Location", &self.Location).field("SizeInBytes", &self.SizeInBytes).field("OffsetInBytes", &self.OffsetInBytes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_REGISTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VPCI_DEVICE_REGISTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_DEVICE_REGISTER {
     fn eq(&self, other: &Self) -> bool {
@@ -6527,8 +6527,8 @@ impl ::core::fmt::Debug for WHV_VPCI_HARDWARE_IDS {
         f.debug_struct("WHV_VPCI_HARDWARE_IDS").field("VendorID", &self.VendorID).field("DeviceID", &self.DeviceID).field("RevisionID", &self.RevisionID).field("ProgIf", &self.ProgIf).field("SubClass", &self.SubClass).field("BaseClass", &self.BaseClass).field("SubVendorID", &self.SubVendorID).field("SubSystemID", &self.SubSystemID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VPCI_HARDWARE_IDS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VPCI_HARDWARE_IDS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_HARDWARE_IDS {
     fn eq(&self, other: &Self) -> bool {
@@ -6560,8 +6560,8 @@ impl ::core::fmt::Debug for WHV_VPCI_INTERRUPT_TARGET {
         f.debug_struct("WHV_VPCI_INTERRUPT_TARGET").field("Vector", &self.Vector).field("Flags", &self.Flags).field("ProcessorCount", &self.ProcessorCount).field("Processors", &self.Processors).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VPCI_INTERRUPT_TARGET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VPCI_INTERRUPT_TARGET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_INTERRUPT_TARGET {
     fn eq(&self, other: &Self) -> bool {
@@ -6594,8 +6594,8 @@ impl ::core::fmt::Debug for WHV_VPCI_MMIO_MAPPING {
         f.debug_struct("WHV_VPCI_MMIO_MAPPING").field("Location", &self.Location).field("Flags", &self.Flags).field("SizeInBytes", &self.SizeInBytes).field("OffsetInBytes", &self.OffsetInBytes).field("VirtualAddress", &self.VirtualAddress).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VPCI_MMIO_MAPPING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VPCI_MMIO_MAPPING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_MMIO_MAPPING {
     fn eq(&self, other: &Self) -> bool {
@@ -6624,8 +6624,8 @@ impl ::core::fmt::Debug for WHV_VPCI_PROBED_BARS {
         f.debug_struct("WHV_VPCI_PROBED_BARS").field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VPCI_PROBED_BARS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VPCI_PROBED_BARS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_PROBED_BARS {
     fn eq(&self, other: &Self) -> bool {
@@ -6656,8 +6656,8 @@ impl ::core::clone::Clone for WHV_VP_EXCEPTION_CONTEXT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VP_EXCEPTION_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VP_EXCEPTION_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_VP_EXCEPTION_CONTEXT {
     fn default() -> Self {
@@ -6676,8 +6676,8 @@ impl ::core::clone::Clone for WHV_VP_EXCEPTION_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VP_EXCEPTION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VP_EXCEPTION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_VP_EXCEPTION_INFO {
     fn default() -> Self {
@@ -6700,8 +6700,8 @@ impl ::core::fmt::Debug for WHV_VP_EXCEPTION_INFO_0 {
         f.debug_struct("WHV_VP_EXCEPTION_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VP_EXCEPTION_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VP_EXCEPTION_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_VP_EXCEPTION_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6731,8 +6731,8 @@ impl ::core::clone::Clone for WHV_VP_EXIT_CONTEXT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_VP_EXIT_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_VP_EXIT_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_VP_EXIT_CONTEXT {
     fn default() -> Self {
@@ -6755,8 +6755,8 @@ impl ::core::fmt::Debug for WHV_X64_APIC_EOI_CONTEXT {
         f.debug_struct("WHV_X64_APIC_EOI_CONTEXT").field("InterruptVector", &self.InterruptVector).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_APIC_EOI_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_APIC_EOI_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_APIC_EOI_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6785,8 +6785,8 @@ impl ::core::fmt::Debug for WHV_X64_APIC_INIT_SIPI_CONTEXT {
         f.debug_struct("WHV_X64_APIC_INIT_SIPI_CONTEXT").field("ApicIcr", &self.ApicIcr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_APIC_INIT_SIPI_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_APIC_INIT_SIPI_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_APIC_INIT_SIPI_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6815,8 +6815,8 @@ impl ::core::fmt::Debug for WHV_X64_APIC_SMI_CONTEXT {
         f.debug_struct("WHV_X64_APIC_SMI_CONTEXT").field("ApicIcr", &self.ApicIcr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_APIC_SMI_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_APIC_SMI_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_APIC_SMI_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6847,8 +6847,8 @@ impl ::core::fmt::Debug for WHV_X64_APIC_WRITE_CONTEXT {
         f.debug_struct("WHV_X64_APIC_WRITE_CONTEXT").field("Type", &self.Type).field("Reserved", &self.Reserved).field("WriteValue", &self.WriteValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_APIC_WRITE_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_APIC_WRITE_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_APIC_WRITE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6884,8 +6884,8 @@ impl ::core::fmt::Debug for WHV_X64_CPUID_ACCESS_CONTEXT {
         f.debug_struct("WHV_X64_CPUID_ACCESS_CONTEXT").field("Rax", &self.Rax).field("Rcx", &self.Rcx).field("Rdx", &self.Rdx).field("Rbx", &self.Rbx).field("DefaultResultRax", &self.DefaultResultRax).field("DefaultResultRcx", &self.DefaultResultRcx).field("DefaultResultRdx", &self.DefaultResultRdx).field("DefaultResultRbx", &self.DefaultResultRbx).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_CPUID_ACCESS_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_CPUID_ACCESS_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_CPUID_ACCESS_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6919,8 +6919,8 @@ impl ::core::fmt::Debug for WHV_X64_CPUID_RESULT {
         f.debug_struct("WHV_X64_CPUID_RESULT").field("Function", &self.Function).field("Reserved", &self.Reserved).field("Eax", &self.Eax).field("Ebx", &self.Ebx).field("Ecx", &self.Ecx).field("Edx", &self.Edx).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_CPUID_RESULT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_CPUID_RESULT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_CPUID_RESULT {
     fn eq(&self, other: &Self) -> bool {
@@ -6954,8 +6954,8 @@ impl ::core::fmt::Debug for WHV_X64_CPUID_RESULT2 {
         f.debug_struct("WHV_X64_CPUID_RESULT2").field("Function", &self.Function).field("Index", &self.Index).field("VpIndex", &self.VpIndex).field("Flags", &self.Flags).field("Output", &self.Output).field("Mask", &self.Mask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_CPUID_RESULT2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_CPUID_RESULT2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_CPUID_RESULT2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6980,8 +6980,8 @@ impl ::core::clone::Clone for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
     fn default() -> Self {
@@ -7004,8 +7004,8 @@ impl ::core::fmt::Debug for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
         f.debug_struct("WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7030,8 +7030,8 @@ impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_FP_CONTROL_STATUS_REGISTER {
     fn default() -> Self {
@@ -7054,8 +7054,8 @@ impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     fn default() -> Self {
@@ -7074,8 +7074,8 @@ impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     fn default() -> Self {
@@ -7100,8 +7100,8 @@ impl ::core::fmt::Debug for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
         f.debug_struct("WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0").field("LastFpEip", &self.LastFpEip).field("LastFpCs", &self.LastFpCs).field("Reserved2", &self.Reserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7126,8 +7126,8 @@ impl ::core::clone::Clone for WHV_X64_FP_REGISTER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_FP_REGISTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_FP_REGISTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_FP_REGISTER {
     fn default() -> Self {
@@ -7151,8 +7151,8 @@ impl ::core::fmt::Debug for WHV_X64_FP_REGISTER_0 {
         f.debug_struct("WHV_X64_FP_REGISTER_0").field("Mantissa", &self.Mantissa).field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_FP_REGISTER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_FP_REGISTER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_FP_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7181,8 +7181,8 @@ impl ::core::fmt::Debug for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
         f.debug_struct("WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT").field("DeliverableType", &self.DeliverableType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -7207,8 +7207,8 @@ impl ::core::clone::Clone for WHV_X64_INTERRUPT_STATE_REGISTER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_INTERRUPT_STATE_REGISTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_INTERRUPT_STATE_REGISTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_INTERRUPT_STATE_REGISTER {
     fn default() -> Self {
@@ -7231,8 +7231,8 @@ impl ::core::fmt::Debug for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
         f.debug_struct("WHV_X64_INTERRUPT_STATE_REGISTER_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7267,8 +7267,8 @@ impl ::core::clone::Clone for WHV_X64_IO_PORT_ACCESS_CONTEXT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_IO_PORT_ACCESS_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_IO_PORT_ACCESS_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_IO_PORT_ACCESS_CONTEXT {
     fn default() -> Self {
@@ -7287,8 +7287,8 @@ impl ::core::clone::Clone for WHV_X64_IO_PORT_ACCESS_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_IO_PORT_ACCESS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_IO_PORT_ACCESS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_IO_PORT_ACCESS_INFO {
     fn default() -> Self {
@@ -7311,8 +7311,8 @@ impl ::core::fmt::Debug for WHV_X64_IO_PORT_ACCESS_INFO_0 {
         f.debug_struct("WHV_X64_IO_PORT_ACCESS_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_IO_PORT_ACCESS_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_IO_PORT_ACCESS_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_IO_PORT_ACCESS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7339,8 +7339,8 @@ impl ::core::clone::Clone for WHV_X64_MSR_ACCESS_CONTEXT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_MSR_ACCESS_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_MSR_ACCESS_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_MSR_ACCESS_CONTEXT {
     fn default() -> Self {
@@ -7359,8 +7359,8 @@ impl ::core::clone::Clone for WHV_X64_MSR_ACCESS_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_MSR_ACCESS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_MSR_ACCESS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_MSR_ACCESS_INFO {
     fn default() -> Self {
@@ -7383,8 +7383,8 @@ impl ::core::fmt::Debug for WHV_X64_MSR_ACCESS_INFO_0 {
         f.debug_struct("WHV_X64_MSR_ACCESS_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_MSR_ACCESS_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_MSR_ACCESS_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_MSR_ACCESS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7409,8 +7409,8 @@ impl ::core::clone::Clone for WHV_X64_MSR_EXIT_BITMAP {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_MSR_EXIT_BITMAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_MSR_EXIT_BITMAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_MSR_EXIT_BITMAP {
     fn default() -> Self {
@@ -7433,8 +7433,8 @@ impl ::core::fmt::Debug for WHV_X64_MSR_EXIT_BITMAP_0 {
         f.debug_struct("WHV_X64_MSR_EXIT_BITMAP_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_MSR_EXIT_BITMAP_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_MSR_EXIT_BITMAP_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_MSR_EXIT_BITMAP_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7459,8 +7459,8 @@ impl ::core::clone::Clone for WHV_X64_PENDING_DEBUG_EXCEPTION {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_PENDING_DEBUG_EXCEPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_PENDING_DEBUG_EXCEPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_PENDING_DEBUG_EXCEPTION {
     fn default() -> Self {
@@ -7483,8 +7483,8 @@ impl ::core::fmt::Debug for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
         f.debug_struct("WHV_X64_PENDING_DEBUG_EXCEPTION_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7509,8 +7509,8 @@ impl ::core::clone::Clone for WHV_X64_PENDING_EXCEPTION_EVENT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXCEPTION_EVENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_PENDING_EXCEPTION_EVENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_PENDING_EXCEPTION_EVENT {
     fn default() -> Self {
@@ -7535,8 +7535,8 @@ impl ::core::fmt::Debug for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
         f.debug_struct("WHV_X64_PENDING_EXCEPTION_EVENT_0").field("_bitfield", &self._bitfield).field("ErrorCode", &self.ErrorCode).field("ExceptionParameter", &self.ExceptionParameter).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7561,8 +7561,8 @@ impl ::core::clone::Clone for WHV_X64_PENDING_EXT_INT_EVENT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXT_INT_EVENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_PENDING_EXT_INT_EVENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_PENDING_EXT_INT_EVENT {
     fn default() -> Self {
@@ -7586,8 +7586,8 @@ impl ::core::fmt::Debug for WHV_X64_PENDING_EXT_INT_EVENT_0 {
         f.debug_struct("WHV_X64_PENDING_EXT_INT_EVENT_0").field("_bitfield", &self._bitfield).field("Reserved2", &self.Reserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXT_INT_EVENT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_PENDING_EXT_INT_EVENT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_PENDING_EXT_INT_EVENT_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7612,8 +7612,8 @@ impl ::core::clone::Clone for WHV_X64_PENDING_INTERRUPTION_REGISTER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_PENDING_INTERRUPTION_REGISTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_PENDING_INTERRUPTION_REGISTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_PENDING_INTERRUPTION_REGISTER {
     fn default() -> Self {
@@ -7637,8 +7637,8 @@ impl ::core::fmt::Debug for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
         f.debug_struct("WHV_X64_PENDING_INTERRUPTION_REGISTER_0").field("_bitfield", &self._bitfield).field("ErrorCode", &self.ErrorCode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7666,8 +7666,8 @@ impl ::core::clone::Clone for WHV_X64_RDTSC_CONTEXT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_RDTSC_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_RDTSC_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_RDTSC_CONTEXT {
     fn default() -> Self {
@@ -7686,8 +7686,8 @@ impl ::core::clone::Clone for WHV_X64_RDTSC_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_RDTSC_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_RDTSC_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_RDTSC_INFO {
     fn default() -> Self {
@@ -7710,8 +7710,8 @@ impl ::core::fmt::Debug for WHV_X64_RDTSC_INFO_0 {
         f.debug_struct("WHV_X64_RDTSC_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_RDTSC_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_RDTSC_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_RDTSC_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7738,8 +7738,8 @@ impl ::core::clone::Clone for WHV_X64_SEGMENT_REGISTER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_SEGMENT_REGISTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_SEGMENT_REGISTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_SEGMENT_REGISTER {
     fn default() -> Self {
@@ -7758,8 +7758,8 @@ impl ::core::clone::Clone for WHV_X64_SEGMENT_REGISTER_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_SEGMENT_REGISTER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_SEGMENT_REGISTER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_SEGMENT_REGISTER_0 {
     fn default() -> Self {
@@ -7782,8 +7782,8 @@ impl ::core::fmt::Debug for WHV_X64_SEGMENT_REGISTER_0_0 {
         f.debug_struct("WHV_X64_SEGMENT_REGISTER_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_SEGMENT_REGISTER_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_SEGMENT_REGISTER_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_SEGMENT_REGISTER_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7814,8 +7814,8 @@ impl ::core::fmt::Debug for WHV_X64_TABLE_REGISTER {
         f.debug_struct("WHV_X64_TABLE_REGISTER").field("Pad", &self.Pad).field("Limit", &self.Limit).field("Base", &self.Base).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_TABLE_REGISTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_TABLE_REGISTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_TABLE_REGISTER {
     fn eq(&self, other: &Self) -> bool {
@@ -7846,8 +7846,8 @@ impl ::core::fmt::Debug for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
         f.debug_struct("WHV_X64_UNSUPPORTED_FEATURE_CONTEXT").field("FeatureCode", &self.FeatureCode).field("Reserved", &self.Reserved).field("FeatureParameter", &self.FeatureParameter).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -7872,8 +7872,8 @@ impl ::core::clone::Clone for WHV_X64_VP_EXECUTION_STATE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_VP_EXECUTION_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_VP_EXECUTION_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_VP_EXECUTION_STATE {
     fn default() -> Self {
@@ -7896,8 +7896,8 @@ impl ::core::fmt::Debug for WHV_X64_VP_EXECUTION_STATE_0 {
         f.debug_struct("WHV_X64_VP_EXECUTION_STATE_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_VP_EXECUTION_STATE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_VP_EXECUTION_STATE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_VP_EXECUTION_STATE_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7922,8 +7922,8 @@ impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     fn default() -> Self {
@@ -7943,8 +7943,8 @@ impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     fn default() -> Self {
@@ -7963,8 +7963,8 @@ impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     fn default() -> Self {
@@ -7989,8 +7989,8 @@ impl ::core::fmt::Debug for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
         f.debug_struct("WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0").field("LastFpDp", &self.LastFpDp).field("LastFpDs", &self.LastFpDs).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     fn eq(&self, other: &Self) -> bool {

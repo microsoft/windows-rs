@@ -30,8 +30,8 @@ pub mod Storage;
 #[inline]
 pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::windows::core::Result<ServerInformation> {
     ::windows::core::link ! ( "ole32.dll""system" fn CoDecodeProxy ( dwclientpid : u32 , ui64proxyaddress : u64 , pserverinformation : *mut ServerInformation ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoDecodeProxy(dwclientpid, ui64proxyaddress, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<ServerInformation>();
+    CoDecodeProxy(dwclientpid, ui64proxyaddress, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -40,8 +40,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "windows.ui.dll""cdecl" fn CreateControlInput ( riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateControlInput(&<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::std::ptr::null_mut();
+    CreateControlInput(&<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -51,16 +51,16 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "windows.ui.dll""cdecl" fn CreateControlInputEx ( pcorewindow : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateControlInputEx(pcorewindow.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::std::ptr::null_mut();
+    CreateControlInputEx(pcorewindow.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"System\"`*"]
 #[cfg(feature = "System")]
 #[inline]
 pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -> ::windows::core::Result<super::super::super::System::DispatcherQueueController> {
     ::windows::core::link ! ( "coremessaging.dll""system" fn CreateDispatcherQueueController ( options : DispatcherQueueOptions , dispatcherqueuecontroller : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateDispatcherQueueController(::core::mem::transmute(options), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueueController>();
+    CreateDispatcherQueueController(::core::mem::transmute(options), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -70,8 +70,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "api-ms-win-shcore-stream-winrt-l1-1-0.dll""system" fn CreateRandomAccessStreamOnFile ( filepath : :: windows::core::PCWSTR , accessmode : u32 , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateRandomAccessStreamOnFile(filepath.into().abi(), accessmode, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::std::ptr::null_mut();
+    CreateRandomAccessStreamOnFile(filepath.into().abi(), accessmode, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -82,8 +82,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "api-ms-win-shcore-stream-winrt-l1-1-0.dll""system" fn CreateRandomAccessStreamOverStream ( stream : * mut::core::ffi::c_void , options : BSOS_OPTIONS , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateRandomAccessStreamOverStream(stream.into().abi(), options, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::std::ptr::null_mut();
+    CreateRandomAccessStreamOverStream(stream.into().abi(), options, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -93,62 +93,62 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "api-ms-win-shcore-stream-winrt-l1-1-0.dll""system" fn CreateStreamOverRandomAccessStream ( randomaccessstream : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateStreamOverRandomAccessStream(randomaccessstream.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::std::ptr::null_mut();
+    CreateStreamOverRandomAccessStream(randomaccessstream.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn GetRestrictedErrorInfo() -> ::windows::core::Result<IRestrictedErrorInfo> {
     ::windows::core::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn GetRestrictedErrorInfo ( pprestrictederrorinfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetRestrictedErrorInfo(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IRestrictedErrorInfo>();
+    GetRestrictedErrorInfo(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserFree(param0: *const u32, param1: *const ::windows::core::HSTRING) {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserFree ( param0 : *const u32 , param1 : *const * mut::core::ffi::c_void ) -> ( ) );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserFree ( param0 : *const u32 , param1 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ( ) );
     HSTRING_UserFree(param0, ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserFree64(param0: *const u32, param1: *const ::windows::core::HSTRING) {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserFree64 ( param0 : *const u32 , param1 : *const * mut::core::ffi::c_void ) -> ( ) );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserFree64 ( param0 : *const u32 , param1 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> ( ) );
     HSTRING_UserFree64(param0, ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const ::windows::core::HSTRING) -> *mut u8 {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const * mut::core::ffi::c_void ) -> *mut u8 );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> *mut u8 );
     HSTRING_UserMarshal(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const ::windows::core::HSTRING) -> *mut u8 {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const * mut::core::ffi::c_void ) -> *mut u8 );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> *mut u8 );
     HSTRING_UserMarshal64(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserSize(param0: *const u32, param1: u32, param2: *const ::windows::core::HSTRING) -> u32 {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const * mut::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> u32 );
     HSTRING_UserSize(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserSize64(param0: *const u32, param1: u32, param2: *const ::windows::core::HSTRING) -> u32 {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const * mut::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> u32 );
     HSTRING_UserSize64(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut ::windows::core::HSTRING) -> *mut u8 {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut * mut::core::ffi::c_void ) -> *mut u8 );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> *mut u8 );
     HSTRING_UserUnmarshal(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::windows::core::HSTRING) -> *mut u8 {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut * mut::core::ffi::c_void ) -> *mut u8 );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn HSTRING_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> *mut u8 );
     HSTRING_UserUnmarshal64(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
@@ -167,9 +167,9 @@ pub unsafe fn MetaDataGetDispenser(rclsid: *const ::windows::core::GUID, riid: *
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoActivateInstance(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoActivateInstance ( activatableclassid : * mut::core::ffi::c_void , instance : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoActivateInstance(::core::mem::transmute_copy(activatableclassid), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoActivateInstance ( activatableclassid : ::std::mem::MaybeUninit <::windows::core::HSTRING > , instance : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::IInspectable>();
+    RoActivateInstance(::core::mem::transmute_copy(activatableclassid), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -204,9 +204,9 @@ pub unsafe fn RoGetActivationFactory<T>(activatableclassid: &::windows::core::HS
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoGetActivationFactory ( activatableclassid : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , factory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoGetActivationFactory(::core::mem::transmute_copy(activatableclassid), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoGetActivationFactory ( activatableclassid : ::std::mem::MaybeUninit <::windows::core::HSTRING > , iid : *const :: windows::core::GUID , factory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    let mut result__ = ::std::ptr::null_mut();
+    RoGetActivationFactory(::core::mem::transmute_copy(activatableclassid), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -215,37 +215,37 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn RoGetAgileReference ( options : AgileReferenceOptions , riid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void , ppagilereference : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoGetAgileReference(options, riid, punk.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IAgileReference>();
+    RoGetAgileReference(options, riid, punk.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetApartmentIdentifier() -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoGetApartmentIdentifier ( apartmentidentifier : *mut u64 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoGetApartmentIdentifier(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<u64>();
+    RoGetApartmentIdentifier(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_System_Com_Marshal\"`*"]
 #[cfg(feature = "Win32_System_Com_Marshal")]
 #[inline]
 pub unsafe fn RoGetBufferMarshaler() -> ::windows::core::Result<super::Com::Marshal::IMarshal> {
     ::windows::core::link ! ( "api-ms-win-core-winrt-robuffer-l1-1-0.dll""system" fn RoGetBufferMarshaler ( buffermarshaler : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoGetBufferMarshaler(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::Com::Marshal::IMarshal>();
+    RoGetBufferMarshaler(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetErrorReportingFlags() -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoGetErrorReportingFlags ( pflags : *mut u32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoGetErrorReportingFlags(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<u32>();
+    RoGetErrorReportingFlags(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT) -> ::windows::core::Result<IRestrictedErrorInfo> {
     ::windows::core::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn RoGetMatchingRestrictedErrorInfo ( hrin : :: windows::core::HRESULT , pprestrictederrorinfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoGetMatchingRestrictedErrorInfo(hrin, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IRestrictedErrorInfo>();
+    RoGetMatchingRestrictedErrorInfo(hrin, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -259,7 +259,7 @@ where
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetServerActivatableClasses(servername: &::windows::core::HSTRING, activatableclassids: *mut *mut ::windows::core::HSTRING, count: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-registration-l1-1-0.dll""system" fn RoGetServerActivatableClasses ( servername : * mut::core::ffi::c_void , activatableclassids : *mut *mut :: windows::core::HSTRING , count : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-registration-l1-1-0.dll""system" fn RoGetServerActivatableClasses ( servername : ::std::mem::MaybeUninit <::windows::core::HSTRING > , activatableclassids : *mut *mut :: windows::core::HSTRING , count : *mut u32 ) -> :: windows::core::HRESULT );
     RoGetServerActivatableClasses(::core::mem::transmute_copy(servername), activatableclassids, count).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -278,14 +278,14 @@ pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, mac
 #[inline]
 pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<usize> {
     ::windows::core::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn RoInspectThreadErrorInfo ( targettebaddress : usize , machine : u16 , readmemorycallback : PINSPECT_MEMORY_CALLBACK , context : *const ::core::ffi::c_void , targeterrorinfoaddress : *mut usize ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoInspectThreadErrorInfo(targettebaddress, machine, readmemorycallback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<usize>();
+    RoInspectThreadErrorInfo(targettebaddress, machine, readmemorycallback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoOriginateError(error: ::windows::core::HRESULT, message: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoOriginateError ( error : :: windows::core::HRESULT , message : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoOriginateError ( error : :: windows::core::HRESULT , message : ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> super::super::Foundation:: BOOL );
     RoOriginateError(error, ::core::mem::transmute_copy(message))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
@@ -302,7 +302,7 @@ pub unsafe fn RoOriginateLanguageException<P0>(error: ::windows::core::HRESULT, 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn RoOriginateLanguageException ( error : :: windows::core::HRESULT , message : * mut::core::ffi::c_void , languageexception : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn RoOriginateLanguageException ( error : :: windows::core::HRESULT , message : ::std::mem::MaybeUninit <::windows::core::HSTRING > , languageexception : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     RoOriginateLanguageException(error, ::core::mem::transmute_copy(message), languageexception.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -317,9 +317,9 @@ where
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::windows::core::HSTRING, activationfactorycallbacks: *const isize, count: u32) -> ::windows::core::Result<isize> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoRegisterActivationFactories ( activatableclassids : *const * mut::core::ffi::c_void , activationfactorycallbacks : *const isize , count : u32 , cookie : *mut isize ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoRegisterActivationFactories(::core::mem::transmute(activatableclassids), activationfactorycallbacks, count, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoRegisterActivationFactories ( activatableclassids : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > , activationfactorycallbacks : *const isize , count : u32 , cookie : *mut isize ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<isize>();
+    RoRegisterActivationFactories(::core::mem::transmute(activatableclassids), activationfactorycallbacks, count, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -356,8 +356,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoResolveRestrictedErrorInfoReference ( reference : :: windows::core::PCWSTR , pprestrictederrorinfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoResolveRestrictedErrorInfoReference(reference.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IRestrictedErrorInfo>();
+    RoResolveRestrictedErrorInfoReference(reference.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -375,7 +375,7 @@ pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::Result<()
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoTransformError(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoTransformError ( olderror : :: windows::core::HRESULT , newerror : :: windows::core::HRESULT , message : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoTransformError ( olderror : :: windows::core::HRESULT , newerror : :: windows::core::HRESULT , message : ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> super::super::Foundation:: BOOL );
     RoTransformError(olderror, newerror, ::core::mem::transmute_copy(message))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
@@ -412,23 +412,23 @@ where
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsCompareStringOrdinal(string1: &::windows::core::HSTRING, string2: &::windows::core::HSTRING) -> ::windows::core::Result<i32> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsCompareStringOrdinal ( string1 : * mut::core::ffi::c_void , string2 : * mut::core::ffi::c_void , result : *mut i32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsCompareStringOrdinal(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsCompareStringOrdinal ( string1 : ::std::mem::MaybeUninit <::windows::core::HSTRING > , string2 : ::std::mem::MaybeUninit <::windows::core::HSTRING > , result : *mut i32 ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<i32>();
+    WindowsCompareStringOrdinal(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsConcatString(string1: &::windows::core::HSTRING, string2: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsConcatString ( string1 : * mut::core::ffi::c_void , string2 : * mut::core::ffi::c_void , newstring : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsConcatString(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsConcatString ( string1 : ::std::mem::MaybeUninit <::windows::core::HSTRING > , string2 : ::std::mem::MaybeUninit <::windows::core::HSTRING > , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+    WindowsConcatString(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsCreateString(sourcestring: ::core::option::Option<&[u16]>) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsCreateString ( sourcestring : :: windows::core::PCWSTR , length : u32 , string : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsCreateString(::core::mem::transmute(sourcestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), sourcestring.as_deref().map_or(0, |slice| slice.len() as _), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsCreateString ( sourcestring : :: windows::core::PCWSTR , length : u32 , string : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+    WindowsCreateString(::core::mem::transmute(sourcestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), sourcestring.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -436,13 +436,13 @@ pub unsafe fn WindowsCreateStringReference<P0>(sourcestring: P0, length: u32, hs
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsCreateStringReference ( sourcestring : :: windows::core::PCWSTR , length : u32 , hstringheader : *mut HSTRING_HEADER , string : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsCreateStringReference ( sourcestring : :: windows::core::PCWSTR , length : u32 , hstringheader : *mut HSTRING_HEADER , string : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> :: windows::core::HRESULT );
     WindowsCreateStringReference(sourcestring.into().abi(), length, hstringheader, ::core::mem::transmute(string)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsDeleteString(string: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsDeleteString ( string : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsDeleteString ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> :: windows::core::HRESULT );
     WindowsDeleteString(::core::mem::transmute_copy(string)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -457,20 +457,20 @@ where
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsDuplicateString(string: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsDuplicateString ( string : * mut::core::ffi::c_void , newstring : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsDuplicateString(::core::mem::transmute_copy(string), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsDuplicateString ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+    WindowsDuplicateString(::core::mem::transmute_copy(string), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsGetStringLen(string: &::windows::core::HSTRING) -> u32 {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsGetStringLen ( string : * mut::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsGetStringLen ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> u32 );
     WindowsGetStringLen(::core::mem::transmute_copy(string))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsGetStringRawBuffer(string: &::windows::core::HSTRING, length: ::core::option::Option<*mut u32>) -> ::windows::core::PWSTR {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsGetStringRawBuffer ( string : * mut::core::ffi::c_void , length : *mut u32 ) -> :: windows::core::PWSTR );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsGetStringRawBuffer ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , length : *mut u32 ) -> :: windows::core::PWSTR );
     WindowsGetStringRawBuffer(::core::mem::transmute_copy(string), ::core::mem::transmute(length.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -489,7 +489,7 @@ pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: 
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowsIsStringEmpty(string: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsIsStringEmpty ( string : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsIsStringEmpty ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> super::super::Foundation:: BOOL );
     WindowsIsStringEmpty(::core::mem::transmute_copy(string))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -504,52 +504,52 @@ pub unsafe fn WindowsPromoteStringBuffer<P0>(bufferhandle: P0) -> ::windows::cor
 where
     P0: ::std::convert::Into<HSTRING_BUFFER>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsPromoteStringBuffer ( bufferhandle : HSTRING_BUFFER , string : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsPromoteStringBuffer(bufferhandle.into(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsPromoteStringBuffer ( bufferhandle : HSTRING_BUFFER , string : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+    WindowsPromoteStringBuffer(bufferhandle.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsReplaceString(string: &::windows::core::HSTRING, stringreplaced: &::windows::core::HSTRING, stringreplacewith: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsReplaceString ( string : * mut::core::ffi::c_void , stringreplaced : * mut::core::ffi::c_void , stringreplacewith : * mut::core::ffi::c_void , newstring : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsReplaceString(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(stringreplaced), ::core::mem::transmute_copy(stringreplacewith), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsReplaceString ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , stringreplaced : ::std::mem::MaybeUninit <::windows::core::HSTRING > , stringreplacewith : ::std::mem::MaybeUninit <::windows::core::HSTRING > , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+    WindowsReplaceString(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(stringreplaced), ::core::mem::transmute_copy(stringreplacewith), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowsStringHasEmbeddedNull(string: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsStringHasEmbeddedNull ( string : * mut::core::ffi::c_void , hasembednull : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsStringHasEmbeddedNull(::core::mem::transmute_copy(string), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsStringHasEmbeddedNull ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , hasembednull : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+    WindowsStringHasEmbeddedNull(::core::mem::transmute_copy(string), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsSubstring(string: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsSubstring ( string : * mut::core::ffi::c_void , startindex : u32 , newstring : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsSubstring(::core::mem::transmute_copy(string), startindex, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsSubstring ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , startindex : u32 , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+    WindowsSubstring(::core::mem::transmute_copy(string), startindex, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsSubstringWithSpecifiedLength(string: &::windows::core::HSTRING, startindex: u32, length: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsSubstringWithSpecifiedLength ( string : * mut::core::ffi::c_void , startindex : u32 , length : u32 , newstring : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsSubstringWithSpecifiedLength(::core::mem::transmute_copy(string), startindex, length, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsSubstringWithSpecifiedLength ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , startindex : u32 , length : u32 , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+    WindowsSubstringWithSpecifiedLength(::core::mem::transmute_copy(string), startindex, length, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsTrimStringEnd(string: &::windows::core::HSTRING, trimstring: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsTrimStringEnd ( string : * mut::core::ffi::c_void , trimstring : * mut::core::ffi::c_void , newstring : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsTrimStringEnd(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsTrimStringEnd ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , trimstring : ::std::mem::MaybeUninit <::windows::core::HSTRING > , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+    WindowsTrimStringEnd(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsTrimStringStart(string: &::windows::core::HSTRING, trimstring: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsTrimStringStart ( string : * mut::core::ffi::c_void , trimstring : * mut::core::ffi::c_void , newstring : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsTrimStringStart(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsTrimStringStart ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , trimstring : ::std::mem::MaybeUninit <::windows::core::HSTRING > , newstring : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+    WindowsTrimStringStart(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -562,8 +562,8 @@ impl IAccountsSettingsPaneInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -572,8 +572,8 @@ impl IAccountsSettingsPaneInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ShowManageAccountsForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).ShowManageAccountsForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -582,16 +582,11 @@ impl IAccountsSettingsPaneInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ShowAddAccountForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).ShowAddAccountForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAccountsSettingsPaneInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IAccountsSettingsPaneInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAccountsSettingsPaneInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -605,6 +600,11 @@ impl ::core::fmt::Debug for IAccountsSettingsPaneInterop {
 }
 unsafe impl ::windows::core::Vtable for IAccountsSettingsPaneInterop {
     type Vtable = IAccountsSettingsPaneInterop_Vtbl;
+}
+impl ::core::clone::Clone for IAccountsSettingsPaneInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAccountsSettingsPaneInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3ee12ad_3865_4362_9746_b75a682df0e6);
@@ -631,16 +631,11 @@ pub struct IAccountsSettingsPaneInterop_Vtbl {
 pub struct IActivationFactory(::windows::core::IUnknown);
 impl IActivationFactory {
     pub unsafe fn ActivateInstance(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ActivateInstance)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IInspectable>();
+        (::windows::core::Vtable::vtable(self).ActivateInstance)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IActivationFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IActivationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IActivationFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -654,6 +649,11 @@ impl ::core::fmt::Debug for IActivationFactory {
 }
 unsafe impl ::windows::core::Vtable for IActivationFactory {
     type Vtable = IActivationFactory_Vtbl;
+}
+impl ::core::clone::Clone for IActivationFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IActivationFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000035_0000_0000_c000_000000000046);
@@ -672,16 +672,11 @@ impl IAgileReference {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Resolve)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).Resolve)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAgileReference, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAgileReference {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAgileReference {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -695,6 +690,11 @@ impl ::core::fmt::Debug for IAgileReference {
 }
 unsafe impl ::windows::core::Vtable for IAgileReference {
     type Vtable = IAgileReference_Vtbl;
+}
+impl ::core::clone::Clone for IAgileReference {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAgileReference {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc03f6a43_65a4_9818_987e_e0b810d2a6f2);
@@ -714,11 +714,6 @@ impl IApartmentShutdown {
     }
 }
 ::windows::core::interface_hierarchy!(IApartmentShutdown, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IApartmentShutdown {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IApartmentShutdown {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -732,6 +727,11 @@ impl ::core::fmt::Debug for IApartmentShutdown {
 }
 unsafe impl ::windows::core::Vtable for IApartmentShutdown {
     type Vtable = IApartmentShutdown_Vtbl;
+}
+impl ::core::clone::Clone for IApartmentShutdown {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IApartmentShutdown {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2f05a09_27a2_42b5_bc0e_ac163ef49d9b);
@@ -750,16 +750,11 @@ impl IAppServiceConnectionExtendedExecution {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenForExtendedExecutionAsync)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).OpenForExtendedExecutionAsync)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppServiceConnectionExtendedExecution, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppServiceConnectionExtendedExecution {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppServiceConnectionExtendedExecution {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -773,6 +768,11 @@ impl ::core::fmt::Debug for IAppServiceConnectionExtendedExecution {
 }
 unsafe impl ::windows::core::Vtable for IAppServiceConnectionExtendedExecution {
     type Vtable = IAppServiceConnectionExtendedExecution_Vtbl;
+}
+impl ::core::clone::Clone for IAppServiceConnectionExtendedExecution {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppServiceConnectionExtendedExecution {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65219584_f9cb_4ae3_81f9_a28a6ca450d9);
@@ -788,16 +788,11 @@ pub struct IAppServiceConnectionExtendedExecution_Vtbl {
 pub struct IBufferByteAccess(::windows::core::IUnknown);
 impl IBufferByteAccess {
     pub unsafe fn Buffer(&self) -> ::windows::core::Result<*mut u8> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Buffer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut u8>();
+        (::windows::core::Vtable::vtable(self).Buffer)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IBufferByteAccess, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IBufferByteAccess {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IBufferByteAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -811,6 +806,11 @@ impl ::core::fmt::Debug for IBufferByteAccess {
 }
 unsafe impl ::windows::core::Vtable for IBufferByteAccess {
     type Vtable = IBufferByteAccess_Vtbl;
+}
+impl ::core::clone::Clone for IBufferByteAccess {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IBufferByteAccess {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fef_bc53_11df_8c49_001e4fc686da);
@@ -842,19 +842,14 @@ impl ICastingController {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ICastingEventHandler>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), eventhandler.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn UnAdvise(&self, cookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnAdvise)(::windows::core::Vtable::as_raw(self), cookie).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICastingController, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICastingController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICastingController {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -868,6 +863,11 @@ impl ::core::fmt::Debug for ICastingController {
 }
 unsafe impl ::windows::core::Vtable for ICastingController {
     type Vtable = ICastingController_Vtbl;
+}
+impl ::core::clone::Clone for ICastingController {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICastingController {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a56423_a664_4fbd_8b43_409a45e8d9a1);
@@ -897,11 +897,6 @@ impl ICastingEventHandler {
     }
 }
 ::windows::core::interface_hierarchy!(ICastingEventHandler, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICastingEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICastingEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -915,6 +910,11 @@ impl ::core::fmt::Debug for ICastingEventHandler {
 }
 unsafe impl ::windows::core::Vtable for ICastingEventHandler {
     type Vtable = ICastingEventHandler_Vtbl;
+}
+impl ::core::clone::Clone for ICastingEventHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICastingEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79a6cb7_bebd_47a6_a2ad_4d45ad79c7bc);
@@ -931,22 +931,17 @@ pub struct ICastingEventHandler_Vtbl {
 pub struct ICastingSourceInfo(::windows::core::IUnknown);
 impl ICastingSourceInfo {
     pub unsafe fn GetController(&self) -> ::windows::core::Result<ICastingController> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetController)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ICastingController>();
+        (::windows::core::Vtable::vtable(self).GetController)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore>();
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ICastingSourceInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICastingSourceInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICastingSourceInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -960,6 +955,11 @@ impl ::core::fmt::Debug for ICastingSourceInfo {
 }
 unsafe impl ::windows::core::Vtable for ICastingSourceInfo {
     type Vtable = ICastingSourceInfo_Vtbl;
+}
+impl ::core::clone::Clone for ICastingSourceInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICastingSourceInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45101ab7_7c3a_4bce_9500_12c09024b298);
@@ -989,11 +989,6 @@ impl ICoreInputInterop {
     }
 }
 ::windows::core::interface_hierarchy!(ICoreInputInterop, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICoreInputInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICoreInputInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1007,6 +1002,11 @@ impl ::core::fmt::Debug for ICoreInputInterop {
 }
 unsafe impl ::windows::core::Vtable for ICoreInputInterop {
     type Vtable = ICoreInputInterop_Vtbl;
+}
+impl ::core::clone::Clone for ICoreInputInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICoreInputInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40bfe3e3_b75a_4479_ac96_475365749bb8);
@@ -1023,32 +1023,32 @@ pub struct ICoreInputInterop_Vtbl {
 pub struct ICoreWindowAdapterInterop(::windows::core::IUnknown);
 impl ICoreWindowAdapterInterop {
     pub unsafe fn AppActivationClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AppActivationClientAdapter)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).AppActivationClientAdapter)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ApplicationViewClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ApplicationViewClientAdapter)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).ApplicationViewClientAdapter)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CoreApplicationViewClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CoreApplicationViewClientAdapter)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).CoreApplicationViewClientAdapter)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn HoloViewClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).HoloViewClientAdapter)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).HoloViewClientAdapter)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn PositionerClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).PositionerClientAdapter)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).PositionerClientAdapter)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SystemNavigationClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SystemNavigationClientAdapter)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).SystemNavigationClientAdapter)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn TitleBarClientAdapter(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).TitleBarClientAdapter)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).TitleBarClientAdapter)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetWindowClientAdapter<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1058,11 +1058,6 @@ impl ICoreWindowAdapterInterop {
     }
 }
 ::windows::core::interface_hierarchy!(ICoreWindowAdapterInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ICoreWindowAdapterInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICoreWindowAdapterInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1076,6 +1071,11 @@ impl ::core::fmt::Debug for ICoreWindowAdapterInterop {
 }
 unsafe impl ::windows::core::Vtable for ICoreWindowAdapterInterop {
     type Vtable = ICoreWindowAdapterInterop_Vtbl;
+}
+impl ::core::clone::Clone for ICoreWindowAdapterInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICoreWindowAdapterInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a5b6fd1_cd73_4b6c_9cf4_2e869eaf470a);
@@ -1107,16 +1107,11 @@ impl ICoreWindowComponentInterop {
         (::windows::core::Vtable::vtable(self).ConfigureComponentInput)(::windows::core::Vtable::as_raw(self), hostviewinstanceid, hwndhost.into(), inputsourcevisual.into().abi()).ok()
     }
     pub unsafe fn GetViewInstanceId(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetViewInstanceId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetViewInstanceId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ICoreWindowComponentInterop, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICoreWindowComponentInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICoreWindowComponentInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1130,6 +1125,11 @@ impl ::core::fmt::Debug for ICoreWindowComponentInterop {
 }
 unsafe impl ::windows::core::Vtable for ICoreWindowComponentInterop {
     type Vtable = ICoreWindowComponentInterop_Vtbl;
+}
+impl ::core::clone::Clone for ICoreWindowComponentInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICoreWindowComponentInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0576ab31_a310_4c40_ba31_fd37e0298dfa);
@@ -1151,19 +1151,14 @@ impl ICoreWindowInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WindowHandle(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WindowHandle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HWND>();
+        (::windows::core::Vtable::vtable(self).WindowHandle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMessageHandled(&self, value: u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetMessageHandled)(::windows::core::Vtable::as_raw(self), value).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICoreWindowInterop, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICoreWindowInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICoreWindowInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1177,6 +1172,11 @@ impl ::core::fmt::Debug for ICoreWindowInterop {
 }
 unsafe impl ::windows::core::Vtable for ICoreWindowInterop {
     type Vtable = ICoreWindowInterop_Vtbl;
+}
+impl ::core::clone::Clone for ICoreWindowInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICoreWindowInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45d64a29_a63e_4cb6_b498_5781d298cb4f);
@@ -1196,23 +1196,18 @@ pub struct ICoreWindowInterop_Vtbl {
 pub struct ICorrelationVectorInformation(::windows::core::IUnknown);
 impl ICorrelationVectorInformation {
     pub unsafe fn LastCorrelationVectorForThread(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LastCorrelationVectorForThread)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+        (::windows::core::Vtable::vtable(self).LastCorrelationVectorForThread)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NextCorrelationVectorForThread(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).NextCorrelationVectorForThread)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+        (::windows::core::Vtable::vtable(self).NextCorrelationVectorForThread)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNextCorrelationVectorForThread(&self, cv: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetNextCorrelationVectorForThread)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(cv)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICorrelationVectorInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ICorrelationVectorInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICorrelationVectorInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1227,6 +1222,11 @@ impl ::core::fmt::Debug for ICorrelationVectorInformation {
 unsafe impl ::windows::core::Vtable for ICorrelationVectorInformation {
     type Vtable = ICorrelationVectorInformation_Vtbl;
 }
+impl ::core::clone::Clone for ICorrelationVectorInformation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ICorrelationVectorInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83c78b3c_d88b_4950_aa6e_22b8d22aabd3);
 }
@@ -1234,25 +1234,20 @@ unsafe impl ::windows::core::Interface for ICorrelationVectorInformation {
 #[doc(hidden)]
 pub struct ICorrelationVectorInformation_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub LastCorrelationVectorForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub NextCorrelationVectorForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetNextCorrelationVectorForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LastCorrelationVectorForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub NextCorrelationVectorForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetNextCorrelationVectorForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICorrelationVectorSource(::windows::core::IUnknown);
 impl ICorrelationVectorSource {
     pub unsafe fn CorrelationVector(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CorrelationVector)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+        (::windows::core::Vtable::vtable(self).CorrelationVector)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ICorrelationVectorSource, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICorrelationVectorSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICorrelationVectorSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1267,6 +1262,11 @@ impl ::core::fmt::Debug for ICorrelationVectorSource {
 unsafe impl ::windows::core::Vtable for ICorrelationVectorSource {
     type Vtable = ICorrelationVectorSource_Vtbl;
 }
+impl ::core::clone::Clone for ICorrelationVectorSource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ICorrelationVectorSource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x152b8a3b_b9b9_4685_b56e_974847bc7545);
 }
@@ -1274,7 +1274,7 @@ unsafe impl ::windows::core::Interface for ICorrelationVectorSource {
 #[doc(hidden)]
 pub struct ICorrelationVectorSource_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CorrelationVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CorrelationVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -1287,16 +1287,11 @@ impl IDragDropManagerInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDragDropManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IDragDropManagerInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDragDropManagerInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1310,6 +1305,11 @@ impl ::core::fmt::Debug for IDragDropManagerInterop {
 }
 unsafe impl ::windows::core::Vtable for IDragDropManagerInterop {
     type Vtable = IDragDropManagerInterop_Vtbl;
+}
+impl ::core::clone::Clone for IDragDropManagerInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDragDropManagerInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ad8cba7_4c01_4dac_9074_827894292d63);
@@ -1334,16 +1334,11 @@ impl IHolographicSpaceInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IHolographicSpaceInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IHolographicSpaceInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IHolographicSpaceInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1357,6 +1352,11 @@ impl ::core::fmt::Debug for IHolographicSpaceInterop {
 }
 unsafe impl ::windows::core::Vtable for IHolographicSpaceInterop {
     type Vtable = IHolographicSpaceInterop_Vtbl;
+}
+impl ::core::clone::Clone for IHolographicSpaceInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IHolographicSpaceInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c4ee536_6a98_4b86_a170_587013d6fd4b);
@@ -1381,16 +1381,11 @@ impl IInputPaneInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IInputPaneInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IInputPaneInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IInputPaneInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1404,6 +1399,11 @@ impl ::core::fmt::Debug for IInputPaneInterop {
 }
 unsafe impl ::windows::core::Vtable for IInputPaneInterop {
     type Vtable = IInputPaneInterop_Vtbl;
+}
+impl ::core::clone::Clone for IInputPaneInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInputPaneInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75cf2c57_9195_4931_8332_f0b409e916af);
@@ -1422,16 +1422,11 @@ pub struct IInputPaneInterop_Vtbl {
 pub struct ILanguageExceptionErrorInfo(::windows::core::IUnknown);
 impl ILanguageExceptionErrorInfo {
     pub unsafe fn GetLanguageException(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLanguageException)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).GetLanguageException)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ILanguageExceptionErrorInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ILanguageExceptionErrorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILanguageExceptionErrorInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1445,6 +1440,11 @@ impl ::core::fmt::Debug for ILanguageExceptionErrorInfo {
 }
 unsafe impl ::windows::core::Vtable for ILanguageExceptionErrorInfo {
     type Vtable = ILanguageExceptionErrorInfo_Vtbl;
+}
+impl ::core::clone::Clone for ILanguageExceptionErrorInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILanguageExceptionErrorInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04a2dbf3_df83_116c_0946_0812abf6e07d);
@@ -1460,12 +1460,12 @@ pub struct ILanguageExceptionErrorInfo_Vtbl {
 pub struct ILanguageExceptionErrorInfo2(::windows::core::IUnknown);
 impl ILanguageExceptionErrorInfo2 {
     pub unsafe fn GetLanguageException(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLanguageException)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.GetLanguageException)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPreviousLanguageExceptionErrorInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ILanguageExceptionErrorInfo2>();
+        (::windows::core::Vtable::vtable(self).GetPreviousLanguageExceptionErrorInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CapturePropagationContext<P0>(&self, languageexception: P0) -> ::windows::core::Result<()>
     where
@@ -1474,16 +1474,11 @@ impl ILanguageExceptionErrorInfo2 {
         (::windows::core::Vtable::vtable(self).CapturePropagationContext)(::windows::core::Vtable::as_raw(self), languageexception.into().abi()).ok()
     }
     pub unsafe fn GetPropagationContextHead(&self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPropagationContextHead)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ILanguageExceptionErrorInfo2>();
+        (::windows::core::Vtable::vtable(self).GetPropagationContextHead)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ILanguageExceptionErrorInfo2, ::windows::core::IUnknown, ILanguageExceptionErrorInfo);
-impl ::core::clone::Clone for ILanguageExceptionErrorInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILanguageExceptionErrorInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1497,6 +1492,11 @@ impl ::core::fmt::Debug for ILanguageExceptionErrorInfo2 {
 }
 unsafe impl ::windows::core::Vtable for ILanguageExceptionErrorInfo2 {
     type Vtable = ILanguageExceptionErrorInfo2_Vtbl;
+}
+impl ::core::clone::Clone for ILanguageExceptionErrorInfo2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILanguageExceptionErrorInfo2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5746e5c4_5b97_424c_b620_2822915734dd);
@@ -1518,11 +1518,6 @@ impl ILanguageExceptionStackBackTrace {
     }
 }
 ::windows::core::interface_hierarchy!(ILanguageExceptionStackBackTrace, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ILanguageExceptionStackBackTrace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILanguageExceptionStackBackTrace {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1536,6 +1531,11 @@ impl ::core::fmt::Debug for ILanguageExceptionStackBackTrace {
 }
 unsafe impl ::windows::core::Vtable for ILanguageExceptionStackBackTrace {
     type Vtable = ILanguageExceptionStackBackTrace_Vtbl;
+}
+impl ::core::clone::Clone for ILanguageExceptionStackBackTrace {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILanguageExceptionStackBackTrace {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbe53fb5_f967_4258_8d34_42f5e25833de);
@@ -1551,16 +1551,11 @@ pub struct ILanguageExceptionStackBackTrace_Vtbl {
 pub struct ILanguageExceptionTransform(::windows::core::IUnknown);
 impl ILanguageExceptionTransform {
     pub unsafe fn GetTransformedRestrictedErrorInfo(&self) -> ::windows::core::Result<IRestrictedErrorInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTransformedRestrictedErrorInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IRestrictedErrorInfo>();
+        (::windows::core::Vtable::vtable(self).GetTransformedRestrictedErrorInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ILanguageExceptionTransform, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ILanguageExceptionTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILanguageExceptionTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1574,6 +1569,11 @@ impl ::core::fmt::Debug for ILanguageExceptionTransform {
 }
 unsafe impl ::windows::core::Vtable for ILanguageExceptionTransform {
     type Vtable = ILanguageExceptionTransform_Vtbl;
+}
+impl ::core::clone::Clone for ILanguageExceptionTransform {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILanguageExceptionTransform {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeb5a271_a6cd_45ce_880a_696706badc65);
@@ -1593,11 +1593,6 @@ impl IMemoryBufferByteAccess {
     }
 }
 ::windows::core::interface_hierarchy!(IMemoryBufferByteAccess, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMemoryBufferByteAccess {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMemoryBufferByteAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1611,6 +1606,11 @@ impl ::core::fmt::Debug for IMemoryBufferByteAccess {
 }
 unsafe impl ::windows::core::Vtable for IMemoryBufferByteAccess {
     type Vtable = IMemoryBufferByteAccess_Vtbl;
+}
+impl ::core::clone::Clone for IMemoryBufferByteAccess {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMemoryBufferByteAccess {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b0d3235_4dba_4d44_865e_8f1d0e4fd04d);
@@ -1630,11 +1630,6 @@ impl IMessageDispatcher {
     }
 }
 ::windows::core::interface_hierarchy!(IMessageDispatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IMessageDispatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMessageDispatcher {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1648,6 +1643,11 @@ impl ::core::fmt::Debug for IMessageDispatcher {
 }
 unsafe impl ::windows::core::Vtable for IMessageDispatcher {
     type Vtable = IMessageDispatcher_Vtbl;
+}
+impl ::core::clone::Clone for IMessageDispatcher {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMessageDispatcher {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5f84c8f_cfd0_4cd6_b66b_c5d26ff1689d);
@@ -1669,8 +1669,8 @@ impl IPlayToManagerInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1682,11 +1682,6 @@ impl IPlayToManagerInterop {
     }
 }
 ::windows::core::interface_hierarchy!(IPlayToManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IPlayToManagerInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPlayToManagerInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1700,6 +1695,11 @@ impl ::core::fmt::Debug for IPlayToManagerInterop {
 }
 unsafe impl ::windows::core::Vtable for IPlayToManagerInterop {
     type Vtable = IPlayToManagerInterop_Vtbl;
+}
+impl ::core::clone::Clone for IPlayToManagerInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPlayToManagerInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24394699_1f2c_4eb3_8cd7_0ec1da42a540);
@@ -1725,16 +1725,11 @@ impl IRestrictedErrorInfo {
         (::windows::core::Vtable::vtable(self).GetErrorDetails)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(description), error, ::core::mem::transmute(restricteddescription), ::core::mem::transmute(capabilitysid)).ok()
     }
     pub unsafe fn GetReference(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReference)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetReference)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IRestrictedErrorInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IRestrictedErrorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IRestrictedErrorInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1751,6 +1746,11 @@ unsafe impl ::core::marker::Sync for IRestrictedErrorInfo {}
 unsafe impl ::windows::core::Vtable for IRestrictedErrorInfo {
     type Vtable = IRestrictedErrorInfo_Vtbl;
 }
+impl ::core::clone::Clone for IRestrictedErrorInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IRestrictedErrorInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82ba7092_4c88_427d_a7bc_16dd93feb67e);
 }
@@ -1758,8 +1758,8 @@ unsafe impl ::windows::core::Interface for IRestrictedErrorInfo {
 #[doc(hidden)]
 pub struct IRestrictedErrorInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetErrorDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut *mut ::core::ffi::c_void, error: *mut ::windows::core::HRESULT, restricteddescription: *mut *mut ::core::ffi::c_void, capabilitysid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetErrorDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, error: *mut ::windows::core::HRESULT, restricteddescription: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, capabilitysid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -1771,11 +1771,6 @@ impl IRoMetaDataLocator {
         P1: ::std::convert::Into<::windows::core::InParam<IRoSimpleMetaDataBuilder>>,
     {
         (::windows::core::Vtable::vtable(self).Locate)(::windows::core::Vtable::as_raw(self), nameelement.into().abi(), metadatadestination.into().abi()).ok()
-    }
-}
-impl ::core::clone::Clone for IRoMetaDataLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IRoMetaDataLocator {
@@ -1791,6 +1786,11 @@ impl ::core::fmt::Debug for IRoMetaDataLocator {
 }
 unsafe impl ::windows::core::Vtable for IRoMetaDataLocator {
     type Vtable = IRoMetaDataLocator_Vtbl;
+}
+impl ::core::clone::Clone for IRoMetaDataLocator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1853,11 +1853,6 @@ impl IRoSimpleMetaDataBuilder {
         (::windows::core::Vtable::vtable(self).SetParameterizedDelegate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(piid), numargs).ok()
     }
 }
-impl ::core::clone::Clone for IRoSimpleMetaDataBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IRoSimpleMetaDataBuilder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1871,6 +1866,11 @@ impl ::core::fmt::Debug for IRoSimpleMetaDataBuilder {
 }
 unsafe impl ::windows::core::Vtable for IRoSimpleMetaDataBuilder {
     type Vtable = IRoSimpleMetaDataBuilder_Vtbl;
+}
+impl ::core::clone::Clone for IRoSimpleMetaDataBuilder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1893,16 +1893,11 @@ impl IShareWindowCommandEventArgsInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWindow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HWND>();
+        (::windows::core::Vtable::vtable(self).GetWindow)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IShareWindowCommandEventArgsInterop, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IShareWindowCommandEventArgsInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IShareWindowCommandEventArgsInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1916,6 +1911,11 @@ impl ::core::fmt::Debug for IShareWindowCommandEventArgsInterop {
 }
 unsafe impl ::windows::core::Vtable for IShareWindowCommandEventArgsInterop {
     type Vtable = IShareWindowCommandEventArgsInterop_Vtbl;
+}
+impl ::core::clone::Clone for IShareWindowCommandEventArgsInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IShareWindowCommandEventArgsInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6571a721_643d_43d4_aca4_6b6f5f30f1ad);
@@ -1940,16 +1940,11 @@ impl IShareWindowCommandSourceInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IShareWindowCommandSourceInterop, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IShareWindowCommandSourceInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IShareWindowCommandSourceInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1963,6 +1958,11 @@ impl ::core::fmt::Debug for IShareWindowCommandSourceInterop {
 }
 unsafe impl ::windows::core::Vtable for IShareWindowCommandSourceInterop {
     type Vtable = IShareWindowCommandSourceInterop_Vtbl;
+}
+impl ::core::clone::Clone for IShareWindowCommandSourceInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IShareWindowCommandSourceInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x461a191f_8424_43a6_a0fa_3451a22f56ab);
@@ -1987,16 +1987,11 @@ impl ISpatialInteractionManagerInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISpatialInteractionManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ISpatialInteractionManagerInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISpatialInteractionManagerInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2010,6 +2005,11 @@ impl ::core::fmt::Debug for ISpatialInteractionManagerInterop {
 }
 unsafe impl ::windows::core::Vtable for ISpatialInteractionManagerInterop {
     type Vtable = ISpatialInteractionManagerInterop_Vtbl;
+}
+impl ::core::clone::Clone for ISpatialInteractionManagerInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISpatialInteractionManagerInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c4ee536_6a98_4b86_a170_587013d6fd4b);
@@ -2034,16 +2034,11 @@ impl ISystemMediaTransportControlsInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISystemMediaTransportControlsInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ISystemMediaTransportControlsInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISystemMediaTransportControlsInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2057,6 +2052,11 @@ impl ::core::fmt::Debug for ISystemMediaTransportControlsInterop {
 }
 unsafe impl ::windows::core::Vtable for ISystemMediaTransportControlsInterop {
     type Vtable = ISystemMediaTransportControlsInterop_Vtbl;
+}
+impl ::core::clone::Clone for ISystemMediaTransportControlsInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISystemMediaTransportControlsInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddb0472d_c911_4a1f_86d9_dc3d71a95f5a);
@@ -2081,16 +2081,11 @@ impl IUIViewSettingsInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IUIViewSettingsInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IUIViewSettingsInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUIViewSettingsInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2104,6 +2099,11 @@ impl ::core::fmt::Debug for IUIViewSettingsInterop {
 }
 unsafe impl ::windows::core::Vtable for IUIViewSettingsInterop {
     type Vtable = IUIViewSettingsInterop_Vtbl;
+}
+impl ::core::clone::Clone for IUIViewSettingsInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUIViewSettingsInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3694dbf9_8f68_44be_8ff5_195c98ede8a6);
@@ -2128,16 +2128,11 @@ impl IUserActivityInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSessionForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateSessionForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IUserActivityInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IUserActivityInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUserActivityInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2151,6 +2146,11 @@ impl ::core::fmt::Debug for IUserActivityInterop {
 }
 unsafe impl ::windows::core::Vtable for IUserActivityInterop {
     type Vtable = IUserActivityInterop_Vtbl;
+}
+impl ::core::clone::Clone for IUserActivityInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUserActivityInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ade314d_0e0a_40d9_824c_9a088a50059f);
@@ -2175,16 +2175,11 @@ impl IUserActivityRequestManagerInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IUserActivityRequestManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IUserActivityRequestManagerInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUserActivityRequestManagerInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2198,6 +2193,11 @@ impl ::core::fmt::Debug for IUserActivityRequestManagerInterop {
 }
 unsafe impl ::windows::core::Vtable for IUserActivityRequestManagerInterop {
     type Vtable = IUserActivityRequestManagerInterop_Vtbl;
+}
+impl ::core::clone::Clone for IUserActivityRequestManagerInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUserActivityRequestManagerInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd69f876_9699_4715_9095_e37ea30dfa1b);
@@ -2220,11 +2220,6 @@ impl IUserActivitySourceHostInterop {
     }
 }
 ::windows::core::interface_hierarchy!(IUserActivitySourceHostInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IUserActivitySourceHostInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUserActivitySourceHostInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2239,6 +2234,11 @@ impl ::core::fmt::Debug for IUserActivitySourceHostInterop {
 unsafe impl ::windows::core::Vtable for IUserActivitySourceHostInterop {
     type Vtable = IUserActivitySourceHostInterop_Vtbl;
 }
+impl ::core::clone::Clone for IUserActivitySourceHostInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IUserActivitySourceHostInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc15df8bc_8844_487a_b85b_7578e0f61419);
 }
@@ -2246,7 +2246,7 @@ unsafe impl ::windows::core::Interface for IUserActivitySourceHostInterop {
 #[doc(hidden)]
 pub struct IUserActivitySourceHostInterop_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub SetActivitySourceHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activitysourcehost: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetActivitySourceHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activitysourcehost: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -2259,16 +2259,11 @@ impl IUserConsentVerifierInterop {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RequestVerificationForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(message), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).RequestVerificationForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(message), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IUserConsentVerifierInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IUserConsentVerifierInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUserConsentVerifierInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2283,6 +2278,11 @@ impl ::core::fmt::Debug for IUserConsentVerifierInterop {
 unsafe impl ::windows::core::Vtable for IUserConsentVerifierInterop {
     type Vtable = IUserConsentVerifierInterop_Vtbl;
 }
+impl ::core::clone::Clone for IUserConsentVerifierInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IUserConsentVerifierInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39e050c3_4e74_441a_8dc0_b81104df949c);
 }
@@ -2291,7 +2291,7 @@ unsafe impl ::windows::core::Interface for IUserConsentVerifierInterop {
 pub struct IUserConsentVerifierInterop_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub RequestVerificationForWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, message: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RequestVerificationForWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, message: ::std::mem::MaybeUninit<::windows::core::HSTRING>, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     RequestVerificationForWindowAsync: usize,
 }
@@ -2303,16 +2303,11 @@ impl IWeakReference {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Resolve)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).Resolve)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWeakReference, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWeakReference {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWeakReference {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2326,6 +2321,11 @@ impl ::core::fmt::Debug for IWeakReference {
 }
 unsafe impl ::windows::core::Vtable for IWeakReference {
     type Vtable = IWeakReference_Vtbl;
+}
+impl ::core::clone::Clone for IWeakReference {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWeakReference {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000037_0000_0000_c000_000000000046);
@@ -2341,16 +2341,11 @@ pub struct IWeakReference_Vtbl {
 pub struct IWeakReferenceSource(::windows::core::IUnknown);
 impl IWeakReferenceSource {
     pub unsafe fn GetWeakReference(&self) -> ::windows::core::Result<IWeakReference> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWeakReference)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWeakReference>();
+        (::windows::core::Vtable::vtable(self).GetWeakReference)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWeakReferenceSource, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWeakReferenceSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWeakReferenceSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2364,6 +2359,11 @@ impl ::core::fmt::Debug for IWeakReferenceSource {
 }
 unsafe impl ::windows::core::Vtable for IWeakReferenceSource {
     type Vtable = IWeakReferenceSource_Vtbl;
+}
+impl ::core::clone::Clone for IWeakReferenceSource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWeakReferenceSource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000038_0000_0000_c000_000000000046);
@@ -2386,8 +2386,8 @@ impl IWebAuthenticationCoreManagerInterop {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RequestTokenForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), request.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).RequestTokenForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), request.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2398,16 +2398,11 @@ impl IWebAuthenticationCoreManagerInterop {
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RequestTokenWithWebAccountForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), request.into().abi(), webaccount.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).RequestTokenWithWebAccountForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), request.into().abi(), webaccount.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWebAuthenticationCoreManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IWebAuthenticationCoreManagerInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWebAuthenticationCoreManagerInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2421,6 +2416,11 @@ impl ::core::fmt::Debug for IWebAuthenticationCoreManagerInterop {
 }
 unsafe impl ::windows::core::Vtable for IWebAuthenticationCoreManagerInterop {
     type Vtable = IWebAuthenticationCoreManagerInterop_Vtbl;
+}
+impl ::core::clone::Clone for IWebAuthenticationCoreManagerInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWebAuthenticationCoreManagerInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4b8e804_811e_4436_b69c_44cb67b72084);
@@ -2473,8 +2473,8 @@ impl ::core::default::Default for ACTIVATIONTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ACTIVATIONTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACTIVATIONTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ACTIVATIONTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2500,8 +2500,8 @@ impl ::core::default::Default for AgileReferenceOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AgileReferenceOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AgileReferenceOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AgileReferenceOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2527,8 +2527,8 @@ impl ::core::default::Default for BSOS_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BSOS_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BSOS_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BSOS_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2564,8 +2564,8 @@ impl ::core::default::Default for CASTING_CONNECTION_ERROR_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CASTING_CONNECTION_ERROR_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CASTING_CONNECTION_ERROR_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CASTING_CONNECTION_ERROR_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2597,8 +2597,8 @@ impl ::core::default::Default for CASTING_CONNECTION_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CASTING_CONNECTION_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CASTING_CONNECTION_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CASTING_CONNECTION_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2626,8 +2626,8 @@ impl ::core::default::Default for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2653,8 +2653,8 @@ impl ::core::default::Default for DISPATCHERQUEUE_THREAD_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DISPATCHERQUEUE_THREAD_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DISPATCHERQUEUE_THREAD_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2686,8 +2686,8 @@ impl ::core::default::Default for RO_ERROR_REPORTING_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RO_ERROR_REPORTING_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RO_ERROR_REPORTING_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RO_ERROR_REPORTING_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2746,8 +2746,8 @@ impl ::core::default::Default for RO_INIT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RO_INIT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RO_INIT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RO_INIT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2775,8 +2775,8 @@ impl ::core::default::Default for TrustLevel {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TrustLevel {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TrustLevel {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TrustLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2812,8 +2812,8 @@ impl ::core::convert::From<::core::option::Option<APARTMENT_SHUTDOWN_REGISTRATIO
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -2833,8 +2833,8 @@ impl ::core::fmt::Debug for DispatcherQueueOptions {
         f.debug_struct("DispatcherQueueOptions").field("dwSize", &self.dwSize).field("threadType", &self.threadType).field("apartmentType", &self.apartmentType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DispatcherQueueOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DispatcherQueueOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DispatcherQueueOptions {
     fn eq(&self, other: &Self) -> bool {
@@ -2863,8 +2863,8 @@ impl ::core::fmt::Debug for EventRegistrationToken {
         f.debug_struct("EventRegistrationToken").field("value", &self.value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EventRegistrationToken {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EventRegistrationToken {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EventRegistrationToken {
     fn eq(&self, other: &Self) -> bool {
@@ -2906,8 +2906,8 @@ impl ::core::convert::From<::core::option::Option<HSTRING_BUFFER>> for HSTRING_B
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HSTRING_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HSTRING_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -2929,8 +2929,8 @@ impl ::core::fmt::Debug for HSTRING_HEADER {
         f.debug_struct("HSTRING_HEADER").field("flags", &self.flags).field("length", &self.length).field("padding1", &self.padding1).field("padding2", &self.padding2).field("data", &self.data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HSTRING_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HSTRING_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HSTRING_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -2972,8 +2972,8 @@ impl ::core::convert::From<::core::option::Option<ROPARAMIIDHANDLE>> for ROPARAM
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for ROPARAMIIDHANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ROPARAMIIDHANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -2993,8 +2993,8 @@ impl ::core::fmt::Debug for ServerInformation {
         f.debug_struct("ServerInformation").field("dwServerPid", &self.dwServerPid).field("dwServerTid", &self.dwServerTid).field("ui64ServerAddress", &self.ui64ServerAddress).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ServerInformation {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ServerInformation {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ServerInformation {
     fn eq(&self, other: &Self) -> bool {

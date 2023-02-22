@@ -4,6 +4,11 @@ pub struct IPowerManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPowerManagerStatics {
     type Vtable = IPowerManagerStatics_Vtbl;
 }
+impl ::core::clone::Clone for IPowerManagerStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPowerManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25de8fd0_1c5b_11e1_bddb_0800200c9a66);
 }
@@ -27,6 +32,11 @@ pub struct IPowerManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPowerManagerStatics2 {
     type Vtable = IPowerManagerStatics2_Vtbl;
 }
+impl ::core::clone::Clone for IPowerManagerStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPowerManagerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x596236cf_1918_4551_a466_c51aae373bf8);
 }
@@ -41,16 +51,16 @@ pub struct PowerManager;
 impl PowerManager {
     pub fn PowerSavingMode() -> ::windows::core::Result<PowerSavingMode> {
         Self::IPowerManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PowerSavingMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<PowerSavingMode>();
+            (::windows::core::Vtable::vtable(this).PowerSavingMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PowerSavingModeChanged(changehandler: &super::super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IPowerManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PowerSavingModeChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changehandler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).PowerSavingModeChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changehandler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -60,8 +70,8 @@ impl PowerManager {
     }
     pub fn PowerSavingModeEnabled() -> ::windows::core::Result<bool> {
         Self::IPowerManagerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PowerSavingModeEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).PowerSavingModeEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -97,20 +107,16 @@ impl ::core::default::Default for PowerSavingMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PowerSavingMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PowerSavingMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PowerSavingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PowerSavingMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for PowerSavingMode {
+impl ::windows::core::RuntimeType for PowerSavingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.System.Power.PowerSavingMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

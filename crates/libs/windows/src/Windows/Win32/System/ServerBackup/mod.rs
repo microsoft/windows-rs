@@ -3,19 +3,14 @@
 pub struct IWsbApplicationAsync(::windows::core::IUnknown);
 impl IWsbApplicationAsync {
     pub unsafe fn QueryStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+        (::windows::core::Vtable::vtable(self).QueryStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Abort(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Abort)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWsbApplicationAsync, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWsbApplicationAsync {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWsbApplicationAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29,6 +24,11 @@ impl ::core::fmt::Debug for IWsbApplicationAsync {
 }
 unsafe impl ::windows::core::Vtable for IWsbApplicationAsync {
     type Vtable = IWsbApplicationAsync_Vtbl;
+}
+impl ::core::clone::Clone for IWsbApplicationAsync {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWsbApplicationAsync {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0843f6f7_895c_44a6_b0c2_05a5022aa3a1);
@@ -50,16 +50,11 @@ impl IWsbApplicationBackupSupport {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckConsistency)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into().abi(), wszcomponentname.into().abi(), wszcomponentlogicalpath.into().abi(), cvolumes, rgwszsourcevolumepath, rgwszsnapshotvolumepath, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWsbApplicationAsync>();
+        (::windows::core::Vtable::vtable(self).CheckConsistency)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into().abi(), wszcomponentname.into().abi(), wszcomponentlogicalpath.into().abi(), cvolumes, rgwszsourcevolumepath, rgwszsnapshotvolumepath, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWsbApplicationBackupSupport, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWsbApplicationBackupSupport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWsbApplicationBackupSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -73,6 +68,11 @@ impl ::core::fmt::Debug for IWsbApplicationBackupSupport {
 }
 unsafe impl ::windows::core::Vtable for IWsbApplicationBackupSupport {
     type Vtable = IWsbApplicationBackupSupport_Vtbl;
+}
+impl ::core::clone::Clone for IWsbApplicationBackupSupport {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWsbApplicationBackupSupport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1eff3510_4a27_46ad_b9e0_08332f0f4f6d);
@@ -113,16 +113,11 @@ impl IWsbApplicationRestoreSupport {
         (::windows::core::Vtable::vtable(self).OrderComponents)(::windows::core::Vtable::as_raw(self), ccomponents, rgcomponentname, rgcomponentlogicalpaths, prgcomponentname, prgcomponentlogicalpath).ok()
     }
     pub unsafe fn IsRollForwardSupported(&self) -> ::windows::core::Result<u8> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsRollForwardSupported)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u8>();
+        (::windows::core::Vtable::vtable(self).IsRollForwardSupported)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWsbApplicationRestoreSupport, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWsbApplicationRestoreSupport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWsbApplicationRestoreSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -136,6 +131,11 @@ impl ::core::fmt::Debug for IWsbApplicationRestoreSupport {
 }
 unsafe impl ::windows::core::Vtable for IWsbApplicationRestoreSupport {
     type Vtable = IWsbApplicationRestoreSupport_Vtbl;
+}
+impl ::core::clone::Clone for IWsbApplicationRestoreSupport {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWsbApplicationRestoreSupport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d3bdb38_4ee8_4718_85f9_c7dbc4ab77aa);
@@ -190,8 +190,8 @@ impl ::core::default::Default for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -223,8 +223,8 @@ impl ::core::fmt::Debug for WSB_OB_REGISTRATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WSB_OB_REGISTRATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WSB_OB_REGISTRATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSB_OB_REGISTRATION_INFO {
@@ -260,8 +260,8 @@ impl ::core::fmt::Debug for WSB_OB_STATUS_ENTRY {
         f.debug_struct("WSB_OB_STATUS_ENTRY").field("m_dwIcon", &self.m_dwIcon).field("m_dwStatusEntryName", &self.m_dwStatusEntryName).field("m_dwStatusEntryValue", &self.m_dwStatusEntryValue).field("m_cValueTypePair", &self.m_cValueTypePair).field("m_rgValueTypePair", &self.m_rgValueTypePair).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WSB_OB_STATUS_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WSB_OB_STATUS_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WSB_OB_STATUS_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -291,8 +291,8 @@ impl ::core::fmt::Debug for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
         f.debug_struct("WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR").field("m_wszObStatusEntryPairValue", &self.m_wszObStatusEntryPairValue).field("m_ObStatusEntryPairType", &self.m_ObStatusEntryPairType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
     fn eq(&self, other: &Self) -> bool {
@@ -323,8 +323,8 @@ impl ::core::fmt::Debug for WSB_OB_STATUS_INFO {
         f.debug_struct("WSB_OB_STATUS_INFO").field("m_guidSnapinId", &self.m_guidSnapinId).field("m_cStatusEntry", &self.m_cStatusEntry).field("m_rgStatusEntry", &self.m_rgStatusEntry).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WSB_OB_STATUS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WSB_OB_STATUS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WSB_OB_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {

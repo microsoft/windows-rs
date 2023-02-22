@@ -62,8 +62,8 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreatePseudoConsole ( size : COORD , hinput : super::super::Foundation:: HANDLE , houtput : super::super::Foundation:: HANDLE , dwflags : u32 , phpc : *mut HPCON ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreatePseudoConsole(::core::mem::transmute(size), hinput.into(), houtput.into(), dwflags, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<HPCON>();
+    CreatePseudoConsole(::core::mem::transmute(size), hinput.into(), houtput.into(), dwflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -998,8 +998,8 @@ impl ::core::default::Default for CONSOLE_CHARACTER_ATTRIBUTES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CONSOLE_CHARACTER_ATTRIBUTES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONSOLE_CHARACTER_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CONSOLE_CHARACTER_ATTRIBUTES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1084,8 +1084,8 @@ impl ::core::default::Default for CONSOLE_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CONSOLE_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONSOLE_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CONSOLE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1146,8 +1146,8 @@ impl ::core::default::Default for STD_HANDLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for STD_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STD_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for STD_HANDLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1170,8 +1170,8 @@ impl ::core::clone::Clone for CHAR_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CHAR_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CHAR_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHAR_INFO {
@@ -1195,8 +1195,8 @@ impl ::core::clone::Clone for CHAR_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CHAR_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CHAR_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHAR_INFO_0 {
@@ -1226,8 +1226,8 @@ impl ::core::fmt::Debug for CONSOLE_CURSOR_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CONSOLE_CURSOR_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONSOLE_CURSOR_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONSOLE_CURSOR_INFO {
@@ -1260,8 +1260,8 @@ impl ::core::fmt::Debug for CONSOLE_FONT_INFO {
         f.debug_struct("CONSOLE_FONT_INFO").field("nFont", &self.nFont).field("dwFontSize", &self.dwFontSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONSOLE_FONT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONSOLE_FONT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONSOLE_FONT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1295,8 +1295,8 @@ impl ::core::fmt::Debug for CONSOLE_FONT_INFOEX {
         f.debug_struct("CONSOLE_FONT_INFOEX").field("cbSize", &self.cbSize).field("nFont", &self.nFont).field("dwFontSize", &self.dwFontSize).field("FontFamily", &self.FontFamily).field("FontWeight", &self.FontWeight).field("FaceName", &self.FaceName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONSOLE_FONT_INFOEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONSOLE_FONT_INFOEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONSOLE_FONT_INFOEX {
     fn eq(&self, other: &Self) -> bool {
@@ -1328,8 +1328,8 @@ impl ::core::fmt::Debug for CONSOLE_HISTORY_INFO {
         f.debug_struct("CONSOLE_HISTORY_INFO").field("cbSize", &self.cbSize).field("HistoryBufferSize", &self.HistoryBufferSize).field("NumberOfHistoryBuffers", &self.NumberOfHistoryBuffers).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONSOLE_HISTORY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONSOLE_HISTORY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONSOLE_HISTORY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1361,8 +1361,8 @@ impl ::core::fmt::Debug for CONSOLE_READCONSOLE_CONTROL {
         f.debug_struct("CONSOLE_READCONSOLE_CONTROL").field("nLength", &self.nLength).field("nInitialChars", &self.nInitialChars).field("dwCtrlWakeupMask", &self.dwCtrlWakeupMask).field("dwControlKeyState", &self.dwControlKeyState).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONSOLE_READCONSOLE_CONTROL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONSOLE_READCONSOLE_CONTROL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONSOLE_READCONSOLE_CONTROL {
     fn eq(&self, other: &Self) -> bool {
@@ -1395,8 +1395,8 @@ impl ::core::fmt::Debug for CONSOLE_SCREEN_BUFFER_INFO {
         f.debug_struct("CONSOLE_SCREEN_BUFFER_INFO").field("dwSize", &self.dwSize).field("dwCursorPosition", &self.dwCursorPosition).field("wAttributes", &self.wAttributes).field("srWindow", &self.srWindow).field("dwMaximumWindowSize", &self.dwMaximumWindowSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONSOLE_SCREEN_BUFFER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONSOLE_SCREEN_BUFFER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONSOLE_SCREEN_BUFFER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1438,8 +1438,8 @@ impl ::core::fmt::Debug for CONSOLE_SCREEN_BUFFER_INFOEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CONSOLE_SCREEN_BUFFER_INFOEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONSOLE_SCREEN_BUFFER_INFOEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONSOLE_SCREEN_BUFFER_INFOEX {
@@ -1473,8 +1473,8 @@ impl ::core::fmt::Debug for CONSOLE_SELECTION_INFO {
         f.debug_struct("CONSOLE_SELECTION_INFO").field("dwFlags", &self.dwFlags).field("dwSelectionAnchor", &self.dwSelectionAnchor).field("srSelection", &self.srSelection).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONSOLE_SELECTION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONSOLE_SELECTION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONSOLE_SELECTION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1504,8 +1504,8 @@ impl ::core::fmt::Debug for COORD {
         f.debug_struct("COORD").field("X", &self.X).field("Y", &self.Y).finish()
     }
 }
-unsafe impl ::windows::core::Abi for COORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for COORD {
     fn eq(&self, other: &Self) -> bool {
@@ -1539,8 +1539,8 @@ impl ::core::fmt::Debug for FOCUS_EVENT_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FOCUS_EVENT_RECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FOCUS_EVENT_RECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FOCUS_EVENT_RECORD {
@@ -1585,8 +1585,8 @@ impl ::core::convert::From<::core::option::Option<HPCON>> for HPCON {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HPCON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HPCON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
@@ -1604,8 +1604,8 @@ impl ::core::clone::Clone for INPUT_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for INPUT_RECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INPUT_RECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INPUT_RECORD {
@@ -1632,8 +1632,8 @@ impl ::core::clone::Clone for INPUT_RECORD_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for INPUT_RECORD_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INPUT_RECORD_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INPUT_RECORD_0 {
@@ -1661,8 +1661,8 @@ impl ::core::clone::Clone for KEY_EVENT_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KEY_EVENT_RECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KEY_EVENT_RECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KEY_EVENT_RECORD {
@@ -1686,8 +1686,8 @@ impl ::core::clone::Clone for KEY_EVENT_RECORD_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KEY_EVENT_RECORD_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KEY_EVENT_RECORD_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KEY_EVENT_RECORD_0 {
@@ -1711,8 +1711,8 @@ impl ::core::fmt::Debug for MENU_EVENT_RECORD {
         f.debug_struct("MENU_EVENT_RECORD").field("dwCommandId", &self.dwCommandId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MENU_EVENT_RECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MENU_EVENT_RECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MENU_EVENT_RECORD {
     fn eq(&self, other: &Self) -> bool {
@@ -1744,8 +1744,8 @@ impl ::core::fmt::Debug for MOUSE_EVENT_RECORD {
         f.debug_struct("MOUSE_EVENT_RECORD").field("dwMousePosition", &self.dwMousePosition).field("dwButtonState", &self.dwButtonState).field("dwControlKeyState", &self.dwControlKeyState).field("dwEventFlags", &self.dwEventFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MOUSE_EVENT_RECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MOUSE_EVENT_RECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MOUSE_EVENT_RECORD {
     fn eq(&self, other: &Self) -> bool {
@@ -1777,8 +1777,8 @@ impl ::core::fmt::Debug for SMALL_RECT {
         f.debug_struct("SMALL_RECT").field("Left", &self.Left).field("Top", &self.Top).field("Right", &self.Right).field("Bottom", &self.Bottom).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SMALL_RECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SMALL_RECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SMALL_RECT {
     fn eq(&self, other: &Self) -> bool {
@@ -1807,8 +1807,8 @@ impl ::core::fmt::Debug for WINDOW_BUFFER_SIZE_RECORD {
         f.debug_struct("WINDOW_BUFFER_SIZE_RECORD").field("dwSize", &self.dwSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WINDOW_BUFFER_SIZE_RECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINDOW_BUFFER_SIZE_RECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WINDOW_BUFFER_SIZE_RECORD {
     fn eq(&self, other: &Self) -> bool {

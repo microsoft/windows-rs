@@ -50,15 +50,15 @@ where
 #[inline]
 pub unsafe fn WebSocketCreateClientHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -> ::windows::core::Result<WEB_SOCKET_HANDLE> {
     ::windows::core::link ! ( "websocket.dll""system" fn WebSocketCreateClientHandle ( pproperties : *const WEB_SOCKET_PROPERTY , ulpropertycount : u32 , phwebsocket : *mut WEB_SOCKET_HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WebSocketCreateClientHandle(::core::mem::transmute(pproperties.as_ptr()), pproperties.len() as _, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<WEB_SOCKET_HANDLE>();
+    WebSocketCreateClientHandle(::core::mem::transmute(pproperties.as_ptr()), pproperties.len() as _, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketCreateServerHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -> ::windows::core::Result<WEB_SOCKET_HANDLE> {
     ::windows::core::link ! ( "websocket.dll""system" fn WebSocketCreateServerHandle ( pproperties : *const WEB_SOCKET_PROPERTY , ulpropertycount : u32 , phwebsocket : *mut WEB_SOCKET_HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WebSocketCreateServerHandle(::core::mem::transmute(pproperties.as_ptr()), pproperties.len() as _, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<WEB_SOCKET_HANDLE>();
+    WebSocketCreateServerHandle(::core::mem::transmute(pproperties.as_ptr()), pproperties.len() as _, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
@@ -147,8 +147,8 @@ impl ::core::default::Default for WEB_SOCKET_ACTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WEB_SOCKET_ACTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WEB_SOCKET_ACTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WEB_SOCKET_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -176,8 +176,8 @@ impl ::core::default::Default for WEB_SOCKET_ACTION_QUEUE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WEB_SOCKET_ACTION_QUEUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WEB_SOCKET_ACTION_QUEUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WEB_SOCKET_ACTION_QUEUE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -213,8 +213,8 @@ impl ::core::default::Default for WEB_SOCKET_BUFFER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WEB_SOCKET_BUFFER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WEB_SOCKET_BUFFER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -260,8 +260,8 @@ impl ::core::default::Default for WEB_SOCKET_CLOSE_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WEB_SOCKET_CLOSE_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WEB_SOCKET_CLOSE_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WEB_SOCKET_CLOSE_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -297,8 +297,8 @@ impl ::core::default::Default for WEB_SOCKET_PROPERTY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WEB_SOCKET_PROPERTY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WEB_SOCKET_PROPERTY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WEB_SOCKET_PROPERTY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -317,8 +317,8 @@ impl ::core::clone::Clone for WEB_SOCKET_BUFFER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WEB_SOCKET_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WEB_SOCKET_BUFFER {
     fn default() -> Self {
@@ -343,8 +343,8 @@ impl ::core::fmt::Debug for WEB_SOCKET_BUFFER_0 {
         f.debug_struct("WEB_SOCKET_BUFFER_0").field("pbReason", &self.pbReason).field("ulReasonLength", &self.ulReasonLength).field("usStatus", &self.usStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WEB_SOCKET_BUFFER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEB_SOCKET_BUFFER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -374,8 +374,8 @@ impl ::core::fmt::Debug for WEB_SOCKET_BUFFER_1 {
         f.debug_struct("WEB_SOCKET_BUFFER_1").field("pbBuffer", &self.pbBuffer).field("ulBufferLength", &self.ulBufferLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WEB_SOCKET_BUFFER_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEB_SOCKET_BUFFER_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -417,8 +417,8 @@ impl ::core::convert::From<::core::option::Option<WEB_SOCKET_HANDLE>> for WEB_SO
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for WEB_SOCKET_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WEB_SOCKET_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
@@ -439,8 +439,8 @@ impl ::core::fmt::Debug for WEB_SOCKET_HTTP_HEADER {
         f.debug_struct("WEB_SOCKET_HTTP_HEADER").field("pcName", &self.pcName).field("ulNameLength", &self.ulNameLength).field("pcValue", &self.pcValue).field("ulValueLength", &self.ulValueLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WEB_SOCKET_HTTP_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WEB_SOCKET_HTTP_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEB_SOCKET_HTTP_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -471,8 +471,8 @@ impl ::core::fmt::Debug for WEB_SOCKET_PROPERTY {
         f.debug_struct("WEB_SOCKET_PROPERTY").field("Type", &self.Type).field("pvValue", &self.pvValue).field("ulValueSize", &self.ulValueSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WEB_SOCKET_PROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WEB_SOCKET_PROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEB_SOCKET_PROPERTY {
     fn eq(&self, other: &Self) -> bool {

@@ -2893,8 +2893,8 @@ impl ::core::default::Default for LDAP_RETCODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LDAP_RETCODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAP_RETCODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LDAP_RETCODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2917,8 +2917,8 @@ impl ::core::fmt::Debug for BerElement {
         f.debug_struct("BerElement").field("opaque", &self.opaque).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BerElement {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BerElement {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BerElement {
     fn eq(&self, other: &Self) -> bool {
@@ -2979,8 +2979,8 @@ impl ::core::fmt::Debug for LDAP {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for LDAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LDAP {
     fn eq(&self, other: &Self) -> bool {
@@ -3012,8 +3012,8 @@ impl ::core::fmt::Debug for LDAP_0 {
         f.debug_struct("LDAP_0").field("sb_sd", &self.sb_sd).field("Reserved1", &self.Reserved1).field("sb_naddr", &self.sb_naddr).field("Reserved2", &self.Reserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LDAP_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAP_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LDAP_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3044,8 +3044,8 @@ impl ::core::fmt::Debug for LDAPAPIFeatureInfoA {
         f.debug_struct("LDAPAPIFeatureInfoA").field("ldapaif_info_version", &self.ldapaif_info_version).field("ldapaif_name", &self.ldapaif_name).field("ldapaif_version", &self.ldapaif_version).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LDAPAPIFeatureInfoA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPAPIFeatureInfoA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LDAPAPIFeatureInfoA {
     fn eq(&self, other: &Self) -> bool {
@@ -3076,8 +3076,8 @@ impl ::core::fmt::Debug for LDAPAPIFeatureInfoW {
         f.debug_struct("LDAPAPIFeatureInfoW").field("ldapaif_info_version", &self.ldapaif_info_version).field("ldapaif_name", &self.ldapaif_name).field("ldapaif_version", &self.ldapaif_version).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LDAPAPIFeatureInfoW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPAPIFeatureInfoW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LDAPAPIFeatureInfoW {
     fn eq(&self, other: &Self) -> bool {
@@ -3111,8 +3111,8 @@ impl ::core::fmt::Debug for LDAPAPIInfoA {
         f.debug_struct("LDAPAPIInfoA").field("ldapai_info_version", &self.ldapai_info_version).field("ldapai_api_version", &self.ldapai_api_version).field("ldapai_protocol_version", &self.ldapai_protocol_version).field("ldapai_extensions", &self.ldapai_extensions).field("ldapai_vendor_name", &self.ldapai_vendor_name).field("ldapai_vendor_version", &self.ldapai_vendor_version).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LDAPAPIInfoA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPAPIInfoA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LDAPAPIInfoA {
     fn eq(&self, other: &Self) -> bool {
@@ -3146,8 +3146,8 @@ impl ::core::fmt::Debug for LDAPAPIInfoW {
         f.debug_struct("LDAPAPIInfoW").field("ldapai_info_version", &self.ldapai_info_version).field("ldapai_api_version", &self.ldapai_api_version).field("ldapai_protocol_version", &self.ldapai_protocol_version).field("ldapai_extensions", &self.ldapai_extensions).field("ldapai_vendor_name", &self.ldapai_vendor_name).field("ldapai_vendor_version", &self.ldapai_vendor_version).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LDAPAPIInfoW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPAPIInfoW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LDAPAPIInfoW {
     fn eq(&self, other: &Self) -> bool {
@@ -3183,8 +3183,8 @@ impl ::core::fmt::Debug for LDAPControlA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LDAPControlA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPControlA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPControlA {
@@ -3223,8 +3223,8 @@ impl ::core::fmt::Debug for LDAPControlW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LDAPControlW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPControlW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPControlW {
@@ -3287,8 +3287,8 @@ impl ::core::fmt::Debug for LDAPMessage {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LDAPMessage {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPMessage {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPMessage {
@@ -3317,8 +3317,8 @@ impl ::core::clone::Clone for LDAPModA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for LDAPModA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPModA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for LDAPModA {
     fn default() -> Self {
@@ -3337,8 +3337,8 @@ impl ::core::clone::Clone for LDAPModA_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for LDAPModA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPModA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for LDAPModA_0 {
     fn default() -> Self {
@@ -3358,8 +3358,8 @@ impl ::core::clone::Clone for LDAPModW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for LDAPModW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPModW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for LDAPModW {
     fn default() -> Self {
@@ -3378,8 +3378,8 @@ impl ::core::clone::Clone for LDAPModW_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for LDAPModW_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPModW_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for LDAPModW_0 {
     fn default() -> Self {
@@ -3411,8 +3411,8 @@ impl ::core::fmt::Debug for LDAPSortKeyA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LDAPSortKeyA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPSortKeyA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPSortKeyA {
@@ -3451,8 +3451,8 @@ impl ::core::fmt::Debug for LDAPSortKeyW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LDAPSortKeyW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPSortKeyW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPSortKeyW {
@@ -3491,8 +3491,8 @@ impl ::core::fmt::Debug for LDAPVLVInfo {
         f.debug_struct("LDAPVLVInfo").field("ldvlv_version", &self.ldvlv_version).field("ldvlv_before_count", &self.ldvlv_before_count).field("ldvlv_after_count", &self.ldvlv_after_count).field("ldvlv_offset", &self.ldvlv_offset).field("ldvlv_count", &self.ldvlv_count).field("ldvlv_attrvalue", &self.ldvlv_attrvalue).field("ldvlv_context", &self.ldvlv_context).field("ldvlv_extradata", &self.ldvlv_extradata).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LDAPVLVInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAPVLVInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LDAPVLVInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -3522,8 +3522,8 @@ impl ::core::fmt::Debug for LDAP_BERVAL {
         f.debug_struct("LDAP_BERVAL").field("bv_len", &self.bv_len).field("bv_val", &self.bv_val).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LDAP_BERVAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAP_BERVAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LDAP_BERVAL {
     fn eq(&self, other: &Self) -> bool {
@@ -3560,8 +3560,8 @@ impl ::core::fmt::Debug for LDAP_REFERRAL_CALLBACK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LDAP_REFERRAL_CALLBACK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAP_REFERRAL_CALLBACK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LDAP_REFERRAL_CALLBACK {
@@ -3586,8 +3586,8 @@ impl ::core::fmt::Debug for LDAP_TIMEVAL {
         f.debug_struct("LDAP_TIMEVAL").field("tv_sec", &self.tv_sec).field("tv_usec", &self.tv_usec).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LDAP_TIMEVAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAP_TIMEVAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LDAP_TIMEVAL {
     fn eq(&self, other: &Self) -> bool {
@@ -3618,8 +3618,8 @@ impl ::core::fmt::Debug for LDAP_VERSION_INFO {
         f.debug_struct("LDAP_VERSION_INFO").field("lv_size", &self.lv_size).field("lv_major", &self.lv_major).field("lv_minor", &self.lv_minor).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LDAP_VERSION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDAP_VERSION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LDAP_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {

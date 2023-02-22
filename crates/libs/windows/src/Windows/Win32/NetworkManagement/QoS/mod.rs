@@ -1382,8 +1382,8 @@ impl ::core::default::Default for FilterType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FilterType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FilterType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FilterType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1415,8 +1415,8 @@ impl ::core::default::Default for QOS_FLOWRATE_REASON {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for QOS_FLOWRATE_REASON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_FLOWRATE_REASON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for QOS_FLOWRATE_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1444,8 +1444,8 @@ impl ::core::default::Default for QOS_NOTIFY_FLOW {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for QOS_NOTIFY_FLOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_NOTIFY_FLOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for QOS_NOTIFY_FLOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1473,8 +1473,8 @@ impl ::core::default::Default for QOS_QUERY_FLOW {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for QOS_QUERY_FLOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_QUERY_FLOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for QOS_QUERY_FLOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1502,8 +1502,8 @@ impl ::core::default::Default for QOS_SET_FLOW {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for QOS_SET_FLOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_SET_FLOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for QOS_SET_FLOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1531,8 +1531,8 @@ impl ::core::default::Default for QOS_SHAPING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for QOS_SHAPING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_SHAPING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for QOS_SHAPING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1566,8 +1566,8 @@ impl ::core::default::Default for QOS_TRAFFIC_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for QOS_TRAFFIC_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_TRAFFIC_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for QOS_TRAFFIC_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1601,8 +1601,8 @@ impl ::core::default::Default for int_serv_wkp {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for int_serv_wkp {
-    type Abi = Self;
+impl ::windows::core::TypeKind for int_serv_wkp {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for int_serv_wkp {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1631,8 +1631,8 @@ impl ::core::fmt::Debug for ADDRESS_LIST_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::core::Abi for ADDRESS_LIST_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADDRESS_LIST_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::PartialEq for ADDRESS_LIST_DESCRIPTOR {
@@ -1665,8 +1665,8 @@ impl ::core::fmt::Debug for ADSPEC {
         f.debug_struct("ADSPEC").field("adspec_header", &self.adspec_header).field("adspec_body", &self.adspec_body).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ADSPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADSPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ADSPEC {
     fn eq(&self, other: &Self) -> bool {
@@ -1699,8 +1699,8 @@ impl ::core::fmt::Debug for AD_GENERAL_PARAMS {
         f.debug_struct("AD_GENERAL_PARAMS").field("IntServAwareHopCount", &self.IntServAwareHopCount).field("PathBandwidthEstimate", &self.PathBandwidthEstimate).field("MinimumLatency", &self.MinimumLatency).field("PathMTU", &self.PathMTU).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AD_GENERAL_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AD_GENERAL_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AD_GENERAL_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -1732,8 +1732,8 @@ impl ::core::fmt::Debug for AD_GUARANTEED {
         f.debug_struct("AD_GUARANTEED").field("CTotal", &self.CTotal).field("DTotal", &self.DTotal).field("CSum", &self.CSum).field("DSum", &self.DSum).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AD_GUARANTEED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AD_GUARANTEED {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AD_GUARANTEED {
     fn eq(&self, other: &Self) -> bool {
@@ -1760,8 +1760,8 @@ impl ::core::clone::Clone for CONTROL_SERVICE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CONTROL_SERVICE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONTROL_SERVICE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CONTROL_SERVICE {
     fn default() -> Self {
@@ -1780,8 +1780,8 @@ impl ::core::clone::Clone for CONTROL_SERVICE_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CONTROL_SERVICE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONTROL_SERVICE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CONTROL_SERVICE_0 {
     fn default() -> Self {
@@ -1806,8 +1806,8 @@ impl ::core::fmt::Debug for CtrlLoadFlowspec {
         f.debug_struct("CtrlLoadFlowspec").field("CL_spec_serv_hdr", &self.CL_spec_serv_hdr).field("CL_spec_parm_hdr", &self.CL_spec_parm_hdr).field("CL_spec_parms", &self.CL_spec_parms).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CtrlLoadFlowspec {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CtrlLoadFlowspec {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CtrlLoadFlowspec {
     fn eq(&self, other: &Self) -> bool {
@@ -1847,8 +1847,8 @@ impl ::core::fmt::Debug for ENUMERATION_BUFFER {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for ENUMERATION_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUMERATION_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for ENUMERATION_BUFFER {
@@ -1880,8 +1880,8 @@ impl ::core::clone::Clone for ERROR_SPEC {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for ERROR_SPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ERROR_SPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for ERROR_SPEC {
@@ -1904,8 +1904,8 @@ impl ::core::clone::Clone for ERROR_SPEC_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for ERROR_SPEC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ERROR_SPEC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for ERROR_SPEC_0 {
@@ -1931,8 +1931,8 @@ impl ::core::clone::Clone for Error_Spec_IPv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for Error_Spec_IPv4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Error_Spec_IPv4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for Error_Spec_IPv4 {
@@ -1956,8 +1956,8 @@ impl ::core::clone::Clone for FILTER_SPEC {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for FILTER_SPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_SPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for FILTER_SPEC {
@@ -1981,8 +1981,8 @@ impl ::core::clone::Clone for FILTER_SPEC_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for FILTER_SPEC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_SPEC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for FILTER_SPEC_0 {
@@ -2013,8 +2013,8 @@ impl ::core::fmt::Debug for FLOWDESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for FLOWDESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FLOWDESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for FLOWDESCRIPTOR {
@@ -2046,8 +2046,8 @@ impl ::core::clone::Clone for FLOW_DESC {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for FLOW_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FLOW_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for FLOW_DESC {
@@ -2071,8 +2071,8 @@ impl ::core::clone::Clone for FLOW_DESC_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for FLOW_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FLOW_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for FLOW_DESC_0 {
@@ -2096,8 +2096,8 @@ impl ::core::clone::Clone for FLOW_DESC_1 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for FLOW_DESC_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FLOW_DESC_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for FLOW_DESC_1 {
@@ -2122,8 +2122,8 @@ impl ::core::clone::Clone for Filter_Spec_IPv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for Filter_Spec_IPv4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Filter_Spec_IPv4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for Filter_Spec_IPv4 {
@@ -2147,8 +2147,8 @@ impl ::core::clone::Clone for Filter_Spec_IPv4GPI {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for Filter_Spec_IPv4GPI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Filter_Spec_IPv4GPI {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for Filter_Spec_IPv4GPI {
@@ -2180,8 +2180,8 @@ impl ::core::fmt::Debug for Gads_parms_t {
         f.debug_struct("Gads_parms_t").field("Gads_serv_hdr", &self.Gads_serv_hdr).field("Gads_Ctot_hdr", &self.Gads_Ctot_hdr).field("Gads_Ctot", &self.Gads_Ctot).field("Gads_Dtot_hdr", &self.Gads_Dtot_hdr).field("Gads_Dtot", &self.Gads_Dtot).field("Gads_Csum_hdr", &self.Gads_Csum_hdr).field("Gads_Csum", &self.Gads_Csum).field("Gads_Dsum_hdr", &self.Gads_Dsum_hdr).field("Gads_Dsum", &self.Gads_Dsum).finish()
     }
 }
-unsafe impl ::windows::core::Abi for Gads_parms_t {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Gads_parms_t {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for Gads_parms_t {
     fn eq(&self, other: &Self) -> bool {
@@ -2228,8 +2228,8 @@ impl ::core::fmt::Debug for GenAdspecParams {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for GenAdspecParams {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GenAdspecParams {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GenAdspecParams {
     fn eq(&self, other: &Self) -> bool {
@@ -2260,8 +2260,8 @@ impl ::core::fmt::Debug for GenTspec {
         f.debug_struct("GenTspec").field("gen_Tspec_serv_hdr", &self.gen_Tspec_serv_hdr).field("gen_Tspec_parm_hdr", &self.gen_Tspec_parm_hdr).field("gen_Tspec_parms", &self.gen_Tspec_parms).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GenTspec {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GenTspec {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GenTspec {
     fn eq(&self, other: &Self) -> bool {
@@ -2294,8 +2294,8 @@ impl ::core::fmt::Debug for GenTspecParms {
         f.debug_struct("GenTspecParms").field("TB_Tspec_r", &self.TB_Tspec_r).field("TB_Tspec_b", &self.TB_Tspec_b).field("TB_Tspec_p", &self.TB_Tspec_p).field("TB_Tspec_m", &self.TB_Tspec_m).field("TB_Tspec_M", &self.TB_Tspec_M).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GenTspecParms {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GenTspecParms {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GenTspecParms {
     fn eq(&self, other: &Self) -> bool {
@@ -2328,8 +2328,8 @@ impl ::core::fmt::Debug for GuarFlowSpec {
         f.debug_struct("GuarFlowSpec").field("Guar_serv_hdr", &self.Guar_serv_hdr).field("Guar_Tspec_hdr", &self.Guar_Tspec_hdr).field("Guar_Tspec_parms", &self.Guar_Tspec_parms).field("Guar_Rspec_hdr", &self.Guar_Rspec_hdr).field("Guar_Rspec", &self.Guar_Rspec).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GuarFlowSpec {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GuarFlowSpec {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GuarFlowSpec {
     fn eq(&self, other: &Self) -> bool {
@@ -2359,8 +2359,8 @@ impl ::core::fmt::Debug for GuarRspec {
         f.debug_struct("GuarRspec").field("Guar_R", &self.Guar_R).field("Guar_S", &self.Guar_S).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GuarRspec {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GuarRspec {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GuarRspec {
     fn eq(&self, other: &Self) -> bool {
@@ -2392,8 +2392,8 @@ impl ::core::fmt::Debug for IDPE_ATTR {
         f.debug_struct("IDPE_ATTR").field("PeAttribLength", &self.PeAttribLength).field("PeAttribType", &self.PeAttribType).field("PeAttribSubType", &self.PeAttribSubType).field("PeAttribValue", &self.PeAttribValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IDPE_ATTR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IDPE_ATTR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IDPE_ATTR {
     fn eq(&self, other: &Self) -> bool {
@@ -2427,8 +2427,8 @@ impl ::core::fmt::Debug for ID_ERROR_OBJECT {
         f.debug_struct("ID_ERROR_OBJECT").field("usIdErrLength", &self.usIdErrLength).field("ucAType", &self.ucAType).field("ucSubType", &self.ucSubType).field("usReserved", &self.usReserved).field("usIdErrorValue", &self.usIdErrorValue).field("ucIdErrData", &self.ucIdErrData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ID_ERROR_OBJECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ID_ERROR_OBJECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ID_ERROR_OBJECT {
     fn eq(&self, other: &Self) -> bool {
@@ -2453,8 +2453,8 @@ impl ::core::clone::Clone for IN_ADDR_IPV4 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IN_ADDR_IPV4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IN_ADDR_IPV4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IN_ADDR_IPV4 {
     fn default() -> Self {
@@ -2477,8 +2477,8 @@ impl ::core::fmt::Debug for IN_ADDR_IPV6 {
         f.debug_struct("IN_ADDR_IPV6").field("Addr", &self.Addr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IN_ADDR_IPV6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IN_ADDR_IPV6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IN_ADDR_IPV6 {
     fn eq(&self, other: &Self) -> bool {
@@ -2508,8 +2508,8 @@ impl ::core::fmt::Debug for IPX_PATTERN {
         f.debug_struct("IPX_PATTERN").field("Src", &self.Src).field("Dest", &self.Dest).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPX_PATTERN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPX_PATTERN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPX_PATTERN {
     fn eq(&self, other: &Self) -> bool {
@@ -2540,8 +2540,8 @@ impl ::core::fmt::Debug for IPX_PATTERN_0 {
         f.debug_struct("IPX_PATTERN_0").field("NetworkAddress", &self.NetworkAddress).field("NodeAddress", &self.NodeAddress).field("Socket", &self.Socket).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPX_PATTERN_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPX_PATTERN_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPX_PATTERN_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2571,8 +2571,8 @@ impl ::core::clone::Clone for IP_PATTERN {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IP_PATTERN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_PATTERN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IP_PATTERN {
     fn default() -> Self {
@@ -2592,8 +2592,8 @@ impl ::core::clone::Clone for IP_PATTERN_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IP_PATTERN_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_PATTERN_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IP_PATTERN_0 {
     fn default() -> Self {
@@ -2618,8 +2618,8 @@ impl ::core::fmt::Debug for IP_PATTERN_0_0 {
         f.debug_struct("IP_PATTERN_0_0").field("s_type", &self.s_type).field("s_code", &self.s_code).field("filler", &self.filler).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IP_PATTERN_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_PATTERN_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP_PATTERN_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2649,8 +2649,8 @@ impl ::core::fmt::Debug for IP_PATTERN_0_1 {
         f.debug_struct("IP_PATTERN_0_1").field("s_srcport", &self.s_srcport).field("s_dstport", &self.s_dstport).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IP_PATTERN_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_PATTERN_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP_PATTERN_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -2680,8 +2680,8 @@ impl ::core::fmt::Debug for IS_ADSPEC_BODY {
         f.debug_struct("IS_ADSPEC_BODY").field("adspec_mh", &self.adspec_mh).field("adspec_genparms", &self.adspec_genparms).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IS_ADSPEC_BODY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IS_ADSPEC_BODY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IS_ADSPEC_BODY {
     fn eq(&self, other: &Self) -> bool {
@@ -2706,8 +2706,8 @@ impl ::core::clone::Clone for IS_FLOWSPEC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IS_FLOWSPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IS_FLOWSPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IS_FLOWSPEC {
     fn default() -> Self {
@@ -2726,8 +2726,8 @@ impl ::core::clone::Clone for IntServFlowSpec {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IntServFlowSpec {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IntServFlowSpec {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IntServFlowSpec {
     fn default() -> Self {
@@ -2747,8 +2747,8 @@ impl ::core::clone::Clone for IntServFlowSpec_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IntServFlowSpec_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IntServFlowSpec_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IntServFlowSpec_0 {
     fn default() -> Self {
@@ -2773,8 +2773,8 @@ impl ::core::fmt::Debug for IntServMainHdr {
         f.debug_struct("IntServMainHdr").field("ismh_version", &self.ismh_version).field("ismh_unused", &self.ismh_unused).field("ismh_len32b", &self.ismh_len32b).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IntServMainHdr {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IntServMainHdr {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IntServMainHdr {
     fn eq(&self, other: &Self) -> bool {
@@ -2805,8 +2805,8 @@ impl ::core::fmt::Debug for IntServParmHdr {
         f.debug_struct("IntServParmHdr").field("isph_parm_num", &self.isph_parm_num).field("isph_flags", &self.isph_flags).field("isph_len32b", &self.isph_len32b).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IntServParmHdr {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IntServParmHdr {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IntServParmHdr {
     fn eq(&self, other: &Self) -> bool {
@@ -2837,8 +2837,8 @@ impl ::core::fmt::Debug for IntServServiceHdr {
         f.debug_struct("IntServServiceHdr").field("issh_service", &self.issh_service).field("issh_flags", &self.issh_flags).field("issh_len32b", &self.issh_len32b).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IntServServiceHdr {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IntServServiceHdr {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IntServServiceHdr {
     fn eq(&self, other: &Self) -> bool {
@@ -2863,8 +2863,8 @@ impl ::core::clone::Clone for IntServTspecBody {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IntServTspecBody {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IntServTspecBody {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IntServTspecBody {
     fn default() -> Self {
@@ -2883,8 +2883,8 @@ impl ::core::clone::Clone for IntServTspecBody_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IntServTspecBody_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IntServTspecBody_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IntServTspecBody_0 {
     fn default() -> Self {
@@ -2909,8 +2909,8 @@ impl ::core::clone::Clone for LPMIPTABLE {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for LPMIPTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LPMIPTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for LPMIPTABLE {
@@ -2947,8 +2947,8 @@ impl ::core::convert::From<::core::option::Option<LPM_HANDLE>> for LPM_HANDLE {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for LPM_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LPM_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -2972,8 +2972,8 @@ impl ::core::fmt::Debug for LPM_INIT_INFO {
         f.debug_struct("LPM_INIT_INFO").field("PcmVersionNumber", &self.PcmVersionNumber).field("ResultTimeLimit", &self.ResultTimeLimit).field("ConfiguredLpmCount", &self.ConfiguredLpmCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LPM_INIT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LPM_INIT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for LPM_INIT_INFO {
     fn default() -> Self {
@@ -2998,8 +2998,8 @@ impl ::core::fmt::Debug for PARAM_BUFFER {
         f.debug_struct("PARAM_BUFFER").field("ParameterId", &self.ParameterId).field("Length", &self.Length).field("Buffer", &self.Buffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PARAM_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PARAM_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PARAM_BUFFER {
     fn eq(&self, other: &Self) -> bool {
@@ -3030,8 +3030,8 @@ impl ::core::fmt::Debug for POLICY_DATA {
         f.debug_struct("POLICY_DATA").field("PolicyObjHdr", &self.PolicyObjHdr).field("usPeOffset", &self.usPeOffset).field("usReserved", &self.usReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -3062,8 +3062,8 @@ impl ::core::fmt::Debug for POLICY_DECISION {
         f.debug_struct("POLICY_DECISION").field("lpvResult", &self.lpvResult).field("wPolicyErrCode", &self.wPolicyErrCode).field("wPolicyErrValue", &self.wPolicyErrValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_DECISION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_DECISION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_DECISION {
     fn eq(&self, other: &Self) -> bool {
@@ -3094,8 +3094,8 @@ impl ::core::fmt::Debug for POLICY_ELEMENT {
         f.debug_struct("POLICY_ELEMENT").field("usPeLength", &self.usPeLength).field("usPeType", &self.usPeType).field("ucPeData", &self.ucPeData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_ELEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_ELEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_ELEMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -3131,8 +3131,8 @@ impl ::core::fmt::Debug for QOS_DESTADDR {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for QOS_DESTADDR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_DESTADDR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for QOS_DESTADDR {
@@ -3166,8 +3166,8 @@ impl ::core::fmt::Debug for QOS_DIFFSERV {
         f.debug_struct("QOS_DIFFSERV").field("ObjectHdr", &self.ObjectHdr).field("DSFieldCount", &self.DSFieldCount).field("DiffservRule", &self.DiffservRule).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOS_DIFFSERV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_DIFFSERV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_DIFFSERV {
     fn eq(&self, other: &Self) -> bool {
@@ -3200,8 +3200,8 @@ impl ::core::fmt::Debug for QOS_DIFFSERV_RULE {
         f.debug_struct("QOS_DIFFSERV_RULE").field("InboundDSField", &self.InboundDSField).field("ConformingOutboundDSField", &self.ConformingOutboundDSField).field("NonConformingOutboundDSField", &self.NonConformingOutboundDSField).field("ConformingUserPriority", &self.ConformingUserPriority).field("NonConformingUserPriority", &self.NonConformingUserPriority).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOS_DIFFSERV_RULE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_DIFFSERV_RULE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_DIFFSERV_RULE {
     fn eq(&self, other: &Self) -> bool {
@@ -3231,8 +3231,8 @@ impl ::core::fmt::Debug for QOS_DS_CLASS {
         f.debug_struct("QOS_DS_CLASS").field("ObjectHdr", &self.ObjectHdr).field("DSField", &self.DSField).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOS_DS_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_DS_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_DS_CLASS {
     fn eq(&self, other: &Self) -> bool {
@@ -3263,8 +3263,8 @@ impl ::core::fmt::Debug for QOS_FLOWRATE_OUTGOING {
         f.debug_struct("QOS_FLOWRATE_OUTGOING").field("Bandwidth", &self.Bandwidth).field("ShapingBehavior", &self.ShapingBehavior).field("Reason", &self.Reason).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOS_FLOWRATE_OUTGOING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_FLOWRATE_OUTGOING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_FLOWRATE_OUTGOING {
     fn eq(&self, other: &Self) -> bool {
@@ -3303,8 +3303,8 @@ impl ::core::fmt::Debug for QOS_FLOW_FUNDAMENTALS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for QOS_FLOW_FUNDAMENTALS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_FLOW_FUNDAMENTALS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for QOS_FLOW_FUNDAMENTALS {
@@ -3337,8 +3337,8 @@ impl ::core::fmt::Debug for QOS_FRIENDLY_NAME {
         f.debug_struct("QOS_FRIENDLY_NAME").field("ObjectHdr", &self.ObjectHdr).field("FriendlyName", &self.FriendlyName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOS_FRIENDLY_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_FRIENDLY_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_FRIENDLY_NAME {
     fn eq(&self, other: &Self) -> bool {
@@ -3368,8 +3368,8 @@ impl ::core::fmt::Debug for QOS_OBJECT_HDR {
         f.debug_struct("QOS_OBJECT_HDR").field("ObjectType", &self.ObjectType).field("ObjectLength", &self.ObjectLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOS_OBJECT_HDR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_OBJECT_HDR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_OBJECT_HDR {
     fn eq(&self, other: &Self) -> bool {
@@ -3401,8 +3401,8 @@ impl ::core::fmt::Debug for QOS_PACKET_PRIORITY {
         f.debug_struct("QOS_PACKET_PRIORITY").field("ConformantDSCPValue", &self.ConformantDSCPValue).field("NonConformantDSCPValue", &self.NonConformantDSCPValue).field("ConformantL2Value", &self.ConformantL2Value).field("NonConformantL2Value", &self.NonConformantL2Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOS_PACKET_PRIORITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_PACKET_PRIORITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_PACKET_PRIORITY {
     fn eq(&self, other: &Self) -> bool {
@@ -3432,8 +3432,8 @@ impl ::core::fmt::Debug for QOS_SD_MODE {
         f.debug_struct("QOS_SD_MODE").field("ObjectHdr", &self.ObjectHdr).field("ShapeDiscardMode", &self.ShapeDiscardMode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOS_SD_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_SD_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_SD_MODE {
     fn eq(&self, other: &Self) -> bool {
@@ -3463,8 +3463,8 @@ impl ::core::fmt::Debug for QOS_SHAPING_RATE {
         f.debug_struct("QOS_SHAPING_RATE").field("ObjectHdr", &self.ObjectHdr).field("ShapingRate", &self.ShapingRate).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOS_SHAPING_RATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_SHAPING_RATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_SHAPING_RATE {
     fn eq(&self, other: &Self) -> bool {
@@ -3493,8 +3493,8 @@ impl ::core::fmt::Debug for QOS_TCP_TRAFFIC {
         f.debug_struct("QOS_TCP_TRAFFIC").field("ObjectHdr", &self.ObjectHdr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOS_TCP_TRAFFIC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_TCP_TRAFFIC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_TCP_TRAFFIC {
     fn eq(&self, other: &Self) -> bool {
@@ -3524,8 +3524,8 @@ impl ::core::fmt::Debug for QOS_TRAFFIC_CLASS {
         f.debug_struct("QOS_TRAFFIC_CLASS").field("ObjectHdr", &self.ObjectHdr).field("TrafficClass", &self.TrafficClass).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOS_TRAFFIC_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_TRAFFIC_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_TRAFFIC_CLASS {
     fn eq(&self, other: &Self) -> bool {
@@ -3555,8 +3555,8 @@ impl ::core::fmt::Debug for QOS_VERSION {
         f.debug_struct("QOS_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOS_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOS_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOS_VERSION {
     fn eq(&self, other: &Self) -> bool {
@@ -3587,8 +3587,8 @@ impl ::core::fmt::Debug for QualAppFlowSpec {
         f.debug_struct("QualAppFlowSpec").field("Q_spec_serv_hdr", &self.Q_spec_serv_hdr).field("Q_spec_parm_hdr", &self.Q_spec_parm_hdr).field("Q_spec_parms", &self.Q_spec_parms).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QualAppFlowSpec {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QualAppFlowSpec {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QualAppFlowSpec {
     fn eq(&self, other: &Self) -> bool {
@@ -3619,8 +3619,8 @@ impl ::core::fmt::Debug for QualTspec {
         f.debug_struct("QualTspec").field("qual_Tspec_serv_hdr", &self.qual_Tspec_serv_hdr).field("qual_Tspec_parm_hdr", &self.qual_Tspec_parm_hdr).field("qual_Tspec_parms", &self.qual_Tspec_parms).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QualTspec {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QualTspec {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QualTspec {
     fn eq(&self, other: &Self) -> bool {
@@ -3649,8 +3649,8 @@ impl ::core::fmt::Debug for QualTspecParms {
         f.debug_struct("QualTspecParms").field("TB_Tspec_M", &self.TB_Tspec_M).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QualTspecParms {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QualTspecParms {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QualTspecParms {
     fn eq(&self, other: &Self) -> bool {
@@ -3680,8 +3680,8 @@ impl ::core::fmt::Debug for RESV_STYLE {
         f.debug_struct("RESV_STYLE").field("style_header", &self.style_header).field("style_word", &self.style_word).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RESV_STYLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RESV_STYLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RESV_STYLE {
     fn eq(&self, other: &Self) -> bool {
@@ -3723,8 +3723,8 @@ impl ::core::convert::From<::core::option::Option<RHANDLE>> for RHANDLE {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for RHANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RHANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -3740,8 +3740,8 @@ impl ::core::clone::Clone for RSVP_ADSPEC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for RSVP_ADSPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_ADSPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for RSVP_ADSPEC {
     fn default() -> Self {
@@ -3760,8 +3760,8 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_FILTERSPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for RSVP_FILTERSPEC {
     fn default() -> Self {
@@ -3783,8 +3783,8 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_FILTERSPEC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for RSVP_FILTERSPEC_0 {
     fn default() -> Self {
@@ -3804,8 +3804,8 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_V4 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_FILTERSPEC_V4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for RSVP_FILTERSPEC_V4 {
     fn default() -> Self {
@@ -3824,8 +3824,8 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_V4_GPI {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V4_GPI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_FILTERSPEC_V4_GPI {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for RSVP_FILTERSPEC_V4_GPI {
     fn default() -> Self {
@@ -3850,8 +3850,8 @@ impl ::core::fmt::Debug for RSVP_FILTERSPEC_V6 {
         f.debug_struct("RSVP_FILTERSPEC_V6").field("Address", &self.Address).field("UnUsed", &self.UnUsed).field("Port", &self.Port).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_FILTERSPEC_V6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V6 {
     fn eq(&self, other: &Self) -> bool {
@@ -3882,8 +3882,8 @@ impl ::core::fmt::Debug for RSVP_FILTERSPEC_V6_FLOW {
         f.debug_struct("RSVP_FILTERSPEC_V6_FLOW").field("Address", &self.Address).field("UnUsed", &self.UnUsed).field("FlowLabel", &self.FlowLabel).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V6_FLOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_FILTERSPEC_V6_FLOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V6_FLOW {
     fn eq(&self, other: &Self) -> bool {
@@ -3913,8 +3913,8 @@ impl ::core::fmt::Debug for RSVP_FILTERSPEC_V6_GPI {
         f.debug_struct("RSVP_FILTERSPEC_V6_GPI").field("Address", &self.Address).field("GeneralPortId", &self.GeneralPortId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V6_GPI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_FILTERSPEC_V6_GPI {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V6_GPI {
     fn eq(&self, other: &Self) -> bool {
@@ -3943,8 +3943,8 @@ impl ::core::clone::Clone for RSVP_HOP {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RSVP_HOP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_HOP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_HOP {
@@ -3967,8 +3967,8 @@ impl ::core::clone::Clone for RSVP_HOP_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RSVP_HOP_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_HOP_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_HOP_0 {
@@ -4021,8 +4021,8 @@ impl ::core::fmt::Debug for RSVP_MSG_OBJS {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RSVP_MSG_OBJS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_MSG_OBJS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for RSVP_MSG_OBJS {
@@ -4056,8 +4056,8 @@ impl ::core::fmt::Debug for RSVP_POLICY {
         f.debug_struct("RSVP_POLICY").field("Len", &self.Len).field("Type", &self.Type).field("Info", &self.Info).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RSVP_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSVP_POLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -4088,8 +4088,8 @@ impl ::core::fmt::Debug for RSVP_POLICY_INFO {
         f.debug_struct("RSVP_POLICY_INFO").field("ObjectHdr", &self.ObjectHdr).field("NumPolicyElement", &self.NumPolicyElement).field("PolicyElement", &self.PolicyElement).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RSVP_POLICY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_POLICY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSVP_POLICY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4128,8 +4128,8 @@ impl ::core::fmt::Debug for RSVP_RESERVE_INFO {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RSVP_RESERVE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_RESERVE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for RSVP_RESERVE_INFO {
@@ -4161,8 +4161,8 @@ impl ::core::clone::Clone for RSVP_SCOPE {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RSVP_SCOPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_SCOPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_SCOPE {
@@ -4185,8 +4185,8 @@ impl ::core::clone::Clone for RSVP_SCOPE_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RSVP_SCOPE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_SCOPE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_SCOPE_0 {
@@ -4210,8 +4210,8 @@ impl ::core::clone::Clone for RSVP_SESSION {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RSVP_SESSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_SESSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_SESSION {
@@ -4234,8 +4234,8 @@ impl ::core::clone::Clone for RSVP_SESSION_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RSVP_SESSION_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_SESSION_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_SESSION_0 {
@@ -4262,8 +4262,8 @@ impl ::core::fmt::Debug for RSVP_STATUS_INFO {
         f.debug_struct("RSVP_STATUS_INFO").field("ObjectHdr", &self.ObjectHdr).field("StatusCode", &self.StatusCode).field("ExtendedStatus1", &self.ExtendedStatus1).field("ExtendedStatus2", &self.ExtendedStatus2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RSVP_STATUS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSVP_STATUS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSVP_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4294,8 +4294,8 @@ impl ::core::fmt::Debug for RsvpObjHdr {
         f.debug_struct("RsvpObjHdr").field("obj_length", &self.obj_length).field("obj_class", &self.obj_class).field("obj_ctype", &self.obj_ctype).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RsvpObjHdr {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RsvpObjHdr {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RsvpObjHdr {
     fn eq(&self, other: &Self) -> bool {
@@ -4324,8 +4324,8 @@ impl ::core::clone::Clone for Rsvp_Hop_IPv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for Rsvp_Hop_IPv4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Rsvp_Hop_IPv4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for Rsvp_Hop_IPv4 {
@@ -4345,8 +4345,8 @@ impl ::core::clone::Clone for SENDER_TSPEC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SENDER_TSPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SENDER_TSPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SENDER_TSPEC {
     fn default() -> Self {
@@ -4366,8 +4366,8 @@ impl ::core::clone::Clone for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     fn default() -> Self {
@@ -4388,8 +4388,8 @@ impl ::core::clone::Clone for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     fn default() -> Self {
@@ -4413,8 +4413,8 @@ impl ::core::clone::Clone for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     fn default() -> Self {
@@ -4436,8 +4436,8 @@ impl ::core::clone::Clone for SIPAEVENT_SI_POLICY_PAYLOAD {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SIPAEVENT_SI_POLICY_PAYLOAD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIPAEVENT_SI_POLICY_PAYLOAD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_SI_POLICY_PAYLOAD {
     fn default() -> Self {
@@ -4456,8 +4456,8 @@ impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     fn default() -> Self {
@@ -4475,8 +4475,8 @@ impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     fn default() -> Self {
@@ -4497,8 +4497,8 @@ impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_RSA_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SIPAEVENT_VSM_IDK_RSA_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIPAEVENT_VSM_IDK_RSA_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SIPAEVENT_VSM_IDK_RSA_INFO {
     fn default() -> Self {
@@ -4520,8 +4520,8 @@ impl ::core::clone::Clone for Scope_list_ipv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for Scope_list_ipv4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Scope_list_ipv4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for Scope_list_ipv4 {
@@ -4547,8 +4547,8 @@ impl ::core::clone::Clone for Session_IPv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for Session_IPv4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Session_IPv4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for Session_IPv4 {
@@ -4571,8 +4571,8 @@ impl ::core::clone::Clone for TCG_PCClientPCREventStruct {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TCG_PCClientPCREventStruct {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCG_PCClientPCREventStruct {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TCG_PCClientPCREventStruct {
     fn default() -> Self {
@@ -4592,8 +4592,8 @@ impl ::core::clone::Clone for TCG_PCClientTaggedEventStruct {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TCG_PCClientTaggedEventStruct {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCG_PCClientTaggedEventStruct {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TCG_PCClientTaggedEventStruct {
     fn default() -> Self {
@@ -4624,8 +4624,8 @@ impl ::core::fmt::Debug for TCI_CLIENT_FUNC_LIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TCI_CLIENT_FUNC_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCI_CLIENT_FUNC_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TCI_CLIENT_FUNC_LIST {
@@ -4652,8 +4652,8 @@ impl ::core::fmt::Debug for TC_GEN_FILTER {
         f.debug_struct("TC_GEN_FILTER").field("AddressType", &self.AddressType).field("PatternSize", &self.PatternSize).field("Pattern", &self.Pattern).field("Mask", &self.Mask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TC_GEN_FILTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TC_GEN_FILTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TC_GEN_FILTER {
     fn eq(&self, other: &Self) -> bool {
@@ -4690,8 +4690,8 @@ impl ::core::fmt::Debug for TC_GEN_FLOW {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for TC_GEN_FLOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TC_GEN_FLOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for TC_GEN_FLOW {
@@ -4731,8 +4731,8 @@ impl ::core::fmt::Debug for TC_IFC_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::core::Abi for TC_IFC_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TC_IFC_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::PartialEq for TC_IFC_DESCRIPTOR {
@@ -4772,8 +4772,8 @@ impl ::core::fmt::Debug for TC_SUPPORTED_INFO_BUFFER {
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::core::Abi for TC_SUPPORTED_INFO_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TC_SUPPORTED_INFO_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::PartialEq for TC_SUPPORTED_INFO_BUFFER {
@@ -4809,8 +4809,8 @@ impl ::core::clone::Clone for WBCL_Iterator {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WBCL_Iterator {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WBCL_Iterator {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WBCL_Iterator {
     fn default() -> Self {
@@ -4831,8 +4831,8 @@ impl ::core::clone::Clone for WBCL_LogHdr {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WBCL_LogHdr {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WBCL_LogHdr {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WBCL_LogHdr {
     fn default() -> Self {

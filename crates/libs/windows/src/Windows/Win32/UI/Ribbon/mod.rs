@@ -9,8 +9,8 @@ impl IUIApplication {
         (::windows::core::Vtable::vtable(self).OnViewChanged)(::windows::core::Vtable::as_raw(self), viewid, typeid, view.into().abi(), verb, ureasoncode).ok()
     }
     pub unsafe fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> ::windows::core::Result<IUICommandHandler> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OnCreateUICommand)(::windows::core::Vtable::as_raw(self), commandid, typeid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IUICommandHandler>();
+        (::windows::core::Vtable::vtable(self).OnCreateUICommand)(::windows::core::Vtable::as_raw(self), commandid, typeid, &mut result__).from_abi(result__)
     }
     pub unsafe fn OnDestroyUICommand<P0>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: P0) -> ::windows::core::Result<()>
     where
@@ -20,11 +20,6 @@ impl IUIApplication {
     }
 }
 ::windows::core::interface_hierarchy!(IUIApplication, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUIApplication {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUIApplication {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38,6 +33,11 @@ impl ::core::fmt::Debug for IUIApplication {
 }
 unsafe impl ::windows::core::Vtable for IUIApplication {
     type Vtable = IUIApplication_Vtbl;
+}
+impl ::core::clone::Clone for IUIApplication {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUIApplication {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd428903c_729a_491d_910d_682a08ff2522);
@@ -55,12 +55,12 @@ pub struct IUIApplication_Vtbl {
 pub struct IUICollection(::windows::core::IUnknown);
 impl IUICollection {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetItem(&self, index: u32) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn Add<P0>(&self, item: P0) -> ::windows::core::Result<()>
     where
@@ -88,11 +88,6 @@ impl IUICollection {
     }
 }
 ::windows::core::interface_hierarchy!(IUICollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUICollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUICollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -106,6 +101,11 @@ impl ::core::fmt::Debug for IUICollection {
 }
 unsafe impl ::windows::core::Vtable for IUICollection {
     type Vtable = IUICollection_Vtbl;
+}
+impl ::core::clone::Clone for IUICollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUICollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf4f45bf_6f9d_4dd7_9d68_d8f9cd18c4db);
@@ -135,11 +135,6 @@ impl IUICollectionChangedEvent {
     }
 }
 ::windows::core::interface_hierarchy!(IUICollectionChangedEvent, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUICollectionChangedEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUICollectionChangedEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -153,6 +148,11 @@ impl ::core::fmt::Debug for IUICollectionChangedEvent {
 }
 unsafe impl ::windows::core::Vtable for IUICollectionChangedEvent {
     type Vtable = IUICollectionChangedEvent_Vtbl;
+}
+impl ::core::clone::Clone for IUICollectionChangedEvent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUICollectionChangedEvent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6502ae91_a14d_44b5_bbd0_62aacc581d52);
@@ -178,16 +178,11 @@ impl IUICommandHandler {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn UpdateProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).UpdateProperty)(::windows::core::Vtable::as_raw(self), commandid, key, ::core::mem::transmute(currentvalue.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
+        (::windows::core::Vtable::vtable(self).UpdateProperty)(::windows::core::Vtable::as_raw(self), commandid, key, ::core::mem::transmute(currentvalue.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IUICommandHandler, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUICommandHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUICommandHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -201,6 +196,11 @@ impl ::core::fmt::Debug for IUICommandHandler {
 }
 unsafe impl ::windows::core::Vtable for IUICommandHandler {
     type Vtable = IUICommandHandler_Vtbl;
+}
+impl ::core::clone::Clone for IUICommandHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUICommandHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75ae0a2d_dc03_4c9f_8883_069660d0beb6);
@@ -227,11 +227,6 @@ impl IUIContextualUI {
     }
 }
 ::windows::core::interface_hierarchy!(IUIContextualUI, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUIContextualUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUIContextualUI {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -245,6 +240,11 @@ impl ::core::fmt::Debug for IUIContextualUI {
 }
 unsafe impl ::windows::core::Vtable for IUIContextualUI {
     type Vtable = IUIContextualUI_Vtbl;
+}
+impl ::core::clone::Clone for IUIContextualUI {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUIContextualUI {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea11f37_7c46_437c_8e55_b52122b29293);
@@ -264,11 +264,6 @@ impl IUIEventLogger {
     }
 }
 ::windows::core::interface_hierarchy!(IUIEventLogger, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUIEventLogger {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUIEventLogger {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -282,6 +277,11 @@ impl ::core::fmt::Debug for IUIEventLogger {
 }
 unsafe impl ::windows::core::Vtable for IUIEventLogger {
     type Vtable = IUIEventLogger_Vtbl;
+}
+impl ::core::clone::Clone for IUIEventLogger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUIEventLogger {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec3e1034_dbf4_41a1_95d5_03e0f1026e05);
@@ -304,11 +304,6 @@ impl IUIEventingManager {
     }
 }
 ::windows::core::interface_hierarchy!(IUIEventingManager, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUIEventingManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUIEventingManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -322,6 +317,11 @@ impl ::core::fmt::Debug for IUIEventingManager {
 }
 unsafe impl ::windows::core::Vtable for IUIEventingManager {
     type Vtable = IUIEventingManager_Vtbl;
+}
+impl ::core::clone::Clone for IUIEventingManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUIEventingManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3be6ea7f_9a9b_4198_9368_9b0f923bd534);
@@ -363,8 +363,8 @@ impl IUIFramework {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetUICommandProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUICommandProperty)(::windows::core::Vtable::as_raw(self), commandid, key, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
+        (::windows::core::Vtable::vtable(self).GetUICommandProperty)(::windows::core::Vtable::as_raw(self), commandid, key, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -384,11 +384,6 @@ impl IUIFramework {
     }
 }
 ::windows::core::interface_hierarchy!(IUIFramework, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUIFramework {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUIFramework {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -402,6 +397,11 @@ impl ::core::fmt::Debug for IUIFramework {
 }
 unsafe impl ::windows::core::Vtable for IUIFramework {
     type Vtable = IUIFramework_Vtbl;
+}
+impl ::core::clone::Clone for IUIFramework {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUIFramework {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4f0385d_6872_43a8_ad09_4c339cb3f5c5);
@@ -442,16 +442,11 @@ impl IUIImage {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Graphics::Gdi::HBITMAP>();
+        (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IUIImage, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUIImage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUIImage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -465,6 +460,11 @@ impl ::core::fmt::Debug for IUIImage {
 }
 unsafe impl ::windows::core::Vtable for IUIImage {
     type Vtable = IUIImage_Vtbl;
+}
+impl ::core::clone::Clone for IUIImage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUIImage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23c8c838_4de6_436b_ab01_5554bb7c30dd);
@@ -488,16 +488,11 @@ impl IUIImageFromBitmap {
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateImage)(::windows::core::Vtable::as_raw(self), bitmap.into(), options, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IUIImage>();
+        (::windows::core::Vtable::vtable(self).CreateImage)(::windows::core::Vtable::as_raw(self), bitmap.into(), options, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IUIImageFromBitmap, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUIImageFromBitmap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUIImageFromBitmap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -511,6 +506,11 @@ impl ::core::fmt::Debug for IUIImageFromBitmap {
 }
 unsafe impl ::windows::core::Vtable for IUIImageFromBitmap {
     type Vtable = IUIImageFromBitmap_Vtbl;
+}
+impl ::core::clone::Clone for IUIImageFromBitmap {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUIImageFromBitmap {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18aba7f3_4c1c_4ba2_bf6c_f5c3326fa816);
@@ -529,8 +529,8 @@ pub struct IUIImageFromBitmap_Vtbl {
 pub struct IUIRibbon(::windows::core::IUnknown);
 impl IUIRibbon {
     pub unsafe fn GetHeight(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHeight)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetHeight)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -550,11 +550,6 @@ impl IUIRibbon {
     }
 }
 ::windows::core::interface_hierarchy!(IUIRibbon, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUIRibbon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUIRibbon {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -568,6 +563,11 @@ impl ::core::fmt::Debug for IUIRibbon {
 }
 unsafe impl ::windows::core::Vtable for IUIRibbon {
     type Vtable = IUIRibbon_Vtbl;
+}
+impl ::core::clone::Clone for IUIRibbon {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUIRibbon {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803982ab_370a_4f7e_a9e7_8784036a6e26);
@@ -593,16 +593,11 @@ impl IUISimplePropertySet {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), key, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), key, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IUISimplePropertySet, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUISimplePropertySet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUISimplePropertySet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -616,6 +611,11 @@ impl ::core::fmt::Debug for IUISimplePropertySet {
 }
 unsafe impl ::windows::core::Vtable for IUISimplePropertySet {
     type Vtable = IUISimplePropertySet_Vtbl;
+}
+impl ::core::clone::Clone for IUISimplePropertySet {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUISimplePropertySet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc205bb48_5b1c_4219_a106_15bd0a5f24e2);
@@ -662,8 +662,8 @@ impl ::core::default::Default for UI_COLLECTIONCHANGE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_COLLECTIONCHANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_COLLECTIONCHANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_COLLECTIONCHANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -711,8 +711,8 @@ impl ::core::default::Default for UI_COMMANDTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_COMMANDTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_COMMANDTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_COMMANDTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -740,8 +740,8 @@ impl ::core::default::Default for UI_CONTEXTAVAILABILITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_CONTEXTAVAILABILITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_CONTEXTAVAILABILITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_CONTEXTAVAILABILITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -767,8 +767,8 @@ impl ::core::default::Default for UI_CONTROLDOCK {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_CONTROLDOCK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_CONTROLDOCK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_CONTROLDOCK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -798,8 +798,8 @@ impl ::core::default::Default for UI_EVENTLOCATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_EVENTLOCATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_EVENTLOCATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_EVENTLOCATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -837,8 +837,8 @@ impl ::core::default::Default for UI_EVENTTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_EVENTTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_EVENTTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_EVENTTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -866,8 +866,8 @@ impl ::core::default::Default for UI_EXECUTIONVERB {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_EXECUTIONVERB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_EXECUTIONVERB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_EXECUTIONVERB {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -893,8 +893,8 @@ impl ::core::default::Default for UI_FONTDELTASIZE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_FONTDELTASIZE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_FONTDELTASIZE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_FONTDELTASIZE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -922,8 +922,8 @@ impl ::core::default::Default for UI_FONTPROPERTIES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_FONTPROPERTIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_FONTPROPERTIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_FONTPROPERTIES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -951,8 +951,8 @@ impl ::core::default::Default for UI_FONTUNDERLINE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_FONTUNDERLINE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_FONTUNDERLINE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_FONTUNDERLINE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -982,8 +982,8 @@ impl ::core::default::Default for UI_FONTVERTICALPOSITION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_FONTVERTICALPOSITION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_FONTVERTICALPOSITION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_FONTVERTICALPOSITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1013,8 +1013,8 @@ impl ::core::default::Default for UI_INVALIDATIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_INVALIDATIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_INVALIDATIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_INVALIDATIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1040,8 +1040,8 @@ impl ::core::default::Default for UI_OWNERSHIP {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_OWNERSHIP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_OWNERSHIP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_OWNERSHIP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1067,8 +1067,8 @@ impl ::core::default::Default for UI_SWATCHCOLORMODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_SWATCHCOLORMODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_SWATCHCOLORMODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_SWATCHCOLORMODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1096,8 +1096,8 @@ impl ::core::default::Default for UI_SWATCHCOLORTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_SWATCHCOLORTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_SWATCHCOLORTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_SWATCHCOLORTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1121,8 +1121,8 @@ impl ::core::default::Default for UI_VIEWTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_VIEWTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_VIEWTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_VIEWTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1152,8 +1152,8 @@ impl ::core::default::Default for UI_VIEWVERB {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_VIEWVERB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_VIEWVERB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_VIEWVERB {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1172,8 +1172,8 @@ impl ::core::clone::Clone for UI_EVENTPARAMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for UI_EVENTPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_EVENTPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for UI_EVENTPARAMS {
     fn default() -> Self {
@@ -1192,8 +1192,8 @@ impl ::core::clone::Clone for UI_EVENTPARAMS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for UI_EVENTPARAMS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_EVENTPARAMS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for UI_EVENTPARAMS_0 {
     fn default() -> Self {
@@ -1221,8 +1221,8 @@ impl ::core::fmt::Debug for UI_EVENTPARAMS_COMMAND {
         f.debug_struct("UI_EVENTPARAMS_COMMAND").field("CommandID", &self.CommandID).field("CommandName", &self.CommandName).field("ParentCommandID", &self.ParentCommandID).field("ParentCommandName", &self.ParentCommandName).field("SelectionIndex", &self.SelectionIndex).field("Location", &self.Location).finish()
     }
 }
-unsafe impl ::windows::core::Abi for UI_EVENTPARAMS_COMMAND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_EVENTPARAMS_COMMAND {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UI_EVENTPARAMS_COMMAND {
     fn eq(&self, other: &Self) -> bool {

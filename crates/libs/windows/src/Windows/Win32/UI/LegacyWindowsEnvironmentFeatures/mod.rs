@@ -21,11 +21,6 @@ impl IADesktopP2 {
     }
 }
 ::windows::core::interface_hierarchy!(IADesktopP2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IADesktopP2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IADesktopP2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39,6 +34,11 @@ impl ::core::fmt::Debug for IADesktopP2 {
 }
 unsafe impl ::windows::core::Vtable for IADesktopP2 {
     type Vtable = IADesktopP2_Vtbl;
+}
+impl ::core::clone::Clone for IADesktopP2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IADesktopP2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22754e2_4574_11d1_9888_006097deacf9);
@@ -76,11 +76,6 @@ impl IActiveDesktopP {
     }
 }
 ::windows::core::interface_hierarchy!(IActiveDesktopP, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IActiveDesktopP {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IActiveDesktopP {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -94,6 +89,11 @@ impl ::core::fmt::Debug for IActiveDesktopP {
 }
 unsafe impl ::windows::core::Vtable for IActiveDesktopP {
     type Vtable = IActiveDesktopP_Vtbl;
+}
+impl ::core::clone::Clone for IActiveDesktopP {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IActiveDesktopP {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
@@ -121,11 +121,6 @@ impl IBriefcaseInitiator {
     }
 }
 ::windows::core::interface_hierarchy!(IBriefcaseInitiator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IBriefcaseInitiator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IBriefcaseInitiator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -139,6 +134,11 @@ impl ::core::fmt::Debug for IBriefcaseInitiator {
 }
 unsafe impl ::windows::core::Vtable for IBriefcaseInitiator {
     type Vtable = IBriefcaseInitiator_Vtbl;
+}
+impl ::core::clone::Clone for IBriefcaseInitiator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IBriefcaseInitiator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180164_da16_101a_935c_444553540000);
@@ -186,16 +186,11 @@ impl IEmptyVolumeCache {
         (::windows::core::Vtable::vtable(self).ShowProperties)(::windows::core::Vtable::as_raw(self), hwnd.into()).ok()
     }
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Deactivate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<EMPTY_VOLUME_CACHE_FLAGS>();
+        (::windows::core::Vtable::vtable(self).Deactivate)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEmptyVolumeCache, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEmptyVolumeCache {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEmptyVolumeCache {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -209,6 +204,11 @@ impl ::core::fmt::Debug for IEmptyVolumeCache {
 }
 unsafe impl ::windows::core::Vtable for IEmptyVolumeCache {
     type Vtable = IEmptyVolumeCache_Vtbl;
+}
+impl ::core::clone::Clone for IEmptyVolumeCache {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEmptyVolumeCache {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fce5227_04da_11d1_a004_00805f8abe06);
@@ -263,8 +263,8 @@ impl IEmptyVolumeCache2 {
         (::windows::core::Vtable::vtable(self).base__.ShowProperties)(::windows::core::Vtable::as_raw(self), hwnd.into()).ok()
     }
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Deactivate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<EMPTY_VOLUME_CACHE_FLAGS>();
+        (::windows::core::Vtable::vtable(self).base__.Deactivate)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
@@ -278,11 +278,6 @@ impl IEmptyVolumeCache2 {
     }
 }
 ::windows::core::interface_hierarchy!(IEmptyVolumeCache2, ::windows::core::IUnknown, IEmptyVolumeCache);
-impl ::core::clone::Clone for IEmptyVolumeCache2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEmptyVolumeCache2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -296,6 +291,11 @@ impl ::core::fmt::Debug for IEmptyVolumeCache2 {
 }
 unsafe impl ::windows::core::Vtable for IEmptyVolumeCache2 {
     type Vtable = IEmptyVolumeCache2_Vtbl;
+}
+impl ::core::clone::Clone for IEmptyVolumeCache2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEmptyVolumeCache2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
@@ -327,11 +327,6 @@ impl IEmptyVolumeCacheCallBack {
     }
 }
 ::windows::core::interface_hierarchy!(IEmptyVolumeCacheCallBack, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEmptyVolumeCacheCallBack {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEmptyVolumeCacheCallBack {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -345,6 +340,11 @@ impl ::core::fmt::Debug for IEmptyVolumeCacheCallBack {
 }
 unsafe impl ::windows::core::Vtable for IEmptyVolumeCacheCallBack {
     type Vtable = IEmptyVolumeCacheCallBack_Vtbl;
+}
+impl ::core::clone::Clone for IEmptyVolumeCacheCallBack {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEmptyVolumeCacheCallBack {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e793361_73c6_11d0_8469_00aa00442901);
@@ -372,16 +372,11 @@ impl IReconcilableObject {
         (::windows::core::Vtable::vtable(self).Reconcile)(::windows::core::Vtable::as_raw(self), pinitiator.into().abi(), dwflags, hwndowner.into(), hwndprogressfeedback.into(), rgpmkotherinput.len() as _, ::core::mem::transmute(rgpmkotherinput.as_ptr()), ploutindex, pstgnewresidues.into().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProgressFeedbackMaxEstimate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetProgressFeedbackMaxEstimate)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IReconcilableObject, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IReconcilableObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IReconcilableObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -395,6 +390,11 @@ impl ::core::fmt::Debug for IReconcilableObject {
 }
 unsafe impl ::windows::core::Vtable for IReconcilableObject {
     type Vtable = IReconcilableObject_Vtbl;
+}
+impl ::core::clone::Clone for IReconcilableObject {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IReconcilableObject {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180162_da16_101a_935c_444553540000);
@@ -424,11 +424,6 @@ impl IReconcileInitiator {
     }
 }
 ::windows::core::interface_hierarchy!(IReconcileInitiator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IReconcileInitiator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IReconcileInitiator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -442,6 +437,11 @@ impl ::core::fmt::Debug for IReconcileInitiator {
 }
 unsafe impl ::windows::core::Vtable for IReconcileInitiator {
     type Vtable = IReconcileInitiator_Vtbl;
+}
+impl ::core::clone::Clone for IReconcileInitiator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IReconcileInitiator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180161_da16_101a_935c_444553540000);
@@ -506,8 +506,8 @@ impl ::core::default::Default for EMPTY_VOLUME_CACHE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EMPTY_VOLUME_CACHE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMPTY_VOLUME_CACHE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EMPTY_VOLUME_CACHE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -545,8 +545,8 @@ impl ::core::default::Default for RECONCILEF {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RECONCILEF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RECONCILEF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RECONCILEF {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

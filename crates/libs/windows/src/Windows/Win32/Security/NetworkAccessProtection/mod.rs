@@ -51,8 +51,8 @@ impl ::core::default::Default for ExtendedIsolationState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ExtendedIsolationState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ExtendedIsolationState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ExtendedIsolationState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -86,8 +86,8 @@ impl ::core::default::Default for FailureCategory {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FailureCategory {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FailureCategory {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FailureCategory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -115,8 +115,8 @@ impl ::core::default::Default for FixupState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FixupState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FixupState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FixupState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -144,8 +144,8 @@ impl ::core::default::Default for IsolationState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolationState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolationState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolationState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -173,8 +173,8 @@ impl ::core::default::Default for NapNotifyType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NapNotifyType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NapNotifyType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NapNotifyType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -204,8 +204,8 @@ impl ::core::default::Default for NapTracingLevel {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NapTracingLevel {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NapTracingLevel {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NapTracingLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -231,8 +231,8 @@ impl ::core::default::Default for RemoteConfigurationType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RemoteConfigurationType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RemoteConfigurationType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RemoteConfigurationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -261,8 +261,8 @@ impl ::core::fmt::Debug for CorrelationId {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CorrelationId {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CorrelationId {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CorrelationId {
@@ -295,8 +295,8 @@ impl ::core::fmt::Debug for CountedString {
         f.debug_struct("CountedString").field("length", &self.length).field("string", &self.string).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CountedString {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CountedString {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CountedString {
     fn eq(&self, other: &Self) -> bool {
@@ -330,8 +330,8 @@ impl ::core::fmt::Debug for FailureCategoryMapping {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FailureCategoryMapping {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FailureCategoryMapping {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FailureCategoryMapping {
@@ -366,8 +366,8 @@ impl ::core::fmt::Debug for FixupInfo {
         f.debug_struct("FixupInfo").field("state", &self.state).field("percentage", &self.percentage).field("resultCodes", &self.resultCodes).field("fixupMsgId", &self.fixupMsgId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FixupInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FixupInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FixupInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -396,8 +396,8 @@ impl ::core::fmt::Debug for Ipv4Address {
         f.debug_struct("Ipv4Address").field("addr", &self.addr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for Ipv4Address {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Ipv4Address {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for Ipv4Address {
     fn eq(&self, other: &Self) -> bool {
@@ -426,8 +426,8 @@ impl ::core::fmt::Debug for Ipv6Address {
         f.debug_struct("Ipv6Address").field("addr", &self.addr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for Ipv6Address {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Ipv6Address {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for Ipv6Address {
     fn eq(&self, other: &Self) -> bool {
@@ -463,8 +463,8 @@ impl ::core::fmt::Debug for IsolationInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IsolationInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolationInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IsolationInfo {
@@ -504,8 +504,8 @@ impl ::core::fmt::Debug for IsolationInfoEx {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IsolationInfoEx {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolationInfoEx {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IsolationInfoEx {
@@ -550,8 +550,8 @@ impl ::core::fmt::Debug for NapComponentRegistrationInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NapComponentRegistrationInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NapComponentRegistrationInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NapComponentRegistrationInfo {
@@ -584,8 +584,8 @@ impl ::core::fmt::Debug for NetworkSoH {
         f.debug_struct("NetworkSoH").field("size", &self.size).field("data", &self.data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NetworkSoH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NetworkSoH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NetworkSoH {
     fn eq(&self, other: &Self) -> bool {
@@ -615,8 +615,8 @@ impl ::core::fmt::Debug for PrivateData {
         f.debug_struct("PrivateData").field("size", &self.size).field("data", &self.data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PrivateData {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrivateData {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PrivateData {
     fn eq(&self, other: &Self) -> bool {
@@ -646,8 +646,8 @@ impl ::core::fmt::Debug for ResultCodes {
         f.debug_struct("ResultCodes").field("count", &self.count).field("results", &self.results).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ResultCodes {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ResultCodes {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ResultCodes {
     fn eq(&self, other: &Self) -> bool {
@@ -677,8 +677,8 @@ impl ::core::fmt::Debug for SoH {
         f.debug_struct("SoH").field("count", &self.count).field("attributes", &self.attributes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SoH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SoH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SoH {
     fn eq(&self, other: &Self) -> bool {
@@ -709,8 +709,8 @@ impl ::core::fmt::Debug for SoHAttribute {
         f.debug_struct("SoHAttribute").field("type", &self.r#type).field("size", &self.size).field("value", &self.value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SoHAttribute {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SoHAttribute {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SoHAttribute {
     fn eq(&self, other: &Self) -> bool {
@@ -742,8 +742,8 @@ impl ::core::fmt::Debug for SystemHealthAgentState {
         f.debug_struct("SystemHealthAgentState").field("id", &self.id).field("shaResultCodes", &self.shaResultCodes).field("failureCategory", &self.failureCategory).field("fixupInfo", &self.fixupInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SystemHealthAgentState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SystemHealthAgentState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SystemHealthAgentState {
     fn eq(&self, other: &Self) -> bool {

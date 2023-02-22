@@ -13,11 +13,6 @@ impl IDummyHICONIncluder {
     }
 }
 ::windows::core::interface_hierarchy!(IDummyHICONIncluder, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDummyHICONIncluder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDummyHICONIncluder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31,6 +26,11 @@ impl ::core::fmt::Debug for IDummyHICONIncluder {
 }
 unsafe impl ::windows::core::Vtable for IDummyHICONIncluder {
     type Vtable = IDummyHICONIncluder_Vtbl;
+}
+impl ::core::clone::Clone for IDummyHICONIncluder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDummyHICONIncluder {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947990de_cc28_11d2_a0f7_00805f858fb1);
@@ -66,11 +66,6 @@ impl IThumbnailExtractor {
     }
 }
 ::windows::core::interface_hierarchy!(IThumbnailExtractor, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IThumbnailExtractor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IThumbnailExtractor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -84,6 +79,11 @@ impl ::core::fmt::Debug for IThumbnailExtractor {
 }
 unsafe impl ::windows::core::Vtable for IThumbnailExtractor {
     type Vtable = IThumbnailExtractor_Vtbl;
+}
+impl ::core::clone::Clone for IThumbnailExtractor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IThumbnailExtractor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x969dc708_5c76_11d1_8d86_0000f804b057);

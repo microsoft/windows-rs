@@ -5489,8 +5489,8 @@ impl ::core::default::Default for ARC_DIRECTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ARC_DIRECTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ARC_DIRECTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ARC_DIRECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5516,8 +5516,8 @@ impl ::core::default::Default for BACKGROUND_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BACKGROUND_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BACKGROUND_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BACKGROUND_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5551,8 +5551,8 @@ impl ::core::default::Default for BI_COMPRESSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BI_COMPRESSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BI_COMPRESSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BI_COMPRESSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5596,8 +5596,8 @@ impl ::core::default::Default for BRUSH_STYLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BRUSH_STYLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BRUSH_STYLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BRUSH_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5641,8 +5641,8 @@ impl ::core::default::Default for CDS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CDS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CDS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CDS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5703,8 +5703,8 @@ impl ::core::default::Default for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5730,8 +5730,8 @@ impl ::core::default::Default for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5757,8 +5757,8 @@ impl ::core::default::Default for CREATE_POLYGON_RGN_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_POLYGON_RGN_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_POLYGON_RGN_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CREATE_POLYGON_RGN_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5784,8 +5784,8 @@ impl ::core::default::Default for DC_LAYOUT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DC_LAYOUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DC_LAYOUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DC_LAYOUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5844,8 +5844,8 @@ impl ::core::default::Default for DEVMODE_COLLATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEVMODE_COLLATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODE_COLLATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEVMODE_COLLATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5871,8 +5871,8 @@ impl ::core::default::Default for DEVMODE_COLOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEVMODE_COLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODE_COLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEVMODE_COLOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5900,8 +5900,8 @@ impl ::core::default::Default for DEVMODE_DISPLAY_FIXED_OUTPUT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEVMODE_DISPLAY_FIXED_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODE_DISPLAY_FIXED_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEVMODE_DISPLAY_FIXED_OUTPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5931,8 +5931,8 @@ impl ::core::default::Default for DEVMODE_DISPLAY_ORIENTATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEVMODE_DISPLAY_ORIENTATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODE_DISPLAY_ORIENTATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEVMODE_DISPLAY_ORIENTATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5960,8 +5960,8 @@ impl ::core::default::Default for DEVMODE_DUPLEX {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEVMODE_DUPLEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODE_DUPLEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEVMODE_DUPLEX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6063,8 +6063,8 @@ impl ::core::default::Default for DEVMODE_FIELD_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEVMODE_FIELD_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODE_FIELD_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEVMODE_FIELD_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6127,8 +6127,8 @@ impl ::core::default::Default for DEVMODE_TRUETYPE_OPTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEVMODE_TRUETYPE_OPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODE_TRUETYPE_OPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEVMODE_TRUETYPE_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6210,8 +6210,8 @@ impl ::core::default::Default for DFCS_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DFCS_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFCS_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DFCS_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6276,8 +6276,8 @@ impl ::core::default::Default for DFC_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DFC_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFC_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DFC_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6303,8 +6303,8 @@ impl ::core::default::Default for DIB_USAGE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DIB_USAGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIB_USAGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DIB_USAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6338,8 +6338,8 @@ impl ::core::default::Default for DISPLAYCONFIG_COLOR_ENCODING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DISPLAYCONFIG_COLOR_ENCODING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DISPLAYCONFIG_COLOR_ENCODING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DISPLAYCONFIG_COLOR_ENCODING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6377,8 +6377,8 @@ impl ::core::default::Default for DISP_CHANGE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DISP_CHANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DISP_CHANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DISP_CHANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6424,8 +6424,8 @@ impl ::core::default::Default for DRAWEDGE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRAWEDGE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRAWEDGE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRAWEDGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6504,8 +6504,8 @@ impl ::core::default::Default for DRAWSTATE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRAWSTATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRAWSTATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRAWSTATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6574,8 +6574,8 @@ impl ::core::default::Default for DRAW_CAPTION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRAW_CAPTION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRAW_CAPTION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRAW_CAPTION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6668,8 +6668,8 @@ impl ::core::default::Default for DRAW_EDGE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRAW_EDGE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRAW_EDGE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRAW_EDGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6772,8 +6772,8 @@ impl ::core::default::Default for DRAW_TEXT_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRAW_TEXT_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRAW_TEXT_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRAW_TEXT_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6836,8 +6836,8 @@ impl ::core::default::Default for EMBEDDED_FONT_PRIV_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EMBEDDED_FONT_PRIV_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMBEDDED_FONT_PRIV_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EMBEDDED_FONT_PRIV_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6863,8 +6863,8 @@ impl ::core::default::Default for EMBED_FONT_CHARSET {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EMBED_FONT_CHARSET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMBED_FONT_CHARSET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EMBED_FONT_CHARSET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7132,8 +7132,8 @@ impl ::core::default::Default for ENHANCED_METAFILE_RECORD_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ENHANCED_METAFILE_RECORD_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENHANCED_METAFILE_RECORD_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ENHANCED_METAFILE_RECORD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7159,8 +7159,8 @@ impl ::core::default::Default for ENUM_DISPLAY_SETTINGS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ENUM_DISPLAY_SETTINGS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUM_DISPLAY_SETTINGS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ENUM_DISPLAY_SETTINGS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7219,8 +7219,8 @@ impl ::core::default::Default for ENUM_DISPLAY_SETTINGS_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ENUM_DISPLAY_SETTINGS_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUM_DISPLAY_SETTINGS_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ENUM_DISPLAY_SETTINGS_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7260,8 +7260,8 @@ impl ::core::default::Default for ETO_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ETO_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ETO_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ETO_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7320,8 +7320,8 @@ impl ::core::default::Default for EXT_FLOOD_FILL_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EXT_FLOOD_FILL_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXT_FLOOD_FILL_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EXT_FLOOD_FILL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7383,8 +7383,8 @@ impl ::core::default::Default for FONT_CHARSET {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FONT_CHARSET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FONT_CHARSET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FONT_CHARSET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7424,8 +7424,8 @@ impl ::core::default::Default for FONT_CLIP_PRECISION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FONT_CLIP_PRECISION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FONT_CLIP_PRECISION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FONT_CLIP_PRECISION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7492,8 +7492,8 @@ impl ::core::default::Default for FONT_FAMILY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FONT_FAMILY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FONT_FAMILY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FONT_FAMILY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7525,8 +7525,8 @@ impl ::core::default::Default for FONT_LICENSE_PRIVS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FONT_LICENSE_PRIVS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FONT_LICENSE_PRIVS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FONT_LICENSE_PRIVS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7570,8 +7570,8 @@ impl ::core::default::Default for FONT_OUTPUT_PRECISION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FONT_OUTPUT_PRECISION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FONT_OUTPUT_PRECISION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FONT_OUTPUT_PRECISION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7599,8 +7599,8 @@ impl ::core::default::Default for FONT_PITCH {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FONT_PITCH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FONT_PITCH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FONT_PITCH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7634,8 +7634,8 @@ impl ::core::default::Default for FONT_QUALITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FONT_QUALITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FONT_QUALITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FONT_QUALITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7661,8 +7661,8 @@ impl ::core::default::Default for FONT_RESOURCE_CHARACTERISTICS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FONT_RESOURCE_CHARACTERISTICS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FONT_RESOURCE_CHARACTERISTICS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FONT_RESOURCE_CHARACTERISTICS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7714,8 +7714,8 @@ impl ::core::default::Default for FONT_WEIGHT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FONT_WEIGHT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FONT_WEIGHT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FONT_WEIGHT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7745,8 +7745,8 @@ impl ::core::default::Default for GDI_REGION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GDI_REGION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GDI_REGION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GDI_REGION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7798,8 +7798,8 @@ impl ::core::default::Default for GET_CHARACTER_PLACEMENT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_CHARACTER_PLACEMENT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_CHARACTER_PLACEMENT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_CHARACTER_PLACEMENT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7876,8 +7876,8 @@ impl ::core::default::Default for GET_DCX_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_DCX_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_DCX_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_DCX_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8012,8 +8012,8 @@ impl ::core::default::Default for GET_DEVICE_CAPS_INDEX {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_DEVICE_CAPS_INDEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_DEVICE_CAPS_INDEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_DEVICE_CAPS_INDEX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8053,8 +8053,8 @@ impl ::core::default::Default for GET_GLYPH_OUTLINE_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_GLYPH_OUTLINE_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_GLYPH_OUTLINE_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_GLYPH_OUTLINE_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8116,8 +8116,8 @@ impl ::core::default::Default for GET_STOCK_OBJECT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_STOCK_OBJECT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_STOCK_OBJECT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_STOCK_OBJECT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8145,8 +8145,8 @@ impl ::core::default::Default for GRADIENT_FILL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GRADIENT_FILL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GRADIENT_FILL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GRADIENT_FILL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8172,8 +8172,8 @@ impl ::core::default::Default for GRAPHICS_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GRAPHICS_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GRAPHICS_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GRAPHICS_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8207,8 +8207,8 @@ impl ::core::default::Default for HATCH_BRUSH_STYLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HATCH_BRUSH_STYLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HATCH_BRUSH_STYLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HATCH_BRUSH_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8246,8 +8246,8 @@ impl ::core::default::Default for HDC_MAP_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HDC_MAP_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDC_MAP_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HDC_MAP_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8275,8 +8275,8 @@ impl ::core::default::Default for MODIFY_WORLD_TRANSFORM_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MODIFY_WORLD_TRANSFORM_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODIFY_WORLD_TRANSFORM_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MODIFY_WORLD_TRANSFORM_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8304,8 +8304,8 @@ impl ::core::default::Default for MONITOR_FROM_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MONITOR_FROM_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITOR_FROM_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MONITOR_FROM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8355,8 +8355,8 @@ impl ::core::default::Default for OBJ_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OBJ_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OBJ_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OBJ_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8402,8 +8402,8 @@ impl ::core::default::Default for PAN_ARM_STYLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PAN_ARM_STYLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAN_ARM_STYLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PAN_ARM_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8447,8 +8447,8 @@ impl ::core::default::Default for PAN_CONTRAST {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PAN_CONTRAST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAN_CONTRAST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PAN_CONTRAST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8482,8 +8482,8 @@ impl ::core::default::Default for PAN_FAMILY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PAN_FAMILY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAN_FAMILY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PAN_FAMILY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8537,8 +8537,8 @@ impl ::core::default::Default for PAN_LETT_FORM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PAN_LETT_FORM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAN_LETT_FORM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PAN_LETT_FORM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8590,8 +8590,8 @@ impl ::core::default::Default for PAN_MIDLINE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PAN_MIDLINE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAN_MIDLINE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PAN_MIDLINE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8633,8 +8633,8 @@ impl ::core::default::Default for PAN_PROPORTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PAN_PROPORTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAN_PROPORTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PAN_PROPORTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8688,8 +8688,8 @@ impl ::core::default::Default for PAN_SERIF_STYLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PAN_SERIF_STYLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAN_SERIF_STYLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PAN_SERIF_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8729,8 +8729,8 @@ impl ::core::default::Default for PAN_STROKE_VARIATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PAN_STROKE_VARIATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAN_STROKE_VARIATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PAN_STROKE_VARIATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8778,8 +8778,8 @@ impl ::core::default::Default for PAN_WEIGHT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PAN_WEIGHT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAN_WEIGHT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PAN_WEIGHT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8819,8 +8819,8 @@ impl ::core::default::Default for PAN_XHEIGHT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PAN_XHEIGHT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAN_XHEIGHT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PAN_XHEIGHT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8884,8 +8884,8 @@ impl ::core::default::Default for PEN_STYLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PEN_STYLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PEN_STYLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PEN_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8974,8 +8974,8 @@ impl ::core::default::Default for R2_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for R2_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for R2_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for R2_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9021,8 +9021,8 @@ impl ::core::default::Default for REDRAW_WINDOW_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REDRAW_WINDOW_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REDRAW_WINDOW_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REDRAW_WINDOW_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9091,8 +9091,8 @@ impl ::core::default::Default for RGN_COMBINE_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RGN_COMBINE_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RGN_COMBINE_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RGN_COMBINE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9148,8 +9148,8 @@ impl ::core::default::Default for ROP_CODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ROP_CODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ROP_CODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ROP_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9212,8 +9212,8 @@ impl ::core::default::Default for SET_BOUNDS_RECT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SET_BOUNDS_RECT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SET_BOUNDS_RECT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SET_BOUNDS_RECT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9251,8 +9251,8 @@ impl ::core::default::Default for STRETCH_BLT_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for STRETCH_BLT_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STRETCH_BLT_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for STRETCH_BLT_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9280,8 +9280,8 @@ impl ::core::default::Default for SYSTEM_PALETTE_USE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_PALETTE_USE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_PALETTE_USE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEM_PALETTE_USE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9375,8 +9375,8 @@ impl ::core::default::Default for SYS_COLOR_INDEX {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SYS_COLOR_INDEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYS_COLOR_INDEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SYS_COLOR_INDEX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9430,8 +9430,8 @@ impl ::core::default::Default for TEXT_ALIGN_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TEXT_ALIGN_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TEXT_ALIGN_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TEXT_ALIGN_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9494,8 +9494,8 @@ impl ::core::default::Default for TMPF_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TMPF_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TMPF_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TMPF_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9558,8 +9558,8 @@ impl ::core::default::Default for TTEMBED_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TTEMBED_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TTEMBED_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TTEMBED_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9618,8 +9618,8 @@ impl ::core::default::Default for TTLOAD_EMBEDDED_FONT_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TTLOAD_EMBEDDED_FONT_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TTLOAD_EMBEDDED_FONT_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TTLOAD_EMBEDDED_FONT_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9677,8 +9677,8 @@ impl ::core::fmt::Debug for ABC {
         f.debug_struct("ABC").field("abcA", &self.abcA).field("abcB", &self.abcB).field("abcC", &self.abcC).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ABC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ABC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ABC {
     fn eq(&self, other: &Self) -> bool {
@@ -9709,8 +9709,8 @@ impl ::core::fmt::Debug for ABCFLOAT {
         f.debug_struct("ABCFLOAT").field("abcfA", &self.abcfA).field("abcfB", &self.abcfB).field("abcfC", &self.abcfC).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ABCFLOAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ABCFLOAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ABCFLOAT {
     fn eq(&self, other: &Self) -> bool {
@@ -9739,8 +9739,8 @@ impl ::core::fmt::Debug for ABORTPATH {
         f.debug_struct("ABORTPATH").field("emr", &self.emr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ABORTPATH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ABORTPATH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ABORTPATH {
     fn eq(&self, other: &Self) -> bool {
@@ -9771,8 +9771,8 @@ impl ::core::fmt::Debug for AXESLISTA {
         f.debug_struct("AXESLISTA").field("axlReserved", &self.axlReserved).field("axlNumAxes", &self.axlNumAxes).field("axlAxisInfo", &self.axlAxisInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AXESLISTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AXESLISTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AXESLISTA {
     fn eq(&self, other: &Self) -> bool {
@@ -9803,8 +9803,8 @@ impl ::core::fmt::Debug for AXESLISTW {
         f.debug_struct("AXESLISTW").field("axlReserved", &self.axlReserved).field("axlNumAxes", &self.axlNumAxes).field("axlAxisInfo", &self.axlAxisInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AXESLISTW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AXESLISTW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AXESLISTW {
     fn eq(&self, other: &Self) -> bool {
@@ -9835,8 +9835,8 @@ impl ::core::fmt::Debug for AXISINFOA {
         f.debug_struct("AXISINFOA").field("axMinValue", &self.axMinValue).field("axMaxValue", &self.axMaxValue).field("axAxisName", &self.axAxisName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AXISINFOA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AXISINFOA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AXISINFOA {
     fn eq(&self, other: &Self) -> bool {
@@ -9867,8 +9867,8 @@ impl ::core::fmt::Debug for AXISINFOW {
         f.debug_struct("AXISINFOW").field("axMinValue", &self.axMinValue).field("axMaxValue", &self.axMaxValue).field("axAxisName", &self.axAxisName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AXISINFOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AXISINFOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AXISINFOW {
     fn eq(&self, other: &Self) -> bool {
@@ -9903,8 +9903,8 @@ impl ::core::fmt::Debug for BITMAP {
         f.debug_struct("BITMAP").field("bmType", &self.bmType).field("bmWidth", &self.bmWidth).field("bmHeight", &self.bmHeight).field("bmWidthBytes", &self.bmWidthBytes).field("bmPlanes", &self.bmPlanes).field("bmBitsPixel", &self.bmBitsPixel).field("bmBits", &self.bmBits).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BITMAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BITMAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BITMAP {
     fn eq(&self, other: &Self) -> bool {
@@ -9937,8 +9937,8 @@ impl ::core::fmt::Debug for BITMAPCOREHEADER {
         f.debug_struct("BITMAPCOREHEADER").field("bcSize", &self.bcSize).field("bcWidth", &self.bcWidth).field("bcHeight", &self.bcHeight).field("bcPlanes", &self.bcPlanes).field("bcBitCount", &self.bcBitCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BITMAPCOREHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BITMAPCOREHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BITMAPCOREHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -9968,8 +9968,8 @@ impl ::core::fmt::Debug for BITMAPCOREINFO {
         f.debug_struct("BITMAPCOREINFO").field("bmciHeader", &self.bmciHeader).field("bmciColors", &self.bmciColors).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BITMAPCOREINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BITMAPCOREINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BITMAPCOREINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9997,8 +9997,8 @@ impl ::core::clone::Clone for BITMAPFILEHEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BITMAPFILEHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BITMAPFILEHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BITMAPFILEHEADER {
     fn default() -> Self {
@@ -10022,8 +10022,8 @@ impl ::core::fmt::Debug for BITMAPINFO {
         f.debug_struct("BITMAPINFO").field("bmiHeader", &self.bmiHeader).field("bmiColors", &self.bmiColors).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BITMAPINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BITMAPINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BITMAPINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -10062,8 +10062,8 @@ impl ::core::fmt::Debug for BITMAPINFOHEADER {
         f.debug_struct("BITMAPINFOHEADER").field("biSize", &self.biSize).field("biWidth", &self.biWidth).field("biHeight", &self.biHeight).field("biPlanes", &self.biPlanes).field("biBitCount", &self.biBitCount).field("biCompression", &self.biCompression).field("biSizeImage", &self.biSizeImage).field("biXPelsPerMeter", &self.biXPelsPerMeter).field("biYPelsPerMeter", &self.biYPelsPerMeter).field("biClrUsed", &self.biClrUsed).field("biClrImportant", &self.biClrImportant).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BITMAPINFOHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BITMAPINFOHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BITMAPINFOHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10132,8 +10132,8 @@ impl ::core::fmt::Debug for BITMAPV4HEADER {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for BITMAPV4HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BITMAPV4HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BITMAPV4HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10229,8 +10229,8 @@ impl ::core::fmt::Debug for BITMAPV5HEADER {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for BITMAPV5HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BITMAPV5HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BITMAPV5HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10285,8 +10285,8 @@ impl ::core::fmt::Debug for BLENDFUNCTION {
         f.debug_struct("BLENDFUNCTION").field("BlendOp", &self.BlendOp).field("BlendFlags", &self.BlendFlags).field("SourceConstantAlpha", &self.SourceConstantAlpha).field("AlphaFormat", &self.AlphaFormat).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BLENDFUNCTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLENDFUNCTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BLENDFUNCTION {
     fn eq(&self, other: &Self) -> bool {
@@ -10317,8 +10317,8 @@ impl ::core::fmt::Debug for CIEXYZ {
         f.debug_struct("CIEXYZ").field("ciexyzX", &self.ciexyzX).field("ciexyzY", &self.ciexyzY).field("ciexyzZ", &self.ciexyzZ).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CIEXYZ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CIEXYZ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CIEXYZ {
     fn eq(&self, other: &Self) -> bool {
@@ -10349,8 +10349,8 @@ impl ::core::fmt::Debug for CIEXYZTRIPLE {
         f.debug_struct("CIEXYZTRIPLE").field("ciexyzRed", &self.ciexyzRed).field("ciexyzGreen", &self.ciexyzGreen).field("ciexyzBlue", &self.ciexyzBlue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CIEXYZTRIPLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CIEXYZTRIPLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CIEXYZTRIPLE {
     fn eq(&self, other: &Self) -> bool {
@@ -10403,8 +10403,8 @@ impl ::core::fmt::Debug for COLORADJUSTMENT {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for COLORADJUSTMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COLORADJUSTMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for COLORADJUSTMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -10446,8 +10446,8 @@ impl ::core::convert::From<::core::option::Option<CreatedHDC>> for CreatedHDC {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for CreatedHDC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CreatedHDC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<CreatedHDC> for HDC {
     fn from(item: CreatedHDC) -> HDC {
@@ -10472,8 +10472,8 @@ impl ::core::fmt::Debug for DESIGNVECTOR {
         f.debug_struct("DESIGNVECTOR").field("dvReserved", &self.dvReserved).field("dvNumAxes", &self.dvNumAxes).field("dvValues", &self.dvValues).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DESIGNVECTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DESIGNVECTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DESIGNVECTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -10527,8 +10527,8 @@ impl ::core::clone::Clone for DEVMODEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVMODEA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODEA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVMODEA {
@@ -10552,8 +10552,8 @@ impl ::core::clone::Clone for DEVMODEA_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVMODEA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODEA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVMODEA_0 {
@@ -10589,8 +10589,8 @@ impl ::core::fmt::Debug for DEVMODEA_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVMODEA_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODEA_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVMODEA_0_0 {
@@ -10629,8 +10629,8 @@ impl ::core::fmt::Debug for DEVMODEA_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVMODEA_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODEA_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVMODEA_0_1 {
@@ -10662,8 +10662,8 @@ impl ::core::clone::Clone for DEVMODEA_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVMODEA_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODEA_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVMODEA_1 {
@@ -10712,8 +10712,8 @@ impl ::core::clone::Clone for DEVMODEW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVMODEW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODEW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVMODEW {
@@ -10737,8 +10737,8 @@ impl ::core::clone::Clone for DEVMODEW_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVMODEW_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODEW_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVMODEW_0 {
@@ -10774,8 +10774,8 @@ impl ::core::fmt::Debug for DEVMODEW_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVMODEW_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODEW_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVMODEW_0_0 {
@@ -10814,8 +10814,8 @@ impl ::core::fmt::Debug for DEVMODEW_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVMODEW_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODEW_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVMODEW_0_1 {
@@ -10847,8 +10847,8 @@ impl ::core::clone::Clone for DEVMODEW_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVMODEW_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVMODEW_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVMODEW_1 {
@@ -10881,8 +10881,8 @@ impl ::core::fmt::Debug for DIBSECTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIBSECTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIBSECTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIBSECTION {
@@ -10924,8 +10924,8 @@ impl ::core::fmt::Debug for DISPLAY_DEVICEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DISPLAY_DEVICEA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DISPLAY_DEVICEA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAY_DEVICEA {
@@ -10962,8 +10962,8 @@ impl ::core::fmt::Debug for DISPLAY_DEVICEW {
         f.debug_struct("DISPLAY_DEVICEW").field("cb", &self.cb).field("DeviceName", &self.DeviceName).field("DeviceString", &self.DeviceString).field("StateFlags", &self.StateFlags).field("DeviceID", &self.DeviceID).field("DeviceKey", &self.DeviceKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DISPLAY_DEVICEW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DISPLAY_DEVICEW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DISPLAY_DEVICEW {
     fn eq(&self, other: &Self) -> bool {
@@ -10996,8 +10996,8 @@ impl ::core::fmt::Debug for DRAWTEXTPARAMS {
         f.debug_struct("DRAWTEXTPARAMS").field("cbSize", &self.cbSize).field("iTabLength", &self.iTabLength).field("iLeftMargin", &self.iLeftMargin).field("iRightMargin", &self.iRightMargin).field("uiLengthDrawn", &self.uiLengthDrawn).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRAWTEXTPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRAWTEXTPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRAWTEXTPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -11027,8 +11027,8 @@ impl ::core::fmt::Debug for EMR {
         f.debug_struct("EMR").field("iType", &self.iType).field("nSize", &self.nSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMR {
     fn eq(&self, other: &Self) -> bool {
@@ -11098,8 +11098,8 @@ impl ::core::fmt::Debug for EMRALPHABLEND {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRALPHABLEND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRALPHABLEND {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRALPHABLEND {
@@ -11140,8 +11140,8 @@ impl ::core::fmt::Debug for EMRANGLEARC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRANGLEARC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRANGLEARC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRANGLEARC {
@@ -11181,8 +11181,8 @@ impl ::core::fmt::Debug for EMRARC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRARC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRARC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRARC {
@@ -11251,8 +11251,8 @@ impl ::core::fmt::Debug for EMRBITBLT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRBITBLT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRBITBLT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRBITBLT {
@@ -11288,8 +11288,8 @@ impl ::core::fmt::Debug for EMRCOLORCORRECTPALETTE {
         f.debug_struct("EMRCOLORCORRECTPALETTE").field("emr", &self.emr).field("ihPalette", &self.ihPalette).field("nFirstEntry", &self.nFirstEntry).field("nPalEntries", &self.nPalEntries).field("nReserved", &self.nReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRCOLORCORRECTPALETTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRCOLORCORRECTPALETTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRCOLORCORRECTPALETTE {
     fn eq(&self, other: &Self) -> bool {
@@ -11323,8 +11323,8 @@ impl ::core::fmt::Debug for EMRCOLORMATCHTOTARGET {
         f.debug_struct("EMRCOLORMATCHTOTARGET").field("emr", &self.emr).field("dwAction", &self.dwAction).field("dwFlags", &self.dwFlags).field("cbName", &self.cbName).field("cbData", &self.cbData).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRCOLORMATCHTOTARGET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRCOLORMATCHTOTARGET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRCOLORMATCHTOTARGET {
     fn eq(&self, other: &Self) -> bool {
@@ -11360,8 +11360,8 @@ impl ::core::fmt::Debug for EMRCREATEBRUSHINDIRECT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRCREATEBRUSHINDIRECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRCREATEBRUSHINDIRECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRCREATEBRUSHINDIRECT {
@@ -11399,8 +11399,8 @@ impl ::core::fmt::Debug for EMRCREATEDIBPATTERNBRUSHPT {
         f.debug_struct("EMRCREATEDIBPATTERNBRUSHPT").field("emr", &self.emr).field("ihBrush", &self.ihBrush).field("iUsage", &self.iUsage).field("offBmi", &self.offBmi).field("cbBmi", &self.cbBmi).field("offBits", &self.offBits).field("cbBits", &self.cbBits).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRCREATEDIBPATTERNBRUSHPT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRCREATEDIBPATTERNBRUSHPT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRCREATEDIBPATTERNBRUSHPT {
     fn eq(&self, other: &Self) -> bool {
@@ -11435,8 +11435,8 @@ impl ::core::fmt::Debug for EMRCREATEMONOBRUSH {
         f.debug_struct("EMRCREATEMONOBRUSH").field("emr", &self.emr).field("ihBrush", &self.ihBrush).field("iUsage", &self.iUsage).field("offBmi", &self.offBmi).field("cbBmi", &self.cbBmi).field("offBits", &self.offBits).field("cbBits", &self.cbBits).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRCREATEMONOBRUSH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRCREATEMONOBRUSH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRCREATEMONOBRUSH {
     fn eq(&self, other: &Self) -> bool {
@@ -11467,8 +11467,8 @@ impl ::core::fmt::Debug for EMRCREATEPALETTE {
         f.debug_struct("EMRCREATEPALETTE").field("emr", &self.emr).field("ihPal", &self.ihPal).field("lgpl", &self.lgpl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRCREATEPALETTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRCREATEPALETTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRCREATEPALETTE {
     fn eq(&self, other: &Self) -> bool {
@@ -11504,8 +11504,8 @@ impl ::core::fmt::Debug for EMRCREATEPEN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRCREATEPEN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRCREATEPEN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRCREATEPEN {
@@ -11543,8 +11543,8 @@ impl ::core::fmt::Debug for EMRELLIPSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRELLIPSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRELLIPSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRELLIPSE {
@@ -11579,8 +11579,8 @@ impl ::core::fmt::Debug for EMREOF {
         f.debug_struct("EMREOF").field("emr", &self.emr).field("nPalEntries", &self.nPalEntries).field("offPalEntries", &self.offPalEntries).field("nSizeLast", &self.nSizeLast).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMREOF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMREOF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMREOF {
     fn eq(&self, other: &Self) -> bool {
@@ -11615,8 +11615,8 @@ impl ::core::fmt::Debug for EMREXCLUDECLIPRECT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMREXCLUDECLIPRECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMREXCLUDECLIPRECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMREXCLUDECLIPRECT {
@@ -11650,8 +11650,8 @@ impl ::core::fmt::Debug for EMREXTCREATEFONTINDIRECTW {
         f.debug_struct("EMREXTCREATEFONTINDIRECTW").field("emr", &self.emr).field("ihFont", &self.ihFont).field("elfw", &self.elfw).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMREXTCREATEFONTINDIRECTW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMREXTCREATEFONTINDIRECTW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMREXTCREATEFONTINDIRECTW {
     fn eq(&self, other: &Self) -> bool {
@@ -11691,8 +11691,8 @@ impl ::core::fmt::Debug for EMREXTCREATEPEN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMREXTCREATEPEN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMREXTCREATEPEN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMREXTCREATEPEN {
@@ -11727,8 +11727,8 @@ impl ::core::fmt::Debug for EMREXTESCAPE {
         f.debug_struct("EMREXTESCAPE").field("emr", &self.emr).field("iEscape", &self.iEscape).field("cbEscData", &self.cbEscData).field("EscData", &self.EscData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMREXTESCAPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMREXTESCAPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMREXTESCAPE {
     fn eq(&self, other: &Self) -> bool {
@@ -11765,8 +11765,8 @@ impl ::core::fmt::Debug for EMREXTFLOODFILL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMREXTFLOODFILL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMREXTFLOODFILL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMREXTFLOODFILL {
@@ -11801,8 +11801,8 @@ impl ::core::fmt::Debug for EMREXTSELECTCLIPRGN {
         f.debug_struct("EMREXTSELECTCLIPRGN").field("emr", &self.emr).field("cbRgnData", &self.cbRgnData).field("iMode", &self.iMode).field("RgnData", &self.RgnData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMREXTSELECTCLIPRGN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMREXTSELECTCLIPRGN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMREXTSELECTCLIPRGN {
     fn eq(&self, other: &Self) -> bool {
@@ -11841,8 +11841,8 @@ impl ::core::fmt::Debug for EMREXTTEXTOUTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMREXTTEXTOUTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMREXTTEXTOUTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMREXTTEXTOUTA {
@@ -11880,8 +11880,8 @@ impl ::core::fmt::Debug for EMRFILLPATH {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRFILLPATH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRFILLPATH {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRFILLPATH {
@@ -11922,8 +11922,8 @@ impl ::core::fmt::Debug for EMRFILLRGN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRFILLRGN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRFILLRGN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRFILLRGN {
@@ -11958,8 +11958,8 @@ impl ::core::fmt::Debug for EMRFORMAT {
         f.debug_struct("EMRFORMAT").field("dSignature", &self.dSignature).field("nVersion", &self.nVersion).field("cbData", &self.cbData).field("offData", &self.offData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRFORMAT {
     fn eq(&self, other: &Self) -> bool {
@@ -11998,8 +11998,8 @@ impl ::core::fmt::Debug for EMRFRAMERGN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRFRAMERGN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRFRAMERGN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRFRAMERGN {
@@ -12033,8 +12033,8 @@ impl ::core::fmt::Debug for EMRGDICOMMENT {
         f.debug_struct("EMRGDICOMMENT").field("emr", &self.emr).field("cbData", &self.cbData).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRGDICOMMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRGDICOMMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRGDICOMMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -12071,8 +12071,8 @@ impl ::core::fmt::Debug for EMRGLSBOUNDEDRECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRGLSBOUNDEDRECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRGLSBOUNDEDRECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRGLSBOUNDEDRECORD {
@@ -12106,8 +12106,8 @@ impl ::core::fmt::Debug for EMRGLSRECORD {
         f.debug_struct("EMRGLSRECORD").field("emr", &self.emr).field("cbData", &self.cbData).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRGLSRECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRGLSRECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRGLSRECORD {
     fn eq(&self, other: &Self) -> bool {
@@ -12146,8 +12146,8 @@ impl ::core::fmt::Debug for EMRGRADIENTFILL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRGRADIENTFILL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRGRADIENTFILL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRGRADIENTFILL {
@@ -12187,8 +12187,8 @@ impl ::core::fmt::Debug for EMRINVERTRGN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRINVERTRGN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRINVERTRGN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRINVERTRGN {
@@ -12226,8 +12226,8 @@ impl ::core::fmt::Debug for EMRLINETO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRLINETO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRLINETO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRLINETO {
@@ -12310,8 +12310,8 @@ impl ::core::fmt::Debug for EMRMASKBLT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRMASKBLT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRMASKBLT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRMASKBLT {
@@ -12345,8 +12345,8 @@ impl ::core::fmt::Debug for EMRMODIFYWORLDTRANSFORM {
         f.debug_struct("EMRMODIFYWORLDTRANSFORM").field("emr", &self.emr).field("xform", &self.xform).field("iMode", &self.iMode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRMODIFYWORLDTRANSFORM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRMODIFYWORLDTRANSFORM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRMODIFYWORLDTRANSFORM {
     fn eq(&self, other: &Self) -> bool {
@@ -12379,8 +12379,8 @@ impl ::core::fmt::Debug for EMRNAMEDESCAPE {
         f.debug_struct("EMRNAMEDESCAPE").field("emr", &self.emr).field("iEscape", &self.iEscape).field("cbDriver", &self.cbDriver).field("cbEscData", &self.cbEscData).field("EscData", &self.EscData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRNAMEDESCAPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRNAMEDESCAPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRNAMEDESCAPE {
     fn eq(&self, other: &Self) -> bool {
@@ -12415,8 +12415,8 @@ impl ::core::fmt::Debug for EMROFFSETCLIPRGN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMROFFSETCLIPRGN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMROFFSETCLIPRGN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMROFFSETCLIPRGN {
@@ -12495,8 +12495,8 @@ impl ::core::fmt::Debug for EMRPLGBLT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRPLGBLT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRPLGBLT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRPLGBLT {
@@ -12537,8 +12537,8 @@ impl ::core::fmt::Debug for EMRPOLYDRAW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRPOLYDRAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRPOLYDRAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRPOLYDRAW {
@@ -12579,8 +12579,8 @@ impl ::core::fmt::Debug for EMRPOLYDRAW16 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRPOLYDRAW16 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRPOLYDRAW16 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRPOLYDRAW16 {
@@ -12620,8 +12620,8 @@ impl ::core::fmt::Debug for EMRPOLYLINE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRPOLYLINE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRPOLYLINE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRPOLYLINE {
@@ -12661,8 +12661,8 @@ impl ::core::fmt::Debug for EMRPOLYLINE16 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRPOLYLINE16 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRPOLYLINE16 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRPOLYLINE16 {
@@ -12704,8 +12704,8 @@ impl ::core::fmt::Debug for EMRPOLYPOLYLINE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRPOLYPOLYLINE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRPOLYPOLYLINE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRPOLYPOLYLINE {
@@ -12747,8 +12747,8 @@ impl ::core::fmt::Debug for EMRPOLYPOLYLINE16 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRPOLYPOLYLINE16 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRPOLYPOLYLINE16 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRPOLYPOLYLINE16 {
@@ -12791,8 +12791,8 @@ impl ::core::fmt::Debug for EMRPOLYTEXTOUTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRPOLYTEXTOUTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRPOLYTEXTOUTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRPOLYTEXTOUTA {
@@ -12826,8 +12826,8 @@ impl ::core::fmt::Debug for EMRRESIZEPALETTE {
         f.debug_struct("EMRRESIZEPALETTE").field("emr", &self.emr).field("ihPal", &self.ihPal).field("cEntries", &self.cEntries).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRRESIZEPALETTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRRESIZEPALETTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRRESIZEPALETTE {
     fn eq(&self, other: &Self) -> bool {
@@ -12857,8 +12857,8 @@ impl ::core::fmt::Debug for EMRRESTOREDC {
         f.debug_struct("EMRRESTOREDC").field("emr", &self.emr).field("iRelative", &self.iRelative).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRRESTOREDC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRRESTOREDC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRRESTOREDC {
     fn eq(&self, other: &Self) -> bool {
@@ -12894,8 +12894,8 @@ impl ::core::fmt::Debug for EMRROUNDRECT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRROUNDRECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRROUNDRECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRROUNDRECT {
@@ -12931,8 +12931,8 @@ impl ::core::fmt::Debug for EMRSCALEVIEWPORTEXTEX {
         f.debug_struct("EMRSCALEVIEWPORTEXTEX").field("emr", &self.emr).field("xNum", &self.xNum).field("xDenom", &self.xDenom).field("yNum", &self.yNum).field("yDenom", &self.yDenom).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRSCALEVIEWPORTEXTEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSCALEVIEWPORTEXTEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRSCALEVIEWPORTEXTEX {
     fn eq(&self, other: &Self) -> bool {
@@ -12962,8 +12962,8 @@ impl ::core::fmt::Debug for EMRSELECTCLIPPATH {
         f.debug_struct("EMRSELECTCLIPPATH").field("emr", &self.emr).field("iMode", &self.iMode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRSELECTCLIPPATH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSELECTCLIPPATH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRSELECTCLIPPATH {
     fn eq(&self, other: &Self) -> bool {
@@ -12993,8 +12993,8 @@ impl ::core::fmt::Debug for EMRSELECTOBJECT {
         f.debug_struct("EMRSELECTOBJECT").field("emr", &self.emr).field("ihObject", &self.ihObject).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRSELECTOBJECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSELECTOBJECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRSELECTOBJECT {
     fn eq(&self, other: &Self) -> bool {
@@ -13024,8 +13024,8 @@ impl ::core::fmt::Debug for EMRSELECTPALETTE {
         f.debug_struct("EMRSELECTPALETTE").field("emr", &self.emr).field("ihPal", &self.ihPal).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRSELECTPALETTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSELECTPALETTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRSELECTPALETTE {
     fn eq(&self, other: &Self) -> bool {
@@ -13055,8 +13055,8 @@ impl ::core::fmt::Debug for EMRSETARCDIRECTION {
         f.debug_struct("EMRSETARCDIRECTION").field("emr", &self.emr).field("iArcDirection", &self.iArcDirection).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRSETARCDIRECTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETARCDIRECTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRSETARCDIRECTION {
     fn eq(&self, other: &Self) -> bool {
@@ -13086,8 +13086,8 @@ impl ::core::fmt::Debug for EMRSETCOLORADJUSTMENT {
         f.debug_struct("EMRSETCOLORADJUSTMENT").field("emr", &self.emr).field("ColorAdjustment", &self.ColorAdjustment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRSETCOLORADJUSTMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETCOLORADJUSTMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRSETCOLORADJUSTMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -13117,8 +13117,8 @@ impl ::core::fmt::Debug for EMRSETCOLORSPACE {
         f.debug_struct("EMRSETCOLORSPACE").field("emr", &self.emr).field("ihCS", &self.ihCS).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRSETCOLORSPACE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETCOLORSPACE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRSETCOLORSPACE {
     fn eq(&self, other: &Self) -> bool {
@@ -13182,8 +13182,8 @@ impl ::core::fmt::Debug for EMRSETDIBITSTODEVICE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRSETDIBITSTODEVICE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETDIBITSTODEVICE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRSETDIBITSTODEVICE {
@@ -13219,8 +13219,8 @@ impl ::core::fmt::Debug for EMRSETICMPROFILE {
         f.debug_struct("EMRSETICMPROFILE").field("emr", &self.emr).field("dwFlags", &self.dwFlags).field("cbName", &self.cbName).field("cbData", &self.cbData).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRSETICMPROFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETICMPROFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRSETICMPROFILE {
     fn eq(&self, other: &Self) -> bool {
@@ -13250,8 +13250,8 @@ impl ::core::fmt::Debug for EMRSETMAPPERFLAGS {
         f.debug_struct("EMRSETMAPPERFLAGS").field("emr", &self.emr).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRSETMAPPERFLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETMAPPERFLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRSETMAPPERFLAGS {
     fn eq(&self, other: &Self) -> bool {
@@ -13281,8 +13281,8 @@ impl ::core::fmt::Debug for EMRSETMITERLIMIT {
         f.debug_struct("EMRSETMITERLIMIT").field("emr", &self.emr).field("eMiterLimit", &self.eMiterLimit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRSETMITERLIMIT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETMITERLIMIT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRSETMITERLIMIT {
     fn eq(&self, other: &Self) -> bool {
@@ -13315,8 +13315,8 @@ impl ::core::fmt::Debug for EMRSETPALETTEENTRIES {
         f.debug_struct("EMRSETPALETTEENTRIES").field("emr", &self.emr).field("ihPal", &self.ihPal).field("iStart", &self.iStart).field("cEntries", &self.cEntries).field("aPalEntries", &self.aPalEntries).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRSETPALETTEENTRIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETPALETTEENTRIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRSETPALETTEENTRIES {
     fn eq(&self, other: &Self) -> bool {
@@ -13352,8 +13352,8 @@ impl ::core::fmt::Debug for EMRSETPIXELV {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRSETPIXELV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETPIXELV {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRSETPIXELV {
@@ -13391,8 +13391,8 @@ impl ::core::fmt::Debug for EMRSETTEXTCOLOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRSETTEXTCOLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETTEXTCOLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRSETTEXTCOLOR {
@@ -13430,8 +13430,8 @@ impl ::core::fmt::Debug for EMRSETVIEWPORTEXTEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRSETVIEWPORTEXTEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETVIEWPORTEXTEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRSETVIEWPORTEXTEX {
@@ -13469,8 +13469,8 @@ impl ::core::fmt::Debug for EMRSETVIEWPORTORGEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRSETVIEWPORTORGEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETVIEWPORTORGEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRSETVIEWPORTORGEX {
@@ -13503,8 +13503,8 @@ impl ::core::fmt::Debug for EMRSETWORLDTRANSFORM {
         f.debug_struct("EMRSETWORLDTRANSFORM").field("emr", &self.emr).field("xform", &self.xform).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMRSETWORLDTRANSFORM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSETWORLDTRANSFORM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMRSETWORLDTRANSFORM {
     fn eq(&self, other: &Self) -> bool {
@@ -13574,8 +13574,8 @@ impl ::core::fmt::Debug for EMRSTRETCHBLT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRSTRETCHBLT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSTRETCHBLT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRSTRETCHBLT {
@@ -13644,8 +13644,8 @@ impl ::core::fmt::Debug for EMRSTRETCHDIBITS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRSTRETCHDIBITS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRSTRETCHDIBITS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRSTRETCHDIBITS {
@@ -13687,8 +13687,8 @@ impl ::core::fmt::Debug for EMRTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRTEXT {
@@ -13761,8 +13761,8 @@ impl ::core::fmt::Debug for EMRTRANSPARENTBLT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EMRTRANSPARENTBLT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRTRANSPARENTBLT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRTRANSPARENTBLT {
@@ -13837,8 +13837,8 @@ impl ::core::fmt::Debug for ENHMETAHEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENHMETAHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENHMETAHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENHMETAHEADER {
@@ -13872,8 +13872,8 @@ impl ::core::fmt::Debug for ENHMETARECORD {
         f.debug_struct("ENHMETARECORD").field("iType", &self.iType).field("nSize", &self.nSize).field("dParm", &self.dParm).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENHMETARECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENHMETARECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENHMETARECORD {
     fn eq(&self, other: &Self) -> bool {
@@ -13909,8 +13909,8 @@ impl ::core::fmt::Debug for ENUMLOGFONTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENUMLOGFONTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUMLOGFONTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENUMLOGFONTA {
@@ -13950,8 +13950,8 @@ impl ::core::fmt::Debug for ENUMLOGFONTEXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENUMLOGFONTEXA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUMLOGFONTEXA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENUMLOGFONTEXA {
@@ -13989,8 +13989,8 @@ impl ::core::fmt::Debug for ENUMLOGFONTEXDVA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENUMLOGFONTEXDVA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUMLOGFONTEXDVA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENUMLOGFONTEXDVA {
@@ -14023,8 +14023,8 @@ impl ::core::fmt::Debug for ENUMLOGFONTEXDVW {
         f.debug_struct("ENUMLOGFONTEXDVW").field("elfEnumLogfontEx", &self.elfEnumLogfontEx).field("elfDesignVector", &self.elfDesignVector).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENUMLOGFONTEXDVW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUMLOGFONTEXDVW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENUMLOGFONTEXDVW {
     fn eq(&self, other: &Self) -> bool {
@@ -14056,8 +14056,8 @@ impl ::core::fmt::Debug for ENUMLOGFONTEXW {
         f.debug_struct("ENUMLOGFONTEXW").field("elfLogFont", &self.elfLogFont).field("elfFullName", &self.elfFullName).field("elfStyle", &self.elfStyle).field("elfScript", &self.elfScript).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENUMLOGFONTEXW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUMLOGFONTEXW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENUMLOGFONTEXW {
     fn eq(&self, other: &Self) -> bool {
@@ -14088,8 +14088,8 @@ impl ::core::fmt::Debug for ENUMLOGFONTW {
         f.debug_struct("ENUMLOGFONTW").field("elfLogFont", &self.elfLogFont).field("elfFullName", &self.elfFullName).field("elfStyle", &self.elfStyle).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENUMLOGFONTW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUMLOGFONTW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENUMLOGFONTW {
     fn eq(&self, other: &Self) -> bool {
@@ -14132,8 +14132,8 @@ impl ::core::fmt::Debug for EXTLOGFONTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EXTLOGFONTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXTLOGFONTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EXTLOGFONTA {
@@ -14174,8 +14174,8 @@ impl ::core::fmt::Debug for EXTLOGFONTW {
         f.debug_struct("EXTLOGFONTW").field("elfLogFont", &self.elfLogFont).field("elfFullName", &self.elfFullName).field("elfStyle", &self.elfStyle).field("elfVersion", &self.elfVersion).field("elfStyleSize", &self.elfStyleSize).field("elfMatch", &self.elfMatch).field("elfReserved", &self.elfReserved).field("elfVendorId", &self.elfVendorId).field("elfCulture", &self.elfCulture).field("elfPanose", &self.elfPanose).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EXTLOGFONTW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXTLOGFONTW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EXTLOGFONTW {
     fn eq(&self, other: &Self) -> bool {
@@ -14215,8 +14215,8 @@ impl ::core::fmt::Debug for EXTLOGPEN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EXTLOGPEN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXTLOGPEN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EXTLOGPEN {
@@ -14259,8 +14259,8 @@ impl ::core::fmt::Debug for EXTLOGPEN32 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EXTLOGPEN32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXTLOGPEN32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EXTLOGPEN32 {
@@ -14293,8 +14293,8 @@ impl ::core::fmt::Debug for FIXED {
         f.debug_struct("FIXED").field("fract", &self.fract).field("value", &self.value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FIXED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FIXED {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FIXED {
     fn eq(&self, other: &Self) -> bool {
@@ -14331,8 +14331,8 @@ impl ::core::fmt::Debug for GCP_RESULTSA {
         f.debug_struct("GCP_RESULTSA").field("lStructSize", &self.lStructSize).field("lpOutString", &self.lpOutString).field("lpOrder", &self.lpOrder).field("lpDx", &self.lpDx).field("lpCaretPos", &self.lpCaretPos).field("lpClass", &self.lpClass).field("lpGlyphs", &self.lpGlyphs).field("nGlyphs", &self.nGlyphs).field("nMaxFit", &self.nMaxFit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GCP_RESULTSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GCP_RESULTSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GCP_RESULTSA {
     fn eq(&self, other: &Self) -> bool {
@@ -14369,8 +14369,8 @@ impl ::core::fmt::Debug for GCP_RESULTSW {
         f.debug_struct("GCP_RESULTSW").field("lStructSize", &self.lStructSize).field("lpOutString", &self.lpOutString).field("lpOrder", &self.lpOrder).field("lpDx", &self.lpDx).field("lpCaretPos", &self.lpCaretPos).field("lpClass", &self.lpClass).field("lpGlyphs", &self.lpGlyphs).field("nGlyphs", &self.nGlyphs).field("nMaxFit", &self.nMaxFit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GCP_RESULTSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GCP_RESULTSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GCP_RESULTSW {
     fn eq(&self, other: &Self) -> bool {
@@ -14408,8 +14408,8 @@ impl ::core::fmt::Debug for GLYPHMETRICS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GLYPHMETRICS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GLYPHMETRICS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GLYPHMETRICS {
@@ -14445,8 +14445,8 @@ impl ::core::fmt::Debug for GLYPHSET {
         f.debug_struct("GLYPHSET").field("cbThis", &self.cbThis).field("flAccel", &self.flAccel).field("cGlyphsSupported", &self.cGlyphsSupported).field("cRanges", &self.cRanges).field("ranges", &self.ranges).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GLYPHSET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GLYPHSET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GLYPHSET {
     fn eq(&self, other: &Self) -> bool {
@@ -14476,8 +14476,8 @@ impl ::core::fmt::Debug for GRADIENT_RECT {
         f.debug_struct("GRADIENT_RECT").field("UpperLeft", &self.UpperLeft).field("LowerRight", &self.LowerRight).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GRADIENT_RECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GRADIENT_RECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GRADIENT_RECT {
     fn eq(&self, other: &Self) -> bool {
@@ -14508,8 +14508,8 @@ impl ::core::fmt::Debug for GRADIENT_TRIANGLE {
         f.debug_struct("GRADIENT_TRIANGLE").field("Vertex1", &self.Vertex1).field("Vertex2", &self.Vertex2).field("Vertex3", &self.Vertex3).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GRADIENT_TRIANGLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GRADIENT_TRIANGLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GRADIENT_TRIANGLE {
     fn eq(&self, other: &Self) -> bool {
@@ -14538,8 +14538,8 @@ impl ::core::fmt::Debug for HANDLETABLE {
         f.debug_struct("HANDLETABLE").field("objectHandle", &self.objectHandle).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HANDLETABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HANDLETABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HANDLETABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -14581,8 +14581,8 @@ impl ::core::convert::From<::core::option::Option<HBITMAP>> for HBITMAP {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HBITMAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HBITMAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<HBITMAP> for HGDIOBJ {
     fn from(item: HBITMAP) -> HGDIOBJ {
@@ -14618,8 +14618,8 @@ impl ::core::convert::From<::core::option::Option<HBRUSH>> for HBRUSH {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HBRUSH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HBRUSH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<HBRUSH> for HGDIOBJ {
     fn from(item: HBRUSH) -> HGDIOBJ {
@@ -14655,8 +14655,8 @@ impl ::core::convert::From<::core::option::Option<HDC>> for HDC {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HDC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -14687,8 +14687,8 @@ impl ::core::convert::From<::core::option::Option<HENHMETAFILE>> for HENHMETAFIL
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HENHMETAFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HENHMETAFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -14719,8 +14719,8 @@ impl ::core::convert::From<::core::option::Option<HFONT>> for HFONT {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HFONT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HFONT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<HFONT> for HGDIOBJ {
     fn from(item: HFONT) -> HGDIOBJ {
@@ -14756,8 +14756,8 @@ impl ::core::convert::From<::core::option::Option<HGDIOBJ>> for HGDIOBJ {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HGDIOBJ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HGDIOBJ {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -14788,8 +14788,8 @@ impl ::core::convert::From<::core::option::Option<HMETAFILE>> for HMETAFILE {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HMETAFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HMETAFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -14820,8 +14820,8 @@ impl ::core::convert::From<::core::option::Option<HMONITOR>> for HMONITOR {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HMONITOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HMONITOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -14852,8 +14852,8 @@ impl ::core::convert::From<::core::option::Option<HPALETTE>> for HPALETTE {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HPALETTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HPALETTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<HPALETTE> for HGDIOBJ {
     fn from(item: HPALETTE) -> HGDIOBJ {
@@ -14889,8 +14889,8 @@ impl ::core::convert::From<::core::option::Option<HPEN>> for HPEN {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HPEN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HPEN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<HPEN> for HGDIOBJ {
     fn from(item: HPEN) -> HGDIOBJ {
@@ -14926,8 +14926,8 @@ impl ::core::convert::From<::core::option::Option<HRGN>> for HRGN {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HRGN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HRGN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<HRGN> for HGDIOBJ {
     fn from(item: HRGN) -> HGDIOBJ {
@@ -14963,8 +14963,8 @@ impl ::core::convert::From<::core::option::Option<HdcMetdataEnhFileHandle>> for 
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HdcMetdataEnhFileHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HdcMetdataEnhFileHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -14995,8 +14995,8 @@ impl ::core::convert::From<::core::option::Option<HdcMetdataFileHandle>> for Hdc
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HdcMetdataFileHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HdcMetdataFileHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -15016,8 +15016,8 @@ impl ::core::fmt::Debug for KERNINGPAIR {
         f.debug_struct("KERNINGPAIR").field("wFirst", &self.wFirst).field("wSecond", &self.wSecond).field("iKernAmount", &self.iKernAmount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERNINGPAIR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERNINGPAIR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERNINGPAIR {
     fn eq(&self, other: &Self) -> bool {
@@ -15053,8 +15053,8 @@ impl ::core::fmt::Debug for LOGBRUSH {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LOGBRUSH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOGBRUSH {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LOGBRUSH {
@@ -15093,8 +15093,8 @@ impl ::core::fmt::Debug for LOGBRUSH32 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LOGBRUSH32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOGBRUSH32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LOGBRUSH32 {
@@ -15159,8 +15159,8 @@ impl ::core::fmt::Debug for LOGFONTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LOGFONTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOGFONTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LOGFONTA {
@@ -15220,8 +15220,8 @@ impl ::core::fmt::Debug for LOGFONTW {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for LOGFONTW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOGFONTW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LOGFONTW {
     fn eq(&self, other: &Self) -> bool {
@@ -15252,8 +15252,8 @@ impl ::core::fmt::Debug for LOGPALETTE {
         f.debug_struct("LOGPALETTE").field("palVersion", &self.palVersion).field("palNumEntries", &self.palNumEntries).field("palPalEntry", &self.palPalEntry).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LOGPALETTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOGPALETTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LOGPALETTE {
     fn eq(&self, other: &Self) -> bool {
@@ -15289,8 +15289,8 @@ impl ::core::fmt::Debug for LOGPEN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LOGPEN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOGPEN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LOGPEN {
@@ -15325,8 +15325,8 @@ impl ::core::fmt::Debug for MAT2 {
         f.debug_struct("MAT2").field("eM11", &self.eM11).field("eM12", &self.eM12).field("eM21", &self.eM21).field("eM22", &self.eM22).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MAT2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAT2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MAT2 {
     fn eq(&self, other: &Self) -> bool {
@@ -15356,8 +15356,8 @@ impl ::core::clone::Clone for METAHEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for METAHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for METAHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for METAHEADER {
     fn default() -> Self {
@@ -15382,8 +15382,8 @@ impl ::core::fmt::Debug for METARECORD {
         f.debug_struct("METARECORD").field("rdSize", &self.rdSize).field("rdFunction", &self.rdFunction).field("rdParm", &self.rdParm).finish()
     }
 }
-unsafe impl ::windows::core::Abi for METARECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for METARECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for METARECORD {
     fn eq(&self, other: &Self) -> bool {
@@ -15420,8 +15420,8 @@ impl ::core::fmt::Debug for MONITORINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MONITORINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITORINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONITORINFO {
@@ -15459,8 +15459,8 @@ impl ::core::fmt::Debug for MONITORINFOEXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MONITORINFOEXA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITORINFOEXA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONITORINFOEXA {
@@ -15498,8 +15498,8 @@ impl ::core::fmt::Debug for MONITORINFOEXW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MONITORINFOEXW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITORINFOEXW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONITORINFOEXW {
@@ -15579,8 +15579,8 @@ impl ::core::fmt::Debug for NEWTEXTMETRICA {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NEWTEXTMETRICA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NEWTEXTMETRICA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NEWTEXTMETRICA {
     fn eq(&self, other: &Self) -> bool {
@@ -15680,8 +15680,8 @@ impl ::core::fmt::Debug for NEWTEXTMETRICW {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NEWTEXTMETRICW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NEWTEXTMETRICW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NEWTEXTMETRICW {
     fn eq(&self, other: &Self) -> bool {
@@ -15802,8 +15802,8 @@ impl ::core::fmt::Debug for OUTLINETEXTMETRICA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OUTLINETEXTMETRICA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OUTLINETEXTMETRICA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OUTLINETEXTMETRICA {
@@ -15935,8 +15935,8 @@ impl ::core::fmt::Debug for OUTLINETEXTMETRICW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OUTLINETEXTMETRICW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OUTLINETEXTMETRICW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OUTLINETEXTMETRICW {
@@ -16009,8 +16009,8 @@ impl ::core::fmt::Debug for PAINTSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PAINTSTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAINTSTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PAINTSTRUCT {
@@ -16045,8 +16045,8 @@ impl ::core::fmt::Debug for PALETTEENTRY {
         f.debug_struct("PALETTEENTRY").field("peRed", &self.peRed).field("peGreen", &self.peGreen).field("peBlue", &self.peBlue).field("peFlags", &self.peFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PALETTEENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PALETTEENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PALETTEENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -16084,8 +16084,8 @@ impl ::core::fmt::Debug for PANOSE {
         f.debug_struct("PANOSE").field("bFamilyType", &self.bFamilyType).field("bSerifStyle", &self.bSerifStyle).field("bWeight", &self.bWeight).field("bProportion", &self.bProportion).field("bContrast", &self.bContrast).field("bStrokeVariation", &self.bStrokeVariation).field("bArmStyle", &self.bArmStyle).field("bLetterform", &self.bLetterform).field("bMidline", &self.bMidline).field("bXHeight", &self.bXHeight).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PANOSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PANOSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PANOSE {
     fn eq(&self, other: &Self) -> bool {
@@ -16118,8 +16118,8 @@ impl ::core::fmt::Debug for PELARRAY {
         f.debug_struct("PELARRAY").field("paXCount", &self.paXCount).field("paYCount", &self.paYCount).field("paXExt", &self.paXExt).field("paYExt", &self.paYExt).field("paRGBs", &self.paRGBs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PELARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PELARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PELARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -16149,8 +16149,8 @@ impl ::core::fmt::Debug for POINTFX {
         f.debug_struct("POINTFX").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POINTFX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POINTFX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POINTFX {
     fn eq(&self, other: &Self) -> bool {
@@ -16190,8 +16190,8 @@ impl ::core::fmt::Debug for POLYTEXTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLYTEXTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLYTEXTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLYTEXTA {
@@ -16234,8 +16234,8 @@ impl ::core::fmt::Debug for POLYTEXTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLYTEXTW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLYTEXTW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLYTEXTW {
@@ -16269,8 +16269,8 @@ impl ::core::fmt::Debug for RASTERIZER_STATUS {
         f.debug_struct("RASTERIZER_STATUS").field("nSize", &self.nSize).field("wFlags", &self.wFlags).field("nLanguageID", &self.nLanguageID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RASTERIZER_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RASTERIZER_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RASTERIZER_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -16302,8 +16302,8 @@ impl ::core::fmt::Debug for RGBQUAD {
         f.debug_struct("RGBQUAD").field("rgbBlue", &self.rgbBlue).field("rgbGreen", &self.rgbGreen).field("rgbRed", &self.rgbRed).field("rgbReserved", &self.rgbReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RGBQUAD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RGBQUAD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RGBQUAD {
     fn eq(&self, other: &Self) -> bool {
@@ -16334,8 +16334,8 @@ impl ::core::fmt::Debug for RGBTRIPLE {
         f.debug_struct("RGBTRIPLE").field("rgbtBlue", &self.rgbtBlue).field("rgbtGreen", &self.rgbtGreen).field("rgbtRed", &self.rgbtRed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RGBTRIPLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RGBTRIPLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RGBTRIPLE {
     fn eq(&self, other: &Self) -> bool {
@@ -16370,8 +16370,8 @@ impl ::core::fmt::Debug for RGNDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RGNDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RGNDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RGNDATA {
@@ -16412,8 +16412,8 @@ impl ::core::fmt::Debug for RGNDATAHEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RGNDATAHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RGNDATAHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RGNDATAHEADER {
@@ -16485,8 +16485,8 @@ impl ::core::fmt::Debug for TEXTMETRICA {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for TEXTMETRICA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TEXTMETRICA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TEXTMETRICA {
     fn eq(&self, other: &Self) -> bool {
@@ -16574,8 +16574,8 @@ impl ::core::fmt::Debug for TEXTMETRICW {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for TEXTMETRICW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TEXTMETRICW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TEXTMETRICW {
     fn eq(&self, other: &Self) -> bool {
@@ -16628,8 +16628,8 @@ impl ::core::fmt::Debug for TRIVERTEX {
         f.debug_struct("TRIVERTEX").field("x", &self.x).field("y", &self.y).field("Red", &self.Red).field("Green", &self.Green).field("Blue", &self.Blue).field("Alpha", &self.Alpha).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRIVERTEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRIVERTEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRIVERTEX {
     fn eq(&self, other: &Self) -> bool {
@@ -16660,8 +16660,8 @@ impl ::core::fmt::Debug for TTEMBEDINFO {
         f.debug_struct("TTEMBEDINFO").field("usStructSize", &self.usStructSize).field("usRootStrSize", &self.usRootStrSize).field("pusRootStr", &self.pusRootStr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TTEMBEDINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TTEMBEDINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TTEMBEDINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16692,8 +16692,8 @@ impl ::core::fmt::Debug for TTLOADINFO {
         f.debug_struct("TTLOADINFO").field("usStructSize", &self.usStructSize).field("usRefStrSize", &self.usRefStrSize).field("pusRefStr", &self.pusRefStr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TTLOADINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TTLOADINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TTLOADINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16724,8 +16724,8 @@ impl ::core::fmt::Debug for TTPOLYCURVE {
         f.debug_struct("TTPOLYCURVE").field("wType", &self.wType).field("cpfx", &self.cpfx).field("apfx", &self.apfx).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TTPOLYCURVE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TTPOLYCURVE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TTPOLYCURVE {
     fn eq(&self, other: &Self) -> bool {
@@ -16756,8 +16756,8 @@ impl ::core::fmt::Debug for TTPOLYGONHEADER {
         f.debug_struct("TTPOLYGONHEADER").field("cb", &self.cb).field("dwType", &self.dwType).field("pfxStart", &self.pfxStart).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TTPOLYGONHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TTPOLYGONHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TTPOLYGONHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -16792,8 +16792,8 @@ impl ::core::fmt::Debug for TTVALIDATIONTESTSPARAMS {
         f.debug_struct("TTVALIDATIONTESTSPARAMS").field("ulStructSize", &self.ulStructSize).field("lTestFromSize", &self.lTestFromSize).field("lTestToSize", &self.lTestToSize).field("ulCharSet", &self.ulCharSet).field("usReserved1", &self.usReserved1).field("usCharCodeCount", &self.usCharCodeCount).field("pusCharCodeSet", &self.pusCharCodeSet).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TTVALIDATIONTESTSPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TTVALIDATIONTESTSPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TTVALIDATIONTESTSPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -16828,8 +16828,8 @@ impl ::core::fmt::Debug for TTVALIDATIONTESTSPARAMSEX {
         f.debug_struct("TTVALIDATIONTESTSPARAMSEX").field("ulStructSize", &self.ulStructSize).field("lTestFromSize", &self.lTestFromSize).field("lTestToSize", &self.lTestToSize).field("ulCharSet", &self.ulCharSet).field("usReserved1", &self.usReserved1).field("usCharCodeCount", &self.usCharCodeCount).field("pulCharCodeSet", &self.pulCharCodeSet).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TTVALIDATIONTESTSPARAMSEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TTVALIDATIONTESTSPARAMSEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TTVALIDATIONTESTSPARAMSEX {
     fn eq(&self, other: &Self) -> bool {
@@ -16859,8 +16859,8 @@ impl ::core::fmt::Debug for WCRANGE {
         f.debug_struct("WCRANGE").field("wcLow", &self.wcLow).field("cGlyphs", &self.cGlyphs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WCRANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCRANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WCRANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -16890,8 +16890,8 @@ impl ::core::fmt::Debug for WGLSWAP {
         f.debug_struct("WGLSWAP").field("hdc", &self.hdc).field("uiFlags", &self.uiFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WGLSWAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WGLSWAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WGLSWAP {
     fn eq(&self, other: &Self) -> bool {
@@ -16925,8 +16925,8 @@ impl ::core::fmt::Debug for XFORM {
         f.debug_struct("XFORM").field("eM11", &self.eM11).field("eM12", &self.eM12).field("eM21", &self.eM21).field("eM22", &self.eM22).field("eDx", &self.eDx).field("eDy", &self.eDy).finish()
     }
 }
-unsafe impl ::windows::core::Abi for XFORM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XFORM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for XFORM {
     fn eq(&self, other: &Self) -> bool {

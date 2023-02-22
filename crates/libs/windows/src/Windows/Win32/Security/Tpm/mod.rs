@@ -19,16 +19,11 @@ impl ITpmVirtualSmartCardManager {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<ITpmVirtualSmartCardManagerStatusCallback>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into().abi(), pstatuscallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into().abi(), pstatuscallback.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManager, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITpmVirtualSmartCardManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -42,6 +37,11 @@ impl ::core::fmt::Debug for ITpmVirtualSmartCardManager {
 }
 unsafe impl ::windows::core::Vtable for ITpmVirtualSmartCardManager {
     type Vtable = ITpmVirtualSmartCardManager_Vtbl;
+}
+impl ::core::clone::Clone for ITpmVirtualSmartCardManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112b1dff_d9dc_41f7_869f_d67fee7cb591);
@@ -80,8 +80,8 @@ impl ITpmVirtualSmartCardManager2 {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<ITpmVirtualSmartCardManagerStatusCallback>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into().abi(), pstatuscallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into().abi(), pstatuscallback.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -95,11 +95,6 @@ impl ITpmVirtualSmartCardManager2 {
     }
 }
 ::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManager2, ::windows::core::IUnknown, ITpmVirtualSmartCardManager);
-impl ::core::clone::Clone for ITpmVirtualSmartCardManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManager2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -113,6 +108,11 @@ impl ::core::fmt::Debug for ITpmVirtualSmartCardManager2 {
 }
 unsafe impl ::windows::core::Vtable for ITpmVirtualSmartCardManager2 {
     type Vtable = ITpmVirtualSmartCardManager2_Vtbl;
+}
+impl ::core::clone::Clone for ITpmVirtualSmartCardManager2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdf8a2b9_02de_47f4_bc26_aa85ab5e5267);
@@ -147,8 +147,8 @@ impl ITpmVirtualSmartCardManager3 {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<ITpmVirtualSmartCardManagerStatusCallback>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into().abi(), pstatuscallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.base__.DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into().abi(), pstatuscallback.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -168,7 +168,7 @@ impl ITpmVirtualSmartCardManager3 {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<::windows::core::InParam<ITpmVirtualSmartCardManagerStatusCallback>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
         (::windows::core::Vtable::vtable(self).CreateVirtualSmartCardWithAttestation)(
             ::windows::core::Vtable::as_raw(self),
             pszfriendlyname.into().abi(),
@@ -186,17 +186,12 @@ impl ITpmVirtualSmartCardManager3 {
             attestationtype,
             fgenerate.into(),
             pstatuscallback.into().abi(),
-            result__.as_mut_ptr(),
+            &mut result__,
         )
         .from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManager3, ::windows::core::IUnknown, ITpmVirtualSmartCardManager, ITpmVirtualSmartCardManager2);
-impl ::core::clone::Clone for ITpmVirtualSmartCardManager3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManager3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -210,6 +205,11 @@ impl ::core::fmt::Debug for ITpmVirtualSmartCardManager3 {
 }
 unsafe impl ::windows::core::Vtable for ITpmVirtualSmartCardManager3 {
     type Vtable = ITpmVirtualSmartCardManager3_Vtbl;
+}
+impl ::core::clone::Clone for ITpmVirtualSmartCardManager3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c745a97_f375_4150_be17_5950f694c699);
@@ -235,11 +235,6 @@ impl ITpmVirtualSmartCardManagerStatusCallback {
     }
 }
 ::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManagerStatusCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITpmVirtualSmartCardManagerStatusCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManagerStatusCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -253,6 +248,11 @@ impl ::core::fmt::Debug for ITpmVirtualSmartCardManagerStatusCallback {
 }
 unsafe impl ::windows::core::Vtable for ITpmVirtualSmartCardManagerStatusCallback {
     type Vtable = ITpmVirtualSmartCardManagerStatusCallback_Vtbl;
+}
+impl ::core::clone::Clone for ITpmVirtualSmartCardManagerStatusCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManagerStatusCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a1bb35f_abb8_451c_a1ae_33d98f1bef4a);
@@ -323,8 +323,8 @@ impl ::core::default::Default for TPMVSCMGR_ERROR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TPMVSCMGR_ERROR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TPMVSCMGR_ERROR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TPMVSCMGR_ERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -374,8 +374,8 @@ impl ::core::default::Default for TPMVSCMGR_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TPMVSCMGR_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TPMVSCMGR_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TPMVSCMGR_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -403,8 +403,8 @@ impl ::core::default::Default for TPMVSC_ATTESTATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TPMVSC_ATTESTATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TPMVSC_ATTESTATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TPMVSC_ATTESTATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

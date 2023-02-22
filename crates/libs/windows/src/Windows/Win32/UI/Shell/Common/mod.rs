@@ -3,23 +3,18 @@
 pub struct IObjectArray(::windows::core::IUnknown);
 impl IObjectArray {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAt<T>(&self, uiindex: u32) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), uiindex, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), uiindex, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IObjectArray, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IObjectArray {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IObjectArray {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -33,6 +28,11 @@ impl ::core::fmt::Debug for IObjectArray {
 }
 unsafe impl ::windows::core::Vtable for IObjectArray {
     type Vtable = IObjectArray_Vtbl;
+}
+impl ::core::clone::Clone for IObjectArray {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IObjectArray {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9);
@@ -49,15 +49,15 @@ pub struct IObjectArray_Vtbl {
 pub struct IObjectCollection(::windows::core::IUnknown);
 impl IObjectCollection {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAt<T>(&self, uiindex: u32) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetAt)(::windows::core::Vtable::as_raw(self), uiindex, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).base__.GetAt)(::windows::core::Vtable::as_raw(self), uiindex, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddObject<P0>(&self, punk: P0) -> ::windows::core::Result<()>
     where
@@ -79,11 +79,6 @@ impl IObjectCollection {
     }
 }
 ::windows::core::interface_hierarchy!(IObjectCollection, ::windows::core::IUnknown, IObjectArray);
-impl ::core::clone::Clone for IObjectCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IObjectCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -97,6 +92,11 @@ impl ::core::fmt::Debug for IObjectCollection {
 }
 unsafe impl ::windows::core::Vtable for IObjectCollection {
     type Vtable = IObjectCollection_Vtbl;
+}
+impl ::core::clone::Clone for IObjectCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IObjectCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5632b1a4_e38a_400a_928a_d4cd63230295);
@@ -173,8 +173,8 @@ impl ::core::default::Default for DEVICE_SCALE_FACTOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEVICE_SCALE_FACTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVICE_SCALE_FACTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEVICE_SCALE_FACTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -228,8 +228,8 @@ impl ::core::default::Default for PERCEIVED {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PERCEIVED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PERCEIVED {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PERCEIVED {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -291,8 +291,8 @@ impl ::core::default::Default for SHCOLSTATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SHCOLSTATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHCOLSTATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SHCOLSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -320,8 +320,8 @@ impl ::core::default::Default for STRRET_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for STRRET_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STRRET_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for STRRET_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -345,8 +345,8 @@ impl ::core::fmt::Debug for COMDLG_FILTERSPEC {
         f.debug_struct("COMDLG_FILTERSPEC").field("pszName", &self.pszName).field("pszSpec", &self.pszSpec).finish()
     }
 }
-unsafe impl ::windows::core::Abi for COMDLG_FILTERSPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMDLG_FILTERSPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for COMDLG_FILTERSPEC {
     fn eq(&self, other: &Self) -> bool {
@@ -370,8 +370,8 @@ impl ::core::clone::Clone for ITEMIDLIST {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for ITEMIDLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ITEMIDLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for ITEMIDLIST {
     fn default() -> Self {
@@ -391,8 +391,8 @@ impl ::core::clone::Clone for SHELLDETAILS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SHELLDETAILS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHELLDETAILS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SHELLDETAILS {
     fn default() -> Self {
@@ -411,8 +411,8 @@ impl ::core::clone::Clone for SHITEMID {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SHITEMID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHITEMID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SHITEMID {
     fn default() -> Self {
@@ -431,8 +431,8 @@ impl ::core::clone::Clone for STRRET {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for STRRET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STRRET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for STRRET {
     fn default() -> Self {
@@ -452,8 +452,8 @@ impl ::core::clone::Clone for STRRET_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for STRRET_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STRRET_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for STRRET_0 {
     fn default() -> Self {

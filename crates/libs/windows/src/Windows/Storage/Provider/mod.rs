@@ -4,6 +4,11 @@ pub struct ICachedFileUpdaterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ICachedFileUpdaterStatics {
     type Vtable = ICachedFileUpdaterStatics_Vtbl;
 }
+impl ::core::clone::Clone for ICachedFileUpdaterStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ICachedFileUpdaterStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fc90920_7bcf_4888_a81e_102d7034d7ce);
 }
@@ -11,13 +16,18 @@ unsafe impl ::windows::core::Interface for ICachedFileUpdaterStatics {
 #[doc(hidden)]
 pub struct ICachedFileUpdaterStatics_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub SetUpdateInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, contentid: *mut ::core::ffi::c_void, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::HRESULT,
+    pub SetUpdateInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, contentid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICachedFileUpdaterUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ICachedFileUpdaterUI {
     type Vtable = ICachedFileUpdaterUI_Vtbl;
+}
+impl ::core::clone::Clone for ICachedFileUpdaterUI {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICachedFileUpdaterUI {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e6f41e6_baf2_4a97_b600_9333f5df80fd);
@@ -26,8 +36,8 @@ unsafe impl ::windows::core::Interface for ICachedFileUpdaterUI {
 #[doc(hidden)]
 pub struct ICachedFileUpdaterUI_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub UpdateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CachedFileTarget) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub FileUpdateRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -53,6 +63,11 @@ pub struct ICachedFileUpdaterUI2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ICachedFileUpdaterUI2 {
     type Vtable = ICachedFileUpdaterUI2_Vtbl;
 }
+impl ::core::clone::Clone for ICachedFileUpdaterUI2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ICachedFileUpdaterUI2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8856a21c_8699_4340_9f49_f7cad7fe8991);
 }
@@ -69,6 +84,11 @@ pub struct IFileUpdateRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IFileUpdateRequest {
     type Vtable = IFileUpdateRequest_Vtbl;
 }
+impl ::core::clone::Clone for IFileUpdateRequest {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IFileUpdateRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40c82536_c1fe_4d93_a792_1e736bc70837);
 }
@@ -76,7 +96,7 @@ unsafe impl ::windows::core::Interface for IFileUpdateRequest {
 #[doc(hidden)]
 pub struct IFileUpdateRequest_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub ContentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ContentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FileUpdateStatus) -> ::windows::core::HRESULT,
     pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: FileUpdateStatus) -> ::windows::core::HRESULT,
@@ -89,6 +109,11 @@ pub struct IFileUpdateRequest2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IFileUpdateRequest2 {
     type Vtable = IFileUpdateRequest2_Vtbl;
 }
+impl ::core::clone::Clone for IFileUpdateRequest2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IFileUpdateRequest2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82484648_bdbe_447b_a2ee_7afe6a032a94);
 }
@@ -96,14 +121,19 @@ unsafe impl ::windows::core::Interface for IFileUpdateRequest2 {
 #[doc(hidden)]
 pub struct IFileUpdateRequest2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub UserInputNeededMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetUserInputNeededMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UserInputNeededMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetUserInputNeededMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFileUpdateRequestDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IFileUpdateRequestDeferral {
     type Vtable = IFileUpdateRequestDeferral_Vtbl;
+}
+impl ::core::clone::Clone for IFileUpdateRequestDeferral {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFileUpdateRequestDeferral {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffcedb2b_8ade_44a5_bb00_164c4e72f13a);
@@ -120,6 +150,11 @@ pub struct IFileUpdateRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IFileUpdateRequestedEventArgs {
     type Vtable = IFileUpdateRequestedEventArgs_Vtbl;
 }
+impl ::core::clone::Clone for IFileUpdateRequestedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IFileUpdateRequestedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b0a9342_3905_438d_aaef_78ae265f8dd2);
 }
@@ -135,6 +170,11 @@ pub struct IStorageProviderFileTypeInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderFileTypeInfo {
     type Vtable = IStorageProviderFileTypeInfo_Vtbl;
 }
+impl ::core::clone::Clone for IStorageProviderFileTypeInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IStorageProviderFileTypeInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1955b9c1_0184_5a88_87df_4544f464365d);
 }
@@ -142,14 +182,19 @@ unsafe impl ::windows::core::Interface for IStorageProviderFileTypeInfo {
 #[doc(hidden)]
 pub struct IStorageProviderFileTypeInfo_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub FileExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub IconResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FileExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub IconResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStorageProviderFileTypeInfoFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderFileTypeInfoFactory {
     type Vtable = IStorageProviderFileTypeInfoFactory_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderFileTypeInfoFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderFileTypeInfoFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fa12c6f_cce6_5d5d_80b1_389e7cf92dbf);
@@ -158,13 +203,18 @@ unsafe impl ::windows::core::Interface for IStorageProviderFileTypeInfoFactory {
 #[doc(hidden)]
 pub struct IStorageProviderFileTypeInfoFactory_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileextension: *mut ::core::ffi::c_void, iconresource: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileextension: ::std::mem::MaybeUninit<::windows::core::HSTRING>, iconresource: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStorageProviderGetContentInfoForPathResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderGetContentInfoForPathResult {
     type Vtable = IStorageProviderGetContentInfoForPathResult_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderGetContentInfoForPathResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderGetContentInfoForPathResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2564711d_aa89_4d12_82e3_f72a92e33966);
@@ -175,16 +225,21 @@ pub struct IStorageProviderGetContentInfoForPathResult_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderUriSourceStatus) -> ::windows::core::HRESULT,
     pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: StorageProviderUriSourceStatus) -> ::windows::core::HRESULT,
-    pub ContentUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetContentUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ContentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetContentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ContentUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetContentUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ContentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetContentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStorageProviderGetPathForContentUriResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderGetPathForContentUriResult {
     type Vtable = IStorageProviderGetPathForContentUriResult_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderGetPathForContentUriResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderGetPathForContentUriResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63711a9d_4118_45a6_acb6_22c49d019f40);
@@ -195,14 +250,19 @@ pub struct IStorageProviderGetPathForContentUriResult_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderUriSourceStatus) -> ::windows::core::HRESULT,
     pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: StorageProviderUriSourceStatus) -> ::windows::core::HRESULT,
-    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStorageProviderItemPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderItemPropertiesStatics {
     type Vtable = IStorageProviderItemPropertiesStatics_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderItemPropertiesStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderItemPropertiesStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d2c1c97_2704_4729_8fa9_7e6b8e158c2f);
@@ -222,6 +282,11 @@ pub struct IStorageProviderItemProperty(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderItemProperty {
     type Vtable = IStorageProviderItemProperty_Vtbl;
 }
+impl ::core::clone::Clone for IStorageProviderItemProperty {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IStorageProviderItemProperty {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x476cb558_730b_4188_b7b5_63b716ed476d);
 }
@@ -231,16 +296,21 @@ pub struct IStorageProviderItemProperty_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub SetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetIconResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub IconResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetIconResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub IconResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStorageProviderItemPropertyDefinition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderItemPropertyDefinition {
     type Vtable = IStorageProviderItemPropertyDefinition_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderItemPropertyDefinition {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderItemPropertyDefinition {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5b383bb_ff1f_4298_831e_ff1c08089690);
@@ -251,8 +321,8 @@ pub struct IStorageProviderItemPropertyDefinition_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
-    pub DisplayNameResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetDisplayNameResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DisplayNameResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetDisplayNameResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -263,17 +333,12 @@ impl IStorageProviderItemPropertySource {
     pub fn GetItemProperties(&self, itempath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetItemProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(itempath), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>();
+            (::windows::core::Vtable::vtable(this).GetItemProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(itempath), &mut result__).from_abi(result__)
         }
     }
 }
 ::windows::core::interface_hierarchy!(IStorageProviderItemPropertySource, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IStorageProviderItemPropertySource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IStorageProviderItemPropertySource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -285,15 +350,16 @@ impl ::core::fmt::Debug for IStorageProviderItemPropertySource {
         f.debug_tuple("IStorageProviderItemPropertySource").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IStorageProviderItemPropertySource {
+impl ::windows::core::RuntimeType for IStorageProviderItemPropertySource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8f6f9c3e-f632-4a9b-8d99-d2d7a11df56a}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for IStorageProviderItemPropertySource {
     type Vtable = IStorageProviderItemPropertySource_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderItemPropertySource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderItemPropertySource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f6f9c3e_f632_4a9b_8d99_d2d7a11df56a);
@@ -303,7 +369,7 @@ unsafe impl ::windows::core::Interface for IStorageProviderItemPropertySource {
 pub struct IStorageProviderItemPropertySource_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetItemProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itempath: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetItemProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itempath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetItemProperties: usize,
 }
@@ -313,6 +379,11 @@ pub struct IStorageProviderMoreInfoUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderMoreInfoUI {
     type Vtable = IStorageProviderMoreInfoUI_Vtbl;
 }
+impl ::core::clone::Clone for IStorageProviderMoreInfoUI {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IStorageProviderMoreInfoUI {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef38e591_a7cb_5e7d_9b5e_22749842697c);
 }
@@ -320,8 +391,8 @@ unsafe impl ::windows::core::Interface for IStorageProviderMoreInfoUI {
 #[doc(hidden)]
 pub struct IStorageProviderMoreInfoUI_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Command: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -332,17 +403,12 @@ impl IStorageProviderPropertyCapabilities {
     pub fn IsPropertySupported(&self, propertycanonicalname: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsPropertySupported)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertycanonicalname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsPropertySupported)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertycanonicalname), &mut result__).from_abi(result__)
         }
     }
 }
 ::windows::core::interface_hierarchy!(IStorageProviderPropertyCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IStorageProviderPropertyCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IStorageProviderPropertyCapabilities {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -354,15 +420,16 @@ impl ::core::fmt::Debug for IStorageProviderPropertyCapabilities {
         f.debug_tuple("IStorageProviderPropertyCapabilities").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IStorageProviderPropertyCapabilities {
+impl ::windows::core::RuntimeType for IStorageProviderPropertyCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{658d2f0e-63b7-4567-acf9-51abe301dda5}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for IStorageProviderPropertyCapabilities {
     type Vtable = IStorageProviderPropertyCapabilities_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderPropertyCapabilities {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderPropertyCapabilities {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x658d2f0e_63b7_4567_acf9_51abe301dda5);
@@ -371,13 +438,18 @@ unsafe impl ::windows::core::Interface for IStorageProviderPropertyCapabilities 
 #[doc(hidden)]
 pub struct IStorageProviderPropertyCapabilities_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub IsPropertySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertycanonicalname: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsPropertySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertycanonicalname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStorageProviderQuotaUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderQuotaUI {
     type Vtable = IStorageProviderQuotaUI_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderQuotaUI {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderQuotaUI {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba6295c3_312e_544f_9fd5_1f81b21f3649);
@@ -390,8 +462,8 @@ pub struct IStorageProviderQuotaUI_Vtbl {
     pub SetQuotaTotalInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT,
     pub QuotaUsedInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub SetQuotaUsedInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT,
-    pub QuotaUsedLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetQuotaUsedLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub QuotaUsedLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetQuotaUsedLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "UI"))]
     pub QuotaUsedColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI")))]
@@ -407,6 +479,11 @@ pub struct IStorageProviderStatusUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderStatusUI {
     type Vtable = IStorageProviderStatusUI_Vtbl;
 }
+impl ::core::clone::Clone for IStorageProviderStatusUI {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IStorageProviderStatusUI {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6b6a758_198d_5b80_977f_5ff73da33118);
 }
@@ -416,8 +493,8 @@ pub struct IStorageProviderStatusUI_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub ProviderState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderState) -> ::windows::core::HRESULT,
     pub SetProviderState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: StorageProviderState) -> ::windows::core::HRESULT,
-    pub ProviderStateLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetProviderStateLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ProviderStateLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetProviderStateLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub ProviderStateIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -450,8 +527,8 @@ impl IStorageProviderStatusUISource {
     pub fn GetStatusUI(&self) -> ::windows::core::Result<StorageProviderStatusUI> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetStatusUI)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderStatusUI>();
+            (::windows::core::Vtable::vtable(this).GetStatusUI)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -459,8 +536,8 @@ impl IStorageProviderStatusUISource {
     pub fn StatusUIChanged(&self, handler: &super::super::Foundation::TypedEventHandler<IStorageProviderStatusUISource, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StatusUIChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).StatusUIChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -471,11 +548,6 @@ impl IStorageProviderStatusUISource {
     }
 }
 ::windows::core::interface_hierarchy!(IStorageProviderStatusUISource, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IStorageProviderStatusUISource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IStorageProviderStatusUISource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -487,15 +559,16 @@ impl ::core::fmt::Debug for IStorageProviderStatusUISource {
         f.debug_tuple("IStorageProviderStatusUISource").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IStorageProviderStatusUISource {
+impl ::windows::core::RuntimeType for IStorageProviderStatusUISource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a306c249-3d66-5e70-9007-e43df96051ff}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for IStorageProviderStatusUISource {
     type Vtable = IStorageProviderStatusUISource_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderStatusUISource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderStatusUISource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa306c249_3d66_5e70_9007_e43df96051ff);
@@ -521,17 +594,12 @@ impl IStorageProviderStatusUISourceFactory {
     pub fn GetStatusUISource(&self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<IStorageProviderStatusUISource> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetStatusUISource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(syncrootid), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IStorageProviderStatusUISource>();
+            (::windows::core::Vtable::vtable(this).GetStatusUISource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(syncrootid), &mut result__).from_abi(result__)
         }
     }
 }
 ::windows::core::interface_hierarchy!(IStorageProviderStatusUISourceFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IStorageProviderStatusUISourceFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IStorageProviderStatusUISourceFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -543,15 +611,16 @@ impl ::core::fmt::Debug for IStorageProviderStatusUISourceFactory {
         f.debug_tuple("IStorageProviderStatusUISourceFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IStorageProviderStatusUISourceFactory {
+impl ::windows::core::RuntimeType for IStorageProviderStatusUISourceFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{12e46b74-4e5a-58d1-a62f-0376e8ee7dd8}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for IStorageProviderStatusUISourceFactory {
     type Vtable = IStorageProviderStatusUISourceFactory_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderStatusUISourceFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderStatusUISourceFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12e46b74_4e5a_58d1_a62f_0376e8ee7dd8);
@@ -560,13 +629,18 @@ unsafe impl ::windows::core::Interface for IStorageProviderStatusUISourceFactory
 #[doc(hidden)]
 pub struct IStorageProviderStatusUISourceFactory_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub GetStatusUISource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetStatusUISource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStorageProviderSyncRootInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderSyncRootInfo {
     type Vtable = IStorageProviderSyncRootInfo_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderSyncRootInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderSyncRootInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c1305c4_99f9_41ac_8904_ab055d654926);
@@ -575,8 +649,8 @@ unsafe impl ::windows::core::Interface for IStorageProviderSyncRootInfo {
 #[doc(hidden)]
 pub struct IStorageProviderSyncRootInfo_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub Context: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -587,10 +661,10 @@ pub struct IStorageProviderSyncRootInfo_Vtbl {
     SetContext: usize,
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DisplayNameResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetDisplayNameResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub IconResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetIconResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DisplayNameResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetDisplayNameResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub IconResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetIconResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub HydrationPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderHydrationPolicy) -> ::windows::core::HRESULT,
     pub SetHydrationPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: StorageProviderHydrationPolicy) -> ::windows::core::HRESULT,
     pub HydrationPolicyModifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderHydrationPolicyModifier) -> ::windows::core::HRESULT,
@@ -603,8 +677,8 @@ pub struct IStorageProviderSyncRootInfo_Vtbl {
     pub SetHardlinkPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: StorageProviderHardlinkPolicy) -> ::windows::core::HRESULT,
     pub ShowSiblingsAsGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetShowSiblingsAsGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ProtectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderProtectionMode) -> ::windows::core::HRESULT,
     pub SetProtectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: StorageProviderProtectionMode) -> ::windows::core::HRESULT,
     pub AllowPinning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -628,6 +702,11 @@ pub struct IStorageProviderSyncRootInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderSyncRootInfo2 {
     type Vtable = IStorageProviderSyncRootInfo2_Vtbl;
 }
+impl ::core::clone::Clone for IStorageProviderSyncRootInfo2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IStorageProviderSyncRootInfo2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf51b023_7cf1_5166_bdba_efd95f529e31);
 }
@@ -643,6 +722,11 @@ pub struct IStorageProviderSyncRootInfo2_Vtbl {
 pub struct IStorageProviderSyncRootInfo3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderSyncRootInfo3 {
     type Vtable = IStorageProviderSyncRootInfo3_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderSyncRootInfo3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderSyncRootInfo3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x507a6617_bef6_56fd_855e_75ace2e45cf5);
@@ -662,6 +746,11 @@ pub struct IStorageProviderSyncRootManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderSyncRootManagerStatics {
     type Vtable = IStorageProviderSyncRootManagerStatics_Vtbl;
 }
+impl ::core::clone::Clone for IStorageProviderSyncRootManagerStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IStorageProviderSyncRootManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e99fbbf_8fe3_4b40_abc7_f6fc3d74c98e);
 }
@@ -670,9 +759,9 @@ unsafe impl ::windows::core::Interface for IStorageProviderSyncRootManagerStatic
 pub struct IStorageProviderSyncRootManagerStatics_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootinformation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Unregister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Unregister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetSyncRootInformationForFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, folder: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetSyncRootInformationForId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetSyncRootInformationForId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentSyncRoots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -683,6 +772,11 @@ pub struct IStorageProviderSyncRootManagerStatics_Vtbl {
 pub struct IStorageProviderSyncRootManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IStorageProviderSyncRootManagerStatics2 {
     type Vtable = IStorageProviderSyncRootManagerStatics2_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderSyncRootManagerStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderSyncRootManagerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefb6cfee_1374_544e_9df1_5598d2e9cfdd);
@@ -700,15 +794,15 @@ impl IStorageProviderUICommand {
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Label)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Label)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -716,15 +810,15 @@ impl IStorageProviderUICommand {
     pub fn Icon(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Icon)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Uri>();
+            (::windows::core::Vtable::vtable(this).Icon)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn State(&self) -> ::windows::core::Result<StorageProviderUICommandState> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderUICommandState>();
+            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
@@ -733,11 +827,6 @@ impl IStorageProviderUICommand {
     }
 }
 ::windows::core::interface_hierarchy!(IStorageProviderUICommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IStorageProviderUICommand {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IStorageProviderUICommand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -749,15 +838,16 @@ impl ::core::fmt::Debug for IStorageProviderUICommand {
         f.debug_tuple("IStorageProviderUICommand").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IStorageProviderUICommand {
+impl ::windows::core::RuntimeType for IStorageProviderUICommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0c3e0760-d846-568f-9484-105cc57b502b}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for IStorageProviderUICommand {
     type Vtable = IStorageProviderUICommand_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderUICommand {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderUICommand {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c3e0760_d846_568f_9484_105cc57b502b);
@@ -766,8 +856,8 @@ unsafe impl ::windows::core::Interface for IStorageProviderUICommand {
 #[doc(hidden)]
 pub struct IStorageProviderUICommand_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub Icon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -789,11 +879,6 @@ impl IStorageProviderUriSource {
     }
 }
 ::windows::core::interface_hierarchy!(IStorageProviderUriSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IStorageProviderUriSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IStorageProviderUriSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -805,15 +890,16 @@ impl ::core::fmt::Debug for IStorageProviderUriSource {
         f.debug_tuple("IStorageProviderUriSource").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IStorageProviderUriSource {
+impl ::windows::core::RuntimeType for IStorageProviderUriSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b29806d1-8be0-4962-8bb6-0d4c2e14d47a}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for IStorageProviderUriSource {
     type Vtable = IStorageProviderUriSource_Vtbl;
+}
+impl ::core::clone::Clone for IStorageProviderUriSource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderUriSource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb29806d1_8be0_4962_8bb6_0d4c2e14d47a);
@@ -822,8 +908,8 @@ unsafe impl ::windows::core::Interface for IStorageProviderUriSource {
 #[doc(hidden)]
 pub struct IStorageProviderUriSource_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub GetPathForContentUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contenturi: *mut ::core::ffi::c_void, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetContentInfoForPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetPathForContentUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contenturi: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetContentInfoForPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 pub struct CachedFileUpdater;
@@ -851,8 +937,8 @@ impl CachedFileUpdaterUI {
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -862,8 +948,8 @@ impl CachedFileUpdaterUI {
     pub fn UpdateTarget(&self) -> ::windows::core::Result<CachedFileTarget> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UpdateTarget)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<CachedFileTarget>();
+            (::windows::core::Vtable::vtable(this).UpdateTarget)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -871,8 +957,8 @@ impl CachedFileUpdaterUI {
     pub fn FileUpdateRequested(&self, handler: &super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FileUpdateRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).FileUpdateRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -886,8 +972,8 @@ impl CachedFileUpdaterUI {
     pub fn UIRequested(&self, handler: &super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UIRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).UIRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -899,28 +985,23 @@ impl CachedFileUpdaterUI {
     pub fn UIStatus(&self) -> ::windows::core::Result<UIStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UIStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<UIStatus>();
+            (::windows::core::Vtable::vtable(this).UIStatus)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UpdateRequest(&self) -> ::windows::core::Result<FileUpdateRequest> {
         let this = &::windows::core::Interface::cast::<ICachedFileUpdaterUI2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UpdateRequest)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<FileUpdateRequest>();
+            (::windows::core::Vtable::vtable(this).UpdateRequest)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral> {
         let this = &::windows::core::Interface::cast::<ICachedFileUpdaterUI2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<FileUpdateRequestDeferral>();
+            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for CachedFileUpdaterUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for CachedFileUpdaterUI {
@@ -934,11 +1015,12 @@ impl ::core::fmt::Debug for CachedFileUpdaterUI {
         f.debug_tuple("CachedFileUpdaterUI").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterUI {
+impl ::windows::core::RuntimeType for CachedFileUpdaterUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.CachedFileUpdaterUI;{9e6f41e6-baf2-4a97-b600-9333f5df80fd})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for CachedFileUpdaterUI {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for CachedFileUpdaterUI {
@@ -958,22 +1040,22 @@ impl FileUpdateRequest {
     pub fn ContentId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ContentId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).ContentId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn File(&self) -> ::windows::core::Result<super::StorageFile> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).File)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::StorageFile>();
+            (::windows::core::Vtable::vtable(this).File)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<FileUpdateStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<FileUpdateStatus>();
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetStatus(&self, value: FileUpdateStatus) -> ::windows::core::Result<()> {
@@ -983,8 +1065,8 @@ impl FileUpdateRequest {
     pub fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<FileUpdateRequestDeferral>();
+            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UpdateLocalFile<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -998,18 +1080,13 @@ impl FileUpdateRequest {
     pub fn UserInputNeededMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IFileUpdateRequest2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UserInputNeededMessage)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).UserInputNeededMessage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetUserInputNeededMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFileUpdateRequest2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetUserInputNeededMessage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-}
-impl ::core::clone::Clone for FileUpdateRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for FileUpdateRequest {
@@ -1023,11 +1100,12 @@ impl ::core::fmt::Debug for FileUpdateRequest {
         f.debug_tuple("FileUpdateRequest").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for FileUpdateRequest {
+impl ::windows::core::RuntimeType for FileUpdateRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequest;{40c82536-c1fe-4d93-a792-1e736bc70837})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for FileUpdateRequest {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for FileUpdateRequest {
@@ -1049,11 +1127,6 @@ impl FileUpdateRequestDeferral {
         unsafe { (::windows::core::Vtable::vtable(this).Complete)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::clone::Clone for FileUpdateRequestDeferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for FileUpdateRequestDeferral {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1065,11 +1138,12 @@ impl ::core::fmt::Debug for FileUpdateRequestDeferral {
         f.debug_tuple("FileUpdateRequestDeferral").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for FileUpdateRequestDeferral {
+impl ::windows::core::RuntimeType for FileUpdateRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestDeferral;{ffcedb2b-8ade-44a5-bb00-164c4e72f13a})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for FileUpdateRequestDeferral {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for FileUpdateRequestDeferral {
@@ -1089,14 +1163,9 @@ impl FileUpdateRequestedEventArgs {
     pub fn Request(&self) -> ::windows::core::Result<FileUpdateRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<FileUpdateRequest>();
+            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for FileUpdateRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for FileUpdateRequestedEventArgs {
@@ -1110,11 +1179,12 @@ impl ::core::fmt::Debug for FileUpdateRequestedEventArgs {
         f.debug_tuple("FileUpdateRequestedEventArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for FileUpdateRequestedEventArgs {
+impl ::windows::core::RuntimeType for FileUpdateRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestedEventArgs;{7b0a9342-3905-438d-aaef-78ae265f8dd2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for FileUpdateRequestedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for FileUpdateRequestedEventArgs {
@@ -1134,32 +1204,27 @@ impl StorageProviderFileTypeInfo {
     pub fn FileExtension(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FileExtension)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).FileExtension)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IconResource)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).IconResource)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateInstance(fileextension: &::windows::core::HSTRING, iconresource: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderFileTypeInfo> {
         Self::IStorageProviderFileTypeInfoFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(fileextension), ::core::mem::transmute_copy(iconresource), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderFileTypeInfo>();
+            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(fileextension), ::core::mem::transmute_copy(iconresource), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IStorageProviderFileTypeInfoFactory<R, F: FnOnce(&IStorageProviderFileTypeInfoFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<StorageProviderFileTypeInfo, IStorageProviderFileTypeInfoFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for StorageProviderFileTypeInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for StorageProviderFileTypeInfo {
@@ -1173,11 +1238,12 @@ impl ::core::fmt::Debug for StorageProviderFileTypeInfo {
         f.debug_tuple("StorageProviderFileTypeInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderFileTypeInfo {
+impl ::windows::core::RuntimeType for StorageProviderFileTypeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderFileTypeInfo;{1955b9c1-0184-5a88-87df-4544f464365d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for StorageProviderFileTypeInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for StorageProviderFileTypeInfo {
@@ -1206,8 +1272,8 @@ impl StorageProviderGetContentInfoForPathResult {
     pub fn Status(&self) -> ::windows::core::Result<StorageProviderUriSourceStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderUriSourceStatus>();
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()> {
@@ -1217,8 +1283,8 @@ impl StorageProviderGetContentInfoForPathResult {
     pub fn ContentUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ContentUri)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).ContentUri)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetContentUri(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1228,18 +1294,13 @@ impl StorageProviderGetContentInfoForPathResult {
     pub fn ContentId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ContentId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).ContentId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetContentId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetContentId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-}
-impl ::core::clone::Clone for StorageProviderGetContentInfoForPathResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for StorageProviderGetContentInfoForPathResult {
@@ -1253,11 +1314,12 @@ impl ::core::fmt::Debug for StorageProviderGetContentInfoForPathResult {
         f.debug_tuple("StorageProviderGetContentInfoForPathResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderGetContentInfoForPathResult {
+impl ::windows::core::RuntimeType for StorageProviderGetContentInfoForPathResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderGetContentInfoForPathResult;{2564711d-aa89-4d12-82e3-f72a92e33966})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for StorageProviderGetContentInfoForPathResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for StorageProviderGetContentInfoForPathResult {
@@ -1286,8 +1348,8 @@ impl StorageProviderGetPathForContentUriResult {
     pub fn Status(&self) -> ::windows::core::Result<StorageProviderUriSourceStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderUriSourceStatus>();
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()> {
@@ -1297,18 +1359,13 @@ impl StorageProviderGetPathForContentUriResult {
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Path)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Path)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPath(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetPath)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-}
-impl ::core::clone::Clone for StorageProviderGetPathForContentUriResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for StorageProviderGetPathForContentUriResult {
@@ -1322,11 +1379,12 @@ impl ::core::fmt::Debug for StorageProviderGetPathForContentUriResult {
         f.debug_tuple("StorageProviderGetPathForContentUriResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderGetPathForContentUriResult {
+impl ::windows::core::RuntimeType for StorageProviderGetPathForContentUriResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderGetPathForContentUriResult;{63711a9d-4118-45a6-acb6-22c49d019f40})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for StorageProviderGetPathForContentUriResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for StorageProviderGetPathForContentUriResult {
@@ -1354,8 +1412,8 @@ impl StorageProviderItemProperties {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStorageProviderItemPropertiesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SetAsync)(::windows::core::Vtable::as_raw(this), item.try_into().map_err(|e| e.into())?.abi(), itemproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows::core::Vtable::vtable(this).SetAsync)(::windows::core::Vtable::as_raw(this), item.try_into().map_err(|e| e.into())?.abi(), itemproperties.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1385,8 +1443,8 @@ impl StorageProviderItemProperty {
     pub fn Id(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1396,8 +1454,8 @@ impl StorageProviderItemProperty {
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIconResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1407,14 +1465,9 @@ impl StorageProviderItemProperty {
     pub fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IconResource)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).IconResource)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for StorageProviderItemProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for StorageProviderItemProperty {
@@ -1428,11 +1481,12 @@ impl ::core::fmt::Debug for StorageProviderItemProperty {
         f.debug_tuple("StorageProviderItemProperty").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderItemProperty {
+impl ::windows::core::RuntimeType for StorageProviderItemProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderItemProperty;{476cb558-730b-4188-b7b5-63b716ed476d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for StorageProviderItemProperty {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for StorageProviderItemProperty {
@@ -1461,8 +1515,8 @@ impl StorageProviderItemPropertyDefinition {
     pub fn Id(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetId(&self, value: i32) -> ::windows::core::Result<()> {
@@ -1472,18 +1526,13 @@ impl StorageProviderItemPropertyDefinition {
     pub fn DisplayNameResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DisplayNameResource)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).DisplayNameResource)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDisplayNameResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetDisplayNameResource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-}
-impl ::core::clone::Clone for StorageProviderItemPropertyDefinition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for StorageProviderItemPropertyDefinition {
@@ -1497,11 +1546,12 @@ impl ::core::fmt::Debug for StorageProviderItemPropertyDefinition {
         f.debug_tuple("StorageProviderItemPropertyDefinition").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderItemPropertyDefinition {
+impl ::windows::core::RuntimeType for StorageProviderItemPropertyDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderItemPropertyDefinition;{c5b383bb-ff1f-4298-831e-ff1c08089690})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for StorageProviderItemPropertyDefinition {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for StorageProviderItemPropertyDefinition {
@@ -1530,8 +1580,8 @@ impl StorageProviderMoreInfoUI {
     pub fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Message)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Message)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1541,8 +1591,8 @@ impl StorageProviderMoreInfoUI {
     pub fn Command(&self) -> ::windows::core::Result<IStorageProviderUICommand> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Command)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IStorageProviderUICommand>();
+            (::windows::core::Vtable::vtable(this).Command)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCommand<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -1552,11 +1602,6 @@ impl StorageProviderMoreInfoUI {
     {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetCommand)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-}
-impl ::core::clone::Clone for StorageProviderMoreInfoUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for StorageProviderMoreInfoUI {
@@ -1570,11 +1615,12 @@ impl ::core::fmt::Debug for StorageProviderMoreInfoUI {
         f.debug_tuple("StorageProviderMoreInfoUI").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderMoreInfoUI {
+impl ::windows::core::RuntimeType for StorageProviderMoreInfoUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderMoreInfoUI;{ef38e591-a7cb-5e7d-9b5e-22749842697c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for StorageProviderMoreInfoUI {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for StorageProviderMoreInfoUI {
@@ -1603,8 +1649,8 @@ impl StorageProviderQuotaUI {
     pub fn QuotaTotalInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).QuotaTotalInBytes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u64>();
+            (::windows::core::Vtable::vtable(this).QuotaTotalInBytes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetQuotaTotalInBytes(&self, value: u64) -> ::windows::core::Result<()> {
@@ -1614,8 +1660,8 @@ impl StorageProviderQuotaUI {
     pub fn QuotaUsedInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).QuotaUsedInBytes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u64>();
+            (::windows::core::Vtable::vtable(this).QuotaUsedInBytes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetQuotaUsedInBytes(&self, value: u64) -> ::windows::core::Result<()> {
@@ -1625,8 +1671,8 @@ impl StorageProviderQuotaUI {
     pub fn QuotaUsedLabel(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).QuotaUsedLabel)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).QuotaUsedLabel)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetQuotaUsedLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1638,8 +1684,8 @@ impl StorageProviderQuotaUI {
     pub fn QuotaUsedColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::UI::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).QuotaUsedColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::UI::Color>>();
+            (::windows::core::Vtable::vtable(this).QuotaUsedColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI\"`*"]
@@ -1653,11 +1699,6 @@ impl StorageProviderQuotaUI {
         unsafe { (::windows::core::Vtable::vtable(this).SetQuotaUsedColor)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-impl ::core::clone::Clone for StorageProviderQuotaUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for StorageProviderQuotaUI {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1669,11 +1710,12 @@ impl ::core::fmt::Debug for StorageProviderQuotaUI {
         f.debug_tuple("StorageProviderQuotaUI").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderQuotaUI {
+impl ::windows::core::RuntimeType for StorageProviderQuotaUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderQuotaUI;{ba6295c3-312e-544f-9fd5-1f81b21f3649})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for StorageProviderQuotaUI {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for StorageProviderQuotaUI {
@@ -1702,8 +1744,8 @@ impl StorageProviderStatusUI {
     pub fn ProviderState(&self) -> ::windows::core::Result<StorageProviderState> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProviderState)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderState>();
+            (::windows::core::Vtable::vtable(this).ProviderState)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetProviderState(&self, value: StorageProviderState) -> ::windows::core::Result<()> {
@@ -1713,8 +1755,8 @@ impl StorageProviderStatusUI {
     pub fn ProviderStateLabel(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProviderStateLabel)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).ProviderStateLabel)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetProviderStateLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1726,8 +1768,8 @@ impl StorageProviderStatusUI {
     pub fn ProviderStateIcon(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProviderStateIcon)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Uri>();
+            (::windows::core::Vtable::vtable(this).ProviderStateIcon)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1739,8 +1781,8 @@ impl StorageProviderStatusUI {
     pub fn SyncStatusCommand(&self) -> ::windows::core::Result<IStorageProviderUICommand> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SyncStatusCommand)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IStorageProviderUICommand>();
+            (::windows::core::Vtable::vtable(this).SyncStatusCommand)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSyncStatusCommand<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -1754,8 +1796,8 @@ impl StorageProviderStatusUI {
     pub fn QuotaUI(&self) -> ::windows::core::Result<StorageProviderQuotaUI> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).QuotaUI)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderQuotaUI>();
+            (::windows::core::Vtable::vtable(this).QuotaUI)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetQuotaUI(&self, value: &StorageProviderQuotaUI) -> ::windows::core::Result<()> {
@@ -1765,8 +1807,8 @@ impl StorageProviderStatusUI {
     pub fn MoreInfoUI(&self) -> ::windows::core::Result<StorageProviderMoreInfoUI> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MoreInfoUI)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderMoreInfoUI>();
+            (::windows::core::Vtable::vtable(this).MoreInfoUI)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMoreInfoUI(&self, value: &StorageProviderMoreInfoUI) -> ::windows::core::Result<()> {
@@ -1776,8 +1818,8 @@ impl StorageProviderStatusUI {
     pub fn ProviderPrimaryCommand(&self) -> ::windows::core::Result<IStorageProviderUICommand> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProviderPrimaryCommand)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IStorageProviderUICommand>();
+            (::windows::core::Vtable::vtable(this).ProviderPrimaryCommand)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetProviderPrimaryCommand<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -1793,8 +1835,8 @@ impl StorageProviderStatusUI {
     pub fn ProviderSecondaryCommands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IStorageProviderUICommand>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProviderSecondaryCommands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<IStorageProviderUICommand>>();
+            (::windows::core::Vtable::vtable(this).ProviderSecondaryCommands)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1808,11 +1850,6 @@ impl StorageProviderStatusUI {
         unsafe { (::windows::core::Vtable::vtable(this).SetProviderSecondaryCommands)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-impl ::core::clone::Clone for StorageProviderStatusUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for StorageProviderStatusUI {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1824,11 +1861,12 @@ impl ::core::fmt::Debug for StorageProviderStatusUI {
         f.debug_tuple("StorageProviderStatusUI").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderStatusUI {
+impl ::windows::core::RuntimeType for StorageProviderStatusUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderStatusUI;{d6b6a758-198d-5b80-977f-5ff73da33118})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for StorageProviderStatusUI {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for StorageProviderStatusUI {
@@ -1857,8 +1895,8 @@ impl StorageProviderSyncRootInfo {
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1870,8 +1908,8 @@ impl StorageProviderSyncRootInfo {
     pub fn Context(&self) -> ::windows::core::Result<super::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Context)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Streams::IBuffer>();
+            (::windows::core::Vtable::vtable(this).Context)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1887,8 +1925,8 @@ impl StorageProviderSyncRootInfo {
     pub fn Path(&self) -> ::windows::core::Result<super::IStorageFolder> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Path)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::IStorageFolder>();
+            (::windows::core::Vtable::vtable(this).Path)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPath<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -1902,8 +1940,8 @@ impl StorageProviderSyncRootInfo {
     pub fn DisplayNameResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DisplayNameResource)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).DisplayNameResource)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDisplayNameResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1913,8 +1951,8 @@ impl StorageProviderSyncRootInfo {
     pub fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IconResource)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).IconResource)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIconResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1924,8 +1962,8 @@ impl StorageProviderSyncRootInfo {
     pub fn HydrationPolicy(&self) -> ::windows::core::Result<StorageProviderHydrationPolicy> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).HydrationPolicy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderHydrationPolicy>();
+            (::windows::core::Vtable::vtable(this).HydrationPolicy)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetHydrationPolicy(&self, value: StorageProviderHydrationPolicy) -> ::windows::core::Result<()> {
@@ -1935,8 +1973,8 @@ impl StorageProviderSyncRootInfo {
     pub fn HydrationPolicyModifier(&self) -> ::windows::core::Result<StorageProviderHydrationPolicyModifier> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).HydrationPolicyModifier)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderHydrationPolicyModifier>();
+            (::windows::core::Vtable::vtable(this).HydrationPolicyModifier)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetHydrationPolicyModifier(&self, value: StorageProviderHydrationPolicyModifier) -> ::windows::core::Result<()> {
@@ -1946,8 +1984,8 @@ impl StorageProviderSyncRootInfo {
     pub fn PopulationPolicy(&self) -> ::windows::core::Result<StorageProviderPopulationPolicy> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PopulationPolicy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderPopulationPolicy>();
+            (::windows::core::Vtable::vtable(this).PopulationPolicy)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPopulationPolicy(&self, value: StorageProviderPopulationPolicy) -> ::windows::core::Result<()> {
@@ -1957,8 +1995,8 @@ impl StorageProviderSyncRootInfo {
     pub fn InSyncPolicy(&self) -> ::windows::core::Result<StorageProviderInSyncPolicy> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).InSyncPolicy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderInSyncPolicy>();
+            (::windows::core::Vtable::vtable(this).InSyncPolicy)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetInSyncPolicy(&self, value: StorageProviderInSyncPolicy) -> ::windows::core::Result<()> {
@@ -1968,8 +2006,8 @@ impl StorageProviderSyncRootInfo {
     pub fn HardlinkPolicy(&self) -> ::windows::core::Result<StorageProviderHardlinkPolicy> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).HardlinkPolicy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderHardlinkPolicy>();
+            (::windows::core::Vtable::vtable(this).HardlinkPolicy)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetHardlinkPolicy(&self, value: StorageProviderHardlinkPolicy) -> ::windows::core::Result<()> {
@@ -1979,8 +2017,8 @@ impl StorageProviderSyncRootInfo {
     pub fn ShowSiblingsAsGroup(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowSiblingsAsGroup)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).ShowSiblingsAsGroup)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetShowSiblingsAsGroup(&self, value: bool) -> ::windows::core::Result<()> {
@@ -1990,8 +2028,8 @@ impl StorageProviderSyncRootInfo {
     pub fn Version(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Version)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Version)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetVersion(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -2001,8 +2039,8 @@ impl StorageProviderSyncRootInfo {
     pub fn ProtectionMode(&self) -> ::windows::core::Result<StorageProviderProtectionMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProtectionMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderProtectionMode>();
+            (::windows::core::Vtable::vtable(this).ProtectionMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetProtectionMode(&self, value: StorageProviderProtectionMode) -> ::windows::core::Result<()> {
@@ -2012,8 +2050,8 @@ impl StorageProviderSyncRootInfo {
     pub fn AllowPinning(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AllowPinning)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).AllowPinning)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowPinning(&self, value: bool) -> ::windows::core::Result<()> {
@@ -2025,8 +2063,8 @@ impl StorageProviderSyncRootInfo {
     pub fn StorageProviderItemPropertyDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<StorageProviderItemPropertyDefinition>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StorageProviderItemPropertyDefinitions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<StorageProviderItemPropertyDefinition>>();
+            (::windows::core::Vtable::vtable(this).StorageProviderItemPropertyDefinitions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2034,8 +2072,8 @@ impl StorageProviderSyncRootInfo {
     pub fn RecycleBinUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RecycleBinUri)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Uri>();
+            (::windows::core::Vtable::vtable(this).RecycleBinUri)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2047,8 +2085,8 @@ impl StorageProviderSyncRootInfo {
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IStorageProviderSyncRootInfo2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProviderId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+            (::windows::core::Vtable::vtable(this).ProviderId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetProviderId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -2060,14 +2098,9 @@ impl StorageProviderSyncRootInfo {
     pub fn FallbackFileTypeInfo(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<StorageProviderFileTypeInfo>> {
         let this = &::windows::core::Interface::cast::<IStorageProviderSyncRootInfo3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FallbackFileTypeInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<StorageProviderFileTypeInfo>>();
+            (::windows::core::Vtable::vtable(this).FallbackFileTypeInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for StorageProviderSyncRootInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for StorageProviderSyncRootInfo {
@@ -2081,11 +2114,12 @@ impl ::core::fmt::Debug for StorageProviderSyncRootInfo {
         f.debug_tuple("StorageProviderSyncRootInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderSyncRootInfo {
+impl ::windows::core::RuntimeType for StorageProviderSyncRootInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderSyncRootInfo;{7c1305c4-99f9-41ac-8904-ab055d654926})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for StorageProviderSyncRootInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for StorageProviderSyncRootInfo {
@@ -2115,28 +2149,28 @@ impl StorageProviderSyncRootManager {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetSyncRootInformationForFolder)(::windows::core::Vtable::as_raw(this), folder.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderSyncRootInfo>();
+            (::windows::core::Vtable::vtable(this).GetSyncRootInformationForFolder)(::windows::core::Vtable::as_raw(this), folder.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn GetSyncRootInformationForId(id: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderSyncRootInfo> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetSyncRootInformationForId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<StorageProviderSyncRootInfo>();
+            (::windows::core::Vtable::vtable(this).GetSyncRootInformationForId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentSyncRoots() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetCurrentSyncRoots)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>>();
+            (::windows::core::Vtable::vtable(this).GetCurrentSyncRoots)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IStorageProviderSyncRootManagerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2174,8 +2208,8 @@ impl ::core::default::Default for CachedFileOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CachedFileOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CachedFileOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CachedFileOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2215,12 +2249,8 @@ impl ::core::ops::Not for CachedFileOptions {
         Self(self.0.not())
     }
 }
-unsafe impl ::windows::core::RuntimeType for CachedFileOptions {
+impl ::windows::core::RuntimeType for CachedFileOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2241,20 +2271,16 @@ impl ::core::default::Default for CachedFileTarget {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CachedFileTarget {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CachedFileTarget {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CachedFileTarget {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CachedFileTarget").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for CachedFileTarget {
+impl ::windows::core::RuntimeType for CachedFileTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileTarget;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2279,20 +2305,16 @@ impl ::core::default::Default for FileUpdateStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FileUpdateStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FileUpdateStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FileUpdateStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FileUpdateStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for FileUpdateStatus {
+impl ::windows::core::RuntimeType for FileUpdateStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.FileUpdateStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2313,20 +2335,16 @@ impl ::core::default::Default for ReadActivationMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ReadActivationMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ReadActivationMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ReadActivationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ReadActivationMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ReadActivationMode {
+impl ::windows::core::RuntimeType for ReadActivationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.ReadActivationMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2347,8 +2365,8 @@ impl ::core::default::Default for StorageProviderHardlinkPolicy {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for StorageProviderHardlinkPolicy {
-    type Abi = Self;
+impl ::windows::core::TypeKind for StorageProviderHardlinkPolicy {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for StorageProviderHardlinkPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2388,12 +2406,8 @@ impl ::core::ops::Not for StorageProviderHardlinkPolicy {
         Self(self.0.not())
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderHardlinkPolicy {
+impl ::windows::core::RuntimeType for StorageProviderHardlinkPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHardlinkPolicy;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2416,20 +2430,16 @@ impl ::core::default::Default for StorageProviderHydrationPolicy {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicy {
-    type Abi = Self;
+impl ::windows::core::TypeKind for StorageProviderHydrationPolicy {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for StorageProviderHydrationPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderHydrationPolicy").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicy {
+impl ::windows::core::RuntimeType for StorageProviderHydrationPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicy;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2453,8 +2463,8 @@ impl ::core::default::Default for StorageProviderHydrationPolicyModifier {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicyModifier {
-    type Abi = Self;
+impl ::windows::core::TypeKind for StorageProviderHydrationPolicyModifier {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for StorageProviderHydrationPolicyModifier {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2494,12 +2504,8 @@ impl ::core::ops::Not for StorageProviderHydrationPolicyModifier {
         Self(self.0.not())
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicyModifier {
+impl ::windows::core::RuntimeType for StorageProviderHydrationPolicyModifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicyModifier;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2530,8 +2536,8 @@ impl ::core::default::Default for StorageProviderInSyncPolicy {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for StorageProviderInSyncPolicy {
-    type Abi = Self;
+impl ::windows::core::TypeKind for StorageProviderInSyncPolicy {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for StorageProviderInSyncPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2571,12 +2577,8 @@ impl ::core::ops::Not for StorageProviderInSyncPolicy {
         Self(self.0.not())
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderInSyncPolicy {
+impl ::windows::core::RuntimeType for StorageProviderInSyncPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderInSyncPolicy;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2597,20 +2599,16 @@ impl ::core::default::Default for StorageProviderPopulationPolicy {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for StorageProviderPopulationPolicy {
-    type Abi = Self;
+impl ::windows::core::TypeKind for StorageProviderPopulationPolicy {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for StorageProviderPopulationPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderPopulationPolicy").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderPopulationPolicy {
+impl ::windows::core::RuntimeType for StorageProviderPopulationPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderPopulationPolicy;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2631,20 +2629,16 @@ impl ::core::default::Default for StorageProviderProtectionMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for StorageProviderProtectionMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for StorageProviderProtectionMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for StorageProviderProtectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderProtectionMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderProtectionMode {
+impl ::windows::core::RuntimeType for StorageProviderProtectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2669,20 +2663,16 @@ impl ::core::default::Default for StorageProviderState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for StorageProviderState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for StorageProviderState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for StorageProviderState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderState").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderState {
+impl ::windows::core::RuntimeType for StorageProviderState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2704,20 +2694,16 @@ impl ::core::default::Default for StorageProviderUICommandState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for StorageProviderUICommandState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for StorageProviderUICommandState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for StorageProviderUICommandState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderUICommandState").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderUICommandState {
+impl ::windows::core::RuntimeType for StorageProviderUICommandState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUICommandState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2739,20 +2725,16 @@ impl ::core::default::Default for StorageProviderUriSourceStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for StorageProviderUriSourceStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for StorageProviderUriSourceStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for StorageProviderUriSourceStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderUriSourceStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for StorageProviderUriSourceStatus {
+impl ::windows::core::RuntimeType for StorageProviderUriSourceStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUriSourceStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2775,20 +2757,16 @@ impl ::core::default::Default for UIStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UIStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UIStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UIStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UIStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for UIStatus {
+impl ::windows::core::RuntimeType for UIStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.UIStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2810,20 +2788,16 @@ impl ::core::default::Default for WriteActivationMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WriteActivationMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WriteActivationMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WriteActivationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WriteActivationMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for WriteActivationMode {
+impl ::windows::core::RuntimeType for WriteActivationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.WriteActivationMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

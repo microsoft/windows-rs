@@ -2,8 +2,8 @@
 #[inline]
 pub unsafe fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::Result<usize> {
     ::windows::core::link ! ( "kernel32.dll""system" fn ActivatePackageVirtualizationContext ( context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , cookie : *mut usize ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ActivatePackageVirtualizationContext(context, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<usize>();
+    ActivatePackageVirtualizationContext(context, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
@@ -102,8 +102,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CheckIsMSIXPackage ( packagefullname : :: windows::core::PCWSTR , ismsixpackage : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CheckIsMSIXPackage(packagefullname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+    CheckIsMSIXPackage(packagefullname.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -119,8 +119,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreatePackageVirtualizationContext ( packagefamilyname : :: windows::core::PCWSTR , context : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreatePackageVirtualizationContext(packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>();
+    CreatePackageVirtualizationContext(packagefamilyname.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
@@ -141,8 +141,8 @@ where
 #[inline]
 pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
     ::windows::core::link ! ( "kernel32.dll""system" fn DuplicatePackageVirtualizationContext ( sourcecontext : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , destcontext : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DuplicatePackageVirtualizationContext(sourcecontext, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>();
+    DuplicatePackageVirtualizationContext(sourcecontext, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -251,8 +251,8 @@ pub unsafe fn GetCurrentPackageVirtualizationContext() -> *mut PACKAGE_VIRTUALIZ
 #[inline]
 pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::core::Result<::windows::core::PWSTR> {
     ::windows::core::link ! ( "kernelbase.dll""system" fn GetIdForPackageDependencyContext ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ , packagedependencyid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetIdForPackageDependencyContext(packagedependencycontext, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    GetIdForPackageDependencyContext(packagedependencycontext, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -379,8 +379,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernelbase.dll""system" fn GetResolvedPackageFullNameForPackageDependency ( packagedependencyid : :: windows::core::PCWSTR , packagefullname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetResolvedPackageFullNameForPackageDependency(packagedependencyid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    GetResolvedPackageFullNameForPackageDependency(packagedependencyid.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -509,8 +509,8 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernelbase.dll""system" fn TryCreatePackageDependency ( user : super::super::super::Foundation:: PSID , packagefamilyname : :: windows::core::PCWSTR , minversion : PACKAGE_VERSION , packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures , lifetimekind : PackageDependencyLifetimeKind , lifetimeartifact : :: windows::core::PCWSTR , options : CreatePackageDependencyOptions , packagedependencyid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    TryCreatePackageDependency(user.into(), packagefamilyname.into().abi(), ::core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.into().abi(), options, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    TryCreatePackageDependency(user.into(), packagefamilyname.into().abi(), ::core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.into().abi(), options, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -567,16 +567,11 @@ impl IAppxBlockMapBlock {
         (::windows::core::Vtable::vtable(self).GetHash)(::windows::core::Vtable::as_raw(self), buffersize, buffer).ok()
     }
     pub unsafe fn GetCompressedSize(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCompressedSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCompressedSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBlockMapBlock, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBlockMapBlock {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBlockMapBlock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -590,6 +585,11 @@ impl ::core::fmt::Debug for IAppxBlockMapBlock {
 }
 unsafe impl ::windows::core::Vtable for IAppxBlockMapBlock {
     type Vtable = IAppxBlockMapBlock_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBlockMapBlock {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBlockMapBlock {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75cf3930_3244_4fe0_a8c8_e0bcb270b889);
@@ -606,28 +606,23 @@ pub struct IAppxBlockMapBlock_Vtbl {
 pub struct IAppxBlockMapBlocksEnumerator(::windows::core::IUnknown);
 impl IAppxBlockMapBlocksEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxBlockMapBlock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBlockMapBlock>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBlockMapBlocksEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBlockMapBlocksEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBlockMapBlocksEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -641,6 +636,11 @@ impl ::core::fmt::Debug for IAppxBlockMapBlocksEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxBlockMapBlocksEnumerator {
     type Vtable = IAppxBlockMapBlocksEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBlockMapBlocksEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBlockMapBlocksEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b429b5b_36ef_479e_b9eb_0c1482b49e16);
@@ -664,20 +664,20 @@ pub struct IAppxBlockMapBlocksEnumerator_Vtbl {
 pub struct IAppxBlockMapFile(::windows::core::IUnknown);
 impl IAppxBlockMapFile {
     pub unsafe fn GetBlocks(&self) -> ::windows::core::Result<IAppxBlockMapBlocksEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBlocks)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBlockMapBlocksEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetBlocks)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLocalFileHeaderSize(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLocalFileHeaderSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetLocalFileHeaderSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUncompressedSize(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUncompressedSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetUncompressedSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -685,16 +685,11 @@ impl IAppxBlockMapFile {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ValidateFileHash)(::windows::core::Vtable::as_raw(self), filestream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).ValidateFileHash)(::windows::core::Vtable::as_raw(self), filestream.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBlockMapFile, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBlockMapFile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBlockMapFile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -708,6 +703,11 @@ impl ::core::fmt::Debug for IAppxBlockMapFile {
 }
 unsafe impl ::windows::core::Vtable for IAppxBlockMapFile {
     type Vtable = IAppxBlockMapFile_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBlockMapFile {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBlockMapFile {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x277672ac_4f63_42c1_8abc_beae3600eb59);
@@ -730,28 +730,23 @@ pub struct IAppxBlockMapFile_Vtbl {
 pub struct IAppxBlockMapFilesEnumerator(::windows::core::IUnknown);
 impl IAppxBlockMapFilesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxBlockMapFile> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBlockMapFile>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBlockMapFilesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBlockMapFilesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBlockMapFilesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -765,6 +760,11 @@ impl ::core::fmt::Debug for IAppxBlockMapFilesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxBlockMapFilesEnumerator {
     type Vtable = IAppxBlockMapFilesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBlockMapFilesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBlockMapFilesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b856a2_4262_4070_bacb_1a8cbbc42305);
@@ -791,32 +791,27 @@ impl IAppxBlockMapReader {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFile)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBlockMapFile>();
+        (::windows::core::Vtable::vtable(self).GetFile)(::windows::core::Vtable::as_raw(self), filename.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFiles(&self) -> ::windows::core::Result<IAppxBlockMapFilesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFiles)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBlockMapFilesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetFiles)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHashMethod(&self) -> ::windows::core::Result<super::super::super::System::Com::IUri> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHashMethod)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IUri>();
+        (::windows::core::Vtable::vtable(self).GetHashMethod)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBlockMapReader, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBlockMapReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBlockMapReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -830,6 +825,11 @@ impl ::core::fmt::Debug for IAppxBlockMapReader {
 }
 unsafe impl ::windows::core::Vtable for IAppxBlockMapReader {
     type Vtable = IAppxBlockMapReader_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBlockMapReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBlockMapReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5efec991_bca3_42d1_9ec2_e92d609ec22a);
@@ -859,8 +859,8 @@ impl IAppxBundleFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBundleWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), bundleversion, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleWriter>();
+        (::windows::core::Vtable::vtable(self).CreateBundleWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), bundleversion, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -868,8 +868,8 @@ impl IAppxBundleFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBundleReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleReader>();
+        (::windows::core::Vtable::vtable(self).CreateBundleReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -877,16 +877,11 @@ impl IAppxBundleFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBundleManifestReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleManifestReader>();
+        (::windows::core::Vtable::vtable(self).CreateBundleManifestReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -900,6 +895,11 @@ impl ::core::fmt::Debug for IAppxBundleFactory {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleFactory {
     type Vtable = IAppxBundleFactory_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbba65864_965f_4a5f_855f_f074bdbf3a7b);
@@ -926,24 +926,19 @@ pub struct IAppxBundleFactory_Vtbl {
 pub struct IAppxBundleManifestOptionalBundleInfo(::windows::core::IUnknown);
 impl IAppxBundleManifestOptionalBundleInfo {
     pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestPackageId>();
+        (::windows::core::Vtable::vtable(self).GetPackageId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFileName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFileName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetFileName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPackageInfoItems(&self) -> ::windows::core::Result<IAppxBundleManifestPackageInfoEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageInfoItems)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleManifestPackageInfoEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetPackageInfoItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleManifestOptionalBundleInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleManifestOptionalBundleInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleManifestOptionalBundleInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -957,6 +952,11 @@ impl ::core::fmt::Debug for IAppxBundleManifestOptionalBundleInfo {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestOptionalBundleInfo {
     type Vtable = IAppxBundleManifestOptionalBundleInfo_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleManifestOptionalBundleInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleManifestOptionalBundleInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x515bf2e8_bcb0_4d69_8c48_e383147b6e12);
@@ -974,28 +974,23 @@ pub struct IAppxBundleManifestOptionalBundleInfo_Vtbl {
 pub struct IAppxBundleManifestOptionalBundleInfoEnumerator(::windows::core::IUnknown);
 impl IAppxBundleManifestOptionalBundleInfoEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxBundleManifestOptionalBundleInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleManifestOptionalBundleInfo>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleManifestOptionalBundleInfoEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleManifestOptionalBundleInfoEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleManifestOptionalBundleInfoEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1009,6 +1004,11 @@ impl ::core::fmt::Debug for IAppxBundleManifestOptionalBundleInfoEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestOptionalBundleInfoEnumerator {
     type Vtable = IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleManifestOptionalBundleInfoEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleManifestOptionalBundleInfoEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a178793_f97e_46ac_aaca_dd5ba4c177c8);
@@ -1032,36 +1032,31 @@ pub struct IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
 pub struct IAppxBundleManifestPackageInfo(::windows::core::IUnknown);
 impl IAppxBundleManifestPackageInfo {
     pub unsafe fn GetPackageType(&self) -> ::windows::core::Result<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE>();
+        (::windows::core::Vtable::vtable(self).GetPackageType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestPackageId>();
+        (::windows::core::Vtable::vtable(self).GetPackageId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFileName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFileName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetFileName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOffset(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOffset)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetOffset)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSize(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestQualifiedResourcesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetResources)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleManifestPackageInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1075,6 +1070,11 @@ impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestPackageInfo {
     type Vtable = IAppxBundleManifestPackageInfo_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleManifestPackageInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54cd06c1_268f_40bb_8ed2_757a9ebaec8d);
@@ -1097,28 +1097,23 @@ impl IAppxBundleManifestPackageInfo2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsPackageReference(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIsPackageReference)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetIsPackageReference)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIsNonQualifiedResourcePackage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetIsNonQualifiedResourcePackage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsDefaultApplicablePackage(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIsDefaultApplicablePackage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetIsDefaultApplicablePackage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfo2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleManifestPackageInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1132,6 +1127,11 @@ impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo2 {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestPackageInfo2 {
     type Vtable = IAppxBundleManifestPackageInfo2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleManifestPackageInfo2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfo2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44c2acbc_b2cf_4ccb_bbdb_9c6da8c3bc9e);
@@ -1158,16 +1158,11 @@ pub struct IAppxBundleManifestPackageInfo2_Vtbl {
 pub struct IAppxBundleManifestPackageInfo3(::windows::core::IUnknown);
 impl IAppxBundleManifestPackageInfo3 {
     pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTargetDeviceFamilies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestTargetDeviceFamiliesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetTargetDeviceFamilies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfo3, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleManifestPackageInfo3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1181,6 +1176,11 @@ impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo3 {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestPackageInfo3 {
     type Vtable = IAppxBundleManifestPackageInfo3_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleManifestPackageInfo3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfo3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ba74b98_bb74_4296_80d0_5f4256a99675);
@@ -1198,16 +1198,11 @@ impl IAppxBundleManifestPackageInfo4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsStub(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIsStub)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetIsStub)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfo4, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleManifestPackageInfo4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1221,6 +1216,11 @@ impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo4 {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestPackageInfo4 {
     type Vtable = IAppxBundleManifestPackageInfo4_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleManifestPackageInfo4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfo4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5da6f13d_a8a7_4532_857c_1393d659371d);
@@ -1239,28 +1239,23 @@ pub struct IAppxBundleManifestPackageInfo4_Vtbl {
 pub struct IAppxBundleManifestPackageInfoEnumerator(::windows::core::IUnknown);
 impl IAppxBundleManifestPackageInfoEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxBundleManifestPackageInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleManifestPackageInfo>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfoEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleManifestPackageInfoEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfoEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1274,6 +1269,11 @@ impl ::core::fmt::Debug for IAppxBundleManifestPackageInfoEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestPackageInfoEnumerator {
     type Vtable = IAppxBundleManifestPackageInfoEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleManifestPackageInfoEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfoEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9b856ee_49a6_4e19_b2b0_6a2406d63a32);
@@ -1297,26 +1297,21 @@ pub struct IAppxBundleManifestPackageInfoEnumerator_Vtbl {
 pub struct IAppxBundleManifestReader(::windows::core::IUnknown);
 impl IAppxBundleManifestReader {
     pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestPackageId>();
+        (::windows::core::Vtable::vtable(self).GetPackageId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPackageInfoItems(&self) -> ::windows::core::Result<IAppxBundleManifestPackageInfoEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageInfoItems)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleManifestPackageInfoEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetPackageInfoItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleManifestReader, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleManifestReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleManifestReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1330,6 +1325,11 @@ impl ::core::fmt::Debug for IAppxBundleManifestReader {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestReader {
     type Vtable = IAppxBundleManifestReader_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleManifestReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleManifestReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf0ebbc1_cc99_4106_91eb_e67462e04fb0);
@@ -1350,16 +1350,11 @@ pub struct IAppxBundleManifestReader_Vtbl {
 pub struct IAppxBundleManifestReader2(::windows::core::IUnknown);
 impl IAppxBundleManifestReader2 {
     pub unsafe fn GetOptionalBundles(&self) -> ::windows::core::Result<IAppxBundleManifestOptionalBundleInfoEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOptionalBundles)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleManifestOptionalBundleInfoEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetOptionalBundles)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleManifestReader2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleManifestReader2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleManifestReader2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1373,6 +1368,11 @@ impl ::core::fmt::Debug for IAppxBundleManifestReader2 {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestReader2 {
     type Vtable = IAppxBundleManifestReader2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleManifestReader2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleManifestReader2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5517df70_033f_4af2_8213_87d766805c02);
@@ -1388,35 +1388,30 @@ pub struct IAppxBundleManifestReader2_Vtbl {
 pub struct IAppxBundleReader(::windows::core::IUnknown);
 impl IAppxBundleReader {
     pub unsafe fn GetFootprintFile(&self, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE) -> ::windows::core::Result<IAppxFile> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFootprintFile)(::windows::core::Vtable::as_raw(self), filetype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxFile>();
+        (::windows::core::Vtable::vtable(self).GetFootprintFile)(::windows::core::Vtable::as_raw(self), filetype, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBlockMap(&self) -> ::windows::core::Result<IAppxBlockMapReader> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBlockMap)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBlockMapReader>();
+        (::windows::core::Vtable::vtable(self).GetBlockMap)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetManifest(&self) -> ::windows::core::Result<IAppxBundleManifestReader> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetManifest)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleManifestReader>();
+        (::windows::core::Vtable::vtable(self).GetManifest)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPayloadPackages(&self) -> ::windows::core::Result<IAppxFilesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPayloadPackages)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxFilesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetPayloadPackages)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPayloadPackage<P0>(&self, filename: P0) -> ::windows::core::Result<IAppxFile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPayloadPackage)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxFile>();
+        (::windows::core::Vtable::vtable(self).GetPayloadPackage)(::windows::core::Vtable::as_raw(self), filename.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleReader, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1430,6 +1425,11 @@ impl ::core::fmt::Debug for IAppxBundleReader {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleReader {
     type Vtable = IAppxBundleReader_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd75b8c0_ba76_43b0_ae0f_68656a1dc5c8);
@@ -1462,11 +1462,6 @@ impl IAppxBundleWriter {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleWriter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1480,6 +1475,11 @@ impl ::core::fmt::Debug for IAppxBundleWriter {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleWriter {
     type Vtable = IAppxBundleWriter_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleWriter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleWriter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec446fe8_bfec_4c64_ab4f_49f038f0c6d2);
@@ -1509,11 +1509,6 @@ impl IAppxBundleWriter2 {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleWriter2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleWriter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleWriter2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1527,6 +1522,11 @@ impl ::core::fmt::Debug for IAppxBundleWriter2 {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleWriter2 {
     type Vtable = IAppxBundleWriter2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleWriter2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleWriter2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d8fe971_01cc_49a0_b685_233851279962);
@@ -1561,11 +1561,6 @@ impl IAppxBundleWriter3 {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleWriter3, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleWriter3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleWriter3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1579,6 +1574,11 @@ impl ::core::fmt::Debug for IAppxBundleWriter3 {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleWriter3 {
     type Vtable = IAppxBundleWriter3_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleWriter3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleWriter3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad711152_f969_4193_82d5_9ddf2786d21a);
@@ -1629,11 +1629,6 @@ impl IAppxBundleWriter4 {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxBundleWriter4, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxBundleWriter4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxBundleWriter4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1647,6 +1642,11 @@ impl ::core::fmt::Debug for IAppxBundleWriter4 {
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleWriter4 {
     type Vtable = IAppxBundleWriter4_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleWriter4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxBundleWriter4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cd9d523_5009_4c01_9882_dc029fbd47a3);
@@ -1673,20 +1673,15 @@ pub struct IAppxBundleWriter4_Vtbl {
 pub struct IAppxContentGroup(::windows::core::IUnknown);
 impl IAppxContentGroup {
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFiles(&self) -> ::windows::core::Result<IAppxContentGroupFilesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFiles)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxContentGroupFilesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetFiles)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxContentGroup, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxContentGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxContentGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1700,6 +1695,11 @@ impl ::core::fmt::Debug for IAppxContentGroup {
 }
 unsafe impl ::windows::core::Vtable for IAppxContentGroup {
     type Vtable = IAppxContentGroup_Vtbl;
+}
+impl ::core::clone::Clone for IAppxContentGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxContentGroup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x328f6468_c04f_4e3c_b6fa_6b8d27f3003a);
@@ -1716,28 +1716,23 @@ pub struct IAppxContentGroup_Vtbl {
 pub struct IAppxContentGroupFilesEnumerator(::windows::core::IUnknown);
 impl IAppxContentGroupFilesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxContentGroupFilesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxContentGroupFilesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxContentGroupFilesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1751,6 +1746,11 @@ impl ::core::fmt::Debug for IAppxContentGroupFilesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxContentGroupFilesEnumerator {
     type Vtable = IAppxContentGroupFilesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxContentGroupFilesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxContentGroupFilesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a09a2fd_7440_44eb_8c84_848205a6a1cc);
@@ -1774,20 +1774,15 @@ pub struct IAppxContentGroupFilesEnumerator_Vtbl {
 pub struct IAppxContentGroupMapReader(::windows::core::IUnknown);
 impl IAppxContentGroupMapReader {
     pub unsafe fn GetRequiredGroup(&self) -> ::windows::core::Result<IAppxContentGroup> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRequiredGroup)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxContentGroup>();
+        (::windows::core::Vtable::vtable(self).GetRequiredGroup)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAutomaticGroups(&self) -> ::windows::core::Result<IAppxContentGroupsEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAutomaticGroups)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxContentGroupsEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetAutomaticGroups)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxContentGroupMapReader, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxContentGroupMapReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxContentGroupMapReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1801,6 +1796,11 @@ impl ::core::fmt::Debug for IAppxContentGroupMapReader {
 }
 unsafe impl ::windows::core::Vtable for IAppxContentGroupMapReader {
     type Vtable = IAppxContentGroupMapReader_Vtbl;
+}
+impl ::core::clone::Clone for IAppxContentGroupMapReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxContentGroupMapReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x418726d8_dd99_4f5d_9886_157add20de01);
@@ -1833,11 +1833,6 @@ impl IAppxContentGroupMapWriter {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxContentGroupMapWriter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxContentGroupMapWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxContentGroupMapWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1851,6 +1846,11 @@ impl ::core::fmt::Debug for IAppxContentGroupMapWriter {
 }
 unsafe impl ::windows::core::Vtable for IAppxContentGroupMapWriter {
     type Vtable = IAppxContentGroupMapWriter_Vtbl;
+}
+impl ::core::clone::Clone for IAppxContentGroupMapWriter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxContentGroupMapWriter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07ab776_a9de_4798_8c14_3db31e687c78);
@@ -1868,28 +1868,23 @@ pub struct IAppxContentGroupMapWriter_Vtbl {
 pub struct IAppxContentGroupsEnumerator(::windows::core::IUnknown);
 impl IAppxContentGroupsEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxContentGroup> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxContentGroup>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxContentGroupsEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxContentGroupsEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxContentGroupsEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1903,6 +1898,11 @@ impl ::core::fmt::Debug for IAppxContentGroupsEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxContentGroupsEnumerator {
     type Vtable = IAppxContentGroupsEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxContentGroupsEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxContentGroupsEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3264e477_16d1_4d63_823e_7d2984696634);
@@ -1939,11 +1939,6 @@ impl IAppxEncryptedBundleWriter {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxEncryptedBundleWriter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxEncryptedBundleWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1957,6 +1952,11 @@ impl ::core::fmt::Debug for IAppxEncryptedBundleWriter {
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptedBundleWriter {
     type Vtable = IAppxEncryptedBundleWriter_Vtbl;
+}
+impl ::core::clone::Clone for IAppxEncryptedBundleWriter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxEncryptedBundleWriter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80b0902f_7bf0_4117_b8c6_4279ef81ee77);
@@ -1986,11 +1986,6 @@ impl IAppxEncryptedBundleWriter2 {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxEncryptedBundleWriter2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxEncryptedBundleWriter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2004,6 +1999,11 @@ impl ::core::fmt::Debug for IAppxEncryptedBundleWriter2 {
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptedBundleWriter2 {
     type Vtable = IAppxEncryptedBundleWriter2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxEncryptedBundleWriter2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxEncryptedBundleWriter2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe644be82_f0fa_42b8_a956_8d1cb48ee379);
@@ -2043,11 +2043,6 @@ impl IAppxEncryptedBundleWriter3 {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxEncryptedBundleWriter3, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxEncryptedBundleWriter3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2061,6 +2056,11 @@ impl ::core::fmt::Debug for IAppxEncryptedBundleWriter3 {
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptedBundleWriter3 {
     type Vtable = IAppxEncryptedBundleWriter3_Vtbl;
+}
+impl ::core::clone::Clone for IAppxEncryptedBundleWriter3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxEncryptedBundleWriter3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d34deb3_5cae_4dd3_977c_504932a51d31);
@@ -2096,11 +2096,6 @@ impl IAppxEncryptedPackageWriter {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxEncryptedPackageWriter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxEncryptedPackageWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxEncryptedPackageWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2114,6 +2109,11 @@ impl ::core::fmt::Debug for IAppxEncryptedPackageWriter {
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptedPackageWriter {
     type Vtable = IAppxEncryptedPackageWriter_Vtbl;
+}
+impl ::core::clone::Clone for IAppxEncryptedPackageWriter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxEncryptedPackageWriter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf43d0b0b_1379_40e2_9b29_682ea2bf42af);
@@ -2139,11 +2139,6 @@ impl IAppxEncryptedPackageWriter2 {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxEncryptedPackageWriter2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxEncryptedPackageWriter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxEncryptedPackageWriter2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2157,6 +2152,11 @@ impl ::core::fmt::Debug for IAppxEncryptedPackageWriter2 {
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptedPackageWriter2 {
     type Vtable = IAppxEncryptedPackageWriter2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxEncryptedPackageWriter2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxEncryptedPackageWriter2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e475447_3a25_40b5_8ad2_f953ae50c92d);
@@ -2199,8 +2199,8 @@ impl IAppxEncryptionFactory {
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEncryptedPackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), manifeststream.into().abi(), settings, keyinfo, exemptedfiles, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxEncryptedPackageWriter>();
+        (::windows::core::Vtable::vtable(self).CreateEncryptedPackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), manifeststream.into().abi(), settings, keyinfo, exemptedfiles, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2208,8 +2208,8 @@ impl IAppxEncryptionFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEncryptedPackageReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), keyinfo, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxPackageReader>();
+        (::windows::core::Vtable::vtable(self).CreateEncryptedPackageReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), keyinfo, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2235,8 +2235,8 @@ impl IAppxEncryptionFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEncryptedBundleWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), bundleversion, settings, keyinfo, exemptedfiles, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxEncryptedBundleWriter>();
+        (::windows::core::Vtable::vtable(self).CreateEncryptedBundleWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), bundleversion, settings, keyinfo, exemptedfiles, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2244,16 +2244,11 @@ impl IAppxEncryptionFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEncryptedBundleReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), keyinfo, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleReader>();
+        (::windows::core::Vtable::vtable(self).CreateEncryptedBundleReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), keyinfo, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxEncryptionFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxEncryptionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxEncryptionFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2267,6 +2262,11 @@ impl ::core::fmt::Debug for IAppxEncryptionFactory {
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptionFactory {
     type Vtable = IAppxEncryptionFactory_Vtbl;
+}
+impl ::core::clone::Clone for IAppxEncryptionFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxEncryptionFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80e8e04d_8c88_44ae_a011_7cadf6fb2e72);
@@ -2320,16 +2320,11 @@ impl IAppxEncryptionFactory2 {
         P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P2: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEncryptedPackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), manifeststream.into().abi(), contentgroupmapstream.into().abi(), settings, keyinfo, exemptedfiles, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxEncryptedPackageWriter>();
+        (::windows::core::Vtable::vtable(self).CreateEncryptedPackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), manifeststream.into().abi(), contentgroupmapstream.into().abi(), settings, keyinfo, exemptedfiles, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxEncryptionFactory2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxEncryptionFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxEncryptionFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2343,6 +2338,11 @@ impl ::core::fmt::Debug for IAppxEncryptionFactory2 {
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptionFactory2 {
     type Vtable = IAppxEncryptionFactory2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxEncryptionFactory2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxEncryptionFactory2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b11eee_c4ba_4ab2_a55d_d015fe8ff64f);
@@ -2377,8 +2377,8 @@ impl IAppxEncryptionFactory3 {
         P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P2: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEncryptedPackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), manifeststream.into().abi(), contentgroupmapstream.into().abi(), settings, keyinfo, exemptedfiles, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxEncryptedPackageWriter>();
+        (::windows::core::Vtable::vtable(self).CreateEncryptedPackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), manifeststream.into().abi(), contentgroupmapstream.into().abi(), settings, keyinfo, exemptedfiles, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2395,16 +2395,11 @@ impl IAppxEncryptionFactory3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEncryptedBundleWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), bundleversion, settings, keyinfo, exemptedfiles, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxEncryptedBundleWriter>();
+        (::windows::core::Vtable::vtable(self).CreateEncryptedBundleWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), bundleversion, settings, keyinfo, exemptedfiles, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxEncryptionFactory3, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxEncryptionFactory3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxEncryptionFactory3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2418,6 +2413,11 @@ impl ::core::fmt::Debug for IAppxEncryptionFactory3 {
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptionFactory3 {
     type Vtable = IAppxEncryptionFactory3_Vtbl;
+}
+impl ::core::clone::Clone for IAppxEncryptionFactory3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxEncryptionFactory3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09edca37_cd64_47d6_b7e8_1cb11d4f7e05);
@@ -2458,11 +2458,6 @@ impl IAppxEncryptionFactory4 {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxEncryptionFactory4, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxEncryptionFactory4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxEncryptionFactory4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2476,6 +2471,11 @@ impl ::core::fmt::Debug for IAppxEncryptionFactory4 {
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptionFactory4 {
     type Vtable = IAppxEncryptionFactory4_Vtbl;
+}
+impl ::core::clone::Clone for IAppxEncryptionFactory4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxEncryptionFactory4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa879611f_12fd_41fe_85d5_06ae779bbaf5);
@@ -2499,8 +2499,8 @@ impl IAppxFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), settings, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxPackageWriter>();
+        (::windows::core::Vtable::vtable(self).CreatePackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), settings, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2508,8 +2508,8 @@ impl IAppxFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePackageReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxPackageReader>();
+        (::windows::core::Vtable::vtable(self).CreatePackageReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2517,8 +2517,8 @@ impl IAppxFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateManifestReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestReader>();
+        (::windows::core::Vtable::vtable(self).CreateManifestReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2526,8 +2526,8 @@ impl IAppxFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBlockMapReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBlockMapReader>();
+        (::windows::core::Vtable::vtable(self).CreateBlockMapReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2536,16 +2536,11 @@ impl IAppxFactory {
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateValidatedBlockMapReader)(::windows::core::Vtable::as_raw(self), blockmapstream.into().abi(), signaturefilename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBlockMapReader>();
+        (::windows::core::Vtable::vtable(self).CreateValidatedBlockMapReader)(::windows::core::Vtable::as_raw(self), blockmapstream.into().abi(), signaturefilename.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2559,6 +2554,11 @@ impl ::core::fmt::Debug for IAppxFactory {
 }
 unsafe impl ::windows::core::Vtable for IAppxFactory {
     type Vtable = IAppxFactory_Vtbl;
+}
+impl ::core::clone::Clone for IAppxFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeb94909_e451_438b_b5a7_d79e767b75d8);
@@ -2598,8 +2598,8 @@ impl IAppxFactory2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateContentGroupMapReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxContentGroupMapReader>();
+        (::windows::core::Vtable::vtable(self).CreateContentGroupMapReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2607,8 +2607,8 @@ impl IAppxFactory2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSourceContentGroupMapReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxSourceContentGroupMapReader>();
+        (::windows::core::Vtable::vtable(self).CreateSourceContentGroupMapReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2616,16 +2616,11 @@ impl IAppxFactory2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateContentGroupMapWriter)(::windows::core::Vtable::as_raw(self), stream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxContentGroupMapWriter>();
+        (::windows::core::Vtable::vtable(self).CreateContentGroupMapWriter)(::windows::core::Vtable::as_raw(self), stream.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxFactory2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2639,6 +2634,11 @@ impl ::core::fmt::Debug for IAppxFactory2 {
 }
 unsafe impl ::windows::core::Vtable for IAppxFactory2 {
     type Vtable = IAppxFactory2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxFactory2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxFactory2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1346df2_c282_4e22_b918_743a929a8d55);
@@ -2665,34 +2665,29 @@ pub struct IAppxFactory2_Vtbl {
 pub struct IAppxFile(::windows::core::IUnknown);
 impl IAppxFile {
     pub unsafe fn GetCompressionOption(&self) -> ::windows::core::Result<APPX_COMPRESSION_OPTION> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCompressionOption)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<APPX_COMPRESSION_OPTION>();
+        (::windows::core::Vtable::vtable(self).GetCompressionOption)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContentType(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContentType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetContentType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSize(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxFile, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxFile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxFile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2706,6 +2701,11 @@ impl ::core::fmt::Debug for IAppxFile {
 }
 unsafe impl ::windows::core::Vtable for IAppxFile {
     type Vtable = IAppxFile_Vtbl;
+}
+impl ::core::clone::Clone for IAppxFile {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxFile {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91df827b_94fd_468f_827b_57f41b2f6f2e);
@@ -2728,28 +2728,23 @@ pub struct IAppxFile_Vtbl {
 pub struct IAppxFilesEnumerator(::windows::core::IUnknown);
 impl IAppxFilesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxFile> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxFile>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxFilesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxFilesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxFilesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2763,6 +2758,11 @@ impl ::core::fmt::Debug for IAppxFilesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxFilesEnumerator {
     type Vtable = IAppxFilesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxFilesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxFilesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf007eeaf_9831_411c_9847_917cdc62d1fe);
@@ -2789,20 +2789,15 @@ impl IAppxManifestApplication {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStringValue)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetStringValue)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAppUserModelId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAppUserModelId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetAppUserModelId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestApplication, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestApplication {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestApplication {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2816,6 +2811,11 @@ impl ::core::fmt::Debug for IAppxManifestApplication {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestApplication {
     type Vtable = IAppxManifestApplication_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestApplication {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestApplication {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5da89bf4_3773_46be_b650_7e744863b7e8);
@@ -2832,28 +2832,23 @@ pub struct IAppxManifestApplication_Vtbl {
 pub struct IAppxManifestApplicationsEnumerator(::windows::core::IUnknown);
 impl IAppxManifestApplicationsEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestApplication> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestApplication>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestApplicationsEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestApplicationsEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestApplicationsEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2867,6 +2862,11 @@ impl ::core::fmt::Debug for IAppxManifestApplicationsEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestApplicationsEnumerator {
     type Vtable = IAppxManifestApplicationsEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestApplicationsEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestApplicationsEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eb8a55a_f04b_4d0d_808d_686185d4847a);
@@ -2890,28 +2890,23 @@ pub struct IAppxManifestApplicationsEnumerator_Vtbl {
 pub struct IAppxManifestCapabilitiesEnumerator(::windows::core::IUnknown);
 impl IAppxManifestCapabilitiesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestCapabilitiesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestCapabilitiesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestCapabilitiesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2925,6 +2920,11 @@ impl ::core::fmt::Debug for IAppxManifestCapabilitiesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestCapabilitiesEnumerator {
     type Vtable = IAppxManifestCapabilitiesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestCapabilitiesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestCapabilitiesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d22258_f470_42c1_b291_8361c5437e41);
@@ -2948,28 +2948,23 @@ pub struct IAppxManifestCapabilitiesEnumerator_Vtbl {
 pub struct IAppxManifestDeviceCapabilitiesEnumerator(::windows::core::IUnknown);
 impl IAppxManifestDeviceCapabilitiesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestDeviceCapabilitiesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestDeviceCapabilitiesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestDeviceCapabilitiesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2983,6 +2978,11 @@ impl ::core::fmt::Debug for IAppxManifestDeviceCapabilitiesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestDeviceCapabilitiesEnumerator {
     type Vtable = IAppxManifestDeviceCapabilitiesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestDeviceCapabilitiesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestDeviceCapabilitiesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30204541_427b_4a1c_bacf_655bf463a540);
@@ -3006,24 +3006,19 @@ pub struct IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
 pub struct IAppxManifestDriverConstraint(::windows::core::IUnknown);
 impl IAppxManifestDriverConstraint {
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMinVersion(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMinVersion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetMinVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMinDate(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMinDate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetMinDate)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestDriverConstraint, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestDriverConstraint {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestDriverConstraint {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3037,6 +3032,11 @@ impl ::core::fmt::Debug for IAppxManifestDriverConstraint {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestDriverConstraint {
     type Vtable = IAppxManifestDriverConstraint_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestDriverConstraint {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestDriverConstraint {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc031bee4_bbcc_48ea_a237_c34045c80a07);
@@ -3054,28 +3054,23 @@ pub struct IAppxManifestDriverConstraint_Vtbl {
 pub struct IAppxManifestDriverConstraintsEnumerator(::windows::core::IUnknown);
 impl IAppxManifestDriverConstraintsEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestDriverConstraint> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestDriverConstraint>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestDriverConstraintsEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestDriverConstraintsEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestDriverConstraintsEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3089,6 +3084,11 @@ impl ::core::fmt::Debug for IAppxManifestDriverConstraintsEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestDriverConstraintsEnumerator {
     type Vtable = IAppxManifestDriverConstraintsEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestDriverConstraintsEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestDriverConstraintsEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd402b2d1_f600_49e0_95e6_975d8da13d89);
@@ -3112,28 +3112,23 @@ pub struct IAppxManifestDriverConstraintsEnumerator_Vtbl {
 pub struct IAppxManifestDriverDependenciesEnumerator(::windows::core::IUnknown);
 impl IAppxManifestDriverDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestDriverDependency> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestDriverDependency>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestDriverDependenciesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestDriverDependenciesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestDriverDependenciesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3147,6 +3142,11 @@ impl ::core::fmt::Debug for IAppxManifestDriverDependenciesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestDriverDependenciesEnumerator {
     type Vtable = IAppxManifestDriverDependenciesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestDriverDependenciesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestDriverDependenciesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe039db2_467f_4755_8404_8f5eb6865b33);
@@ -3170,16 +3170,11 @@ pub struct IAppxManifestDriverDependenciesEnumerator_Vtbl {
 pub struct IAppxManifestDriverDependency(::windows::core::IUnknown);
 impl IAppxManifestDriverDependency {
     pub unsafe fn GetDriverConstraints(&self) -> ::windows::core::Result<IAppxManifestDriverConstraintsEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDriverConstraints)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestDriverConstraintsEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetDriverConstraints)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestDriverDependency, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestDriverDependency {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestDriverDependency {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3193,6 +3188,11 @@ impl ::core::fmt::Debug for IAppxManifestDriverDependency {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestDriverDependency {
     type Vtable = IAppxManifestDriverDependency_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestDriverDependency {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestDriverDependency {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1210cb94_5a92_4602_be24_79f318af4af9);
@@ -3208,28 +3208,23 @@ pub struct IAppxManifestDriverDependency_Vtbl {
 pub struct IAppxManifestHostRuntimeDependenciesEnumerator(::windows::core::IUnknown);
 impl IAppxManifestHostRuntimeDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestHostRuntimeDependency> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestHostRuntimeDependency>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestHostRuntimeDependenciesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestHostRuntimeDependenciesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependenciesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3243,6 +3238,11 @@ impl ::core::fmt::Debug for IAppxManifestHostRuntimeDependenciesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestHostRuntimeDependenciesEnumerator {
     type Vtable = IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestHostRuntimeDependenciesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestHostRuntimeDependenciesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6427a646_7f49_433e_b1a6_0da309f6885a);
@@ -3266,24 +3266,19 @@ pub struct IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
 pub struct IAppxManifestHostRuntimeDependency(::windows::core::IUnknown);
 impl IAppxManifestHostRuntimeDependency {
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPublisher)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetPublisher)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMinVersion(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMinVersion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetMinVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestHostRuntimeDependency, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestHostRuntimeDependency {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependency {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3297,6 +3292,11 @@ impl ::core::fmt::Debug for IAppxManifestHostRuntimeDependency {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestHostRuntimeDependency {
     type Vtable = IAppxManifestHostRuntimeDependency_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestHostRuntimeDependency {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestHostRuntimeDependency {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3455d234_8414_410d_95c7_7b35255b8391);
@@ -3314,16 +3314,11 @@ pub struct IAppxManifestHostRuntimeDependency_Vtbl {
 pub struct IAppxManifestHostRuntimeDependency2(::windows::core::IUnknown);
 impl IAppxManifestHostRuntimeDependency2 {
     pub unsafe fn GetPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestHostRuntimeDependency2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestHostRuntimeDependency2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependency2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3337,6 +3332,11 @@ impl ::core::fmt::Debug for IAppxManifestHostRuntimeDependency2 {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestHostRuntimeDependency2 {
     type Vtable = IAppxManifestHostRuntimeDependency2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestHostRuntimeDependency2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestHostRuntimeDependency2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc26f23a8_ee10_4ad6_b898_2b4d7aebfe6a);
@@ -3352,28 +3352,23 @@ pub struct IAppxManifestHostRuntimeDependency2_Vtbl {
 pub struct IAppxManifestMainPackageDependenciesEnumerator(::windows::core::IUnknown);
 impl IAppxManifestMainPackageDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestMainPackageDependency> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestMainPackageDependency>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestMainPackageDependenciesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestMainPackageDependenciesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestMainPackageDependenciesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3387,6 +3382,11 @@ impl ::core::fmt::Debug for IAppxManifestMainPackageDependenciesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestMainPackageDependenciesEnumerator {
     type Vtable = IAppxManifestMainPackageDependenciesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestMainPackageDependenciesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestMainPackageDependenciesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa99c4f00_51d2_4f0f_ba46_7ed5255ebdff);
@@ -3410,24 +3410,19 @@ pub struct IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
 pub struct IAppxManifestMainPackageDependency(::windows::core::IUnknown);
 impl IAppxManifestMainPackageDependency {
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPublisher)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetPublisher)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestMainPackageDependency, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestMainPackageDependency {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestMainPackageDependency {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3441,6 +3436,11 @@ impl ::core::fmt::Debug for IAppxManifestMainPackageDependency {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestMainPackageDependency {
     type Vtable = IAppxManifestMainPackageDependency_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestMainPackageDependency {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestMainPackageDependency {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05d0611c_bc29_46d5_97e2_84b9c79bd8ae);
@@ -3458,28 +3458,23 @@ pub struct IAppxManifestMainPackageDependency_Vtbl {
 pub struct IAppxManifestOSPackageDependenciesEnumerator(::windows::core::IUnknown);
 impl IAppxManifestOSPackageDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestOSPackageDependency> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestOSPackageDependency>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestOSPackageDependenciesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestOSPackageDependenciesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestOSPackageDependenciesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3493,6 +3488,11 @@ impl ::core::fmt::Debug for IAppxManifestOSPackageDependenciesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestOSPackageDependenciesEnumerator {
     type Vtable = IAppxManifestOSPackageDependenciesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestOSPackageDependenciesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestOSPackageDependenciesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb84e2fc3_f8ec_4bc1_8ae2_156346f5ffea);
@@ -3516,20 +3516,15 @@ pub struct IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
 pub struct IAppxManifestOSPackageDependency(::windows::core::IUnknown);
 impl IAppxManifestOSPackageDependency {
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVersion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestOSPackageDependency, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestOSPackageDependency {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestOSPackageDependency {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3543,6 +3538,11 @@ impl ::core::fmt::Debug for IAppxManifestOSPackageDependency {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestOSPackageDependency {
     type Vtable = IAppxManifestOSPackageDependency_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestOSPackageDependency {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestOSPackageDependency {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x154995ee_54a6_4f14_ac97_d8cf0519644b);
@@ -3561,20 +3561,15 @@ impl IAppxManifestOptionalPackageInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsOptionalPackage(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIsOptionalPackage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetIsOptionalPackage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMainPackageName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMainPackageName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetMainPackageName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestOptionalPackageInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestOptionalPackageInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestOptionalPackageInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3588,6 +3583,11 @@ impl ::core::fmt::Debug for IAppxManifestOptionalPackageInfo {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestOptionalPackageInfo {
     type Vtable = IAppxManifestOptionalPackageInfo_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestOptionalPackageInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestOptionalPackageInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2634847d_5b5d_4fe5_a243_002ff95edc7e);
@@ -3607,28 +3607,23 @@ pub struct IAppxManifestOptionalPackageInfo_Vtbl {
 pub struct IAppxManifestPackageDependenciesEnumerator(::windows::core::IUnknown);
 impl IAppxManifestPackageDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestPackageDependency> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestPackageDependency>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestPackageDependenciesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestPackageDependenciesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestPackageDependenciesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3642,6 +3637,11 @@ impl ::core::fmt::Debug for IAppxManifestPackageDependenciesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestPackageDependenciesEnumerator {
     type Vtable = IAppxManifestPackageDependenciesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestPackageDependenciesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestPackageDependenciesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb43bbcf9_65a6_42dd_bac0_8c6741e7f5a4);
@@ -3665,24 +3665,19 @@ pub struct IAppxManifestPackageDependenciesEnumerator_Vtbl {
 pub struct IAppxManifestPackageDependency(::windows::core::IUnknown);
 impl IAppxManifestPackageDependency {
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPublisher)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetPublisher)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMinVersion(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMinVersion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetMinVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestPackageDependency, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestPackageDependency {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestPackageDependency {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3696,6 +3691,11 @@ impl ::core::fmt::Debug for IAppxManifestPackageDependency {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestPackageDependency {
     type Vtable = IAppxManifestPackageDependency_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestPackageDependency {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestPackageDependency {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4946b59_733e_43f0_a724_3bde4c1285a0);
@@ -3713,28 +3713,23 @@ pub struct IAppxManifestPackageDependency_Vtbl {
 pub struct IAppxManifestPackageDependency2(::windows::core::IUnknown);
 impl IAppxManifestPackageDependency2 {
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPublisher)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetPublisher)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMinVersion(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetMinVersion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).base__.GetMinVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMaxMajorVersionTested(&self) -> ::windows::core::Result<u16> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMaxMajorVersionTested)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u16>();
+        (::windows::core::Vtable::vtable(self).GetMaxMajorVersionTested)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestPackageDependency2, ::windows::core::IUnknown, IAppxManifestPackageDependency);
-impl ::core::clone::Clone for IAppxManifestPackageDependency2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestPackageDependency2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3748,6 +3743,11 @@ impl ::core::fmt::Debug for IAppxManifestPackageDependency2 {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestPackageDependency2 {
     type Vtable = IAppxManifestPackageDependency2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestPackageDependency2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestPackageDependency2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdda0b713_f3ff_49d3_898a_2786780c5d98);
@@ -3765,16 +3765,11 @@ impl IAppxManifestPackageDependency3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsOptional(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIsOptional)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetIsOptional)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestPackageDependency3, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestPackageDependency3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestPackageDependency3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3788,6 +3783,11 @@ impl ::core::fmt::Debug for IAppxManifestPackageDependency3 {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestPackageDependency3 {
     type Vtable = IAppxManifestPackageDependency3_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestPackageDependency3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestPackageDependency3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ac56374_6198_4d6b_92e4_749d5ab8a895);
@@ -3806,24 +3806,24 @@ pub struct IAppxManifestPackageDependency3_Vtbl {
 pub struct IAppxManifestPackageId(::windows::core::IUnknown);
 impl IAppxManifestPackageId {
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetArchitecture(&self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetArchitecture)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<APPX_PACKAGE_ARCHITECTURE>();
+        (::windows::core::Vtable::vtable(self).GetArchitecture)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPublisher)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetPublisher)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVersion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResourceId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResourceId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetResourceId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3831,24 +3831,19 @@ impl IAppxManifestPackageId {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ComparePublisher)(::windows::core::Vtable::as_raw(self), other.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).ComparePublisher)(::windows::core::Vtable::as_raw(self), other.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPackageFullName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageFullName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetPackageFullName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestPackageId, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestPackageId {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestPackageId {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3862,6 +3857,11 @@ impl ::core::fmt::Debug for IAppxManifestPackageId {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestPackageId {
     type Vtable = IAppxManifestPackageId_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestPackageId {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestPackageId {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x283ce2d7_7153_4a91_9649_7a0f7240945f);
@@ -3887,24 +3887,24 @@ pub struct IAppxManifestPackageId_Vtbl {
 pub struct IAppxManifestPackageId2(::windows::core::IUnknown);
 impl IAppxManifestPackageId2 {
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetArchitecture(&self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetArchitecture)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<APPX_PACKAGE_ARCHITECTURE>();
+        (::windows::core::Vtable::vtable(self).base__.GetArchitecture)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPublisher)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetPublisher)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVersion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).base__.GetVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResourceId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResourceId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetResourceId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3912,28 +3912,23 @@ impl IAppxManifestPackageId2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.ComparePublisher)(::windows::core::Vtable::as_raw(self), other.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.ComparePublisher)(::windows::core::Vtable::as_raw(self), other.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPackageFullName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPackageFullName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetPackageFullName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetArchitecture2(&self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetArchitecture2)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<APPX_PACKAGE_ARCHITECTURE2>();
+        (::windows::core::Vtable::vtable(self).GetArchitecture2)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestPackageId2, ::windows::core::IUnknown, IAppxManifestPackageId);
-impl ::core::clone::Clone for IAppxManifestPackageId2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestPackageId2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3947,6 +3942,11 @@ impl ::core::fmt::Debug for IAppxManifestPackageId2 {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestPackageId2 {
     type Vtable = IAppxManifestPackageId2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestPackageId2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestPackageId2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2256999d_d617_42f1_880e_0ba4542319d5);
@@ -3967,23 +3967,18 @@ impl IAppxManifestProperties {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBoolValue)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetBoolValue)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStringValue<P0>(&self, name: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStringValue)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetStringValue)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestProperties, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3997,6 +3992,11 @@ impl ::core::fmt::Debug for IAppxManifestProperties {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestProperties {
     type Vtable = IAppxManifestProperties_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestProperties {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestProperties {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03faf64d_f26f_4b2c_aaf7_8fe7789b8bca);
@@ -4016,24 +4016,19 @@ pub struct IAppxManifestProperties_Vtbl {
 pub struct IAppxManifestQualifiedResource(::windows::core::IUnknown);
 impl IAppxManifestQualifiedResource {
     pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLanguage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetLanguage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetScale(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetScale)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetScale)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDXFeatureLevel(&self) -> ::windows::core::Result<DX_FEATURE_LEVEL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDXFeatureLevel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<DX_FEATURE_LEVEL>();
+        (::windows::core::Vtable::vtable(self).GetDXFeatureLevel)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestQualifiedResource, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestQualifiedResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestQualifiedResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4047,6 +4042,11 @@ impl ::core::fmt::Debug for IAppxManifestQualifiedResource {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestQualifiedResource {
     type Vtable = IAppxManifestQualifiedResource_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestQualifiedResource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestQualifiedResource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b53a497_3c5c_48d1_9ea3_bb7eac8cd7d4);
@@ -4064,28 +4064,23 @@ pub struct IAppxManifestQualifiedResource_Vtbl {
 pub struct IAppxManifestQualifiedResourcesEnumerator(::windows::core::IUnknown);
 impl IAppxManifestQualifiedResourcesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestQualifiedResource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestQualifiedResource>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestQualifiedResourcesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestQualifiedResourcesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestQualifiedResourcesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4099,6 +4094,11 @@ impl ::core::fmt::Debug for IAppxManifestQualifiedResourcesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestQualifiedResourcesEnumerator {
     type Vtable = IAppxManifestQualifiedResourcesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestQualifiedResourcesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestQualifiedResourcesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ef6adfe_3762_4a8f_9373_2fc5d444c8d2);
@@ -4122,53 +4122,48 @@ pub struct IAppxManifestQualifiedResourcesEnumerator_Vtbl {
 pub struct IAppxManifestReader(::windows::core::IUnknown);
 impl IAppxManifestReader {
     pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestPackageId>();
+        (::windows::core::Vtable::vtable(self).GetPackageId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestProperties>();
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageDependencies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestPackageDependenciesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetPackageDependencies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<APPX_CAPABILITIES>();
+        (::windows::core::Vtable::vtable(self).GetCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestResourcesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetResources)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestDeviceCapabilitiesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> ::windows::core::Result<u64>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPrerequisite)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetPrerequisite)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetApplications)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestApplicationsEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetApplications)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestReader, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4182,6 +4177,11 @@ impl ::core::fmt::Debug for IAppxManifestReader {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestReader {
     type Vtable = IAppxManifestReader_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e1bd148_55a0_4480_a3d1_15544710637c);
@@ -4208,57 +4208,52 @@ pub struct IAppxManifestReader_Vtbl {
 pub struct IAppxManifestReader2(::windows::core::IUnknown);
 impl IAppxManifestReader2 {
     pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPackageId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestPackageId>();
+        (::windows::core::Vtable::vtable(self).base__.GetPackageId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestProperties>();
+        (::windows::core::Vtable::vtable(self).base__.GetProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPackageDependencies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestPackageDependenciesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.GetPackageDependencies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<APPX_CAPABILITIES>();
+        (::windows::core::Vtable::vtable(self).base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestResourcesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.GetResources)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestDeviceCapabilitiesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> ::windows::core::Result<u64>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPrerequisite)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).base__.GetPrerequisite)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetApplications)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestApplicationsEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.GetApplications)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetQualifiedResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestQualifiedResourcesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetQualifiedResources)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestReader2, ::windows::core::IUnknown, IAppxManifestReader);
-impl ::core::clone::Clone for IAppxManifestReader2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestReader2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4272,6 +4267,11 @@ impl ::core::fmt::Debug for IAppxManifestReader2 {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestReader2 {
     type Vtable = IAppxManifestReader2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestReader2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestReader2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd06f67bc_b31d_4eba_a8af_638e73e77b4d);
@@ -4287,65 +4287,60 @@ pub struct IAppxManifestReader2_Vtbl {
 pub struct IAppxManifestReader3(::windows::core::IUnknown);
 impl IAppxManifestReader3 {
     pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPackageId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestPackageId>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetPackageId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestProperties>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPackageDependencies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestPackageDependenciesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetPackageDependencies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<APPX_CAPABILITIES>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestResourcesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetResources)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestDeviceCapabilitiesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> ::windows::core::Result<u64>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPrerequisite)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetPrerequisite)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetApplications)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestApplicationsEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetApplications)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetQualifiedResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestQualifiedResourcesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.GetQualifiedResources)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::core::Result<IAppxManifestCapabilitiesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCapabilitiesByCapabilityClass)(::windows::core::Vtable::as_raw(self), capabilityclass, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestCapabilitiesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetCapabilitiesByCapabilityClass)(::windows::core::Vtable::as_raw(self), capabilityclass, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTargetDeviceFamilies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestTargetDeviceFamiliesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetTargetDeviceFamilies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestReader3, ::windows::core::IUnknown, IAppxManifestReader, IAppxManifestReader2);
-impl ::core::clone::Clone for IAppxManifestReader3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestReader3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4359,6 +4354,11 @@ impl ::core::fmt::Debug for IAppxManifestReader3 {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestReader3 {
     type Vtable = IAppxManifestReader3_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestReader3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestReader3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc43825ab_69b7_400a_9709_cc37f5a72d24);
@@ -4375,69 +4375,64 @@ pub struct IAppxManifestReader3_Vtbl {
 pub struct IAppxManifestReader4(::windows::core::IUnknown);
 impl IAppxManifestReader4 {
     pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPackageId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestPackageId>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPackageId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestProperties>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPackageDependencies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestPackageDependenciesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPackageDependencies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<APPX_CAPABILITIES>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestResourcesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetResources)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestDeviceCapabilitiesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> ::windows::core::Result<u64>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrerequisite)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrerequisite)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetApplications)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestApplicationsEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetApplications)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetQualifiedResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestQualifiedResourcesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetQualifiedResources)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::core::Result<IAppxManifestCapabilitiesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCapabilitiesByCapabilityClass)(::windows::core::Vtable::as_raw(self), capabilityclass, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestCapabilitiesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.GetCapabilitiesByCapabilityClass)(::windows::core::Vtable::as_raw(self), capabilityclass, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetTargetDeviceFamilies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestTargetDeviceFamiliesEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.GetTargetDeviceFamilies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOptionalPackageInfo(&self) -> ::windows::core::Result<IAppxManifestOptionalPackageInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOptionalPackageInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestOptionalPackageInfo>();
+        (::windows::core::Vtable::vtable(self).GetOptionalPackageInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestReader4, ::windows::core::IUnknown, IAppxManifestReader, IAppxManifestReader2, IAppxManifestReader3);
-impl ::core::clone::Clone for IAppxManifestReader4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestReader4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4451,6 +4446,11 @@ impl ::core::fmt::Debug for IAppxManifestReader4 {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestReader4 {
     type Vtable = IAppxManifestReader4_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestReader4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestReader4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4579bb7c_741d_4161_b5a1_47bd3b78ad9b);
@@ -4466,16 +4466,11 @@ pub struct IAppxManifestReader4_Vtbl {
 pub struct IAppxManifestReader5(::windows::core::IUnknown);
 impl IAppxManifestReader5 {
     pub unsafe fn GetMainPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestMainPackageDependenciesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMainPackageDependencies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestMainPackageDependenciesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetMainPackageDependencies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestReader5, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestReader5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestReader5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4489,6 +4484,11 @@ impl ::core::fmt::Debug for IAppxManifestReader5 {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestReader5 {
     type Vtable = IAppxManifestReader5_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestReader5 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestReader5 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d7ae132_a690_4c00_b75a_6aae1feaac80);
@@ -4506,16 +4506,11 @@ impl IAppxManifestReader6 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIsNonQualifiedResourcePackage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetIsNonQualifiedResourcePackage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestReader6, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestReader6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestReader6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4529,6 +4524,11 @@ impl ::core::fmt::Debug for IAppxManifestReader6 {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestReader6 {
     type Vtable = IAppxManifestReader6_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestReader6 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestReader6 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34deaca4_d3c0_4e3e_b312_e42625e3807e);
@@ -4547,24 +4547,19 @@ pub struct IAppxManifestReader6_Vtbl {
 pub struct IAppxManifestReader7(::windows::core::IUnknown);
 impl IAppxManifestReader7 {
     pub unsafe fn GetDriverDependencies(&self) -> ::windows::core::Result<IAppxManifestDriverDependenciesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDriverDependencies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestDriverDependenciesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetDriverDependencies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOSPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestOSPackageDependenciesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOSPackageDependencies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestOSPackageDependenciesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetOSPackageDependencies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetHostRuntimeDependencies(&self) -> ::windows::core::Result<IAppxManifestHostRuntimeDependenciesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHostRuntimeDependencies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestHostRuntimeDependenciesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetHostRuntimeDependencies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestReader7, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestReader7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestReader7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4578,6 +4573,11 @@ impl ::core::fmt::Debug for IAppxManifestReader7 {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestReader7 {
     type Vtable = IAppxManifestReader7_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestReader7 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestReader7 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efe6f27_0ce0_4988_b32d_738eb63db3b7);
@@ -4595,28 +4595,23 @@ pub struct IAppxManifestReader7_Vtbl {
 pub struct IAppxManifestResourcesEnumerator(::windows::core::IUnknown);
 impl IAppxManifestResourcesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestResourcesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestResourcesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestResourcesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4630,6 +4625,11 @@ impl ::core::fmt::Debug for IAppxManifestResourcesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestResourcesEnumerator {
     type Vtable = IAppxManifestResourcesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestResourcesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestResourcesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde4dfbbd_881a_48bb_858c_d6f2baeae6ed);
@@ -4653,28 +4653,23 @@ pub struct IAppxManifestResourcesEnumerator_Vtbl {
 pub struct IAppxManifestTargetDeviceFamiliesEnumerator(::windows::core::IUnknown);
 impl IAppxManifestTargetDeviceFamiliesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamily> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestTargetDeviceFamily>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHasCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestTargetDeviceFamiliesEnumerator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestTargetDeviceFamiliesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestTargetDeviceFamiliesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4688,6 +4683,11 @@ impl ::core::fmt::Debug for IAppxManifestTargetDeviceFamiliesEnumerator {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestTargetDeviceFamiliesEnumerator {
     type Vtable = IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestTargetDeviceFamiliesEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestTargetDeviceFamiliesEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36537f36_27a4_4788_88c0_733819575017);
@@ -4711,24 +4711,19 @@ pub struct IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
 pub struct IAppxManifestTargetDeviceFamily(::windows::core::IUnknown);
 impl IAppxManifestTargetDeviceFamily {
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMinVersion(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMinVersion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetMinVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMaxVersionTested(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMaxVersionTested)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetMaxVersionTested)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxManifestTargetDeviceFamily, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxManifestTargetDeviceFamily {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxManifestTargetDeviceFamily {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4742,6 +4737,11 @@ impl ::core::fmt::Debug for IAppxManifestTargetDeviceFamily {
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestTargetDeviceFamily {
     type Vtable = IAppxManifestTargetDeviceFamily_Vtbl;
+}
+impl ::core::clone::Clone for IAppxManifestTargetDeviceFamily {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxManifestTargetDeviceFamily {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9091b09b_c8d5_4f31_8687_a338259faefb);
@@ -4815,11 +4815,6 @@ impl IAppxPackageEditor {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxPackageEditor, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxPackageEditor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxPackageEditor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4833,6 +4828,11 @@ impl ::core::fmt::Debug for IAppxPackageEditor {
 }
 unsafe impl ::windows::core::Vtable for IAppxPackageEditor {
     type Vtable = IAppxPackageEditor_Vtbl;
+}
+impl ::core::clone::Clone for IAppxPackageEditor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxPackageEditor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2adb6dc_5e71_4416_86b6_86e5f5291a6b);
@@ -4868,35 +4868,30 @@ pub struct IAppxPackageEditor_Vtbl {
 pub struct IAppxPackageReader(::windows::core::IUnknown);
 impl IAppxPackageReader {
     pub unsafe fn GetBlockMap(&self) -> ::windows::core::Result<IAppxBlockMapReader> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBlockMap)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxBlockMapReader>();
+        (::windows::core::Vtable::vtable(self).GetBlockMap)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFootprintFile(&self, r#type: APPX_FOOTPRINT_FILE_TYPE) -> ::windows::core::Result<IAppxFile> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFootprintFile)(::windows::core::Vtable::as_raw(self), r#type, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxFile>();
+        (::windows::core::Vtable::vtable(self).GetFootprintFile)(::windows::core::Vtable::as_raw(self), r#type, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPayloadFile<P0>(&self, filename: P0) -> ::windows::core::Result<IAppxFile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPayloadFile)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxFile>();
+        (::windows::core::Vtable::vtable(self).GetPayloadFile)(::windows::core::Vtable::as_raw(self), filename.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPayloadFiles(&self) -> ::windows::core::Result<IAppxFilesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPayloadFiles)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxFilesEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetPayloadFiles)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetManifest(&self) -> ::windows::core::Result<IAppxManifestReader> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetManifest)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestReader>();
+        (::windows::core::Vtable::vtable(self).GetManifest)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxPackageReader, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxPackageReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxPackageReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4910,6 +4905,11 @@ impl ::core::fmt::Debug for IAppxPackageReader {
 }
 unsafe impl ::windows::core::Vtable for IAppxPackageReader {
     type Vtable = IAppxPackageReader_Vtbl;
+}
+impl ::core::clone::Clone for IAppxPackageReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxPackageReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5c49650_99bc_481c_9a34_3d53a4106708);
@@ -4948,11 +4948,6 @@ impl IAppxPackageWriter {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxPackageWriter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxPackageWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxPackageWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4966,6 +4961,11 @@ impl ::core::fmt::Debug for IAppxPackageWriter {
 }
 unsafe impl ::windows::core::Vtable for IAppxPackageWriter {
     type Vtable = IAppxPackageWriter_Vtbl;
+}
+impl ::core::clone::Clone for IAppxPackageWriter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxPackageWriter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9099e33b_246f_41e4_881a_008eb613f858);
@@ -4998,11 +4998,6 @@ impl IAppxPackageWriter2 {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxPackageWriter2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxPackageWriter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxPackageWriter2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5016,6 +5011,11 @@ impl ::core::fmt::Debug for IAppxPackageWriter2 {
 }
 unsafe impl ::windows::core::Vtable for IAppxPackageWriter2 {
     type Vtable = IAppxPackageWriter2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxPackageWriter2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxPackageWriter2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cf5c4fd_e54c_4ea5_ba4e_f8c4b105a8c8);
@@ -5040,11 +5040,6 @@ impl IAppxPackageWriter3 {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxPackageWriter3, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxPackageWriter3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxPackageWriter3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5058,6 +5053,11 @@ impl ::core::fmt::Debug for IAppxPackageWriter3 {
 }
 unsafe impl ::windows::core::Vtable for IAppxPackageWriter3 {
     type Vtable = IAppxPackageWriter3_Vtbl;
+}
+impl ::core::clone::Clone for IAppxPackageWriter3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxPackageWriter3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa83aacd3_41c0_4501_b8a3_74164f50b2fd);
@@ -5091,11 +5091,6 @@ impl IAppxPackagingDiagnosticEventSink {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxPackagingDiagnosticEventSink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxPackagingDiagnosticEventSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxPackagingDiagnosticEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5109,6 +5104,11 @@ impl ::core::fmt::Debug for IAppxPackagingDiagnosticEventSink {
 }
 unsafe impl ::windows::core::Vtable for IAppxPackagingDiagnosticEventSink {
     type Vtable = IAppxPackagingDiagnosticEventSink_Vtbl;
+}
+impl ::core::clone::Clone for IAppxPackagingDiagnosticEventSink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxPackagingDiagnosticEventSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17239d47_6adb_45d2_80f6_f9cbc3bf059d);
@@ -5132,11 +5132,6 @@ impl IAppxPackagingDiagnosticEventSinkManager {
     }
 }
 ::windows::core::interface_hierarchy!(IAppxPackagingDiagnosticEventSinkManager, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxPackagingDiagnosticEventSinkManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxPackagingDiagnosticEventSinkManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5150,6 +5145,11 @@ impl ::core::fmt::Debug for IAppxPackagingDiagnosticEventSinkManager {
 }
 unsafe impl ::windows::core::Vtable for IAppxPackagingDiagnosticEventSinkManager {
     type Vtable = IAppxPackagingDiagnosticEventSinkManager_Vtbl;
+}
+impl ::core::clone::Clone for IAppxPackagingDiagnosticEventSinkManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxPackagingDiagnosticEventSinkManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x369648fa_a7eb_4909_a15d_6954a078f18a);
@@ -5165,20 +5165,15 @@ pub struct IAppxPackagingDiagnosticEventSinkManager_Vtbl {
 pub struct IAppxSourceContentGroupMapReader(::windows::core::IUnknown);
 impl IAppxSourceContentGroupMapReader {
     pub unsafe fn GetRequiredGroup(&self) -> ::windows::core::Result<IAppxContentGroup> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRequiredGroup)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxContentGroup>();
+        (::windows::core::Vtable::vtable(self).GetRequiredGroup)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAutomaticGroups(&self) -> ::windows::core::Result<IAppxContentGroupsEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAutomaticGroups)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAppxContentGroupsEnumerator>();
+        (::windows::core::Vtable::vtable(self).GetAutomaticGroups)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAppxSourceContentGroupMapReader, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAppxSourceContentGroupMapReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAppxSourceContentGroupMapReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5192,6 +5187,11 @@ impl ::core::fmt::Debug for IAppxSourceContentGroupMapReader {
 }
 unsafe impl ::windows::core::Vtable for IAppxSourceContentGroupMapReader {
     type Vtable = IAppxSourceContentGroupMapReader_Vtbl;
+}
+impl ::core::clone::Clone for IAppxSourceContentGroupMapReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppxSourceContentGroupMapReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf329791d_540b_4a9f_bc75_3282b7d73193);
@@ -5282,8 +5282,8 @@ impl ::core::default::Default for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5309,8 +5309,8 @@ impl ::core::default::Default for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5356,8 +5356,8 @@ impl ::core::default::Default for APPX_CAPABILITIES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPX_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPX_CAPABILITIES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5424,8 +5424,8 @@ impl ::core::default::Default for APPX_CAPABILITY_CLASS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPX_CAPABILITY_CLASS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_CAPABILITY_CLASS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPX_CAPABILITY_CLASS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5457,8 +5457,8 @@ impl ::core::default::Default for APPX_COMPRESSION_OPTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPX_COMPRESSION_OPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_COMPRESSION_OPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPX_COMPRESSION_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5486,8 +5486,8 @@ impl ::core::default::Default for APPX_ENCRYPTED_PACKAGE_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_ENCRYPTED_PACKAGE_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPX_ENCRYPTED_PACKAGE_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5552,8 +5552,8 @@ impl ::core::default::Default for APPX_FOOTPRINT_FILE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPX_FOOTPRINT_FILE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_FOOTPRINT_FILE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPX_FOOTPRINT_FILE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5585,8 +5585,8 @@ impl ::core::default::Default for APPX_PACKAGE_ARCHITECTURE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPX_PACKAGE_ARCHITECTURE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_PACKAGE_ARCHITECTURE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPX_PACKAGE_ARCHITECTURE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5622,8 +5622,8 @@ impl ::core::default::Default for APPX_PACKAGE_ARCHITECTURE2 {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPX_PACKAGE_ARCHITECTURE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_PACKAGE_ARCHITECTURE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPX_PACKAGE_ARCHITECTURE2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5651,8 +5651,8 @@ impl ::core::default::Default for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OP
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5709,8 +5709,8 @@ impl ::core::default::Default for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5740,8 +5740,8 @@ impl ::core::default::Default for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5767,8 +5767,8 @@ impl ::core::default::Default for AddPackageDependencyOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AddPackageDependencyOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AddPackageDependencyOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AddPackageDependencyOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5798,8 +5798,8 @@ impl ::core::default::Default for AppPolicyClrCompat {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AppPolicyClrCompat {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AppPolicyClrCompat {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AppPolicyClrCompat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5825,8 +5825,8 @@ impl ::core::default::Default for AppPolicyCreateFileAccess {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AppPolicyCreateFileAccess {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AppPolicyCreateFileAccess {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AppPolicyCreateFileAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5852,8 +5852,8 @@ impl ::core::default::Default for AppPolicyLifecycleManagement {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AppPolicyLifecycleManagement {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AppPolicyLifecycleManagement {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AppPolicyLifecycleManagement {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5879,8 +5879,8 @@ impl ::core::default::Default for AppPolicyMediaFoundationCodecLoading {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AppPolicyMediaFoundationCodecLoading {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AppPolicyMediaFoundationCodecLoading {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AppPolicyMediaFoundationCodecLoading {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5906,8 +5906,8 @@ impl ::core::default::Default for AppPolicyProcessTerminationMethod {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AppPolicyProcessTerminationMethod {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AppPolicyProcessTerminationMethod {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AppPolicyProcessTerminationMethod {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5933,8 +5933,8 @@ impl ::core::default::Default for AppPolicyShowDeveloperDiagnostic {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AppPolicyShowDeveloperDiagnostic {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AppPolicyShowDeveloperDiagnostic {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AppPolicyShowDeveloperDiagnostic {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5960,8 +5960,8 @@ impl ::core::default::Default for AppPolicyThreadInitializationType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AppPolicyThreadInitializationType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AppPolicyThreadInitializationType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AppPolicyThreadInitializationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5991,8 +5991,8 @@ impl ::core::default::Default for AppPolicyWindowingModel {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AppPolicyWindowingModel {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AppPolicyWindowingModel {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AppPolicyWindowingModel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6020,8 +6020,8 @@ impl ::core::default::Default for CreatePackageDependencyOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CreatePackageDependencyOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CreatePackageDependencyOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CreatePackageDependencyOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6051,8 +6051,8 @@ impl ::core::default::Default for DX_FEATURE_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DX_FEATURE_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DX_FEATURE_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DX_FEATURE_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6080,8 +6080,8 @@ impl ::core::default::Default for PackageDependencyLifetimeKind {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PackageDependencyLifetimeKind {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PackageDependencyLifetimeKind {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PackageDependencyLifetimeKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6117,8 +6117,8 @@ impl ::core::default::Default for PackageDependencyProcessorArchitectures {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PackageDependencyProcessorArchitectures {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PackageDependencyProcessorArchitectures {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PackageDependencyProcessorArchitectures {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6154,8 +6154,8 @@ impl ::core::default::Default for PackageOrigin {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PackageOrigin {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PackageOrigin {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PackageOrigin {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6189,8 +6189,8 @@ impl ::core::default::Default for PackagePathType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PackagePathType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PackagePathType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PackagePathType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6214,8 +6214,8 @@ impl ::core::fmt::Debug for APPX_ENCRYPTED_EXEMPTIONS {
         f.debug_struct("APPX_ENCRYPTED_EXEMPTIONS").field("count", &self.count).field("plainTextFiles", &self.plainTextFiles).finish()
     }
 }
-unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_EXEMPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_ENCRYPTED_EXEMPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for APPX_ENCRYPTED_EXEMPTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -6250,8 +6250,8 @@ impl ::core::fmt::Debug for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_ENCRYPTED_PACKAGE_SETTINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for APPX_ENCRYPTED_PACKAGE_SETTINGS {
@@ -6289,8 +6289,8 @@ impl ::core::fmt::Debug for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
@@ -6325,8 +6325,8 @@ impl ::core::fmt::Debug for APPX_KEY_INFO {
         f.debug_struct("APPX_KEY_INFO").field("keyLength", &self.keyLength).field("keyIdLength", &self.keyIdLength).field("key", &self.key).field("keyId", &self.keyId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for APPX_KEY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_KEY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for APPX_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6359,8 +6359,8 @@ impl ::core::fmt::Debug for APPX_PACKAGE_SETTINGS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for APPX_PACKAGE_SETTINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_PACKAGE_SETTINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for APPX_PACKAGE_SETTINGS {
@@ -6398,8 +6398,8 @@ impl ::core::fmt::Debug for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
@@ -6431,8 +6431,8 @@ impl ::core::fmt::Debug for PACKAGEDEPENDENCY_CONTEXT__ {
         f.debug_struct("PACKAGEDEPENDENCY_CONTEXT__").field("unused", &self.unused).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PACKAGEDEPENDENCY_CONTEXT__ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PACKAGEDEPENDENCY_CONTEXT__ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PACKAGEDEPENDENCY_CONTEXT__ {
     fn eq(&self, other: &Self) -> bool {
@@ -6462,8 +6462,8 @@ impl ::core::clone::Clone for PACKAGE_ID {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PACKAGE_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PACKAGE_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PACKAGE_ID {
     fn default() -> Self {
@@ -6486,8 +6486,8 @@ impl ::core::clone::Clone for PACKAGE_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PACKAGE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PACKAGE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PACKAGE_INFO {
     fn default() -> Self {
@@ -6505,8 +6505,8 @@ impl ::core::clone::Clone for PACKAGE_VERSION {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PACKAGE_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PACKAGE_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PACKAGE_VERSION {
     fn default() -> Self {
@@ -6525,8 +6525,8 @@ impl ::core::clone::Clone for PACKAGE_VERSION_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PACKAGE_VERSION_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PACKAGE_VERSION_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PACKAGE_VERSION_0 {
     fn default() -> Self {
@@ -6552,8 +6552,8 @@ impl ::core::fmt::Debug for PACKAGE_VERSION_0_0 {
         f.debug_struct("PACKAGE_VERSION_0_0").field("Revision", &self.Revision).field("Build", &self.Build).field("Minor", &self.Minor).field("Major", &self.Major).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PACKAGE_VERSION_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PACKAGE_VERSION_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PACKAGE_VERSION_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6582,8 +6582,8 @@ impl ::core::fmt::Debug for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
         f.debug_struct("PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__").field("unused", &self.unused).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
     fn eq(&self, other: &Self) -> bool {
@@ -6612,8 +6612,8 @@ impl ::core::fmt::Debug for _PACKAGE_INFO_REFERENCE {
         f.debug_struct("_PACKAGE_INFO_REFERENCE").field("reserved", &self.reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for _PACKAGE_INFO_REFERENCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _PACKAGE_INFO_REFERENCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for _PACKAGE_INFO_REFERENCE {
     fn eq(&self, other: &Self) -> bool {

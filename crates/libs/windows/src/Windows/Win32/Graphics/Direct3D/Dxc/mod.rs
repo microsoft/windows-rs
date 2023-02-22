@@ -5,8 +5,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance ( rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DxcCreateInstance(rclsid, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::std::ptr::null_mut();
+    DxcCreateInstance(rclsid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -17,8 +17,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance2 ( pmalloc : * mut::core::ffi::c_void , rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DxcCreateInstance2(pmalloc.into().abi(), rclsid, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::std::ptr::null_mut();
+    DxcCreateInstance2(pmalloc.into().abi(), rclsid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
@@ -28,16 +28,11 @@ impl IDxcAssembler {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AssembleToContainer)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcOperationResult>();
+        (::windows::core::Vtable::vtable(self).AssembleToContainer)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcAssembler, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcAssembler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcAssembler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -51,6 +46,11 @@ impl ::core::fmt::Debug for IDxcAssembler {
 }
 unsafe impl ::windows::core::Vtable for IDxcAssembler {
     type Vtable = IDxcAssembler_Vtbl;
+}
+impl ::core::clone::Clone for IDxcAssembler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcAssembler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091f7a26_1c1f_4948_904b_e6e3a8a771d5);
@@ -73,11 +73,6 @@ impl IDxcBlob {
     }
 }
 ::windows::core::interface_hierarchy!(IDxcBlob, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcBlob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcBlob {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -91,6 +86,11 @@ impl ::core::fmt::Debug for IDxcBlob {
 }
 unsafe impl ::windows::core::Vtable for IDxcBlob {
     type Vtable = IDxcBlob_Vtbl;
+}
+impl ::core::clone::Clone for IDxcBlob {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcBlob {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
@@ -119,11 +119,6 @@ impl IDxcBlobEncoding {
     }
 }
 ::windows::core::interface_hierarchy!(IDxcBlobEncoding, ::windows::core::IUnknown, IDxcBlob);
-impl ::core::clone::Clone for IDxcBlobEncoding {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcBlobEncoding {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -137,6 +132,11 @@ impl ::core::fmt::Debug for IDxcBlobEncoding {
 }
 unsafe impl ::windows::core::Vtable for IDxcBlobEncoding {
     type Vtable = IDxcBlobEncoding_Vtbl;
+}
+impl ::core::clone::Clone for IDxcBlobEncoding {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcBlobEncoding {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7241d424_2646_4191_97c0_98e96e42fc68);
@@ -173,11 +173,6 @@ impl IDxcBlobUtf16 {
     }
 }
 ::windows::core::interface_hierarchy!(IDxcBlobUtf16, ::windows::core::IUnknown, IDxcBlob, IDxcBlobEncoding);
-impl ::core::clone::Clone for IDxcBlobUtf16 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcBlobUtf16 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -191,6 +186,11 @@ impl ::core::fmt::Debug for IDxcBlobUtf16 {
 }
 unsafe impl ::windows::core::Vtable for IDxcBlobUtf16 {
     type Vtable = IDxcBlobUtf16_Vtbl;
+}
+impl ::core::clone::Clone for IDxcBlobUtf16 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcBlobUtf16 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3f84eab_0faa_497e_a39c_ee6ed60b2d84);
@@ -225,11 +225,6 @@ impl IDxcBlobUtf8 {
     }
 }
 ::windows::core::interface_hierarchy!(IDxcBlobUtf8, ::windows::core::IUnknown, IDxcBlob, IDxcBlobEncoding);
-impl ::core::clone::Clone for IDxcBlobUtf8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcBlobUtf8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -243,6 +238,11 @@ impl ::core::fmt::Debug for IDxcBlobUtf8 {
 }
 unsafe impl ::windows::core::Vtable for IDxcBlobUtf8 {
     type Vtable = IDxcBlobUtf8_Vtbl;
+}
+impl ::core::clone::Clone for IDxcBlobUtf8 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcBlobUtf8 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3da636c9_ba71_4024_a301_30cbf125305b);
@@ -266,8 +266,8 @@ impl IDxcCompiler {
         P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P4: ::std::convert::Into<::windows::core::InParam<IDxcIncludeHandler>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Compile)(::windows::core::Vtable::as_raw(self), psource.into().abi(), psourcename.into().abi(), pentrypoint.into().abi(), ptargetprofile.into().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcOperationResult>();
+        (::windows::core::Vtable::vtable(self).Compile)(::windows::core::Vtable::as_raw(self), psource.into().abi(), psourcename.into().abi(), pentrypoint.into().abi(), ptargetprofile.into().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Preprocess<P0, P1, P2>(&self, psource: P0, psourcename: P1, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P2) -> ::windows::core::Result<IDxcOperationResult>
     where
@@ -275,23 +275,18 @@ impl IDxcCompiler {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IDxcIncludeHandler>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Preprocess)(::windows::core::Vtable::as_raw(self), psource.into().abi(), psourcename.into().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcOperationResult>();
+        (::windows::core::Vtable::vtable(self).Preprocess)(::windows::core::Vtable::as_raw(self), psource.into().abi(), psourcename.into().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble<P0>(&self, psource: P0) -> ::windows::core::Result<IDxcBlobEncoding>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Disassemble)(::windows::core::Vtable::as_raw(self), psource.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).Disassemble)(::windows::core::Vtable::as_raw(self), psource.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcCompiler, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcCompiler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcCompiler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -305,6 +300,11 @@ impl ::core::fmt::Debug for IDxcCompiler {
 }
 unsafe impl ::windows::core::Vtable for IDxcCompiler {
     type Vtable = IDxcCompiler_Vtbl;
+}
+impl ::core::clone::Clone for IDxcCompiler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcCompiler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c210bf3_011f_4422_8d70_6f9acb8db617);
@@ -329,8 +329,8 @@ impl IDxcCompiler2 {
         P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P4: ::std::convert::Into<::windows::core::InParam<IDxcIncludeHandler>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Compile)(::windows::core::Vtable::as_raw(self), psource.into().abi(), psourcename.into().abi(), pentrypoint.into().abi(), ptargetprofile.into().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcOperationResult>();
+        (::windows::core::Vtable::vtable(self).base__.Compile)(::windows::core::Vtable::as_raw(self), psource.into().abi(), psourcename.into().abi(), pentrypoint.into().abi(), ptargetprofile.into().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Preprocess<P0, P1, P2>(&self, psource: P0, psourcename: P1, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P2) -> ::windows::core::Result<IDxcOperationResult>
     where
@@ -338,15 +338,15 @@ impl IDxcCompiler2 {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IDxcIncludeHandler>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Preprocess)(::windows::core::Vtable::as_raw(self), psource.into().abi(), psourcename.into().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcOperationResult>();
+        (::windows::core::Vtable::vtable(self).base__.Preprocess)(::windows::core::Vtable::as_raw(self), psource.into().abi(), psourcename.into().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, pincludehandler.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble<P0>(&self, psource: P0) -> ::windows::core::Result<IDxcBlobEncoding>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Disassemble)(::windows::core::Vtable::as_raw(self), psource.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).base__.Disassemble)(::windows::core::Vtable::as_raw(self), psource.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CompileWithDebug<P0, P1, P2, P3, P4>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P4, ppresult: *mut ::core::option::Option<IDxcOperationResult>, ppdebugblobname: ::core::option::Option<*mut ::windows::core::PWSTR>, ppdebugblob: ::core::option::Option<*mut ::core::option::Option<IDxcBlob>>) -> ::windows::core::Result<()>
     where
@@ -375,11 +375,6 @@ impl IDxcCompiler2 {
     }
 }
 ::windows::core::interface_hierarchy!(IDxcCompiler2, ::windows::core::IUnknown, IDxcCompiler);
-impl ::core::clone::Clone for IDxcCompiler2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcCompiler2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -393,6 +388,11 @@ impl ::core::fmt::Debug for IDxcCompiler2 {
 }
 unsafe impl ::windows::core::Vtable for IDxcCompiler2 {
     type Vtable = IDxcCompiler2_Vtbl;
+}
+impl ::core::clone::Clone for IDxcCompiler2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcCompiler2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa005a9d9_b8bb_4594_b5c9_0e633bec4d37);
@@ -412,23 +412,18 @@ impl IDxcCompiler3 {
         P0: ::std::convert::Into<::windows::core::InParam<IDxcIncludeHandler>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Compile)(::windows::core::Vtable::as_raw(self), psource, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), pincludehandler.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).Compile)(::windows::core::Vtable::as_raw(self), psource, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), pincludehandler.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble<T>(&self, pobject: *const DxcBuffer) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Disassemble)(::windows::core::Vtable::as_raw(self), pobject, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).Disassemble)(::windows::core::Vtable::as_raw(self), pobject, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcCompiler3, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcCompiler3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcCompiler3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -442,6 +437,11 @@ impl ::core::fmt::Debug for IDxcCompiler3 {
 }
 unsafe impl ::windows::core::Vtable for IDxcCompiler3 {
     type Vtable = IDxcCompiler3_Vtbl;
+}
+impl ::core::clone::Clone for IDxcCompiler3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcCompiler3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x228b4687_5a6a_4730_900c_9702b2203f54);
@@ -474,11 +474,6 @@ impl IDxcCompilerArgs {
     }
 }
 ::windows::core::interface_hierarchy!(IDxcCompilerArgs, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcCompilerArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcCompilerArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -492,6 +487,11 @@ impl ::core::fmt::Debug for IDxcCompilerArgs {
 }
 unsafe impl ::windows::core::Vtable for IDxcCompilerArgs {
     type Vtable = IDxcCompilerArgs_Vtbl;
+}
+impl ::core::clone::Clone for IDxcCompilerArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcCompilerArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73effe2a_70dc_45f8_9690_eff64c02429d);
@@ -526,16 +526,11 @@ impl IDxcContainerBuilder {
         (::windows::core::Vtable::vtable(self).RemovePart)(::windows::core::Vtable::as_raw(self), fourcc).ok()
     }
     pub unsafe fn SerializeContainer(&self) -> ::windows::core::Result<IDxcOperationResult> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SerializeContainer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcOperationResult>();
+        (::windows::core::Vtable::vtable(self).SerializeContainer)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcContainerBuilder, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcContainerBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcContainerBuilder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -549,6 +544,11 @@ impl ::core::fmt::Debug for IDxcContainerBuilder {
 }
 unsafe impl ::windows::core::Vtable for IDxcContainerBuilder {
     type Vtable = IDxcContainerBuilder_Vtbl;
+}
+impl ::core::clone::Clone for IDxcContainerBuilder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcContainerBuilder {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x334b1f50_2292_4b35_99a1_25588d8c17fe);
@@ -573,31 +573,26 @@ impl IDxcContainerReflection {
         (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), pcontainer.into().abi()).ok()
     }
     pub unsafe fn GetPartCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPartCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetPartCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPartKind(&self, idx: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPartKind)(::windows::core::Vtable::as_raw(self), idx, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetPartKind)(::windows::core::Vtable::as_raw(self), idx, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPartContent(&self, idx: u32) -> ::windows::core::Result<IDxcBlob> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPartContent)(::windows::core::Vtable::as_raw(self), idx, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlob>();
+        (::windows::core::Vtable::vtable(self).GetPartContent)(::windows::core::Vtable::as_raw(self), idx, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindFirstPartKind(&self, kind: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstPartKind)(::windows::core::Vtable::as_raw(self), kind, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).FindFirstPartKind)(::windows::core::Vtable::as_raw(self), kind, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPartReflection(&self, idx: u32, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPartReflection)(::windows::core::Vtable::as_raw(self), idx, iid, ppvobject).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDxcContainerReflection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcContainerReflection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcContainerReflection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -611,6 +606,11 @@ impl ::core::fmt::Debug for IDxcContainerReflection {
 }
 unsafe impl ::windows::core::Vtable for IDxcContainerReflection {
     type Vtable = IDxcContainerReflection_Vtbl;
+}
+impl ::core::clone::Clone for IDxcContainerReflection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcContainerReflection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2c21b26_8350_4bdc_976a_331ce6f4c54c);
@@ -641,11 +641,6 @@ impl IDxcExtraOutputs {
     }
 }
 ::windows::core::interface_hierarchy!(IDxcExtraOutputs, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcExtraOutputs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcExtraOutputs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -659,6 +654,11 @@ impl ::core::fmt::Debug for IDxcExtraOutputs {
 }
 unsafe impl ::windows::core::Vtable for IDxcExtraOutputs {
     type Vtable = IDxcExtraOutputs_Vtbl;
+}
+impl ::core::clone::Clone for IDxcExtraOutputs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcExtraOutputs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x319b37a2_a5c2_494a_a5de_4801b2faf989);
@@ -678,16 +678,11 @@ impl IDxcIncludeHandler {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LoadSource)(::windows::core::Vtable::as_raw(self), pfilename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlob>();
+        (::windows::core::Vtable::vtable(self).LoadSource)(::windows::core::Vtable::as_raw(self), pfilename.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcIncludeHandler, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcIncludeHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcIncludeHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -701,6 +696,11 @@ impl ::core::fmt::Debug for IDxcIncludeHandler {
 }
 unsafe impl ::windows::core::Vtable for IDxcIncludeHandler {
     type Vtable = IDxcIncludeHandler_Vtbl;
+}
+impl ::core::clone::Clone for IDxcIncludeHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcIncludeHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f61fc7d_950d_467f_b3e3_3c02fb49187c);
@@ -727,23 +727,23 @@ impl IDxcLibrary {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBlobFromBlob)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), offset, length, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlob>();
+        (::windows::core::Vtable::vtable(self).CreateBlobFromBlob)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), offset, length, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBlobFromFile<P0>(&self, pfilename: P0, codepage: ::core::option::Option<*const DXC_CP>) -> ::windows::core::Result<IDxcBlobEncoding>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBlobFromFile)(::windows::core::Vtable::as_raw(self), pfilename.into().abi(), ::core::mem::transmute(codepage.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).CreateBlobFromFile)(::windows::core::Vtable::as_raw(self), pfilename.into().abi(), ::core::mem::transmute(codepage.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBlobWithEncodingFromPinned(&self, ptext: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBlobWithEncodingFromPinned)(::windows::core::Vtable::as_raw(self), ptext, size, codepage, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).CreateBlobWithEncodingFromPinned)(::windows::core::Vtable::as_raw(self), ptext, size, codepage, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBlobWithEncodingOnHeapCopy(&self, ptext: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBlobWithEncodingOnHeapCopy)(::windows::core::Vtable::as_raw(self), ptext, size, codepage, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).CreateBlobWithEncodingOnHeapCopy)(::windows::core::Vtable::as_raw(self), ptext, size, codepage, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -751,12 +751,12 @@ impl IDxcLibrary {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IMalloc>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBlobWithEncodingOnMalloc)(::windows::core::Vtable::as_raw(self), ptext, pimalloc.into().abi(), size, codepage, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).CreateBlobWithEncodingOnMalloc)(::windows::core::Vtable::as_raw(self), ptext, pimalloc.into().abi(), size, codepage, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateIncludeHandler(&self) -> ::windows::core::Result<IDxcIncludeHandler> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateIncludeHandler)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcIncludeHandler>();
+        (::windows::core::Vtable::vtable(self).CreateIncludeHandler)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -764,30 +764,25 @@ impl IDxcLibrary {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateStreamFromBlobReadOnly)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).CreateStreamFromBlobReadOnly)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBlobAsUtf8<P0>(&self, pblob: P0) -> ::windows::core::Result<IDxcBlobEncoding>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBlobAsUtf8)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).GetBlobAsUtf8)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBlobAsUtf16<P0>(&self, pblob: P0) -> ::windows::core::Result<IDxcBlobEncoding>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBlobAsUtf16)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).GetBlobAsUtf16)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcLibrary, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcLibrary {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcLibrary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -801,6 +796,11 @@ impl ::core::fmt::Debug for IDxcLibrary {
 }
 unsafe impl ::windows::core::Vtable for IDxcLibrary {
     type Vtable = IDxcLibrary_Vtbl;
+}
+impl ::core::clone::Clone for IDxcLibrary {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcLibrary {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5204dc7_d18c_4c3c_bdfb_851673980fe7);
@@ -845,16 +845,11 @@ impl IDxcLinker {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Link)(::windows::core::Vtable::as_raw(self), pentryname.into().abi(), ptargetprofile.into().abi(), ::core::mem::transmute(plibnames.as_ptr()), plibnames.len() as _, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcOperationResult>();
+        (::windows::core::Vtable::vtable(self).Link)(::windows::core::Vtable::as_raw(self), pentryname.into().abi(), ptargetprofile.into().abi(), ::core::mem::transmute(plibnames.as_ptr()), plibnames.len() as _, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcLinker, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcLinker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcLinker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -868,6 +863,11 @@ impl ::core::fmt::Debug for IDxcLinker {
 }
 unsafe impl ::windows::core::Vtable for IDxcLinker {
     type Vtable = IDxcLinker_Vtbl;
+}
+impl ::core::clone::Clone for IDxcLinker {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcLinker {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1b5be2a_62dd_4327_a1c2_42ac1e1e78e6);
@@ -884,24 +884,19 @@ pub struct IDxcLinker_Vtbl {
 pub struct IDxcOperationResult(::windows::core::IUnknown);
 impl IDxcOperationResult {
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+        (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResult(&self) -> ::windows::core::Result<IDxcBlob> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlob>();
+        (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetErrorBuffer(&self) -> ::windows::core::Result<IDxcBlobEncoding> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetErrorBuffer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).GetErrorBuffer)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcOperationResult, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcOperationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcOperationResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -915,6 +910,11 @@ impl ::core::fmt::Debug for IDxcOperationResult {
 }
 unsafe impl ::windows::core::Vtable for IDxcOperationResult {
     type Vtable = IDxcOperationResult_Vtbl;
+}
+impl ::core::clone::Clone for IDxcOperationResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcOperationResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcedb484a_d4e9_445a_b991_ca21ca157dc2);
@@ -932,12 +932,12 @@ pub struct IDxcOperationResult_Vtbl {
 pub struct IDxcOptimizer(::windows::core::IUnknown);
 impl IDxcOptimizer {
     pub unsafe fn GetAvailablePassCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAvailablePassCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetAvailablePassCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAvailablePass(&self, index: u32) -> ::windows::core::Result<IDxcOptimizerPass> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAvailablePass)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcOptimizerPass>();
+        (::windows::core::Vtable::vtable(self).GetAvailablePass)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn RunOptimizer<P0>(&self, pblob: P0, ppoptions: &[::windows::core::PCWSTR], poutputmodule: *mut ::core::option::Option<IDxcBlob>, ppoutputtext: ::core::option::Option<*mut ::core::option::Option<IDxcBlobEncoding>>) -> ::windows::core::Result<()>
     where
@@ -947,11 +947,6 @@ impl IDxcOptimizer {
     }
 }
 ::windows::core::interface_hierarchy!(IDxcOptimizer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcOptimizer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcOptimizer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -965,6 +960,11 @@ impl ::core::fmt::Debug for IDxcOptimizer {
 }
 unsafe impl ::windows::core::Vtable for IDxcOptimizer {
     type Vtable = IDxcOptimizer_Vtbl;
+}
+impl ::core::clone::Clone for IDxcOptimizer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcOptimizer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25740e2e_9cba_401b_9119_4fb42f39f270);
@@ -982,32 +982,27 @@ pub struct IDxcOptimizer_Vtbl {
 pub struct IDxcOptimizerPass(::windows::core::IUnknown);
 impl IDxcOptimizerPass {
     pub unsafe fn GetOptionName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOptionName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetOptionName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOptionArgCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOptionArgCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetOptionArgCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOptionArgName(&self, argindex: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOptionArgName)(::windows::core::Vtable::as_raw(self), argindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetOptionArgName)(::windows::core::Vtable::as_raw(self), argindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOptionArgDescription(&self, argindex: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOptionArgDescription)(::windows::core::Vtable::as_raw(self), argindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetOptionArgDescription)(::windows::core::Vtable::as_raw(self), argindex, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcOptimizerPass, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcOptimizerPass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcOptimizerPass {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1021,6 +1016,11 @@ impl ::core::fmt::Debug for IDxcOptimizerPass {
 }
 unsafe impl ::windows::core::Vtable for IDxcOptimizerPass {
     type Vtable = IDxcOptimizerPass_Vtbl;
+}
+impl ::core::clone::Clone for IDxcOptimizerPass {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcOptimizerPass {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae2cd79f_cc22_453f_9b6b_b124e7a5204c);
@@ -1046,67 +1046,67 @@ impl IDxcPdbUtils {
         (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), ppdbordxil.into().abi()).ok()
     }
     pub unsafe fn GetSourceCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSourceCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetSourceCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSource(&self, uindex: u32) -> ::windows::core::Result<IDxcBlobEncoding> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), uindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), uindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSourceName(&self, uindex: u32) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSourceName)(::windows::core::Vtable::as_raw(self), uindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetSourceName)(::windows::core::Vtable::as_raw(self), uindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFlagCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFlagCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetFlagCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFlag(&self, uindex: u32) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFlag)(::windows::core::Vtable::as_raw(self), uindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetFlag)(::windows::core::Vtable::as_raw(self), uindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetArgCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetArgCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetArgCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetArg(&self, uindex: u32) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetArg)(::windows::core::Vtable::as_raw(self), uindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetArg)(::windows::core::Vtable::as_raw(self), uindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetArgPairCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetArgPairCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetArgPairCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetArgPair(&self, uindex: u32, pname: *mut ::windows::core::BSTR, pvalue: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetArgPair)(::windows::core::Vtable::as_raw(self), uindex, ::core::mem::transmute(pname), ::core::mem::transmute(pvalue)).ok()
     }
     pub unsafe fn GetDefineCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDefineCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetDefineCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDefine(&self, uindex: u32) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDefine)(::windows::core::Vtable::as_raw(self), uindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetDefine)(::windows::core::Vtable::as_raw(self), uindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTargetProfile(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTargetProfile)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetTargetProfile)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEntryPoint(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEntryPoint)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetEntryPoint)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMainFileName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMainFileName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetMainFileName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetHash(&self) -> ::windows::core::Result<IDxcBlob> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHash)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlob>();
+        (::windows::core::Vtable::vtable(self).GetHash)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1114,12 +1114,12 @@ impl IDxcPdbUtils {
         (::windows::core::Vtable::vtable(self).IsFullPDB)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetFullPDB(&self) -> ::windows::core::Result<IDxcBlob> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFullPDB)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlob>();
+        (::windows::core::Vtable::vtable(self).GetFullPDB)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersionInfo(&self) -> ::windows::core::Result<IDxcVersionInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVersionInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcVersionInfo>();
+        (::windows::core::Vtable::vtable(self).GetVersionInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCompiler<P0>(&self, pcompiler: P0) -> ::windows::core::Result<()>
     where
@@ -1128,8 +1128,8 @@ impl IDxcPdbUtils {
         (::windows::core::Vtable::vtable(self).SetCompiler)(::windows::core::Vtable::as_raw(self), pcompiler.into().abi()).ok()
     }
     pub unsafe fn CompileForFullPDB(&self) -> ::windows::core::Result<IDxcResult> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CompileForFullPDB)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcResult>();
+        (::windows::core::Vtable::vtable(self).CompileForFullPDB)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn OverrideArgs(&self, pargpairs: *const DxcArgPair, unumargpairs: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OverrideArgs)(::windows::core::Vtable::as_raw(self), pargpairs, unumargpairs).ok()
@@ -1142,11 +1142,6 @@ impl IDxcPdbUtils {
     }
 }
 ::windows::core::interface_hierarchy!(IDxcPdbUtils, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcPdbUtils {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcPdbUtils {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1161,6 +1156,11 @@ impl ::core::fmt::Debug for IDxcPdbUtils {
 unsafe impl ::windows::core::Vtable for IDxcPdbUtils {
     type Vtable = IDxcPdbUtils_Vtbl;
 }
+impl ::core::clone::Clone for IDxcPdbUtils {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IDxcPdbUtils {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6c9647e_9d6a_4c3b_b94c_524b5a6c343d);
 }
@@ -1171,20 +1171,20 @@ pub struct IDxcPdbUtils_Vtbl {
     pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdbordxil: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSourceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetSourceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetSourceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetFlagCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
-    pub GetFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetArgCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
-    pub GetArg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetArg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetArgPairCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
-    pub GetArgPair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, pname: *mut *mut ::core::ffi::c_void, pvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetArgPair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, pname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, pvalue: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetDefineCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
-    pub GetDefine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetTargetProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetEntryPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetMainFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDefine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetTargetProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetEntryPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetMainFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsFullPDB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1201,16 +1201,16 @@ pub struct IDxcPdbUtils_Vtbl {
 pub struct IDxcResult(::windows::core::IUnknown);
 impl IDxcResult {
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+        (::windows::core::Vtable::vtable(self).base__.GetStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResult(&self) -> ::windows::core::Result<IDxcBlob> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResult)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlob>();
+        (::windows::core::Vtable::vtable(self).base__.GetResult)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetErrorBuffer(&self) -> ::windows::core::Result<IDxcBlobEncoding> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetErrorBuffer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).base__.GetErrorBuffer)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1234,11 +1234,6 @@ impl IDxcResult {
     }
 }
 ::windows::core::interface_hierarchy!(IDxcResult, ::windows::core::IUnknown, IDxcOperationResult);
-impl ::core::clone::Clone for IDxcResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1252,6 +1247,11 @@ impl ::core::fmt::Debug for IDxcResult {
 }
 unsafe impl ::windows::core::Vtable for IDxcResult {
     type Vtable = IDxcResult_Vtbl;
+}
+impl ::core::clone::Clone for IDxcResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58346cda_dde7_4497_9461_6f87af5e0659);
@@ -1277,12 +1277,12 @@ impl IDxcUtils {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBlobFromBlob)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), offset, length, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlob>();
+        (::windows::core::Vtable::vtable(self).CreateBlobFromBlob)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), offset, length, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBlobFromPinned(&self, pdata: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBlobFromPinned)(::windows::core::Vtable::as_raw(self), pdata, size, codepage, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).CreateBlobFromPinned)(::windows::core::Vtable::as_raw(self), pdata, size, codepage, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1290,19 +1290,19 @@ impl IDxcUtils {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IMalloc>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveToBlob)(::windows::core::Vtable::as_raw(self), pdata, pimalloc.into().abi(), size, codepage, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).MoveToBlob)(::windows::core::Vtable::as_raw(self), pdata, pimalloc.into().abi(), size, codepage, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBlob(&self, pdata: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBlob)(::windows::core::Vtable::as_raw(self), pdata, size, codepage, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).CreateBlob)(::windows::core::Vtable::as_raw(self), pdata, size, codepage, &mut result__).from_abi(result__)
     }
     pub unsafe fn LoadFile<P0>(&self, pfilename: P0, pcodepage: ::core::option::Option<*const DXC_CP>) -> ::windows::core::Result<IDxcBlobEncoding>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LoadFile)(::windows::core::Vtable::as_raw(self), pfilename.into().abi(), ::core::mem::transmute(pcodepage.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobEncoding>();
+        (::windows::core::Vtable::vtable(self).LoadFile)(::windows::core::Vtable::as_raw(self), pfilename.into().abi(), ::core::mem::transmute(pcodepage.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1310,26 +1310,26 @@ impl IDxcUtils {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateReadOnlyStreamFromBlob)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).CreateReadOnlyStreamFromBlob)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateDefaultIncludeHandler(&self) -> ::windows::core::Result<IDxcIncludeHandler> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDefaultIncludeHandler)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcIncludeHandler>();
+        (::windows::core::Vtable::vtable(self).CreateDefaultIncludeHandler)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBlobAsUtf8<P0>(&self, pblob: P0) -> ::windows::core::Result<IDxcBlobUtf8>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBlobAsUtf8)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobUtf8>();
+        (::windows::core::Vtable::vtable(self).GetBlobAsUtf8)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBlobAsUtf16<P0>(&self, pblob: P0) -> ::windows::core::Result<IDxcBlobUtf16>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBlobAsUtf16)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcBlobUtf16>();
+        (::windows::core::Vtable::vtable(self).GetBlobAsUtf16)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDxilContainerPart(&self, pshader: *const DxcBuffer, dxcpart: u32, pppartdata: *mut *mut ::core::ffi::c_void, ppartsizeinbytes: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDxilContainerPart)(::windows::core::Vtable::as_raw(self), pshader, dxcpart, pppartdata, ppartsizeinbytes).ok()
@@ -1343,8 +1343,8 @@ impl IDxcUtils {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).BuildArguments)(::windows::core::Vtable::as_raw(self), psourcename.into().abi(), pentrypoint.into().abi(), ptargetprofile.into().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcCompilerArgs>();
+        (::windows::core::Vtable::vtable(self).BuildArguments)(::windows::core::Vtable::as_raw(self), psourcename.into().abi(), pentrypoint.into().abi(), ptargetprofile.into().abi(), ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPDBContents<P0>(&self, ppdbblob: P0, pphash: *mut ::core::option::Option<IDxcBlob>, ppcontainer: *mut ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>
     where
@@ -1354,11 +1354,6 @@ impl IDxcUtils {
     }
 }
 ::windows::core::interface_hierarchy!(IDxcUtils, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcUtils {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcUtils {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1372,6 +1367,11 @@ impl ::core::fmt::Debug for IDxcUtils {
 }
 unsafe impl ::windows::core::Vtable for IDxcUtils {
     type Vtable = IDxcUtils_Vtbl;
+}
+impl ::core::clone::Clone for IDxcUtils {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcUtils {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4605c4cb_2019_492a_ada4_65f20bb7d67f);
@@ -1408,16 +1408,11 @@ impl IDxcValidator {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Validate)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcOperationResult>();
+        (::windows::core::Vtable::vtable(self).Validate)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcValidator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcValidator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcValidator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1431,6 +1426,11 @@ impl ::core::fmt::Debug for IDxcValidator {
 }
 unsafe impl ::windows::core::Vtable for IDxcValidator {
     type Vtable = IDxcValidator_Vtbl;
+}
+impl ::core::clone::Clone for IDxcValidator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcValidator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6e82bd2_1fd7_4826_9811_2857e797f49a);
@@ -1449,23 +1449,18 @@ impl IDxcValidator2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Validate)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcOperationResult>();
+        (::windows::core::Vtable::vtable(self).base__.Validate)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn ValidateWithDebug<P0>(&self, pshader: P0, flags: u32, poptdebugbitcode: ::core::option::Option<*const DxcBuffer>) -> ::windows::core::Result<IDxcOperationResult>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcBlob>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ValidateWithDebug)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, ::core::mem::transmute(poptdebugbitcode.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDxcOperationResult>();
+        (::windows::core::Vtable::vtable(self).ValidateWithDebug)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, ::core::mem::transmute(poptdebugbitcode.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcValidator2, ::windows::core::IUnknown, IDxcValidator);
-impl ::core::clone::Clone for IDxcValidator2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcValidator2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1479,6 +1474,11 @@ impl ::core::fmt::Debug for IDxcValidator2 {
 }
 unsafe impl ::windows::core::Vtable for IDxcValidator2 {
     type Vtable = IDxcValidator2_Vtbl;
+}
+impl ::core::clone::Clone for IDxcValidator2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcValidator2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x458e1fd1_b1b2_4750_a6e1_9c10f03bed92);
@@ -1497,16 +1497,11 @@ impl IDxcVersionInfo {
         (::windows::core::Vtable::vtable(self).GetVersion)(::windows::core::Vtable::as_raw(self), pmajor, pminor).ok()
     }
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcVersionInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcVersionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcVersionInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1520,6 +1515,11 @@ impl ::core::fmt::Debug for IDxcVersionInfo {
 }
 unsafe impl ::windows::core::Vtable for IDxcVersionInfo {
     type Vtable = IDxcVersionInfo_Vtbl;
+}
+impl ::core::clone::Clone for IDxcVersionInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcVersionInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb04f5b50_2059_4f12_a8ff_a1e0cde1cc7e);
@@ -1539,19 +1539,14 @@ impl IDxcVersionInfo2 {
         (::windows::core::Vtable::vtable(self).base__.GetVersion)(::windows::core::Vtable::as_raw(self), pmajor, pminor).ok()
     }
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetFlags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCommitInfo(&self, pcommitcount: *mut u32, pcommithash: *mut *mut i8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCommitInfo)(::windows::core::Vtable::as_raw(self), pcommitcount, pcommithash).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDxcVersionInfo2, ::windows::core::IUnknown, IDxcVersionInfo);
-impl ::core::clone::Clone for IDxcVersionInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcVersionInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1565,6 +1560,11 @@ impl ::core::fmt::Debug for IDxcVersionInfo2 {
 }
 unsafe impl ::windows::core::Vtable for IDxcVersionInfo2 {
     type Vtable = IDxcVersionInfo2_Vtbl;
+}
+impl ::core::clone::Clone for IDxcVersionInfo2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcVersionInfo2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6904c4_42f0_4b62_9c46_983af7da7c83);
@@ -1580,16 +1580,11 @@ pub struct IDxcVersionInfo2_Vtbl {
 pub struct IDxcVersionInfo3(::windows::core::IUnknown);
 impl IDxcVersionInfo3 {
     pub unsafe fn GetCustomVersionString(&self) -> ::windows::core::Result<*mut i8> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCustomVersionString)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut i8>();
+        (::windows::core::Vtable::vtable(self).GetCustomVersionString)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcVersionInfo3, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDxcVersionInfo3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDxcVersionInfo3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1603,6 +1598,11 @@ impl ::core::fmt::Debug for IDxcVersionInfo3 {
 }
 unsafe impl ::windows::core::Vtable for IDxcVersionInfo3 {
     type Vtable = IDxcVersionInfo3_Vtbl;
+}
+impl ::core::clone::Clone for IDxcVersionInfo3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDxcVersionInfo3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e13e843_9d25_473c_9ad2_03b2d0b44b1e);
@@ -1716,8 +1716,8 @@ impl ::core::default::Default for DXC_CP {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXC_CP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXC_CP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXC_CP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1763,8 +1763,8 @@ impl ::core::default::Default for DXC_OUT_KIND {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXC_OUT_KIND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXC_OUT_KIND {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXC_OUT_KIND {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1788,8 +1788,8 @@ impl ::core::fmt::Debug for DxcArgPair {
         f.debug_struct("DxcArgPair").field("pName", &self.pName).field("pValue", &self.pValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DxcArgPair {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DxcArgPair {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DxcArgPair {
     fn eq(&self, other: &Self) -> bool {
@@ -1820,8 +1820,8 @@ impl ::core::fmt::Debug for DxcBuffer {
         f.debug_struct("DxcBuffer").field("Ptr", &self.Ptr).field("Size", &self.Size).field("Encoding", &self.Encoding).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DxcBuffer {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DxcBuffer {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DxcBuffer {
     fn eq(&self, other: &Self) -> bool {
@@ -1851,8 +1851,8 @@ impl ::core::fmt::Debug for DxcDefine {
         f.debug_struct("DxcDefine").field("Name", &self.Name).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DxcDefine {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DxcDefine {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DxcDefine {
     fn eq(&self, other: &Self) -> bool {
@@ -1882,8 +1882,8 @@ impl ::core::fmt::Debug for DxcShaderHash {
         f.debug_struct("DxcShaderHash").field("Flags", &self.Flags).field("HashDigest", &self.HashDigest).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DxcShaderHash {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DxcShaderHash {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DxcShaderHash {
     fn eq(&self, other: &Self) -> bool {

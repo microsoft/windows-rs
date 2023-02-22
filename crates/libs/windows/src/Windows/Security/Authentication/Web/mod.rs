@@ -8,6 +8,11 @@ pub struct IWebAuthenticationBrokerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IWebAuthenticationBrokerStatics {
     type Vtable = IWebAuthenticationBrokerStatics_Vtbl;
 }
+impl ::core::clone::Clone for IWebAuthenticationBrokerStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWebAuthenticationBrokerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f149f1a_e673_40b5_bc22_201a6864a37b);
 }
@@ -33,6 +38,11 @@ pub struct IWebAuthenticationBrokerStatics_Vtbl {
 pub struct IWebAuthenticationBrokerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IWebAuthenticationBrokerStatics2 {
     type Vtable = IWebAuthenticationBrokerStatics2_Vtbl;
+}
+impl ::core::clone::Clone for IWebAuthenticationBrokerStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWebAuthenticationBrokerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73cdfb9e_14e7_41da_a971_aaf4410b621e);
@@ -68,6 +78,11 @@ pub struct IWebAuthenticationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IWebAuthenticationResult {
     type Vtable = IWebAuthenticationResult_Vtbl;
 }
+impl ::core::clone::Clone for IWebAuthenticationResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWebAuthenticationResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64002b4b_ede9_470a_a5cd_0323faf6e262);
 }
@@ -75,7 +90,7 @@ unsafe impl ::windows::core::Interface for IWebAuthenticationResult {
 #[doc(hidden)]
 pub struct IWebAuthenticationResult_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub ResponseData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ResponseStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAuthenticationStatus) -> ::windows::core::HRESULT,
     pub ResponseErrorDetail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -86,24 +101,24 @@ impl WebAuthenticationBroker {
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateWithCallbackUriAsync(options: WebAuthenticationOptions, requesturi: &super::super::super::Foundation::Uri, callbackuri: &super::super::super::Foundation::Uri) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AuthenticateWithCallbackUriAsync)(::windows::core::Vtable::as_raw(this), options, ::core::mem::transmute_copy(requesturi), ::core::mem::transmute_copy(callbackuri), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>();
+            (::windows::core::Vtable::vtable(this).AuthenticateWithCallbackUriAsync)(::windows::core::Vtable::as_raw(this), options, ::core::mem::transmute_copy(requesturi), ::core::mem::transmute_copy(callbackuri), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateWithoutCallbackUriAsync(options: WebAuthenticationOptions, requesturi: &super::super::super::Foundation::Uri) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AuthenticateWithoutCallbackUriAsync)(::windows::core::Vtable::as_raw(this), options, ::core::mem::transmute_copy(requesturi), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>();
+            (::windows::core::Vtable::vtable(this).AuthenticateWithoutCallbackUriAsync)(::windows::core::Vtable::as_raw(this), options, ::core::mem::transmute_copy(requesturi), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCurrentApplicationCallbackUri() -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetCurrentApplicationCallbackUri)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Uri>();
+            (::windows::core::Vtable::vtable(this).GetCurrentApplicationCallbackUri)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -125,16 +140,16 @@ impl WebAuthenticationBroker {
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateSilentlyAsync(requesturi: &super::super::super::Foundation::Uri) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AuthenticateSilentlyAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(requesturi), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>();
+            (::windows::core::Vtable::vtable(this).AuthenticateSilentlyAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(requesturi), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateSilentlyWithOptionsAsync(requesturi: &super::super::super::Foundation::Uri, options: WebAuthenticationOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AuthenticateSilentlyWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(requesturi), options, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>();
+            (::windows::core::Vtable::vtable(this).AuthenticateSilentlyWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(requesturi), options, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -158,28 +173,23 @@ impl WebAuthenticationResult {
     pub fn ResponseData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ResponseData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).ResponseData)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ResponseStatus(&self) -> ::windows::core::Result<WebAuthenticationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ResponseStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<WebAuthenticationStatus>();
+            (::windows::core::Vtable::vtable(this).ResponseStatus)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ResponseErrorDetail(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ResponseErrorDetail)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).ResponseErrorDetail)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for WebAuthenticationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for WebAuthenticationResult {
@@ -193,11 +203,12 @@ impl ::core::fmt::Debug for WebAuthenticationResult {
         f.debug_tuple("WebAuthenticationResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for WebAuthenticationResult {
+impl ::windows::core::RuntimeType for WebAuthenticationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.WebAuthenticationResult;{64002b4b-ede9-470a-a5cd-0323faf6e262})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for WebAuthenticationResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for WebAuthenticationResult {
@@ -230,20 +241,16 @@ impl ::core::default::Default for TokenBindingKeyType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TokenBindingKeyType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TokenBindingKeyType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TokenBindingKeyType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TokenBindingKeyType").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TokenBindingKeyType {
+impl ::windows::core::RuntimeType for TokenBindingKeyType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
 #[repr(transparent)]
@@ -267,8 +274,8 @@ impl ::core::default::Default for WebAuthenticationOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WebAuthenticationOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WebAuthenticationOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WebAuthenticationOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -308,12 +315,8 @@ impl ::core::ops::Not for WebAuthenticationOptions {
         Self(self.0.not())
     }
 }
-unsafe impl ::windows::core::RuntimeType for WebAuthenticationOptions {
+impl ::windows::core::RuntimeType for WebAuthenticationOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
 #[repr(transparent)]
@@ -335,20 +338,16 @@ impl ::core::default::Default for WebAuthenticationStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WebAuthenticationStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WebAuthenticationStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WebAuthenticationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebAuthenticationStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for WebAuthenticationStatus {
+impl ::windows::core::RuntimeType for WebAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

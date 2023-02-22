@@ -64,8 +64,8 @@ impl ::core::clone::Clone for IPNG_ADDRESS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPNG_ADDRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPNG_ADDRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPNG_ADDRESS {
     fn default() -> Self {
@@ -89,8 +89,8 @@ impl ::core::fmt::Debug for MCAST_CLIENT_UID {
         f.debug_struct("MCAST_CLIENT_UID").field("ClientUID", &self.ClientUID).field("ClientUIDLength", &self.ClientUIDLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MCAST_CLIENT_UID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCAST_CLIENT_UID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MCAST_CLIENT_UID {
     fn eq(&self, other: &Self) -> bool {
@@ -121,8 +121,8 @@ impl ::core::clone::Clone for MCAST_LEASE_REQUEST {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCAST_LEASE_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCAST_LEASE_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCAST_LEASE_REQUEST {
     fn default() -> Self {
@@ -144,8 +144,8 @@ impl ::core::clone::Clone for MCAST_LEASE_RESPONSE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCAST_LEASE_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCAST_LEASE_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCAST_LEASE_RESPONSE {
     fn default() -> Self {
@@ -165,8 +165,8 @@ impl ::core::clone::Clone for MCAST_SCOPE_CTX {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCAST_SCOPE_CTX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCAST_SCOPE_CTX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCAST_SCOPE_CTX {
     fn default() -> Self {
@@ -191,8 +191,8 @@ impl ::core::clone::Clone for MCAST_SCOPE_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCAST_SCOPE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCAST_SCOPE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCAST_SCOPE_ENTRY {

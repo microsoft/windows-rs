@@ -50,11 +50,6 @@ impl IDirectMusic {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusic, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusic {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusic {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -68,6 +63,11 @@ impl ::core::fmt::Debug for IDirectMusic {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusic {
     type Vtable = IDirectMusic_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusic {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusic {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6536115a_7b2d_11d2_ba18_0000f875ac12);
@@ -153,11 +153,6 @@ impl IDirectMusic8 {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusic8, ::windows::core::IUnknown, IDirectMusic);
-impl ::core::clone::Clone for IDirectMusic8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusic8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -171,6 +166,11 @@ impl ::core::fmt::Debug for IDirectMusic8 {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusic8 {
     type Vtable = IDirectMusic8_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusic8 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusic8 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d3629f7_813d_4939_8508_f05c6b75fd97);
@@ -226,11 +226,6 @@ impl IDirectMusicBuffer {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusicBuffer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusicBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -244,6 +239,11 @@ impl ::core::fmt::Debug for IDirectMusicBuffer {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusicBuffer {
     type Vtable = IDirectMusicBuffer_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusicBuffer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusicBuffer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac2878_b39b_11d1_8704_00600893b1bd);
@@ -271,8 +271,8 @@ pub struct IDirectMusicBuffer_Vtbl {
 pub struct IDirectMusicCollection(::windows::core::IUnknown);
 impl IDirectMusicCollection {
     pub unsafe fn GetInstrument(&self, dwpatch: u32) -> ::windows::core::Result<IDirectMusicInstrument> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInstrument)(::windows::core::Vtable::as_raw(self), dwpatch, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectMusicInstrument>();
+        (::windows::core::Vtable::vtable(self).GetInstrument)(::windows::core::Vtable::as_raw(self), dwpatch, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumInstrument<P0>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: P0, dwnamelen: u32) -> ::windows::core::Result<()>
     where
@@ -282,11 +282,6 @@ impl IDirectMusicCollection {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusicCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusicCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -300,6 +295,11 @@ impl ::core::fmt::Debug for IDirectMusicCollection {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusicCollection {
     type Vtable = IDirectMusicCollection_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusicCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusicCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287c_b39b_11d1_8704_00600893b1bd);
@@ -320,11 +320,6 @@ impl IDirectMusicDownload {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusicDownload, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicDownload {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusicDownload {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -338,6 +333,11 @@ impl ::core::fmt::Debug for IDirectMusicDownload {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusicDownload {
     type Vtable = IDirectMusicDownload_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusicDownload {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusicDownload {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287b_b39b_11d1_8704_00600893b1bd);
@@ -353,11 +353,6 @@ pub struct IDirectMusicDownload_Vtbl {
 pub struct IDirectMusicDownloadedInstrument(::windows::core::IUnknown);
 impl IDirectMusicDownloadedInstrument {}
 ::windows::core::interface_hierarchy!(IDirectMusicDownloadedInstrument, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicDownloadedInstrument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusicDownloadedInstrument {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -371,6 +366,11 @@ impl ::core::fmt::Debug for IDirectMusicDownloadedInstrument {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusicDownloadedInstrument {
     type Vtable = IDirectMusicDownloadedInstrument_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusicDownloadedInstrument {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusicDownloadedInstrument {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287e_b39b_11d1_8704_00600893b1bd);
@@ -392,11 +392,6 @@ impl IDirectMusicInstrument {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusicInstrument, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicInstrument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusicInstrument {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -410,6 +405,11 @@ impl ::core::fmt::Debug for IDirectMusicInstrument {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusicInstrument {
     type Vtable = IDirectMusicInstrument_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusicInstrument {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusicInstrument {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287d_b39b_11d1_8704_00600893b1bd);
@@ -458,8 +458,8 @@ impl IDirectMusicPort {
         (::windows::core::Vtable::vtable(self).UnloadInstrument)(::windows::core::Vtable::as_raw(self), pdownloadedinstrument.into().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows::core::Result<super::super::IReferenceClock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLatencyClock)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::IReferenceClock>();
+        (::windows::core::Vtable::vtable(self).GetLatencyClock)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetRunningStats)(::windows::core::Vtable::as_raw(self), pstats).ok()
@@ -509,11 +509,6 @@ impl IDirectMusicPort {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusicPort, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicPort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusicPort {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -527,6 +522,11 @@ impl ::core::fmt::Debug for IDirectMusicPort {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusicPort {
     type Vtable = IDirectMusicPort_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusicPort {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusicPort {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f2d8c9_37c2_11d2_b9f9_0000f875ac12);
@@ -570,12 +570,12 @@ pub struct IDirectMusicPort_Vtbl {
 pub struct IDirectMusicPortDownload(::windows::core::IUnknown);
 impl IDirectMusicPortDownload {
     pub unsafe fn GetBuffer(&self, dwdlid: u32) -> ::windows::core::Result<IDirectMusicDownload> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), dwdlid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectMusicDownload>();
+        (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), dwdlid, &mut result__).from_abi(result__)
     }
     pub unsafe fn AllocateBuffer(&self, dwsize: u32) -> ::windows::core::Result<IDirectMusicDownload> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AllocateBuffer)(::windows::core::Vtable::as_raw(self), dwsize, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectMusicDownload>();
+        (::windows::core::Vtable::vtable(self).AllocateBuffer)(::windows::core::Vtable::as_raw(self), dwsize, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDLId(&self, pdwstartdlid: *mut u32, dwcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDLId)(::windows::core::Vtable::as_raw(self), pdwstartdlid, dwcount).ok()
@@ -597,11 +597,6 @@ impl IDirectMusicPortDownload {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusicPortDownload, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicPortDownload {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusicPortDownload {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -615,6 +610,11 @@ impl ::core::fmt::Debug for IDirectMusicPortDownload {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusicPortDownload {
     type Vtable = IDirectMusicPortDownload_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusicPortDownload {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusicPortDownload {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287a_b39b_11d1_8704_00600893b1bd);
@@ -675,8 +675,8 @@ impl IDirectMusicSynth {
         (::windows::core::Vtable::vtable(self).SetMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows::core::Result<super::super::IReferenceClock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLatencyClock)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::IReferenceClock>();
+        (::windows::core::Vtable::vtable(self).GetLatencyClock)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -709,11 +709,6 @@ impl IDirectMusicSynth {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusicSynth, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicSynth {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusicSynth {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -727,6 +722,11 @@ impl ::core::fmt::Debug for IDirectMusicSynth {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusicSynth {
     type Vtable = IDirectMusicSynth_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusicSynth {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusicSynth {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09823661_5c85_11d2_afa6_00aa0024d8b6);
@@ -810,8 +810,8 @@ impl IDirectMusicSynth8 {
         (::windows::core::Vtable::vtable(self).base__.SetMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows::core::Result<super::super::IReferenceClock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLatencyClock)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::IReferenceClock>();
+        (::windows::core::Vtable::vtable(self).base__.GetLatencyClock)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -861,11 +861,6 @@ impl IDirectMusicSynth8 {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusicSynth8, ::windows::core::IUnknown, IDirectMusicSynth);
-impl ::core::clone::Clone for IDirectMusicSynth8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusicSynth8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -879,6 +874,11 @@ impl ::core::fmt::Debug for IDirectMusicSynth8 {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusicSynth8 {
     type Vtable = IDirectMusicSynth8_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusicSynth8 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusicSynth8 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53cab625_2711_4c9f_9de7_1b7f925f6fc8);
@@ -913,8 +913,8 @@ impl IDirectMusicSynthSink {
         (::windows::core::Vtable::vtable(self).SetMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows::core::Result<super::super::IReferenceClock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLatencyClock)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::IReferenceClock>();
+        (::windows::core::Vtable::vtable(self).GetLatencyClock)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -944,11 +944,6 @@ impl IDirectMusicSynthSink {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusicSynthSink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicSynthSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusicSynthSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -962,6 +957,11 @@ impl ::core::fmt::Debug for IDirectMusicSynthSink {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusicSynthSink {
     type Vtable = IDirectMusicSynthSink_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusicSynthSink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusicSynthSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09823663_5c85_11d2_afa6_00aa0024d8b6);
@@ -997,11 +997,6 @@ impl IDirectMusicThru {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusicThru, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicThru {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectMusicThru {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1015,6 +1010,11 @@ impl ::core::fmt::Debug for IDirectMusicThru {
 }
 unsafe impl ::windows::core::Vtable for IDirectMusicThru {
     type Vtable = IDirectMusicThru_Vtbl;
+}
+impl ::core::clone::Clone for IDirectMusicThru {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectMusicThru {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xced153e7_3606_11d2_b9f9_0000f875ac12);
@@ -1518,8 +1518,8 @@ impl ::core::default::Default for DIRECTSOUNDDEVICE_DATAFLOW {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DIRECTSOUNDDEVICE_DATAFLOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIRECTSOUNDDEVICE_DATAFLOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DIRECTSOUNDDEVICE_DATAFLOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1547,8 +1547,8 @@ impl ::core::default::Default for DIRECTSOUNDDEVICE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DIRECTSOUNDDEVICE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIRECTSOUNDDEVICE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DIRECTSOUNDDEVICE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1574,8 +1574,8 @@ impl ::core::default::Default for DMUS_CLOCKTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_CLOCKTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_CLOCKTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DMUS_CLOCKTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1613,8 +1613,8 @@ impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1641,8 +1641,8 @@ impl ::core::fmt::Debug for CONNECTION {
         f.debug_struct("CONNECTION").field("usSource", &self.usSource).field("usControl", &self.usControl).field("usDestination", &self.usDestination).field("usTransform", &self.usTransform).field("lScale", &self.lScale).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONNECTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONNECTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONNECTION {
     fn eq(&self, other: &Self) -> bool {
@@ -1672,8 +1672,8 @@ impl ::core::fmt::Debug for CONNECTIONLIST {
         f.debug_struct("CONNECTIONLIST").field("cbSize", &self.cbSize).field("cConnections", &self.cConnections).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONNECTIONLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONNECTIONLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONNECTIONLIST {
     fn eq(&self, other: &Self) -> bool {
@@ -1702,8 +1702,8 @@ impl ::core::fmt::Debug for DLSHEADER {
         f.debug_struct("DLSHEADER").field("cInstruments", &self.cInstruments).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DLSHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DLSHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DLSHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -1735,8 +1735,8 @@ impl ::core::fmt::Debug for DLSID {
         f.debug_struct("DLSID").field("ulData1", &self.ulData1).field("usData2", &self.usData2).field("usData3", &self.usData3).field("abData4", &self.abData4).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DLSID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DLSID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DLSID {
     fn eq(&self, other: &Self) -> bool {
@@ -1766,8 +1766,8 @@ impl ::core::fmt::Debug for DLSVERSION {
         f.debug_struct("DLSVERSION").field("dwVersionMS", &self.dwVersionMS).field("dwVersionLS", &self.dwVersionLS).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DLSVERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DLSVERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DLSVERSION {
     fn eq(&self, other: &Self) -> bool {
@@ -1799,8 +1799,8 @@ impl ::core::fmt::Debug for DMUS_ARTICPARAMS {
         f.debug_struct("DMUS_ARTICPARAMS").field("LFO", &self.LFO).field("VolEG", &self.VolEG).field("PitchEG", &self.PitchEG).field("Misc", &self.Misc).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_ARTICPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_ARTICPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_ARTICPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -1830,8 +1830,8 @@ impl ::core::fmt::Debug for DMUS_ARTICULATION {
         f.debug_struct("DMUS_ARTICULATION").field("ulArt1Idx", &self.ulArt1Idx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_ARTICULATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_ARTICULATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_ARTICULATION {
     fn eq(&self, other: &Self) -> bool {
@@ -1862,8 +1862,8 @@ impl ::core::fmt::Debug for DMUS_ARTICULATION2 {
         f.debug_struct("DMUS_ARTICULATION2").field("ulArtIdx", &self.ulArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulNextArtIdx", &self.ulNextArtIdx).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_ARTICULATION2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_ARTICULATION2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_ARTICULATION2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1895,8 +1895,8 @@ impl ::core::fmt::Debug for DMUS_BUFFERDESC {
         f.debug_struct("DMUS_BUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidBufferFormat", &self.guidBufferFormat).field("cbBuffer", &self.cbBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_BUFFERDESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_BUFFERDESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_BUFFERDESC {
     fn eq(&self, other: &Self) -> bool {
@@ -1928,8 +1928,8 @@ impl ::core::fmt::Debug for DMUS_CLOCKINFO7 {
         f.debug_struct("DMUS_CLOCKINFO7").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_CLOCKINFO7 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_CLOCKINFO7 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_CLOCKINFO7 {
     fn eq(&self, other: &Self) -> bool {
@@ -1962,8 +1962,8 @@ impl ::core::fmt::Debug for DMUS_CLOCKINFO8 {
         f.debug_struct("DMUS_CLOCKINFO8").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_CLOCKINFO8 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_CLOCKINFO8 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_CLOCKINFO8 {
     fn eq(&self, other: &Self) -> bool {
@@ -1993,8 +1993,8 @@ impl ::core::fmt::Debug for DMUS_COPYRIGHT {
         f.debug_struct("DMUS_COPYRIGHT").field("cbSize", &self.cbSize).field("byCopyright", &self.byCopyright).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_COPYRIGHT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_COPYRIGHT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_COPYRIGHT {
     fn eq(&self, other: &Self) -> bool {
@@ -2026,8 +2026,8 @@ impl ::core::fmt::Debug for DMUS_DOWNLOADINFO {
         f.debug_struct("DMUS_DOWNLOADINFO").field("dwDLType", &self.dwDLType).field("dwDLId", &self.dwDLId).field("dwNumOffsetTableEntries", &self.dwNumOffsetTableEntries).field("cbSize", &self.cbSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_DOWNLOADINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_DOWNLOADINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_DOWNLOADINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2054,8 +2054,8 @@ impl ::core::clone::Clone for DMUS_EVENTHEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_EVENTHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_EVENTHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DMUS_EVENTHEADER {
     fn default() -> Self {
@@ -2081,8 +2081,8 @@ impl ::core::fmt::Debug for DMUS_EXTENSIONCHUNK {
         f.debug_struct("DMUS_EXTENSIONCHUNK").field("cbSize", &self.cbSize).field("ulNextExtCkIdx", &self.ulNextExtCkIdx).field("ExtCkID", &self.ExtCkID).field("byExtCk", &self.byExtCk).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_EXTENSIONCHUNK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_EXTENSIONCHUNK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_EXTENSIONCHUNK {
     fn eq(&self, other: &Self) -> bool {
@@ -2116,8 +2116,8 @@ impl ::core::fmt::Debug for DMUS_INSTRUMENT {
         f.debug_struct("DMUS_INSTRUMENT").field("ulPatch", &self.ulPatch).field("ulFirstRegionIdx", &self.ulFirstRegionIdx).field("ulGlobalArtIdx", &self.ulGlobalArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulCopyrightIdx", &self.ulCopyrightIdx).field("ulFlags", &self.ulFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_INSTRUMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_INSTRUMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_INSTRUMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -2151,8 +2151,8 @@ impl ::core::fmt::Debug for DMUS_LFOPARAMS {
         f.debug_struct("DMUS_LFOPARAMS").field("pcFrequency", &self.pcFrequency).field("tcDelay", &self.tcDelay).field("gcVolumeScale", &self.gcVolumeScale).field("pcPitchScale", &self.pcPitchScale).field("gcMWToVolume", &self.gcMWToVolume).field("pcMWToPitch", &self.pcMWToPitch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_LFOPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_LFOPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_LFOPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -2181,8 +2181,8 @@ impl ::core::fmt::Debug for DMUS_MSCPARAMS {
         f.debug_struct("DMUS_MSCPARAMS").field("ptDefaultPan", &self.ptDefaultPan).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_MSCPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_MSCPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_MSCPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -2212,8 +2212,8 @@ impl ::core::fmt::Debug for DMUS_NOTERANGE {
         f.debug_struct("DMUS_NOTERANGE").field("dwLowNote", &self.dwLowNote).field("dwHighNote", &self.dwHighNote).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_NOTERANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_NOTERANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_NOTERANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -2242,8 +2242,8 @@ impl ::core::fmt::Debug for DMUS_OFFSETTABLE {
         f.debug_struct("DMUS_OFFSETTABLE").field("ulOffsetTable", &self.ulOffsetTable).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_OFFSETTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_OFFSETTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_OFFSETTABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -2278,8 +2278,8 @@ impl ::core::fmt::Debug for DMUS_PEGPARAMS {
         f.debug_struct("DMUS_PEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).field("pcRange", &self.pcRange).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_PEGPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_PEGPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_PEGPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -2318,8 +2318,8 @@ impl ::core::fmt::Debug for DMUS_PORTCAPS {
         f.debug_struct("DMUS_PORTCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidPort", &self.guidPort).field("dwClass", &self.dwClass).field("dwType", &self.dwType).field("dwMemorySize", &self.dwMemorySize).field("dwMaxChannelGroups", &self.dwMaxChannelGroups).field("dwMaxVoices", &self.dwMaxVoices).field("dwMaxAudioChannels", &self.dwMaxAudioChannels).field("dwEffectFlags", &self.dwEffectFlags).field("wszDescription", &self.wszDescription).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_PORTCAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_PORTCAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_PORTCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -2360,8 +2360,8 @@ impl ::core::fmt::Debug for DMUS_PORTPARAMS7 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DMUS_PORTPARAMS7 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_PORTPARAMS7 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DMUS_PORTPARAMS7 {
@@ -2406,8 +2406,8 @@ impl ::core::fmt::Debug for DMUS_PORTPARAMS8 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DMUS_PORTPARAMS8 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_PORTPARAMS8 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DMUS_PORTPARAMS8 {
@@ -2448,8 +2448,8 @@ impl ::core::fmt::Debug for DMUS_REGION {
         f.debug_struct("DMUS_REGION").field("RangeKey", &self.RangeKey).field("RangeVelocity", &self.RangeVelocity).field("fusOptions", &self.fusOptions).field("usKeyGroup", &self.usKeyGroup).field("ulRegionArtIdx", &self.ulRegionArtIdx).field("ulNextRegionIdx", &self.ulNextRegionIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("WaveLink", &self.WaveLink).field("WSMP", &self.WSMP).field("WLOOP", &self.WLOOP).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_REGION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_REGION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_REGION {
     fn eq(&self, other: &Self) -> bool {
@@ -2485,8 +2485,8 @@ impl ::core::fmt::Debug for DMUS_SYNTHSTATS {
         f.debug_struct("DMUS_SYNTHSTATS").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_SYNTHSTATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_SYNTHSTATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_SYNTHSTATS {
     fn eq(&self, other: &Self) -> bool {
@@ -2523,8 +2523,8 @@ impl ::core::fmt::Debug for DMUS_SYNTHSTATS8 {
         f.debug_struct("DMUS_SYNTHSTATS8").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).field("dwSynthMemUse", &self.dwSynthMemUse).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_SYNTHSTATS8 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_SYNTHSTATS8 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_SYNTHSTATS8 {
     fn eq(&self, other: &Self) -> bool {
@@ -2558,8 +2558,8 @@ impl ::core::fmt::Debug for DMUS_VEGPARAMS {
         f.debug_struct("DMUS_VEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_VEGPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_VEGPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_VEGPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -2594,8 +2594,8 @@ impl ::core::fmt::Debug for DMUS_VOICE_STATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DMUS_VOICE_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_VOICE_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DMUS_VOICE_STATE {
@@ -2625,8 +2625,8 @@ impl ::core::clone::Clone for DMUS_WAVE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_WAVE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_WAVE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DMUS_WAVE {
     fn default() -> Self {
@@ -2653,8 +2653,8 @@ impl ::core::fmt::Debug for DMUS_WAVEARTDL {
         f.debug_struct("DMUS_WAVEARTDL").field("ulDownloadIdIdx", &self.ulDownloadIdIdx).field("ulBus", &self.ulBus).field("ulBuffers", &self.ulBuffers).field("ulMasterDLId", &self.ulMasterDLId).field("usOptions", &self.usOptions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_WAVEARTDL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_WAVEARTDL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_WAVEARTDL {
     fn eq(&self, other: &Self) -> bool {
@@ -2684,8 +2684,8 @@ impl ::core::fmt::Debug for DMUS_WAVEDATA {
         f.debug_struct("DMUS_WAVEDATA").field("cbSize", &self.cbSize).field("byData", &self.byData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_WAVEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_WAVEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_WAVEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2714,8 +2714,8 @@ impl ::core::fmt::Debug for DMUS_WAVEDL {
         f.debug_struct("DMUS_WAVEDL").field("cbWaveData", &self.cbWaveData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_WAVEDL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_WAVEDL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_WAVEDL {
     fn eq(&self, other: &Self) -> bool {
@@ -2747,8 +2747,8 @@ impl ::core::fmt::Debug for DMUS_WAVES_REVERB_PARAMS {
         f.debug_struct("DMUS_WAVES_REVERB_PARAMS").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_WAVES_REVERB_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_WAVES_REVERB_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_WAVES_REVERB_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -2790,8 +2790,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
@@ -2829,8 +2829,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
         f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2865,8 +2865,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
         f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2901,8 +2901,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
@@ -2932,8 +2932,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
@@ -2963,8 +2963,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
@@ -2990,8 +2990,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DAT
         f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -3022,8 +3022,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DAT
         f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -3058,8 +3058,8 @@ impl ::core::fmt::Debug for DVAudInfo {
         f.debug_struct("DVAudInfo").field("bAudStyle", &self.bAudStyle).field("bAudQu", &self.bAudQu).field("bNumAudPin", &self.bNumAudPin).field("wAvgSamplesPerPinPerFrm", &self.wAvgSamplesPerPinPerFrm).field("wBlkMode", &self.wBlkMode).field("wDIFMode", &self.wDIFMode).field("wBlkDiv", &self.wBlkDiv).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DVAudInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DVAudInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DVAudInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -3089,8 +3089,8 @@ impl ::core::fmt::Debug for INSTHEADER {
         f.debug_struct("INSTHEADER").field("cRegions", &self.cRegions).field("Locale", &self.Locale).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INSTHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INSTHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INSTHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -3115,8 +3115,8 @@ impl ::core::clone::Clone for MDEVICECAPSEX {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MDEVICECAPSEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MDEVICECAPSEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MDEVICECAPSEX {
     fn default() -> Self {
@@ -3140,8 +3140,8 @@ impl ::core::fmt::Debug for MIDILOCALE {
         f.debug_struct("MIDILOCALE").field("ulBank", &self.ulBank).field("ulInstrument", &self.ulInstrument).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIDILOCALE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIDILOCALE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIDILOCALE {
     fn eq(&self, other: &Self) -> bool {
@@ -3174,8 +3174,8 @@ impl ::core::clone::Clone for MIDIOPENDESC {
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-unsafe impl ::windows::core::Abi for MIDIOPENDESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIDIOPENDESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::default::Default for MIDIOPENDESC {
@@ -3199,8 +3199,8 @@ impl ::core::fmt::Debug for POOLCUE {
         f.debug_struct("POOLCUE").field("ulOffset", &self.ulOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POOLCUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POOLCUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POOLCUE {
     fn eq(&self, other: &Self) -> bool {
@@ -3230,8 +3230,8 @@ impl ::core::fmt::Debug for POOLTABLE {
         f.debug_struct("POOLTABLE").field("cbSize", &self.cbSize).field("cCues", &self.cCues).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POOLTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POOLTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POOLTABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -3263,8 +3263,8 @@ impl ::core::fmt::Debug for RGNHEADER {
         f.debug_struct("RGNHEADER").field("RangeKey", &self.RangeKey).field("RangeVelocity", &self.RangeVelocity).field("fusOptions", &self.fusOptions).field("usKeyGroup", &self.usKeyGroup).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RGNHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RGNHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RGNHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -3294,8 +3294,8 @@ impl ::core::fmt::Debug for RGNRANGE {
         f.debug_struct("RGNRANGE").field("usLow", &self.usLow).field("usHigh", &self.usHigh).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RGNRANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RGNRANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RGNRANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -3327,8 +3327,8 @@ impl ::core::fmt::Debug for WAVELINK {
         f.debug_struct("WAVELINK").field("fusOptions", &self.fusOptions).field("usPhaseGroup", &self.usPhaseGroup).field("ulChannel", &self.ulChannel).field("ulTableIndex", &self.ulTableIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WAVELINK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WAVELINK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WAVELINK {
     fn eq(&self, other: &Self) -> bool {
@@ -3360,8 +3360,8 @@ impl ::core::fmt::Debug for WLOOP {
         f.debug_struct("WLOOP").field("cbSize", &self.cbSize).field("ulType", &self.ulType).field("ulStart", &self.ulStart).field("ulLength", &self.ulLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WLOOP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLOOP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WLOOP {
     fn eq(&self, other: &Self) -> bool {
@@ -3395,8 +3395,8 @@ impl ::core::fmt::Debug for WSMPL {
         f.debug_struct("WSMPL").field("cbSize", &self.cbSize).field("usUnityNote", &self.usUnityNote).field("sFineTune", &self.sFineTune).field("lAttenuation", &self.lAttenuation).field("fulOptions", &self.fulOptions).field("cSampleLoops", &self.cSampleLoops).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WSMPL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WSMPL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WSMPL {
     fn eq(&self, other: &Self) -> bool {

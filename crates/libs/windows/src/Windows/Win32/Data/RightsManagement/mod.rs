@@ -851,8 +851,8 @@ impl ::core::default::Default for DRMATTESTTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRMATTESTTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRMATTESTTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRMATTESTTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -886,8 +886,8 @@ impl ::core::default::Default for DRMENCODINGTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRMENCODINGTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRMENCODINGTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRMENCODINGTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -913,8 +913,8 @@ impl ::core::default::Default for DRMGLOBALOPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRMGLOBALOPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRMGLOBALOPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRMGLOBALOPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -938,8 +938,8 @@ impl ::core::default::Default for DRMSECURITYPROVIDERTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRMSECURITYPROVIDERTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRMSECURITYPROVIDERTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRMSECURITYPROVIDERTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -965,8 +965,8 @@ impl ::core::default::Default for DRMSPECTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRMSPECTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRMSPECTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRMSPECTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -992,8 +992,8 @@ impl ::core::default::Default for DRMTIMETYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRMTIMETYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRMTIMETYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRMTIMETYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1021,8 +1021,8 @@ impl ::core::default::Default for DRM_DISTRIBUTION_POINT_INFO {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRM_DISTRIBUTION_POINT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRM_DISTRIBUTION_POINT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRM_DISTRIBUTION_POINT_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1058,8 +1058,8 @@ impl ::core::default::Default for DRM_STATUS_MSG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRM_STATUS_MSG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRM_STATUS_MSG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRM_STATUS_MSG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1089,8 +1089,8 @@ impl ::core::default::Default for DRM_USAGEPOLICY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DRM_USAGEPOLICY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRM_USAGEPOLICY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DRM_USAGEPOLICY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1133,8 +1133,8 @@ impl ::core::fmt::Debug for DRMBOUNDLICENSEPARAMS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRMBOUNDLICENSEPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRMBOUNDLICENSEPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRMBOUNDLICENSEPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -1165,8 +1165,8 @@ impl ::core::fmt::Debug for DRMID {
         f.debug_struct("DRMID").field("uVersion", &self.uVersion).field("wszIDType", &self.wszIDType).field("wszID", &self.wszID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRMID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRMID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRMID {
     fn eq(&self, other: &Self) -> bool {
@@ -1197,8 +1197,8 @@ impl ::core::fmt::Debug for DRM_ACTSERV_INFO {
         f.debug_struct("DRM_ACTSERV_INFO").field("uVersion", &self.uVersion).field("wszPubKey", &self.wszPubKey).field("wszURL", &self.wszURL).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRM_ACTSERV_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRM_ACTSERV_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRM_ACTSERV_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1231,8 +1231,8 @@ impl ::core::fmt::Debug for DRM_CLIENT_VERSION_INFO {
         f.debug_struct("DRM_CLIENT_VERSION_INFO").field("uStructVersion", &self.uStructVersion).field("dwVersion", &self.dwVersion).field("wszHierarchy", &self.wszHierarchy).field("wszProductId", &self.wszProductId).field("wszProductDescription", &self.wszProductDescription).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRM_CLIENT_VERSION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRM_CLIENT_VERSION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRM_CLIENT_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1266,8 +1266,8 @@ impl ::core::fmt::Debug for DRM_LICENSE_ACQ_DATA {
         f.debug_struct("DRM_LICENSE_ACQ_DATA").field("uVersion", &self.uVersion).field("wszURL", &self.wszURL).field("wszLocalFilename", &self.wszLocalFilename).field("pbPostData", &self.pbPostData).field("dwPostDataSize", &self.dwPostDataSize).field("wszFriendlyName", &self.wszFriendlyName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRM_LICENSE_ACQ_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRM_LICENSE_ACQ_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRM_LICENSE_ACQ_DATA {
     fn eq(&self, other: &Self) -> bool {

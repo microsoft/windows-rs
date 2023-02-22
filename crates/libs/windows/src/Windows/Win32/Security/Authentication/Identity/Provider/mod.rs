@@ -13,8 +13,8 @@ impl AsyncIAssociatedIdentityProvider {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Finish_AssociateIdentity(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_AssociateIdentity)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
+        (::windows::core::Vtable::vtable(self).Finish_AssociateIdentity)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -42,11 +42,6 @@ impl AsyncIAssociatedIdentityProvider {
     }
 }
 ::windows::core::interface_hierarchy!(AsyncIAssociatedIdentityProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for AsyncIAssociatedIdentityProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for AsyncIAssociatedIdentityProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -60,6 +55,11 @@ impl ::core::fmt::Debug for AsyncIAssociatedIdentityProvider {
 }
 unsafe impl ::windows::core::Vtable for AsyncIAssociatedIdentityProvider {
     type Vtable = AsyncIAssociatedIdentityProvider_Vtbl;
+}
+impl ::core::clone::Clone for AsyncIAssociatedIdentityProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for AsyncIAssociatedIdentityProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2834d6ed_297e_4e72_8a51_961e86f05152);
@@ -109,8 +109,8 @@ impl AsyncIConnectedIdentityProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Finish_IsConnected(&self) -> ::windows::core::Result<super::super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_IsConnected)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).Finish_IsConnected)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -129,16 +129,11 @@ impl AsyncIConnectedIdentityProvider {
         (::windows::core::Vtable::vtable(self).Begin_GetAccountState)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Finish_GetAccountState(&self) -> ::windows::core::Result<ACCOUNT_STATE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_GetAccountState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ACCOUNT_STATE>();
+        (::windows::core::Vtable::vtable(self).Finish_GetAccountState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(AsyncIConnectedIdentityProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for AsyncIConnectedIdentityProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for AsyncIConnectedIdentityProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -152,6 +147,11 @@ impl ::core::fmt::Debug for AsyncIConnectedIdentityProvider {
 }
 unsafe impl ::windows::core::Vtable for AsyncIConnectedIdentityProvider {
     type Vtable = AsyncIConnectedIdentityProvider_Vtbl;
+}
+impl ::core::clone::Clone for AsyncIConnectedIdentityProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for AsyncIConnectedIdentityProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ce55141_bce9_4e15_824d_43d79f512f93);
@@ -195,11 +195,6 @@ impl AsyncIIdentityAdvise {
     }
 }
 ::windows::core::interface_hierarchy!(AsyncIIdentityAdvise, ::windows::core::IUnknown);
-impl ::core::clone::Clone for AsyncIIdentityAdvise {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for AsyncIIdentityAdvise {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -213,6 +208,11 @@ impl ::core::fmt::Debug for AsyncIIdentityAdvise {
 }
 unsafe impl ::windows::core::Vtable for AsyncIIdentityAdvise {
     type Vtable = AsyncIIdentityAdvise_Vtbl;
+}
+impl ::core::clone::Clone for AsyncIIdentityAdvise {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for AsyncIIdentityAdvise {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab4c8da_d038_4830_8dd9_3253c55a127f);
@@ -246,11 +246,6 @@ impl AsyncIIdentityAuthentication {
     }
 }
 ::windows::core::interface_hierarchy!(AsyncIIdentityAuthentication, ::windows::core::IUnknown);
-impl ::core::clone::Clone for AsyncIIdentityAuthentication {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for AsyncIIdentityAuthentication {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -264,6 +259,11 @@ impl ::core::fmt::Debug for AsyncIIdentityAuthentication {
 }
 unsafe impl ::windows::core::Vtable for AsyncIIdentityAuthentication {
     type Vtable = AsyncIIdentityAuthentication_Vtbl;
+}
+impl ::core::clone::Clone for AsyncIIdentityAuthentication {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for AsyncIIdentityAuthentication {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9a2f918_feca_4e9c_9633_61cbf13ed34d);
@@ -295,8 +295,8 @@ impl AsyncIIdentityProvider {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Finish_GetIdentityEnum(&self) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_GetIdentityEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::System::Com::IEnumUnknown>();
+        (::windows::core::Vtable::vtable(self).Finish_GetIdentityEnum)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -309,8 +309,8 @@ impl AsyncIIdentityProvider {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Finish_Create(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_Create)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
+        (::windows::core::Vtable::vtable(self).Finish_Create)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -343,8 +343,8 @@ impl AsyncIIdentityProvider {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Finish_FindByUniqueID(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_FindByUniqueID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
+        (::windows::core::Vtable::vtable(self).Finish_FindByUniqueID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Begin_GetProviderPropertyStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Begin_GetProviderPropertyStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -352,8 +352,8 @@ impl AsyncIIdentityProvider {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Finish_GetProviderPropertyStore(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_GetProviderPropertyStore)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
+        (::windows::core::Vtable::vtable(self).Finish_GetProviderPropertyStore)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Begin_Advise<P0>(&self, pidentityadvise: P0, dwidentityupdateevents: u32) -> ::windows::core::Result<()>
     where
@@ -362,8 +362,8 @@ impl AsyncIIdentityProvider {
         (::windows::core::Vtable::vtable(self).Begin_Advise)(::windows::core::Vtable::as_raw(self), pidentityadvise.into().abi(), dwidentityupdateevents).ok()
     }
     pub unsafe fn Finish_Advise(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_Advise)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Finish_Advise)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Begin_UnAdvise(&self, dwcookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Begin_UnAdvise)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
@@ -373,11 +373,6 @@ impl AsyncIIdentityProvider {
     }
 }
 ::windows::core::interface_hierarchy!(AsyncIIdentityProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for AsyncIIdentityProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for AsyncIIdentityProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -391,6 +386,11 @@ impl ::core::fmt::Debug for AsyncIIdentityProvider {
 }
 unsafe impl ::windows::core::Vtable for AsyncIIdentityProvider {
     type Vtable = AsyncIIdentityProvider_Vtbl;
+}
+impl ::core::clone::Clone for AsyncIIdentityProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for AsyncIIdentityProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6fc9901_c433_4646_8f48_4e4687aae2a0);
@@ -448,8 +448,8 @@ impl AsyncIIdentityStore {
         (::windows::core::Vtable::vtable(self).Begin_GetCount)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Finish_GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Finish_GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Begin_GetAt(&self, dwprovider: u32, pprovguid: ::core::option::Option<*mut ::windows::core::GUID>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Begin_GetAt)(::windows::core::Vtable::as_raw(self), dwprovider, ::core::mem::transmute(pprovguid.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -483,8 +483,8 @@ impl AsyncIIdentityStore {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Finish_EnumerateIdentities(&self) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_EnumerateIdentities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::System::Com::IEnumUnknown>();
+        (::windows::core::Vtable::vtable(self).Finish_EnumerateIdentities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Begin_Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Begin_Reset)(::windows::core::Vtable::as_raw(self)).ok()
@@ -494,11 +494,6 @@ impl AsyncIIdentityStore {
     }
 }
 ::windows::core::interface_hierarchy!(AsyncIIdentityStore, ::windows::core::IUnknown);
-impl ::core::clone::Clone for AsyncIIdentityStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for AsyncIIdentityStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -512,6 +507,11 @@ impl ::core::fmt::Debug for AsyncIIdentityStore {
 }
 unsafe impl ::windows::core::Vtable for AsyncIIdentityStore {
     type Vtable = AsyncIIdentityStore_Vtbl;
+}
+impl ::core::clone::Clone for AsyncIIdentityStore {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for AsyncIIdentityStore {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeefa1616_48de_4872_aa64_6e6206535a51);
@@ -564,11 +564,6 @@ impl AsyncIIdentityStoreEx {
     }
 }
 ::windows::core::interface_hierarchy!(AsyncIIdentityStoreEx, ::windows::core::IUnknown);
-impl ::core::clone::Clone for AsyncIIdentityStoreEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for AsyncIIdentityStoreEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -582,6 +577,11 @@ impl ::core::fmt::Debug for AsyncIIdentityStoreEx {
 }
 unsafe impl ::windows::core::Vtable for AsyncIIdentityStoreEx {
     type Vtable = AsyncIIdentityStoreEx_Vtbl;
+}
+impl ::core::clone::Clone for AsyncIIdentityStoreEx {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for AsyncIIdentityStoreEx {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfca3af9a_8a07_4eae_8632_ec3de658a36a);
@@ -605,8 +605,8 @@ impl IAssociatedIdentityProvider {
     where
         P0: ::std::convert::Into<super::super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AssociateIdentity)(::windows::core::Vtable::as_raw(self), hwndparent.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
+        (::windows::core::Vtable::vtable(self).AssociateIdentity)(::windows::core::Vtable::as_raw(self), hwndparent.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -628,11 +628,6 @@ impl IAssociatedIdentityProvider {
     }
 }
 ::windows::core::interface_hierarchy!(IAssociatedIdentityProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAssociatedIdentityProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAssociatedIdentityProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -646,6 +641,11 @@ impl ::core::fmt::Debug for IAssociatedIdentityProvider {
 }
 unsafe impl ::windows::core::Vtable for IAssociatedIdentityProvider {
     type Vtable = IAssociatedIdentityProvider_Vtbl;
+}
+impl ::core::clone::Clone for IAssociatedIdentityProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAssociatedIdentityProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2af066b3_4cbb_4cba_a798_204b6af68cc0);
@@ -680,8 +680,8 @@ impl IConnectedIdentityProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<super::super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsConnected)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsConnected)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -692,16 +692,11 @@ impl IConnectedIdentityProvider {
         (::windows::core::Vtable::vtable(self).GetUrl)(::windows::core::Vtable::as_raw(self), identifier, context.into().abi(), postdata, url).ok()
     }
     pub unsafe fn GetAccountState(&self) -> ::windows::core::Result<ACCOUNT_STATE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAccountState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ACCOUNT_STATE>();
+        (::windows::core::Vtable::vtable(self).GetAccountState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IConnectedIdentityProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IConnectedIdentityProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IConnectedIdentityProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -715,6 +710,11 @@ impl ::core::fmt::Debug for IConnectedIdentityProvider {
 }
 unsafe impl ::windows::core::Vtable for IConnectedIdentityProvider {
     type Vtable = IConnectedIdentityProvider_Vtbl;
+}
+impl ::core::clone::Clone for IConnectedIdentityProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IConnectedIdentityProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7417b54_e08c_429b_96c8_678d1369ecb1);
@@ -747,11 +747,6 @@ impl IIdentityAdvise {
     }
 }
 ::windows::core::interface_hierarchy!(IIdentityAdvise, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IIdentityAdvise {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IIdentityAdvise {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -765,6 +760,11 @@ impl ::core::fmt::Debug for IIdentityAdvise {
 }
 unsafe impl ::windows::core::Vtable for IIdentityAdvise {
     type Vtable = IIdentityAdvise_Vtbl;
+}
+impl ::core::clone::Clone for IIdentityAdvise {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIdentityAdvise {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e982fed_d14b_440c_b8d6_bb386453d386);
@@ -789,11 +789,6 @@ impl IIdentityAuthentication {
     }
 }
 ::windows::core::interface_hierarchy!(IIdentityAuthentication, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IIdentityAuthentication {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IIdentityAuthentication {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -807,6 +802,11 @@ impl ::core::fmt::Debug for IIdentityAuthentication {
 }
 unsafe impl ::windows::core::Vtable for IIdentityAuthentication {
     type Vtable = IIdentityAuthentication_Vtbl;
+}
+impl ::core::clone::Clone for IIdentityAuthentication {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIdentityAuthentication {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e7ef254_979f_43b5_b74e_06e4eb7df0f9);
@@ -828,8 +828,8 @@ impl IIdentityProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: ::core::option::Option<*const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>, pfilterpropvarvalue: ::core::option::Option<*const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIdentityEnum)(::windows::core::Vtable::as_raw(self), eidentitytype, ::core::mem::transmute(pfilterkey.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pfilterpropvarvalue.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::System::Com::IEnumUnknown>();
+        (::windows::core::Vtable::vtable(self).GetIdentityEnum)(::windows::core::Vtable::as_raw(self), eidentitytype, ::core::mem::transmute(pfilterkey.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pfilterpropvarvalue.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -861,32 +861,27 @@ impl IIdentityProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindByUniqueID)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
+        (::windows::core::Vtable::vtable(self).FindByUniqueID)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetProviderPropertyStore(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProviderPropertyStore)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
+        (::windows::core::Vtable::vtable(self).GetProviderPropertyStore)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Advise<P0>(&self, pidentityadvise: P0, dwidentityupdateevents: IdentityUpdateEvent) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IIdentityAdvise>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), pidentityadvise.into().abi(), dwidentityupdateevents, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), pidentityadvise.into().abi(), dwidentityupdateevents, &mut result__).from_abi(result__)
     }
     pub unsafe fn UnAdvise(&self, dwcookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnAdvise)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IIdentityProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IIdentityProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IIdentityProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -900,6 +895,11 @@ impl ::core::fmt::Debug for IIdentityProvider {
 }
 unsafe impl ::windows::core::Vtable for IIdentityProvider {
     type Vtable = IIdentityProvider_Vtbl;
+}
+impl ::core::clone::Clone for IIdentityProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIdentityProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d1b9e0c_e8ba_4f55_a81b_bce934b948f5);
@@ -940,8 +940,8 @@ pub struct IIdentityProvider_Vtbl {
 pub struct IIdentityStore(::windows::core::IUnknown);
 impl IIdentityStore {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAt(&self, dwprovider: u32, pprovguid: ::core::option::Option<*mut ::windows::core::GUID>, ppidentityprovider: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), dwprovider, ::core::mem::transmute(pprovguid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppidentityprovider)).ok()
@@ -961,19 +961,14 @@ impl IIdentityStore {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn EnumerateIdentities(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: ::core::option::Option<*const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>, pfilterpropvarvalue: ::core::option::Option<*const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumerateIdentities)(::windows::core::Vtable::as_raw(self), eidentitytype, ::core::mem::transmute(pfilterkey.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pfilterpropvarvalue.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::System::Com::IEnumUnknown>();
+        (::windows::core::Vtable::vtable(self).EnumerateIdentities)(::windows::core::Vtable::as_raw(self), eidentitytype, ::core::mem::transmute(pfilterkey.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pfilterpropvarvalue.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IIdentityStore, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IIdentityStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IIdentityStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -987,6 +982,11 @@ impl ::core::fmt::Debug for IIdentityStore {
 }
 unsafe impl ::windows::core::Vtable for IIdentityStore {
     type Vtable = IIdentityStore_Vtbl;
+}
+impl ::core::clone::Clone for IIdentityStore {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIdentityStore {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf586fa5_6f35_44f1_b209_b38e169772eb);
@@ -1024,11 +1024,6 @@ impl IIdentityStoreEx {
     }
 }
 ::windows::core::interface_hierarchy!(IIdentityStoreEx, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IIdentityStoreEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IIdentityStoreEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1042,6 +1037,11 @@ impl ::core::fmt::Debug for IIdentityStoreEx {
 }
 unsafe impl ::windows::core::Vtable for IIdentityStoreEx {
     type Vtable = IIdentityStoreEx_Vtbl;
+}
+impl ::core::clone::Clone for IIdentityStoreEx {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIdentityStoreEx {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9f9eb98_8f7f_4e38_9577_6980114ce32b);
@@ -1102,8 +1102,8 @@ impl ::core::default::Default for ACCOUNT_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ACCOUNT_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACCOUNT_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ACCOUNT_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1129,8 +1129,8 @@ impl ::core::default::Default for IDENTITY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IDENTITY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IDENTITY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IDENTITY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1166,8 +1166,8 @@ impl ::core::default::Default for IDENTITY_URL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IDENTITY_URL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IDENTITY_URL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IDENTITY_URL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1205,8 +1205,8 @@ impl ::core::default::Default for IdentityUpdateEvent {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IdentityUpdateEvent {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IdentityUpdateEvent {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IdentityUpdateEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

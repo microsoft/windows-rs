@@ -38,11 +38,6 @@ impl IDirect3DDevice9On12 {
     }
 }
 ::windows::core::interface_hierarchy!(IDirect3DDevice9On12, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirect3DDevice9On12 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirect3DDevice9On12 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -56,6 +51,11 @@ impl ::core::fmt::Debug for IDirect3DDevice9On12 {
 }
 unsafe impl ::windows::core::Vtable for IDirect3DDevice9On12 {
     type Vtable = IDirect3DDevice9On12_Vtbl;
+}
+impl ::core::clone::Clone for IDirect3DDevice9On12 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirect3DDevice9On12 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7fda234_b589_4049_940d_8878977531c8);
@@ -99,8 +99,8 @@ impl ::core::fmt::Debug for D3D9ON12_ARGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D9ON12_ARGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D9ON12_ARGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D9ON12_ARGS {

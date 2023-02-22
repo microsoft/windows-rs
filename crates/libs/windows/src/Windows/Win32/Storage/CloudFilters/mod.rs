@@ -16,8 +16,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "cldapi.dll""system" fn CfConnectSyncRoot ( syncrootpath : :: windows::core::PCWSTR , callbacktable : *const CF_CALLBACK_REGISTRATION , callbackcontext : *const ::core::ffi::c_void , connectflags : CF_CONNECT_FLAGS , connectionkey : *mut CF_CONNECTION_KEY ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CfConnectSyncRoot(syncrootpath.into().abi(), callbacktable, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), connectflags, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<CF_CONNECTION_KEY>();
+    CfConnectSyncRoot(syncrootpath.into().abi(), callbacktable, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), connectflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -119,8 +119,8 @@ pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSyst
 #[inline]
 pub unsafe fn CfGetPlatformInfo() -> ::windows::core::Result<CF_PLATFORM_INFO> {
     ::windows::core::link ! ( "cldapi.dll""system" fn CfGetPlatformInfo ( platformversion : *mut CF_PLATFORM_INFO ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CfGetPlatformInfo(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<CF_PLATFORM_INFO>();
+    CfGetPlatformInfo(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -149,8 +149,8 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "cldapi.dll""system" fn CfGetTransferKey ( filehandle : super::super::Foundation:: HANDLE , transferkey : *mut i64 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CfGetTransferKey(filehandle.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<i64>();
+    CfGetTransferKey(filehandle.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -180,8 +180,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "cldapi.dll""system" fn CfOpenFileWithOplock ( filepath : :: windows::core::PCWSTR , flags : CF_OPEN_FILE_FLAGS , protectedhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CfOpenFileWithOplock(filepath.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    CfOpenFileWithOplock(filepath.into().abi(), flags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -190,8 +190,8 @@ where
     P0: ::std::convert::Into<CF_CONNECTION_KEY>,
 {
     ::windows::core::link ! ( "cldapi.dll""system" fn CfQuerySyncProviderStatus ( connectionkey : CF_CONNECTION_KEY , providerstatus : *mut CF_SYNC_PROVIDER_STATUS ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CfQuerySyncProviderStatus(connectionkey.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<CF_SYNC_PROVIDER_STATUS>();
+    CfQuerySyncProviderStatus(connectionkey.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -230,9 +230,9 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "cldapi.dll""system" fn CfReleaseTransferKey ( filehandle : super::super::Foundation:: HANDLE , transferkey : *mut i64 ) -> ( ) );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CfReleaseTransferKey(filehandle.into(), result__.as_mut_ptr());
-    result__.assume_init()
+    let mut result__ = ::windows::core::zeroed::<i64>();
+    CfReleaseTransferKey(filehandle.into(), &mut result__);
+    ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -371,8 +371,8 @@ impl ::core::default::Default for CF_CALLBACK_CANCEL_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_CANCEL_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_CANCEL_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_CANCEL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -431,8 +431,8 @@ impl ::core::default::Default for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -493,8 +493,8 @@ impl ::core::default::Default for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -553,8 +553,8 @@ impl ::core::default::Default for CF_CALLBACK_DEHYDRATE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_DEHYDRATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_DEHYDRATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -619,8 +619,8 @@ impl ::core::default::Default for CF_CALLBACK_DEHYDRATION_REASON {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATION_REASON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_DEHYDRATION_REASON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_DEHYDRATION_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -644,8 +644,8 @@ impl ::core::default::Default for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -706,8 +706,8 @@ impl ::core::default::Default for CF_CALLBACK_DELETE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_DELETE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_DELETE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_DELETE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -768,8 +768,8 @@ impl ::core::default::Default for CF_CALLBACK_FETCH_DATA_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_FETCH_DATA_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_FETCH_DATA_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_FETCH_DATA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -826,8 +826,8 @@ impl ::core::default::Default for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -888,8 +888,8 @@ impl ::core::default::Default for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -946,8 +946,8 @@ impl ::core::default::Default for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1010,8 +1010,8 @@ impl ::core::default::Default for CF_CALLBACK_RENAME_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_RENAME_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_RENAME_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_RENAME_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1094,8 +1094,8 @@ impl ::core::default::Default for CF_CALLBACK_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1121,8 +1121,8 @@ impl ::core::default::Default for CF_CALLBACK_VALIDATE_DATA_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_VALIDATE_DATA_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_VALIDATE_DATA_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1185,8 +1185,8 @@ impl ::core::default::Default for CF_CONNECT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CONNECT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CONNECT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CONNECT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1253,8 +1253,8 @@ impl ::core::default::Default for CF_CONVERT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CONVERT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CONVERT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CONVERT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1313,8 +1313,8 @@ impl ::core::default::Default for CF_CREATE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_CREATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CREATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_CREATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1373,8 +1373,8 @@ impl ::core::default::Default for CF_DEHYDRATE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_DEHYDRATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_DEHYDRATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_DEHYDRATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1433,8 +1433,8 @@ impl ::core::default::Default for CF_HARDLINK_POLICY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_HARDLINK_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_HARDLINK_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_HARDLINK_POLICY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1491,8 +1491,8 @@ impl ::core::default::Default for CF_HYDRATE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_HYDRATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_HYDRATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_HYDRATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1557,8 +1557,8 @@ impl ::core::default::Default for CF_HYDRATION_POLICY_MODIFIER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_MODIFIER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_HYDRATION_POLICY_MODIFIER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_HYDRATION_POLICY_MODIFIER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1621,8 +1621,8 @@ impl ::core::default::Default for CF_HYDRATION_POLICY_PRIMARY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_PRIMARY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_HYDRATION_POLICY_PRIMARY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_HYDRATION_POLICY_PRIMARY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1674,8 +1674,8 @@ impl ::core::default::Default for CF_INSYNC_POLICY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_INSYNC_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_INSYNC_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_INSYNC_POLICY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1734,8 +1734,8 @@ impl ::core::default::Default for CF_IN_SYNC_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_IN_SYNC_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_IN_SYNC_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_IN_SYNC_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1767,8 +1767,8 @@ impl ::core::default::Default for CF_OPEN_FILE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_OPEN_FILE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPEN_FILE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_OPEN_FILE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1825,8 +1825,8 @@ impl ::core::default::Default for CF_OPERATION_ACK_DATA_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DATA_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_ACK_DATA_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_OPERATION_ACK_DATA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1883,8 +1883,8 @@ impl ::core::default::Default for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1941,8 +1941,8 @@ impl ::core::default::Default for CF_OPERATION_ACK_DELETE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DELETE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_ACK_DELETE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_OPERATION_ACK_DELETE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1999,8 +1999,8 @@ impl ::core::default::Default for CF_OPERATION_ACK_RENAME_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_RENAME_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_ACK_RENAME_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_OPERATION_ACK_RENAME_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2059,8 +2059,8 @@ impl ::core::default::Default for CF_OPERATION_RESTART_HYDRATION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_OPERATION_RESTART_HYDRATION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_RESTART_HYDRATION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2117,8 +2117,8 @@ impl ::core::default::Default for CF_OPERATION_RETRIEVE_DATA_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_OPERATION_RETRIEVE_DATA_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_RETRIEVE_DATA_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2175,8 +2175,8 @@ impl ::core::default::Default for CF_OPERATION_TRANSFER_DATA_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_OPERATION_TRANSFER_DATA_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_TRANSFER_DATA_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_OPERATION_TRANSFER_DATA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2237,8 +2237,8 @@ impl ::core::default::Default for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2309,8 +2309,8 @@ impl ::core::default::Default for CF_OPERATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_OPERATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_OPERATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2342,8 +2342,8 @@ impl ::core::default::Default for CF_PIN_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_PIN_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_PIN_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_PIN_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2375,8 +2375,8 @@ impl ::core::default::Default for CF_PLACEHOLDER_CREATE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_CREATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_PLACEHOLDER_CREATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_PLACEHOLDER_CREATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2435,8 +2435,8 @@ impl ::core::default::Default for CF_PLACEHOLDER_INFO_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_INFO_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_PLACEHOLDER_INFO_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_PLACEHOLDER_INFO_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2466,8 +2466,8 @@ impl ::core::default::Default for CF_PLACEHOLDER_MANAGEMENT_POLICY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_MANAGEMENT_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_PLACEHOLDER_MANAGEMENT_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_PLACEHOLDER_MANAGEMENT_POLICY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2495,8 +2495,8 @@ impl ::core::default::Default for CF_PLACEHOLDER_RANGE_INFO_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_RANGE_INFO_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_PLACEHOLDER_RANGE_INFO_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_PLACEHOLDER_RANGE_INFO_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2534,8 +2534,8 @@ impl ::core::default::Default for CF_PLACEHOLDER_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_PLACEHOLDER_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_PLACEHOLDER_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2592,8 +2592,8 @@ impl ::core::default::Default for CF_POPULATION_POLICY_MODIFIER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_MODIFIER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_POPULATION_POLICY_MODIFIER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_POPULATION_POLICY_MODIFIER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2654,8 +2654,8 @@ impl ::core::default::Default for CF_POPULATION_POLICY_PRIMARY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_PRIMARY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_POPULATION_POLICY_PRIMARY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_POPULATION_POLICY_PRIMARY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2685,8 +2685,8 @@ impl ::core::default::Default for CF_REGISTER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_REGISTER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_REGISTER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_REGISTER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2743,8 +2743,8 @@ impl ::core::default::Default for CF_REVERT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_REVERT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_REVERT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_REVERT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2801,8 +2801,8 @@ impl ::core::default::Default for CF_SET_IN_SYNC_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_SET_IN_SYNC_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_SET_IN_SYNC_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_SET_IN_SYNC_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2865,8 +2865,8 @@ impl ::core::default::Default for CF_SET_PIN_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_SET_PIN_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_SET_PIN_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_SET_PIN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2943,8 +2943,8 @@ impl ::core::default::Default for CF_SYNC_PROVIDER_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_SYNC_PROVIDER_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_SYNC_PROVIDER_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_SYNC_PROVIDER_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3005,8 +3005,8 @@ impl ::core::default::Default for CF_SYNC_ROOT_INFO_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_INFO_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_SYNC_ROOT_INFO_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_SYNC_ROOT_INFO_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3052,8 +3052,8 @@ impl ::core::default::Default for CF_UPDATE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CF_UPDATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_UPDATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CF_UPDATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3152,8 +3152,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-unsafe impl ::windows::core::Abi for CF_CALLBACK_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::cmp::PartialEq for CF_CALLBACK_INFO {
@@ -3199,8 +3199,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CF_CALLBACK_PARAMETERS {
     fn default() -> Self {
@@ -3229,8 +3229,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0 {
     fn default() -> Self {
@@ -3249,8 +3249,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_0 {
     fn default() -> Self {
@@ -3268,8 +3268,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_0_0 {
     fn default() -> Self {
@@ -3293,8 +3293,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_0_0_0 {
         f.debug_struct("CF_CALLBACK_PARAMETERS_0_0_0_0").field("FileOffset", &self.FileOffset).field("Length", &self.Length).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_0_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3323,8 +3323,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_1 {
         f.debug_struct("CF_CALLBACK_PARAMETERS_0_1").field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -3354,8 +3354,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_2 {
         f.debug_struct("CF_CALLBACK_PARAMETERS_0_2").field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3385,8 +3385,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_3 {
         f.debug_struct("CF_CALLBACK_PARAMETERS_0_3").field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -3415,8 +3415,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_4 {
         f.debug_struct("CF_CALLBACK_PARAMETERS_0_4").field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_4 {
     fn eq(&self, other: &Self) -> bool {
@@ -3445,8 +3445,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_5 {
         f.debug_struct("CF_CALLBACK_PARAMETERS_0_5").field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_5 {
     fn eq(&self, other: &Self) -> bool {
@@ -3481,8 +3481,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_6 {
         f.debug_struct("CF_CALLBACK_PARAMETERS_0_6").field("Flags", &self.Flags).field("RequiredFileOffset", &self.RequiredFileOffset).field("RequiredLength", &self.RequiredLength).field("OptionalFileOffset", &self.OptionalFileOffset).field("OptionalLength", &self.OptionalLength).field("LastDehydrationTime", &self.LastDehydrationTime).field("LastDehydrationReason", &self.LastDehydrationReason).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_6 {
     fn eq(&self, other: &Self) -> bool {
@@ -3512,8 +3512,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_7 {
         f.debug_struct("CF_CALLBACK_PARAMETERS_0_7").field("Flags", &self.Flags).field("Pattern", &self.Pattern).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_7 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_7 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_7 {
     fn eq(&self, other: &Self) -> bool {
@@ -3542,8 +3542,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_8 {
         f.debug_struct("CF_CALLBACK_PARAMETERS_0_8").field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_8 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_8 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_8 {
     fn eq(&self, other: &Self) -> bool {
@@ -3573,8 +3573,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_9 {
         f.debug_struct("CF_CALLBACK_PARAMETERS_0_9").field("Flags", &self.Flags).field("SourcePath", &self.SourcePath).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_9 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_9 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_9 {
     fn eq(&self, other: &Self) -> bool {
@@ -3604,8 +3604,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_10 {
         f.debug_struct("CF_CALLBACK_PARAMETERS_0_10").field("Flags", &self.Flags).field("TargetPath", &self.TargetPath).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_10 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_10 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_10 {
     fn eq(&self, other: &Self) -> bool {
@@ -3636,8 +3636,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_11 {
         f.debug_struct("CF_CALLBACK_PARAMETERS_0_11").field("Flags", &self.Flags).field("RequiredFileOffset", &self.RequiredFileOffset).field("RequiredLength", &self.RequiredLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_11 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_PARAMETERS_0_11 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_11 {
     fn eq(&self, other: &Self) -> bool {
@@ -3672,8 +3672,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_REGISTRATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-unsafe impl ::windows::core::Abi for CF_CALLBACK_REGISTRATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CALLBACK_REGISTRATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::default::Default for CF_CALLBACK_REGISTRATION {
@@ -3710,8 +3710,8 @@ impl ::core::convert::From<::core::option::Option<CF_CONNECTION_KEY>> for CF_CON
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for CF_CONNECTION_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_CONNECTION_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3730,8 +3730,8 @@ impl ::core::fmt::Debug for CF_FILE_RANGE {
         f.debug_struct("CF_FILE_RANGE").field("StartingOffset", &self.StartingOffset).field("Length", &self.Length).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_FILE_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_FILE_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_FILE_RANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -3766,8 +3766,8 @@ impl ::core::fmt::Debug for CF_FS_METADATA {
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::core::Abi for CF_FS_METADATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_FS_METADATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::PartialEq for CF_FS_METADATA {
@@ -3800,8 +3800,8 @@ impl ::core::fmt::Debug for CF_HYDRATION_POLICY {
         f.debug_struct("CF_HYDRATION_POLICY").field("Primary", &self.Primary).field("Modifier", &self.Modifier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_HYDRATION_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -3830,8 +3830,8 @@ impl ::core::fmt::Debug for CF_HYDRATION_POLICY_MODIFIER_USHORT {
         f.debug_struct("CF_HYDRATION_POLICY_MODIFIER_USHORT").field("us", &self.us).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_MODIFIER_USHORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_HYDRATION_POLICY_MODIFIER_USHORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY_MODIFIER_USHORT {
     fn eq(&self, other: &Self) -> bool {
@@ -3860,8 +3860,8 @@ impl ::core::fmt::Debug for CF_HYDRATION_POLICY_PRIMARY_USHORT {
         f.debug_struct("CF_HYDRATION_POLICY_PRIMARY_USHORT").field("us", &self.us).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_PRIMARY_USHORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_HYDRATION_POLICY_PRIMARY_USHORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     fn eq(&self, other: &Self) -> bool {
@@ -3901,8 +3901,8 @@ impl ::core::fmt::Debug for CF_OPERATION_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-unsafe impl ::windows::core::Abi for CF_OPERATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_INFO {
@@ -3934,8 +3934,8 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::default::Default for CF_OPERATION_PARAMETERS {
@@ -3965,8 +3965,8 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::default::Default for CF_OPERATION_PARAMETERS_0 {
@@ -3998,8 +3998,8 @@ impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_0 {
@@ -4039,8 +4039,8 @@ impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_PARAMETERS_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_1 {
@@ -4078,8 +4078,8 @@ impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_PARAMETERS_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_2 {
@@ -4117,8 +4117,8 @@ impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_PARAMETERS_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_3 {
@@ -4158,8 +4158,8 @@ impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_4 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_PARAMETERS_0_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_4 {
@@ -4200,8 +4200,8 @@ impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_5 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_PARAMETERS_0_5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_5 {
@@ -4242,8 +4242,8 @@ impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_6 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_PARAMETERS_0_6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_6 {
@@ -4285,8 +4285,8 @@ impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_7 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_7 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_OPERATION_PARAMETERS_0_7 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_7 {
@@ -4323,8 +4323,8 @@ impl ::core::fmt::Debug for CF_PLACEHOLDER_BASIC_INFO {
         f.debug_struct("CF_PLACEHOLDER_BASIC_INFO").field("PinState", &self.PinState).field("InSyncState", &self.InSyncState).field("FileId", &self.FileId).field("SyncRootFileId", &self.SyncRootFileId).field("FileIdentityLength", &self.FileIdentityLength).field("FileIdentity", &self.FileIdentity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_BASIC_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_PLACEHOLDER_BASIC_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_PLACEHOLDER_BASIC_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4364,8 +4364,8 @@ impl ::core::fmt::Debug for CF_PLACEHOLDER_CREATE_INFO {
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_CREATE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_PLACEHOLDER_CREATE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::PartialEq for CF_PLACEHOLDER_CREATE_INFO {
@@ -4417,8 +4417,8 @@ impl ::core::fmt::Debug for CF_PLACEHOLDER_STANDARD_INFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_STANDARD_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_PLACEHOLDER_STANDARD_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_PLACEHOLDER_STANDARD_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4449,8 +4449,8 @@ impl ::core::fmt::Debug for CF_PLATFORM_INFO {
         f.debug_struct("CF_PLATFORM_INFO").field("BuildNumber", &self.BuildNumber).field("RevisionNumber", &self.RevisionNumber).field("IntegrationNumber", &self.IntegrationNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_PLATFORM_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_PLATFORM_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_PLATFORM_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4480,8 +4480,8 @@ impl ::core::fmt::Debug for CF_POPULATION_POLICY {
         f.debug_struct("CF_POPULATION_POLICY").field("Primary", &self.Primary).field("Modifier", &self.Modifier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_POPULATION_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_POPULATION_POLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -4510,8 +4510,8 @@ impl ::core::fmt::Debug for CF_POPULATION_POLICY_MODIFIER_USHORT {
         f.debug_struct("CF_POPULATION_POLICY_MODIFIER_USHORT").field("us", &self.us).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_MODIFIER_USHORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_POPULATION_POLICY_MODIFIER_USHORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_POPULATION_POLICY_MODIFIER_USHORT {
     fn eq(&self, other: &Self) -> bool {
@@ -4540,8 +4540,8 @@ impl ::core::fmt::Debug for CF_POPULATION_POLICY_PRIMARY_USHORT {
         f.debug_struct("CF_POPULATION_POLICY_PRIMARY_USHORT").field("us", &self.us).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_PRIMARY_USHORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_POPULATION_POLICY_PRIMARY_USHORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_POPULATION_POLICY_PRIMARY_USHORT {
     fn eq(&self, other: &Self) -> bool {
@@ -4576,8 +4576,8 @@ impl ::core::fmt::Debug for CF_PROCESS_INFO {
         f.debug_struct("CF_PROCESS_INFO").field("StructSize", &self.StructSize).field("ProcessId", &self.ProcessId).field("ImagePath", &self.ImagePath).field("PackageName", &self.PackageName).field("ApplicationId", &self.ApplicationId).field("CommandLine", &self.CommandLine).field("SessionId", &self.SessionId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_PROCESS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_PROCESS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_PROCESS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4611,8 +4611,8 @@ impl ::core::fmt::Debug for CF_SYNC_POLICIES {
         f.debug_struct("CF_SYNC_POLICIES").field("StructSize", &self.StructSize).field("Hydration", &self.Hydration).field("Population", &self.Population).field("InSync", &self.InSync).field("HardLink", &self.HardLink).field("PlaceholderManagement", &self.PlaceholderManagement).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_SYNC_POLICIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_SYNC_POLICIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_SYNC_POLICIES {
     fn eq(&self, other: &Self) -> bool {
@@ -4648,8 +4648,8 @@ impl ::core::fmt::Debug for CF_SYNC_REGISTRATION {
         f.debug_struct("CF_SYNC_REGISTRATION").field("StructSize", &self.StructSize).field("ProviderName", &self.ProviderName).field("ProviderVersion", &self.ProviderVersion).field("SyncRootIdentity", &self.SyncRootIdentity).field("SyncRootIdentityLength", &self.SyncRootIdentityLength).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).field("ProviderId", &self.ProviderId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_SYNC_REGISTRATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_SYNC_REGISTRATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_SYNC_REGISTRATION {
     fn eq(&self, other: &Self) -> bool {
@@ -4678,8 +4678,8 @@ impl ::core::fmt::Debug for CF_SYNC_ROOT_BASIC_INFO {
         f.debug_struct("CF_SYNC_ROOT_BASIC_INFO").field("SyncRootFileId", &self.SyncRootFileId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_BASIC_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_SYNC_ROOT_BASIC_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_SYNC_ROOT_BASIC_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4710,8 +4710,8 @@ impl ::core::fmt::Debug for CF_SYNC_ROOT_PROVIDER_INFO {
         f.debug_struct("CF_SYNC_ROOT_PROVIDER_INFO").field("ProviderStatus", &self.ProviderStatus).field("ProviderName", &self.ProviderName).field("ProviderVersion", &self.ProviderVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_PROVIDER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_SYNC_ROOT_PROVIDER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_SYNC_ROOT_PROVIDER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4760,8 +4760,8 @@ impl ::core::fmt::Debug for CF_SYNC_ROOT_STANDARD_INFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_STANDARD_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_SYNC_ROOT_STANDARD_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_SYNC_ROOT_STANDARD_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4795,8 +4795,8 @@ impl ::core::fmt::Debug for CF_SYNC_STATUS {
         f.debug_struct("CF_SYNC_STATUS").field("StructSize", &self.StructSize).field("Code", &self.Code).field("DescriptionOffset", &self.DescriptionOffset).field("DescriptionLength", &self.DescriptionLength).field("DeviceIdOffset", &self.DeviceIdOffset).field("DeviceIdLength", &self.DeviceIdLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CF_SYNC_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CF_SYNC_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CF_SYNC_STATUS {
     fn eq(&self, other: &Self) -> bool {

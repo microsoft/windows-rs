@@ -51,11 +51,6 @@ impl IITDatabase {
     }
 }
 ::windows::core::interface_hierarchy!(IITDatabase, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IITDatabase {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IITDatabase {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -69,6 +64,11 @@ impl ::core::fmt::Debug for IITDatabase {
 }
 unsafe impl ::windows::core::Vtable for IITDatabase {
     type Vtable = IITDatabase_Vtbl;
+}
+impl ::core::clone::Clone for IITDatabase {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IITDatabase {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a2_dedf_11d0_9a61_00c04fb68bf7);
@@ -95,8 +95,8 @@ impl IITPropList {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetClassID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetClassID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -123,8 +123,8 @@ impl IITPropList {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSizeMax(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSizeMax)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).base__.GetSizeMax)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -215,12 +215,6 @@ impl IITPropList {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IITPropList, ::windows::core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistStreamInit);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IITPropList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IITPropList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -237,6 +231,12 @@ impl ::core::fmt::Debug for IITPropList {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IITPropList {
     type Vtable = IITPropList_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IITPropList {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IITPropList {
@@ -402,11 +402,6 @@ impl IITResultSet {
     }
 }
 ::windows::core::interface_hierarchy!(IITResultSet, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IITResultSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IITResultSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -420,6 +415,11 @@ impl ::core::fmt::Debug for IITResultSet {
 }
 unsafe impl ::windows::core::Vtable for IITResultSet {
     type Vtable = IITResultSet_Vtbl;
+}
+impl ::core::clone::Clone for IITResultSet {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IITResultSet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bb91d41_998b_11d0_a850_00aa006c7d01);
@@ -528,11 +528,6 @@ impl IITWordWheel {
     }
 }
 ::windows::core::interface_hierarchy!(IITWordWheel, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IITWordWheel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IITWordWheel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -546,6 +541,11 @@ impl ::core::fmt::Debug for IITWordWheel {
 }
 unsafe impl ::windows::core::Vtable for IITWordWheel {
     type Vtable = IITWordWheel_Vtbl;
+}
+impl ::core::clone::Clone for IITWordWheel {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IITWordWheel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a4_dedf_11d0_9a61_00c04fb68bf7);
@@ -589,11 +589,6 @@ impl IStemSink {
     }
 }
 ::windows::core::interface_hierarchy!(IStemSink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IStemSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IStemSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -607,6 +602,11 @@ impl ::core::fmt::Debug for IStemSink {
 }
 unsafe impl ::windows::core::Vtable for IStemSink {
     type Vtable = IStemSink_Vtbl;
+}
+impl ::core::clone::Clone for IStemSink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStemSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe77c330_7f42_11ce_be57_00aa0051fe20);
@@ -644,11 +644,6 @@ impl IStemmerConfig {
     }
 }
 ::windows::core::interface_hierarchy!(IStemmerConfig, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IStemmerConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IStemmerConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -662,6 +657,11 @@ impl ::core::fmt::Debug for IStemmerConfig {
 }
 unsafe impl ::windows::core::Vtable for IStemmerConfig {
     type Vtable = IStemmerConfig_Vtbl;
+}
+impl ::core::clone::Clone for IStemmerConfig {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStemmerConfig {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a7_dedf_11d0_9a61_00c04fb68bf7);
@@ -720,16 +720,11 @@ impl IWordBreakerConfig {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     #[cfg(feature = "Win32_System_Search")]
     pub unsafe fn GetWordStemmer(&self) -> ::windows::core::Result<super::super::System::Search::IStemmer> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWordStemmer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Search::IStemmer>();
+        (::windows::core::Vtable::vtable(self).GetWordStemmer)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWordBreakerConfig, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWordBreakerConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWordBreakerConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -743,6 +738,11 @@ impl ::core::fmt::Debug for IWordBreakerConfig {
 }
 unsafe impl ::windows::core::Vtable for IWordBreakerConfig {
     type Vtable = IWordBreakerConfig_Vtbl;
+}
+impl ::core::clone::Clone for IWordBreakerConfig {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWordBreakerConfig {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a6_dedf_11d0_9a61_00c04fb68bf7);
@@ -1273,8 +1273,8 @@ impl ::core::default::Default for HH_GPROPID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HH_GPROPID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HH_GPROPID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HH_GPROPID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1368,8 +1368,8 @@ impl ::core::default::Default for HTML_HELP_COMMAND {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTML_HELP_COMMAND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTML_HELP_COMMAND {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTML_HELP_COMMAND {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1397,8 +1397,8 @@ impl ::core::default::Default for PRIORITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRIORITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRIORITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRIORITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1422,8 +1422,8 @@ impl ::core::default::Default for WORD_WHEEL_OPEN_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WORD_WHEEL_OPEN_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WORD_WHEEL_OPEN_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WORD_WHEEL_OPEN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1480,8 +1480,8 @@ impl ::core::fmt::Debug for COLUMNSTATUS {
         f.debug_struct("COLUMNSTATUS").field("cPropCount", &self.cPropCount).field("cPropsLoaded", &self.cPropsLoaded).finish()
     }
 }
-unsafe impl ::windows::core::Abi for COLUMNSTATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COLUMNSTATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for COLUMNSTATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -1513,8 +1513,8 @@ impl ::core::clone::Clone for CProperty {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CProperty {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CProperty {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CProperty {
@@ -1539,8 +1539,8 @@ impl ::core::clone::Clone for CProperty_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CProperty_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CProperty_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CProperty_0 {
@@ -1572,8 +1572,8 @@ impl ::core::fmt::Debug for HHNTRACK {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-unsafe impl ::windows::core::Abi for HHNTRACK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HHNTRACK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::cmp::PartialEq for HHNTRACK {
@@ -1611,8 +1611,8 @@ impl ::core::fmt::Debug for HHN_NOTIFY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-unsafe impl ::windows::core::Abi for HHN_NOTIFY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HHN_NOTIFY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::cmp::PartialEq for HHN_NOTIFY {
@@ -1656,8 +1656,8 @@ impl ::core::fmt::Debug for HH_AKLINK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HH_AKLINK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HH_AKLINK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HH_AKLINK {
@@ -1691,8 +1691,8 @@ impl ::core::fmt::Debug for HH_ENUM_CAT {
         f.debug_struct("HH_ENUM_CAT").field("cbStruct", &self.cbStruct).field("pszCatName", &self.pszCatName).field("pszCatDescription", &self.pszCatDescription).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HH_ENUM_CAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HH_ENUM_CAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HH_ENUM_CAT {
     fn eq(&self, other: &Self) -> bool {
@@ -1725,8 +1725,8 @@ impl ::core::fmt::Debug for HH_ENUM_IT {
         f.debug_struct("HH_ENUM_IT").field("cbStruct", &self.cbStruct).field("iType", &self.iType).field("pszCatName", &self.pszCatName).field("pszITName", &self.pszITName).field("pszITDescription", &self.pszITDescription).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HH_ENUM_IT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HH_ENUM_IT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HH_ENUM_IT {
     fn eq(&self, other: &Self) -> bool {
@@ -1767,8 +1767,8 @@ impl ::core::fmt::Debug for HH_FTS_QUERY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HH_FTS_QUERY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HH_FTS_QUERY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HH_FTS_QUERY {
@@ -1798,8 +1798,8 @@ impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for HH_GLOBAL_PROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HH_GLOBAL_PROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for HH_GLOBAL_PROPERTY {
@@ -1836,8 +1836,8 @@ impl ::core::fmt::Debug for HH_POPUP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HH_POPUP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HH_POPUP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HH_POPUP {
@@ -1871,8 +1871,8 @@ impl ::core::fmt::Debug for HH_SET_INFOTYPE {
         f.debug_struct("HH_SET_INFOTYPE").field("cbStruct", &self.cbStruct).field("pszCatName", &self.pszCatName).field("pszInfoTypeName", &self.pszInfoTypeName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HH_SET_INFOTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HH_SET_INFOTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HH_SET_INFOTYPE {
     fn eq(&self, other: &Self) -> bool {
@@ -1978,8 +1978,8 @@ impl ::core::fmt::Debug for HH_WINTYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HH_WINTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HH_WINTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HH_WINTYPE {
@@ -2055,8 +2055,8 @@ impl ::core::fmt::Debug for ROWSTATUS {
         f.debug_struct("ROWSTATUS").field("lRowFirst", &self.lRowFirst).field("cRows", &self.cRows).field("cProperties", &self.cProperties).field("cRowsTotal", &self.cRowsTotal).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ROWSTATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ROWSTATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ROWSTATUS {
     fn eq(&self, other: &Self) -> bool {

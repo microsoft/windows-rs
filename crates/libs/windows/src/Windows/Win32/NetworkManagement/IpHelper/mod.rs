@@ -2317,8 +2317,8 @@ impl ::core::default::Default for DNS_SERVER_PROPERTY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SERVER_PROPERTY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SERVER_PROPERTY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DNS_SERVER_PROPERTY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2362,8 +2362,8 @@ impl ::core::default::Default for GET_ADAPTERS_ADDRESSES_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_ADAPTERS_ADDRESSES_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_ADAPTERS_ADDRESSES_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_ADAPTERS_ADDRESSES_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2424,8 +2424,8 @@ impl ::core::default::Default for GLOBAL_FILTER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GLOBAL_FILTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GLOBAL_FILTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GLOBAL_FILTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2473,8 +2473,8 @@ impl ::core::default::Default for ICMP4_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ICMP4_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICMP4_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ICMP4_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2526,8 +2526,8 @@ impl ::core::default::Default for ICMP6_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ICMP6_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICMP6_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ICMP6_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2561,8 +2561,8 @@ impl ::core::default::Default for IF_ACCESS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IF_ACCESS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IF_ACCESS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IF_ACCESS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2596,8 +2596,8 @@ impl ::core::default::Default for INTERNAL_IF_OPER_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for INTERNAL_IF_OPER_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERNAL_IF_OPER_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for INTERNAL_IF_OPER_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2623,8 +2623,8 @@ impl ::core::default::Default for MIB_IF_ENTRY_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IF_ENTRY_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IF_ENTRY_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MIB_IF_ENTRY_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2652,8 +2652,8 @@ impl ::core::default::Default for MIB_IF_TABLE_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IF_TABLE_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IF_TABLE_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MIB_IF_TABLE_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2683,8 +2683,8 @@ impl ::core::default::Default for MIB_IPFORWARD_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPFORWARD_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPFORWARD_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MIB_IPFORWARD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2714,8 +2714,8 @@ impl ::core::default::Default for MIB_IPNET_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPNET_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPNET_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MIB_IPNET_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2741,8 +2741,8 @@ impl ::core::default::Default for MIB_IPSTATS_FORWARDING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPSTATS_FORWARDING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPSTATS_FORWARDING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MIB_IPSTATS_FORWARDING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2772,8 +2772,8 @@ impl ::core::default::Default for MIB_NOTIFICATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MIB_NOTIFICATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_NOTIFICATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MIB_NOTIFICATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2821,8 +2821,8 @@ impl ::core::default::Default for MIB_TCP_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCP_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCP_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MIB_TCP_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2852,8 +2852,8 @@ impl ::core::default::Default for NET_ADDRESS_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_ADDRESS_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_ADDRESS_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_ADDRESS_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2879,8 +2879,8 @@ impl ::core::default::Default for PFADDRESSTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PFADDRESSTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PFADDRESSTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PFADDRESSTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2906,8 +2906,8 @@ impl ::core::default::Default for PFFORWARD_ACTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PFFORWARD_ACTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PFFORWARD_ACTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PFFORWARD_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2935,8 +2935,8 @@ impl ::core::default::Default for PFFRAMETYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PFFRAMETYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PFFRAMETYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PFFRAMETYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2960,8 +2960,8 @@ impl ::core::default::Default for TCPIP_OWNER_MODULE_INFO_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TCPIP_OWNER_MODULE_INFO_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCPIP_OWNER_MODULE_INFO_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TCPIP_OWNER_MODULE_INFO_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2989,8 +2989,8 @@ impl ::core::default::Default for TCP_BOOLEAN_OPTIONAL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TCP_BOOLEAN_OPTIONAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_BOOLEAN_OPTIONAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TCP_BOOLEAN_OPTIONAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3022,8 +3022,8 @@ impl ::core::default::Default for TCP_CONNECTION_OFFLOAD_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TCP_CONNECTION_OFFLOAD_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_CONNECTION_OFFLOAD_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TCP_CONNECTION_OFFLOAD_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3065,8 +3065,8 @@ impl ::core::default::Default for TCP_ESTATS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TCP_ESTATS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TCP_ESTATS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3104,8 +3104,8 @@ impl ::core::default::Default for TCP_RTO_ALGORITHM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TCP_RTO_ALGORITHM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_RTO_ALGORITHM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TCP_RTO_ALGORITHM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3147,8 +3147,8 @@ impl ::core::default::Default for TCP_SOFT_ERROR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TCP_SOFT_ERROR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_SOFT_ERROR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TCP_SOFT_ERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3188,8 +3188,8 @@ impl ::core::default::Default for TCP_TABLE_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TCP_TABLE_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_TABLE_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TCP_TABLE_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3217,8 +3217,8 @@ impl ::core::default::Default for UDP_TABLE_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UDP_TABLE_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UDP_TABLE_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UDP_TABLE_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3242,8 +3242,8 @@ impl ::core::fmt::Debug for ARP_SEND_REPLY {
         f.debug_struct("ARP_SEND_REPLY").field("DestAddress", &self.DestAddress).field("SrcAddress", &self.SrcAddress).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ARP_SEND_REPLY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ARP_SEND_REPLY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ARP_SEND_REPLY {
     fn eq(&self, other: &Self) -> bool {
@@ -3273,8 +3273,8 @@ impl ::core::fmt::Debug for DNS_DOH_SERVER_SETTINGS {
         f.debug_struct("DNS_DOH_SERVER_SETTINGS").field("Template", &self.Template).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_DOH_SERVER_SETTINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_DOH_SERVER_SETTINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_DOH_SERVER_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
@@ -3312,8 +3312,8 @@ impl ::core::fmt::Debug for DNS_INTERFACE_SETTINGS {
         f.debug_struct("DNS_INTERFACE_SETTINGS").field("Version", &self.Version).field("Flags", &self.Flags).field("Domain", &self.Domain).field("NameServer", &self.NameServer).field("SearchList", &self.SearchList).field("RegistrationEnabled", &self.RegistrationEnabled).field("RegisterAdapterName", &self.RegisterAdapterName).field("EnableLLMNR", &self.EnableLLMNR).field("QueryAdapterName", &self.QueryAdapterName).field("ProfileNameServer", &self.ProfileNameServer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_INTERFACE_SETTINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_INTERFACE_SETTINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_INTERFACE_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
@@ -3374,8 +3374,8 @@ impl ::core::fmt::Debug for DNS_INTERFACE_SETTINGS3 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_INTERFACE_SETTINGS3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_INTERFACE_SETTINGS3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_INTERFACE_SETTINGS3 {
     fn eq(&self, other: &Self) -> bool {
@@ -3421,8 +3421,8 @@ impl ::core::fmt::Debug for DNS_INTERFACE_SETTINGS_EX {
         f.debug_struct("DNS_INTERFACE_SETTINGS_EX").field("SettingsV1", &self.SettingsV1).field("DisableUnconstrainedQueries", &self.DisableUnconstrainedQueries).field("SupplementalSearchList", &self.SupplementalSearchList).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_INTERFACE_SETTINGS_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_INTERFACE_SETTINGS_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_INTERFACE_SETTINGS_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -3449,8 +3449,8 @@ impl ::core::clone::Clone for DNS_SERVER_PROPERTY {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SERVER_PROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SERVER_PROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DNS_SERVER_PROPERTY {
     fn default() -> Self {
@@ -3468,8 +3468,8 @@ impl ::core::clone::Clone for DNS_SERVER_PROPERTY_TYPES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SERVER_PROPERTY_TYPES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SERVER_PROPERTY_TYPES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DNS_SERVER_PROPERTY_TYPES {
     fn default() -> Self {
@@ -3496,8 +3496,8 @@ impl ::core::fmt::Debug for DNS_SETTINGS {
         f.debug_struct("DNS_SETTINGS").field("Version", &self.Version).field("Flags", &self.Flags).field("Hostname", &self.Hostname).field("Domain", &self.Domain).field("SearchList", &self.SearchList).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SETTINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SETTINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
@@ -3531,8 +3531,8 @@ impl ::core::fmt::Debug for DNS_SETTINGS2 {
         f.debug_struct("DNS_SETTINGS2").field("Version", &self.Version).field("Flags", &self.Flags).field("Hostname", &self.Hostname).field("Domain", &self.Domain).field("SearchList", &self.SearchList).field("SettingFlags", &self.SettingFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DNS_SETTINGS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DNS_SETTINGS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DNS_SETTINGS2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3574,8 +3574,8 @@ impl ::core::fmt::Debug for FIXED_INFO_W2KSP1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FIXED_INFO_W2KSP1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FIXED_INFO_W2KSP1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FIXED_INFO_W2KSP1 {
@@ -3620,8 +3620,8 @@ impl ::core::convert::From<::core::option::Option<HIFTIMESTAMPCHANGE>> for HIFTI
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HIFTIMESTAMPCHANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HIFTIMESTAMPCHANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -3636,8 +3636,8 @@ impl ::core::clone::Clone for ICMPV6_ECHO_REPLY_LH {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for ICMPV6_ECHO_REPLY_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICMPV6_ECHO_REPLY_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for ICMPV6_ECHO_REPLY_LH {
     fn default() -> Self {
@@ -3666,8 +3666,8 @@ impl ::core::fmt::Debug for ICMP_ECHO_REPLY {
         f.debug_struct("ICMP_ECHO_REPLY").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).field("DataSize", &self.DataSize).field("Reserved", &self.Reserved).field("Data", &self.Data).field("Options", &self.Options).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ICMP_ECHO_REPLY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICMP_ECHO_REPLY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ICMP_ECHO_REPLY {
     fn eq(&self, other: &Self) -> bool {
@@ -3707,8 +3707,8 @@ impl ::core::fmt::Debug for ICMP_ECHO_REPLY32 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for ICMP_ECHO_REPLY32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICMP_ECHO_REPLY32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for ICMP_ECHO_REPLY32 {
@@ -3742,8 +3742,8 @@ impl ::core::fmt::Debug for INTERFACE_HARDWARE_CROSSTIMESTAMP {
         f.debug_struct("INTERFACE_HARDWARE_CROSSTIMESTAMP").field("SystemTimestamp1", &self.SystemTimestamp1).field("HardwareClockTimestamp", &self.HardwareClockTimestamp).field("SystemTimestamp2", &self.SystemTimestamp2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INTERFACE_HARDWARE_CROSSTIMESTAMP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERFACE_HARDWARE_CROSSTIMESTAMP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INTERFACE_HARDWARE_CROSSTIMESTAMP {
     fn eq(&self, other: &Self) -> bool {
@@ -3799,8 +3799,8 @@ impl ::core::fmt::Debug for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
@@ -3849,8 +3849,8 @@ impl ::core::fmt::Debug for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
@@ -3890,8 +3890,8 @@ impl ::core::fmt::Debug for INTERFACE_TIMESTAMP_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for INTERFACE_TIMESTAMP_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERFACE_TIMESTAMP_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERFACE_TIMESTAMP_CAPABILITIES {
@@ -3921,8 +3921,8 @@ impl ::core::clone::Clone for IPV6_ADDRESS_EX {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPV6_ADDRESS_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPV6_ADDRESS_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPV6_ADDRESS_EX {
     fn default() -> Self {
@@ -3979,8 +3979,8 @@ impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_ADDRESSES_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_ADDRESSES_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_ADDRESSES_LH {
@@ -4004,8 +4004,8 @@ impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_ADDRESSES_LH_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_ADDRESSES_LH_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_ADDRESSES_LH_0 {
@@ -4035,8 +4035,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_ADDRESSES_LH_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_ADDRESSES_LH_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_ADDRESSES_LH_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for IP_ADAPTER_ADDRESSES_LH_0_0 {
@@ -4068,8 +4068,8 @@ impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_ADDRESSES_LH_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_ADDRESSES_LH_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_ADDRESSES_LH_1 {
@@ -4098,8 +4098,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_ADDRESSES_LH_1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_ADDRESSES_LH_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_ADDRESSES_LH_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for IP_ADAPTER_ADDRESSES_LH_1_0 {
@@ -4148,8 +4148,8 @@ impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_XP {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_ADDRESSES_XP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_ADDRESSES_XP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_ADDRESSES_XP {
@@ -4173,8 +4173,8 @@ impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_XP_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_ADDRESSES_XP_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_ADDRESSES_XP_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_ADDRESSES_XP_0 {
@@ -4204,8 +4204,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_ADDRESSES_XP_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_ADDRESSES_XP_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_ADDRESSES_XP_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for IP_ADAPTER_ADDRESSES_XP_0_0 {
@@ -4238,8 +4238,8 @@ impl ::core::clone::Clone for IP_ADAPTER_ANYCAST_ADDRESS_XP {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_ANYCAST_ADDRESS_XP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_ANYCAST_ADDRESS_XP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_ANYCAST_ADDRESS_XP {
@@ -4263,8 +4263,8 @@ impl ::core::clone::Clone for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
@@ -4294,8 +4294,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
@@ -4328,8 +4328,8 @@ impl ::core::clone::Clone for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
@@ -4353,8 +4353,8 @@ impl ::core::clone::Clone for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
@@ -4384,8 +4384,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
@@ -4418,8 +4418,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_DNS_SUFFIX {
         f.debug_struct("IP_ADAPTER_DNS_SUFFIX").field("Next", &self.Next).field("String", &self.String).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IP_ADAPTER_DNS_SUFFIX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_DNS_SUFFIX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP_ADAPTER_DNS_SUFFIX {
     fn eq(&self, other: &Self) -> bool {
@@ -4449,8 +4449,8 @@ impl ::core::clone::Clone for IP_ADAPTER_GATEWAY_ADDRESS_LH {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_GATEWAY_ADDRESS_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_GATEWAY_ADDRESS_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_GATEWAY_ADDRESS_LH {
@@ -4474,8 +4474,8 @@ impl ::core::clone::Clone for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
@@ -4505,8 +4505,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
@@ -4539,8 +4539,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_INDEX_MAP {
         f.debug_struct("IP_ADAPTER_INDEX_MAP").field("Index", &self.Index).field("Name", &self.Name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IP_ADAPTER_INDEX_MAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_INDEX_MAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP_ADAPTER_INDEX_MAP {
     fn eq(&self, other: &Self) -> bool {
@@ -4610,8 +4610,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IP_ADAPTER_INFO {
@@ -4644,8 +4644,8 @@ impl ::core::clone::Clone for IP_ADAPTER_MULTICAST_ADDRESS_XP {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_MULTICAST_ADDRESS_XP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_MULTICAST_ADDRESS_XP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_MULTICAST_ADDRESS_XP {
@@ -4669,8 +4669,8 @@ impl ::core::clone::Clone for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
@@ -4700,8 +4700,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
@@ -4734,8 +4734,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_ORDER_MAP {
         f.debug_struct("IP_ADAPTER_ORDER_MAP").field("NumAdapters", &self.NumAdapters).field("AdapterOrder", &self.AdapterOrder).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IP_ADAPTER_ORDER_MAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_ORDER_MAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP_ADAPTER_ORDER_MAP {
     fn eq(&self, other: &Self) -> bool {
@@ -4766,8 +4766,8 @@ impl ::core::clone::Clone for IP_ADAPTER_PREFIX_XP {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_PREFIX_XP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_PREFIX_XP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_PREFIX_XP {
@@ -4791,8 +4791,8 @@ impl ::core::clone::Clone for IP_ADAPTER_PREFIX_XP_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_PREFIX_XP_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_PREFIX_XP_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_PREFIX_XP_0 {
@@ -4822,8 +4822,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_PREFIX_XP_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_PREFIX_XP_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_PREFIX_XP_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for IP_ADAPTER_PREFIX_XP_0_0 {
@@ -4863,8 +4863,8 @@ impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_LH {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_UNICAST_ADDRESS_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_UNICAST_ADDRESS_LH {
@@ -4888,8 +4888,8 @@ impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
@@ -4919,8 +4919,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
@@ -4959,8 +4959,8 @@ impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_XP {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_UNICAST_ADDRESS_XP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_XP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_UNICAST_ADDRESS_XP {
@@ -4984,8 +4984,8 @@ impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
@@ -5015,8 +5015,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
@@ -5049,8 +5049,8 @@ impl ::core::clone::Clone for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
@@ -5074,8 +5074,8 @@ impl ::core::clone::Clone for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
@@ -5105,8 +5105,8 @@ impl ::core::fmt::Debug for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
@@ -5138,8 +5138,8 @@ impl ::core::clone::Clone for IP_ADDRESS_PREFIX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for IP_ADDRESS_PREFIX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADDRESS_PREFIX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for IP_ADDRESS_PREFIX {
@@ -5168,8 +5168,8 @@ impl ::core::fmt::Debug for IP_ADDRESS_STRING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IP_ADDRESS_STRING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADDRESS_STRING {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IP_ADDRESS_STRING {
@@ -5209,8 +5209,8 @@ impl ::core::fmt::Debug for IP_ADDR_STRING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IP_ADDR_STRING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_ADDR_STRING {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IP_ADDR_STRING {
@@ -5243,8 +5243,8 @@ impl ::core::fmt::Debug for IP_INTERFACE_INFO {
         f.debug_struct("IP_INTERFACE_INFO").field("NumAdapters", &self.NumAdapters).field("Adapter", &self.Adapter).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IP_INTERFACE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_INTERFACE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP_INTERFACE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5278,8 +5278,8 @@ impl ::core::fmt::Debug for IP_INTERFACE_NAME_INFO_W2KSP1 {
         f.debug_struct("IP_INTERFACE_NAME_INFO_W2KSP1").field("Index", &self.Index).field("MediaType", &self.MediaType).field("ConnectionType", &self.ConnectionType).field("AccessType", &self.AccessType).field("DeviceGuid", &self.DeviceGuid).field("InterfaceGuid", &self.InterfaceGuid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IP_INTERFACE_NAME_INFO_W2KSP1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_INTERFACE_NAME_INFO_W2KSP1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP_INTERFACE_NAME_INFO_W2KSP1 {
     fn eq(&self, other: &Self) -> bool {
@@ -5311,8 +5311,8 @@ impl ::core::fmt::Debug for IP_MCAST_COUNTER_INFO {
         f.debug_struct("IP_MCAST_COUNTER_INFO").field("InMcastOctets", &self.InMcastOctets).field("OutMcastOctets", &self.OutMcastOctets).field("InMcastPkts", &self.InMcastPkts).field("OutMcastPkts", &self.OutMcastPkts).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IP_MCAST_COUNTER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_MCAST_COUNTER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP_MCAST_COUNTER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5345,8 +5345,8 @@ impl ::core::fmt::Debug for IP_OPTION_INFORMATION {
         f.debug_struct("IP_OPTION_INFORMATION").field("Ttl", &self.Ttl).field("Tos", &self.Tos).field("Flags", &self.Flags).field("OptionsSize", &self.OptionsSize).field("OptionsData", &self.OptionsData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IP_OPTION_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_OPTION_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP_OPTION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -5384,8 +5384,8 @@ impl ::core::fmt::Debug for IP_OPTION_INFORMATION32 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for IP_OPTION_INFORMATION32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_OPTION_INFORMATION32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for IP_OPTION_INFORMATION32 {
@@ -5425,8 +5425,8 @@ impl ::core::fmt::Debug for IP_PER_ADAPTER_INFO_W2KSP1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IP_PER_ADAPTER_INFO_W2KSP1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_PER_ADAPTER_INFO_W2KSP1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IP_PER_ADAPTER_INFO_W2KSP1 {
@@ -5459,8 +5459,8 @@ impl ::core::fmt::Debug for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
         f.debug_struct("IP_UNIDIRECTIONAL_ADAPTER_ADDRESS").field("NumAdapters", &self.NumAdapters).field("Address", &self.Address).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
@@ -5502,8 +5502,8 @@ impl ::core::convert::From<::core::option::Option<IcmpHandle>> for IcmpHandle {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for IcmpHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IcmpHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -5522,8 +5522,8 @@ impl ::core::fmt::Debug for MIBICMPINFO {
         f.debug_struct("MIBICMPINFO").field("icmpInStats", &self.icmpInStats).field("icmpOutStats", &self.icmpOutStats).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIBICMPINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIBICMPINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIBICMPINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5578,8 +5578,8 @@ impl ::core::fmt::Debug for MIBICMPSTATS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIBICMPSTATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIBICMPSTATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIBICMPSTATS {
     fn eq(&self, other: &Self) -> bool {
@@ -5610,8 +5610,8 @@ impl ::core::fmt::Debug for MIBICMPSTATS_EX_XPSP1 {
         f.debug_struct("MIBICMPSTATS_EX_XPSP1").field("dwMsgs", &self.dwMsgs).field("dwErrors", &self.dwErrors).field("rgdwTypeCount", &self.rgdwTypeCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIBICMPSTATS_EX_XPSP1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIBICMPSTATS_EX_XPSP1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIBICMPSTATS_EX_XPSP1 {
     fn eq(&self, other: &Self) -> bool {
@@ -5642,8 +5642,8 @@ impl ::core::clone::Clone for MIB_ANYCASTIPADDRESS_ROW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_ANYCASTIPADDRESS_ROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_ANYCASTIPADDRESS_ROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_ANYCASTIPADDRESS_ROW {
@@ -5667,8 +5667,8 @@ impl ::core::clone::Clone for MIB_ANYCASTIPADDRESS_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_ANYCASTIPADDRESS_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_ANYCASTIPADDRESS_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_ANYCASTIPADDRESS_TABLE {
@@ -5693,8 +5693,8 @@ impl ::core::fmt::Debug for MIB_BEST_IF {
         f.debug_struct("MIB_BEST_IF").field("dwDestAddr", &self.dwDestAddr).field("dwIfIndex", &self.dwIfIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_BEST_IF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_BEST_IF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_BEST_IF {
     fn eq(&self, other: &Self) -> bool {
@@ -5724,8 +5724,8 @@ impl ::core::fmt::Debug for MIB_BOUNDARYROW {
         f.debug_struct("MIB_BOUNDARYROW").field("dwGroupAddress", &self.dwGroupAddress).field("dwGroupMask", &self.dwGroupMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_BOUNDARYROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_BOUNDARYROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_BOUNDARYROW {
     fn eq(&self, other: &Self) -> bool {
@@ -5754,8 +5754,8 @@ impl ::core::fmt::Debug for MIB_ICMP {
         f.debug_struct("MIB_ICMP").field("stats", &self.stats).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_ICMP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_ICMP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_ICMP {
     fn eq(&self, other: &Self) -> bool {
@@ -5785,8 +5785,8 @@ impl ::core::fmt::Debug for MIB_ICMP_EX_XPSP1 {
         f.debug_struct("MIB_ICMP_EX_XPSP1").field("icmpInStats", &self.icmpInStats).field("icmpOutStats", &self.icmpOutStats).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_ICMP_EX_XPSP1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_ICMP_EX_XPSP1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_ICMP_EX_XPSP1 {
     fn eq(&self, other: &Self) -> bool {
@@ -5815,8 +5815,8 @@ impl ::core::fmt::Debug for MIB_IFNUMBER {
         f.debug_struct("MIB_IFNUMBER").field("dwValue", &self.dwValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IFNUMBER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IFNUMBER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IFNUMBER {
     fn eq(&self, other: &Self) -> bool {
@@ -5893,8 +5893,8 @@ impl ::core::fmt::Debug for MIB_IFROW {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IFROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IFROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IFROW {
     fn eq(&self, other: &Self) -> bool {
@@ -5947,8 +5947,8 @@ impl ::core::fmt::Debug for MIB_IFSTACK_ROW {
         f.debug_struct("MIB_IFSTACK_ROW").field("HigherLayerInterfaceIndex", &self.HigherLayerInterfaceIndex).field("LowerLayerInterfaceIndex", &self.LowerLayerInterfaceIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IFSTACK_ROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IFSTACK_ROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IFSTACK_ROW {
     fn eq(&self, other: &Self) -> bool {
@@ -5978,8 +5978,8 @@ impl ::core::fmt::Debug for MIB_IFSTACK_TABLE {
         f.debug_struct("MIB_IFSTACK_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IFSTACK_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IFSTACK_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IFSTACK_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -6017,8 +6017,8 @@ impl ::core::fmt::Debug for MIB_IFSTATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MIB_IFSTATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IFSTATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MIB_IFSTATUS {
@@ -6051,8 +6051,8 @@ impl ::core::fmt::Debug for MIB_IFTABLE {
         f.debug_struct("MIB_IFTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IFTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IFTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IFTABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -6120,8 +6120,8 @@ impl ::core::clone::Clone for MIB_IF_ROW2 {
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::core::Abi for MIB_IF_ROW2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IF_ROW2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::default::Default for MIB_IF_ROW2 {
@@ -6150,8 +6150,8 @@ impl ::core::fmt::Debug for MIB_IF_ROW2_0 {
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::core::Abi for MIB_IF_ROW2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IF_ROW2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::PartialEq for MIB_IF_ROW2_0 {
@@ -6183,8 +6183,8 @@ impl ::core::clone::Clone for MIB_IF_TABLE2 {
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::core::Abi for MIB_IF_TABLE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IF_TABLE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::default::Default for MIB_IF_TABLE2 {
@@ -6209,8 +6209,8 @@ impl ::core::fmt::Debug for MIB_INVERTEDIFSTACK_ROW {
         f.debug_struct("MIB_INVERTEDIFSTACK_ROW").field("LowerLayerInterfaceIndex", &self.LowerLayerInterfaceIndex).field("HigherLayerInterfaceIndex", &self.HigherLayerInterfaceIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_INVERTEDIFSTACK_ROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_INVERTEDIFSTACK_ROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_INVERTEDIFSTACK_ROW {
     fn eq(&self, other: &Self) -> bool {
@@ -6240,8 +6240,8 @@ impl ::core::fmt::Debug for MIB_INVERTEDIFSTACK_TABLE {
         f.debug_struct("MIB_INVERTEDIFSTACK_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_INVERTEDIFSTACK_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_INVERTEDIFSTACK_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_INVERTEDIFSTACK_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -6276,8 +6276,8 @@ impl ::core::fmt::Debug for MIB_IPADDRROW_W2K {
         f.debug_struct("MIB_IPADDRROW_W2K").field("dwAddr", &self.dwAddr).field("dwIndex", &self.dwIndex).field("dwMask", &self.dwMask).field("dwBCastAddr", &self.dwBCastAddr).field("dwReasmSize", &self.dwReasmSize).field("unused1", &self.unused1).field("unused2", &self.unused2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPADDRROW_W2K {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPADDRROW_W2K {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPADDRROW_W2K {
     fn eq(&self, other: &Self) -> bool {
@@ -6312,8 +6312,8 @@ impl ::core::fmt::Debug for MIB_IPADDRROW_XP {
         f.debug_struct("MIB_IPADDRROW_XP").field("dwAddr", &self.dwAddr).field("dwIndex", &self.dwIndex).field("dwMask", &self.dwMask).field("dwBCastAddr", &self.dwBCastAddr).field("dwReasmSize", &self.dwReasmSize).field("unused1", &self.unused1).field("wType", &self.wType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPADDRROW_XP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPADDRROW_XP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPADDRROW_XP {
     fn eq(&self, other: &Self) -> bool {
@@ -6343,8 +6343,8 @@ impl ::core::fmt::Debug for MIB_IPADDRTABLE {
         f.debug_struct("MIB_IPADDRTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPADDRTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPADDRTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPADDRTABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -6374,8 +6374,8 @@ impl ::core::clone::Clone for MIB_IPDESTROW {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MIB_IPDESTROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPDESTROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MIB_IPDESTROW {
@@ -6399,8 +6399,8 @@ impl ::core::clone::Clone for MIB_IPDESTTABLE {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MIB_IPDESTTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPDESTTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MIB_IPDESTTABLE {
@@ -6424,8 +6424,8 @@ impl ::core::fmt::Debug for MIB_IPFORWARDNUMBER {
         f.debug_struct("MIB_IPFORWARDNUMBER").field("dwValue", &self.dwValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPFORWARDNUMBER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPFORWARDNUMBER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPFORWARDNUMBER {
     fn eq(&self, other: &Self) -> bool {
@@ -6466,8 +6466,8 @@ impl ::core::clone::Clone for MIB_IPFORWARDROW {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MIB_IPFORWARDROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPFORWARDROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MIB_IPFORWARDROW {
@@ -6491,8 +6491,8 @@ impl ::core::clone::Clone for MIB_IPFORWARDROW_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MIB_IPFORWARDROW_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPFORWARDROW_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MIB_IPFORWARDROW_0 {
@@ -6516,8 +6516,8 @@ impl ::core::clone::Clone for MIB_IPFORWARDROW_1 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MIB_IPFORWARDROW_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPFORWARDROW_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MIB_IPFORWARDROW_1 {
@@ -6541,8 +6541,8 @@ impl ::core::clone::Clone for MIB_IPFORWARDTABLE {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MIB_IPFORWARDTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPFORWARDTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MIB_IPFORWARDTABLE {
@@ -6579,8 +6579,8 @@ impl ::core::clone::Clone for MIB_IPFORWARD_ROW2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IPFORWARD_ROW2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPFORWARD_ROW2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_IPFORWARD_ROW2 {
@@ -6604,8 +6604,8 @@ impl ::core::clone::Clone for MIB_IPFORWARD_TABLE2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IPFORWARD_TABLE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPFORWARD_TABLE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_IPFORWARD_TABLE2 {
@@ -6662,8 +6662,8 @@ impl ::core::clone::Clone for MIB_IPINTERFACE_ROW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IPINTERFACE_ROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPINTERFACE_ROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_IPINTERFACE_ROW {
@@ -6687,8 +6687,8 @@ impl ::core::clone::Clone for MIB_IPINTERFACE_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IPINTERFACE_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPINTERFACE_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_IPINTERFACE_TABLE {
@@ -6715,8 +6715,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_BOUNDARY {
         f.debug_struct("MIB_IPMCAST_BOUNDARY").field("dwIfIndex", &self.dwIfIndex).field("dwGroupAddress", &self.dwGroupAddress).field("dwGroupMask", &self.dwGroupMask).field("dwStatus", &self.dwStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_BOUNDARY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_BOUNDARY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_BOUNDARY {
     fn eq(&self, other: &Self) -> bool {
@@ -6746,8 +6746,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_BOUNDARY_TABLE {
         f.debug_struct("MIB_IPMCAST_BOUNDARY_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_BOUNDARY_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_BOUNDARY_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_BOUNDARY_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -6776,8 +6776,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_GLOBAL {
         f.debug_struct("MIB_IPMCAST_GLOBAL").field("dwEnable", &self.dwEnable).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_GLOBAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_GLOBAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_GLOBAL {
     fn eq(&self, other: &Self) -> bool {
@@ -6811,8 +6811,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_IF_ENTRY {
         f.debug_struct("MIB_IPMCAST_IF_ENTRY").field("dwIfIndex", &self.dwIfIndex).field("dwTtl", &self.dwTtl).field("dwProtocol", &self.dwProtocol).field("dwRateLimit", &self.dwRateLimit).field("ulInMcastOctets", &self.ulInMcastOctets).field("ulOutMcastOctets", &self.ulOutMcastOctets).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_IF_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_IF_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_IF_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -6842,8 +6842,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_IF_TABLE {
         f.debug_struct("MIB_IPMCAST_IF_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_IF_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_IF_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_IF_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -6904,8 +6904,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_MFE {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_MFE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_MFE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_MFE {
     fn eq(&self, other: &Self) -> bool {
@@ -6968,8 +6968,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_MFE_STATS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_MFE_STATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_MFE_STATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_MFE_STATS {
     fn eq(&self, other: &Self) -> bool {
@@ -7042,8 +7042,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_MFE_STATS_EX_XP {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_MFE_STATS_EX_XP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_MFE_STATS_EX_XP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_MFE_STATS_EX_XP {
     fn eq(&self, other: &Self) -> bool {
@@ -7099,8 +7099,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_OIF_STATS_LH {
         f.debug_struct("MIB_IPMCAST_OIF_STATS_LH").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("dwDialContext", &self.dwDialContext).field("ulTtlTooLow", &self.ulTtlTooLow).field("ulFragNeeded", &self.ulFragNeeded).field("ulOutPackets", &self.ulOutPackets).field("ulOutDiscards", &self.ulOutDiscards).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_OIF_STATS_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_OIF_STATS_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_OIF_STATS_LH {
     fn eq(&self, other: &Self) -> bool {
@@ -7135,8 +7135,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_OIF_STATS_W2K {
         f.debug_struct("MIB_IPMCAST_OIF_STATS_W2K").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("pvDialContext", &self.pvDialContext).field("ulTtlTooLow", &self.ulTtlTooLow).field("ulFragNeeded", &self.ulFragNeeded).field("ulOutPackets", &self.ulOutPackets).field("ulOutDiscards", &self.ulOutDiscards).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_OIF_STATS_W2K {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_OIF_STATS_W2K {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_OIF_STATS_W2K {
     fn eq(&self, other: &Self) -> bool {
@@ -7168,8 +7168,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_OIF_W2K {
         f.debug_struct("MIB_IPMCAST_OIF_W2K").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("pvReserved", &self.pvReserved).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_OIF_W2K {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_OIF_W2K {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_OIF_W2K {
     fn eq(&self, other: &Self) -> bool {
@@ -7201,8 +7201,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_OIF_XP {
         f.debug_struct("MIB_IPMCAST_OIF_XP").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("dwReserved", &self.dwReserved).field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_OIF_XP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_OIF_XP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_OIF_XP {
     fn eq(&self, other: &Self) -> bool {
@@ -7234,8 +7234,8 @@ impl ::core::fmt::Debug for MIB_IPMCAST_SCOPE {
         f.debug_struct("MIB_IPMCAST_SCOPE").field("dwGroupAddress", &self.dwGroupAddress).field("dwGroupMask", &self.dwGroupMask).field("snNameBuffer", &self.snNameBuffer).field("dwStatus", &self.dwStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPMCAST_SCOPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPMCAST_SCOPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_SCOPE {
     fn eq(&self, other: &Self) -> bool {
@@ -7263,8 +7263,8 @@ impl ::core::clone::Clone for MIB_IPNETROW_LH {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPNETROW_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPNETROW_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_IPNETROW_LH {
     fn default() -> Self {
@@ -7283,8 +7283,8 @@ impl ::core::clone::Clone for MIB_IPNETROW_LH_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPNETROW_LH_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPNETROW_LH_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_IPNETROW_LH_0 {
     fn default() -> Self {
@@ -7311,8 +7311,8 @@ impl ::core::fmt::Debug for MIB_IPNETROW_W2K {
         f.debug_struct("MIB_IPNETROW_W2K").field("dwIndex", &self.dwIndex).field("dwPhysAddrLen", &self.dwPhysAddrLen).field("bPhysAddr", &self.bPhysAddr).field("dwAddr", &self.dwAddr).field("dwType", &self.dwType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPNETROW_W2K {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPNETROW_W2K {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPNETROW_W2K {
     fn eq(&self, other: &Self) -> bool {
@@ -7337,8 +7337,8 @@ impl ::core::clone::Clone for MIB_IPNETTABLE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPNETTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPNETTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_IPNETTABLE {
     fn default() -> Self {
@@ -7367,8 +7367,8 @@ impl ::core::clone::Clone for MIB_IPNET_ROW2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IPNET_ROW2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPNET_ROW2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_IPNET_ROW2 {
@@ -7392,8 +7392,8 @@ impl ::core::clone::Clone for MIB_IPNET_ROW2_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IPNET_ROW2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPNET_ROW2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_IPNET_ROW2_0 {
@@ -7422,8 +7422,8 @@ impl ::core::fmt::Debug for MIB_IPNET_ROW2_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IPNET_ROW2_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPNET_ROW2_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for MIB_IPNET_ROW2_0_0 {
@@ -7455,8 +7455,8 @@ impl ::core::clone::Clone for MIB_IPNET_ROW2_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IPNET_ROW2_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPNET_ROW2_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_IPNET_ROW2_1 {
@@ -7480,8 +7480,8 @@ impl ::core::clone::Clone for MIB_IPNET_TABLE2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IPNET_TABLE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPNET_TABLE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_IPNET_TABLE2 {
@@ -7515,8 +7515,8 @@ impl ::core::clone::Clone for MIB_IPPATH_ROW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IPPATH_ROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPPATH_ROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_IPPATH_ROW {
@@ -7540,8 +7540,8 @@ impl ::core::clone::Clone for MIB_IPPATH_ROW_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IPPATH_ROW_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPPATH_ROW_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_IPPATH_ROW_0 {
@@ -7565,8 +7565,8 @@ impl ::core::clone::Clone for MIB_IPPATH_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IPPATH_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPPATH_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_IPPATH_TABLE {
@@ -7607,8 +7607,8 @@ impl ::core::clone::Clone for MIB_IPSTATS_LH {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPSTATS_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPSTATS_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_IPSTATS_LH {
     fn default() -> Self {
@@ -7627,8 +7627,8 @@ impl ::core::clone::Clone for MIB_IPSTATS_LH_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPSTATS_LH_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPSTATS_LH_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_IPSTATS_LH_0 {
     fn default() -> Self {
@@ -7697,8 +7697,8 @@ impl ::core::fmt::Debug for MIB_IPSTATS_W2K {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_IPSTATS_W2K {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IPSTATS_W2K {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_IPSTATS_W2K {
     fn eq(&self, other: &Self) -> bool {
@@ -7755,8 +7755,8 @@ impl ::core::fmt::Debug for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
@@ -7789,8 +7789,8 @@ impl ::core::fmt::Debug for MIB_MCAST_LIMIT_ROW {
         f.debug_struct("MIB_MCAST_LIMIT_ROW").field("dwTtl", &self.dwTtl).field("dwRateLimit", &self.dwRateLimit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_MCAST_LIMIT_ROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_MCAST_LIMIT_ROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_MCAST_LIMIT_ROW {
     fn eq(&self, other: &Self) -> bool {
@@ -7820,8 +7820,8 @@ impl ::core::fmt::Debug for MIB_MFE_STATS_TABLE {
         f.debug_struct("MIB_MFE_STATS_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_MFE_STATS_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_MFE_STATS_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_MFE_STATS_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -7851,8 +7851,8 @@ impl ::core::fmt::Debug for MIB_MFE_STATS_TABLE_EX_XP {
         f.debug_struct("MIB_MFE_STATS_TABLE_EX_XP").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_MFE_STATS_TABLE_EX_XP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_MFE_STATS_TABLE_EX_XP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_MFE_STATS_TABLE_EX_XP {
     fn eq(&self, other: &Self) -> bool {
@@ -7882,8 +7882,8 @@ impl ::core::fmt::Debug for MIB_MFE_TABLE {
         f.debug_struct("MIB_MFE_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_MFE_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_MFE_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_MFE_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -7914,8 +7914,8 @@ impl ::core::clone::Clone for MIB_MULTICASTIPADDRESS_ROW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_MULTICASTIPADDRESS_ROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_MULTICASTIPADDRESS_ROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_MULTICASTIPADDRESS_ROW {
@@ -7939,8 +7939,8 @@ impl ::core::clone::Clone for MIB_MULTICASTIPADDRESS_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_MULTICASTIPADDRESS_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_MULTICASTIPADDRESS_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_MULTICASTIPADDRESS_TABLE {
@@ -7960,8 +7960,8 @@ impl ::core::clone::Clone for MIB_OPAQUE_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_OPAQUE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_OPAQUE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_OPAQUE_INFO {
     fn default() -> Self {
@@ -7980,8 +7980,8 @@ impl ::core::clone::Clone for MIB_OPAQUE_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_OPAQUE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_OPAQUE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_OPAQUE_INFO_0 {
     fn default() -> Self {
@@ -8005,8 +8005,8 @@ impl ::core::fmt::Debug for MIB_OPAQUE_QUERY {
         f.debug_struct("MIB_OPAQUE_QUERY").field("dwVarId", &self.dwVarId).field("rgdwVarIndex", &self.rgdwVarIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_OPAQUE_QUERY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_OPAQUE_QUERY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_OPAQUE_QUERY {
     fn eq(&self, other: &Self) -> bool {
@@ -8037,8 +8037,8 @@ impl ::core::fmt::Debug for MIB_PROXYARP {
         f.debug_struct("MIB_PROXYARP").field("dwAddress", &self.dwAddress).field("dwMask", &self.dwMask).field("dwIfIndex", &self.dwIfIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_PROXYARP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_PROXYARP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_PROXYARP {
     fn eq(&self, other: &Self) -> bool {
@@ -8072,8 +8072,8 @@ impl ::core::fmt::Debug for MIB_ROUTESTATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MIB_ROUTESTATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_ROUTESTATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MIB_ROUTESTATE {
@@ -8110,8 +8110,8 @@ impl ::core::clone::Clone for MIB_TCP6ROW {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MIB_TCP6ROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCP6ROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MIB_TCP6ROW {
@@ -8142,8 +8142,8 @@ impl ::core::clone::Clone for MIB_TCP6ROW2 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MIB_TCP6ROW2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCP6ROW2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MIB_TCP6ROW2 {
@@ -8187,8 +8187,8 @@ impl ::core::fmt::Debug for MIB_TCP6ROW_OWNER_MODULE {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCP6ROW_OWNER_MODULE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCP6ROW_OWNER_MODULE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCP6ROW_OWNER_MODULE {
     fn eq(&self, other: &Self) -> bool {
@@ -8224,8 +8224,8 @@ impl ::core::fmt::Debug for MIB_TCP6ROW_OWNER_PID {
         f.debug_struct("MIB_TCP6ROW_OWNER_PID").field("ucLocalAddr", &self.ucLocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).field("ucRemoteAddr", &self.ucRemoteAddr).field("dwRemoteScopeId", &self.dwRemoteScopeId).field("dwRemotePort", &self.dwRemotePort).field("dwState", &self.dwState).field("dwOwningPid", &self.dwOwningPid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCP6ROW_OWNER_PID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCP6ROW_OWNER_PID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCP6ROW_OWNER_PID {
     fn eq(&self, other: &Self) -> bool {
@@ -8254,8 +8254,8 @@ impl ::core::clone::Clone for MIB_TCP6TABLE {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MIB_TCP6TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCP6TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MIB_TCP6TABLE {
@@ -8279,8 +8279,8 @@ impl ::core::clone::Clone for MIB_TCP6TABLE2 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MIB_TCP6TABLE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCP6TABLE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MIB_TCP6TABLE2 {
@@ -8305,8 +8305,8 @@ impl ::core::fmt::Debug for MIB_TCP6TABLE_OWNER_MODULE {
         f.debug_struct("MIB_TCP6TABLE_OWNER_MODULE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCP6TABLE_OWNER_MODULE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCP6TABLE_OWNER_MODULE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCP6TABLE_OWNER_MODULE {
     fn eq(&self, other: &Self) -> bool {
@@ -8336,8 +8336,8 @@ impl ::core::fmt::Debug for MIB_TCP6TABLE_OWNER_PID {
         f.debug_struct("MIB_TCP6TABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCP6TABLE_OWNER_PID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCP6TABLE_OWNER_PID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCP6TABLE_OWNER_PID {
     fn eq(&self, other: &Self) -> bool {
@@ -8372,8 +8372,8 @@ impl ::core::fmt::Debug for MIB_TCPROW2 {
         f.debug_struct("MIB_TCPROW2").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).field("dwOwningPid", &self.dwOwningPid).field("dwOffloadState", &self.dwOffloadState).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPROW2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPROW2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCPROW2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8401,8 +8401,8 @@ impl ::core::clone::Clone for MIB_TCPROW_LH {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPROW_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPROW_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_TCPROW_LH {
     fn default() -> Self {
@@ -8421,8 +8421,8 @@ impl ::core::clone::Clone for MIB_TCPROW_LH_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPROW_LH_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPROW_LH_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_TCPROW_LH_0 {
     fn default() -> Self {
@@ -8452,8 +8452,8 @@ impl ::core::fmt::Debug for MIB_TCPROW_OWNER_MODULE {
         f.debug_struct("MIB_TCPROW_OWNER_MODULE").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).field("dwOwningPid", &self.dwOwningPid).field("liCreateTimestamp", &self.liCreateTimestamp).field("OwningModuleInfo", &self.OwningModuleInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPROW_OWNER_MODULE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPROW_OWNER_MODULE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCPROW_OWNER_MODULE {
     fn eq(&self, other: &Self) -> bool {
@@ -8487,8 +8487,8 @@ impl ::core::fmt::Debug for MIB_TCPROW_OWNER_PID {
         f.debug_struct("MIB_TCPROW_OWNER_PID").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).field("dwOwningPid", &self.dwOwningPid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPROW_OWNER_PID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPROW_OWNER_PID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCPROW_OWNER_PID {
     fn eq(&self, other: &Self) -> bool {
@@ -8521,8 +8521,8 @@ impl ::core::fmt::Debug for MIB_TCPROW_W2K {
         f.debug_struct("MIB_TCPROW_W2K").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPROW_W2K {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPROW_W2K {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCPROW_W2K {
     fn eq(&self, other: &Self) -> bool {
@@ -8581,8 +8581,8 @@ impl ::core::fmt::Debug for MIB_TCPSTATS2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPSTATS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPSTATS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCPSTATS2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8620,8 +8620,8 @@ impl ::core::clone::Clone for MIB_TCPSTATS_LH {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPSTATS_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPSTATS_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_TCPSTATS_LH {
     fn default() -> Self {
@@ -8640,8 +8640,8 @@ impl ::core::clone::Clone for MIB_TCPSTATS_LH_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPSTATS_LH_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPSTATS_LH_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_TCPSTATS_LH_0 {
     fn default() -> Self {
@@ -8694,8 +8694,8 @@ impl ::core::fmt::Debug for MIB_TCPSTATS_W2K {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPSTATS_W2K {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPSTATS_W2K {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCPSTATS_W2K {
     fn eq(&self, other: &Self) -> bool {
@@ -8720,8 +8720,8 @@ impl ::core::clone::Clone for MIB_TCPTABLE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_TCPTABLE {
     fn default() -> Self {
@@ -8745,8 +8745,8 @@ impl ::core::fmt::Debug for MIB_TCPTABLE2 {
         f.debug_struct("MIB_TCPTABLE2").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPTABLE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPTABLE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCPTABLE2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8776,8 +8776,8 @@ impl ::core::fmt::Debug for MIB_TCPTABLE_OWNER_MODULE {
         f.debug_struct("MIB_TCPTABLE_OWNER_MODULE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPTABLE_OWNER_MODULE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPTABLE_OWNER_MODULE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCPTABLE_OWNER_MODULE {
     fn eq(&self, other: &Self) -> bool {
@@ -8807,8 +8807,8 @@ impl ::core::fmt::Debug for MIB_TCPTABLE_OWNER_PID {
         f.debug_struct("MIB_TCPTABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_TCPTABLE_OWNER_PID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_TCPTABLE_OWNER_PID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_TCPTABLE_OWNER_PID {
     fn eq(&self, other: &Self) -> bool {
@@ -8838,8 +8838,8 @@ impl ::core::clone::Clone for MIB_UDP6ROW {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MIB_UDP6ROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDP6ROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MIB_UDP6ROW {
@@ -8867,8 +8867,8 @@ impl ::core::clone::Clone for MIB_UDP6ROW2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDP6ROW2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDP6ROW2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_UDP6ROW2 {
     fn default() -> Self {
@@ -8887,8 +8887,8 @@ impl ::core::clone::Clone for MIB_UDP6ROW2_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDP6ROW2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDP6ROW2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_UDP6ROW2_0 {
     fn default() -> Self {
@@ -8911,8 +8911,8 @@ impl ::core::fmt::Debug for MIB_UDP6ROW2_0_0 {
         f.debug_struct("MIB_UDP6ROW2_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDP6ROW2_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDP6ROW2_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_UDP6ROW2_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8942,8 +8942,8 @@ impl ::core::clone::Clone for MIB_UDP6ROW_OWNER_MODULE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDP6ROW_OWNER_MODULE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDP6ROW_OWNER_MODULE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_UDP6ROW_OWNER_MODULE {
     fn default() -> Self {
@@ -8962,8 +8962,8 @@ impl ::core::clone::Clone for MIB_UDP6ROW_OWNER_MODULE_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDP6ROW_OWNER_MODULE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDP6ROW_OWNER_MODULE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_UDP6ROW_OWNER_MODULE_0 {
     fn default() -> Self {
@@ -8986,8 +8986,8 @@ impl ::core::fmt::Debug for MIB_UDP6ROW_OWNER_MODULE_0_0 {
         f.debug_struct("MIB_UDP6ROW_OWNER_MODULE_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDP6ROW_OWNER_MODULE_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDP6ROW_OWNER_MODULE_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_UDP6ROW_OWNER_MODULE_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9019,8 +9019,8 @@ impl ::core::fmt::Debug for MIB_UDP6ROW_OWNER_PID {
         f.debug_struct("MIB_UDP6ROW_OWNER_PID").field("ucLocalAddr", &self.ucLocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).field("dwOwningPid", &self.dwOwningPid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDP6ROW_OWNER_PID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDP6ROW_OWNER_PID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_UDP6ROW_OWNER_PID {
     fn eq(&self, other: &Self) -> bool {
@@ -9049,8 +9049,8 @@ impl ::core::clone::Clone for MIB_UDP6TABLE {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MIB_UDP6TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDP6TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MIB_UDP6TABLE {
@@ -9070,8 +9070,8 @@ impl ::core::clone::Clone for MIB_UDP6TABLE2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDP6TABLE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDP6TABLE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_UDP6TABLE2 {
     fn default() -> Self {
@@ -9090,8 +9090,8 @@ impl ::core::clone::Clone for MIB_UDP6TABLE_OWNER_MODULE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDP6TABLE_OWNER_MODULE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDP6TABLE_OWNER_MODULE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_UDP6TABLE_OWNER_MODULE {
     fn default() -> Self {
@@ -9115,8 +9115,8 @@ impl ::core::fmt::Debug for MIB_UDP6TABLE_OWNER_PID {
         f.debug_struct("MIB_UDP6TABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDP6TABLE_OWNER_PID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDP6TABLE_OWNER_PID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_UDP6TABLE_OWNER_PID {
     fn eq(&self, other: &Self) -> bool {
@@ -9146,8 +9146,8 @@ impl ::core::fmt::Debug for MIB_UDPROW {
         f.debug_struct("MIB_UDPROW").field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_UDPROW {
     fn eq(&self, other: &Self) -> bool {
@@ -9178,8 +9178,8 @@ impl ::core::clone::Clone for MIB_UDPROW2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPROW2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPROW2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_UDPROW2 {
     fn default() -> Self {
@@ -9198,8 +9198,8 @@ impl ::core::clone::Clone for MIB_UDPROW2_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPROW2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPROW2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_UDPROW2_0 {
     fn default() -> Self {
@@ -9222,8 +9222,8 @@ impl ::core::fmt::Debug for MIB_UDPROW2_0_0 {
         f.debug_struct("MIB_UDPROW2_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPROW2_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPROW2_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_UDPROW2_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9252,8 +9252,8 @@ impl ::core::clone::Clone for MIB_UDPROW_OWNER_MODULE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPROW_OWNER_MODULE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPROW_OWNER_MODULE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_UDPROW_OWNER_MODULE {
     fn default() -> Self {
@@ -9272,8 +9272,8 @@ impl ::core::clone::Clone for MIB_UDPROW_OWNER_MODULE_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPROW_OWNER_MODULE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPROW_OWNER_MODULE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_UDPROW_OWNER_MODULE_0 {
     fn default() -> Self {
@@ -9296,8 +9296,8 @@ impl ::core::fmt::Debug for MIB_UDPROW_OWNER_MODULE_0_0 {
         f.debug_struct("MIB_UDPROW_OWNER_MODULE_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPROW_OWNER_MODULE_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPROW_OWNER_MODULE_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_UDPROW_OWNER_MODULE_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9328,8 +9328,8 @@ impl ::core::fmt::Debug for MIB_UDPROW_OWNER_PID {
         f.debug_struct("MIB_UDPROW_OWNER_PID").field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwOwningPid", &self.dwOwningPid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPROW_OWNER_PID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPROW_OWNER_PID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_UDPROW_OWNER_PID {
     fn eq(&self, other: &Self) -> bool {
@@ -9362,8 +9362,8 @@ impl ::core::fmt::Debug for MIB_UDPSTATS {
         f.debug_struct("MIB_UDPSTATS").field("dwInDatagrams", &self.dwInDatagrams).field("dwNoPorts", &self.dwNoPorts).field("dwInErrors", &self.dwInErrors).field("dwOutDatagrams", &self.dwOutDatagrams).field("dwNumAddrs", &self.dwNumAddrs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPSTATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPSTATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_UDPSTATS {
     fn eq(&self, other: &Self) -> bool {
@@ -9396,8 +9396,8 @@ impl ::core::fmt::Debug for MIB_UDPSTATS2 {
         f.debug_struct("MIB_UDPSTATS2").field("dw64InDatagrams", &self.dw64InDatagrams).field("dwNoPorts", &self.dwNoPorts).field("dwInErrors", &self.dwInErrors).field("dw64OutDatagrams", &self.dw64OutDatagrams).field("dwNumAddrs", &self.dwNumAddrs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPSTATS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPSTATS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_UDPSTATS2 {
     fn eq(&self, other: &Self) -> bool {
@@ -9427,8 +9427,8 @@ impl ::core::fmt::Debug for MIB_UDPTABLE {
         f.debug_struct("MIB_UDPTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_UDPTABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -9453,8 +9453,8 @@ impl ::core::clone::Clone for MIB_UDPTABLE2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPTABLE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPTABLE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_UDPTABLE2 {
     fn default() -> Self {
@@ -9473,8 +9473,8 @@ impl ::core::clone::Clone for MIB_UDPTABLE_OWNER_MODULE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPTABLE_OWNER_MODULE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPTABLE_OWNER_MODULE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIB_UDPTABLE_OWNER_MODULE {
     fn default() -> Self {
@@ -9498,8 +9498,8 @@ impl ::core::fmt::Debug for MIB_UDPTABLE_OWNER_PID {
         f.debug_struct("MIB_UDPTABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIB_UDPTABLE_OWNER_PID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UDPTABLE_OWNER_PID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIB_UDPTABLE_OWNER_PID {
     fn eq(&self, other: &Self) -> bool {
@@ -9538,8 +9538,8 @@ impl ::core::clone::Clone for MIB_UNICASTIPADDRESS_ROW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_UNICASTIPADDRESS_ROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UNICASTIPADDRESS_ROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_UNICASTIPADDRESS_ROW {
@@ -9563,8 +9563,8 @@ impl ::core::clone::Clone for MIB_UNICASTIPADDRESS_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MIB_UNICASTIPADDRESS_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIB_UNICASTIPADDRESS_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_UNICASTIPADDRESS_TABLE {
@@ -9596,8 +9596,8 @@ impl ::core::fmt::Debug for PFLOGFRAME {
         f.debug_struct("PFLOGFRAME").field("Timestamp", &self.Timestamp).field("pfeTypeOfFrame", &self.pfeTypeOfFrame).field("dwTotalSizeUsed", &self.dwTotalSizeUsed).field("dwFilterRule", &self.dwFilterRule).field("wSizeOfAdditionalData", &self.wSizeOfAdditionalData).field("wSizeOfIpHeader", &self.wSizeOfIpHeader).field("dwInterfaceName", &self.dwInterfaceName).field("dwIPIndex", &self.dwIPIndex).field("bPacketData", &self.bPacketData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PFLOGFRAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PFLOGFRAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PFLOGFRAME {
     fn eq(&self, other: &Self) -> bool {
@@ -9652,8 +9652,8 @@ impl ::core::fmt::Debug for PF_FILTER_DESCRIPTOR {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PF_FILTER_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PF_FILTER_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PF_FILTER_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -9683,8 +9683,8 @@ impl ::core::fmt::Debug for PF_FILTER_STATS {
         f.debug_struct("PF_FILTER_STATS").field("dwNumPacketsFiltered", &self.dwNumPacketsFiltered).field("info", &self.info).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PF_FILTER_STATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PF_FILTER_STATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PF_FILTER_STATS {
     fn eq(&self, other: &Self) -> bool {
@@ -9745,8 +9745,8 @@ impl ::core::fmt::Debug for PF_INTERFACE_STATS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PF_INTERFACE_STATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PF_INTERFACE_STATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PF_INTERFACE_STATS {
     fn eq(&self, other: &Self) -> bool {
@@ -9777,8 +9777,8 @@ impl ::core::fmt::Debug for PF_LATEBIND_INFO {
         f.debug_struct("PF_LATEBIND_INFO").field("SrcAddr", &self.SrcAddr).field("DstAddr", &self.DstAddr).field("Mask", &self.Mask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PF_LATEBIND_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PF_LATEBIND_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PF_LATEBIND_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9808,8 +9808,8 @@ impl ::core::fmt::Debug for TCPIP_OWNER_MODULE_BASIC_INFO {
         f.debug_struct("TCPIP_OWNER_MODULE_BASIC_INFO").field("pModuleName", &self.pModuleName).field("pModulePath", &self.pModulePath).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCPIP_OWNER_MODULE_BASIC_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCPIP_OWNER_MODULE_BASIC_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCPIP_OWNER_MODULE_BASIC_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9848,8 +9848,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_BANDWIDTH_ROD_v0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TCP_ESTATS_BANDWIDTH_ROD_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_BANDWIDTH_ROD_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCP_ESTATS_BANDWIDTH_ROD_v0 {
@@ -9882,8 +9882,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_BANDWIDTH_RW_v0 {
         f.debug_struct("TCP_ESTATS_BANDWIDTH_RW_v0").field("EnableCollectionOutbound", &self.EnableCollectionOutbound).field("EnableCollectionInbound", &self.EnableCollectionInbound).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_ESTATS_BANDWIDTH_RW_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_BANDWIDTH_RW_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_ESTATS_BANDWIDTH_RW_v0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9940,8 +9940,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_DATA_ROD_v0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_ESTATS_DATA_ROD_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_DATA_ROD_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_ESTATS_DATA_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9975,8 +9975,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_DATA_RW_v0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TCP_ESTATS_DATA_RW_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_DATA_RW_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCP_ESTATS_DATA_RW_v0 {
@@ -10011,8 +10011,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_FINE_RTT_ROD_v0 {
         f.debug_struct("TCP_ESTATS_FINE_RTT_ROD_v0").field("RttVar", &self.RttVar).field("MaxRtt", &self.MaxRtt).field("MinRtt", &self.MinRtt).field("SumRtt", &self.SumRtt).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_ESTATS_FINE_RTT_ROD_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_FINE_RTT_ROD_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_ESTATS_FINE_RTT_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10046,8 +10046,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_FINE_RTT_RW_v0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TCP_ESTATS_FINE_RTT_RW_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_FINE_RTT_RW_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCP_ESTATS_FINE_RTT_RW_v0 {
@@ -10082,8 +10082,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_OBS_REC_ROD_v0 {
         f.debug_struct("TCP_ESTATS_OBS_REC_ROD_v0").field("CurRwinRcvd", &self.CurRwinRcvd).field("MaxRwinRcvd", &self.MaxRwinRcvd).field("MinRwinRcvd", &self.MinRwinRcvd).field("WinScaleRcvd", &self.WinScaleRcvd).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_ESTATS_OBS_REC_ROD_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_OBS_REC_ROD_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_ESTATS_OBS_REC_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10117,8 +10117,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_OBS_REC_RW_v0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TCP_ESTATS_OBS_REC_RW_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_OBS_REC_RW_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCP_ESTATS_OBS_REC_RW_v0 {
@@ -10230,8 +10230,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_PATH_ROD_v0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_ESTATS_PATH_ROD_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_PATH_ROD_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_ESTATS_PATH_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10304,8 +10304,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_PATH_RW_v0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TCP_ESTATS_PATH_RW_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_PATH_RW_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCP_ESTATS_PATH_RW_v0 {
@@ -10365,8 +10365,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_REC_ROD_v0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_ESTATS_REC_ROD_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_REC_ROD_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_ESTATS_REC_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10400,8 +10400,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_REC_RW_v0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TCP_ESTATS_REC_RW_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_REC_RW_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCP_ESTATS_REC_RW_v0 {
@@ -10436,8 +10436,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_SEND_BUFF_ROD_v0 {
         f.debug_struct("TCP_ESTATS_SEND_BUFF_ROD_v0").field("CurRetxQueue", &self.CurRetxQueue).field("MaxRetxQueue", &self.MaxRetxQueue).field("CurAppWQueue", &self.CurAppWQueue).field("MaxAppWQueue", &self.MaxAppWQueue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_ESTATS_SEND_BUFF_ROD_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_SEND_BUFF_ROD_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_ESTATS_SEND_BUFF_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10471,8 +10471,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_SEND_BUFF_RW_v0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TCP_ESTATS_SEND_BUFF_RW_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_SEND_BUFF_RW_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCP_ESTATS_SEND_BUFF_RW_v0 {
@@ -10540,8 +10540,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_SND_CONG_ROD_v0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_ESTATS_SND_CONG_ROD_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_SND_CONG_ROD_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_ESTATS_SND_CONG_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10570,8 +10570,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_SND_CONG_ROS_v0 {
         f.debug_struct("TCP_ESTATS_SND_CONG_ROS_v0").field("LimCwnd", &self.LimCwnd).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_ESTATS_SND_CONG_ROS_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_SND_CONG_ROS_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_ESTATS_SND_CONG_ROS_v0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10605,8 +10605,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_SND_CONG_RW_v0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TCP_ESTATS_SND_CONG_RW_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_SND_CONG_RW_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCP_ESTATS_SND_CONG_RW_v0 {
@@ -10645,8 +10645,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_SYN_OPTS_ROS_v0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TCP_ESTATS_SYN_OPTS_ROS_v0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_ESTATS_SYN_OPTS_ROS_v0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCP_ESTATS_SYN_OPTS_ROS_v0 {
@@ -10679,8 +10679,8 @@ impl ::core::fmt::Debug for TCP_RESERVE_PORT_RANGE {
         f.debug_struct("TCP_RESERVE_PORT_RANGE").field("UpperRange", &self.UpperRange).field("LowerRange", &self.LowerRange).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_RESERVE_PORT_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_RESERVE_PORT_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_RESERVE_PORT_RANGE {
     fn eq(&self, other: &Self) -> bool {

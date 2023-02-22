@@ -198,8 +198,8 @@ impl ::core::default::Default for EXIT_WINDOWS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EXIT_WINDOWS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXIT_WINDOWS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EXIT_WINDOWS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -255,8 +255,8 @@ impl ::core::default::Default for SHUTDOWN_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SHUTDOWN_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHUTDOWN_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SHUTDOWN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -413,8 +413,8 @@ impl ::core::default::Default for SHUTDOWN_REASON {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SHUTDOWN_REASON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHUTDOWN_REASON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SHUTDOWN_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

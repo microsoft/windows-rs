@@ -65,8 +65,8 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn AdcControllerProvider(&self) -> ::windows::core::Result<Adc::Provider::IAdcControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AdcControllerProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Adc::Provider::IAdcControllerProvider>();
+            (::windows::core::Vtable::vtable(this).AdcControllerProvider)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
@@ -74,8 +74,8 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn PwmControllerProvider(&self) -> ::windows::core::Result<Pwm::Provider::IPwmControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PwmControllerProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Pwm::Provider::IPwmControllerProvider>();
+            (::windows::core::Vtable::vtable(this).PwmControllerProvider)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
@@ -83,8 +83,8 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn GpioControllerProvider(&self) -> ::windows::core::Result<Gpio::Provider::IGpioControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GpioControllerProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Gpio::Provider::IGpioControllerProvider>();
+            (::windows::core::Vtable::vtable(this).GpioControllerProvider)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
@@ -92,8 +92,8 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn I2cControllerProvider(&self) -> ::windows::core::Result<I2c::Provider::II2cControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).I2cControllerProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<I2c::Provider::II2cControllerProvider>();
+            (::windows::core::Vtable::vtable(this).I2cControllerProvider)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
@@ -101,17 +101,12 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn SpiControllerProvider(&self) -> ::windows::core::Result<Spi::Provider::ISpiControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SpiControllerProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Spi::Provider::ISpiControllerProvider>();
+            (::windows::core::Vtable::vtable(this).SpiControllerProvider)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
 ::windows::core::interface_hierarchy!(ILowLevelDevicesAggregateProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ILowLevelDevicesAggregateProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILowLevelDevicesAggregateProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -123,15 +118,16 @@ impl ::core::fmt::Debug for ILowLevelDevicesAggregateProvider {
         f.debug_tuple("ILowLevelDevicesAggregateProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ILowLevelDevicesAggregateProvider {
+impl ::windows::core::RuntimeType for ILowLevelDevicesAggregateProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a73e561c-aac1-4ec7-a852-479f7060d01f}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for ILowLevelDevicesAggregateProvider {
     type Vtable = ILowLevelDevicesAggregateProvider_Vtbl;
+}
+impl ::core::clone::Clone for ILowLevelDevicesAggregateProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILowLevelDevicesAggregateProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa73e561c_aac1_4ec7_a852_479f7060d01f);
@@ -167,6 +163,11 @@ pub struct ILowLevelDevicesAggregateProviderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILowLevelDevicesAggregateProviderFactory {
     type Vtable = ILowLevelDevicesAggregateProviderFactory_Vtbl;
 }
+impl ::core::clone::Clone for ILowLevelDevicesAggregateProviderFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ILowLevelDevicesAggregateProviderFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ac4aaf6_3473_465e_96d5_36281a2c57af);
 }
@@ -185,6 +186,11 @@ pub struct ILowLevelDevicesController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILowLevelDevicesController {
     type Vtable = ILowLevelDevicesController_Vtbl;
 }
+impl ::core::clone::Clone for ILowLevelDevicesController {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ILowLevelDevicesController {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec23dd4_179b_45de_9b39_3ae02527de52);
 }
@@ -198,6 +204,11 @@ pub struct ILowLevelDevicesController_Vtbl {
 pub struct ILowLevelDevicesControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILowLevelDevicesControllerStatics {
     type Vtable = ILowLevelDevicesControllerStatics_Vtbl;
+}
+impl ::core::clone::Clone for ILowLevelDevicesControllerStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILowLevelDevicesControllerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x093e926a_fccb_4394_a697_19de637c2db3);
@@ -218,8 +229,8 @@ impl LowLevelDevicesAggregateProvider {
     pub fn AdcControllerProvider(&self) -> ::windows::core::Result<Adc::Provider::IAdcControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AdcControllerProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Adc::Provider::IAdcControllerProvider>();
+            (::windows::core::Vtable::vtable(this).AdcControllerProvider)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
@@ -227,8 +238,8 @@ impl LowLevelDevicesAggregateProvider {
     pub fn PwmControllerProvider(&self) -> ::windows::core::Result<Pwm::Provider::IPwmControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PwmControllerProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Pwm::Provider::IPwmControllerProvider>();
+            (::windows::core::Vtable::vtable(this).PwmControllerProvider)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
@@ -236,8 +247,8 @@ impl LowLevelDevicesAggregateProvider {
     pub fn GpioControllerProvider(&self) -> ::windows::core::Result<Gpio::Provider::IGpioControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GpioControllerProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Gpio::Provider::IGpioControllerProvider>();
+            (::windows::core::Vtable::vtable(this).GpioControllerProvider)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
@@ -245,8 +256,8 @@ impl LowLevelDevicesAggregateProvider {
     pub fn I2cControllerProvider(&self) -> ::windows::core::Result<I2c::Provider::II2cControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).I2cControllerProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<I2c::Provider::II2cControllerProvider>();
+            (::windows::core::Vtable::vtable(this).I2cControllerProvider)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
@@ -254,8 +265,8 @@ impl LowLevelDevicesAggregateProvider {
     pub fn SpiControllerProvider(&self) -> ::windows::core::Result<Spi::Provider::ISpiControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SpiControllerProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Spi::Provider::ISpiControllerProvider>();
+            (::windows::core::Vtable::vtable(this).SpiControllerProvider)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`, `\"Devices_Gpio_Provider\"`, `\"Devices_I2c_Provider\"`, `\"Devices_Pwm_Provider\"`, `\"Devices_Spi_Provider\"`*"]
@@ -274,19 +285,14 @@ impl LowLevelDevicesAggregateProvider {
         E4: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILowLevelDevicesAggregateProviderFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), adc.try_into().map_err(|e| e.into())?.abi(), pwm.try_into().map_err(|e| e.into())?.abi(), gpio.try_into().map_err(|e| e.into())?.abi(), i2c.try_into().map_err(|e| e.into())?.abi(), spi.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LowLevelDevicesAggregateProvider>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), adc.try_into().map_err(|e| e.into())?.abi(), pwm.try_into().map_err(|e| e.into())?.abi(), gpio.try_into().map_err(|e| e.into())?.abi(), i2c.try_into().map_err(|e| e.into())?.abi(), spi.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn ILowLevelDevicesAggregateProviderFactory<R, F: FnOnce(&ILowLevelDevicesAggregateProviderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<LowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProviderFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for LowLevelDevicesAggregateProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for LowLevelDevicesAggregateProvider {
@@ -300,11 +306,12 @@ impl ::core::fmt::Debug for LowLevelDevicesAggregateProvider {
         f.debug_tuple("LowLevelDevicesAggregateProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for LowLevelDevicesAggregateProvider {
+impl ::windows::core::RuntimeType for LowLevelDevicesAggregateProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.LowLevelDevicesAggregateProvider;{a73e561c-aac1-4ec7-a852-479f7060d01f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for LowLevelDevicesAggregateProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for LowLevelDevicesAggregateProvider {
@@ -333,7 +340,7 @@ impl ::core::convert::TryFrom<&LowLevelDevicesAggregateProvider> for ::windows::
     type Error = ::windows::core::Error;
     fn try_from(value: &LowLevelDevicesAggregateProvider) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LowLevelDevicesAggregateProvider {}
@@ -344,8 +351,8 @@ pub struct LowLevelDevicesController(::windows::core::IUnknown);
 impl LowLevelDevicesController {
     pub fn DefaultProvider() -> ::windows::core::Result<ILowLevelDevicesAggregateProvider> {
         Self::ILowLevelDevicesControllerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DefaultProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ILowLevelDevicesAggregateProvider>();
+            (::windows::core::Vtable::vtable(this).DefaultProvider)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn SetDefaultProvider<P0, E0>(value: P0) -> ::windows::core::Result<()>
@@ -361,11 +368,6 @@ impl LowLevelDevicesController {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for LowLevelDevicesController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for LowLevelDevicesController {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -377,11 +379,12 @@ impl ::core::fmt::Debug for LowLevelDevicesController {
         f.debug_tuple("LowLevelDevicesController").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for LowLevelDevicesController {
+impl ::windows::core::RuntimeType for LowLevelDevicesController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.LowLevelDevicesController;{2ec23dd4-179b-45de-9b39-3ae02527de52})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for LowLevelDevicesController {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for LowLevelDevicesController {

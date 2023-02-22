@@ -4,6 +4,11 @@ pub struct IGeolocationProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IGeolocationProvider {
     type Vtable = IGeolocationProvider_Vtbl;
 }
+impl ::core::clone::Clone for IGeolocationProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IGeolocationProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4cf071d_3f64_509f_8dc2_0b74a059829d);
 }
@@ -37,15 +42,15 @@ impl GeolocationProvider {
     pub fn IsOverridden(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsOverridden)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsOverridden)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOverridePosition(&self, newposition: super::BasicGeoposition, positionsource: super::PositionSource, accuracyinmeters: f64) -> ::windows::core::Result<LocationOverrideStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SetOverridePosition)(::windows::core::Vtable::as_raw(this), newposition, positionsource, accuracyinmeters, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LocationOverrideStatus>();
+            (::windows::core::Vtable::vtable(this).SetOverridePosition)(::windows::core::Vtable::as_raw(this), newposition, positionsource, accuracyinmeters, &mut result__).from_abi(result__)
         }
     }
     pub fn ClearOverridePosition(&self) -> ::windows::core::Result<()> {
@@ -57,8 +62,8 @@ impl GeolocationProvider {
     pub fn IsOverriddenChanged(&self, handler: &super::super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsOverriddenChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).IsOverriddenChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -66,11 +71,6 @@ impl GeolocationProvider {
     pub fn RemoveIsOverriddenChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).RemoveIsOverriddenChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
-    }
-}
-impl ::core::clone::Clone for GeolocationProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for GeolocationProvider {
@@ -84,11 +84,12 @@ impl ::core::fmt::Debug for GeolocationProvider {
         f.debug_tuple("GeolocationProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for GeolocationProvider {
+impl ::windows::core::RuntimeType for GeolocationProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Provider.GeolocationProvider;{e4cf071d-3f64-509f-8dc2-0b74a059829d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for GeolocationProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for GeolocationProvider {
@@ -124,20 +125,16 @@ impl ::core::default::Default for LocationOverrideStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LocationOverrideStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LocationOverrideStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LocationOverrideStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LocationOverrideStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for LocationOverrideStatus {
+impl ::windows::core::RuntimeType for LocationOverrideStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Provider.LocationOverrideStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

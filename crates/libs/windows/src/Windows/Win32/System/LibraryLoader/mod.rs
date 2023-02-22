@@ -580,8 +580,8 @@ impl ::core::default::Default for LOAD_LIBRARY_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LOAD_LIBRARY_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOAD_LIBRARY_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LOAD_LIBRARY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -639,8 +639,8 @@ impl ::core::fmt::Debug for ENUMUILANG {
         f.debug_struct("ENUMUILANG").field("NumOfEnumUILang", &self.NumOfEnumUILang).field("SizeOfEnumUIBuffer", &self.SizeOfEnumUIBuffer).field("pEnumUIBuffer", &self.pEnumUIBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENUMUILANG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUMUILANG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENUMUILANG {
     fn eq(&self, other: &Self) -> bool {
@@ -671,8 +671,8 @@ impl ::core::fmt::Debug for REDIRECTION_DESCRIPTOR {
         f.debug_struct("REDIRECTION_DESCRIPTOR").field("Version", &self.Version).field("FunctionCount", &self.FunctionCount).field("Redirections", &self.Redirections).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REDIRECTION_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REDIRECTION_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REDIRECTION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -703,8 +703,8 @@ impl ::core::fmt::Debug for REDIRECTION_FUNCTION_DESCRIPTOR {
         f.debug_struct("REDIRECTION_FUNCTION_DESCRIPTOR").field("DllName", &self.DllName).field("FunctionName", &self.FunctionName).field("RedirectionTarget", &self.RedirectionTarget).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REDIRECTION_FUNCTION_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REDIRECTION_FUNCTION_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REDIRECTION_FUNCTION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {

@@ -39,12 +39,6 @@ impl IPrintDocumentPackageStatusEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintDocumentPackageStatusEvent, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintDocumentPackageStatusEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintDocumentPackageStatusEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -61,6 +55,12 @@ impl ::core::fmt::Debug for IPrintDocumentPackageStatusEvent {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrintDocumentPackageStatusEvent {
     type Vtable = IPrintDocumentPackageStatusEvent_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintDocumentPackageStatusEvent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintDocumentPackageStatusEvent {
@@ -84,19 +84,14 @@ impl IPrintDocumentPackageTarget {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPackageTarget)(::windows::core::Vtable::as_raw(self), guidtargettype, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetPackageTarget)(::windows::core::Vtable::as_raw(self), guidtargettype, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPrintDocumentPackageTarget, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintDocumentPackageTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintDocumentPackageTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -110,6 +105,11 @@ impl ::core::fmt::Debug for IPrintDocumentPackageTarget {
 }
 unsafe impl ::windows::core::Vtable for IPrintDocumentPackageTarget {
     type Vtable = IPrintDocumentPackageTarget_Vtbl;
+}
+impl ::core::clone::Clone for IPrintDocumentPackageTarget {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintDocumentPackageTarget {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b8efec4_3019_4c27_964e_367202156906);
@@ -135,16 +135,11 @@ impl IPrintDocumentPackageTargetFactory {
         P2: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
         P3: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows::core::Vtable::as_raw(self), printername.into().abi(), jobname.into().abi(), joboutputstream.into().abi(), jobprintticketstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintDocumentPackageTarget>();
+        (::windows::core::Vtable::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows::core::Vtable::as_raw(self), printername.into().abi(), jobname.into().abi(), joboutputstream.into().abi(), jobprintticketstream.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPrintDocumentPackageTargetFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintDocumentPackageTargetFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintDocumentPackageTargetFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -158,6 +153,11 @@ impl ::core::fmt::Debug for IPrintDocumentPackageTargetFactory {
 }
 unsafe impl ::windows::core::Vtable for IPrintDocumentPackageTargetFactory {
     type Vtable = IPrintDocumentPackageTargetFactory_Vtbl;
+}
+impl ::core::clone::Clone for IPrintDocumentPackageTargetFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintDocumentPackageTargetFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2959bf7_b31b_4a3d_9600_712eb1335ba4);
@@ -183,11 +183,6 @@ impl IXpsPrintJob {
     }
 }
 ::windows::core::interface_hierarchy!(IXpsPrintJob, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXpsPrintJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXpsPrintJob {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -201,6 +196,11 @@ impl ::core::fmt::Debug for IXpsPrintJob {
 }
 unsafe impl ::windows::core::Vtable for IXpsPrintJob {
     type Vtable = IXpsPrintJob_Vtbl;
+}
+impl ::core::clone::Clone for IXpsPrintJob {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXpsPrintJob {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ab89b06_8194_425f_ab3b_d7a96e350161);
@@ -235,12 +235,6 @@ impl IXpsPrintJobStream {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IXpsPrintJobStream, ::windows::core::IUnknown, super::super::super::System::Com::ISequentialStream);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXpsPrintJobStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXpsPrintJobStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -257,6 +251,12 @@ impl ::core::fmt::Debug for IXpsPrintJobStream {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IXpsPrintJobStream {
     type Vtable = IXpsPrintJobStream_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IXpsPrintJobStream {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IXpsPrintJobStream {
@@ -302,8 +302,8 @@ impl ::core::default::Default for PrintDocumentPackageCompletion {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PrintDocumentPackageCompletion {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintDocumentPackageCompletion {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PrintDocumentPackageCompletion {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -333,8 +333,8 @@ impl ::core::default::Default for XPS_JOB_COMPLETION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XPS_JOB_COMPLETION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XPS_JOB_COMPLETION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XPS_JOB_COMPLETION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -362,8 +362,8 @@ impl ::core::fmt::Debug for PrintDocumentPackageStatus {
         f.debug_struct("PrintDocumentPackageStatus").field("JobId", &self.JobId).field("CurrentDocument", &self.CurrentDocument).field("CurrentPage", &self.CurrentPage).field("CurrentPageTotal", &self.CurrentPageTotal).field("Completion", &self.Completion).field("PackageStatus", &self.PackageStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PrintDocumentPackageStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintDocumentPackageStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PrintDocumentPackageStatus {
     fn eq(&self, other: &Self) -> bool {
@@ -397,8 +397,8 @@ impl ::core::fmt::Debug for XPS_JOB_STATUS {
         f.debug_struct("XPS_JOB_STATUS").field("jobId", &self.jobId).field("currentDocument", &self.currentDocument).field("currentPage", &self.currentPage).field("currentPageTotal", &self.currentPageTotal).field("completion", &self.completion).field("jobStatus", &self.jobStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for XPS_JOB_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XPS_JOB_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for XPS_JOB_STATUS {
     fn eq(&self, other: &Self) -> bool {

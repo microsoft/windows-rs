@@ -137,8 +137,8 @@ impl ::core::default::Default for WLX_SHUTDOWN_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WLX_SHUTDOWN_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_SHUTDOWN_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WLX_SHUTDOWN_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -170,8 +170,8 @@ impl ::core::fmt::Debug for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
@@ -213,8 +213,8 @@ impl ::core::fmt::Debug for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
@@ -305,8 +305,8 @@ impl ::core::fmt::Debug for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
@@ -372,8 +372,8 @@ impl ::core::fmt::Debug for WLX_DESKTOP {
     }
 }
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-unsafe impl ::windows::core::Abi for WLX_DESKTOP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_DESKTOP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
 impl ::core::cmp::PartialEq for WLX_DESKTOP {
@@ -422,8 +422,8 @@ impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for WLX_DISPATCH_VERSION_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_DISPATCH_VERSION_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for WLX_DISPATCH_VERSION_1_0 {
@@ -468,8 +468,8 @@ impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for WLX_DISPATCH_VERSION_1_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_DISPATCH_VERSION_1_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for WLX_DISPATCH_VERSION_1_1 {
@@ -515,8 +515,8 @@ impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for WLX_DISPATCH_VERSION_1_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_DISPATCH_VERSION_1_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for WLX_DISPATCH_VERSION_1_2 {
@@ -569,8 +569,8 @@ impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for WLX_DISPATCH_VERSION_1_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_DISPATCH_VERSION_1_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for WLX_DISPATCH_VERSION_1_3 {
@@ -625,8 +625,8 @@ impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_4 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for WLX_DISPATCH_VERSION_1_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_DISPATCH_VERSION_1_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for WLX_DISPATCH_VERSION_1_4 {
@@ -653,8 +653,8 @@ impl ::core::fmt::Debug for WLX_MPR_NOTIFY_INFO {
         f.debug_struct("WLX_MPR_NOTIFY_INFO").field("pszUserName", &self.pszUserName).field("pszDomain", &self.pszDomain).field("pszPassword", &self.pszPassword).field("pszOldPassword", &self.pszOldPassword).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WLX_MPR_NOTIFY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_MPR_NOTIFY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WLX_MPR_NOTIFY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -695,8 +695,8 @@ impl ::core::fmt::Debug for WLX_NOTIFICATION_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
-unsafe impl ::windows::core::Abi for WLX_NOTIFICATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_NOTIFICATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 impl ::core::default::Default for WLX_NOTIFICATION_INFO {
@@ -721,8 +721,8 @@ impl ::core::fmt::Debug for WLX_PROFILE_V1_0 {
         f.debug_struct("WLX_PROFILE_V1_0").field("dwType", &self.dwType).field("pszProfile", &self.pszProfile).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WLX_PROFILE_V1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_PROFILE_V1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WLX_PROFILE_V1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -756,8 +756,8 @@ impl ::core::fmt::Debug for WLX_PROFILE_V2_0 {
         f.debug_struct("WLX_PROFILE_V2_0").field("dwType", &self.dwType).field("pszProfile", &self.pszProfile).field("pszPolicy", &self.pszPolicy).field("pszNetworkDefaultUserProfile", &self.pszNetworkDefaultUserProfile).field("pszServerName", &self.pszServerName).field("pszEnvironment", &self.pszEnvironment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WLX_PROFILE_V2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_PROFILE_V2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WLX_PROFILE_V2_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -789,8 +789,8 @@ impl ::core::fmt::Debug for WLX_SC_NOTIFICATION_INFO {
         f.debug_struct("WLX_SC_NOTIFICATION_INFO").field("pszCard", &self.pszCard).field("pszReader", &self.pszReader).field("pszContainer", &self.pszContainer).field("pszCryptoProvider", &self.pszCryptoProvider).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WLX_SC_NOTIFICATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_SC_NOTIFICATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WLX_SC_NOTIFICATION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -821,8 +821,8 @@ impl ::core::fmt::Debug for WLX_TERMINAL_SERVICES_DATA {
         f.debug_struct("WLX_TERMINAL_SERVICES_DATA").field("ProfilePath", &self.ProfilePath).field("HomeDir", &self.HomeDir).field("HomeDirDrive", &self.HomeDirDrive).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WLX_TERMINAL_SERVICES_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLX_TERMINAL_SERVICES_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WLX_TERMINAL_SERVICES_DATA {
     fn eq(&self, other: &Self) -> bool {

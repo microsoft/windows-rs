@@ -135,8 +135,8 @@ impl ::core::default::Default for AUTHNEXTSTEP {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AUTHNEXTSTEP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUTHNEXTSTEP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AUTHNEXTSTEP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -161,8 +161,8 @@ impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_BLOB {
         f.debug_struct("DAV_CALLBACK_AUTH_BLOB").field("pBuffer", &self.pBuffer).field("ulSize", &self.ulSize).field("ulType", &self.ulType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DAV_CALLBACK_AUTH_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -194,8 +194,8 @@ impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_UNP {
         f.debug_struct("DAV_CALLBACK_AUTH_UNP").field("pszUserName", &self.pszUserName).field("ulUserNameLength", &self.ulUserNameLength).field("pszPassword", &self.pszPassword).field("ulPasswordLength", &self.ulPasswordLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_UNP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DAV_CALLBACK_AUTH_UNP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_UNP {
     fn eq(&self, other: &Self) -> bool {
@@ -232,8 +232,8 @@ impl ::core::fmt::Debug for DAV_CALLBACK_CRED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DAV_CALLBACK_CRED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DAV_CALLBACK_CRED {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DAV_CALLBACK_CRED {

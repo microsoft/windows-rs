@@ -15,11 +15,6 @@ impl ISideShowBulkCapabilities {
     }
 }
 ::windows::core::interface_hierarchy!(ISideShowBulkCapabilities, ::windows::core::IUnknown, ISideShowCapabilities);
-impl ::core::clone::Clone for ISideShowBulkCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISideShowBulkCapabilities {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -33,6 +28,11 @@ impl ::core::fmt::Debug for ISideShowBulkCapabilities {
 }
 unsafe impl ::windows::core::Vtable for ISideShowBulkCapabilities {
     type Vtable = ISideShowBulkCapabilities_Vtbl;
+}
+impl ::core::clone::Clone for ISideShowBulkCapabilities {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISideShowBulkCapabilities {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
@@ -54,11 +54,6 @@ impl ISideShowCapabilities {
     }
 }
 ::windows::core::interface_hierarchy!(ISideShowCapabilities, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISideShowCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISideShowCapabilities {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -72,6 +67,11 @@ impl ::core::fmt::Debug for ISideShowCapabilities {
 }
 unsafe impl ::windows::core::Vtable for ISideShowCapabilities {
     type Vtable = ISideShowCapabilities_Vtbl;
+}
+impl ::core::clone::Clone for ISideShowCapabilities {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISideShowCapabilities {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x535e1379_c09e_4a54_a511_597bab3a72b8);
@@ -90,20 +90,15 @@ pub struct ISideShowCapabilities_Vtbl {
 pub struct ISideShowCapabilitiesCollection(::windows::core::IUnknown);
 impl ISideShowCapabilitiesCollection {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAt(&self, in_dwindex: u32) -> ::windows::core::Result<ISideShowCapabilities> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), in_dwindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ISideShowCapabilities>();
+        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), in_dwindex, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISideShowCapabilitiesCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISideShowCapabilitiesCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISideShowCapabilitiesCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -117,6 +112,11 @@ impl ::core::fmt::Debug for ISideShowCapabilitiesCollection {
 }
 unsafe impl ::windows::core::Vtable for ISideShowCapabilitiesCollection {
     type Vtable = ISideShowCapabilitiesCollection_Vtbl;
+}
+impl ::core::clone::Clone for ISideShowCapabilitiesCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISideShowCapabilitiesCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50305597_5e0d_4ff7_b3af_33d0d9bd52dd);
@@ -139,22 +139,17 @@ impl ISideShowContent {
         (::windows::core::Vtable::vtable(self).GetContent)(::windows::core::Vtable::as_raw(self), in_picapabilities.into().abi(), out_pdwsize, out_ppbdata).ok()
     }
     pub unsafe fn ContentId(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ContentId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).ContentId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DifferentiateContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DifferentiateContent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).DifferentiateContent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISideShowContent, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISideShowContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISideShowContent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -168,6 +163,11 @@ impl ::core::fmt::Debug for ISideShowContent {
 }
 unsafe impl ::windows::core::Vtable for ISideShowContent {
     type Vtable = ISideShowContent_Vtbl;
+}
+impl ::core::clone::Clone for ISideShowContent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISideShowContent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc18552ed_74ff_4fec_be07_4cfed29d4887);
@@ -206,16 +206,11 @@ impl ISideShowContentManager {
         (::windows::core::Vtable::vtable(self).SetEventSink)(::windows::core::Vtable::as_raw(self), in_pievents.into().abi()).ok()
     }
     pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<ISideShowCapabilitiesCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ISideShowCapabilitiesCollection>();
+        (::windows::core::Vtable::vtable(self).GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISideShowContentManager, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISideShowContentManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISideShowContentManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -229,6 +224,11 @@ impl ::core::fmt::Debug for ISideShowContentManager {
 }
 unsafe impl ::windows::core::Vtable for ISideShowContentManager {
     type Vtable = ISideShowContentManager_Vtbl;
+}
+impl ::core::clone::Clone for ISideShowContentManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISideShowContentManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5d5b66b_eef9_41db_8d7e_e17c33ab10b0);
@@ -248,8 +248,8 @@ pub struct ISideShowContentManager_Vtbl {
 pub struct ISideShowEvents(::windows::core::IUnknown);
 impl ISideShowEvents {
     pub unsafe fn ContentMissing(&self, in_contentid: u32) -> ::windows::core::Result<ISideShowContent> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ContentMissing)(::windows::core::Vtable::as_raw(self), in_contentid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ISideShowContent>();
+        (::windows::core::Vtable::vtable(self).ContentMissing)(::windows::core::Vtable::as_raw(self), in_contentid, &mut result__).from_abi(result__)
     }
     pub unsafe fn ApplicationEvent<P0>(&self, in_picapabilities: P0, in_dweventid: u32, in_pbeventdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
     where
@@ -271,11 +271,6 @@ impl ISideShowEvents {
     }
 }
 ::windows::core::interface_hierarchy!(ISideShowEvents, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISideShowEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISideShowEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -289,6 +284,11 @@ impl ::core::fmt::Debug for ISideShowEvents {
 }
 unsafe impl ::windows::core::Vtable for ISideShowEvents {
     type Vtable = ISideShowEvents_Vtbl;
+}
+impl ::core::clone::Clone for ISideShowEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISideShowEvents {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61feca4c_deb4_4a7e_8d75_51f1132d615b);
@@ -327,11 +327,6 @@ impl ISideShowKeyCollection {
     }
 }
 ::windows::core::interface_hierarchy!(ISideShowKeyCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISideShowKeyCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISideShowKeyCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -345,6 +340,11 @@ impl ::core::fmt::Debug for ISideShowKeyCollection {
 }
 unsafe impl ::windows::core::Vtable for ISideShowKeyCollection {
     type Vtable = ISideShowKeyCollection_Vtbl;
+}
+impl ::core::clone::Clone for ISideShowKeyCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISideShowKeyCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x045473bc_a37b_4957_b144_68105411ed8e);
@@ -370,15 +370,15 @@ pub struct ISideShowKeyCollection_Vtbl {
 pub struct ISideShowNotification(::windows::core::IUnknown);
 impl ISideShowNotification {
     pub unsafe fn NotificationId(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).NotificationId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).NotificationId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNotificationId(&self, in_notificationid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetNotificationId)(::windows::core::Vtable::as_raw(self), in_notificationid).ok()
     }
     pub unsafe fn Title(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Title)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).Title)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetTitle<P0>(&self, in_pwsztitle: P0) -> ::windows::core::Result<()>
     where
@@ -387,8 +387,8 @@ impl ISideShowNotification {
         (::windows::core::Vtable::vtable(self).SetTitle)(::windows::core::Vtable::as_raw(self), in_pwsztitle.into().abi()).ok()
     }
     pub unsafe fn Message(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Message)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).Message)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMessage<P0>(&self, in_pwszmessage: P0) -> ::windows::core::Result<()>
     where
@@ -399,8 +399,8 @@ impl ISideShowNotification {
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn Image(&self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HICON> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Image)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::UI::WindowsAndMessaging::HICON>();
+        (::windows::core::Vtable::vtable(self).Image)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -413,8 +413,8 @@ impl ISideShowNotification {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ExpirationTime)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::SYSTEMTIME>();
+        (::windows::core::Vtable::vtable(self).ExpirationTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -423,11 +423,6 @@ impl ISideShowNotification {
     }
 }
 ::windows::core::interface_hierarchy!(ISideShowNotification, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISideShowNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISideShowNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -441,6 +436,11 @@ impl ::core::fmt::Debug for ISideShowNotification {
 }
 unsafe impl ::windows::core::Vtable for ISideShowNotification {
     type Vtable = ISideShowNotification_Vtbl;
+}
+impl ::core::clone::Clone for ISideShowNotification {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISideShowNotification {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03c93300_8ab2_41c5_9b79_46127a30e148);
@@ -490,11 +490,6 @@ impl ISideShowNotificationManager {
     }
 }
 ::windows::core::interface_hierarchy!(ISideShowNotificationManager, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISideShowNotificationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISideShowNotificationManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -508,6 +503,11 @@ impl ::core::fmt::Debug for ISideShowNotificationManager {
 }
 unsafe impl ::windows::core::Vtable for ISideShowNotificationManager {
     type Vtable = ISideShowNotificationManager_Vtbl;
+}
+impl ::core::clone::Clone for ISideShowNotificationManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISideShowNotificationManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63cea909_f2b9_4302_b5e1_c68e6d9ab833);
@@ -545,11 +545,6 @@ impl ISideShowPropVariantCollection {
     }
 }
 ::windows::core::interface_hierarchy!(ISideShowPropVariantCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISideShowPropVariantCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISideShowPropVariantCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -563,6 +558,11 @@ impl ::core::fmt::Debug for ISideShowPropVariantCollection {
 }
 unsafe impl ::windows::core::Vtable for ISideShowPropVariantCollection {
     type Vtable = ISideShowPropVariantCollection_Vtbl;
+}
+impl ::core::clone::Clone for ISideShowPropVariantCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISideShowPropVariantCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ea7a549_7bff_4aae_bab0_22d43111de49);
@@ -588,20 +588,15 @@ pub struct ISideShowPropVariantCollection_Vtbl {
 pub struct ISideShowSession(::windows::core::IUnknown);
 impl ISideShowSession {
     pub unsafe fn RegisterContent(&self, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowContentManager> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterContent)(::windows::core::Vtable::as_raw(self), in_applicationid, in_endpointid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ISideShowContentManager>();
+        (::windows::core::Vtable::vtable(self).RegisterContent)(::windows::core::Vtable::as_raw(self), in_applicationid, in_endpointid, &mut result__).from_abi(result__)
     }
     pub unsafe fn RegisterNotifications(&self, in_applicationid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowNotificationManager> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterNotifications)(::windows::core::Vtable::as_raw(self), in_applicationid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ISideShowNotificationManager>();
+        (::windows::core::Vtable::vtable(self).RegisterNotifications)(::windows::core::Vtable::as_raw(self), in_applicationid, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISideShowSession, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISideShowSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISideShowSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -615,6 +610,11 @@ impl ::core::fmt::Debug for ISideShowSession {
 }
 unsafe impl ::windows::core::Vtable for ISideShowSession {
     type Vtable = ISideShowSession_Vtbl;
+}
+impl ::core::clone::Clone for ISideShowSession {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISideShowSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe22331ee_9e7d_4922_9fc2_ab7aa41ce491);
@@ -738,8 +738,8 @@ impl ::core::default::Default for SCF_BUTTON_IDS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SCF_BUTTON_IDS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCF_BUTTON_IDS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SCF_BUTTON_IDS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -767,8 +767,8 @@ impl ::core::default::Default for SCF_EVENT_IDS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SCF_EVENT_IDS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCF_EVENT_IDS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SCF_EVENT_IDS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -796,8 +796,8 @@ impl ::core::default::Default for SIDESHOW_COLOR_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SIDESHOW_COLOR_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIDESHOW_COLOR_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SIDESHOW_COLOR_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -823,8 +823,8 @@ impl ::core::default::Default for SIDESHOW_SCREEN_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SIDESHOW_SCREEN_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIDESHOW_SCREEN_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SIDESHOW_SCREEN_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -847,8 +847,8 @@ impl ::core::clone::Clone for APPLICATION_EVENT_DATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for APPLICATION_EVENT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPLICATION_EVENT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for APPLICATION_EVENT_DATA {
     fn default() -> Self {
@@ -869,8 +869,8 @@ impl ::core::clone::Clone for CONTENT_MISSING_EVENT_DATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CONTENT_MISSING_EVENT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONTENT_MISSING_EVENT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CONTENT_MISSING_EVENT_DATA {
     fn default() -> Self {
@@ -889,8 +889,8 @@ impl ::core::clone::Clone for DEVICE_USER_CHANGE_EVENT_DATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DEVICE_USER_CHANGE_EVENT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVICE_USER_CHANGE_EVENT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DEVICE_USER_CHANGE_EVENT_DATA {
     fn default() -> Self {
@@ -911,8 +911,8 @@ impl ::core::clone::Clone for EVENT_DATA_HEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_DATA_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_DATA_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_DATA_HEADER {
     fn default() -> Self {
@@ -931,8 +931,8 @@ impl ::core::clone::Clone for NEW_EVENT_DATA_AVAILABLE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NEW_EVENT_DATA_AVAILABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NEW_EVENT_DATA_AVAILABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NEW_EVENT_DATA_AVAILABLE {
     fn default() -> Self {
@@ -959,8 +959,8 @@ impl ::core::fmt::Debug for SCF_CONTEXTMENU_EVENT {
         f.debug_struct("SCF_CONTEXTMENU_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("PreviousItemId", &self.PreviousItemId).field("MenuPage", &self.MenuPage).field("MenuItemId", &self.MenuItemId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCF_CONTEXTMENU_EVENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCF_CONTEXTMENU_EVENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCF_CONTEXTMENU_EVENT {
     fn eq(&self, other: &Self) -> bool {
@@ -990,8 +990,8 @@ impl ::core::fmt::Debug for SCF_EVENT_HEADER {
         f.debug_struct("SCF_EVENT_HEADER").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCF_EVENT_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCF_EVENT_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCF_EVENT_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -1023,8 +1023,8 @@ impl ::core::fmt::Debug for SCF_MENUACTION_EVENT {
         f.debug_struct("SCF_MENUACTION_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("Button", &self.Button).field("ItemId", &self.ItemId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCF_MENUACTION_EVENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCF_MENUACTION_EVENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCF_MENUACTION_EVENT {
     fn eq(&self, other: &Self) -> bool {
@@ -1055,8 +1055,8 @@ impl ::core::fmt::Debug for SCF_NAVIGATION_EVENT {
         f.debug_struct("SCF_NAVIGATION_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("Button", &self.Button).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCF_NAVIGATION_EVENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCF_NAVIGATION_EVENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCF_NAVIGATION_EVENT {
     fn eq(&self, other: &Self) -> bool {

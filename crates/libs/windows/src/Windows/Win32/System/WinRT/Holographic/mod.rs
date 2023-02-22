@@ -8,8 +8,8 @@ impl IHolographicCameraInterop {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct3D12::ID3D12Device>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDirect3D12BackBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ptexture2ddesc, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Graphics::Direct3D12::ID3D12Resource>();
+        (::windows::core::Vtable::vtable(self).CreateDirect3D12BackBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ptexture2ddesc, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -18,8 +18,8 @@ impl IHolographicCameraInterop {
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct3D12::ID3D12Device>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ptexture2ddesc, pprotectedresourcesession.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Graphics::Direct3D12::ID3D12Resource>();
+        (::windows::core::Vtable::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ptexture2ddesc, pprotectedresourcesession.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -49,11 +49,6 @@ impl IHolographicCameraInterop {
     }
 }
 ::windows::core::interface_hierarchy!(IHolographicCameraInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IHolographicCameraInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IHolographicCameraInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -67,6 +62,11 @@ impl ::core::fmt::Debug for IHolographicCameraInterop {
 }
 unsafe impl ::windows::core::Vtable for IHolographicCameraInterop {
     type Vtable = IHolographicCameraInterop_Vtbl;
+}
+impl ::core::clone::Clone for IHolographicCameraInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IHolographicCameraInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cc1f9c5_6d02_41fa_9500_e1809eb48eec);
@@ -122,11 +122,6 @@ impl IHolographicCameraRenderingParametersInterop {
     }
 }
 ::windows::core::interface_hierarchy!(IHolographicCameraRenderingParametersInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IHolographicCameraRenderingParametersInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IHolographicCameraRenderingParametersInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -140,6 +135,11 @@ impl ::core::fmt::Debug for IHolographicCameraRenderingParametersInterop {
 }
 unsafe impl ::windows::core::Vtable for IHolographicCameraRenderingParametersInterop {
     type Vtable = IHolographicCameraRenderingParametersInterop_Vtbl;
+}
+impl ::core::clone::Clone for IHolographicCameraRenderingParametersInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IHolographicCameraRenderingParametersInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf75b68d6_d1fd_4707_aafd_fa6f4c0e3bf4);
@@ -167,8 +167,8 @@ impl IHolographicQuadLayerInterop {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct3D12::ID3D12Device>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDirect3D12ContentBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ptexture2ddesc, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Graphics::Direct3D12::ID3D12Resource>();
+        (::windows::core::Vtable::vtable(self).CreateDirect3D12ContentBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ptexture2ddesc, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -177,8 +177,8 @@ impl IHolographicQuadLayerInterop {
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct3D12::ID3D12Device>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ptexture2ddesc, pprotectedresourcesession.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Graphics::Direct3D12::ID3D12Resource>();
+        (::windows::core::Vtable::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ptexture2ddesc, pprotectedresourcesession.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -208,11 +208,6 @@ impl IHolographicQuadLayerInterop {
     }
 }
 ::windows::core::interface_hierarchy!(IHolographicQuadLayerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IHolographicQuadLayerInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IHolographicQuadLayerInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -226,6 +221,11 @@ impl ::core::fmt::Debug for IHolographicQuadLayerInterop {
 }
 unsafe impl ::windows::core::Vtable for IHolographicQuadLayerInterop {
     type Vtable = IHolographicQuadLayerInterop_Vtbl;
+}
+impl ::core::clone::Clone for IHolographicQuadLayerInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IHolographicQuadLayerInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa688f0_639e_4a47_83d7_6b7f5ebf7fed);
@@ -270,11 +270,6 @@ impl IHolographicQuadLayerUpdateParametersInterop {
     }
 }
 ::windows::core::interface_hierarchy!(IHolographicQuadLayerUpdateParametersInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IHolographicQuadLayerUpdateParametersInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IHolographicQuadLayerUpdateParametersInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -288,6 +283,11 @@ impl ::core::fmt::Debug for IHolographicQuadLayerUpdateParametersInterop {
 }
 unsafe impl ::windows::core::Vtable for IHolographicQuadLayerUpdateParametersInterop {
     type Vtable = IHolographicQuadLayerUpdateParametersInterop_Vtbl;
+}
+impl ::core::clone::Clone for IHolographicQuadLayerUpdateParametersInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IHolographicQuadLayerUpdateParametersInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5f549cd_c909_444f_8809_7cc18a9c8920);

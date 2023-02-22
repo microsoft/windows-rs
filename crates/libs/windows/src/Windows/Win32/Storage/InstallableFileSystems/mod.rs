@@ -38,8 +38,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterConnectCommunicationPort ( lpportname : :: windows::core::PCWSTR , dwoptions : u32 , lpcontext : *const ::core::ffi::c_void , wsizeofcontext : u16 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , hport : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    FilterConnectCommunicationPort(lpportname.into().abi(), dwoptions, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())), wsizeofcontext, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    FilterConnectCommunicationPort(lpportname.into().abi(), dwoptions, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())), wsizeofcontext, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -48,8 +48,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterCreate ( lpfiltername : :: windows::core::PCWSTR , hfilter : *mut HFILTER ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    FilterCreate(lpfiltername.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<HFILTER>();
+    FilterCreate(lpfiltername.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -134,8 +134,8 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterInstanceCreate ( lpfiltername : :: windows::core::PCWSTR , lpvolumename : :: windows::core::PCWSTR , lpinstancename : :: windows::core::PCWSTR , hinstance : *mut HFILTER_INSTANCE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    FilterInstanceCreate(lpfiltername.into().abi(), lpvolumename.into().abi(), lpinstancename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<HFILTER_INSTANCE>();
+    FilterInstanceCreate(lpfiltername.into().abi(), lpvolumename.into().abi(), lpinstancename.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -461,8 +461,8 @@ impl ::core::default::Default for FILTER_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILTER_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -488,8 +488,8 @@ impl ::core::default::Default for FILTER_VOLUME_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_VOLUME_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_VOLUME_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILTER_VOLUME_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -573,8 +573,8 @@ impl ::core::default::Default for FLT_FILESYSTEM_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FLT_FILESYSTEM_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FLT_FILESYSTEM_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FLT_FILESYSTEM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -604,8 +604,8 @@ impl ::core::default::Default for INSTANCE_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for INSTANCE_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INSTANCE_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for INSTANCE_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -625,8 +625,8 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FILTER_AGGREGATE_BASIC_INFORMATION {
     fn default() -> Self {
@@ -645,8 +645,8 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     fn default() -> Self {
@@ -670,8 +670,8 @@ impl ::core::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
         f.debug_struct("FILTER_AGGREGATE_BASIC_INFORMATION_0_0").field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -705,8 +705,8 @@ impl ::core::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
         f.debug_struct("FILTER_AGGREGATE_BASIC_INFORMATION_0_1").field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -732,8 +732,8 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FILTER_AGGREGATE_STANDARD_INFORMATION {
     fn default() -> Self {
@@ -752,8 +752,8 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     fn default() -> Self {
@@ -780,8 +780,8 @@ impl ::core::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
         f.debug_struct("FILTER_AGGREGATE_STANDARD_INFORMATION_0_0").field("Flags", &self.Flags).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -816,8 +816,8 @@ impl ::core::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
         f.debug_struct("FILTER_AGGREGATE_STANDARD_INFORMATION_0_1").field("Flags", &self.Flags).field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -850,8 +850,8 @@ impl ::core::fmt::Debug for FILTER_FULL_INFORMATION {
         f.debug_struct("FILTER_FULL_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBuffer", &self.FilterNameBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_FULL_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_FULL_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILTER_FULL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -881,8 +881,8 @@ impl ::core::fmt::Debug for FILTER_MESSAGE_HEADER {
         f.debug_struct("FILTER_MESSAGE_HEADER").field("ReplyLength", &self.ReplyLength).field("MessageId", &self.MessageId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_MESSAGE_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_MESSAGE_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILTER_MESSAGE_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -917,8 +917,8 @@ impl ::core::fmt::Debug for FILTER_REPLY_HEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILTER_REPLY_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_REPLY_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILTER_REPLY_HEADER {
@@ -951,8 +951,8 @@ impl ::core::fmt::Debug for FILTER_VOLUME_BASIC_INFORMATION {
         f.debug_struct("FILTER_VOLUME_BASIC_INFORMATION").field("FilterVolumeNameLength", &self.FilterVolumeNameLength).field("FilterVolumeName", &self.FilterVolumeName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_VOLUME_BASIC_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_VOLUME_BASIC_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILTER_VOLUME_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -986,8 +986,8 @@ impl ::core::fmt::Debug for FILTER_VOLUME_STANDARD_INFORMATION {
         f.debug_struct("FILTER_VOLUME_STANDARD_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Flags", &self.Flags).field("FrameID", &self.FrameID).field("FileSystemType", &self.FileSystemType).field("FilterVolumeNameLength", &self.FilterVolumeNameLength).field("FilterVolumeName", &self.FilterVolumeName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILTER_VOLUME_STANDARD_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTER_VOLUME_STANDARD_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILTER_VOLUME_STANDARD_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -1029,8 +1029,8 @@ impl ::core::convert::From<::core::option::Option<FilterFindHandle>> for FilterF
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for FilterFindHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FilterFindHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1061,8 +1061,8 @@ impl ::core::convert::From<::core::option::Option<FilterInstanceFindHandle>> for
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for FilterInstanceFindHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FilterInstanceFindHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1093,8 +1093,8 @@ impl ::core::convert::From<::core::option::Option<FilterVolumeFindHandle>> for F
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for FilterVolumeFindHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FilterVolumeFindHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1125,8 +1125,8 @@ impl ::core::convert::From<::core::option::Option<FilterVolumeInstanceFindHandle
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for FilterVolumeInstanceFindHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FilterVolumeInstanceFindHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1157,8 +1157,8 @@ impl ::core::convert::From<::core::option::Option<HFILTER>> for HFILTER {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HFILTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HFILTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1189,8 +1189,8 @@ impl ::core::convert::From<::core::option::Option<HFILTER_INSTANCE>> for HFILTER
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HFILTER_INSTANCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HFILTER_INSTANCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
@@ -1205,8 +1205,8 @@ impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     fn default() -> Self {
@@ -1225,8 +1225,8 @@ impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     fn default() -> Self {
@@ -1256,8 +1256,8 @@ impl ::core::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
         f.debug_struct("INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0").field("Flags", &self.Flags).field("AltitudeLength", &self.AltitudeLength).field("AltitudeBufferOffset", &self.AltitudeBufferOffset).field("VolumeNameLength", &self.VolumeNameLength).field("VolumeNameBufferOffset", &self.VolumeNameBufferOffset).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("SupportedFeatures", &self.SupportedFeatures).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -1310,8 +1310,8 @@ impl ::core::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -1342,8 +1342,8 @@ impl ::core::fmt::Debug for INSTANCE_BASIC_INFORMATION {
         f.debug_struct("INSTANCE_BASIC_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("InstanceNameLength", &self.InstanceNameLength).field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INSTANCE_BASIC_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INSTANCE_BASIC_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INSTANCE_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -1390,8 +1390,8 @@ impl ::core::fmt::Debug for INSTANCE_FULL_INFORMATION {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for INSTANCE_FULL_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INSTANCE_FULL_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INSTANCE_FULL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -1424,8 +1424,8 @@ impl ::core::fmt::Debug for INSTANCE_PARTIAL_INFORMATION {
         f.debug_struct("INSTANCE_PARTIAL_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("InstanceNameLength", &self.InstanceNameLength).field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset).field("AltitudeLength", &self.AltitudeLength).field("AltitudeBufferOffset", &self.AltitudeBufferOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INSTANCE_PARTIAL_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INSTANCE_PARTIAL_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INSTANCE_PARTIAL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {

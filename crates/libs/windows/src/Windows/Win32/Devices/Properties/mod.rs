@@ -473,8 +473,8 @@ impl ::core::default::Default for DEVPROPSTORE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEVPROPSTORE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVPROPSTORE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEVPROPSTORE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -499,8 +499,8 @@ impl ::core::fmt::Debug for DEVPROPCOMPKEY {
         f.debug_struct("DEVPROPCOMPKEY").field("Key", &self.Key).field("Store", &self.Store).field("LocaleName", &self.LocaleName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DEVPROPCOMPKEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVPROPCOMPKEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DEVPROPCOMPKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -532,8 +532,8 @@ impl ::core::fmt::Debug for DEVPROPERTY {
         f.debug_struct("DEVPROPERTY").field("CompKey", &self.CompKey).field("Type", &self.Type).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DEVPROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVPROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DEVPROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -563,8 +563,8 @@ impl ::core::fmt::Debug for DEVPROPKEY {
         f.debug_struct("DEVPROPKEY").field("fmtid", &self.fmtid).field("pid", &self.pid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DEVPROPKEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVPROPKEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DEVPROPKEY {
     fn eq(&self, other: &Self) -> bool {

@@ -13,11 +13,6 @@ impl IContact {
     }
 }
 ::windows::core::interface_hierarchy!(IContact, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContact {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContact {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31,6 +26,11 @@ impl ::core::fmt::Debug for IContact {
 }
 unsafe impl ::windows::core::Vtable for IContact {
     type Vtable = IContact_Vtbl;
+}
+impl ::core::clone::Clone for IContact {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContact {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf941b671_bda7_4f77_884a_f46462f226a7);
@@ -51,8 +51,8 @@ impl IContactAggregationAggregate {
         (::windows::core::Vtable::vtable(self).Save)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetComponentItems(&self) -> ::windows::core::Result<IContactAggregationContactCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetComponentItems)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationContactCollection>();
+        (::windows::core::Vtable::vtable(self).GetComponentItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Link<P0>(&self, paggregateid: P0) -> ::windows::core::Result<()>
     where
@@ -61,12 +61,12 @@ impl IContactAggregationAggregate {
         (::windows::core::Vtable::vtable(self).Link)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi()).ok()
     }
     pub unsafe fn get_Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Groups)(::windows::core::Vtable::as_raw(self), options, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationGroupCollection>();
+        (::windows::core::Vtable::vtable(self).get_Groups)(::windows::core::Vtable::as_raw(self), options, &mut result__).from_abi(result__)
     }
     pub unsafe fn AntiLink(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AntiLink)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).AntiLink)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAntiLink<P0>(&self, pantilink: P0) -> ::windows::core::Result<()>
     where
@@ -75,23 +75,18 @@ impl IContactAggregationAggregate {
         (::windows::core::Vtable::vtable(self).SetAntiLink)(::windows::core::Vtable::as_raw(self), pantilink.into().abi()).ok()
     }
     pub unsafe fn FavoriteOrder(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FavoriteOrder)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).FavoriteOrder)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFavoriteOrder(&self, favoriteorder: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetFavoriteOrder)(::windows::core::Vtable::as_raw(self), favoriteorder).ok()
     }
     pub unsafe fn Id(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationAggregate, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactAggregationAggregate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactAggregationAggregate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -105,6 +100,11 @@ impl ::core::fmt::Debug for IContactAggregationAggregate {
 }
 unsafe impl ::windows::core::Vtable for IContactAggregationAggregate {
     type Vtable = IContactAggregationAggregate_Vtbl;
+}
+impl ::core::clone::Clone for IContactAggregationAggregate {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationAggregate {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed1c814_cd30_43c8_9b8d_2e489e53d54b);
@@ -128,31 +128,26 @@ pub struct IContactAggregationAggregate_Vtbl {
 pub struct IContactAggregationAggregateCollection(::windows::core::IUnknown);
 impl IContactAggregationAggregateCollection {
     pub unsafe fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationAggregate> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirst)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationAggregate>();
+        (::windows::core::Vtable::vtable(self).FindFirst)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindFirstByAntiLinkId<P0>(&self, pantilinkid: P0) -> ::windows::core::Result<IContactAggregationAggregate>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByAntiLinkId)(::windows::core::Vtable::as_raw(self), pantilinkid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationAggregate>();
+        (::windows::core::Vtable::vtable(self).FindFirstByAntiLinkId)(::windows::core::Vtable::as_raw(self), pantilinkid.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindNext(&self) -> ::windows::core::Result<IContactAggregationAggregate> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationAggregate>();
+        (::windows::core::Vtable::vtable(self).FindNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationAggregateCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactAggregationAggregateCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactAggregationAggregateCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -166,6 +161,11 @@ impl ::core::fmt::Debug for IContactAggregationAggregateCollection {
 }
 unsafe impl ::windows::core::Vtable for IContactAggregationAggregateCollection {
     type Vtable = IContactAggregationAggregateCollection_Vtbl;
+}
+impl ::core::clone::Clone for IContactAggregationAggregateCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationAggregateCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2359f3a6_3a68_40af_98db_0f9eb143c3bb);
@@ -199,8 +199,8 @@ impl IContactAggregationContact {
         (::windows::core::Vtable::vtable(self).Unlink)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn AccountId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AccountId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).AccountId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAccountId<P0>(&self, paccountid: P0) -> ::windows::core::Result<()>
     where
@@ -209,35 +209,35 @@ impl IContactAggregationContact {
         (::windows::core::Vtable::vtable(self).SetAccountId)(::windows::core::Vtable::as_raw(self), paccountid.into().abi()).ok()
     }
     pub unsafe fn AggregateId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AggregateId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).AggregateId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Id(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMe(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsMe)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsMe)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsExternal(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsExternal)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsExternal)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NetworkSourceId(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).NetworkSourceId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).NetworkSourceId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNetworkSourceId(&self, networksourceid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetNetworkSourceId)(::windows::core::Vtable::as_raw(self), networksourceid).ok()
     }
     pub unsafe fn NetworkSourceIdString(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).NetworkSourceIdString)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).NetworkSourceIdString)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNetworkSourceIdString<P0>(&self, pnetworksourceid: P0) -> ::windows::core::Result<()>
     where
@@ -246,26 +246,21 @@ impl IContactAggregationContact {
         (::windows::core::Vtable::vtable(self).SetNetworkSourceIdString)(::windows::core::Vtable::as_raw(self), pnetworksourceid.into().abi()).ok()
     }
     pub unsafe fn RemoteObjectId(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RemoteObjectId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut CONTACT_AGGREGATION_BLOB>();
+        (::windows::core::Vtable::vtable(self).RemoteObjectId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRemoteObjectId(&self, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetRemoteObjectId)(::windows::core::Vtable::as_raw(self), premoteobjectid).ok()
     }
     pub unsafe fn SyncIdentityHash(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SyncIdentityHash)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut CONTACT_AGGREGATION_BLOB>();
+        (::windows::core::Vtable::vtable(self).SyncIdentityHash)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSyncIdentityHash(&self, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetSyncIdentityHash)(::windows::core::Vtable::as_raw(self), psyncidentityhash).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationContact, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactAggregationContact {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactAggregationContact {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -279,6 +274,11 @@ impl ::core::fmt::Debug for IContactAggregationContact {
 }
 unsafe impl ::windows::core::Vtable for IContactAggregationContact {
     type Vtable = IContactAggregationContact_Vtbl;
+}
+impl ::core::clone::Clone for IContactAggregationContact {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationContact {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1eb22e86_4c86_41f0_9f9f_c251e9fda6c3);
@@ -317,40 +317,35 @@ pub struct IContactAggregationContact_Vtbl {
 pub struct IContactAggregationContactCollection(::windows::core::IUnknown);
 impl IContactAggregationContactCollection {
     pub unsafe fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationContact> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirst)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationContact>();
+        (::windows::core::Vtable::vtable(self).FindFirst)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindNext(&self) -> ::windows::core::Result<IContactAggregationContact> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationContact>();
+        (::windows::core::Vtable::vtable(self).FindNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindFirstByIdentityHash<P0, P1>(&self, psourcetype: P0, paccountid: P1, pidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByIdentityHash)(::windows::core::Vtable::as_raw(self), psourcetype.into().abi(), paccountid.into().abi(), pidentityhash, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationContact>();
+        (::windows::core::Vtable::vtable(self).FindFirstByIdentityHash)(::windows::core::Vtable::as_raw(self), psourcetype.into().abi(), paccountid.into().abi(), pidentityhash, &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindFirstByRemoteId<P0, P1>(&self, psourcetype: P0, paccountid: P1, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByRemoteId)(::windows::core::Vtable::as_raw(self), psourcetype.into().abi(), paccountid.into().abi(), premoteobjectid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationContact>();
+        (::windows::core::Vtable::vtable(self).FindFirstByRemoteId)(::windows::core::Vtable::as_raw(self), psourcetype.into().abi(), paccountid.into().abi(), premoteobjectid, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationContactCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactAggregationContactCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactAggregationContactCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -364,6 +359,11 @@ impl ::core::fmt::Debug for IContactAggregationContactCollection {
 }
 unsafe impl ::windows::core::Vtable for IContactAggregationContactCollection {
     type Vtable = IContactAggregationContactCollection_Vtbl;
+}
+impl ::core::clone::Clone for IContactAggregationContactCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationContactCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x826e66fa_81de_43ca_a6fb_8c785cd996c6);
@@ -401,23 +401,23 @@ impl IContactAggregationGroup {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi()).ok()
     }
     pub unsafe fn Members(&self) -> ::windows::core::Result<IContactAggregationAggregateCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Members)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationAggregateCollection>();
+        (::windows::core::Vtable::vtable(self).Members)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GlobalObjectId(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GlobalObjectId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).GlobalObjectId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetGlobalObjectId(&self, pglobalobjectid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetGlobalObjectId)(::windows::core::Vtable::as_raw(self), pglobalobjectid).ok()
     }
     pub unsafe fn Id(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetName<P0>(&self, pname: P0) -> ::windows::core::Result<()>
     where
@@ -427,11 +427,6 @@ impl IContactAggregationGroup {
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationGroup, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactAggregationGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactAggregationGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -445,6 +440,11 @@ impl ::core::fmt::Debug for IContactAggregationGroup {
 }
 unsafe impl ::windows::core::Vtable for IContactAggregationGroup {
     type Vtable = IContactAggregationGroup_Vtbl;
+}
+impl ::core::clone::Clone for IContactAggregationGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationGroup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc93c545f_1284_499b_96af_07372af473e0);
@@ -469,28 +469,23 @@ pub struct IContactAggregationGroup_Vtbl {
 pub struct IContactAggregationGroupCollection(::windows::core::IUnknown);
 impl IContactAggregationGroupCollection {
     pub unsafe fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationGroup> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirst)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationGroup>();
+        (::windows::core::Vtable::vtable(self).FindFirst)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindFirstByGlobalObjectId(&self, pglobalobjectid: *const ::windows::core::GUID) -> ::windows::core::Result<IContactAggregationGroup> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByGlobalObjectId)(::windows::core::Vtable::as_raw(self), pglobalobjectid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationGroup>();
+        (::windows::core::Vtable::vtable(self).FindFirstByGlobalObjectId)(::windows::core::Vtable::as_raw(self), pglobalobjectid, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindNext(&self) -> ::windows::core::Result<IContactAggregationGroup> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationGroup>();
+        (::windows::core::Vtable::vtable(self).FindNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationGroupCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactAggregationGroupCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactAggregationGroupCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -504,6 +499,11 @@ impl ::core::fmt::Debug for IContactAggregationGroupCollection {
 }
 unsafe impl ::windows::core::Vtable for IContactAggregationGroupCollection {
     type Vtable = IContactAggregationGroupCollection_Vtbl;
+}
+impl ::core::clone::Clone for IContactAggregationGroupCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationGroupCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20a19a9c_d2f3_4b83_9143_beffd2cc226d);
@@ -528,8 +528,8 @@ impl IContactAggregationLink {
         (::windows::core::Vtable::vtable(self).Save)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn AccountId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AccountId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).AccountId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAccountId<P0>(&self, paccountid: P0) -> ::windows::core::Result<()>
     where
@@ -538,14 +538,14 @@ impl IContactAggregationLink {
         (::windows::core::Vtable::vtable(self).SetAccountId)(::windows::core::Vtable::as_raw(self), paccountid.into().abi()).ok()
     }
     pub unsafe fn Id(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLinkResolved(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsLinkResolved)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsLinkResolved)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -556,8 +556,8 @@ impl IContactAggregationLink {
         (::windows::core::Vtable::vtable(self).SetIsLinkResolved)(::windows::core::Vtable::as_raw(self), islinkresolved.into()).ok()
     }
     pub unsafe fn NetworkSourceIdString(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).NetworkSourceIdString)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).NetworkSourceIdString)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNetworkSourceIdString<P0>(&self, pnetworksourceid: P0) -> ::windows::core::Result<()>
     where
@@ -566,15 +566,15 @@ impl IContactAggregationLink {
         (::windows::core::Vtable::vtable(self).SetNetworkSourceIdString)(::windows::core::Vtable::as_raw(self), pnetworksourceid.into().abi()).ok()
     }
     pub unsafe fn RemoteObjectId(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RemoteObjectId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut CONTACT_AGGREGATION_BLOB>();
+        (::windows::core::Vtable::vtable(self).RemoteObjectId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRemoteObjectId(&self, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetRemoteObjectId)(::windows::core::Vtable::as_raw(self), premoteobjectid).ok()
     }
     pub unsafe fn ServerPerson(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ServerPerson)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).ServerPerson)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetServerPerson<P0>(&self, pserverpersonid: P0) -> ::windows::core::Result<()>
     where
@@ -583,8 +583,8 @@ impl IContactAggregationLink {
         (::windows::core::Vtable::vtable(self).SetServerPerson)(::windows::core::Vtable::as_raw(self), pserverpersonid.into().abi()).ok()
     }
     pub unsafe fn ServerPersonBaseline(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ServerPersonBaseline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).ServerPersonBaseline)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetServerPersonBaseline<P0>(&self, pserverpersonid: P0) -> ::windows::core::Result<()>
     where
@@ -593,19 +593,14 @@ impl IContactAggregationLink {
         (::windows::core::Vtable::vtable(self).SetServerPersonBaseline)(::windows::core::Vtable::as_raw(self), pserverpersonid.into().abi()).ok()
     }
     pub unsafe fn SyncIdentityHash(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SyncIdentityHash)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut CONTACT_AGGREGATION_BLOB>();
+        (::windows::core::Vtable::vtable(self).SyncIdentityHash)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSyncIdentityHash(&self, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetSyncIdentityHash)(::windows::core::Vtable::as_raw(self), psyncidentityhash).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationLink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactAggregationLink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactAggregationLink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -619,6 +614,11 @@ impl ::core::fmt::Debug for IContactAggregationLink {
 }
 unsafe impl ::windows::core::Vtable for IContactAggregationLink {
     type Vtable = IContactAggregationLink_Vtbl;
+}
+impl ::core::clone::Clone for IContactAggregationLink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationLink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6813323_a183_4654_8627_79b30de3a0ec);
@@ -656,32 +656,27 @@ pub struct IContactAggregationLink_Vtbl {
 pub struct IContactAggregationLinkCollection(::windows::core::IUnknown);
 impl IContactAggregationLinkCollection {
     pub unsafe fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationLink> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirst)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationLink>();
+        (::windows::core::Vtable::vtable(self).FindFirst)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindFirstByRemoteId<P0, P1>(&self, psourcetype: P0, paccountid: P1, premoteid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationLink>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByRemoteId)(::windows::core::Vtable::as_raw(self), psourcetype.into().abi(), paccountid.into().abi(), premoteid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationLink>();
+        (::windows::core::Vtable::vtable(self).FindFirstByRemoteId)(::windows::core::Vtable::as_raw(self), psourcetype.into().abi(), paccountid.into().abi(), premoteid, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindNext(&self) -> ::windows::core::Result<IContactAggregationLink> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationLink>();
+        (::windows::core::Vtable::vtable(self).FindNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationLinkCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactAggregationLinkCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactAggregationLinkCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -695,6 +690,11 @@ impl ::core::fmt::Debug for IContactAggregationLinkCollection {
 }
 unsafe impl ::windows::core::Vtable for IContactAggregationLinkCollection {
     type Vtable = IContactAggregationLinkCollection_Vtbl;
+}
+impl ::core::clone::Clone for IContactAggregationLinkCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationLinkCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8bc0e93_fb55_4f28_b9fa_b1c274153292);
@@ -724,16 +724,16 @@ impl IContactAggregationManager {
         (::windows::core::Vtable::vtable(self).CreateOrOpenGroup)(::windows::core::Vtable::as_raw(self), pgroupname.into().abi(), options, pcreatedgroup, ::core::mem::transmute(ppgroup)).ok()
     }
     pub unsafe fn CreateExternalContact(&self) -> ::windows::core::Result<IContactAggregationContact> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateExternalContact)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationContact>();
+        (::windows::core::Vtable::vtable(self).CreateExternalContact)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateServerPerson(&self) -> ::windows::core::Result<IContactAggregationServerPerson> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateServerPerson)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationServerPerson>();
+        (::windows::core::Vtable::vtable(self).CreateServerPerson)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateServerContactLink(&self) -> ::windows::core::Result<IContactAggregationLink> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateServerContactLink)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationLink>();
+        (::windows::core::Vtable::vtable(self).CreateServerContactLink)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Flush(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
@@ -742,60 +742,55 @@ impl IContactAggregationManager {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenAggregateContact)(::windows::core::Vtable::as_raw(self), pitemid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationAggregate>();
+        (::windows::core::Vtable::vtable(self).OpenAggregateContact)(::windows::core::Vtable::as_raw(self), pitemid.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenContact<P0>(&self, pitemid: P0) -> ::windows::core::Result<IContactAggregationContact>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenContact)(::windows::core::Vtable::as_raw(self), pitemid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationContact>();
+        (::windows::core::Vtable::vtable(self).OpenContact)(::windows::core::Vtable::as_raw(self), pitemid.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenServerContactLink<P0>(&self, pitemid: P0) -> ::windows::core::Result<IContactAggregationLink>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenServerContactLink)(::windows::core::Vtable::as_raw(self), pitemid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationLink>();
+        (::windows::core::Vtable::vtable(self).OpenServerContactLink)(::windows::core::Vtable::as_raw(self), pitemid.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenServerPerson<P0>(&self, pitemid: P0) -> ::windows::core::Result<IContactAggregationServerPerson>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenServerPerson)(::windows::core::Vtable::as_raw(self), pitemid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationServerPerson>();
+        (::windows::core::Vtable::vtable(self).OpenServerPerson)(::windows::core::Vtable::as_raw(self), pitemid.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn get_Contacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationContactCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Contacts)(::windows::core::Vtable::as_raw(self), options, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationContactCollection>();
+        (::windows::core::Vtable::vtable(self).get_Contacts)(::windows::core::Vtable::as_raw(self), options, &mut result__).from_abi(result__)
     }
     pub unsafe fn get_AggregateContacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationAggregateCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_AggregateContacts)(::windows::core::Vtable::as_raw(self), options, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationAggregateCollection>();
+        (::windows::core::Vtable::vtable(self).get_AggregateContacts)(::windows::core::Vtable::as_raw(self), options, &mut result__).from_abi(result__)
     }
     pub unsafe fn get_Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Groups)(::windows::core::Vtable::as_raw(self), options, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationGroupCollection>();
+        (::windows::core::Vtable::vtable(self).get_Groups)(::windows::core::Vtable::as_raw(self), options, &mut result__).from_abi(result__)
     }
     pub unsafe fn ServerPersons(&self) -> ::windows::core::Result<IContactAggregationServerPersonCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ServerPersons)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationServerPersonCollection>();
+        (::windows::core::Vtable::vtable(self).ServerPersons)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn get_ServerContactLinks<P0>(&self, ppersonitemid: P0) -> ::windows::core::Result<IContactAggregationLinkCollection>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_ServerContactLinks)(::windows::core::Vtable::as_raw(self), ppersonitemid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationLinkCollection>();
+        (::windows::core::Vtable::vtable(self).get_ServerContactLinks)(::windows::core::Vtable::as_raw(self), ppersonitemid.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationManager, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactAggregationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactAggregationManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -809,6 +804,11 @@ impl ::core::fmt::Debug for IContactAggregationManager {
 }
 unsafe impl ::windows::core::Vtable for IContactAggregationManager {
     type Vtable = IContactAggregationManager_Vtbl;
+}
+impl ::core::clone::Clone for IContactAggregationManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d865989_4b1f_4b60_8f34_c2ad468b2b50);
@@ -847,8 +847,8 @@ impl IContactAggregationServerPerson {
         (::windows::core::Vtable::vtable(self).Save)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn AggregateId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AggregateId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).AggregateId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAggregateId<P0>(&self, paggregateid: P0) -> ::windows::core::Result<()>
     where
@@ -857,8 +857,8 @@ impl IContactAggregationServerPerson {
         (::windows::core::Vtable::vtable(self).SetAggregateId)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi()).ok()
     }
     pub unsafe fn AntiLink(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AntiLink)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).AntiLink)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAntiLink<P0>(&self, pantilink: P0) -> ::windows::core::Result<()>
     where
@@ -867,8 +867,8 @@ impl IContactAggregationServerPerson {
         (::windows::core::Vtable::vtable(self).SetAntiLink)(::windows::core::Vtable::as_raw(self), pantilink.into().abi()).ok()
     }
     pub unsafe fn AntiLinkBaseline(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AntiLinkBaseline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).AntiLinkBaseline)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAntiLinkBaseline<P0>(&self, pantilink: P0) -> ::windows::core::Result<()>
     where
@@ -877,42 +877,42 @@ impl IContactAggregationServerPerson {
         (::windows::core::Vtable::vtable(self).SetAntiLinkBaseline)(::windows::core::Vtable::as_raw(self), pantilink.into().abi()).ok()
     }
     pub unsafe fn FavoriteOrder(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FavoriteOrder)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).FavoriteOrder)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFavoriteOrder(&self, favoriteorder: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetFavoriteOrder)(::windows::core::Vtable::as_raw(self), favoriteorder).ok()
     }
     pub unsafe fn FavoriteOrderBaseline(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FavoriteOrderBaseline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).FavoriteOrderBaseline)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFavoriteOrderBaseline(&self, favoriteorder: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetFavoriteOrderBaseline)(::windows::core::Vtable::as_raw(self), favoriteorder).ok()
     }
     pub unsafe fn Groups(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Groups)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut CONTACT_AGGREGATION_BLOB>();
+        (::windows::core::Vtable::vtable(self).Groups)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetGroups(&self, pgroups: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetGroups)(::windows::core::Vtable::as_raw(self), pgroups).ok()
     }
     pub unsafe fn GroupsBaseline(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GroupsBaseline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut CONTACT_AGGREGATION_BLOB>();
+        (::windows::core::Vtable::vtable(self).GroupsBaseline)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetGroupsBaseline(&self, pgroups: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetGroupsBaseline)(::windows::core::Vtable::as_raw(self), pgroups).ok()
     }
     pub unsafe fn Id(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsTombstone(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsTombstone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsTombstone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -923,8 +923,8 @@ impl IContactAggregationServerPerson {
         (::windows::core::Vtable::vtable(self).SetIsTombstone)(::windows::core::Vtable::as_raw(self), istombstone.into()).ok()
     }
     pub unsafe fn LinkedAggregateId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LinkedAggregateId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).LinkedAggregateId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLinkedAggregateId<P0>(&self, plinkedaggregateid: P0) -> ::windows::core::Result<()>
     where
@@ -933,8 +933,8 @@ impl IContactAggregationServerPerson {
         (::windows::core::Vtable::vtable(self).SetLinkedAggregateId)(::windows::core::Vtable::as_raw(self), plinkedaggregateid.into().abi()).ok()
     }
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ObjectId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).ObjectId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetObjectId<P0>(&self, pobjectid: P0) -> ::windows::core::Result<()>
     where
@@ -944,11 +944,6 @@ impl IContactAggregationServerPerson {
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationServerPerson, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactAggregationServerPerson {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactAggregationServerPerson {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -962,6 +957,11 @@ impl ::core::fmt::Debug for IContactAggregationServerPerson {
 }
 unsafe impl ::windows::core::Vtable for IContactAggregationServerPerson {
     type Vtable = IContactAggregationServerPerson_Vtbl;
+}
+impl ::core::clone::Clone for IContactAggregationServerPerson {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationServerPerson {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fdc3d4b_1b82_4334_85c5_25184ee5a5f2);
@@ -1005,45 +1005,40 @@ pub struct IContactAggregationServerPerson_Vtbl {
 pub struct IContactAggregationServerPersonCollection(::windows::core::IUnknown);
 impl IContactAggregationServerPersonCollection {
     pub unsafe fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationServerPerson> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirst)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationServerPerson>();
+        (::windows::core::Vtable::vtable(self).FindFirst)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindFirstByServerId<P0>(&self, pserverid: P0) -> ::windows::core::Result<IContactAggregationServerPerson>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByServerId)(::windows::core::Vtable::as_raw(self), pserverid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationServerPerson>();
+        (::windows::core::Vtable::vtable(self).FindFirstByServerId)(::windows::core::Vtable::as_raw(self), pserverid.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindFirstByAggregateId<P0>(&self, paggregateid: P0) -> ::windows::core::Result<IContactAggregationServerPerson>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByAggregateId)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationServerPerson>();
+        (::windows::core::Vtable::vtable(self).FindFirstByAggregateId)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindFirstByLinkedAggregateId<P0>(&self, paggregateid: P0) -> ::windows::core::Result<IContactAggregationServerPerson>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByLinkedAggregateId)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationServerPerson>();
+        (::windows::core::Vtable::vtable(self).FindFirstByLinkedAggregateId)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindNext(&self) -> ::windows::core::Result<IContactAggregationServerPerson> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactAggregationServerPerson>();
+        (::windows::core::Vtable::vtable(self).FindNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationServerPersonCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactAggregationServerPersonCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactAggregationServerPersonCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1057,6 +1052,11 @@ impl ::core::fmt::Debug for IContactAggregationServerPersonCollection {
 }
 unsafe impl ::windows::core::Vtable for IContactAggregationServerPersonCollection {
     type Vtable = IContactAggregationServerPersonCollection_Vtbl;
+}
+impl ::core::clone::Clone for IContactAggregationServerPersonCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationServerPersonCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f730a4a_6604_47b6_a987_669ecf1e5751);
@@ -1083,16 +1083,11 @@ impl IContactCollection {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IContact> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContact>();
+        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContactCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1106,6 +1101,11 @@ impl ::core::fmt::Debug for IContactCollection {
 }
 unsafe impl ::windows::core::Vtable for IContactCollection {
     type Vtable = IContactCollection_Vtbl;
+}
+impl ::core::clone::Clone for IContactCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6afa338_d779_11d9_8bde_f66bad1e3f3a);
@@ -1133,8 +1133,8 @@ impl IContactManager {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), pszcontactid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContact>();
+        (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), pszcontactid.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn MergeContactIDs<P0, P1>(&self, psznewcontactid: P0, pszoldcontactid: P1) -> ::windows::core::Result<()>
     where
@@ -1144,8 +1144,8 @@ impl IContactManager {
         (::windows::core::Vtable::vtable(self).MergeContactIDs)(::windows::core::Vtable::as_raw(self), psznewcontactid.into().abi(), pszoldcontactid.into().abi()).ok()
     }
     pub unsafe fn GetMeContact(&self) -> ::windows::core::Result<IContact> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMeContact)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContact>();
+        (::windows::core::Vtable::vtable(self).GetMeContact)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMeContact<P0>(&self, pmecontact: P0) -> ::windows::core::Result<()>
     where
@@ -1154,16 +1154,11 @@ impl IContactManager {
         (::windows::core::Vtable::vtable(self).SetMeContact)(::windows::core::Vtable::as_raw(self), pmecontact.into().abi()).ok()
     }
     pub unsafe fn GetContactCollection(&self) -> ::windows::core::Result<IContactCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContactCollection)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IContactCollection>();
+        (::windows::core::Vtable::vtable(self).GetContactCollection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContactManager, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1177,6 +1172,11 @@ impl ::core::fmt::Debug for IContactManager {
 }
 unsafe impl ::windows::core::Vtable for IContactManager {
     type Vtable = IContactManager_Vtbl;
+}
+impl ::core::clone::Clone for IContactManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad553d98_deb1_474a_8e17_fc0c2075b738);
@@ -1293,11 +1293,6 @@ impl IContactProperties {
     }
 }
 ::windows::core::interface_hierarchy!(IContactProperties, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1311,6 +1306,11 @@ impl ::core::fmt::Debug for IContactProperties {
 }
 unsafe impl ::windows::core::Vtable for IContactProperties {
     type Vtable = IContactProperties_Vtbl;
+}
+impl ::core::clone::Clone for IContactProperties {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactProperties {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70dd27dd_5cbd_46e8_bef0_23b6b346288f);
@@ -1380,11 +1380,6 @@ impl IContactPropertyCollection {
     }
 }
 ::windows::core::interface_hierarchy!(IContactPropertyCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContactPropertyCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContactPropertyCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1398,6 +1393,11 @@ impl ::core::fmt::Debug for IContactPropertyCollection {
 }
 unsafe impl ::windows::core::Vtable for IContactPropertyCollection {
     type Vtable = IContactPropertyCollection_Vtbl;
+}
+impl ::core::clone::Clone for IContactPropertyCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContactPropertyCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffd3adf8_fa64_4328_b1b6_2e0db509cb3c);
@@ -1652,8 +1652,8 @@ impl ::core::default::Default for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1679,8 +1679,8 @@ impl ::core::default::Default for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1704,8 +1704,8 @@ impl ::core::fmt::Debug for CONTACT_AGGREGATION_BLOB {
         f.debug_struct("CONTACT_AGGREGATION_BLOB").field("dwCount", &self.dwCount).field("lpb", &self.lpb).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONTACT_AGGREGATION_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONTACT_AGGREGATION_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONTACT_AGGREGATION_BLOB {
     fn eq(&self, other: &Self) -> bool {

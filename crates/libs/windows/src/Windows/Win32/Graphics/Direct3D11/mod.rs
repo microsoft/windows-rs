@@ -42,8 +42,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11ShaderTrace>>,
 {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DDisassemble11Trace ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ptrace : * mut::core::ffi::c_void , startstep : u32 , numsteps : u32 , flags : u32 , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DDisassemble11Trace(psrcdata, srcdatasize, ptrace.into().abi(), startstep, numsteps, flags, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
+    D3DDisassemble11Trace(psrcdata, srcdatasize, ptrace.into().abi(), startstep, numsteps, flags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[inline]
@@ -115,8 +115,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11DeviceContext>>,
 {
     ::windows::core::link ! ( "d3dcsx.dll""system" fn D3DX11CreateScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , maxscancount : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DX11CreateScan(pdevicecontext.into().abi(), maxelementscansize, maxscancount, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<ID3DX11Scan>();
+    D3DX11CreateScan(pdevicecontext.into().abi(), maxelementscansize, maxscancount, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[inline]
@@ -125,17 +125,17 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11DeviceContext>>,
 {
     ::windows::core::link ! ( "d3dcsx.dll""system" fn D3DX11CreateSegmentedScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DX11CreateSegmentedScan(pdevicecontext.into().abi(), maxelementscansize, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<ID3DX11SegmentedScan>();
+    D3DX11CreateSegmentedScan(pdevicecontext.into().abi(), maxelementscansize, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct ID3D11Asynchronous(::windows::core::IUnknown);
 impl ID3D11Asynchronous {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -154,11 +154,6 @@ impl ID3D11Asynchronous {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Asynchronous, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11Asynchronous {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Asynchronous {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -175,6 +170,11 @@ unsafe impl ::core::marker::Sync for ID3D11Asynchronous {}
 unsafe impl ::windows::core::Vtable for ID3D11Asynchronous {
     type Vtable = ID3D11Asynchronous_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11Asynchronous {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11Asynchronous {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b35d0cd_1e15_4258_9c98_1b1333f6dd3b);
 }
@@ -189,9 +189,9 @@ pub struct ID3D11Asynchronous_Vtbl {
 pub struct ID3D11AuthenticatedChannel(::windows::core::IUnknown);
 impl ID3D11AuthenticatedChannel {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -206,8 +206,8 @@ impl ID3D11AuthenticatedChannel {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetCertificateSize(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCertificateSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCertificateSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCertificate(&self, pcertificate: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCertificate)(::windows::core::Vtable::as_raw(self), pcertificate.len() as _, ::core::mem::transmute(pcertificate.as_ptr())).ok()
@@ -215,17 +215,12 @@ impl ID3D11AuthenticatedChannel {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetChannelHandle(&self) -> super::super::Foundation::HANDLE {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetChannelHandle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+        (::windows::core::Vtable::vtable(self).GetChannelHandle)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11AuthenticatedChannel, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11AuthenticatedChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11AuthenticatedChannel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -241,6 +236,11 @@ unsafe impl ::core::marker::Send for ID3D11AuthenticatedChannel {}
 unsafe impl ::core::marker::Sync for ID3D11AuthenticatedChannel {}
 unsafe impl ::windows::core::Vtable for ID3D11AuthenticatedChannel {
     type Vtable = ID3D11AuthenticatedChannel_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11AuthenticatedChannel {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11AuthenticatedChannel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3015a308_dcbd_47aa_a747_192486d14d4a);
@@ -261,9 +261,9 @@ pub struct ID3D11AuthenticatedChannel_Vtbl {
 pub struct ID3D11BlendState(::windows::core::IUnknown);
 impl ID3D11BlendState {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -284,11 +284,6 @@ impl ID3D11BlendState {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11BlendState, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11BlendState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11BlendState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -304,6 +299,11 @@ unsafe impl ::core::marker::Send for ID3D11BlendState {}
 unsafe impl ::core::marker::Sync for ID3D11BlendState {}
 unsafe impl ::windows::core::Vtable for ID3D11BlendState {
     type Vtable = ID3D11BlendState_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11BlendState {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11BlendState {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75b68faa_347d_4159_8f45_a0640f01cd9a);
@@ -322,9 +322,9 @@ pub struct ID3D11BlendState_Vtbl {
 pub struct ID3D11BlendState1(::windows::core::IUnknown);
 impl ID3D11BlendState1 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -350,11 +350,6 @@ impl ID3D11BlendState1 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11BlendState1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11BlendState);
-impl ::core::clone::Clone for ID3D11BlendState1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11BlendState1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -370,6 +365,11 @@ unsafe impl ::core::marker::Send for ID3D11BlendState1 {}
 unsafe impl ::core::marker::Sync for ID3D11BlendState1 {}
 unsafe impl ::windows::core::Vtable for ID3D11BlendState1 {
     type Vtable = ID3D11BlendState1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11BlendState1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11BlendState1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc86fabe_da55_401d_85e7_e3c9de2877e9);
@@ -388,9 +388,9 @@ pub struct ID3D11BlendState1_Vtbl {
 pub struct ID3D11Buffer(::windows::core::IUnknown);
 impl ID3D11Buffer {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -405,9 +405,9 @@ impl ID3D11Buffer {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetType(&self) -> D3D11_RESOURCE_DIMENSION {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_RESOURCE_DIMENSION>();
+        (::windows::core::Vtable::vtable(self).base__.GetType)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
         (::windows::core::Vtable::vtable(self).base__.SetEvictionPriority)(::windows::core::Vtable::as_raw(self), evictionpriority)
@@ -420,11 +420,6 @@ impl ID3D11Buffer {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Buffer, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
-impl ::core::clone::Clone for ID3D11Buffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Buffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -441,6 +436,11 @@ unsafe impl ::core::marker::Sync for ID3D11Buffer {}
 unsafe impl ::windows::core::Vtable for ID3D11Buffer {
     type Vtable = ID3D11Buffer_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11Buffer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11Buffer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48570b85_d1ee_4fcd_a250_eb350722b037);
 }
@@ -455,9 +455,9 @@ pub struct ID3D11Buffer_Vtbl {
 pub struct ID3D11ClassInstance(::windows::core::IUnknown);
 impl ID3D11ClassInstance {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -472,9 +472,9 @@ impl ID3D11ClassInstance {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetClassLinkage(&self) -> ::windows::core::Result<ID3D11ClassLinkage> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClassLinkage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11ClassLinkage as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11ClassLinkage>();
+        (::windows::core::Vtable::vtable(self).GetClassLinkage)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -489,11 +489,6 @@ impl ID3D11ClassInstance {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11ClassInstance, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11ClassInstance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11ClassInstance {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -509,6 +504,11 @@ unsafe impl ::core::marker::Send for ID3D11ClassInstance {}
 unsafe impl ::core::marker::Sync for ID3D11ClassInstance {}
 unsafe impl ::windows::core::Vtable for ID3D11ClassInstance {
     type Vtable = ID3D11ClassInstance_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11ClassInstance {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11ClassInstance {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6cd7faa_b0b7_4a2f_9436_8662a65797cb);
@@ -530,9 +530,9 @@ pub struct ID3D11ClassInstance_Vtbl {
 pub struct ID3D11ClassLinkage(::windows::core::IUnknown);
 impl ID3D11ClassLinkage {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -550,23 +550,18 @@ impl ID3D11ClassLinkage {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClassInstance)(::windows::core::Vtable::as_raw(self), pclassinstancename.into().abi(), instanceindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11ClassInstance>();
+        (::windows::core::Vtable::vtable(self).GetClassInstance)(::windows::core::Vtable::as_raw(self), pclassinstancename.into().abi(), instanceindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateClassInstance<P0>(&self, pclasstypename: P0, constantbufferoffset: u32, constantvectoroffset: u32, textureoffset: u32, sampleroffset: u32) -> ::windows::core::Result<ID3D11ClassInstance>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateClassInstance)(::windows::core::Vtable::as_raw(self), pclasstypename.into().abi(), constantbufferoffset, constantvectoroffset, textureoffset, sampleroffset, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11ClassInstance>();
+        (::windows::core::Vtable::vtable(self).CreateClassInstance)(::windows::core::Vtable::as_raw(self), pclasstypename.into().abi(), constantbufferoffset, constantvectoroffset, textureoffset, sampleroffset, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11ClassLinkage, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11ClassLinkage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11ClassLinkage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -583,6 +578,11 @@ unsafe impl ::core::marker::Sync for ID3D11ClassLinkage {}
 unsafe impl ::windows::core::Vtable for ID3D11ClassLinkage {
     type Vtable = ID3D11ClassLinkage_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11ClassLinkage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11ClassLinkage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddf57cba_9543_46e4_a12b_f207a0fe7fed);
 }
@@ -598,9 +598,9 @@ pub struct ID3D11ClassLinkage_Vtbl {
 pub struct ID3D11CommandList(::windows::core::IUnknown);
 impl ID3D11CommandList {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -619,11 +619,6 @@ impl ID3D11CommandList {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11CommandList, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11CommandList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11CommandList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -640,6 +635,11 @@ unsafe impl ::core::marker::Sync for ID3D11CommandList {}
 unsafe impl ::windows::core::Vtable for ID3D11CommandList {
     type Vtable = ID3D11CommandList_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11CommandList {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11CommandList {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa24bc4d1_769e_43f7_8013_98ff566c18e2);
 }
@@ -654,9 +654,9 @@ pub struct ID3D11CommandList_Vtbl {
 pub struct ID3D11ComputeShader(::windows::core::IUnknown);
 impl ID3D11ComputeShader {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -672,11 +672,6 @@ impl ID3D11ComputeShader {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11ComputeShader, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11ComputeShader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11ComputeShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -693,6 +688,11 @@ unsafe impl ::core::marker::Sync for ID3D11ComputeShader {}
 unsafe impl ::windows::core::Vtable for ID3D11ComputeShader {
     type Vtable = ID3D11ComputeShader_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11ComputeShader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11ComputeShader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f5b196e_c2bd_495e_bd01_1fded38e4969);
 }
@@ -706,9 +706,9 @@ pub struct ID3D11ComputeShader_Vtbl {
 pub struct ID3D11Counter(::windows::core::IUnknown);
 impl ID3D11Counter {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -726,17 +726,12 @@ impl ID3D11Counter {
         (::windows::core::Vtable::vtable(self).base__.GetDataSize)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetDesc(&self) -> D3D11_COUNTER_DESC {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_COUNTER_DESC>();
+        (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Counter, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous);
-impl ::core::clone::Clone for ID3D11Counter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Counter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -753,6 +748,11 @@ unsafe impl ::core::marker::Sync for ID3D11Counter {}
 unsafe impl ::windows::core::Vtable for ID3D11Counter {
     type Vtable = ID3D11Counter_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11Counter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11Counter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8c49fb_a371_4770_b440_29086022b741);
 }
@@ -767,9 +767,9 @@ pub struct ID3D11Counter_Vtbl {
 pub struct ID3D11CryptoSession(::windows::core::IUnknown);
 impl ID3D11CryptoSession {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -784,18 +784,18 @@ impl ID3D11CryptoSession {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetCryptoType(&self) -> ::windows::core::GUID {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCryptoType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).GetCryptoType)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn GetDecoderProfile(&self) -> ::windows::core::GUID {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDecoderProfile)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).GetDecoderProfile)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn GetCertificateSize(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCertificateSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCertificateSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCertificate(&self, pcertificate: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCertificate)(::windows::core::Vtable::as_raw(self), pcertificate.len() as _, ::core::mem::transmute(pcertificate.as_ptr())).ok()
@@ -803,17 +803,12 @@ impl ID3D11CryptoSession {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCryptoSessionHandle(&self) -> super::super::Foundation::HANDLE {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCryptoSessionHandle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+        (::windows::core::Vtable::vtable(self).GetCryptoSessionHandle)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11CryptoSession, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11CryptoSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11CryptoSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -829,6 +824,11 @@ unsafe impl ::core::marker::Send for ID3D11CryptoSession {}
 unsafe impl ::core::marker::Sync for ID3D11CryptoSession {}
 unsafe impl ::windows::core::Vtable for ID3D11CryptoSession {
     type Vtable = ID3D11CryptoSession_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11CryptoSession {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11CryptoSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b32f9ad_bdcc_40a6_a39d_d5c865845720);
@@ -873,8 +873,8 @@ impl ID3D11Debug {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn GetSwapChain(&self) -> ::windows::core::Result<super::Dxgi::IDXGISwapChain> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSwapChain)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::Dxgi::IDXGISwapChain>();
+        (::windows::core::Vtable::vtable(self).GetSwapChain)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ValidateContext<P0>(&self, pcontext: P0) -> ::windows::core::Result<()>
     where
@@ -893,11 +893,6 @@ impl ID3D11Debug {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Debug, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11Debug {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Debug {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -913,6 +908,11 @@ unsafe impl ::core::marker::Send for ID3D11Debug {}
 unsafe impl ::core::marker::Sync for ID3D11Debug {}
 unsafe impl ::windows::core::Vtable for ID3D11Debug {
     type Vtable = ID3D11Debug_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Debug {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Debug {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79cf2233_7536_4948_9d36_1e4692dc5760);
@@ -942,9 +942,9 @@ pub struct ID3D11Debug_Vtbl {
 pub struct ID3D11DepthStencilState(::windows::core::IUnknown);
 impl ID3D11DepthStencilState {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -965,11 +965,6 @@ impl ID3D11DepthStencilState {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11DepthStencilState, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11DepthStencilState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11DepthStencilState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -985,6 +980,11 @@ unsafe impl ::core::marker::Send for ID3D11DepthStencilState {}
 unsafe impl ::core::marker::Sync for ID3D11DepthStencilState {}
 unsafe impl ::windows::core::Vtable for ID3D11DepthStencilState {
     type Vtable = ID3D11DepthStencilState_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11DepthStencilState {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11DepthStencilState {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03823efb_8d8f_4e1c_9aa2_f64bb2cbfdf1);
@@ -1003,9 +1003,9 @@ pub struct ID3D11DepthStencilState_Vtbl {
 pub struct ID3D11DepthStencilView(::windows::core::IUnknown);
 impl ID3D11DepthStencilView {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1020,9 +1020,9 @@ impl ID3D11DepthStencilView {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetResource(&self) -> ::windows::core::Result<ID3D11Resource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Resource as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Resource>();
+        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1031,11 +1031,6 @@ impl ID3D11DepthStencilView {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11DepthStencilView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
-impl ::core::clone::Clone for ID3D11DepthStencilView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11DepthStencilView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1051,6 +1046,11 @@ unsafe impl ::core::marker::Send for ID3D11DepthStencilView {}
 unsafe impl ::core::marker::Sync for ID3D11DepthStencilView {}
 unsafe impl ::windows::core::Vtable for ID3D11DepthStencilView {
     type Vtable = ID3D11DepthStencilView_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11DepthStencilView {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11DepthStencilView {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fdac92a_1876_48c3_afad_25b94f84a9b6);
@@ -1178,8 +1178,8 @@ impl ID3D11Device {
         (::windows::core::Vtable::vtable(self).CreateComputeShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, pclasslinkage.into().abi(), ::core::mem::transmute(ppcomputeshader.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateClassLinkage(&self) -> ::windows::core::Result<ID3D11ClassLinkage> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateClassLinkage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11ClassLinkage>();
+        (::windows::core::Vtable::vtable(self).CreateClassLinkage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1223,19 +1223,19 @@ impl ID3D11Device {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckFormatSupport)(::windows::core::Vtable::as_raw(self), format, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).CheckFormatSupport)(::windows::core::Vtable::as_raw(self), format, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckMultisampleQualityLevels)(::windows::core::Vtable::as_raw(self), format, samplecount, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).CheckMultisampleQualityLevels)(::windows::core::Vtable::as_raw(self), format, samplecount, &mut result__).from_abi(result__)
     }
     pub unsafe fn CheckCounterInfo(&self) -> D3D11_COUNTER_INFO {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckCounterInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_COUNTER_INFO>();
+        (::windows::core::Vtable::vtable(self).CheckCounterInfo)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: ::core::option::Option<*mut u32>, szunits: ::windows::core::PSTR, punitslength: ::core::option::Option<*mut u32>, szdescription: ::windows::core::PSTR, pdescriptionlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CheckCounter)(::windows::core::Vtable::as_raw(self), pdesc, ptype, pactivecounters, ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1267,9 +1267,9 @@ impl ID3D11Device {
         (::windows::core::Vtable::vtable(self).GetDeviceRemovedReason)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetImmediateContext(&self) -> ::windows::core::Result<ID3D11DeviceContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetImmediateContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext>();
+        (::windows::core::Vtable::vtable(self).GetImmediateContext)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn SetExceptionMode(&self, raiseflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetExceptionMode)(::windows::core::Vtable::as_raw(self), raiseflags).ok()
@@ -1279,11 +1279,6 @@ impl ID3D11Device {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Device, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11Device {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Device {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1299,6 +1294,11 @@ unsafe impl ::core::marker::Send for ID3D11Device {}
 unsafe impl ::core::marker::Sync for ID3D11Device {}
 unsafe impl ::windows::core::Vtable for ID3D11Device {
     type Vtable = ID3D11Device_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Device {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Device {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb6f6ddb_ac77_4e88_8253_819df9bbf140);
@@ -1507,8 +1507,8 @@ impl ID3D11Device1 {
         (::windows::core::Vtable::vtable(self).base__.CreateComputeShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, pclasslinkage.into().abi(), ::core::mem::transmute(ppcomputeshader.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateClassLinkage(&self) -> ::windows::core::Result<ID3D11ClassLinkage> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateClassLinkage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11ClassLinkage>();
+        (::windows::core::Vtable::vtable(self).base__.CreateClassLinkage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1552,19 +1552,19 @@ impl ID3D11Device1 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CheckFormatSupport)(::windows::core::Vtable::as_raw(self), format, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.CheckFormatSupport)(::windows::core::Vtable::as_raw(self), format, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CheckMultisampleQualityLevels)(::windows::core::Vtable::as_raw(self), format, samplecount, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.CheckMultisampleQualityLevels)(::windows::core::Vtable::as_raw(self), format, samplecount, &mut result__).from_abi(result__)
     }
     pub unsafe fn CheckCounterInfo(&self) -> D3D11_COUNTER_INFO {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CheckCounterInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_COUNTER_INFO>();
+        (::windows::core::Vtable::vtable(self).base__.CheckCounterInfo)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: ::core::option::Option<*mut u32>, szunits: ::windows::core::PSTR, punitslength: ::core::option::Option<*mut u32>, szdescription: ::windows::core::PSTR, pdescriptionlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CheckCounter)(::windows::core::Vtable::as_raw(self), pdesc, ptype, pactivecounters, ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1596,9 +1596,9 @@ impl ID3D11Device1 {
         (::windows::core::Vtable::vtable(self).base__.GetDeviceRemovedReason)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetImmediateContext(&self) -> ::windows::core::Result<ID3D11DeviceContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetImmediateContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext>();
+        (::windows::core::Vtable::vtable(self).base__.GetImmediateContext)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn SetExceptionMode(&self, raiseflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetExceptionMode)(::windows::core::Vtable::as_raw(self), raiseflags).ok()
@@ -1607,9 +1607,9 @@ impl ID3D11Device1 {
         (::windows::core::Vtable::vtable(self).base__.GetExceptionMode)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetImmediateContext1(&self) -> ::windows::core::Result<ID3D11DeviceContext1> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetImmediateContext1)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext1 as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext1>();
+        (::windows::core::Vtable::vtable(self).GetImmediateContext1)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn CreateDeferredContext1(&self, contextflags: u32, ppdeferredcontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext1>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CreateDeferredContext1)(::windows::core::Vtable::as_raw(self), contextflags, ::core::mem::transmute(ppdeferredcontext.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1636,24 +1636,19 @@ impl ID3D11Device1 {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenSharedResource1)(::windows::core::Vtable::as_raw(self), hresource.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).OpenSharedResource1)(::windows::core::Vtable::as_raw(self), hresource.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Device1, ::windows::core::IUnknown, ID3D11Device);
-impl ::core::clone::Clone for ID3D11Device1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Device1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1669,6 +1664,11 @@ unsafe impl ::core::marker::Send for ID3D11Device1 {}
 unsafe impl ::core::marker::Sync for ID3D11Device1 {}
 unsafe impl ::windows::core::Vtable for ID3D11Device1 {
     type Vtable = ID3D11Device1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Device1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Device1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa04bfb29_08ef_43d6_a49c_a9bdbdcbe686);
@@ -1811,8 +1811,8 @@ impl ID3D11Device2 {
         (::windows::core::Vtable::vtable(self).base__.base__.CreateComputeShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, pclasslinkage.into().abi(), ::core::mem::transmute(ppcomputeshader.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateClassLinkage(&self) -> ::windows::core::Result<ID3D11ClassLinkage> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateClassLinkage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11ClassLinkage>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateClassLinkage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1856,19 +1856,19 @@ impl ID3D11Device2 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CheckFormatSupport)(::windows::core::Vtable::as_raw(self), format, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CheckFormatSupport)(::windows::core::Vtable::as_raw(self), format, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CheckMultisampleQualityLevels)(::windows::core::Vtable::as_raw(self), format, samplecount, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CheckMultisampleQualityLevels)(::windows::core::Vtable::as_raw(self), format, samplecount, &mut result__).from_abi(result__)
     }
     pub unsafe fn CheckCounterInfo(&self) -> D3D11_COUNTER_INFO {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CheckCounterInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_COUNTER_INFO>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CheckCounterInfo)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: ::core::option::Option<*mut u32>, szunits: ::windows::core::PSTR, punitslength: ::core::option::Option<*mut u32>, szdescription: ::windows::core::PSTR, pdescriptionlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.CheckCounter)(::windows::core::Vtable::as_raw(self), pdesc, ptype, pactivecounters, ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1900,9 +1900,9 @@ impl ID3D11Device2 {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDeviceRemovedReason)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetImmediateContext(&self) -> ::windows::core::Result<ID3D11DeviceContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetImmediateContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetImmediateContext)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn SetExceptionMode(&self, raiseflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetExceptionMode)(::windows::core::Vtable::as_raw(self), raiseflags).ok()
@@ -1911,9 +1911,9 @@ impl ID3D11Device2 {
         (::windows::core::Vtable::vtable(self).base__.base__.GetExceptionMode)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetImmediateContext1(&self) -> ::windows::core::Result<ID3D11DeviceContext1> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetImmediateContext1)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext1 as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext1>();
+        (::windows::core::Vtable::vtable(self).base__.GetImmediateContext1)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn CreateDeferredContext1(&self, contextflags: u32, ppdeferredcontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext1>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CreateDeferredContext1)(::windows::core::Vtable::as_raw(self), contextflags, ::core::mem::transmute(ppdeferredcontext.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1940,21 +1940,21 @@ impl ID3D11Device2 {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.OpenSharedResource1)(::windows::core::Vtable::as_raw(self), hresource.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).base__.OpenSharedResource1)(::windows::core::Vtable::as_raw(self), hresource.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImmediateContext2(&self) -> ::windows::core::Result<ID3D11DeviceContext2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetImmediateContext2)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext2 as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext2>();
+        (::windows::core::Vtable::vtable(self).GetImmediateContext2)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn CreateDeferredContext2(&self, contextflags: u32, ppdeferredcontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext2>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CreateDeferredContext2)(::windows::core::Vtable::as_raw(self), contextflags, ::core::mem::transmute(ppdeferredcontext.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1968,16 +1968,11 @@ impl ID3D11Device2 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckMultisampleQualityLevels1)(::windows::core::Vtable::as_raw(self), format, samplecount, flags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).CheckMultisampleQualityLevels1)(::windows::core::Vtable::as_raw(self), format, samplecount, flags, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Device2, ::windows::core::IUnknown, ID3D11Device, ID3D11Device1);
-impl ::core::clone::Clone for ID3D11Device2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Device2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1993,6 +1988,11 @@ unsafe impl ::core::marker::Send for ID3D11Device2 {}
 unsafe impl ::core::marker::Sync for ID3D11Device2 {}
 unsafe impl ::windows::core::Vtable for ID3D11Device2 {
     type Vtable = ID3D11Device2_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Device2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Device2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d06dffa_d1e5_4d07_83a8_1bb123f2f841);
@@ -2123,8 +2123,8 @@ impl ID3D11Device3 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateComputeShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, pclasslinkage.into().abi(), ::core::mem::transmute(ppcomputeshader.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateClassLinkage(&self) -> ::windows::core::Result<ID3D11ClassLinkage> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateClassLinkage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11ClassLinkage>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateClassLinkage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2168,19 +2168,19 @@ impl ID3D11Device3 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CheckFormatSupport)(::windows::core::Vtable::as_raw(self), format, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CheckFormatSupport)(::windows::core::Vtable::as_raw(self), format, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CheckMultisampleQualityLevels)(::windows::core::Vtable::as_raw(self), format, samplecount, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CheckMultisampleQualityLevels)(::windows::core::Vtable::as_raw(self), format, samplecount, &mut result__).from_abi(result__)
     }
     pub unsafe fn CheckCounterInfo(&self) -> D3D11_COUNTER_INFO {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CheckCounterInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_COUNTER_INFO>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CheckCounterInfo)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: ::core::option::Option<*mut u32>, szunits: ::windows::core::PSTR, punitslength: ::core::option::Option<*mut u32>, szdescription: ::windows::core::PSTR, pdescriptionlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CheckCounter)(::windows::core::Vtable::as_raw(self), pdesc, ptype, pactivecounters, ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2212,9 +2212,9 @@ impl ID3D11Device3 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDeviceRemovedReason)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetImmediateContext(&self) -> ::windows::core::Result<ID3D11DeviceContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetImmediateContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetImmediateContext)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn SetExceptionMode(&self, raiseflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetExceptionMode)(::windows::core::Vtable::as_raw(self), raiseflags).ok()
@@ -2223,9 +2223,9 @@ impl ID3D11Device3 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetExceptionMode)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetImmediateContext1(&self) -> ::windows::core::Result<ID3D11DeviceContext1> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetImmediateContext1)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext1 as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext1>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetImmediateContext1)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn CreateDeferredContext1(&self, contextflags: u32, ppdeferredcontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext1>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.CreateDeferredContext1)(::windows::core::Vtable::as_raw(self), contextflags, ::core::mem::transmute(ppdeferredcontext.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2252,21 +2252,21 @@ impl ID3D11Device3 {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.OpenSharedResource1)(::windows::core::Vtable::as_raw(self), hresource.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).base__.base__.OpenSharedResource1)(::windows::core::Vtable::as_raw(self), hresource.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).base__.base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImmediateContext2(&self) -> ::windows::core::Result<ID3D11DeviceContext2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetImmediateContext2)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext2 as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext2>();
+        (::windows::core::Vtable::vtable(self).base__.GetImmediateContext2)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn CreateDeferredContext2(&self, contextflags: u32, ppdeferredcontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext2>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CreateDeferredContext2)(::windows::core::Vtable::as_raw(self), contextflags, ::core::mem::transmute(ppdeferredcontext.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2280,8 +2280,8 @@ impl ID3D11Device3 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CheckMultisampleQualityLevels1)(::windows::core::Vtable::as_raw(self), format, samplecount, flags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.CheckMultisampleQualityLevels1)(::windows::core::Vtable::as_raw(self), format, samplecount, flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2326,9 +2326,9 @@ impl ID3D11Device3 {
         (::windows::core::Vtable::vtable(self).CreateQuery1)(::windows::core::Vtable::as_raw(self), pquerydesc1, ::core::mem::transmute(ppquery1.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetImmediateContext3(&self) -> ::windows::core::Result<ID3D11DeviceContext3> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetImmediateContext3)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext3 as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext3>();
+        (::windows::core::Vtable::vtable(self).GetImmediateContext3)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn CreateDeferredContext3(&self, contextflags: u32, ppdeferredcontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext3>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CreateDeferredContext3)(::windows::core::Vtable::as_raw(self), contextflags, ::core::mem::transmute(ppdeferredcontext.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2347,11 +2347,6 @@ impl ID3D11Device3 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Device3, ::windows::core::IUnknown, ID3D11Device, ID3D11Device1, ID3D11Device2);
-impl ::core::clone::Clone for ID3D11Device3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Device3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2367,6 +2362,11 @@ unsafe impl ::core::marker::Send for ID3D11Device3 {}
 unsafe impl ::core::marker::Sync for ID3D11Device3 {}
 unsafe impl ::windows::core::Vtable for ID3D11Device3 {
     type Vtable = ID3D11Device3_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Device3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Device3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa05c8c37_d2c6_4732_b3a0_9ce0b0dc9ae6);
@@ -2519,8 +2519,8 @@ impl ID3D11Device4 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateComputeShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, pclasslinkage.into().abi(), ::core::mem::transmute(ppcomputeshader.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateClassLinkage(&self) -> ::windows::core::Result<ID3D11ClassLinkage> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateClassLinkage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11ClassLinkage>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateClassLinkage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2564,19 +2564,19 @@ impl ID3D11Device4 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CheckFormatSupport)(::windows::core::Vtable::as_raw(self), format, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CheckFormatSupport)(::windows::core::Vtable::as_raw(self), format, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CheckMultisampleQualityLevels)(::windows::core::Vtable::as_raw(self), format, samplecount, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CheckMultisampleQualityLevels)(::windows::core::Vtable::as_raw(self), format, samplecount, &mut result__).from_abi(result__)
     }
     pub unsafe fn CheckCounterInfo(&self) -> D3D11_COUNTER_INFO {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CheckCounterInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_COUNTER_INFO>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CheckCounterInfo)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: ::core::option::Option<*mut u32>, szunits: ::windows::core::PSTR, punitslength: ::core::option::Option<*mut u32>, szdescription: ::windows::core::PSTR, pdescriptionlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CheckCounter)(::windows::core::Vtable::as_raw(self), pdesc, ptype, pactivecounters, ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2608,9 +2608,9 @@ impl ID3D11Device4 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetDeviceRemovedReason)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetImmediateContext(&self) -> ::windows::core::Result<ID3D11DeviceContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetImmediateContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetImmediateContext)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn SetExceptionMode(&self, raiseflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetExceptionMode)(::windows::core::Vtable::as_raw(self), raiseflags).ok()
@@ -2619,9 +2619,9 @@ impl ID3D11Device4 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetExceptionMode)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetImmediateContext1(&self) -> ::windows::core::Result<ID3D11DeviceContext1> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetImmediateContext1)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext1 as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext1>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetImmediateContext1)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn CreateDeferredContext1(&self, contextflags: u32, ppdeferredcontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext1>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateDeferredContext1)(::windows::core::Vtable::as_raw(self), contextflags, ::core::mem::transmute(ppdeferredcontext.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2648,21 +2648,21 @@ impl ID3D11Device4 {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.OpenSharedResource1)(::windows::core::Vtable::as_raw(self), hresource.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.OpenSharedResource1)(::windows::core::Vtable::as_raw(self), hresource.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImmediateContext2(&self) -> ::windows::core::Result<ID3D11DeviceContext2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetImmediateContext2)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext2 as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext2>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetImmediateContext2)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn CreateDeferredContext2(&self, contextflags: u32, ppdeferredcontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext2>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.CreateDeferredContext2)(::windows::core::Vtable::as_raw(self), contextflags, ::core::mem::transmute(ppdeferredcontext.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2676,8 +2676,8 @@ impl ID3D11Device4 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CheckMultisampleQualityLevels1)(::windows::core::Vtable::as_raw(self), format, samplecount, flags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CheckMultisampleQualityLevels1)(::windows::core::Vtable::as_raw(self), format, samplecount, flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2722,9 +2722,9 @@ impl ID3D11Device4 {
         (::windows::core::Vtable::vtable(self).base__.CreateQuery1)(::windows::core::Vtable::as_raw(self), pquerydesc1, ::core::mem::transmute(ppquery1.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetImmediateContext3(&self) -> ::windows::core::Result<ID3D11DeviceContext3> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetImmediateContext3)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext3 as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext3>();
+        (::windows::core::Vtable::vtable(self).base__.GetImmediateContext3)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn CreateDeferredContext3(&self, contextflags: u32, ppdeferredcontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext3>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CreateDeferredContext3)(::windows::core::Vtable::as_raw(self), contextflags, ::core::mem::transmute(ppdeferredcontext.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2747,19 +2747,14 @@ impl ID3D11Device4 {
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterDeviceRemovedEvent)(::windows::core::Vtable::as_raw(self), hevent.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).RegisterDeviceRemovedEvent)(::windows::core::Vtable::as_raw(self), hevent.into(), &mut result__).from_abi(result__)
     }
     pub unsafe fn UnregisterDeviceRemoved(&self, dwcookie: u32) {
         (::windows::core::Vtable::vtable(self).UnregisterDeviceRemoved)(::windows::core::Vtable::as_raw(self), dwcookie)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Device4, ::windows::core::IUnknown, ID3D11Device, ID3D11Device1, ID3D11Device2, ID3D11Device3);
-impl ::core::clone::Clone for ID3D11Device4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Device4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2775,6 +2770,11 @@ unsafe impl ::core::marker::Send for ID3D11Device4 {}
 unsafe impl ::core::marker::Sync for ID3D11Device4 {}
 unsafe impl ::windows::core::Vtable for ID3D11Device4 {
     type Vtable = ID3D11Device4_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Device4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Device4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8992ab71_02e6_4b8d_ba48_b056dcda42c4);
@@ -2903,8 +2903,8 @@ impl ID3D11Device5 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateComputeShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, pclasslinkage.into().abi(), ::core::mem::transmute(ppcomputeshader.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateClassLinkage(&self) -> ::windows::core::Result<ID3D11ClassLinkage> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateClassLinkage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11ClassLinkage>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateClassLinkage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2948,19 +2948,19 @@ impl ID3D11Device5 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CheckFormatSupport)(::windows::core::Vtable::as_raw(self), format, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CheckFormatSupport)(::windows::core::Vtable::as_raw(self), format, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CheckMultisampleQualityLevels)(::windows::core::Vtable::as_raw(self), format, samplecount, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CheckMultisampleQualityLevels)(::windows::core::Vtable::as_raw(self), format, samplecount, &mut result__).from_abi(result__)
     }
     pub unsafe fn CheckCounterInfo(&self) -> D3D11_COUNTER_INFO {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CheckCounterInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_COUNTER_INFO>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CheckCounterInfo)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: ::core::option::Option<*mut u32>, szunits: ::windows::core::PSTR, punitslength: ::core::option::Option<*mut u32>, szdescription: ::windows::core::PSTR, pdescriptionlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CheckCounter)(::windows::core::Vtable::as_raw(self), pdesc, ptype, pactivecounters, ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2992,9 +2992,9 @@ impl ID3D11Device5 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetDeviceRemovedReason)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetImmediateContext(&self) -> ::windows::core::Result<ID3D11DeviceContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetImmediateContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetImmediateContext)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn SetExceptionMode(&self, raiseflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetExceptionMode)(::windows::core::Vtable::as_raw(self), raiseflags).ok()
@@ -3003,9 +3003,9 @@ impl ID3D11Device5 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetExceptionMode)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetImmediateContext1(&self) -> ::windows::core::Result<ID3D11DeviceContext1> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetImmediateContext1)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext1 as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext1>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetImmediateContext1)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn CreateDeferredContext1(&self, contextflags: u32, ppdeferredcontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext1>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateDeferredContext1)(::windows::core::Vtable::as_raw(self), contextflags, ::core::mem::transmute(ppdeferredcontext.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -3032,21 +3032,21 @@ impl ID3D11Device5 {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.OpenSharedResource1)(::windows::core::Vtable::as_raw(self), hresource.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.OpenSharedResource1)(::windows::core::Vtable::as_raw(self), hresource.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImmediateContext2(&self) -> ::windows::core::Result<ID3D11DeviceContext2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetImmediateContext2)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext2 as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext2>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetImmediateContext2)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn CreateDeferredContext2(&self, contextflags: u32, ppdeferredcontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext2>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateDeferredContext2)(::windows::core::Vtable::as_raw(self), contextflags, ::core::mem::transmute(ppdeferredcontext.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -3060,8 +3060,8 @@ impl ID3D11Device5 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CheckMultisampleQualityLevels1)(::windows::core::Vtable::as_raw(self), format, samplecount, flags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CheckMultisampleQualityLevels1)(::windows::core::Vtable::as_raw(self), format, samplecount, flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3106,9 +3106,9 @@ impl ID3D11Device5 {
         (::windows::core::Vtable::vtable(self).base__.base__.CreateQuery1)(::windows::core::Vtable::as_raw(self), pquerydesc1, ::core::mem::transmute(ppquery1.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetImmediateContext3(&self) -> ::windows::core::Result<ID3D11DeviceContext3> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetImmediateContext3)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11DeviceContext3 as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11DeviceContext3>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetImmediateContext3)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn CreateDeferredContext3(&self, contextflags: u32, ppdeferredcontext: ::core::option::Option<*mut ::core::option::Option<ID3D11DeviceContext3>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.CreateDeferredContext3)(::windows::core::Vtable::as_raw(self), contextflags, ::core::mem::transmute(ppdeferredcontext.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -3131,8 +3131,8 @@ impl ID3D11Device5 {
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.RegisterDeviceRemovedEvent)(::windows::core::Vtable::as_raw(self), hevent.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.RegisterDeviceRemovedEvent)(::windows::core::Vtable::as_raw(self), hevent.into(), &mut result__).from_abi(result__)
     }
     pub unsafe fn UnregisterDeviceRemoved(&self, dwcookie: u32) {
         (::windows::core::Vtable::vtable(self).base__.UnregisterDeviceRemoved)(::windows::core::Vtable::as_raw(self), dwcookie)
@@ -3154,11 +3154,6 @@ impl ID3D11Device5 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Device5, ::windows::core::IUnknown, ID3D11Device, ID3D11Device1, ID3D11Device2, ID3D11Device3, ID3D11Device4);
-impl ::core::clone::Clone for ID3D11Device5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Device5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3174,6 +3169,11 @@ unsafe impl ::core::marker::Send for ID3D11Device5 {}
 unsafe impl ::core::marker::Sync for ID3D11Device5 {}
 unsafe impl ::windows::core::Vtable for ID3D11Device5 {
     type Vtable = ID3D11Device5_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Device5 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Device5 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ffde202_a0e7_45df_9e01_e837801b5ea0);
@@ -3193,9 +3193,9 @@ pub struct ID3D11Device5_Vtbl {
 pub struct ID3D11DeviceChild(::windows::core::IUnknown);
 impl ID3D11DeviceChild {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -3211,11 +3211,6 @@ impl ID3D11DeviceChild {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11DeviceChild, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11DeviceChild {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11DeviceChild {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3231,6 +3226,11 @@ unsafe impl ::core::marker::Send for ID3D11DeviceChild {}
 unsafe impl ::core::marker::Sync for ID3D11DeviceChild {}
 unsafe impl ::windows::core::Vtable for ID3D11DeviceChild {
     type Vtable = ID3D11DeviceChild_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11DeviceChild {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11DeviceChild {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1841e5c8_16b0_489b_bcc8_44cfb0d5deae);
@@ -3249,9 +3249,9 @@ pub struct ID3D11DeviceChild_Vtbl {
 pub struct ID3D11DeviceContext(::windows::core::IUnknown);
 impl ID3D11DeviceContext {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -3602,9 +3602,9 @@ impl ID3D11DeviceContext {
         (::windows::core::Vtable::vtable(self).PSGetConstantBuffers)(::windows::core::Vtable::as_raw(self), startslot, ppconstantbuffers.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppconstantbuffers.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn IAGetInputLayout(&self) -> ::windows::core::Result<ID3D11InputLayout> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IAGetInputLayout)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11InputLayout as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11InputLayout>();
+        (::windows::core::Vtable::vtable(self).IAGetInputLayout)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: ::core::option::Option<*mut ::core::option::Option<ID3D11Buffer>>, pstrides: ::core::option::Option<*mut u32>, poffsets: ::core::option::Option<*mut u32>) {
         (::windows::core::Vtable::vtable(self).IAGetVertexBuffers)(::windows::core::Vtable::as_raw(self), startslot, numbuffers, ::core::mem::transmute(ppvertexbuffers.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstrides.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poffsets.unwrap_or(::std::ptr::null_mut())))
@@ -3623,9 +3623,9 @@ impl ID3D11DeviceContext {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IAGetPrimitiveTopology(&self) -> super::Direct3D::D3D_PRIMITIVE_TOPOLOGY {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IAGetPrimitiveTopology)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::Direct3D::D3D_PRIMITIVE_TOPOLOGY>();
+        (::windows::core::Vtable::vtable(self).IAGetPrimitiveTopology)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: ::core::option::Option<&mut [::core::option::Option<ID3D11ShaderResourceView>]>) {
         (::windows::core::Vtable::vtable(self).VSGetShaderResources)(::windows::core::Vtable::as_raw(self), startslot, ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppshaderresourceviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
@@ -3668,9 +3668,9 @@ impl ID3D11DeviceContext {
         (::windows::core::Vtable::vtable(self).SOGetTargets)(::windows::core::Vtable::as_raw(self), ppsotargets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppsotargets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn RSGetState(&self) -> ::windows::core::Result<ID3D11RasterizerState> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RSGetState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11RasterizerState as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11RasterizerState>();
+        (::windows::core::Vtable::vtable(self).RSGetState)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn RSGetViewports(&self, pnumviewports: *mut u32, pviewports: ::core::option::Option<*mut D3D11_VIEWPORT>) {
         (::windows::core::Vtable::vtable(self).RSGetViewports)(::windows::core::Vtable::as_raw(self), pnumviewports, ::core::mem::transmute(pviewports.unwrap_or(::std::ptr::null_mut())))
@@ -3741,11 +3741,6 @@ impl ID3D11DeviceContext {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11DeviceContext, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11DeviceContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11DeviceContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3761,6 +3756,11 @@ unsafe impl ::core::marker::Send for ID3D11DeviceContext {}
 unsafe impl ::core::marker::Sync for ID3D11DeviceContext {}
 unsafe impl ::windows::core::Vtable for ID3D11DeviceContext {
     type Vtable = ID3D11DeviceContext_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11DeviceContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11DeviceContext {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0bfa96c_e089_44fb_8eaf_26f8796190da);
@@ -3916,9 +3916,9 @@ pub struct ID3D11DeviceContext_Vtbl {
 pub struct ID3D11DeviceContext1(::windows::core::IUnknown);
 impl ID3D11DeviceContext1 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -4269,9 +4269,9 @@ impl ID3D11DeviceContext1 {
         (::windows::core::Vtable::vtable(self).base__.PSGetConstantBuffers)(::windows::core::Vtable::as_raw(self), startslot, ppconstantbuffers.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppconstantbuffers.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn IAGetInputLayout(&self) -> ::windows::core::Result<ID3D11InputLayout> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IAGetInputLayout)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11InputLayout as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11InputLayout>();
+        (::windows::core::Vtable::vtable(self).base__.IAGetInputLayout)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: ::core::option::Option<*mut ::core::option::Option<ID3D11Buffer>>, pstrides: ::core::option::Option<*mut u32>, poffsets: ::core::option::Option<*mut u32>) {
         (::windows::core::Vtable::vtable(self).base__.IAGetVertexBuffers)(::windows::core::Vtable::as_raw(self), startslot, numbuffers, ::core::mem::transmute(ppvertexbuffers.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstrides.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poffsets.unwrap_or(::std::ptr::null_mut())))
@@ -4290,9 +4290,9 @@ impl ID3D11DeviceContext1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IAGetPrimitiveTopology(&self) -> super::Direct3D::D3D_PRIMITIVE_TOPOLOGY {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IAGetPrimitiveTopology)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::Direct3D::D3D_PRIMITIVE_TOPOLOGY>();
+        (::windows::core::Vtable::vtable(self).base__.IAGetPrimitiveTopology)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: ::core::option::Option<&mut [::core::option::Option<ID3D11ShaderResourceView>]>) {
         (::windows::core::Vtable::vtable(self).base__.VSGetShaderResources)(::windows::core::Vtable::as_raw(self), startslot, ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppshaderresourceviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
@@ -4335,9 +4335,9 @@ impl ID3D11DeviceContext1 {
         (::windows::core::Vtable::vtable(self).base__.SOGetTargets)(::windows::core::Vtable::as_raw(self), ppsotargets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppsotargets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn RSGetState(&self) -> ::windows::core::Result<ID3D11RasterizerState> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.RSGetState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11RasterizerState as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11RasterizerState>();
+        (::windows::core::Vtable::vtable(self).base__.RSGetState)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn RSGetViewports(&self, pnumviewports: *mut u32, pviewports: ::core::option::Option<*mut D3D11_VIEWPORT>) {
         (::windows::core::Vtable::vtable(self).base__.RSGetViewports)(::windows::core::Vtable::as_raw(self), pnumviewports, ::core::mem::transmute(pviewports.unwrap_or(::std::ptr::null_mut())))
@@ -4491,11 +4491,6 @@ impl ID3D11DeviceContext1 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11DeviceContext1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext);
-impl ::core::clone::Clone for ID3D11DeviceContext1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11DeviceContext1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4511,6 +4506,11 @@ unsafe impl ::core::marker::Send for ID3D11DeviceContext1 {}
 unsafe impl ::core::marker::Sync for ID3D11DeviceContext1 {}
 unsafe impl ::windows::core::Vtable for ID3D11DeviceContext1 {
     type Vtable = ID3D11DeviceContext1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11DeviceContext1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11DeviceContext1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb2c6faa_b5fb_4082_8e6b_388b8cfa90e1);
@@ -4550,9 +4550,9 @@ pub struct ID3D11DeviceContext1_Vtbl {
 pub struct ID3D11DeviceContext2(::windows::core::IUnknown);
 impl ID3D11DeviceContext2 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -4903,9 +4903,9 @@ impl ID3D11DeviceContext2 {
         (::windows::core::Vtable::vtable(self).base__.base__.PSGetConstantBuffers)(::windows::core::Vtable::as_raw(self), startslot, ppconstantbuffers.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppconstantbuffers.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn IAGetInputLayout(&self) -> ::windows::core::Result<ID3D11InputLayout> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.IAGetInputLayout)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11InputLayout as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11InputLayout>();
+        (::windows::core::Vtable::vtable(self).base__.base__.IAGetInputLayout)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: ::core::option::Option<*mut ::core::option::Option<ID3D11Buffer>>, pstrides: ::core::option::Option<*mut u32>, poffsets: ::core::option::Option<*mut u32>) {
         (::windows::core::Vtable::vtable(self).base__.base__.IAGetVertexBuffers)(::windows::core::Vtable::as_raw(self), startslot, numbuffers, ::core::mem::transmute(ppvertexbuffers.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstrides.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poffsets.unwrap_or(::std::ptr::null_mut())))
@@ -4924,9 +4924,9 @@ impl ID3D11DeviceContext2 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IAGetPrimitiveTopology(&self) -> super::Direct3D::D3D_PRIMITIVE_TOPOLOGY {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.IAGetPrimitiveTopology)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::Direct3D::D3D_PRIMITIVE_TOPOLOGY>();
+        (::windows::core::Vtable::vtable(self).base__.base__.IAGetPrimitiveTopology)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: ::core::option::Option<&mut [::core::option::Option<ID3D11ShaderResourceView>]>) {
         (::windows::core::Vtable::vtable(self).base__.base__.VSGetShaderResources)(::windows::core::Vtable::as_raw(self), startslot, ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppshaderresourceviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
@@ -4969,9 +4969,9 @@ impl ID3D11DeviceContext2 {
         (::windows::core::Vtable::vtable(self).base__.base__.SOGetTargets)(::windows::core::Vtable::as_raw(self), ppsotargets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppsotargets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn RSGetState(&self) -> ::windows::core::Result<ID3D11RasterizerState> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.RSGetState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11RasterizerState as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11RasterizerState>();
+        (::windows::core::Vtable::vtable(self).base__.base__.RSGetState)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn RSGetViewports(&self, pnumviewports: *mut u32, pviewports: ::core::option::Option<*mut D3D11_VIEWPORT>) {
         (::windows::core::Vtable::vtable(self).base__.base__.RSGetViewports)(::windows::core::Vtable::as_raw(self), pnumviewports, ::core::mem::transmute(pviewports.unwrap_or(::std::ptr::null_mut())))
@@ -5206,11 +5206,6 @@ impl ID3D11DeviceContext2 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11DeviceContext2, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext, ID3D11DeviceContext1);
-impl ::core::clone::Clone for ID3D11DeviceContext2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11DeviceContext2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5226,6 +5221,11 @@ unsafe impl ::core::marker::Send for ID3D11DeviceContext2 {}
 unsafe impl ::core::marker::Sync for ID3D11DeviceContext2 {}
 unsafe impl ::windows::core::Vtable for ID3D11DeviceContext2 {
     type Vtable = ID3D11DeviceContext2_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11DeviceContext2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11DeviceContext2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x420d5b32_b90c_4da4_bef0_359f6a24a83a);
@@ -5265,9 +5265,9 @@ pub struct ID3D11DeviceContext2_Vtbl {
 pub struct ID3D11DeviceContext3(::windows::core::IUnknown);
 impl ID3D11DeviceContext3 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -5618,9 +5618,9 @@ impl ID3D11DeviceContext3 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.PSGetConstantBuffers)(::windows::core::Vtable::as_raw(self), startslot, ppconstantbuffers.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppconstantbuffers.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn IAGetInputLayout(&self) -> ::windows::core::Result<ID3D11InputLayout> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.IAGetInputLayout)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11InputLayout as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11InputLayout>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.IAGetInputLayout)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: ::core::option::Option<*mut ::core::option::Option<ID3D11Buffer>>, pstrides: ::core::option::Option<*mut u32>, poffsets: ::core::option::Option<*mut u32>) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.IAGetVertexBuffers)(::windows::core::Vtable::as_raw(self), startslot, numbuffers, ::core::mem::transmute(ppvertexbuffers.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstrides.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poffsets.unwrap_or(::std::ptr::null_mut())))
@@ -5639,9 +5639,9 @@ impl ID3D11DeviceContext3 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IAGetPrimitiveTopology(&self) -> super::Direct3D::D3D_PRIMITIVE_TOPOLOGY {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.IAGetPrimitiveTopology)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::Direct3D::D3D_PRIMITIVE_TOPOLOGY>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.IAGetPrimitiveTopology)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: ::core::option::Option<&mut [::core::option::Option<ID3D11ShaderResourceView>]>) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.VSGetShaderResources)(::windows::core::Vtable::as_raw(self), startslot, ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppshaderresourceviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
@@ -5684,9 +5684,9 @@ impl ID3D11DeviceContext3 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SOGetTargets)(::windows::core::Vtable::as_raw(self), ppsotargets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppsotargets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn RSGetState(&self) -> ::windows::core::Result<ID3D11RasterizerState> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.RSGetState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11RasterizerState as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11RasterizerState>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.RSGetState)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn RSGetViewports(&self, pnumviewports: *mut u32, pviewports: ::core::option::Option<*mut D3D11_VIEWPORT>) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.RSGetViewports)(::windows::core::Vtable::as_raw(self), pnumviewports, ::core::mem::transmute(pviewports.unwrap_or(::std::ptr::null_mut())))
@@ -5938,17 +5938,12 @@ impl ID3D11DeviceContext3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHardwareProtectionState(&self) -> super::super::Foundation::BOOL {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHardwareProtectionState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetHardwareProtectionState)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11DeviceContext3, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext, ID3D11DeviceContext1, ID3D11DeviceContext2);
-impl ::core::clone::Clone for ID3D11DeviceContext3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11DeviceContext3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5964,6 +5959,11 @@ unsafe impl ::core::marker::Send for ID3D11DeviceContext3 {}
 unsafe impl ::core::marker::Sync for ID3D11DeviceContext3 {}
 unsafe impl ::windows::core::Vtable for ID3D11DeviceContext3 {
     type Vtable = ID3D11DeviceContext3_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11DeviceContext3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11DeviceContext3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4e3c01d_e79e_4637_91b2_510e9f4c9b8f);
@@ -5990,9 +5990,9 @@ pub struct ID3D11DeviceContext3_Vtbl {
 pub struct ID3D11DeviceContext4(::windows::core::IUnknown);
 impl ID3D11DeviceContext4 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -6343,9 +6343,9 @@ impl ID3D11DeviceContext4 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PSGetConstantBuffers)(::windows::core::Vtable::as_raw(self), startslot, ppconstantbuffers.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppconstantbuffers.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn IAGetInputLayout(&self) -> ::windows::core::Result<ID3D11InputLayout> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.IAGetInputLayout)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11InputLayout as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11InputLayout>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.IAGetInputLayout)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: ::core::option::Option<*mut ::core::option::Option<ID3D11Buffer>>, pstrides: ::core::option::Option<*mut u32>, poffsets: ::core::option::Option<*mut u32>) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.IAGetVertexBuffers)(::windows::core::Vtable::as_raw(self), startslot, numbuffers, ::core::mem::transmute(ppvertexbuffers.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstrides.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poffsets.unwrap_or(::std::ptr::null_mut())))
@@ -6364,9 +6364,9 @@ impl ID3D11DeviceContext4 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IAGetPrimitiveTopology(&self) -> super::Direct3D::D3D_PRIMITIVE_TOPOLOGY {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.IAGetPrimitiveTopology)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::Direct3D::D3D_PRIMITIVE_TOPOLOGY>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.IAGetPrimitiveTopology)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: ::core::option::Option<&mut [::core::option::Option<ID3D11ShaderResourceView>]>) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.VSGetShaderResources)(::windows::core::Vtable::as_raw(self), startslot, ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppshaderresourceviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
@@ -6409,9 +6409,9 @@ impl ID3D11DeviceContext4 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SOGetTargets)(::windows::core::Vtable::as_raw(self), ppsotargets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppsotargets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn RSGetState(&self) -> ::windows::core::Result<ID3D11RasterizerState> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.RSGetState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11RasterizerState as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11RasterizerState>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.RSGetState)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn RSGetViewports(&self, pnumviewports: *mut u32, pviewports: ::core::option::Option<*mut D3D11_VIEWPORT>) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.RSGetViewports)(::windows::core::Vtable::as_raw(self), pnumviewports, ::core::mem::transmute(pviewports.unwrap_or(::std::ptr::null_mut())))
@@ -6663,9 +6663,9 @@ impl ID3D11DeviceContext4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHardwareProtectionState(&self) -> super::super::Foundation::BOOL {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetHardwareProtectionState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.GetHardwareProtectionState)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn Signal<P0>(&self, pfence: P0, value: u64) -> ::windows::core::Result<()>
     where
@@ -6681,11 +6681,6 @@ impl ID3D11DeviceContext4 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11DeviceContext4, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext, ID3D11DeviceContext1, ID3D11DeviceContext2, ID3D11DeviceContext3);
-impl ::core::clone::Clone for ID3D11DeviceContext4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11DeviceContext4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6702,6 +6697,11 @@ unsafe impl ::core::marker::Sync for ID3D11DeviceContext4 {}
 unsafe impl ::windows::core::Vtable for ID3D11DeviceContext4 {
     type Vtable = ID3D11DeviceContext4_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11DeviceContext4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11DeviceContext4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x917600da_f58c_4c33_98d8_3e15b390fa24);
 }
@@ -6717,9 +6717,9 @@ pub struct ID3D11DeviceContext4_Vtbl {
 pub struct ID3D11DomainShader(::windows::core::IUnknown);
 impl ID3D11DomainShader {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -6735,11 +6735,6 @@ impl ID3D11DomainShader {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11DomainShader, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11DomainShader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11DomainShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6756,6 +6751,11 @@ unsafe impl ::core::marker::Sync for ID3D11DomainShader {}
 unsafe impl ::windows::core::Vtable for ID3D11DomainShader {
     type Vtable = ID3D11DomainShader_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11DomainShader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11DomainShader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf582c508_0f36_490c_9977_31eece268cfa);
 }
@@ -6769,9 +6769,9 @@ pub struct ID3D11DomainShader_Vtbl {
 pub struct ID3D11Fence(::windows::core::IUnknown);
 impl ID3D11Fence {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -6791,8 +6791,8 @@ impl ID3D11Fence {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSharedHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), dwaccess, lpname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+        (::windows::core::Vtable::vtable(self).CreateSharedHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), dwaccess, lpname.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCompletedValue(&self) -> u64 {
         (::windows::core::Vtable::vtable(self).GetCompletedValue)(::windows::core::Vtable::as_raw(self))
@@ -6807,11 +6807,6 @@ impl ID3D11Fence {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Fence, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11Fence {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Fence {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6827,6 +6822,11 @@ unsafe impl ::core::marker::Send for ID3D11Fence {}
 unsafe impl ::core::marker::Sync for ID3D11Fence {}
 unsafe impl ::windows::core::Vtable for ID3D11Fence {
     type Vtable = ID3D11Fence_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Fence {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Fence {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaffde9d1_1df7_4bb7_8a34_0f46251dab80);
@@ -6857,14 +6857,14 @@ impl ID3D11FunctionLinkingGraph {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn SetInputSignature(&self, pinputparameters: &[D3D11_PARAMETER_DESC]) -> ::windows::core::Result<ID3D11LinkingNode> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetInputSignature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pinputparameters.as_ptr()), pinputparameters.len() as _, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11LinkingNode>();
+        (::windows::core::Vtable::vtable(self).SetInputSignature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pinputparameters.as_ptr()), pinputparameters.len() as _, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn SetOutputSignature(&self, poutputparameters: &[D3D11_PARAMETER_DESC]) -> ::windows::core::Result<ID3D11LinkingNode> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetOutputSignature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(poutputparameters.as_ptr()), poutputparameters.len() as _, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11LinkingNode>();
+        (::windows::core::Vtable::vtable(self).SetOutputSignature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(poutputparameters.as_ptr()), poutputparameters.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn CallFunction<P0, P1, P2>(&self, pmoduleinstancenamespace: P0, pmodulewithfunctionprototype: P1, pfunctionname: P2) -> ::windows::core::Result<ID3D11LinkingNode>
     where
@@ -6872,8 +6872,8 @@ impl ID3D11FunctionLinkingGraph {
         P1: ::std::convert::Into<::windows::core::InParam<ID3D11Module>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CallFunction)(::windows::core::Vtable::as_raw(self), pmoduleinstancenamespace.into().abi(), pmodulewithfunctionprototype.into().abi(), pfunctionname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11LinkingNode>();
+        (::windows::core::Vtable::vtable(self).CallFunction)(::windows::core::Vtable::as_raw(self), pmoduleinstancenamespace.into().abi(), pmodulewithfunctionprototype.into().abi(), pfunctionname.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn PassValue<P0, P1>(&self, psrcnode: P0, srcparameterindex: i32, pdstnode: P1, dstparameterindex: i32) -> ::windows::core::Result<()>
     where
@@ -6899,16 +6899,11 @@ impl ID3D11FunctionLinkingGraph {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GenerateHlsl(&self, uflags: u32) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GenerateHlsl)(::windows::core::Vtable::as_raw(self), uflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
+        (::windows::core::Vtable::vtable(self).GenerateHlsl)(::windows::core::Vtable::as_raw(self), uflags, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11FunctionLinkingGraph, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11FunctionLinkingGraph {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11FunctionLinkingGraph {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6924,6 +6919,11 @@ unsafe impl ::core::marker::Send for ID3D11FunctionLinkingGraph {}
 unsafe impl ::core::marker::Sync for ID3D11FunctionLinkingGraph {}
 unsafe impl ::windows::core::Vtable for ID3D11FunctionLinkingGraph {
     type Vtable = ID3D11FunctionLinkingGraph_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11FunctionLinkingGraph {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11FunctionLinkingGraph {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54133220_1ce8_43d3_8236_9855c5ceecff);
@@ -6966,11 +6966,6 @@ impl ID3D11FunctionParameterReflection {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc).ok()
     }
 }
-impl ::core::clone::Clone for ID3D11FunctionParameterReflection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11FunctionParameterReflection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6986,6 +6981,11 @@ unsafe impl ::core::marker::Send for ID3D11FunctionParameterReflection {}
 unsafe impl ::core::marker::Sync for ID3D11FunctionParameterReflection {}
 unsafe impl ::windows::core::Vtable for ID3D11FunctionParameterReflection {
     type Vtable = ID3D11FunctionParameterReflection_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11FunctionParameterReflection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7036,11 +7036,6 @@ impl ID3D11FunctionReflection {
         (::windows::core::Vtable::vtable(self).GetFunctionParameter)(::windows::core::Vtable::as_raw(self), parameterindex)
     }
 }
-impl ::core::clone::Clone for ID3D11FunctionReflection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11FunctionReflection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7056,6 +7051,11 @@ unsafe impl ::core::marker::Send for ID3D11FunctionReflection {}
 unsafe impl ::core::marker::Sync for ID3D11FunctionReflection {}
 unsafe impl ::windows::core::Vtable for ID3D11FunctionReflection {
     type Vtable = ID3D11FunctionReflection_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11FunctionReflection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7082,9 +7082,9 @@ pub struct ID3D11FunctionReflection_Vtbl {
 pub struct ID3D11GeometryShader(::windows::core::IUnknown);
 impl ID3D11GeometryShader {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7100,11 +7100,6 @@ impl ID3D11GeometryShader {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11GeometryShader, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11GeometryShader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11GeometryShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7121,6 +7116,11 @@ unsafe impl ::core::marker::Sync for ID3D11GeometryShader {}
 unsafe impl ::windows::core::Vtable for ID3D11GeometryShader {
     type Vtable = ID3D11GeometryShader_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11GeometryShader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11GeometryShader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38325b96_effb_4022_ba02_2e795b70275c);
 }
@@ -7134,9 +7134,9 @@ pub struct ID3D11GeometryShader_Vtbl {
 pub struct ID3D11HullShader(::windows::core::IUnknown);
 impl ID3D11HullShader {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7152,11 +7152,6 @@ impl ID3D11HullShader {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11HullShader, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11HullShader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11HullShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7172,6 +7167,11 @@ unsafe impl ::core::marker::Send for ID3D11HullShader {}
 unsafe impl ::core::marker::Sync for ID3D11HullShader {}
 unsafe impl ::windows::core::Vtable for ID3D11HullShader {
     type Vtable = ID3D11HullShader_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11HullShader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11HullShader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e5c6061_628a_4c8e_8264_bbe45cb3d5dd);
@@ -7326,11 +7326,6 @@ impl ID3D11InfoQueue {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11InfoQueue, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11InfoQueue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11InfoQueue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7346,6 +7341,11 @@ unsafe impl ::core::marker::Send for ID3D11InfoQueue {}
 unsafe impl ::core::marker::Sync for ID3D11InfoQueue {}
 unsafe impl ::windows::core::Vtable for ID3D11InfoQueue {
     type Vtable = ID3D11InfoQueue_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11InfoQueue {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11InfoQueue {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6543dbb6_1b48_42f5_ab82_e97ec74326f6);
@@ -7419,9 +7419,9 @@ pub struct ID3D11InfoQueue_Vtbl {
 pub struct ID3D11InputLayout(::windows::core::IUnknown);
 impl ID3D11InputLayout {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7437,11 +7437,6 @@ impl ID3D11InputLayout {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11InputLayout, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11InputLayout {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11InputLayout {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7458,6 +7453,11 @@ unsafe impl ::core::marker::Sync for ID3D11InputLayout {}
 unsafe impl ::windows::core::Vtable for ID3D11InputLayout {
     type Vtable = ID3D11InputLayout_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11InputLayout {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11InputLayout {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4819ddc_4cf0_4025_bd26_5de82a3e07b7);
 }
@@ -7471,19 +7471,14 @@ pub struct ID3D11InputLayout_Vtbl {
 pub struct ID3D11LibraryReflection(::windows::core::IUnknown);
 impl ID3D11LibraryReflection {
     pub unsafe fn GetDesc(&self) -> ::windows::core::Result<D3D11_LIBRARY_DESC> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<D3D11_LIBRARY_DESC>();
+        (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunctionByIndex(&self, functionindex: i32) -> ::core::option::Option<ID3D11FunctionReflection> {
         (::windows::core::Vtable::vtable(self).GetFunctionByIndex)(::windows::core::Vtable::as_raw(self), functionindex)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11LibraryReflection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11LibraryReflection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11LibraryReflection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7499,6 +7494,11 @@ unsafe impl ::core::marker::Send for ID3D11LibraryReflection {}
 unsafe impl ::core::marker::Sync for ID3D11LibraryReflection {}
 unsafe impl ::windows::core::Vtable for ID3D11LibraryReflection {
     type Vtable = ID3D11LibraryReflection_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11LibraryReflection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11LibraryReflection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54384f1b_5b3e_4bb7_ae01_60ba3097cbb6);
@@ -7535,11 +7535,6 @@ impl ID3D11Linker {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Linker, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11Linker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Linker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7555,6 +7550,11 @@ unsafe impl ::core::marker::Send for ID3D11Linker {}
 unsafe impl ::core::marker::Sync for ID3D11Linker {}
 unsafe impl ::windows::core::Vtable for ID3D11Linker {
     type Vtable = ID3D11Linker_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Linker {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Linker {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e);
@@ -7575,11 +7575,6 @@ pub struct ID3D11Linker_Vtbl {
 pub struct ID3D11LinkingNode(::windows::core::IUnknown);
 impl ID3D11LinkingNode {}
 ::windows::core::interface_hierarchy!(ID3D11LinkingNode, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11LinkingNode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11LinkingNode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7595,6 +7590,11 @@ unsafe impl ::core::marker::Send for ID3D11LinkingNode {}
 unsafe impl ::core::marker::Sync for ID3D11LinkingNode {}
 unsafe impl ::windows::core::Vtable for ID3D11LinkingNode {
     type Vtable = ID3D11LinkingNode_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11LinkingNode {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11LinkingNode {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd80dd70c_8d2f_4751_94a1_03c79b3556db);
@@ -7612,16 +7612,11 @@ impl ID3D11Module {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11ModuleInstance>();
+        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Module, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11Module {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Module {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7637,6 +7632,11 @@ unsafe impl ::core::marker::Send for ID3D11Module {}
 unsafe impl ::core::marker::Sync for ID3D11Module {}
 unsafe impl ::windows::core::Vtable for ID3D11Module {
     type Vtable = ID3D11Module_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Module {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Module {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcac701ee_80fc_4122_8242_10b39c8cec34);
@@ -7698,11 +7698,6 @@ impl ID3D11ModuleInstance {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11ModuleInstance, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11ModuleInstance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11ModuleInstance {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7718,6 +7713,11 @@ unsafe impl ::core::marker::Send for ID3D11ModuleInstance {}
 unsafe impl ::core::marker::Sync for ID3D11ModuleInstance {}
 unsafe impl ::windows::core::Vtable for ID3D11ModuleInstance {
     type Vtable = ID3D11ModuleInstance_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11ModuleInstance {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11ModuleInstance {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x469e07f7_045a_48d5_aa12_68a478cdf75d);
@@ -7762,11 +7762,6 @@ impl ID3D11Multithread {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Multithread, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11Multithread {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Multithread {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7782,6 +7777,11 @@ unsafe impl ::core::marker::Send for ID3D11Multithread {}
 unsafe impl ::core::marker::Sync for ID3D11Multithread {}
 unsafe impl ::windows::core::Vtable for ID3D11Multithread {
     type Vtable = ID3D11Multithread_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Multithread {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Multithread {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
@@ -7806,9 +7806,9 @@ pub struct ID3D11Multithread_Vtbl {
 pub struct ID3D11PixelShader(::windows::core::IUnknown);
 impl ID3D11PixelShader {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7824,11 +7824,6 @@ impl ID3D11PixelShader {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11PixelShader, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11PixelShader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11PixelShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7845,6 +7840,11 @@ unsafe impl ::core::marker::Sync for ID3D11PixelShader {}
 unsafe impl ::windows::core::Vtable for ID3D11PixelShader {
     type Vtable = ID3D11PixelShader_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11PixelShader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11PixelShader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea82e40d_51dc_4f33_93d4_db7c9125ae8c);
 }
@@ -7858,9 +7858,9 @@ pub struct ID3D11PixelShader_Vtbl {
 pub struct ID3D11Predicate(::windows::core::IUnknown);
 impl ID3D11Predicate {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7878,17 +7878,12 @@ impl ID3D11Predicate {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDataSize)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetDesc(&self) -> D3D11_QUERY_DESC {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDesc)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_QUERY_DESC>();
+        (::windows::core::Vtable::vtable(self).base__.GetDesc)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Predicate, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous, ID3D11Query);
-impl ::core::clone::Clone for ID3D11Predicate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Predicate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7905,6 +7900,11 @@ unsafe impl ::core::marker::Sync for ID3D11Predicate {}
 unsafe impl ::windows::core::Vtable for ID3D11Predicate {
     type Vtable = ID3D11Predicate_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11Predicate {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11Predicate {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eb576dd_9f77_4d86_81aa_8bab5fe490e2);
 }
@@ -7918,9 +7918,9 @@ pub struct ID3D11Predicate_Vtbl {
 pub struct ID3D11Query(::windows::core::IUnknown);
 impl ID3D11Query {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7938,17 +7938,12 @@ impl ID3D11Query {
         (::windows::core::Vtable::vtable(self).base__.GetDataSize)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetDesc(&self) -> D3D11_QUERY_DESC {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_QUERY_DESC>();
+        (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Query, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous);
-impl ::core::clone::Clone for ID3D11Query {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Query {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7965,6 +7960,11 @@ unsafe impl ::core::marker::Sync for ID3D11Query {}
 unsafe impl ::windows::core::Vtable for ID3D11Query {
     type Vtable = ID3D11Query_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11Query {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11Query {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6c00747_87b7_425e_b84d_44d108560afd);
 }
@@ -7979,9 +7979,9 @@ pub struct ID3D11Query_Vtbl {
 pub struct ID3D11Query1(::windows::core::IUnknown);
 impl ID3D11Query1 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7999,22 +7999,17 @@ impl ID3D11Query1 {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDataSize)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetDesc(&self) -> D3D11_QUERY_DESC {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDesc)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_QUERY_DESC>();
+        (::windows::core::Vtable::vtable(self).base__.GetDesc)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn GetDesc1(&self) -> D3D11_QUERY_DESC1 {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_QUERY_DESC1>();
+        (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Query1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous, ID3D11Query);
-impl ::core::clone::Clone for ID3D11Query1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Query1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8031,6 +8026,11 @@ unsafe impl ::core::marker::Sync for ID3D11Query1 {}
 unsafe impl ::windows::core::Vtable for ID3D11Query1 {
     type Vtable = ID3D11Query1_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11Query1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11Query1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x631b4766_36dc_461d_8db6_c47e13e60916);
 }
@@ -8045,9 +8045,9 @@ pub struct ID3D11Query1_Vtbl {
 pub struct ID3D11RasterizerState(::windows::core::IUnknown);
 impl ID3D11RasterizerState {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8068,11 +8068,6 @@ impl ID3D11RasterizerState {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11RasterizerState, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11RasterizerState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11RasterizerState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8088,6 +8083,11 @@ unsafe impl ::core::marker::Send for ID3D11RasterizerState {}
 unsafe impl ::core::marker::Sync for ID3D11RasterizerState {}
 unsafe impl ::windows::core::Vtable for ID3D11RasterizerState {
     type Vtable = ID3D11RasterizerState_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11RasterizerState {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11RasterizerState {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bb4ab81_ab1a_4d8f_b506_fc04200b6ee7);
@@ -8106,9 +8106,9 @@ pub struct ID3D11RasterizerState_Vtbl {
 pub struct ID3D11RasterizerState1(::windows::core::IUnknown);
 impl ID3D11RasterizerState1 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8134,11 +8134,6 @@ impl ID3D11RasterizerState1 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11RasterizerState1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11RasterizerState);
-impl ::core::clone::Clone for ID3D11RasterizerState1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11RasterizerState1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8154,6 +8149,11 @@ unsafe impl ::core::marker::Send for ID3D11RasterizerState1 {}
 unsafe impl ::core::marker::Sync for ID3D11RasterizerState1 {}
 unsafe impl ::windows::core::Vtable for ID3D11RasterizerState1 {
     type Vtable = ID3D11RasterizerState1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11RasterizerState1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11RasterizerState1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1217d7a6_5039_418c_b042_9cbe256afd6e);
@@ -8172,9 +8172,9 @@ pub struct ID3D11RasterizerState1_Vtbl {
 pub struct ID3D11RasterizerState2(::windows::core::IUnknown);
 impl ID3D11RasterizerState2 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8205,11 +8205,6 @@ impl ID3D11RasterizerState2 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11RasterizerState2, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11RasterizerState, ID3D11RasterizerState1);
-impl ::core::clone::Clone for ID3D11RasterizerState2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11RasterizerState2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8225,6 +8220,11 @@ unsafe impl ::core::marker::Send for ID3D11RasterizerState2 {}
 unsafe impl ::core::marker::Sync for ID3D11RasterizerState2 {}
 unsafe impl ::windows::core::Vtable for ID3D11RasterizerState2 {
     type Vtable = ID3D11RasterizerState2_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11RasterizerState2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11RasterizerState2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fbd02fb_209f_46c4_b059_2ed15586a6ac);
@@ -8247,11 +8247,6 @@ impl ID3D11RefDefaultTrackingOptions {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11RefDefaultTrackingOptions, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11RefDefaultTrackingOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11RefDefaultTrackingOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8267,6 +8262,11 @@ unsafe impl ::core::marker::Send for ID3D11RefDefaultTrackingOptions {}
 unsafe impl ::core::marker::Sync for ID3D11RefDefaultTrackingOptions {}
 unsafe impl ::windows::core::Vtable for ID3D11RefDefaultTrackingOptions {
     type Vtable = ID3D11RefDefaultTrackingOptions_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11RefDefaultTrackingOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11RefDefaultTrackingOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03916615_c644_418c_9bf4_75db5be63ca0);
@@ -8286,11 +8286,6 @@ impl ID3D11RefTrackingOptions {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11RefTrackingOptions, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11RefTrackingOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11RefTrackingOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8307,6 +8302,11 @@ unsafe impl ::core::marker::Sync for ID3D11RefTrackingOptions {}
 unsafe impl ::windows::core::Vtable for ID3D11RefTrackingOptions {
     type Vtable = ID3D11RefTrackingOptions_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11RefTrackingOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11RefTrackingOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193dacdf_0db2_4c05_a55c_ef06cac56fd9);
 }
@@ -8321,9 +8321,9 @@ pub struct ID3D11RefTrackingOptions_Vtbl {
 pub struct ID3D11RenderTargetView(::windows::core::IUnknown);
 impl ID3D11RenderTargetView {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8338,9 +8338,9 @@ impl ID3D11RenderTargetView {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetResource(&self) -> ::windows::core::Result<ID3D11Resource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Resource as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Resource>();
+        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8349,11 +8349,6 @@ impl ID3D11RenderTargetView {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11RenderTargetView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
-impl ::core::clone::Clone for ID3D11RenderTargetView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11RenderTargetView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8369,6 +8364,11 @@ unsafe impl ::core::marker::Send for ID3D11RenderTargetView {}
 unsafe impl ::core::marker::Sync for ID3D11RenderTargetView {}
 unsafe impl ::windows::core::Vtable for ID3D11RenderTargetView {
     type Vtable = ID3D11RenderTargetView_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11RenderTargetView {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11RenderTargetView {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfdba067_0b8d_4865_875b_d7b4516cc164);
@@ -8387,9 +8387,9 @@ pub struct ID3D11RenderTargetView_Vtbl {
 pub struct ID3D11RenderTargetView1(::windows::core::IUnknown);
 impl ID3D11RenderTargetView1 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8404,9 +8404,9 @@ impl ID3D11RenderTargetView1 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetResource(&self) -> ::windows::core::Result<ID3D11Resource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetResource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Resource as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Resource>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetResource)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8420,11 +8420,6 @@ impl ID3D11RenderTargetView1 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11RenderTargetView1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View, ID3D11RenderTargetView);
-impl ::core::clone::Clone for ID3D11RenderTargetView1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11RenderTargetView1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8440,6 +8435,11 @@ unsafe impl ::core::marker::Send for ID3D11RenderTargetView1 {}
 unsafe impl ::core::marker::Sync for ID3D11RenderTargetView1 {}
 unsafe impl ::windows::core::Vtable for ID3D11RenderTargetView1 {
     type Vtable = ID3D11RenderTargetView1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11RenderTargetView1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11RenderTargetView1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffbe2e23_f011_418a_ac56_5ceed7c5b94b);
@@ -8458,9 +8458,9 @@ pub struct ID3D11RenderTargetView1_Vtbl {
 pub struct ID3D11Resource(::windows::core::IUnknown);
 impl ID3D11Resource {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8475,9 +8475,9 @@ impl ID3D11Resource {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetType(&self) -> D3D11_RESOURCE_DIMENSION {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_RESOURCE_DIMENSION>();
+        (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
         (::windows::core::Vtable::vtable(self).SetEvictionPriority)(::windows::core::Vtable::as_raw(self), evictionpriority)
@@ -8487,11 +8487,6 @@ impl ID3D11Resource {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Resource, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11Resource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Resource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8507,6 +8502,11 @@ unsafe impl ::core::marker::Send for ID3D11Resource {}
 unsafe impl ::core::marker::Sync for ID3D11Resource {}
 unsafe impl ::windows::core::Vtable for ID3D11Resource {
     type Vtable = ID3D11Resource_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Resource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Resource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc8e63f3_d12b_4952_b47b_5e45026a862d);
@@ -8524,9 +8524,9 @@ pub struct ID3D11Resource_Vtbl {
 pub struct ID3D11SamplerState(::windows::core::IUnknown);
 impl ID3D11SamplerState {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8545,11 +8545,6 @@ impl ID3D11SamplerState {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11SamplerState, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11SamplerState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11SamplerState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8565,6 +8560,11 @@ unsafe impl ::core::marker::Send for ID3D11SamplerState {}
 unsafe impl ::core::marker::Sync for ID3D11SamplerState {}
 unsafe impl ::windows::core::Vtable for ID3D11SamplerState {
     type Vtable = ID3D11SamplerState_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11SamplerState {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11SamplerState {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda6fea51_564c_4487_9810_f0d0f9b4e3a5);
@@ -8655,8 +8655,8 @@ impl ID3D11ShaderReflection {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetMinFeatureLevel(&self) -> ::windows::core::Result<super::Direct3D::D3D_FEATURE_LEVEL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMinFeatureLevel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::Direct3D::D3D_FEATURE_LEVEL>();
+        (::windows::core::Vtable::vtable(self).GetMinFeatureLevel)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadGroupSize(&self, psizex: ::core::option::Option<*mut u32>, psizey: ::core::option::Option<*mut u32>, psizez: ::core::option::Option<*mut u32>) -> u32 {
         (::windows::core::Vtable::vtable(self).GetThreadGroupSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psizex.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psizey.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psizez.unwrap_or(::std::ptr::null_mut())))
@@ -8666,11 +8666,6 @@ impl ID3D11ShaderReflection {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11ShaderReflection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11ShaderReflection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11ShaderReflection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8686,6 +8681,11 @@ unsafe impl ::core::marker::Send for ID3D11ShaderReflection {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderReflection {}
 unsafe impl ::windows::core::Vtable for ID3D11ShaderReflection {
     type Vtable = ID3D11ShaderReflection_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11ShaderReflection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11ShaderReflection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d536ca1_0cca_4956_a837_786963755584);
@@ -8760,11 +8760,6 @@ impl ID3D11ShaderReflectionConstantBuffer {
         (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
 }
-impl ::core::clone::Clone for ID3D11ShaderReflectionConstantBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11ShaderReflectionConstantBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8780,6 +8775,11 @@ unsafe impl ::core::marker::Send for ID3D11ShaderReflectionConstantBuffer {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionConstantBuffer {}
 unsafe impl ::windows::core::Vtable for ID3D11ShaderReflectionConstantBuffer {
     type Vtable = ID3D11ShaderReflectionConstantBuffer_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11ShaderReflectionConstantBuffer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8843,11 +8843,6 @@ impl ID3D11ShaderReflectionType {
         (::windows::core::Vtable::vtable(self).ImplementsInterface)(::windows::core::Vtable::as_raw(self), pbase.into().abi()).ok()
     }
 }
-impl ::core::clone::Clone for ID3D11ShaderReflectionType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11ShaderReflectionType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8863,6 +8858,11 @@ unsafe impl ::core::marker::Send for ID3D11ShaderReflectionType {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionType {}
 unsafe impl ::windows::core::Vtable for ID3D11ShaderReflectionType {
     type Vtable = ID3D11ShaderReflectionType_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11ShaderReflectionType {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8899,11 +8899,6 @@ impl ID3D11ShaderReflectionVariable {
         (::windows::core::Vtable::vtable(self).GetInterfaceSlot)(::windows::core::Vtable::as_raw(self), uarrayindex)
     }
 }
-impl ::core::clone::Clone for ID3D11ShaderReflectionVariable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11ShaderReflectionVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8920,6 +8915,11 @@ unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionVariable {}
 unsafe impl ::windows::core::Vtable for ID3D11ShaderReflectionVariable {
     type Vtable = ID3D11ShaderReflectionVariable_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11ShaderReflectionVariable {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ShaderReflectionVariable_Vtbl {
@@ -8933,9 +8933,9 @@ pub struct ID3D11ShaderReflectionVariable_Vtbl {
 pub struct ID3D11ShaderResourceView(::windows::core::IUnknown);
 impl ID3D11ShaderResourceView {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8950,9 +8950,9 @@ impl ID3D11ShaderResourceView {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetResource(&self) -> ::windows::core::Result<ID3D11Resource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Resource as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Resource>();
+        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -8961,11 +8961,6 @@ impl ID3D11ShaderResourceView {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11ShaderResourceView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
-impl ::core::clone::Clone for ID3D11ShaderResourceView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11ShaderResourceView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8981,6 +8976,11 @@ unsafe impl ::core::marker::Send for ID3D11ShaderResourceView {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderResourceView {}
 unsafe impl ::windows::core::Vtable for ID3D11ShaderResourceView {
     type Vtable = ID3D11ShaderResourceView_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11ShaderResourceView {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11ShaderResourceView {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0e06fe0_8192_4e1a_b1ca_36d7414710b2);
@@ -8999,9 +8999,9 @@ pub struct ID3D11ShaderResourceView_Vtbl {
 pub struct ID3D11ShaderResourceView1(::windows::core::IUnknown);
 impl ID3D11ShaderResourceView1 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9016,9 +9016,9 @@ impl ID3D11ShaderResourceView1 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetResource(&self) -> ::windows::core::Result<ID3D11Resource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetResource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Resource as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Resource>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetResource)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -9032,11 +9032,6 @@ impl ID3D11ShaderResourceView1 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11ShaderResourceView1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View, ID3D11ShaderResourceView);
-impl ::core::clone::Clone for ID3D11ShaderResourceView1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11ShaderResourceView1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9052,6 +9047,11 @@ unsafe impl ::core::marker::Send for ID3D11ShaderResourceView1 {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderResourceView1 {}
 unsafe impl ::windows::core::Vtable for ID3D11ShaderResourceView1 {
     type Vtable = ID3D11ShaderResourceView1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11ShaderResourceView1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11ShaderResourceView1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91308b87_9040_411d_8c67_c39253ce3802);
@@ -9099,11 +9099,6 @@ impl ID3D11ShaderTrace {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11ShaderTrace, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11ShaderTrace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11ShaderTrace {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9119,6 +9114,11 @@ unsafe impl ::core::marker::Send for ID3D11ShaderTrace {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderTrace {}
 unsafe impl ::windows::core::Vtable for ID3D11ShaderTrace {
     type Vtable = ID3D11ShaderTrace_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11ShaderTrace {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11ShaderTrace {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36b013e6_2811_4845_baa7_d623fe0df104);
@@ -9150,16 +9150,11 @@ impl ID3D11ShaderTraceFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateShaderTrace)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), ptracedesc, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11ShaderTrace>();
+        (::windows::core::Vtable::vtable(self).CreateShaderTrace)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), ptracedesc, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11ShaderTraceFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11ShaderTraceFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11ShaderTraceFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9175,6 +9170,11 @@ unsafe impl ::core::marker::Send for ID3D11ShaderTraceFactory {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderTraceFactory {}
 unsafe impl ::windows::core::Vtable for ID3D11ShaderTraceFactory {
     type Vtable = ID3D11ShaderTraceFactory_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11ShaderTraceFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11ShaderTraceFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fbad429_66ab_41cc_9617_667ac10e4459);
@@ -9204,11 +9204,6 @@ impl ID3D11SwitchToRef {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11SwitchToRef, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11SwitchToRef {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11SwitchToRef {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9224,6 +9219,11 @@ unsafe impl ::core::marker::Send for ID3D11SwitchToRef {}
 unsafe impl ::core::marker::Sync for ID3D11SwitchToRef {}
 unsafe impl ::windows::core::Vtable for ID3D11SwitchToRef {
     type Vtable = ID3D11SwitchToRef_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11SwitchToRef {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11SwitchToRef {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ef337e3_58e7_4f83_a692_db221f5ed47e);
@@ -9246,9 +9246,9 @@ pub struct ID3D11SwitchToRef_Vtbl {
 pub struct ID3D11Texture1D(::windows::core::IUnknown);
 impl ID3D11Texture1D {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9263,9 +9263,9 @@ impl ID3D11Texture1D {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetType(&self) -> D3D11_RESOURCE_DIMENSION {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_RESOURCE_DIMENSION>();
+        (::windows::core::Vtable::vtable(self).base__.GetType)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
         (::windows::core::Vtable::vtable(self).base__.SetEvictionPriority)(::windows::core::Vtable::as_raw(self), evictionpriority)
@@ -9280,11 +9280,6 @@ impl ID3D11Texture1D {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Texture1D, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
-impl ::core::clone::Clone for ID3D11Texture1D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Texture1D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9300,6 +9295,11 @@ unsafe impl ::core::marker::Send for ID3D11Texture1D {}
 unsafe impl ::core::marker::Sync for ID3D11Texture1D {}
 unsafe impl ::windows::core::Vtable for ID3D11Texture1D {
     type Vtable = ID3D11Texture1D_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Texture1D {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Texture1D {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8fb5c27_c6b3_4f75_a4c8_439af2ef564c);
@@ -9318,9 +9318,9 @@ pub struct ID3D11Texture1D_Vtbl {
 pub struct ID3D11Texture2D(::windows::core::IUnknown);
 impl ID3D11Texture2D {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9335,9 +9335,9 @@ impl ID3D11Texture2D {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetType(&self) -> D3D11_RESOURCE_DIMENSION {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_RESOURCE_DIMENSION>();
+        (::windows::core::Vtable::vtable(self).base__.GetType)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
         (::windows::core::Vtable::vtable(self).base__.SetEvictionPriority)(::windows::core::Vtable::as_raw(self), evictionpriority)
@@ -9352,11 +9352,6 @@ impl ID3D11Texture2D {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Texture2D, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
-impl ::core::clone::Clone for ID3D11Texture2D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Texture2D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9372,6 +9367,11 @@ unsafe impl ::core::marker::Send for ID3D11Texture2D {}
 unsafe impl ::core::marker::Sync for ID3D11Texture2D {}
 unsafe impl ::windows::core::Vtable for ID3D11Texture2D {
     type Vtable = ID3D11Texture2D_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Texture2D {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Texture2D {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f15aaf2_d208_4e89_9ab4_489535d34f9c);
@@ -9390,9 +9390,9 @@ pub struct ID3D11Texture2D_Vtbl {
 pub struct ID3D11Texture2D1(::windows::core::IUnknown);
 impl ID3D11Texture2D1 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9407,9 +9407,9 @@ impl ID3D11Texture2D1 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetType(&self) -> D3D11_RESOURCE_DIMENSION {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_RESOURCE_DIMENSION>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetType)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
         (::windows::core::Vtable::vtable(self).base__.base__.SetEvictionPriority)(::windows::core::Vtable::as_raw(self), evictionpriority)
@@ -9429,11 +9429,6 @@ impl ID3D11Texture2D1 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Texture2D1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource, ID3D11Texture2D);
-impl ::core::clone::Clone for ID3D11Texture2D1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Texture2D1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9449,6 +9444,11 @@ unsafe impl ::core::marker::Send for ID3D11Texture2D1 {}
 unsafe impl ::core::marker::Sync for ID3D11Texture2D1 {}
 unsafe impl ::windows::core::Vtable for ID3D11Texture2D1 {
     type Vtable = ID3D11Texture2D1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Texture2D1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Texture2D1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51218251_1e33_4617_9ccb_4d3a4367e7bb);
@@ -9467,9 +9467,9 @@ pub struct ID3D11Texture2D1_Vtbl {
 pub struct ID3D11Texture3D(::windows::core::IUnknown);
 impl ID3D11Texture3D {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9484,9 +9484,9 @@ impl ID3D11Texture3D {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetType(&self) -> D3D11_RESOURCE_DIMENSION {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_RESOURCE_DIMENSION>();
+        (::windows::core::Vtable::vtable(self).base__.GetType)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
         (::windows::core::Vtable::vtable(self).base__.SetEvictionPriority)(::windows::core::Vtable::as_raw(self), evictionpriority)
@@ -9501,11 +9501,6 @@ impl ID3D11Texture3D {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Texture3D, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
-impl ::core::clone::Clone for ID3D11Texture3D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Texture3D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9521,6 +9516,11 @@ unsafe impl ::core::marker::Send for ID3D11Texture3D {}
 unsafe impl ::core::marker::Sync for ID3D11Texture3D {}
 unsafe impl ::windows::core::Vtable for ID3D11Texture3D {
     type Vtable = ID3D11Texture3D_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Texture3D {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Texture3D {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x037e866e_f56d_4357_a8af_9dabbe6e250e);
@@ -9539,9 +9539,9 @@ pub struct ID3D11Texture3D_Vtbl {
 pub struct ID3D11Texture3D1(::windows::core::IUnknown);
 impl ID3D11Texture3D1 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9556,9 +9556,9 @@ impl ID3D11Texture3D1 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetType(&self) -> D3D11_RESOURCE_DIMENSION {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_RESOURCE_DIMENSION>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetType)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
         (::windows::core::Vtable::vtable(self).base__.base__.SetEvictionPriority)(::windows::core::Vtable::as_raw(self), evictionpriority)
@@ -9578,11 +9578,6 @@ impl ID3D11Texture3D1 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Texture3D1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource, ID3D11Texture3D);
-impl ::core::clone::Clone for ID3D11Texture3D1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11Texture3D1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9598,6 +9593,11 @@ unsafe impl ::core::marker::Send for ID3D11Texture3D1 {}
 unsafe impl ::core::marker::Sync for ID3D11Texture3D1 {}
 unsafe impl ::windows::core::Vtable for ID3D11Texture3D1 {
     type Vtable = ID3D11Texture3D1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11Texture3D1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11Texture3D1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c711683_2853_4846_9bb0_f3e60639e46a);
@@ -9626,11 +9626,6 @@ impl ID3D11TracingDevice {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11TracingDevice, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11TracingDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11TracingDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9647,6 +9642,11 @@ unsafe impl ::core::marker::Sync for ID3D11TracingDevice {}
 unsafe impl ::windows::core::Vtable for ID3D11TracingDevice {
     type Vtable = ID3D11TracingDevice_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11TracingDevice {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11TracingDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1911c771_1587_413e_a7e0_fb26c3de0268);
 }
@@ -9662,9 +9662,9 @@ pub struct ID3D11TracingDevice_Vtbl {
 pub struct ID3D11UnorderedAccessView(::windows::core::IUnknown);
 impl ID3D11UnorderedAccessView {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9679,9 +9679,9 @@ impl ID3D11UnorderedAccessView {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetResource(&self) -> ::windows::core::Result<ID3D11Resource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Resource as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Resource>();
+        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -9690,11 +9690,6 @@ impl ID3D11UnorderedAccessView {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11UnorderedAccessView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
-impl ::core::clone::Clone for ID3D11UnorderedAccessView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11UnorderedAccessView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9710,6 +9705,11 @@ unsafe impl ::core::marker::Send for ID3D11UnorderedAccessView {}
 unsafe impl ::core::marker::Sync for ID3D11UnorderedAccessView {}
 unsafe impl ::windows::core::Vtable for ID3D11UnorderedAccessView {
     type Vtable = ID3D11UnorderedAccessView_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11UnorderedAccessView {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11UnorderedAccessView {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28acf509_7f5c_48f6_8611_f316010a6380);
@@ -9728,9 +9728,9 @@ pub struct ID3D11UnorderedAccessView_Vtbl {
 pub struct ID3D11UnorderedAccessView1(::windows::core::IUnknown);
 impl ID3D11UnorderedAccessView1 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9745,9 +9745,9 @@ impl ID3D11UnorderedAccessView1 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetResource(&self) -> ::windows::core::Result<ID3D11Resource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetResource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Resource as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Resource>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetResource)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -9761,11 +9761,6 @@ impl ID3D11UnorderedAccessView1 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11UnorderedAccessView1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View, ID3D11UnorderedAccessView);
-impl ::core::clone::Clone for ID3D11UnorderedAccessView1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11UnorderedAccessView1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9781,6 +9776,11 @@ unsafe impl ::core::marker::Send for ID3D11UnorderedAccessView1 {}
 unsafe impl ::core::marker::Sync for ID3D11UnorderedAccessView1 {}
 unsafe impl ::windows::core::Vtable for ID3D11UnorderedAccessView1 {
     type Vtable = ID3D11UnorderedAccessView1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11UnorderedAccessView1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11UnorderedAccessView1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b3b6153_a886_4544_ab37_6537c8500403);
@@ -9799,9 +9799,9 @@ pub struct ID3D11UnorderedAccessView1_Vtbl {
 pub struct ID3D11VertexShader(::windows::core::IUnknown);
 impl ID3D11VertexShader {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9817,11 +9817,6 @@ impl ID3D11VertexShader {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VertexShader, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11VertexShader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VertexShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9838,6 +9833,11 @@ unsafe impl ::core::marker::Sync for ID3D11VertexShader {}
 unsafe impl ::windows::core::Vtable for ID3D11VertexShader {
     type Vtable = ID3D11VertexShader_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11VertexShader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11VertexShader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b301d64_d678_4289_8897_22f8928b72f3);
 }
@@ -9851,9 +9851,9 @@ pub struct ID3D11VertexShader_Vtbl {
 pub struct ID3D11VideoContext(::windows::core::IUnknown);
 impl ID3D11VideoContext {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9980,9 +9980,9 @@ impl ID3D11VideoContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VideoProcessorGetOutputColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_PROCESSOR_COLOR_SPACE>();
+        (::windows::core::Vtable::vtable(self).VideoProcessorGetOutputColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VideoProcessorGetOutputAlphaFillMode<P0>(&self, pvideoprocessor: P0, palphafillmode: *mut D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, pstreamindex: *mut u32)
     where
@@ -10004,9 +10004,9 @@ impl ID3D11VideoContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VideoProcessorGetOutputStereoMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).VideoProcessorGetOutputStereoMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VideoProcessorGetOutputExtension<P0>(&self, pvideoprocessor: P0, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32
     where
@@ -10125,17 +10125,17 @@ impl ID3D11VideoContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VideoProcessorGetStreamFrameFormat)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_FRAME_FORMAT>();
+        (::windows::core::Vtable::vtable(self).VideoProcessorGetStreamFrameFormat)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VideoProcessorGetStreamColorSpace<P0>(&self, pvideoprocessor: P0, streamindex: u32) -> D3D11_VIDEO_PROCESSOR_COLOR_SPACE
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VideoProcessorGetStreamColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_PROCESSOR_COLOR_SPACE>();
+        (::windows::core::Vtable::vtable(self).VideoProcessorGetStreamColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -10205,9 +10205,9 @@ impl ID3D11VideoContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VideoProcessorGetStreamAutoProcessingMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).VideoProcessorGetStreamAutoProcessingMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10311,11 +10311,6 @@ impl ID3D11VideoContext {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoContext, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11VideoContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10331,6 +10326,11 @@ unsafe impl ::core::marker::Send for ID3D11VideoContext {}
 unsafe impl ::core::marker::Sync for ID3D11VideoContext {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoContext {
     type Vtable = ID3D11VideoContext_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11VideoContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11VideoContext {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61f21c45_3c0e_4a74_9cea_67100d9ad5e4);
@@ -10496,9 +10496,9 @@ pub struct ID3D11VideoContext_Vtbl {
 pub struct ID3D11VideoContext1(::windows::core::IUnknown);
 impl ID3D11VideoContext1 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -10625,9 +10625,9 @@ impl ID3D11VideoContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetOutputColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_PROCESSOR_COLOR_SPACE>();
+        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetOutputColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VideoProcessorGetOutputAlphaFillMode<P0>(&self, pvideoprocessor: P0, palphafillmode: *mut D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, pstreamindex: *mut u32)
     where
@@ -10649,9 +10649,9 @@ impl ID3D11VideoContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetOutputStereoMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetOutputStereoMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VideoProcessorGetOutputExtension<P0>(&self, pvideoprocessor: P0, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32
     where
@@ -10770,17 +10770,17 @@ impl ID3D11VideoContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetStreamFrameFormat)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_FRAME_FORMAT>();
+        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetStreamFrameFormat)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VideoProcessorGetStreamColorSpace<P0>(&self, pvideoprocessor: P0, streamindex: u32) -> D3D11_VIDEO_PROCESSOR_COLOR_SPACE
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetStreamColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_PROCESSOR_COLOR_SPACE>();
+        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetStreamColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -10850,9 +10850,9 @@ impl ID3D11VideoContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetStreamAutoProcessingMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetStreamAutoProcessingMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10964,15 +10964,15 @@ impl ID3D11VideoContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11CryptoSession>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDataForNewHardwareKey)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), pprivatinputdata.len() as _, ::core::mem::transmute(pprivatinputdata.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetDataForNewHardwareKey)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), pprivatinputdata.len() as _, ::core::mem::transmute(pprivatinputdata.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn CheckCryptoSessionStatus<P0>(&self, pcryptosession: P0) -> ::windows::core::Result<D3D11_CRYPTO_SESSION_STATUS>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11CryptoSession>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckCryptoSessionStatus)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<D3D11_CRYPTO_SESSION_STATUS>();
+        (::windows::core::Vtable::vtable(self).CheckCryptoSessionStatus)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11013,9 +11013,9 @@ impl ID3D11VideoContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VideoProcessorGetOutputColorSpace1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE>();
+        (::windows::core::Vtable::vtable(self).VideoProcessorGetOutputColorSpace1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11023,9 +11023,9 @@ impl ID3D11VideoContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VideoProcessorGetOutputShaderUsage)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).VideoProcessorGetOutputShaderUsage)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11052,9 +11052,9 @@ impl ID3D11VideoContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VideoProcessorGetStreamColorSpace1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE>();
+        (::windows::core::Vtable::vtable(self).VideoProcessorGetStreamColorSpace1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11070,16 +11070,11 @@ impl ID3D11VideoContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VideoProcessorGetBehaviorHints)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), outputwidth, outputheight, outputformat, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).VideoProcessorGetBehaviorHints)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), outputwidth, outputheight, outputformat, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoContext1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11VideoContext);
-impl ::core::clone::Clone for ID3D11VideoContext1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoContext1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11095,6 +11090,11 @@ unsafe impl ::core::marker::Send for ID3D11VideoContext1 {}
 unsafe impl ::core::marker::Sync for ID3D11VideoContext1 {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoContext1 {
     type Vtable = ID3D11VideoContext1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11VideoContext1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11VideoContext1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7f026da_a5f8_4487_a564_15e34357651e);
@@ -11156,9 +11156,9 @@ pub struct ID3D11VideoContext1_Vtbl {
 pub struct ID3D11VideoContext2(::windows::core::IUnknown);
 impl ID3D11VideoContext2 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -11285,9 +11285,9 @@ impl ID3D11VideoContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetOutputColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_PROCESSOR_COLOR_SPACE>();
+        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetOutputColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VideoProcessorGetOutputAlphaFillMode<P0>(&self, pvideoprocessor: P0, palphafillmode: *mut D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, pstreamindex: *mut u32)
     where
@@ -11309,9 +11309,9 @@ impl ID3D11VideoContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetOutputStereoMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetOutputStereoMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VideoProcessorGetOutputExtension<P0>(&self, pvideoprocessor: P0, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32
     where
@@ -11430,17 +11430,17 @@ impl ID3D11VideoContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetStreamFrameFormat)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_FRAME_FORMAT>();
+        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetStreamFrameFormat)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VideoProcessorGetStreamColorSpace<P0>(&self, pvideoprocessor: P0, streamindex: u32) -> D3D11_VIDEO_PROCESSOR_COLOR_SPACE
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetStreamColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_PROCESSOR_COLOR_SPACE>();
+        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetStreamColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -11510,9 +11510,9 @@ impl ID3D11VideoContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetStreamAutoProcessingMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetStreamAutoProcessingMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11624,15 +11624,15 @@ impl ID3D11VideoContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11CryptoSession>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDataForNewHardwareKey)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), pprivatinputdata.len() as _, ::core::mem::transmute(pprivatinputdata.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).base__.GetDataForNewHardwareKey)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), pprivatinputdata.len() as _, ::core::mem::transmute(pprivatinputdata.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn CheckCryptoSessionStatus<P0>(&self, pcryptosession: P0) -> ::windows::core::Result<D3D11_CRYPTO_SESSION_STATUS>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11CryptoSession>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CheckCryptoSessionStatus)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<D3D11_CRYPTO_SESSION_STATUS>();
+        (::windows::core::Vtable::vtable(self).base__.CheckCryptoSessionStatus)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11673,9 +11673,9 @@ impl ID3D11VideoContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetOutputColorSpace1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE>();
+        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetOutputColorSpace1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11683,9 +11683,9 @@ impl ID3D11VideoContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetOutputShaderUsage)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetOutputShaderUsage)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11712,9 +11712,9 @@ impl ID3D11VideoContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetStreamColorSpace1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE>();
+        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetStreamColorSpace1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11730,8 +11730,8 @@ impl ID3D11VideoContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetBehaviorHints)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), outputwidth, outputheight, outputformat, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.VideoProcessorGetBehaviorHints)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), outputwidth, outputheight, outputformat, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -11767,11 +11767,6 @@ impl ID3D11VideoContext2 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoContext2, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11VideoContext, ID3D11VideoContext1);
-impl ::core::clone::Clone for ID3D11VideoContext2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoContext2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11787,6 +11782,11 @@ unsafe impl ::core::marker::Send for ID3D11VideoContext2 {}
 unsafe impl ::core::marker::Sync for ID3D11VideoContext2 {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoContext2 {
     type Vtable = ID3D11VideoContext2_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11VideoContext2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11VideoContext2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4e7374c_6243_4d1b_ae87_52b4f740e261);
@@ -11817,9 +11817,9 @@ pub struct ID3D11VideoContext2_Vtbl {
 pub struct ID3D11VideoContext3(::windows::core::IUnknown);
 impl ID3D11VideoContext3 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -11946,9 +11946,9 @@ impl ID3D11VideoContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.VideoProcessorGetOutputColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_PROCESSOR_COLOR_SPACE>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.VideoProcessorGetOutputColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VideoProcessorGetOutputAlphaFillMode<P0>(&self, pvideoprocessor: P0, palphafillmode: *mut D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, pstreamindex: *mut u32)
     where
@@ -11970,9 +11970,9 @@ impl ID3D11VideoContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.VideoProcessorGetOutputStereoMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.VideoProcessorGetOutputStereoMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VideoProcessorGetOutputExtension<P0>(&self, pvideoprocessor: P0, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32
     where
@@ -12091,17 +12091,17 @@ impl ID3D11VideoContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.VideoProcessorGetStreamFrameFormat)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_FRAME_FORMAT>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.VideoProcessorGetStreamFrameFormat)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     pub unsafe fn VideoProcessorGetStreamColorSpace<P0>(&self, pvideoprocessor: P0, streamindex: u32) -> D3D11_VIDEO_PROCESSOR_COLOR_SPACE
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.VideoProcessorGetStreamColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_PROCESSOR_COLOR_SPACE>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.VideoProcessorGetStreamColorSpace)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -12171,9 +12171,9 @@ impl ID3D11VideoContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.VideoProcessorGetStreamAutoProcessingMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.VideoProcessorGetStreamAutoProcessingMode)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12285,15 +12285,15 @@ impl ID3D11VideoContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11CryptoSession>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDataForNewHardwareKey)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), pprivatinputdata.len() as _, ::core::mem::transmute(pprivatinputdata.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDataForNewHardwareKey)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), pprivatinputdata.len() as _, ::core::mem::transmute(pprivatinputdata.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn CheckCryptoSessionStatus<P0>(&self, pcryptosession: P0) -> ::windows::core::Result<D3D11_CRYPTO_SESSION_STATUS>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11CryptoSession>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CheckCryptoSessionStatus)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<D3D11_CRYPTO_SESSION_STATUS>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CheckCryptoSessionStatus)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -12334,9 +12334,9 @@ impl ID3D11VideoContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetOutputColorSpace1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE>();
+        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetOutputColorSpace1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12344,9 +12344,9 @@ impl ID3D11VideoContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetOutputShaderUsage)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetOutputShaderUsage)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -12373,9 +12373,9 @@ impl ID3D11VideoContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetStreamColorSpace1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE>();
+        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetStreamColorSpace1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, &mut result__);
+        ::std::mem::transmute(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12391,8 +12391,8 @@ impl ID3D11VideoContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessor>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetBehaviorHints)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), outputwidth, outputheight, outputformat, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.base__.VideoProcessorGetBehaviorHints)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), outputwidth, outputheight, outputformat, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -12441,11 +12441,6 @@ impl ID3D11VideoContext3 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoContext3, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11VideoContext, ID3D11VideoContext1, ID3D11VideoContext2);
-impl ::core::clone::Clone for ID3D11VideoContext3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoContext3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12462,6 +12457,11 @@ unsafe impl ::core::marker::Sync for ID3D11VideoContext3 {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoContext3 {
     type Vtable = ID3D11VideoContext3_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11VideoContext3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11VideoContext3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e2faa0_cb39_418f_a0b7_d8aad4de672e);
 }
@@ -12477,9 +12477,9 @@ pub struct ID3D11VideoContext3_Vtbl {
 pub struct ID3D11VideoDecoder(::windows::core::IUnknown);
 impl ID3D11VideoDecoder {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -12501,16 +12501,11 @@ impl ID3D11VideoDecoder {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDriverHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDriverHandle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+        (::windows::core::Vtable::vtable(self).GetDriverHandle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoDecoder, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11VideoDecoder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoDecoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12526,6 +12521,11 @@ unsafe impl ::core::marker::Send for ID3D11VideoDecoder {}
 unsafe impl ::core::marker::Sync for ID3D11VideoDecoder {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoDecoder {
     type Vtable = ID3D11VideoDecoder_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11VideoDecoder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11VideoDecoder {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c9c5b51_995d_48d1_9b8d_fa5caeded65c);
@@ -12548,9 +12548,9 @@ pub struct ID3D11VideoDecoder_Vtbl {
 pub struct ID3D11VideoDecoderOutputView(::windows::core::IUnknown);
 impl ID3D11VideoDecoderOutputView {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -12565,20 +12565,15 @@ impl ID3D11VideoDecoderOutputView {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetResource(&self) -> ::windows::core::Result<ID3D11Resource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Resource as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Resource>();
+        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC) {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoDecoderOutputView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
-impl ::core::clone::Clone for ID3D11VideoDecoderOutputView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoDecoderOutputView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12594,6 +12589,11 @@ unsafe impl ::core::marker::Send for ID3D11VideoDecoderOutputView {}
 unsafe impl ::core::marker::Sync for ID3D11VideoDecoderOutputView {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoDecoderOutputView {
     type Vtable = ID3D11VideoDecoderOutputView_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11VideoDecoderOutputView {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11VideoDecoderOutputView {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2931aea_2a85_4f20_860f_fba1fd256e18);
@@ -12611,23 +12611,23 @@ impl ID3D11VideoDevice {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoDecoder(&self, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG) -> ::windows::core::Result<ID3D11VideoDecoder> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), pvideodesc, pconfig, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11VideoDecoder>();
+        (::windows::core::Vtable::vtable(self).CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), pvideodesc, pconfig, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateVideoProcessor<P0>(&self, penum: P0, rateconversionindex: u32) -> ::windows::core::Result<ID3D11VideoProcessor>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessorEnumerator>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), penum.into().abi(), rateconversionindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11VideoProcessor>();
+        (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), penum.into().abi(), rateconversionindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateAuthenticatedChannel(&self, channeltype: D3D11_AUTHENTICATED_CHANNEL_TYPE) -> ::windows::core::Result<ID3D11AuthenticatedChannel> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateAuthenticatedChannel)(::windows::core::Vtable::as_raw(self), channeltype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11AuthenticatedChannel>();
+        (::windows::core::Vtable::vtable(self).CreateAuthenticatedChannel)(::windows::core::Vtable::as_raw(self), channeltype, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateCryptoSession(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: ::core::option::Option<*const ::windows::core::GUID>, pkeyexchangetype: *const ::windows::core::GUID) -> ::windows::core::Result<ID3D11CryptoSession> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateCryptoSession)(::windows::core::Vtable::as_raw(self), pcryptotype, ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), pkeyexchangetype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11CryptoSession>();
+        (::windows::core::Vtable::vtable(self).CreateCryptoSession)(::windows::core::Vtable::as_raw(self), pcryptotype, ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), pkeyexchangetype, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateVideoDecoderOutputView<P0>(&self, presource: P0, pdesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, ppvdovview: ::core::option::Option<*mut ::core::option::Option<ID3D11VideoDecoderOutputView>>) -> ::windows::core::Result<()>
     where
@@ -12652,27 +12652,27 @@ impl ID3D11VideoDevice {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoProcessorEnumerator(&self, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> ::windows::core::Result<ID3D11VideoProcessorEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoProcessorEnumerator)(::windows::core::Vtable::as_raw(self), pdesc, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11VideoProcessorEnumerator>();
+        (::windows::core::Vtable::vtable(self).CreateVideoProcessorEnumerator)(::windows::core::Vtable::as_raw(self), pdesc, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVideoDecoderProfileCount(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).GetVideoDecoderProfileCount)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetVideoDecoderProfile(&self, index: u32) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVideoDecoderProfile)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).GetVideoDecoderProfile)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CheckVideoDecoderFormat(&self, pdecoderprofile: *const ::windows::core::GUID, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckVideoDecoderFormat)(::windows::core::Vtable::as_raw(self), pdecoderprofile, format, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).CheckVideoDecoderFormat)(::windows::core::Vtable::as_raw(self), pdecoderprofile, format, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetVideoDecoderConfigCount(&self, pdesc: *const D3D11_VIDEO_DECODER_DESC) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVideoDecoderConfigCount)(::windows::core::Vtable::as_raw(self), pdesc, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetVideoDecoderConfigCount)(::windows::core::Vtable::as_raw(self), pdesc, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -12683,8 +12683,8 @@ impl ID3D11VideoDevice {
         (::windows::core::Vtable::vtable(self).GetContentProtectionCaps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcryptotype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), pcaps).ok()
     }
     pub unsafe fn CheckCryptoKeyExchange(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: ::core::option::Option<*const ::windows::core::GUID>, index: u32) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckCryptoKeyExchange)(::windows::core::Vtable::as_raw(self), pcryptotype, ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).CheckCryptoKeyExchange)(::windows::core::Vtable::as_raw(self), pcryptotype, ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
@@ -12697,11 +12697,6 @@ impl ID3D11VideoDevice {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoDevice, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11VideoDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12717,6 +12712,11 @@ unsafe impl ::core::marker::Send for ID3D11VideoDevice {}
 unsafe impl ::core::marker::Sync for ID3D11VideoDevice {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoDevice {
     type Vtable = ID3D11VideoDevice_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11VideoDevice {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11VideoDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10ec4d5b_975a_4689_b9e4_d0aac30fe333);
@@ -12765,23 +12765,23 @@ impl ID3D11VideoDevice1 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoDecoder(&self, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG) -> ::windows::core::Result<ID3D11VideoDecoder> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), pvideodesc, pconfig, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11VideoDecoder>();
+        (::windows::core::Vtable::vtable(self).base__.CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), pvideodesc, pconfig, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateVideoProcessor<P0>(&self, penum: P0, rateconversionindex: u32) -> ::windows::core::Result<ID3D11VideoProcessor>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessorEnumerator>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), penum.into().abi(), rateconversionindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11VideoProcessor>();
+        (::windows::core::Vtable::vtable(self).base__.CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), penum.into().abi(), rateconversionindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateAuthenticatedChannel(&self, channeltype: D3D11_AUTHENTICATED_CHANNEL_TYPE) -> ::windows::core::Result<ID3D11AuthenticatedChannel> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateAuthenticatedChannel)(::windows::core::Vtable::as_raw(self), channeltype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11AuthenticatedChannel>();
+        (::windows::core::Vtable::vtable(self).base__.CreateAuthenticatedChannel)(::windows::core::Vtable::as_raw(self), channeltype, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateCryptoSession(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: ::core::option::Option<*const ::windows::core::GUID>, pkeyexchangetype: *const ::windows::core::GUID) -> ::windows::core::Result<ID3D11CryptoSession> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateCryptoSession)(::windows::core::Vtable::as_raw(self), pcryptotype, ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), pkeyexchangetype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11CryptoSession>();
+        (::windows::core::Vtable::vtable(self).base__.CreateCryptoSession)(::windows::core::Vtable::as_raw(self), pcryptotype, ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), pkeyexchangetype, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateVideoDecoderOutputView<P0>(&self, presource: P0, pdesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, ppvdovview: ::core::option::Option<*mut ::core::option::Option<ID3D11VideoDecoderOutputView>>) -> ::windows::core::Result<()>
     where
@@ -12806,27 +12806,27 @@ impl ID3D11VideoDevice1 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoProcessorEnumerator(&self, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> ::windows::core::Result<ID3D11VideoProcessorEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVideoProcessorEnumerator)(::windows::core::Vtable::as_raw(self), pdesc, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11VideoProcessorEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.CreateVideoProcessorEnumerator)(::windows::core::Vtable::as_raw(self), pdesc, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVideoDecoderProfileCount(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).base__.GetVideoDecoderProfileCount)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetVideoDecoderProfile(&self, index: u32) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVideoDecoderProfile)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).base__.GetVideoDecoderProfile)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CheckVideoDecoderFormat(&self, pdecoderprofile: *const ::windows::core::GUID, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CheckVideoDecoderFormat)(::windows::core::Vtable::as_raw(self), pdecoderprofile, format, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.CheckVideoDecoderFormat)(::windows::core::Vtable::as_raw(self), pdecoderprofile, format, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetVideoDecoderConfigCount(&self, pdesc: *const D3D11_VIDEO_DECODER_DESC) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVideoDecoderConfigCount)(::windows::core::Vtable::as_raw(self), pdesc, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetVideoDecoderConfigCount)(::windows::core::Vtable::as_raw(self), pdesc, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -12837,8 +12837,8 @@ impl ID3D11VideoDevice1 {
         (::windows::core::Vtable::vtable(self).base__.GetContentProtectionCaps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcryptotype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), pcaps).ok()
     }
     pub unsafe fn CheckCryptoKeyExchange(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: ::core::option::Option<*const ::windows::core::GUID>, index: u32) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CheckCryptoKeyExchange)(::windows::core::Vtable::as_raw(self), pcryptotype, ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).base__.CheckCryptoKeyExchange)(::windows::core::Vtable::as_raw(self), pcryptotype, ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
@@ -12855,8 +12855,8 @@ impl ID3D11VideoDevice1 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetVideoDecoderCaps(&self, pdecoderprofile: *const ::windows::core::GUID, samplewidth: u32, sampleheight: u32, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, bitrate: u32, pcryptotype: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVideoDecoderCaps)(::windows::core::Vtable::as_raw(self), pdecoderprofile, samplewidth, sampleheight, pframerate, bitrate, ::core::mem::transmute(pcryptotype.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetVideoDecoderCaps)(::windows::core::Vtable::as_raw(self), pdecoderprofile, samplewidth, sampleheight, pframerate, bitrate, ::core::mem::transmute(pcryptotype.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -12866,16 +12866,11 @@ impl ID3D11VideoDevice1 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn RecommendVideoDecoderDownsampleParameters(&self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL) -> ::windows::core::Result<D3D11_VIDEO_SAMPLE_DESC> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RecommendVideoDecoderDownsampleParameters)(::windows::core::Vtable::as_raw(self), pinputdesc, inputcolorspace, pinputconfig, pframerate, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_SAMPLE_DESC>();
+        (::windows::core::Vtable::vtable(self).RecommendVideoDecoderDownsampleParameters)(::windows::core::Vtable::as_raw(self), pinputdesc, inputcolorspace, pinputconfig, pframerate, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoDevice1, ::windows::core::IUnknown, ID3D11VideoDevice);
-impl ::core::clone::Clone for ID3D11VideoDevice1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoDevice1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12891,6 +12886,11 @@ unsafe impl ::core::marker::Send for ID3D11VideoDevice1 {}
 unsafe impl ::core::marker::Sync for ID3D11VideoDevice1 {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoDevice1 {
     type Vtable = ID3D11VideoDevice1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11VideoDevice1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11VideoDevice1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29da1d51_1321_4454_804b_f5fc9f861f0f);
@@ -12920,23 +12920,23 @@ impl ID3D11VideoDevice2 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoDecoder(&self, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG) -> ::windows::core::Result<ID3D11VideoDecoder> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), pvideodesc, pconfig, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11VideoDecoder>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), pvideodesc, pconfig, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateVideoProcessor<P0>(&self, penum: P0, rateconversionindex: u32) -> ::windows::core::Result<ID3D11VideoProcessor>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11VideoProcessorEnumerator>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), penum.into().abi(), rateconversionindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11VideoProcessor>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), penum.into().abi(), rateconversionindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateAuthenticatedChannel(&self, channeltype: D3D11_AUTHENTICATED_CHANNEL_TYPE) -> ::windows::core::Result<ID3D11AuthenticatedChannel> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateAuthenticatedChannel)(::windows::core::Vtable::as_raw(self), channeltype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11AuthenticatedChannel>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateAuthenticatedChannel)(::windows::core::Vtable::as_raw(self), channeltype, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateCryptoSession(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: ::core::option::Option<*const ::windows::core::GUID>, pkeyexchangetype: *const ::windows::core::GUID) -> ::windows::core::Result<ID3D11CryptoSession> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateCryptoSession)(::windows::core::Vtable::as_raw(self), pcryptotype, ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), pkeyexchangetype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11CryptoSession>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateCryptoSession)(::windows::core::Vtable::as_raw(self), pcryptotype, ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), pkeyexchangetype, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateVideoDecoderOutputView<P0>(&self, presource: P0, pdesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, ppvdovview: ::core::option::Option<*mut ::core::option::Option<ID3D11VideoDecoderOutputView>>) -> ::windows::core::Result<()>
     where
@@ -12961,27 +12961,27 @@ impl ID3D11VideoDevice2 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoProcessorEnumerator(&self, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> ::windows::core::Result<ID3D11VideoProcessorEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoProcessorEnumerator)(::windows::core::Vtable::as_raw(self), pdesc, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ID3D11VideoProcessorEnumerator>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoProcessorEnumerator)(::windows::core::Vtable::as_raw(self), pdesc, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVideoDecoderProfileCount(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).base__.base__.GetVideoDecoderProfileCount)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetVideoDecoderProfile(&self, index: u32) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetVideoDecoderProfile)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetVideoDecoderProfile)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CheckVideoDecoderFormat(&self, pdecoderprofile: *const ::windows::core::GUID, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CheckVideoDecoderFormat)(::windows::core::Vtable::as_raw(self), pdecoderprofile, format, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CheckVideoDecoderFormat)(::windows::core::Vtable::as_raw(self), pdecoderprofile, format, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetVideoDecoderConfigCount(&self, pdesc: *const D3D11_VIDEO_DECODER_DESC) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetVideoDecoderConfigCount)(::windows::core::Vtable::as_raw(self), pdesc, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetVideoDecoderConfigCount)(::windows::core::Vtable::as_raw(self), pdesc, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -12992,8 +12992,8 @@ impl ID3D11VideoDevice2 {
         (::windows::core::Vtable::vtable(self).base__.base__.GetContentProtectionCaps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcryptotype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), pcaps).ok()
     }
     pub unsafe fn CheckCryptoKeyExchange(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: ::core::option::Option<*const ::windows::core::GUID>, index: u32) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CheckCryptoKeyExchange)(::windows::core::Vtable::as_raw(self), pcryptotype, ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).base__.base__.CheckCryptoKeyExchange)(::windows::core::Vtable::as_raw(self), pcryptotype, ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
@@ -13010,8 +13010,8 @@ impl ID3D11VideoDevice2 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetVideoDecoderCaps(&self, pdecoderprofile: *const ::windows::core::GUID, samplewidth: u32, sampleheight: u32, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, bitrate: u32, pcryptotype: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVideoDecoderCaps)(::windows::core::Vtable::as_raw(self), pdecoderprofile, samplewidth, sampleheight, pframerate, bitrate, ::core::mem::transmute(pcryptotype.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetVideoDecoderCaps)(::windows::core::Vtable::as_raw(self), pdecoderprofile, samplewidth, sampleheight, pframerate, bitrate, ::core::mem::transmute(pcryptotype.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -13021,8 +13021,8 @@ impl ID3D11VideoDevice2 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn RecommendVideoDecoderDownsampleParameters(&self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL) -> ::windows::core::Result<D3D11_VIDEO_SAMPLE_DESC> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.RecommendVideoDecoderDownsampleParameters)(::windows::core::Vtable::as_raw(self), pinputdesc, inputcolorspace, pinputconfig, pframerate, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_SAMPLE_DESC>();
+        (::windows::core::Vtable::vtable(self).base__.RecommendVideoDecoderDownsampleParameters)(::windows::core::Vtable::as_raw(self), pinputdesc, inputcolorspace, pinputconfig, pframerate, &mut result__).from_abi(result__)
     }
     pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), feature, pfeaturesupportdata, featuresupportdatasize).ok()
@@ -13035,11 +13035,6 @@ impl ID3D11VideoDevice2 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoDevice2, ::windows::core::IUnknown, ID3D11VideoDevice, ID3D11VideoDevice1);
-impl ::core::clone::Clone for ID3D11VideoDevice2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoDevice2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13056,6 +13051,11 @@ unsafe impl ::core::marker::Sync for ID3D11VideoDevice2 {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoDevice2 {
     type Vtable = ID3D11VideoDevice2_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11VideoDevice2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11VideoDevice2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59c0cb01_35f0_4a70_8f67_87905c906a53);
 }
@@ -13071,9 +13071,9 @@ pub struct ID3D11VideoDevice2_Vtbl {
 pub struct ID3D11VideoProcessor(::windows::core::IUnknown);
 impl ID3D11VideoProcessor {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -13097,11 +13097,6 @@ impl ID3D11VideoProcessor {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoProcessor, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11VideoProcessor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoProcessor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13117,6 +13112,11 @@ unsafe impl ::core::marker::Send for ID3D11VideoProcessor {}
 unsafe impl ::core::marker::Sync for ID3D11VideoProcessor {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoProcessor {
     type Vtable = ID3D11VideoProcessor_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11VideoProcessor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11VideoProcessor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d7b0652_185f_41c6_85ce_0c5be3d4ae6c);
@@ -13136,9 +13136,9 @@ pub struct ID3D11VideoProcessor_Vtbl {
 pub struct ID3D11VideoProcessorEnumerator(::windows::core::IUnknown);
 impl ID3D11VideoProcessorEnumerator {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -13160,8 +13160,8 @@ impl ID3D11VideoProcessorEnumerator {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckVideoProcessorFormat(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckVideoProcessorFormat)(::windows::core::Vtable::as_raw(self), format, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).CheckVideoProcessorFormat)(::windows::core::Vtable::as_raw(self), format, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVideoProcessorCaps(&self, pcaps: *mut D3D11_VIDEO_PROCESSOR_CAPS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetVideoProcessorCaps)(::windows::core::Vtable::as_raw(self), pcaps).ok()
@@ -13175,16 +13175,11 @@ impl ID3D11VideoProcessorEnumerator {
         (::windows::core::Vtable::vtable(self).GetVideoProcessorCustomRate)(::windows::core::Vtable::as_raw(self), typeindex, customrateindex, prate).ok()
     }
     pub unsafe fn GetVideoProcessorFilterRange(&self, filter: D3D11_VIDEO_PROCESSOR_FILTER) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_FILTER_RANGE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVideoProcessorFilterRange)(::windows::core::Vtable::as_raw(self), filter, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_PROCESSOR_FILTER_RANGE>();
+        (::windows::core::Vtable::vtable(self).GetVideoProcessorFilterRange)(::windows::core::Vtable::as_raw(self), filter, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoProcessorEnumerator, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11VideoProcessorEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoProcessorEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13200,6 +13195,11 @@ unsafe impl ::core::marker::Send for ID3D11VideoProcessorEnumerator {}
 unsafe impl ::core::marker::Sync for ID3D11VideoProcessorEnumerator {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoProcessorEnumerator {
     type Vtable = ID3D11VideoProcessorEnumerator_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11VideoProcessorEnumerator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11VideoProcessorEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31627037_53ab_4200_9061_05faa9ab45f9);
@@ -13229,9 +13229,9 @@ pub struct ID3D11VideoProcessorEnumerator_Vtbl {
 pub struct ID3D11VideoProcessorEnumerator1(::windows::core::IUnknown);
 impl ID3D11VideoProcessorEnumerator1 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -13253,8 +13253,8 @@ impl ID3D11VideoProcessorEnumerator1 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckVideoProcessorFormat(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CheckVideoProcessorFormat)(::windows::core::Vtable::as_raw(self), format, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.CheckVideoProcessorFormat)(::windows::core::Vtable::as_raw(self), format, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVideoProcessorCaps(&self, pcaps: *mut D3D11_VIDEO_PROCESSOR_CAPS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetVideoProcessorCaps)(::windows::core::Vtable::as_raw(self), pcaps).ok()
@@ -13268,22 +13268,17 @@ impl ID3D11VideoProcessorEnumerator1 {
         (::windows::core::Vtable::vtable(self).base__.GetVideoProcessorCustomRate)(::windows::core::Vtable::as_raw(self), typeindex, customrateindex, prate).ok()
     }
     pub unsafe fn GetVideoProcessorFilterRange(&self, filter: D3D11_VIDEO_PROCESSOR_FILTER) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_FILTER_RANGE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVideoProcessorFilterRange)(::windows::core::Vtable::as_raw(self), filter, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_PROCESSOR_FILTER_RANGE>();
+        (::windows::core::Vtable::vtable(self).base__.GetVideoProcessorFilterRange)(::windows::core::Vtable::as_raw(self), filter, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CheckVideoProcessorFormatConversion(&self, inputformat: super::Dxgi::Common::DXGI_FORMAT, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, outputformat: super::Dxgi::Common::DXGI_FORMAT, outputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckVideoProcessorFormatConversion)(::windows::core::Vtable::as_raw(self), inputformat, inputcolorspace, outputformat, outputcolorspace, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).CheckVideoProcessorFormatConversion)(::windows::core::Vtable::as_raw(self), inputformat, inputcolorspace, outputformat, outputcolorspace, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoProcessorEnumerator1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11VideoProcessorEnumerator);
-impl ::core::clone::Clone for ID3D11VideoProcessorEnumerator1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoProcessorEnumerator1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13299,6 +13294,11 @@ unsafe impl ::core::marker::Send for ID3D11VideoProcessorEnumerator1 {}
 unsafe impl ::core::marker::Sync for ID3D11VideoProcessorEnumerator1 {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoProcessorEnumerator1 {
     type Vtable = ID3D11VideoProcessorEnumerator1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11VideoProcessorEnumerator1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11VideoProcessorEnumerator1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x465217f2_5568_43cf_b5b9_f61d54531ca1);
@@ -13317,9 +13317,9 @@ pub struct ID3D11VideoProcessorEnumerator1_Vtbl {
 pub struct ID3D11VideoProcessorInputView(::windows::core::IUnknown);
 impl ID3D11VideoProcessorInputView {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -13334,22 +13334,17 @@ impl ID3D11VideoProcessorInputView {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetResource(&self) -> ::windows::core::Result<ID3D11Resource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Resource as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Resource>();
+        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetDesc(&self) -> D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC>();
+        (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoProcessorInputView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
-impl ::core::clone::Clone for ID3D11VideoProcessorInputView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoProcessorInputView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13366,6 +13361,11 @@ unsafe impl ::core::marker::Sync for ID3D11VideoProcessorInputView {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoProcessorInputView {
     type Vtable = ID3D11VideoProcessorInputView_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11VideoProcessorInputView {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11VideoProcessorInputView {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11ec5a5f_51dc_4945_ab34_6e8c21300ea5);
 }
@@ -13380,9 +13380,9 @@ pub struct ID3D11VideoProcessorInputView_Vtbl {
 pub struct ID3D11VideoProcessorOutputView(::windows::core::IUnknown);
 impl ID3D11VideoProcessorOutputView {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -13397,22 +13397,17 @@ impl ID3D11VideoProcessorOutputView {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetResource(&self) -> ::windows::core::Result<ID3D11Resource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Resource as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Resource>();
+        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetDesc(&self) -> D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        result__.assume_init()
+        let mut result__ = ::windows::core::zeroed::<D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC>();
+        (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::std::mem::transmute(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11VideoProcessorOutputView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
-impl ::core::clone::Clone for ID3D11VideoProcessorOutputView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11VideoProcessorOutputView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13429,6 +13424,11 @@ unsafe impl ::core::marker::Sync for ID3D11VideoProcessorOutputView {}
 unsafe impl ::windows::core::Vtable for ID3D11VideoProcessorOutputView {
     type Vtable = ID3D11VideoProcessorOutputView_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11VideoProcessorOutputView {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11VideoProcessorOutputView {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa048285e_25a9_4527_bd93_d68b68c44254);
 }
@@ -13443,9 +13443,9 @@ pub struct ID3D11VideoProcessorOutputView_Vtbl {
 pub struct ID3D11View(::windows::core::IUnknown);
 impl ID3D11View {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -13460,17 +13460,12 @@ impl ID3D11View {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     pub unsafe fn GetResource(&self) -> ::windows::core::Result<ID3D11Resource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Resource as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Resource>();
+        (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11View, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3D11View {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11View {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13487,6 +13482,11 @@ unsafe impl ::core::marker::Sync for ID3D11View {}
 unsafe impl ::windows::core::Vtable for ID3D11View {
     type Vtable = ID3D11View_Vtbl;
 }
+impl ::core::clone::Clone for ID3D11View {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D11View {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x839d1216_bb2e_412b_b7f4_a9dbebe08ed1);
 }
@@ -13501,9 +13501,9 @@ pub struct ID3D11View_Vtbl {
 pub struct ID3DDeviceContextState(::windows::core::IUnknown);
 impl ID3DDeviceContextState {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<ID3D11Device> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <ID3D11Device as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<ID3D11Device>();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -13519,11 +13519,6 @@ impl ID3DDeviceContextState {
     }
 }
 ::windows::core::interface_hierarchy!(ID3DDeviceContextState, ::windows::core::IUnknown, ID3D11DeviceChild);
-impl ::core::clone::Clone for ID3DDeviceContextState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3DDeviceContextState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13539,6 +13534,11 @@ unsafe impl ::core::marker::Send for ID3DDeviceContextState {}
 unsafe impl ::core::marker::Sync for ID3DDeviceContextState {}
 unsafe impl ::windows::core::Vtable for ID3DDeviceContextState {
     type Vtable = ID3DDeviceContextState_Vtbl;
+}
+impl ::core::clone::Clone for ID3DDeviceContextState {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3DDeviceContextState {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c1e0d8a_7c23_48f9_8c59_a92958ceff11);
@@ -13574,11 +13574,6 @@ impl ID3DUserDefinedAnnotation {
     }
 }
 ::windows::core::interface_hierarchy!(ID3DUserDefinedAnnotation, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3DUserDefinedAnnotation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3DUserDefinedAnnotation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13594,6 +13589,11 @@ unsafe impl ::core::marker::Send for ID3DUserDefinedAnnotation {}
 unsafe impl ::core::marker::Sync for ID3DUserDefinedAnnotation {}
 unsafe impl ::windows::core::Vtable for ID3DUserDefinedAnnotation {
     type Vtable = ID3DUserDefinedAnnotation_Vtbl;
+}
+impl ::core::clone::Clone for ID3DUserDefinedAnnotation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3DUserDefinedAnnotation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2daad8b_03d4_4dbf_95eb_32ab4b63d0ab);
@@ -13643,11 +13643,6 @@ impl ID3DX11FFT {
     }
 }
 ::windows::core::interface_hierarchy!(ID3DX11FFT, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3DX11FFT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3DX11FFT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13663,6 +13658,11 @@ unsafe impl ::core::marker::Send for ID3DX11FFT {}
 unsafe impl ::core::marker::Sync for ID3DX11FFT {}
 unsafe impl ::windows::core::Vtable for ID3DX11FFT {
     type Vtable = ID3DX11FFT_Vtbl;
+}
+impl ::core::clone::Clone for ID3DX11FFT {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3DX11FFT {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3f7a938_4c93_4310_a675_b30d6de50553);
@@ -13702,11 +13702,6 @@ impl ID3DX11Scan {
     }
 }
 ::windows::core::interface_hierarchy!(ID3DX11Scan, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3DX11Scan {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3DX11Scan {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13722,6 +13717,11 @@ unsafe impl ::core::marker::Send for ID3DX11Scan {}
 unsafe impl ::core::marker::Sync for ID3DX11Scan {}
 unsafe impl ::windows::core::Vtable for ID3DX11Scan {
     type Vtable = ID3DX11Scan_Vtbl;
+}
+impl ::core::clone::Clone for ID3DX11Scan {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3DX11Scan {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5089b68f_e71d_4d38_be8e_f363b95a9405);
@@ -13751,11 +13751,6 @@ impl ID3DX11SegmentedScan {
     }
 }
 ::windows::core::interface_hierarchy!(ID3DX11SegmentedScan, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3DX11SegmentedScan {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3DX11SegmentedScan {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13771,6 +13766,11 @@ unsafe impl ::core::marker::Send for ID3DX11SegmentedScan {}
 unsafe impl ::core::marker::Sync for ID3DX11SegmentedScan {}
 unsafe impl ::windows::core::Vtable for ID3DX11SegmentedScan {
     type Vtable = ID3DX11SegmentedScan_Vtbl;
+}
+impl ::core::clone::Clone for ID3DX11SegmentedScan {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3DX11SegmentedScan {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa915128c_d954_4c79_bfe1_64db923194d6);
@@ -14807,8 +14807,8 @@ impl ::core::default::Default for D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14832,8 +14832,8 @@ impl ::core::default::Default for D3D11_ASYNC_GETDATA_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_ASYNC_GETDATA_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_ASYNC_GETDATA_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_ASYNC_GETDATA_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14861,8 +14861,8 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_CHANNEL_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_CHANNEL_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_CHANNEL_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_AUTHENTICATED_CHANNEL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14890,8 +14890,8 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14933,8 +14933,8 @@ impl ::core::default::Default for D3D11_BIND_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BIND_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BIND_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_BIND_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15023,8 +15023,8 @@ impl ::core::default::Default for D3D11_BLEND {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BLEND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BLEND {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_BLEND {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15056,8 +15056,8 @@ impl ::core::default::Default for D3D11_BLEND_OP {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BLEND_OP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BLEND_OP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_BLEND_OP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15081,8 +15081,8 @@ impl ::core::default::Default for D3D11_BUFFEREX_SRV_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BUFFEREX_SRV_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BUFFEREX_SRV_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_BUFFEREX_SRV_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15110,8 +15110,8 @@ impl ::core::default::Default for D3D11_BUFFER_UAV_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BUFFER_UAV_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BUFFER_UAV_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_BUFFER_UAV_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15155,8 +15155,8 @@ impl ::core::default::Default for D3D11_BUS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BUS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BUS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_BUS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15180,8 +15180,8 @@ impl ::core::default::Default for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15207,8 +15207,8 @@ impl ::core::default::Default for D3D11_CLEAR_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_CLEAR_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_CLEAR_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_CLEAR_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15273,8 +15273,8 @@ impl ::core::default::Default for D3D11_COLOR_WRITE_ENABLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_COLOR_WRITE_ENABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_COLOR_WRITE_ENABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_COLOR_WRITE_ENABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15312,8 +15312,8 @@ impl ::core::default::Default for D3D11_COMPARISON_FUNC {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_COMPARISON_FUNC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_COMPARISON_FUNC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_COMPARISON_FUNC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15339,8 +15339,8 @@ impl ::core::default::Default for D3D11_CONSERVATIVE_RASTERIZATION_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_CONSERVATIVE_RASTERIZATION_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_CONSERVATIVE_RASTERIZATION_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_CONSERVATIVE_RASTERIZATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15370,8 +15370,8 @@ impl ::core::default::Default for D3D11_CONSERVATIVE_RASTERIZATION_TIER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_CONSERVATIVE_RASTERIZATION_TIER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_CONSERVATIVE_RASTERIZATION_TIER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_CONSERVATIVE_RASTERIZATION_TIER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15425,8 +15425,8 @@ impl ::core::default::Default for D3D11_CONTENT_PROTECTION_CAPS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_CONTENT_PROTECTION_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_CONTENT_PROTECTION_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_CONTENT_PROTECTION_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15458,8 +15458,8 @@ impl ::core::default::Default for D3D11_CONTEXT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_CONTEXT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_CONTEXT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_CONTEXT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15485,8 +15485,8 @@ impl ::core::default::Default for D3D11_COPY_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_COPY_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_COPY_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_COPY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15510,8 +15510,8 @@ impl ::core::default::Default for D3D11_COUNTER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_COUNTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_COUNTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_COUNTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15541,8 +15541,8 @@ impl ::core::default::Default for D3D11_COUNTER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_COUNTER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_COUNTER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_COUNTER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15568,8 +15568,8 @@ impl ::core::default::Default for D3D11_CPU_ACCESS_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_CPU_ACCESS_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_CPU_ACCESS_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_CPU_ACCESS_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15642,8 +15642,8 @@ impl ::core::default::Default for D3D11_CREATE_DEVICE_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_CREATE_DEVICE_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_CREATE_DEVICE_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_CREATE_DEVICE_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15700,8 +15700,8 @@ impl ::core::default::Default for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15762,8 +15762,8 @@ impl ::core::default::Default for D3D11_CRYPTO_SESSION_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_CRYPTO_SESSION_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_CRYPTO_SESSION_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_CRYPTO_SESSION_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15791,8 +15791,8 @@ impl ::core::default::Default for D3D11_CULL_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_CULL_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_CULL_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_CULL_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15818,8 +15818,8 @@ impl ::core::default::Default for D3D11_DEPTH_WRITE_MASK {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_DEPTH_WRITE_MASK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_DEPTH_WRITE_MASK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_DEPTH_WRITE_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15845,8 +15845,8 @@ impl ::core::default::Default for D3D11_DEVICE_CONTEXT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_DEVICE_CONTEXT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_DEVICE_CONTEXT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_DEVICE_CONTEXT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15882,8 +15882,8 @@ impl ::core::default::Default for D3D11_DSV_DIMENSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_DSV_DIMENSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_DSV_DIMENSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_DSV_DIMENSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15909,8 +15909,8 @@ impl ::core::default::Default for D3D11_DSV_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_DSV_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_DSV_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_DSV_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15974,8 +15974,8 @@ impl ::core::default::Default for D3D11_FEATURE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FEATURE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_FEATURE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15999,8 +15999,8 @@ impl ::core::default::Default for D3D11_FEATURE_VIDEO {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_VIDEO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_VIDEO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_FEATURE_VIDEO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16030,8 +16030,8 @@ impl ::core::default::Default for D3D11_FENCE_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FENCE_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FENCE_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_FENCE_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16090,8 +16090,8 @@ impl ::core::default::Default for D3D11_FILL_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FILL_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FILL_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_FILL_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16185,8 +16185,8 @@ impl ::core::default::Default for D3D11_FILTER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FILTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FILTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_FILTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16216,8 +16216,8 @@ impl ::core::default::Default for D3D11_FILTER_REDUCTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FILTER_REDUCTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FILTER_REDUCTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_FILTER_REDUCTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16243,8 +16243,8 @@ impl ::core::default::Default for D3D11_FILTER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FILTER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FILTER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_FILTER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16328,8 +16328,8 @@ impl ::core::default::Default for D3D11_FORMAT_SUPPORT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FORMAT_SUPPORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FORMAT_SUPPORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_FORMAT_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16375,8 +16375,8 @@ impl ::core::default::Default for D3D11_FORMAT_SUPPORT2 {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FORMAT_SUPPORT2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FORMAT_SUPPORT2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_FORMAT_SUPPORT2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16402,8 +16402,8 @@ impl ::core::default::Default for D3D11_INPUT_CLASSIFICATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_INPUT_CLASSIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_INPUT_CLASSIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_INPUT_CLASSIFICATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16457,8 +16457,8 @@ impl ::core::default::Default for D3D11_LOGIC_OP {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_LOGIC_OP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_LOGIC_OP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_LOGIC_OP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16490,8 +16490,8 @@ impl ::core::default::Default for D3D11_MAP {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_MAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_MAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_MAP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16515,8 +16515,8 @@ impl ::core::default::Default for D3D11_MAP_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_MAP_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_MAP_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_MAP_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16560,8 +16560,8 @@ impl ::core::default::Default for D3D11_MESSAGE_CATEGORY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_MESSAGE_CATEGORY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_MESSAGE_CATEGORY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_MESSAGE_CATEGORY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19255,8 +19255,8 @@ impl ::core::default::Default for D3D11_MESSAGE_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_MESSAGE_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_MESSAGE_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_MESSAGE_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19288,8 +19288,8 @@ impl ::core::default::Default for D3D11_MESSAGE_SEVERITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_MESSAGE_SEVERITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_MESSAGE_SEVERITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_MESSAGE_SEVERITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19343,8 +19343,8 @@ impl ::core::default::Default for D3D11_QUERY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_QUERY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_QUERY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_QUERY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19368,8 +19368,8 @@ impl ::core::default::Default for D3D11_QUERY_MISC_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_QUERY_MISC_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_QUERY_MISC_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_QUERY_MISC_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19393,8 +19393,8 @@ impl ::core::default::Default for D3D11_RAISE_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_RAISE_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RAISE_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_RAISE_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19426,8 +19426,8 @@ impl ::core::default::Default for D3D11_RESOURCE_DIMENSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_RESOURCE_DIMENSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RESOURCE_DIMENSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_RESOURCE_DIMENSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19487,8 +19487,8 @@ impl ::core::default::Default for D3D11_RESOURCE_MISC_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_RESOURCE_MISC_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RESOURCE_MISC_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_RESOURCE_MISC_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19549,8 +19549,8 @@ impl ::core::default::Default for D3D11_RLDO_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_RLDO_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RLDO_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_RLDO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19590,8 +19590,8 @@ impl ::core::default::Default for D3D11_RTV_DIMENSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_RTV_DIMENSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RTV_DIMENSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_RTV_DIMENSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19619,8 +19619,8 @@ impl ::core::default::Default for D3D11_SHADER_CACHE_SUPPORT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SHADER_CACHE_SUPPORT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_CACHE_SUPPORT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_SHADER_CACHE_SUPPORT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19646,8 +19646,8 @@ impl ::core::default::Default for D3D11_SHADER_MIN_PRECISION_SUPPORT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SHADER_MIN_PRECISION_SUPPORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_MIN_PRECISION_SUPPORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_SHADER_MIN_PRECISION_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19699,8 +19699,8 @@ impl ::core::default::Default for D3D11_SHADER_TRACKING_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SHADER_TRACKING_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_TRACKING_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_SHADER_TRACKING_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19738,8 +19738,8 @@ impl ::core::default::Default for D3D11_SHADER_TRACKING_RESOURCE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SHADER_TRACKING_RESOURCE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_TRACKING_RESOURCE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_SHADER_TRACKING_RESOURCE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19773,8 +19773,8 @@ impl ::core::default::Default for D3D11_SHADER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SHADER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_SHADER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19810,8 +19810,8 @@ impl ::core::default::Default for D3D11_SHADER_VERSION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SHADER_VERSION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_VERSION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_SHADER_VERSION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19841,8 +19841,8 @@ impl ::core::default::Default for D3D11_SHARED_RESOURCE_TIER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SHARED_RESOURCE_TIER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHARED_RESOURCE_TIER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_SHARED_RESOURCE_TIER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19868,8 +19868,8 @@ impl ::core::default::Default for D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19907,8 +19907,8 @@ impl ::core::default::Default for D3D11_STENCIL_OP {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_STENCIL_OP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_STENCIL_OP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_STENCIL_OP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19942,8 +19942,8 @@ impl ::core::default::Default for D3D11_TEXTURECUBE_FACE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEXTURECUBE_FACE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEXTURECUBE_FACE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_TEXTURECUBE_FACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19975,8 +19975,8 @@ impl ::core::default::Default for D3D11_TEXTURE_ADDRESS_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEXTURE_ADDRESS_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEXTURE_ADDRESS_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_TEXTURE_ADDRESS_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20004,8 +20004,8 @@ impl ::core::default::Default for D3D11_TEXTURE_LAYOUT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEXTURE_LAYOUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEXTURE_LAYOUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_TEXTURE_LAYOUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20035,8 +20035,8 @@ impl ::core::default::Default for D3D11_TILED_RESOURCES_TIER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TILED_RESOURCES_TIER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TILED_RESOURCES_TIER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_TILED_RESOURCES_TIER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20064,8 +20064,8 @@ impl ::core::default::Default for D3D11_TILE_COPY_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TILE_COPY_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TILE_COPY_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_TILE_COPY_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20089,8 +20089,8 @@ impl ::core::default::Default for D3D11_TILE_MAPPING_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TILE_MAPPING_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TILE_MAPPING_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_TILE_MAPPING_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20118,8 +20118,8 @@ impl ::core::default::Default for D3D11_TILE_RANGE_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TILE_RANGE_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TILE_RANGE_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_TILE_RANGE_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20153,8 +20153,8 @@ impl ::core::default::Default for D3D11_TRACE_GS_INPUT_PRIMITIVE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TRACE_GS_INPUT_PRIMITIVE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TRACE_GS_INPUT_PRIMITIVE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_TRACE_GS_INPUT_PRIMITIVE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20248,8 +20248,8 @@ impl ::core::default::Default for D3D11_TRACE_REGISTER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TRACE_REGISTER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TRACE_REGISTER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_TRACE_REGISTER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20285,8 +20285,8 @@ impl ::core::default::Default for D3D11_UAV_DIMENSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_UAV_DIMENSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_UAV_DIMENSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_UAV_DIMENSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20316,8 +20316,8 @@ impl ::core::default::Default for D3D11_USAGE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_USAGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_USAGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_USAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20343,8 +20343,8 @@ impl ::core::default::Default for D3D11_VDOV_DIMENSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VDOV_DIMENSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VDOV_DIMENSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VDOV_DIMENSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20384,8 +20384,8 @@ impl ::core::default::Default for D3D11_VIDEO_DECODER_BUFFER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_BUFFER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_BUFFER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_BUFFER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20417,8 +20417,8 @@ impl ::core::default::Default for D3D11_VIDEO_DECODER_CAPS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20454,8 +20454,8 @@ impl ::core::default::Default for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20493,8 +20493,8 @@ impl ::core::default::Default for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS 
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20555,8 +20555,8 @@ impl ::core::default::Default for D3D11_VIDEO_FRAME_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_FRAME_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_FRAME_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_FRAME_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20586,8 +20586,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20625,8 +20625,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20656,8 +20656,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20689,8 +20689,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20736,8 +20736,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20775,8 +20775,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FILTER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_FILTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_FILTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FILTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20814,8 +20814,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20845,8 +20845,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20872,8 +20872,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20915,8 +20915,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20944,8 +20944,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20973,8 +20973,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21008,8 +21008,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21039,8 +21039,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_ROTATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_ROTATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_ROTATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_ROTATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21072,8 +21072,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21101,8 +21101,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21140,8 +21140,8 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21169,8 +21169,8 @@ impl ::core::default::Default for D3D11_VIDEO_USAGE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_USAGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_USAGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VIDEO_USAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21196,8 +21196,8 @@ impl ::core::default::Default for D3D11_VPIV_DIMENSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VPIV_DIMENSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VPIV_DIMENSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VPIV_DIMENSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21225,8 +21225,8 @@ impl ::core::default::Default for D3D11_VPOV_DIMENSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VPOV_DIMENSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VPOV_DIMENSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D11_VPOV_DIMENSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21250,8 +21250,8 @@ impl ::core::default::Default for D3DX11_FFT_CREATE_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3DX11_FFT_CREATE_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3DX11_FFT_CREATE_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3DX11_FFT_CREATE_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21277,8 +21277,8 @@ impl ::core::default::Default for D3DX11_FFT_DATA_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3DX11_FFT_DATA_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3DX11_FFT_DATA_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3DX11_FFT_DATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21306,8 +21306,8 @@ impl ::core::default::Default for D3DX11_FFT_DIM_MASK {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3DX11_FFT_DIM_MASK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3DX11_FFT_DIM_MASK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3DX11_FFT_DIM_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21335,8 +21335,8 @@ impl ::core::default::Default for D3DX11_SCAN_DATA_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3DX11_SCAN_DATA_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3DX11_SCAN_DATA_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3DX11_SCAN_DATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21362,8 +21362,8 @@ impl ::core::default::Default for D3DX11_SCAN_DIRECTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3DX11_SCAN_DIRECTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3DX11_SCAN_DIRECTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3DX11_SCAN_DIRECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21399,8 +21399,8 @@ impl ::core::default::Default for D3DX11_SCAN_OPCODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3DX11_SCAN_OPCODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3DX11_SCAN_OPCODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3DX11_SCAN_OPCODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -21426,8 +21426,8 @@ impl ::core::fmt::Debug for D3D11_AES_CTR_IV {
         f.debug_struct("D3D11_AES_CTR_IV").field("IV", &self.IV).field("Count", &self.Count).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_AES_CTR_IV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AES_CTR_IV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_AES_CTR_IV {
     fn eq(&self, other: &Self) -> bool {
@@ -21462,8 +21462,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
@@ -21503,8 +21503,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
@@ -21543,8 +21543,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
@@ -21584,8 +21584,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_CONFIGURE_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_CONFIGURE_INPUT {
@@ -21626,8 +21626,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
@@ -21659,8 +21659,8 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
@@ -21692,8 +21692,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT 
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
@@ -21721,8 +21721,8 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_PROTECTION_FLAGS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_PROTECTION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_PROTECTION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_AUTHENTICATED_PROTECTION_FLAGS {
     fn default() -> Self {
@@ -21745,8 +21745,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
         f.debug_struct("D3D11_AUTHENTICATED_PROTECTION_FLAGS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -21781,8 +21781,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_G
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
@@ -21820,8 +21820,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_G
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {
@@ -21860,8 +21860,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_G
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
@@ -21901,8 +21901,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
@@ -21940,8 +21940,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
@@ -21979,8 +21979,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
@@ -22020,8 +22020,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
@@ -22059,8 +22059,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCR
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
@@ -22098,8 +22098,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
@@ -22138,8 +22138,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_INPUT {
@@ -22180,8 +22180,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_OUTPUT {
@@ -22220,8 +22220,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
@@ -22261,8 +22261,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
@@ -22302,8 +22302,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
@@ -22344,8 +22344,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
@@ -22377,8 +22377,8 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
@@ -22408,8 +22408,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
@@ -22447,8 +22447,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {
@@ -22488,8 +22488,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
@@ -22527,8 +22527,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHA
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
@@ -22567,8 +22567,8 @@ impl ::core::fmt::Debug for D3D11_BLEND_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_BLEND_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BLEND_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_BLEND_DESC {
@@ -22607,8 +22607,8 @@ impl ::core::fmt::Debug for D3D11_BLEND_DESC1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_BLEND_DESC1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BLEND_DESC1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_BLEND_DESC1 {
@@ -22645,8 +22645,8 @@ impl ::core::fmt::Debug for D3D11_BOX {
         f.debug_struct("D3D11_BOX").field("left", &self.left).field("top", &self.top).field("front", &self.front).field("right", &self.right).field("bottom", &self.bottom).field("back", &self.back).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BOX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BOX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_BOX {
     fn eq(&self, other: &Self) -> bool {
@@ -22677,8 +22677,8 @@ impl ::core::fmt::Debug for D3D11_BUFFEREX_SRV {
         f.debug_struct("D3D11_BUFFEREX_SRV").field("FirstElement", &self.FirstElement).field("NumElements", &self.NumElements).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BUFFEREX_SRV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BUFFEREX_SRV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_BUFFEREX_SRV {
     fn eq(&self, other: &Self) -> bool {
@@ -22712,8 +22712,8 @@ impl ::core::fmt::Debug for D3D11_BUFFER_DESC {
         f.debug_struct("D3D11_BUFFER_DESC").field("ByteWidth", &self.ByteWidth).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).field("StructureByteStride", &self.StructureByteStride).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BUFFER_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BUFFER_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_BUFFER_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -22738,8 +22738,8 @@ impl ::core::clone::Clone for D3D11_BUFFER_RTV {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BUFFER_RTV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BUFFER_RTV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_BUFFER_RTV {
     fn default() -> Self {
@@ -22758,8 +22758,8 @@ impl ::core::clone::Clone for D3D11_BUFFER_RTV_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BUFFER_RTV_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BUFFER_RTV_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_BUFFER_RTV_0 {
     fn default() -> Self {
@@ -22778,8 +22778,8 @@ impl ::core::clone::Clone for D3D11_BUFFER_RTV_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BUFFER_RTV_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BUFFER_RTV_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_BUFFER_RTV_1 {
     fn default() -> Self {
@@ -22798,8 +22798,8 @@ impl ::core::clone::Clone for D3D11_BUFFER_SRV {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BUFFER_SRV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BUFFER_SRV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_BUFFER_SRV {
     fn default() -> Self {
@@ -22818,8 +22818,8 @@ impl ::core::clone::Clone for D3D11_BUFFER_SRV_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BUFFER_SRV_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BUFFER_SRV_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_BUFFER_SRV_0 {
     fn default() -> Self {
@@ -22838,8 +22838,8 @@ impl ::core::clone::Clone for D3D11_BUFFER_SRV_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BUFFER_SRV_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BUFFER_SRV_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_BUFFER_SRV_1 {
     fn default() -> Self {
@@ -22864,8 +22864,8 @@ impl ::core::fmt::Debug for D3D11_BUFFER_UAV {
         f.debug_struct("D3D11_BUFFER_UAV").field("FirstElement", &self.FirstElement).field("NumElements", &self.NumElements).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_BUFFER_UAV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_BUFFER_UAV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_BUFFER_UAV {
     fn eq(&self, other: &Self) -> bool {
@@ -22906,8 +22906,8 @@ impl ::core::fmt::Debug for D3D11_CLASS_INSTANCE_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_CLASS_INSTANCE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_CLASS_INSTANCE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_CLASS_INSTANCE_DESC {
@@ -22941,8 +22941,8 @@ impl ::core::fmt::Debug for D3D11_COMPUTE_SHADER_TRACE_DESC {
         f.debug_struct("D3D11_COMPUTE_SHADER_TRACE_DESC").field("Invocation", &self.Invocation).field("ThreadIDInGroup", &self.ThreadIDInGroup).field("ThreadGroupID", &self.ThreadGroupID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_COMPUTE_SHADER_TRACE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_COMPUTE_SHADER_TRACE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_COMPUTE_SHADER_TRACE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -22972,8 +22972,8 @@ impl ::core::fmt::Debug for D3D11_COUNTER_DESC {
         f.debug_struct("D3D11_COUNTER_DESC").field("Counter", &self.Counter).field("MiscFlags", &self.MiscFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_COUNTER_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_COUNTER_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_COUNTER_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -23004,8 +23004,8 @@ impl ::core::fmt::Debug for D3D11_COUNTER_INFO {
         f.debug_struct("D3D11_COUNTER_INFO").field("LastDeviceDependentCounter", &self.LastDeviceDependentCounter).field("NumSimultaneousCounters", &self.NumSimultaneousCounters).field("NumDetectableParallelUnits", &self.NumDetectableParallelUnits).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_COUNTER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_COUNTER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_COUNTER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -23037,8 +23037,8 @@ impl ::core::fmt::Debug for D3D11_DEPTH_STENCILOP_DESC {
         f.debug_struct("D3D11_DEPTH_STENCILOP_DESC").field("StencilFailOp", &self.StencilFailOp).field("StencilDepthFailOp", &self.StencilDepthFailOp).field("StencilPassOp", &self.StencilPassOp).field("StencilFunc", &self.StencilFunc).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_DEPTH_STENCILOP_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_DEPTH_STENCILOP_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_DEPTH_STENCILOP_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -23079,8 +23079,8 @@ impl ::core::fmt::Debug for D3D11_DEPTH_STENCIL_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_DEPTH_STENCIL_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_DEPTH_STENCIL_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_DEPTH_STENCIL_DESC {
@@ -23114,8 +23114,8 @@ impl ::core::clone::Clone for D3D11_DEPTH_STENCIL_VIEW_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_DEPTH_STENCIL_VIEW_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_DEPTH_STENCIL_VIEW_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D11_DEPTH_STENCIL_VIEW_DESC {
@@ -23143,8 +23143,8 @@ impl ::core::clone::Clone for D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
@@ -23168,8 +23168,8 @@ impl ::core::fmt::Debug for D3D11_DOMAIN_SHADER_TRACE_DESC {
         f.debug_struct("D3D11_DOMAIN_SHADER_TRACE_DESC").field("Invocation", &self.Invocation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_DOMAIN_SHADER_TRACE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_DOMAIN_SHADER_TRACE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_DOMAIN_SHADER_TRACE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -23202,8 +23202,8 @@ impl ::core::fmt::Debug for D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
         f.debug_struct("D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS").field("IndexCountPerInstance", &self.IndexCountPerInstance).field("InstanceCount", &self.InstanceCount).field("StartIndexLocation", &self.StartIndexLocation).field("BaseVertexLocation", &self.BaseVertexLocation).field("StartInstanceLocation", &self.StartInstanceLocation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
     fn eq(&self, other: &Self) -> bool {
@@ -23235,8 +23235,8 @@ impl ::core::fmt::Debug for D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
         f.debug_struct("D3D11_DRAW_INSTANCED_INDIRECT_ARGS").field("VertexCountPerInstance", &self.VertexCountPerInstance).field("InstanceCount", &self.InstanceCount).field("StartVertexLocation", &self.StartVertexLocation).field("StartInstanceLocation", &self.StartInstanceLocation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
     fn eq(&self, other: &Self) -> bool {
@@ -23267,8 +23267,8 @@ impl ::core::fmt::Debug for D3D11_ENCRYPTED_BLOCK_INFO {
         f.debug_struct("D3D11_ENCRYPTED_BLOCK_INFO").field("NumEncryptedBytesAtBeginning", &self.NumEncryptedBytesAtBeginning).field("NumBytesInSkipPattern", &self.NumBytesInSkipPattern).field("NumBytesInEncryptPattern", &self.NumBytesInEncryptPattern).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_ENCRYPTED_BLOCK_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_ENCRYPTED_BLOCK_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_ENCRYPTED_BLOCK_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -23302,8 +23302,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_ARCHITECTURE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_ARCHITECTURE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_ARCHITECTURE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_ARCHITECTURE_INFO {
@@ -23340,8 +23340,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
@@ -23406,8 +23406,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_D3D11_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_D3D11_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_D3D11_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_D3D11_OPTIONS {
@@ -23460,8 +23460,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_D3D11_OPTIONS1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_D3D11_OPTIONS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_D3D11_OPTIONS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_D3D11_OPTIONS1 {
@@ -23514,8 +23514,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
@@ -23552,8 +23552,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_D3D11_OPTIONS3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_D3D11_OPTIONS3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_D3D11_OPTIONS3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_D3D11_OPTIONS3 {
@@ -23590,8 +23590,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
@@ -23623,8 +23623,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_D3D11_OPTIONS5 {
         f.debug_struct("D3D11_FEATURE_DATA_D3D11_OPTIONS5").field("SharedResourceTier", &self.SharedResourceTier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_D3D11_OPTIONS5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_D3D11_OPTIONS5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_D3D11_OPTIONS5 {
     fn eq(&self, other: &Self) -> bool {
@@ -23658,8 +23658,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_D3D9_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_D3D9_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_D3D9_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_D3D9_OPTIONS {
@@ -23699,8 +23699,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_D3D9_OPTIONS1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_D3D9_OPTIONS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_D3D9_OPTIONS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_D3D9_OPTIONS1 {
@@ -23737,8 +23737,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {
@@ -23775,8 +23775,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {
@@ -23814,8 +23814,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_DISPLAYABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_DISPLAYABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_DISPLAYABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_DISPLAYABLE {
@@ -23852,8 +23852,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_DOUBLES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_DOUBLES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_DOUBLES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_DOUBLES {
@@ -23891,8 +23891,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_FORMAT_SUPPORT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_FORMAT_SUPPORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_FORMAT_SUPPORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_FORMAT_SUPPORT {
@@ -23930,8 +23930,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
@@ -23964,8 +23964,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
         f.debug_struct("D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT").field("MaxGPUVirtualAddressBitsPerResource", &self.MaxGPUVirtualAddressBitsPerResource).field("MaxGPUVirtualAddressBitsPerProcess", &self.MaxGPUVirtualAddressBitsPerProcess).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
@@ -23999,8 +23999,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_MARKER_SUPPORT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_MARKER_SUPPORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_MARKER_SUPPORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_MARKER_SUPPORT {
@@ -24032,8 +24032,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_SHADER_CACHE {
         f.debug_struct("D3D11_FEATURE_DATA_SHADER_CACHE").field("SupportFlags", &self.SupportFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_SHADER_CACHE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_SHADER_CACHE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_SHADER_CACHE {
     fn eq(&self, other: &Self) -> bool {
@@ -24063,8 +24063,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
         f.debug_struct("D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT").field("PixelShaderMinPrecision", &self.PixelShaderMinPrecision).field("AllOtherShaderStagesMinPrecision", &self.AllOtherShaderStagesMinPrecision).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
@@ -24099,8 +24099,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_THREADING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_THREADING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_THREADING {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_THREADING {
@@ -24140,8 +24140,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
@@ -24244,8 +24244,8 @@ impl ::core::fmt::Debug for D3D11_FUNCTION_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
-unsafe impl ::windows::core::Abi for D3D11_FUNCTION_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_FUNCTION_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::PartialEq for D3D11_FUNCTION_DESC {
@@ -24309,8 +24309,8 @@ impl ::core::fmt::Debug for D3D11_GEOMETRY_SHADER_TRACE_DESC {
         f.debug_struct("D3D11_GEOMETRY_SHADER_TRACE_DESC").field("Invocation", &self.Invocation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_GEOMETRY_SHADER_TRACE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_GEOMETRY_SHADER_TRACE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_GEOMETRY_SHADER_TRACE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -24339,8 +24339,8 @@ impl ::core::fmt::Debug for D3D11_HULL_SHADER_TRACE_DESC {
         f.debug_struct("D3D11_HULL_SHADER_TRACE_DESC").field("Invocation", &self.Invocation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_HULL_SHADER_TRACE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_HULL_SHADER_TRACE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_HULL_SHADER_TRACE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -24370,8 +24370,8 @@ impl ::core::fmt::Debug for D3D11_INFO_QUEUE_FILTER {
         f.debug_struct("D3D11_INFO_QUEUE_FILTER").field("AllowList", &self.AllowList).field("DenyList", &self.DenyList).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_INFO_QUEUE_FILTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_INFO_QUEUE_FILTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_INFO_QUEUE_FILTER {
     fn eq(&self, other: &Self) -> bool {
@@ -24405,8 +24405,8 @@ impl ::core::fmt::Debug for D3D11_INFO_QUEUE_FILTER_DESC {
         f.debug_struct("D3D11_INFO_QUEUE_FILTER_DESC").field("NumCategories", &self.NumCategories).field("pCategoryList", &self.pCategoryList).field("NumSeverities", &self.NumSeverities).field("pSeverityList", &self.pSeverityList).field("NumIDs", &self.NumIDs).field("pIDList", &self.pIDList).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_INFO_QUEUE_FILTER_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_INFO_QUEUE_FILTER_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_INFO_QUEUE_FILTER_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -24446,8 +24446,8 @@ impl ::core::fmt::Debug for D3D11_INPUT_ELEMENT_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_INPUT_ELEMENT_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_INPUT_ELEMENT_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D11_INPUT_ELEMENT_DESC {
@@ -24482,8 +24482,8 @@ impl ::core::fmt::Debug for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
         f.debug_struct("D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA").field("HWProtectionFunctionID", &self.HWProtectionFunctionID).field("pInputData", &self.pInputData).field("pOutputData", &self.pOutputData).field("Status", &self.Status).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -24514,8 +24514,8 @@ impl ::core::fmt::Debug for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
         f.debug_struct("D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA").field("PrivateDataSize", &self.PrivateDataSize).field("HWProtectionDataSize", &self.HWProtectionDataSize).field("pbInput", &self.pbInput).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -24549,8 +24549,8 @@ impl ::core::fmt::Debug for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
         f.debug_struct("D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA").field("PrivateDataSize", &self.PrivateDataSize).field("MaxHWProtectionDataSize", &self.MaxHWProtectionDataSize).field("HWProtectionDataSize", &self.HWProtectionDataSize).field("TransportTime", &self.TransportTime).field("ExecutionTime", &self.ExecutionTime).field("pbOutput", &self.pbOutput).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -24581,8 +24581,8 @@ impl ::core::fmt::Debug for D3D11_LIBRARY_DESC {
         f.debug_struct("D3D11_LIBRARY_DESC").field("Creator", &self.Creator).field("Flags", &self.Flags).field("FunctionCount", &self.FunctionCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_LIBRARY_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_LIBRARY_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_LIBRARY_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -24613,8 +24613,8 @@ impl ::core::fmt::Debug for D3D11_MAPPED_SUBRESOURCE {
         f.debug_struct("D3D11_MAPPED_SUBRESOURCE").field("pData", &self.pData).field("RowPitch", &self.RowPitch).field("DepthPitch", &self.DepthPitch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_MAPPED_SUBRESOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_MAPPED_SUBRESOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_MAPPED_SUBRESOURCE {
     fn eq(&self, other: &Self) -> bool {
@@ -24647,8 +24647,8 @@ impl ::core::fmt::Debug for D3D11_MESSAGE {
         f.debug_struct("D3D11_MESSAGE").field("Category", &self.Category).field("Severity", &self.Severity).field("ID", &self.ID).field("pDescription", &self.pDescription).field("DescriptionByteLength", &self.DescriptionByteLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_MESSAGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_MESSAGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_MESSAGE {
     fn eq(&self, other: &Self) -> bool {
@@ -24677,8 +24677,8 @@ impl ::core::fmt::Debug for D3D11_OMAC {
         f.debug_struct("D3D11_OMAC").field("Omac", &self.Omac).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_OMAC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_OMAC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_OMAC {
     fn eq(&self, other: &Self) -> bool {
@@ -24710,8 +24710,8 @@ impl ::core::fmt::Debug for D3D11_PACKED_MIP_DESC {
         f.debug_struct("D3D11_PACKED_MIP_DESC").field("NumStandardMips", &self.NumStandardMips).field("NumPackedMips", &self.NumPackedMips).field("NumTilesForPackedMips", &self.NumTilesForPackedMips).field("StartTileIndexInOverallResource", &self.StartTileIndexInOverallResource).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_PACKED_MIP_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_PACKED_MIP_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_PACKED_MIP_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -24769,8 +24769,8 @@ impl ::core::fmt::Debug for D3D11_PARAMETER_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl ::windows::core::Abi for D3D11_PARAMETER_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_PARAMETER_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D11_PARAMETER_DESC {
@@ -24805,8 +24805,8 @@ impl ::core::fmt::Debug for D3D11_PIXEL_SHADER_TRACE_DESC {
         f.debug_struct("D3D11_PIXEL_SHADER_TRACE_DESC").field("Invocation", &self.Invocation).field("X", &self.X).field("Y", &self.Y).field("SampleMask", &self.SampleMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_PIXEL_SHADER_TRACE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_PIXEL_SHADER_TRACE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_PIXEL_SHADER_TRACE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -24857,8 +24857,8 @@ impl ::core::fmt::Debug for D3D11_QUERY_DATA_PIPELINE_STATISTICS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_QUERY_DATA_PIPELINE_STATISTICS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_QUERY_DATA_PIPELINE_STATISTICS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_QUERY_DATA_PIPELINE_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
@@ -24888,8 +24888,8 @@ impl ::core::fmt::Debug for D3D11_QUERY_DATA_SO_STATISTICS {
         f.debug_struct("D3D11_QUERY_DATA_SO_STATISTICS").field("NumPrimitivesWritten", &self.NumPrimitivesWritten).field("PrimitivesStorageNeeded", &self.PrimitivesStorageNeeded).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_QUERY_DATA_SO_STATISTICS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_QUERY_DATA_SO_STATISTICS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_QUERY_DATA_SO_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
@@ -24924,8 +24924,8 @@ impl ::core::fmt::Debug for D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
@@ -24958,8 +24958,8 @@ impl ::core::fmt::Debug for D3D11_QUERY_DESC {
         f.debug_struct("D3D11_QUERY_DESC").field("Query", &self.Query).field("MiscFlags", &self.MiscFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_QUERY_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_QUERY_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_QUERY_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -24990,8 +24990,8 @@ impl ::core::fmt::Debug for D3D11_QUERY_DESC1 {
         f.debug_struct("D3D11_QUERY_DESC1").field("Query", &self.Query).field("MiscFlags", &self.MiscFlags).field("ContextType", &self.ContextType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_QUERY_DESC1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_QUERY_DESC1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_QUERY_DESC1 {
     fn eq(&self, other: &Self) -> bool {
@@ -25045,8 +25045,8 @@ impl ::core::fmt::Debug for D3D11_RASTERIZER_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_RASTERIZER_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RASTERIZER_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_RASTERIZER_DESC {
@@ -25105,8 +25105,8 @@ impl ::core::fmt::Debug for D3D11_RASTERIZER_DESC1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_RASTERIZER_DESC1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RASTERIZER_DESC1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_RASTERIZER_DESC1 {
@@ -25167,8 +25167,8 @@ impl ::core::fmt::Debug for D3D11_RASTERIZER_DESC2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_RASTERIZER_DESC2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RASTERIZER_DESC2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_RASTERIZER_DESC2 {
@@ -25212,8 +25212,8 @@ impl ::core::fmt::Debug for D3D11_RENDER_TARGET_BLEND_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_RENDER_TARGET_BLEND_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RENDER_TARGET_BLEND_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_RENDER_TARGET_BLEND_DESC {
@@ -25259,8 +25259,8 @@ impl ::core::fmt::Debug for D3D11_RENDER_TARGET_BLEND_DESC1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_RENDER_TARGET_BLEND_DESC1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RENDER_TARGET_BLEND_DESC1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_RENDER_TARGET_BLEND_DESC1 {
@@ -25293,8 +25293,8 @@ impl ::core::clone::Clone for D3D11_RENDER_TARGET_VIEW_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_RENDER_TARGET_VIEW_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RENDER_TARGET_VIEW_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D11_RENDER_TARGET_VIEW_DESC {
@@ -25324,8 +25324,8 @@ impl ::core::clone::Clone for D3D11_RENDER_TARGET_VIEW_DESC_0 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_RENDER_TARGET_VIEW_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RENDER_TARGET_VIEW_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D11_RENDER_TARGET_VIEW_DESC_0 {
@@ -25350,8 +25350,8 @@ impl ::core::clone::Clone for D3D11_RENDER_TARGET_VIEW_DESC1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_RENDER_TARGET_VIEW_DESC1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RENDER_TARGET_VIEW_DESC1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D11_RENDER_TARGET_VIEW_DESC1 {
@@ -25381,8 +25381,8 @@ impl ::core::clone::Clone for D3D11_RENDER_TARGET_VIEW_DESC1_0 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_RENDER_TARGET_VIEW_DESC1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RENDER_TARGET_VIEW_DESC1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D11_RENDER_TARGET_VIEW_DESC1_0 {
@@ -25415,8 +25415,8 @@ impl ::core::fmt::Debug for D3D11_SAMPLER_DESC {
         f.debug_struct("D3D11_SAMPLER_DESC").field("Filter", &self.Filter).field("AddressU", &self.AddressU).field("AddressV", &self.AddressV).field("AddressW", &self.AddressW).field("MipLODBias", &self.MipLODBias).field("MaxAnisotropy", &self.MaxAnisotropy).field("ComparisonFunc", &self.ComparisonFunc).field("BorderColor", &self.BorderColor).field("MinLOD", &self.MinLOD).field("MaxLOD", &self.MaxLOD).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SAMPLER_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SAMPLER_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_SAMPLER_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -25454,8 +25454,8 @@ impl ::core::fmt::Debug for D3D11_SHADER_BUFFER_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl ::windows::core::Abi for D3D11_SHADER_BUFFER_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_BUFFER_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D11_SHADER_BUFFER_DESC {
@@ -25568,8 +25568,8 @@ impl ::core::fmt::Debug for D3D11_SHADER_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl ::windows::core::Abi for D3D11_SHADER_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D11_SHADER_DESC {
@@ -25650,8 +25650,8 @@ impl ::core::fmt::Debug for D3D11_SHADER_INPUT_BIND_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl ::windows::core::Abi for D3D11_SHADER_INPUT_BIND_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_INPUT_BIND_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D11_SHADER_INPUT_BIND_DESC {
@@ -25684,8 +25684,8 @@ impl ::core::clone::Clone for D3D11_SHADER_RESOURCE_VIEW_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl ::windows::core::Abi for D3D11_SHADER_RESOURCE_VIEW_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_RESOURCE_VIEW_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D11_SHADER_RESOURCE_VIEW_DESC {
@@ -25718,8 +25718,8 @@ impl ::core::clone::Clone for D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl ::windows::core::Abi for D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
@@ -25744,8 +25744,8 @@ impl ::core::clone::Clone for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl ::windows::core::Abi for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
@@ -25778,8 +25778,8 @@ impl ::core::clone::Clone for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl ::windows::core::Abi for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
@@ -25800,8 +25800,8 @@ impl ::core::clone::Clone for D3D11_SHADER_TRACE_DESC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SHADER_TRACE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_TRACE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_SHADER_TRACE_DESC {
     fn default() -> Self {
@@ -25824,8 +25824,8 @@ impl ::core::clone::Clone for D3D11_SHADER_TRACE_DESC_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SHADER_TRACE_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_TRACE_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_SHADER_TRACE_DESC_0 {
     fn default() -> Self {
@@ -25860,8 +25860,8 @@ impl ::core::fmt::Debug for D3D11_SHADER_TYPE_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl ::windows::core::Abi for D3D11_SHADER_TYPE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_TYPE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D11_SHADER_TYPE_DESC {
@@ -25901,8 +25901,8 @@ impl ::core::fmt::Debug for D3D11_SHADER_VARIABLE_DESC {
         f.debug_struct("D3D11_SHADER_VARIABLE_DESC").field("Name", &self.Name).field("StartOffset", &self.StartOffset).field("Size", &self.Size).field("uFlags", &self.uFlags).field("DefaultValue", &self.DefaultValue).field("StartTexture", &self.StartTexture).field("TextureSize", &self.TextureSize).field("StartSampler", &self.StartSampler).field("SamplerSize", &self.SamplerSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SHADER_VARIABLE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SHADER_VARIABLE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_SHADER_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -25944,8 +25944,8 @@ impl ::core::fmt::Debug for D3D11_SIGNATURE_PARAMETER_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl ::windows::core::Abi for D3D11_SIGNATURE_PARAMETER_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SIGNATURE_PARAMETER_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D11_SIGNATURE_PARAMETER_DESC {
@@ -25982,8 +25982,8 @@ impl ::core::fmt::Debug for D3D11_SO_DECLARATION_ENTRY {
         f.debug_struct("D3D11_SO_DECLARATION_ENTRY").field("Stream", &self.Stream).field("SemanticName", &self.SemanticName).field("SemanticIndex", &self.SemanticIndex).field("StartComponent", &self.StartComponent).field("ComponentCount", &self.ComponentCount).field("OutputSlot", &self.OutputSlot).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SO_DECLARATION_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SO_DECLARATION_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_SO_DECLARATION_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -26014,8 +26014,8 @@ impl ::core::fmt::Debug for D3D11_SUBRESOURCE_DATA {
         f.debug_struct("D3D11_SUBRESOURCE_DATA").field("pSysMem", &self.pSysMem).field("SysMemPitch", &self.SysMemPitch).field("SysMemSlicePitch", &self.SysMemSlicePitch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SUBRESOURCE_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SUBRESOURCE_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_SUBRESOURCE_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -26047,8 +26047,8 @@ impl ::core::fmt::Debug for D3D11_SUBRESOURCE_TILING {
         f.debug_struct("D3D11_SUBRESOURCE_TILING").field("WidthInTiles", &self.WidthInTiles).field("HeightInTiles", &self.HeightInTiles).field("DepthInTiles", &self.DepthInTiles).field("StartTileIndexInOverallResource", &self.StartTileIndexInOverallResource).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_SUBRESOURCE_TILING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_SUBRESOURCE_TILING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_SUBRESOURCE_TILING {
     fn eq(&self, other: &Self) -> bool {
@@ -26079,8 +26079,8 @@ impl ::core::fmt::Debug for D3D11_TEX1D_ARRAY_DSV {
         f.debug_struct("D3D11_TEX1D_ARRAY_DSV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX1D_ARRAY_DSV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX1D_ARRAY_DSV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX1D_ARRAY_DSV {
     fn eq(&self, other: &Self) -> bool {
@@ -26111,8 +26111,8 @@ impl ::core::fmt::Debug for D3D11_TEX1D_ARRAY_RTV {
         f.debug_struct("D3D11_TEX1D_ARRAY_RTV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX1D_ARRAY_RTV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX1D_ARRAY_RTV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX1D_ARRAY_RTV {
     fn eq(&self, other: &Self) -> bool {
@@ -26144,8 +26144,8 @@ impl ::core::fmt::Debug for D3D11_TEX1D_ARRAY_SRV {
         f.debug_struct("D3D11_TEX1D_ARRAY_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX1D_ARRAY_SRV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX1D_ARRAY_SRV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX1D_ARRAY_SRV {
     fn eq(&self, other: &Self) -> bool {
@@ -26176,8 +26176,8 @@ impl ::core::fmt::Debug for D3D11_TEX1D_ARRAY_UAV {
         f.debug_struct("D3D11_TEX1D_ARRAY_UAV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX1D_ARRAY_UAV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX1D_ARRAY_UAV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX1D_ARRAY_UAV {
     fn eq(&self, other: &Self) -> bool {
@@ -26206,8 +26206,8 @@ impl ::core::fmt::Debug for D3D11_TEX1D_DSV {
         f.debug_struct("D3D11_TEX1D_DSV").field("MipSlice", &self.MipSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX1D_DSV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX1D_DSV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX1D_DSV {
     fn eq(&self, other: &Self) -> bool {
@@ -26236,8 +26236,8 @@ impl ::core::fmt::Debug for D3D11_TEX1D_RTV {
         f.debug_struct("D3D11_TEX1D_RTV").field("MipSlice", &self.MipSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX1D_RTV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX1D_RTV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX1D_RTV {
     fn eq(&self, other: &Self) -> bool {
@@ -26267,8 +26267,8 @@ impl ::core::fmt::Debug for D3D11_TEX1D_SRV {
         f.debug_struct("D3D11_TEX1D_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX1D_SRV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX1D_SRV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX1D_SRV {
     fn eq(&self, other: &Self) -> bool {
@@ -26297,8 +26297,8 @@ impl ::core::fmt::Debug for D3D11_TEX1D_UAV {
         f.debug_struct("D3D11_TEX1D_UAV").field("MipSlice", &self.MipSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX1D_UAV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX1D_UAV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX1D_UAV {
     fn eq(&self, other: &Self) -> bool {
@@ -26328,8 +26328,8 @@ impl ::core::fmt::Debug for D3D11_TEX2DMS_ARRAY_DSV {
         f.debug_struct("D3D11_TEX2DMS_ARRAY_DSV").field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2DMS_ARRAY_DSV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2DMS_ARRAY_DSV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2DMS_ARRAY_DSV {
     fn eq(&self, other: &Self) -> bool {
@@ -26359,8 +26359,8 @@ impl ::core::fmt::Debug for D3D11_TEX2DMS_ARRAY_RTV {
         f.debug_struct("D3D11_TEX2DMS_ARRAY_RTV").field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2DMS_ARRAY_RTV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2DMS_ARRAY_RTV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2DMS_ARRAY_RTV {
     fn eq(&self, other: &Self) -> bool {
@@ -26390,8 +26390,8 @@ impl ::core::fmt::Debug for D3D11_TEX2DMS_ARRAY_SRV {
         f.debug_struct("D3D11_TEX2DMS_ARRAY_SRV").field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2DMS_ARRAY_SRV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2DMS_ARRAY_SRV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2DMS_ARRAY_SRV {
     fn eq(&self, other: &Self) -> bool {
@@ -26420,8 +26420,8 @@ impl ::core::fmt::Debug for D3D11_TEX2DMS_DSV {
         f.debug_struct("D3D11_TEX2DMS_DSV").field("UnusedField_NothingToDefine", &self.UnusedField_NothingToDefine).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2DMS_DSV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2DMS_DSV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2DMS_DSV {
     fn eq(&self, other: &Self) -> bool {
@@ -26450,8 +26450,8 @@ impl ::core::fmt::Debug for D3D11_TEX2DMS_RTV {
         f.debug_struct("D3D11_TEX2DMS_RTV").field("UnusedField_NothingToDefine", &self.UnusedField_NothingToDefine).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2DMS_RTV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2DMS_RTV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2DMS_RTV {
     fn eq(&self, other: &Self) -> bool {
@@ -26480,8 +26480,8 @@ impl ::core::fmt::Debug for D3D11_TEX2DMS_SRV {
         f.debug_struct("D3D11_TEX2DMS_SRV").field("UnusedField_NothingToDefine", &self.UnusedField_NothingToDefine).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2DMS_SRV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2DMS_SRV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2DMS_SRV {
     fn eq(&self, other: &Self) -> bool {
@@ -26512,8 +26512,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_ARRAY_DSV {
         f.debug_struct("D3D11_TEX2D_ARRAY_DSV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_ARRAY_DSV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_ARRAY_DSV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_ARRAY_DSV {
     fn eq(&self, other: &Self) -> bool {
@@ -26544,8 +26544,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_ARRAY_RTV {
         f.debug_struct("D3D11_TEX2D_ARRAY_RTV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_ARRAY_RTV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_ARRAY_RTV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_ARRAY_RTV {
     fn eq(&self, other: &Self) -> bool {
@@ -26577,8 +26577,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_ARRAY_RTV1 {
         f.debug_struct("D3D11_TEX2D_ARRAY_RTV1").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).field("PlaneSlice", &self.PlaneSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_ARRAY_RTV1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_ARRAY_RTV1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_ARRAY_RTV1 {
     fn eq(&self, other: &Self) -> bool {
@@ -26610,8 +26610,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_ARRAY_SRV {
         f.debug_struct("D3D11_TEX2D_ARRAY_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_ARRAY_SRV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_ARRAY_SRV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_ARRAY_SRV {
     fn eq(&self, other: &Self) -> bool {
@@ -26644,8 +26644,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_ARRAY_SRV1 {
         f.debug_struct("D3D11_TEX2D_ARRAY_SRV1").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).field("PlaneSlice", &self.PlaneSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_ARRAY_SRV1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_ARRAY_SRV1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_ARRAY_SRV1 {
     fn eq(&self, other: &Self) -> bool {
@@ -26676,8 +26676,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_ARRAY_UAV {
         f.debug_struct("D3D11_TEX2D_ARRAY_UAV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_ARRAY_UAV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_ARRAY_UAV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_ARRAY_UAV {
     fn eq(&self, other: &Self) -> bool {
@@ -26709,8 +26709,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_ARRAY_UAV1 {
         f.debug_struct("D3D11_TEX2D_ARRAY_UAV1").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).field("PlaneSlice", &self.PlaneSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_ARRAY_UAV1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_ARRAY_UAV1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_ARRAY_UAV1 {
     fn eq(&self, other: &Self) -> bool {
@@ -26741,8 +26741,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_ARRAY_VPOV {
         f.debug_struct("D3D11_TEX2D_ARRAY_VPOV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_ARRAY_VPOV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_ARRAY_VPOV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_ARRAY_VPOV {
     fn eq(&self, other: &Self) -> bool {
@@ -26771,8 +26771,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_DSV {
         f.debug_struct("D3D11_TEX2D_DSV").field("MipSlice", &self.MipSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_DSV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_DSV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_DSV {
     fn eq(&self, other: &Self) -> bool {
@@ -26801,8 +26801,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_RTV {
         f.debug_struct("D3D11_TEX2D_RTV").field("MipSlice", &self.MipSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_RTV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_RTV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_RTV {
     fn eq(&self, other: &Self) -> bool {
@@ -26832,8 +26832,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_RTV1 {
         f.debug_struct("D3D11_TEX2D_RTV1").field("MipSlice", &self.MipSlice).field("PlaneSlice", &self.PlaneSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_RTV1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_RTV1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_RTV1 {
     fn eq(&self, other: &Self) -> bool {
@@ -26863,8 +26863,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_SRV {
         f.debug_struct("D3D11_TEX2D_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_SRV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_SRV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_SRV {
     fn eq(&self, other: &Self) -> bool {
@@ -26895,8 +26895,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_SRV1 {
         f.debug_struct("D3D11_TEX2D_SRV1").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("PlaneSlice", &self.PlaneSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_SRV1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_SRV1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_SRV1 {
     fn eq(&self, other: &Self) -> bool {
@@ -26925,8 +26925,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_UAV {
         f.debug_struct("D3D11_TEX2D_UAV").field("MipSlice", &self.MipSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_UAV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_UAV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_UAV {
     fn eq(&self, other: &Self) -> bool {
@@ -26956,8 +26956,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_UAV1 {
         f.debug_struct("D3D11_TEX2D_UAV1").field("MipSlice", &self.MipSlice).field("PlaneSlice", &self.PlaneSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_UAV1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_UAV1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_UAV1 {
     fn eq(&self, other: &Self) -> bool {
@@ -26986,8 +26986,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_VDOV {
         f.debug_struct("D3D11_TEX2D_VDOV").field("ArraySlice", &self.ArraySlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_VDOV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_VDOV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_VDOV {
     fn eq(&self, other: &Self) -> bool {
@@ -27017,8 +27017,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_VPIV {
         f.debug_struct("D3D11_TEX2D_VPIV").field("MipSlice", &self.MipSlice).field("ArraySlice", &self.ArraySlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_VPIV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_VPIV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_VPIV {
     fn eq(&self, other: &Self) -> bool {
@@ -27047,8 +27047,8 @@ impl ::core::fmt::Debug for D3D11_TEX2D_VPOV {
         f.debug_struct("D3D11_TEX2D_VPOV").field("MipSlice", &self.MipSlice).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX2D_VPOV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX2D_VPOV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX2D_VPOV {
     fn eq(&self, other: &Self) -> bool {
@@ -27079,8 +27079,8 @@ impl ::core::fmt::Debug for D3D11_TEX3D_RTV {
         f.debug_struct("D3D11_TEX3D_RTV").field("MipSlice", &self.MipSlice).field("FirstWSlice", &self.FirstWSlice).field("WSize", &self.WSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX3D_RTV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX3D_RTV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX3D_RTV {
     fn eq(&self, other: &Self) -> bool {
@@ -27110,8 +27110,8 @@ impl ::core::fmt::Debug for D3D11_TEX3D_SRV {
         f.debug_struct("D3D11_TEX3D_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX3D_SRV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX3D_SRV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX3D_SRV {
     fn eq(&self, other: &Self) -> bool {
@@ -27142,8 +27142,8 @@ impl ::core::fmt::Debug for D3D11_TEX3D_UAV {
         f.debug_struct("D3D11_TEX3D_UAV").field("MipSlice", &self.MipSlice).field("FirstWSlice", &self.FirstWSlice).field("WSize", &self.WSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEX3D_UAV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEX3D_UAV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEX3D_UAV {
     fn eq(&self, other: &Self) -> bool {
@@ -27175,8 +27175,8 @@ impl ::core::fmt::Debug for D3D11_TEXCUBE_ARRAY_SRV {
         f.debug_struct("D3D11_TEXCUBE_ARRAY_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("First2DArrayFace", &self.First2DArrayFace).field("NumCubes", &self.NumCubes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEXCUBE_ARRAY_SRV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEXCUBE_ARRAY_SRV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEXCUBE_ARRAY_SRV {
     fn eq(&self, other: &Self) -> bool {
@@ -27206,8 +27206,8 @@ impl ::core::fmt::Debug for D3D11_TEXCUBE_SRV {
         f.debug_struct("D3D11_TEXCUBE_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TEXCUBE_SRV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEXCUBE_SRV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TEXCUBE_SRV {
     fn eq(&self, other: &Self) -> bool {
@@ -27248,8 +27248,8 @@ impl ::core::fmt::Debug for D3D11_TEXTURE1D_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_TEXTURE1D_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEXTURE1D_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D11_TEXTURE1D_DESC {
@@ -27295,8 +27295,8 @@ impl ::core::fmt::Debug for D3D11_TEXTURE2D_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_TEXTURE2D_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEXTURE2D_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D11_TEXTURE2D_DESC {
@@ -27343,8 +27343,8 @@ impl ::core::fmt::Debug for D3D11_TEXTURE2D_DESC1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_TEXTURE2D_DESC1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEXTURE2D_DESC1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D11_TEXTURE2D_DESC1 {
@@ -27389,8 +27389,8 @@ impl ::core::fmt::Debug for D3D11_TEXTURE3D_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_TEXTURE3D_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEXTURE3D_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D11_TEXTURE3D_DESC {
@@ -27436,8 +27436,8 @@ impl ::core::fmt::Debug for D3D11_TEXTURE3D_DESC1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_TEXTURE3D_DESC1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TEXTURE3D_DESC1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D11_TEXTURE3D_DESC1 {
@@ -27472,8 +27472,8 @@ impl ::core::fmt::Debug for D3D11_TILED_RESOURCE_COORDINATE {
         f.debug_struct("D3D11_TILED_RESOURCE_COORDINATE").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("Subresource", &self.Subresource).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TILED_RESOURCE_COORDINATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TILED_RESOURCE_COORDINATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TILED_RESOURCE_COORDINATE {
     fn eq(&self, other: &Self) -> bool {
@@ -27511,8 +27511,8 @@ impl ::core::fmt::Debug for D3D11_TILE_REGION_SIZE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_TILE_REGION_SIZE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TILE_REGION_SIZE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_TILE_REGION_SIZE {
@@ -27546,8 +27546,8 @@ impl ::core::fmt::Debug for D3D11_TILE_SHAPE {
         f.debug_struct("D3D11_TILE_SHAPE").field("WidthInTexels", &self.WidthInTexels).field("HeightInTexels", &self.HeightInTexels).field("DepthInTexels", &self.DepthInTexels).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TILE_SHAPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TILE_SHAPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TILE_SHAPE {
     fn eq(&self, other: &Self) -> bool {
@@ -27574,8 +27574,8 @@ impl ::core::clone::Clone for D3D11_TRACE_REGISTER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TRACE_REGISTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TRACE_REGISTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_TRACE_REGISTER {
     fn default() -> Self {
@@ -27594,8 +27594,8 @@ impl ::core::clone::Clone for D3D11_TRACE_REGISTER_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TRACE_REGISTER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TRACE_REGISTER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_TRACE_REGISTER_0 {
     fn default() -> Self {
@@ -27639,8 +27639,8 @@ impl ::core::clone::Clone for D3D11_TRACE_STATS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_TRACE_STATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TRACE_STATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3D11_TRACE_STATS {
@@ -27675,8 +27675,8 @@ impl ::core::fmt::Debug for D3D11_TRACE_STEP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_TRACE_STEP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TRACE_STEP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_TRACE_STEP {
@@ -27709,8 +27709,8 @@ impl ::core::fmt::Debug for D3D11_TRACE_VALUE {
         f.debug_struct("D3D11_TRACE_VALUE").field("Bits", &self.Bits).field("ValidMask", &self.ValidMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_TRACE_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_TRACE_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_TRACE_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -27740,8 +27740,8 @@ impl ::core::clone::Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_UNORDERED_ACCESS_VIEW_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_UNORDERED_ACCESS_VIEW_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D11_UNORDERED_ACCESS_VIEW_DESC {
@@ -27769,8 +27769,8 @@ impl ::core::clone::Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
@@ -27795,8 +27795,8 @@ impl ::core::clone::Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
@@ -27824,8 +27824,8 @@ impl ::core::clone::Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
@@ -27849,8 +27849,8 @@ impl ::core::fmt::Debug for D3D11_VERTEX_SHADER_TRACE_DESC {
         f.debug_struct("D3D11_VERTEX_SHADER_TRACE_DESC").field("Invocation", &self.Invocation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VERTEX_SHADER_TRACE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VERTEX_SHADER_TRACE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VERTEX_SHADER_TRACE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -27874,8 +27874,8 @@ impl ::core::clone::Clone for D3D11_VIDEO_COLOR {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_COLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_COLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_VIDEO_COLOR {
     fn default() -> Self {
@@ -27894,8 +27894,8 @@ impl ::core::clone::Clone for D3D11_VIDEO_COLOR_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_COLOR_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_COLOR_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_VIDEO_COLOR_0 {
     fn default() -> Self {
@@ -27921,8 +27921,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_COLOR_RGBA {
         f.debug_struct("D3D11_VIDEO_COLOR_RGBA").field("R", &self.R).field("G", &self.G).field("B", &self.B).field("A", &self.A).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_COLOR_RGBA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_COLOR_RGBA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_COLOR_RGBA {
     fn eq(&self, other: &Self) -> bool {
@@ -27954,8 +27954,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_COLOR_YCbCrA {
         f.debug_struct("D3D11_VIDEO_COLOR_YCbCrA").field("Y", &self.Y).field("Cb", &self.Cb).field("Cr", &self.Cr).field("A", &self.A).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_COLOR_YCbCrA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_COLOR_YCbCrA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_COLOR_YCbCrA {
     fn eq(&self, other: &Self) -> bool {
@@ -27987,8 +27987,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
         f.debug_struct("D3D11_VIDEO_CONTENT_PROTECTION_CAPS").field("Caps", &self.Caps).field("KeyExchangeTypeCount", &self.KeyExchangeTypeCount).field("BlockAlignmentSize", &self.BlockAlignmentSize).field("ProtectedMemorySize", &self.ProtectedMemorySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -28021,8 +28021,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
         f.debug_struct("D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION").field("pCryptoSession", &self.pCryptoSession).field("BlobSize", &self.BlobSize).field("pBlob", &self.pBlob).field("pKeyInfoId", &self.pKeyInfoId).field("PrivateDataSize", &self.PrivateDataSize).field("pPrivateData", &self.pPrivateData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     fn eq(&self, other: &Self) -> bool {
@@ -28084,8 +28084,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_BUFFER_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_BUFFER_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_BUFFER_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_VIDEO_DECODER_BUFFER_DESC {
@@ -28123,8 +28123,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_BUFFER_DESC1 {
         f.debug_struct("D3D11_VIDEO_DECODER_BUFFER_DESC1").field("BufferType", &self.BufferType).field("DataOffset", &self.DataOffset).field("DataSize", &self.DataSize).field("pIV", &self.pIV).field("IVSize", &self.IVSize).field("pSubSampleMappingBlock", &self.pSubSampleMappingBlock).field("SubSampleMappingCount", &self.SubSampleMappingCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_BUFFER_DESC1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_BUFFER_DESC1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_DECODER_BUFFER_DESC1 {
     fn eq(&self, other: &Self) -> bool {
@@ -28161,8 +28161,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_BUFFER_DESC2 {
         f.debug_struct("D3D11_VIDEO_DECODER_BUFFER_DESC2").field("BufferType", &self.BufferType).field("DataOffset", &self.DataOffset).field("DataSize", &self.DataSize).field("pIV", &self.pIV).field("IVSize", &self.IVSize).field("pSubSampleMappingBlock", &self.pSubSampleMappingBlock).field("SubSampleMappingCount", &self.SubSampleMappingCount).field("cBlocksStripeEncrypted", &self.cBlocksStripeEncrypted).field("cBlocksStripeClear", &self.cBlocksStripeClear).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_BUFFER_DESC2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_BUFFER_DESC2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_DECODER_BUFFER_DESC2 {
     fn eq(&self, other: &Self) -> bool {
@@ -28225,8 +28225,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_CONFIG {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_CONFIG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_CONFIG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_DECODER_CONFIG {
     fn eq(&self, other: &Self) -> bool {
@@ -28279,8 +28279,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D11_VIDEO_DECODER_DESC {
@@ -28318,8 +28318,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_EXTENSION {
         f.debug_struct("D3D11_VIDEO_DECODER_EXTENSION").field("Function", &self.Function).field("pPrivateInputData", &self.pPrivateInputData).field("PrivateInputDataSize", &self.PrivateInputDataSize).field("pPrivateOutputData", &self.pPrivateOutputData).field("PrivateOutputDataSize", &self.PrivateOutputDataSize).field("ResourceCount", &self.ResourceCount).field("ppResourceList", &self.ppResourceList).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_EXTENSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_EXTENSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_DECODER_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
@@ -28345,8 +28345,8 @@ impl ::core::clone::Clone for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
     fn default() -> Self {
@@ -28364,8 +28364,8 @@ impl ::core::clone::Clone for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0 {
     fn default() -> Self {
@@ -28389,8 +28389,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
         f.debug_struct("D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK").field("ClearSize", &self.ClearSize).field("EncryptedSize", &self.EncryptedSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
     fn eq(&self, other: &Self) -> bool {
@@ -28427,8 +28427,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_CAPS {
         f.debug_struct("D3D11_VIDEO_PROCESSOR_CAPS").field("DeviceCaps", &self.DeviceCaps).field("FeatureCaps", &self.FeatureCaps).field("FilterCaps", &self.FilterCaps).field("InputFormatCaps", &self.InputFormatCaps).field("AutoStreamCaps", &self.AutoStreamCaps).field("StereoCaps", &self.StereoCaps).field("RateConversionCapsCount", &self.RateConversionCapsCount).field("MaxInputStreams", &self.MaxInputStreams).field("MaxStreamStates", &self.MaxStreamStates).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_PROCESSOR_CAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -28457,8 +28457,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
         f.debug_struct("D3D11_VIDEO_PROCESSOR_COLOR_SPACE").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
     fn eq(&self, other: &Self) -> bool {
@@ -28499,8 +28499,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
@@ -28540,8 +28540,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
@@ -28576,8 +28576,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FILTER_RANGE {
         f.debug_struct("D3D11_VIDEO_PROCESSOR_FILTER_RANGE").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).field("Default", &self.Default).field("Multiplier", &self.Multiplier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_FILTER_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_FILTER_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_PROCESSOR_FILTER_RANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -28603,8 +28603,8 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
     fn default() -> Self {
@@ -28622,8 +28622,8 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0 {
     fn default() -> Self {
@@ -28642,8 +28642,8 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
     fn default() -> Self {
@@ -28662,8 +28662,8 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0 {
     fn default() -> Self {
@@ -28690,8 +28690,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
         f.debug_struct("D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS").field("PastFrames", &self.PastFrames).field("FutureFrames", &self.FutureFrames).field("ProcessorCaps", &self.ProcessorCaps).field("ITelecineCaps", &self.ITelecineCaps).field("CustomRateCount", &self.CustomRateCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -28745,8 +28745,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STREAM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_STREAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_STREAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_VIDEO_PROCESSOR_STREAM {
@@ -28786,8 +28786,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
@@ -28827,8 +28827,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_SAMPLE_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D3D11_VIDEO_SAMPLE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIDEO_SAMPLE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D11_VIDEO_SAMPLE_DESC {
@@ -28865,8 +28865,8 @@ impl ::core::fmt::Debug for D3D11_VIEWPORT {
         f.debug_struct("D3D11_VIEWPORT").field("TopLeftX", &self.TopLeftX).field("TopLeftY", &self.TopLeftY).field("Width", &self.Width).field("Height", &self.Height).field("MinDepth", &self.MinDepth).field("MaxDepth", &self.MaxDepth).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_VIEWPORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_VIEWPORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_VIEWPORT {
     fn eq(&self, other: &Self) -> bool {
@@ -28898,8 +28898,8 @@ impl ::core::fmt::Debug for D3DX11_FFT_BUFFER_INFO {
         f.debug_struct("D3DX11_FFT_BUFFER_INFO").field("NumTempBufferSizes", &self.NumTempBufferSizes).field("TempBufferFloatSizes", &self.TempBufferFloatSizes).field("NumPrecomputeBufferSizes", &self.NumPrecomputeBufferSizes).field("PrecomputeBufferFloatSizes", &self.PrecomputeBufferFloatSizes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3DX11_FFT_BUFFER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3DX11_FFT_BUFFER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3DX11_FFT_BUFFER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -28931,8 +28931,8 @@ impl ::core::fmt::Debug for D3DX11_FFT_DESC {
         f.debug_struct("D3DX11_FFT_DESC").field("NumDimensions", &self.NumDimensions).field("ElementLengths", &self.ElementLengths).field("DimensionMask", &self.DimensionMask).field("Type", &self.Type).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3DX11_FFT_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3DX11_FFT_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3DX11_FFT_DESC {
     fn eq(&self, other: &Self) -> bool {

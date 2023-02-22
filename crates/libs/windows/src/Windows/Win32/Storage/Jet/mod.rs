@@ -4184,8 +4184,8 @@ impl ::core::default::Default for JET_ERRCAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for JET_ERRCAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_ERRCAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for JET_ERRCAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4215,8 +4215,8 @@ impl ::core::default::Default for JET_INDEXCHECKING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCHECKING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCHECKING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for JET_INDEXCHECKING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4256,8 +4256,8 @@ impl ::core::default::Default for JET_RELOP {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for JET_RELOP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RELOP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for JET_RELOP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4282,8 +4282,8 @@ impl ::core::clone::Clone for JET_BKINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_BKINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_BKINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_BKINFO {
@@ -4307,8 +4307,8 @@ impl ::core::clone::Clone for JET_BKINFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_BKINFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_BKINFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_BKINFO_0 {
@@ -4338,8 +4338,8 @@ impl ::core::clone::Clone for JET_BKLOGTIME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_BKLOGTIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_BKLOGTIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_BKLOGTIME {
@@ -4363,8 +4363,8 @@ impl ::core::clone::Clone for JET_BKLOGTIME_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_BKLOGTIME_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_BKLOGTIME_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_BKLOGTIME_0 {
@@ -4393,8 +4393,8 @@ impl ::core::fmt::Debug for JET_BKLOGTIME_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_BKLOGTIME_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_BKLOGTIME_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_BKLOGTIME_0_0 {
@@ -4426,8 +4426,8 @@ impl ::core::clone::Clone for JET_BKLOGTIME_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_BKLOGTIME_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_BKLOGTIME_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_BKLOGTIME_1 {
@@ -4456,8 +4456,8 @@ impl ::core::fmt::Debug for JET_BKLOGTIME_1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_BKLOGTIME_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_BKLOGTIME_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_BKLOGTIME_1_0 {
@@ -4504,8 +4504,8 @@ impl ::core::fmt::Debug for JET_COLUMNBASE_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_COLUMNBASE_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_COLUMNBASE_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_COLUMNBASE_A {
@@ -4547,8 +4547,8 @@ impl ::core::fmt::Debug for JET_COLUMNBASE_W {
         f.debug_struct("JET_COLUMNBASE_W").field("cbStruct", &self.cbStruct).field("columnid", &self.columnid).field("coltyp", &self.coltyp).field("wCountry", &self.wCountry).field("langid", &self.langid).field("cp", &self.cp).field("wFiller", &self.wFiller).field("cbMax", &self.cbMax).field("grbit", &self.grbit).field("szBaseTableName", &self.szBaseTableName).field("szBaseColumnName", &self.szBaseColumnName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_COLUMNBASE_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_COLUMNBASE_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_COLUMNBASE_W {
     fn eq(&self, other: &Self) -> bool {
@@ -4586,8 +4586,8 @@ impl ::core::fmt::Debug for JET_COLUMNCREATE_A {
         f.debug_struct("JET_COLUMNCREATE_A").field("cbStruct", &self.cbStruct).field("szColumnName", &self.szColumnName).field("coltyp", &self.coltyp).field("cbMax", &self.cbMax).field("grbit", &self.grbit).field("pvDefault", &self.pvDefault).field("cbDefault", &self.cbDefault).field("cp", &self.cp).field("columnid", &self.columnid).field("err", &self.err).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_COLUMNCREATE_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_COLUMNCREATE_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_COLUMNCREATE_A {
     fn eq(&self, other: &Self) -> bool {
@@ -4625,8 +4625,8 @@ impl ::core::fmt::Debug for JET_COLUMNCREATE_W {
         f.debug_struct("JET_COLUMNCREATE_W").field("cbStruct", &self.cbStruct).field("szColumnName", &self.szColumnName).field("coltyp", &self.coltyp).field("cbMax", &self.cbMax).field("grbit", &self.grbit).field("pvDefault", &self.pvDefault).field("cbDefault", &self.cbDefault).field("cp", &self.cp).field("columnid", &self.columnid).field("err", &self.err).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_COLUMNCREATE_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_COLUMNCREATE_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_COLUMNCREATE_W {
     fn eq(&self, other: &Self) -> bool {
@@ -4663,8 +4663,8 @@ impl ::core::fmt::Debug for JET_COLUMNDEF {
         f.debug_struct("JET_COLUMNDEF").field("cbStruct", &self.cbStruct).field("columnid", &self.columnid).field("coltyp", &self.coltyp).field("wCountry", &self.wCountry).field("langid", &self.langid).field("cp", &self.cp).field("wCollate", &self.wCollate).field("cbMax", &self.cbMax).field("grbit", &self.grbit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_COLUMNDEF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_COLUMNDEF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_COLUMNDEF {
     fn eq(&self, other: &Self) -> bool {
@@ -4732,8 +4732,8 @@ impl ::core::fmt::Debug for JET_COLUMNLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_COLUMNLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_COLUMNLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_COLUMNLIST {
@@ -4786,8 +4786,8 @@ impl ::core::clone::Clone for JET_COMMIT_ID {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_COMMIT_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_COMMIT_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -4817,8 +4817,8 @@ impl ::core::clone::Clone for JET_COMMIT_ID {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_COMMIT_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_COMMIT_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -4845,8 +4845,8 @@ impl ::core::fmt::Debug for JET_CONDITIONALCOLUMN_A {
         f.debug_struct("JET_CONDITIONALCOLUMN_A").field("cbStruct", &self.cbStruct).field("szColumnName", &self.szColumnName).field("grbit", &self.grbit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_CONDITIONALCOLUMN_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_CONDITIONALCOLUMN_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_CONDITIONALCOLUMN_A {
     fn eq(&self, other: &Self) -> bool {
@@ -4877,8 +4877,8 @@ impl ::core::fmt::Debug for JET_CONDITIONALCOLUMN_W {
         f.debug_struct("JET_CONDITIONALCOLUMN_W").field("cbStruct", &self.cbStruct).field("szColumnName", &self.szColumnName).field("grbit", &self.grbit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_CONDITIONALCOLUMN_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_CONDITIONALCOLUMN_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_CONDITIONALCOLUMN_W {
     fn eq(&self, other: &Self) -> bool {
@@ -4903,8 +4903,8 @@ impl ::core::clone::Clone for JET_CONVERT_A {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_CONVERT_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_CONVERT_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_CONVERT_A {
     fn default() -> Self {
@@ -4923,8 +4923,8 @@ impl ::core::clone::Clone for JET_CONVERT_A_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_CONVERT_A_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_CONVERT_A_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_CONVERT_A_0 {
     fn default() -> Self {
@@ -4947,8 +4947,8 @@ impl ::core::fmt::Debug for JET_CONVERT_A_0_0 {
         f.debug_struct("JET_CONVERT_A_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_CONVERT_A_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_CONVERT_A_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_CONVERT_A_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4973,8 +4973,8 @@ impl ::core::clone::Clone for JET_CONVERT_W {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_CONVERT_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_CONVERT_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_CONVERT_W {
     fn default() -> Self {
@@ -4993,8 +4993,8 @@ impl ::core::clone::Clone for JET_CONVERT_W_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_CONVERT_W_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_CONVERT_W_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_CONVERT_W_0 {
     fn default() -> Self {
@@ -5017,8 +5017,8 @@ impl ::core::fmt::Debug for JET_CONVERT_W_0_0 {
         f.debug_struct("JET_CONVERT_W_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_CONVERT_W_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_CONVERT_W_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_CONVERT_W_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5066,8 +5066,8 @@ impl ::core::clone::Clone for JET_DBINFOMISC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_DBINFOMISC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_DBINFOMISC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_DBINFOMISC {
@@ -5125,8 +5125,8 @@ impl ::core::clone::Clone for JET_DBINFOMISC2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_DBINFOMISC2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_DBINFOMISC2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_DBINFOMISC2 {
@@ -5185,8 +5185,8 @@ impl ::core::clone::Clone for JET_DBINFOMISC3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_DBINFOMISC3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_DBINFOMISC3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_DBINFOMISC3 {
@@ -5247,8 +5247,8 @@ impl ::core::clone::Clone for JET_DBINFOMISC4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_DBINFOMISC4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_DBINFOMISC4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_DBINFOMISC4 {
@@ -5273,8 +5273,8 @@ impl ::core::clone::Clone for JET_DBINFOUPGRADE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_DBINFOUPGRADE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_DBINFOUPGRADE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_DBINFOUPGRADE {
     fn default() -> Self {
@@ -5293,8 +5293,8 @@ impl ::core::clone::Clone for JET_DBINFOUPGRADE_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_DBINFOUPGRADE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_DBINFOUPGRADE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_DBINFOUPGRADE_0 {
     fn default() -> Self {
@@ -5317,8 +5317,8 @@ impl ::core::fmt::Debug for JET_DBINFOUPGRADE_0_0 {
         f.debug_struct("JET_DBINFOUPGRADE_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_DBINFOUPGRADE_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_DBINFOUPGRADE_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_DBINFOUPGRADE_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5344,8 +5344,8 @@ impl ::core::clone::Clone for JET_ENUMCOLUMN {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_ENUMCOLUMN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_ENUMCOLUMN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_ENUMCOLUMN {
     fn default() -> Self {
@@ -5364,8 +5364,8 @@ impl ::core::clone::Clone for JET_ENUMCOLUMN_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_ENUMCOLUMN_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_ENUMCOLUMN_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_ENUMCOLUMN_0 {
     fn default() -> Self {
@@ -5389,8 +5389,8 @@ impl ::core::fmt::Debug for JET_ENUMCOLUMN_0_0 {
         f.debug_struct("JET_ENUMCOLUMN_0_0").field("cEnumColumnValue", &self.cEnumColumnValue).field("rgEnumColumnValue", &self.rgEnumColumnValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_ENUMCOLUMN_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_ENUMCOLUMN_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_ENUMCOLUMN_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5420,8 +5420,8 @@ impl ::core::fmt::Debug for JET_ENUMCOLUMN_0_1 {
         f.debug_struct("JET_ENUMCOLUMN_0_1").field("cbData", &self.cbData).field("pvData", &self.pvData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_ENUMCOLUMN_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_ENUMCOLUMN_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_ENUMCOLUMN_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -5452,8 +5452,8 @@ impl ::core::fmt::Debug for JET_ENUMCOLUMNID {
         f.debug_struct("JET_ENUMCOLUMNID").field("columnid", &self.columnid).field("ctagSequence", &self.ctagSequence).field("rgtagSequence", &self.rgtagSequence).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_ENUMCOLUMNID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_ENUMCOLUMNID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_ENUMCOLUMNID {
     fn eq(&self, other: &Self) -> bool {
@@ -5485,8 +5485,8 @@ impl ::core::fmt::Debug for JET_ENUMCOLUMNVALUE {
         f.debug_struct("JET_ENUMCOLUMNVALUE").field("itagSequence", &self.itagSequence).field("err", &self.err).field("cbData", &self.cbData).field("pvData", &self.pvData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_ENUMCOLUMNVALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_ENUMCOLUMNVALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_ENUMCOLUMNVALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -5520,8 +5520,8 @@ impl ::core::fmt::Debug for JET_ERRINFOBASIC_W {
         f.debug_struct("JET_ERRINFOBASIC_W").field("cbStruct", &self.cbStruct).field("errValue", &self.errValue).field("errcatMostSpecific", &self.errcatMostSpecific).field("rgCategoricalHierarchy", &self.rgCategoricalHierarchy).field("lSourceLine", &self.lSourceLine).field("rgszSourceFile", &self.rgszSourceFile).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_ERRINFOBASIC_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_ERRINFOBASIC_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_ERRINFOBASIC_W {
     fn eq(&self, other: &Self) -> bool {
@@ -5557,8 +5557,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_A {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE2_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE2_A {
     fn default() -> Self {
@@ -5577,8 +5577,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_A_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_A_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE2_A_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE2_A_0 {
     fn default() -> Self {
@@ -5597,8 +5597,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_A_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_A_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE2_A_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE2_A_1 {
     fn default() -> Self {
@@ -5628,8 +5628,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_W {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE2_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE2_W {
     fn default() -> Self {
@@ -5648,8 +5648,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_W_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_W_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE2_W_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE2_W_0 {
     fn default() -> Self {
@@ -5668,8 +5668,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_W_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_W_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE2_W_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE2_W_1 {
     fn default() -> Self {
@@ -5699,8 +5699,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE3_A {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE3_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE3_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE3_A {
     fn default() -> Self {
@@ -5719,8 +5719,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE3_A_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE3_A_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE3_A_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE3_A_0 {
     fn default() -> Self {
@@ -5750,8 +5750,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE3_W {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE3_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE3_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE3_W {
     fn default() -> Self {
@@ -5770,8 +5770,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE3_W_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE3_W_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE3_W_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE3_W_0 {
     fn default() -> Self {
@@ -5800,8 +5800,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE_A {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE_A {
     fn default() -> Self {
@@ -5820,8 +5820,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE_A_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE_A_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE_A_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE_A_0 {
     fn default() -> Self {
@@ -5840,8 +5840,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE_A_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE_A_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE_A_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE_A_1 {
     fn default() -> Self {
@@ -5870,8 +5870,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE_W {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE_W {
     fn default() -> Self {
@@ -5890,8 +5890,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE_W_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE_W_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE_W_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE_W_0 {
     fn default() -> Self {
@@ -5910,8 +5910,8 @@ impl ::core::clone::Clone for JET_INDEXCREATE_W_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEXCREATE_W_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXCREATE_W_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_INDEXCREATE_W_1 {
     fn default() -> Self {
@@ -5940,8 +5940,8 @@ impl ::core::fmt::Debug for JET_INDEXID {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for JET_INDEXID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for JET_INDEXID {
@@ -5979,8 +5979,8 @@ impl ::core::fmt::Debug for JET_INDEXID {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for JET_INDEXID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for JET_INDEXID {
@@ -6055,8 +6055,8 @@ impl ::core::fmt::Debug for JET_INDEXLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_INDEXLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_INDEXLIST {
@@ -6113,8 +6113,8 @@ impl ::core::fmt::Debug for JET_INDEXRANGE {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_INDEXRANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEXRANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_INDEXRANGE {
@@ -6150,8 +6150,8 @@ impl ::core::fmt::Debug for JET_INDEX_COLUMN {
         f.debug_struct("JET_INDEX_COLUMN").field("columnid", &self.columnid).field("relop", &self.relop).field("pv", &self.pv).field("cb", &self.cb).field("grbit", &self.grbit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEX_COLUMN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEX_COLUMN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_INDEX_COLUMN {
     fn eq(&self, other: &Self) -> bool {
@@ -6183,8 +6183,8 @@ impl ::core::fmt::Debug for JET_INDEX_RANGE {
         f.debug_struct("JET_INDEX_RANGE").field("rgStartColumns", &self.rgStartColumns).field("cStartColumns", &self.cStartColumns).field("rgEndColumns", &self.rgEndColumns).field("cEndColumns", &self.cEndColumns).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_INDEX_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INDEX_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_INDEX_RANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -6223,8 +6223,8 @@ impl ::core::fmt::Debug for JET_INSTANCE_INFO_A {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_INSTANCE_INFO_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INSTANCE_INFO_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_INSTANCE_INFO_A {
@@ -6266,8 +6266,8 @@ impl ::core::fmt::Debug for JET_INSTANCE_INFO_W {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_INSTANCE_INFO_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INSTANCE_INFO_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_INSTANCE_INFO_W {
@@ -6296,8 +6296,8 @@ impl ::core::clone::Clone for JET_LGPOS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JET_LGPOS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_LGPOS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JET_LGPOS {
     fn default() -> Self {
@@ -6328,8 +6328,8 @@ impl ::core::fmt::Debug for JET_LOGINFO_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_LOGINFO_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_LOGINFO_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_LOGINFO_A {
@@ -6364,8 +6364,8 @@ impl ::core::fmt::Debug for JET_LOGINFO_W {
         f.debug_struct("JET_LOGINFO_W").field("cbSize", &self.cbSize).field("ulGenLow", &self.ulGenLow).field("ulGenHigh", &self.ulGenHigh).field("szBaseName", &self.szBaseName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_LOGINFO_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_LOGINFO_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_LOGINFO_W {
     fn eq(&self, other: &Self) -> bool {
@@ -6400,8 +6400,8 @@ impl ::core::clone::Clone for JET_LOGTIME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_LOGTIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_LOGTIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_LOGTIME {
@@ -6425,8 +6425,8 @@ impl ::core::clone::Clone for JET_LOGTIME_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_LOGTIME_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_LOGTIME_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_LOGTIME_0 {
@@ -6455,8 +6455,8 @@ impl ::core::fmt::Debug for JET_LOGTIME_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_LOGTIME_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_LOGTIME_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_LOGTIME_0_0 {
@@ -6488,8 +6488,8 @@ impl ::core::clone::Clone for JET_LOGTIME_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_LOGTIME_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_LOGTIME_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_LOGTIME_1 {
@@ -6518,8 +6518,8 @@ impl ::core::fmt::Debug for JET_LOGTIME_1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_LOGTIME_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_LOGTIME_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_LOGTIME_1_0 {
@@ -6564,8 +6564,8 @@ impl ::core::convert::From<::core::option::Option<JET_LS>> for JET_LS {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for JET_LS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_LS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
@@ -6589,8 +6589,8 @@ impl ::core::clone::Clone for JET_OBJECTINFO {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for JET_OBJECTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_OBJECTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for JET_OBJECTINFO {
@@ -6620,8 +6620,8 @@ impl ::core::clone::Clone for JET_OBJECTINFO {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for JET_OBJECTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_OBJECTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for JET_OBJECTINFO {
@@ -6674,8 +6674,8 @@ impl ::core::fmt::Debug for JET_OBJECTLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_OBJECTLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_OBJECTLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_OBJECTLIST {
@@ -6720,8 +6720,8 @@ impl ::core::fmt::Debug for JET_OPENTEMPORARYTABLE {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_OPENTEMPORARYTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_OPENTEMPORARYTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_OPENTEMPORARYTABLE {
@@ -6766,8 +6766,8 @@ impl ::core::fmt::Debug for JET_OPENTEMPORARYTABLE2 {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_OPENTEMPORARYTABLE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_OPENTEMPORARYTABLE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_OPENTEMPORARYTABLE2 {
@@ -6803,8 +6803,8 @@ impl ::core::fmt::Debug for JET_OPERATIONCONTEXT {
         f.debug_struct("JET_OPERATIONCONTEXT").field("ulUserID", &self.ulUserID).field("nOperationID", &self.nOperationID).field("nOperationType", &self.nOperationType).field("nClientType", &self.nClientType).field("fFlags", &self.fFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_OPERATIONCONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_OPERATIONCONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_OPERATIONCONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -6846,8 +6846,8 @@ impl ::core::convert::From<::core::option::Option<JET_OSSNAPID>> for JET_OSSNAPI
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for JET_OSSNAPID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_OSSNAPID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`*"]
@@ -6873,8 +6873,8 @@ impl ::core::clone::Clone for JET_RBSINFOMISC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_RBSINFOMISC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RBSINFOMISC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -6907,8 +6907,8 @@ impl ::core::clone::Clone for JET_RBSINFOMISC {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_RBSINFOMISC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RBSINFOMISC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -6942,8 +6942,8 @@ impl ::core::clone::Clone for JET_RBSREVERTINFOMISC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_RBSREVERTINFOMISC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RBSREVERTINFOMISC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -6977,8 +6977,8 @@ impl ::core::clone::Clone for JET_RBSREVERTINFOMISC {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_RBSREVERTINFOMISC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RBSREVERTINFOMISC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -7011,8 +7011,8 @@ impl ::core::fmt::Debug for JET_RECORDLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_RECORDLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RECORDLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_RECORDLIST {
@@ -7047,8 +7047,8 @@ impl ::core::fmt::Debug for JET_RECPOS {
         f.debug_struct("JET_RECPOS").field("cbStruct", &self.cbStruct).field("centriesLT", &self.centriesLT).field("centriesInRange", &self.centriesInRange).field("centriesTotal", &self.centriesTotal).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_RECPOS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RECPOS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_RECPOS {
     fn eq(&self, other: &Self) -> bool {
@@ -7083,8 +7083,8 @@ impl ::core::clone::Clone for JET_RECSIZE {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for JET_RECSIZE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RECSIZE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for JET_RECSIZE {
@@ -7114,8 +7114,8 @@ impl ::core::clone::Clone for JET_RECSIZE {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for JET_RECSIZE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RECSIZE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for JET_RECSIZE {
@@ -7148,8 +7148,8 @@ impl ::core::clone::Clone for JET_RECSIZE2 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for JET_RECSIZE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RECSIZE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for JET_RECSIZE2 {
@@ -7182,8 +7182,8 @@ impl ::core::clone::Clone for JET_RECSIZE2 {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for JET_RECSIZE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RECSIZE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for JET_RECSIZE2 {
@@ -7210,8 +7210,8 @@ impl ::core::fmt::Debug for JET_RETINFO {
         f.debug_struct("JET_RETINFO").field("cbStruct", &self.cbStruct).field("ibLongValue", &self.ibLongValue).field("itagSequence", &self.itagSequence).field("columnidNextTagged", &self.columnidNextTagged).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_RETINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RETINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_RETINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7248,8 +7248,8 @@ impl ::core::fmt::Debug for JET_RETRIEVECOLUMN {
         f.debug_struct("JET_RETRIEVECOLUMN").field("columnid", &self.columnid).field("pvData", &self.pvData).field("cbData", &self.cbData).field("cbActual", &self.cbActual).field("grbit", &self.grbit).field("ibLongValue", &self.ibLongValue).field("itagSequence", &self.itagSequence).field("columnidNextTagged", &self.columnidNextTagged).field("err", &self.err).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_RETRIEVECOLUMN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RETRIEVECOLUMN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_RETRIEVECOLUMN {
     fn eq(&self, other: &Self) -> bool {
@@ -7282,8 +7282,8 @@ impl ::core::clone::Clone for JET_RSTINFO_A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-unsafe impl ::windows::core::Abi for JET_RSTINFO_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RSTINFO_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::default::Default for JET_RSTINFO_A {
@@ -7311,8 +7311,8 @@ impl ::core::clone::Clone for JET_RSTINFO_W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-unsafe impl ::windows::core::Abi for JET_RSTINFO_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RSTINFO_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::default::Default for JET_RSTINFO_W {
@@ -7337,8 +7337,8 @@ impl ::core::fmt::Debug for JET_RSTMAP_A {
         f.debug_struct("JET_RSTMAP_A").field("szDatabaseName", &self.szDatabaseName).field("szNewDatabaseName", &self.szNewDatabaseName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_RSTMAP_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RSTMAP_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_RSTMAP_A {
     fn eq(&self, other: &Self) -> bool {
@@ -7368,8 +7368,8 @@ impl ::core::fmt::Debug for JET_RSTMAP_W {
         f.debug_struct("JET_RSTMAP_W").field("szDatabaseName", &self.szDatabaseName).field("szNewDatabaseName", &self.szNewDatabaseName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_RSTMAP_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_RSTMAP_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_RSTMAP_W {
     fn eq(&self, other: &Self) -> bool {
@@ -7404,8 +7404,8 @@ impl ::core::fmt::Debug for JET_SETCOLUMN {
         f.debug_struct("JET_SETCOLUMN").field("columnid", &self.columnid).field("pvData", &self.pvData).field("cbData", &self.cbData).field("grbit", &self.grbit).field("ibLongValue", &self.ibLongValue).field("itagSequence", &self.itagSequence).field("err", &self.err).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_SETCOLUMN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_SETCOLUMN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_SETCOLUMN {
     fn eq(&self, other: &Self) -> bool {
@@ -7436,8 +7436,8 @@ impl ::core::fmt::Debug for JET_SETINFO {
         f.debug_struct("JET_SETINFO").field("cbStruct", &self.cbStruct).field("ibLongValue", &self.ibLongValue).field("itagSequence", &self.itagSequence).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_SETINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_SETINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_SETINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7474,8 +7474,8 @@ impl ::core::fmt::Debug for JET_SETSYSPARAM_A {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_SETSYSPARAM_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_SETSYSPARAM_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_SETSYSPARAM_A {
@@ -7515,8 +7515,8 @@ impl ::core::fmt::Debug for JET_SETSYSPARAM_W {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_SETSYSPARAM_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_SETSYSPARAM_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_SETSYSPARAM_W {
@@ -7549,8 +7549,8 @@ impl ::core::clone::Clone for JET_SIGNATURE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JET_SIGNATURE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_SIGNATURE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_SIGNATURE {
@@ -7576,8 +7576,8 @@ impl ::core::fmt::Debug for JET_SNPROG {
         f.debug_struct("JET_SNPROG").field("cbStruct", &self.cbStruct).field("cunitDone", &self.cunitDone).field("cunitTotal", &self.cunitTotal).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_SNPROG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_SNPROG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_SNPROG {
     fn eq(&self, other: &Self) -> bool {
@@ -7613,8 +7613,8 @@ impl ::core::fmt::Debug for JET_SPACEHINTS {
         f.debug_struct("JET_SPACEHINTS").field("cbStruct", &self.cbStruct).field("ulInitialDensity", &self.ulInitialDensity).field("cbInitial", &self.cbInitial).field("grbit", &self.grbit).field("ulMaintDensity", &self.ulMaintDensity).field("ulGrowth", &self.ulGrowth).field("cbMinExtent", &self.cbMinExtent).field("cbMaxExtent", &self.cbMaxExtent).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_SPACEHINTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_SPACEHINTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_SPACEHINTS {
     fn eq(&self, other: &Self) -> bool {
@@ -7676,8 +7676,8 @@ impl ::core::fmt::Debug for JET_TABLECREATE2_A {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_TABLECREATE2_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_TABLECREATE2_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE2_A {
@@ -7742,8 +7742,8 @@ impl ::core::fmt::Debug for JET_TABLECREATE2_W {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_TABLECREATE2_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_TABLECREATE2_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE2_W {
@@ -7814,8 +7814,8 @@ impl ::core::fmt::Debug for JET_TABLECREATE3_A {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_TABLECREATE3_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_TABLECREATE3_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE3_A {
@@ -7886,8 +7886,8 @@ impl ::core::fmt::Debug for JET_TABLECREATE3_W {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_TABLECREATE3_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_TABLECREATE3_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE3_W {
@@ -7958,8 +7958,8 @@ impl ::core::fmt::Debug for JET_TABLECREATE4_A {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_TABLECREATE4_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_TABLECREATE4_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE4_A {
@@ -8030,8 +8030,8 @@ impl ::core::fmt::Debug for JET_TABLECREATE4_W {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_TABLECREATE4_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_TABLECREATE4_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE4_W {
@@ -8092,8 +8092,8 @@ impl ::core::fmt::Debug for JET_TABLECREATE_A {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_TABLECREATE_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_TABLECREATE_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE_A {
@@ -8154,8 +8154,8 @@ impl ::core::fmt::Debug for JET_TABLECREATE_W {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-unsafe impl ::windows::core::Abi for JET_TABLECREATE_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_TABLECREATE_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE_W {
@@ -8194,8 +8194,8 @@ impl ::core::fmt::Debug for JET_THREADSTATS {
         f.debug_struct("JET_THREADSTATS").field("cbStruct", &self.cbStruct).field("cPageReferenced", &self.cPageReferenced).field("cPageRead", &self.cPageRead).field("cPagePreread", &self.cPagePreread).field("cPageDirtied", &self.cPageDirtied).field("cPageRedirtied", &self.cPageRedirtied).field("cLogRecord", &self.cLogRecord).field("cbLogRecord", &self.cbLogRecord).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_THREADSTATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_THREADSTATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_THREADSTATS {
     fn eq(&self, other: &Self) -> bool {
@@ -8232,8 +8232,8 @@ impl ::core::clone::Clone for JET_THREADSTATS2 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for JET_THREADSTATS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_THREADSTATS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for JET_THREADSTATS2 {
@@ -8265,8 +8265,8 @@ impl ::core::clone::Clone for JET_THREADSTATS2 {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for JET_THREADSTATS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_THREADSTATS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for JET_THREADSTATS2 {
@@ -8294,8 +8294,8 @@ impl ::core::fmt::Debug for JET_TUPLELIMITS {
         f.debug_struct("JET_TUPLELIMITS").field("chLengthMin", &self.chLengthMin).field("chLengthMax", &self.chLengthMax).field("chToIndexMax", &self.chToIndexMax).field("cchIncrement", &self.cchIncrement).field("ichStart", &self.ichStart).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_TUPLELIMITS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_TUPLELIMITS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_TUPLELIMITS {
     fn eq(&self, other: &Self) -> bool {
@@ -8325,8 +8325,8 @@ impl ::core::fmt::Debug for JET_UNICODEINDEX {
         f.debug_struct("JET_UNICODEINDEX").field("lcid", &self.lcid).field("dwMapFlags", &self.dwMapFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_UNICODEINDEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_UNICODEINDEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_UNICODEINDEX {
     fn eq(&self, other: &Self) -> bool {
@@ -8356,8 +8356,8 @@ impl ::core::fmt::Debug for JET_UNICODEINDEX2 {
         f.debug_struct("JET_UNICODEINDEX2").field("szLocaleName", &self.szLocaleName).field("dwMapFlags", &self.dwMapFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_UNICODEINDEX2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_UNICODEINDEX2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_UNICODEINDEX2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8389,8 +8389,8 @@ impl ::core::fmt::Debug for JET_USERDEFINEDDEFAULT_A {
         f.debug_struct("JET_USERDEFINEDDEFAULT_A").field("szCallback", &self.szCallback).field("pbUserData", &self.pbUserData).field("cbUserData", &self.cbUserData).field("szDependantColumns", &self.szDependantColumns).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_USERDEFINEDDEFAULT_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_USERDEFINEDDEFAULT_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_USERDEFINEDDEFAULT_A {
     fn eq(&self, other: &Self) -> bool {
@@ -8422,8 +8422,8 @@ impl ::core::fmt::Debug for JET_USERDEFINEDDEFAULT_W {
         f.debug_struct("JET_USERDEFINEDDEFAULT_W").field("szCallback", &self.szCallback).field("pbUserData", &self.pbUserData).field("cbUserData", &self.cbUserData).field("szDependantColumns", &self.szDependantColumns).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JET_USERDEFINEDDEFAULT_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_USERDEFINEDDEFAULT_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JET_USERDEFINEDDEFAULT_W {
     fn eq(&self, other: &Self) -> bool {

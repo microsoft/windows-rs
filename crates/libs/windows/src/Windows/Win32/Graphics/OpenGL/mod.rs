@@ -4024,8 +4024,8 @@ impl ::core::default::Default for PFD_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PFD_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PFD_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PFD_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4086,8 +4086,8 @@ impl ::core::default::Default for PFD_LAYER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PFD_LAYER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PFD_LAYER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PFD_LAYER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4113,8 +4113,8 @@ impl ::core::default::Default for PFD_PIXEL_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PFD_PIXEL_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PFD_PIXEL_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PFD_PIXEL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4143,8 +4143,8 @@ impl ::core::fmt::Debug for EMRPIXELFORMAT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for EMRPIXELFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRPIXELFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for EMRPIXELFORMAT {
@@ -4186,8 +4186,8 @@ impl ::core::fmt::Debug for GLYPHMETRICSFLOAT {
         f.debug_struct("GLYPHMETRICSFLOAT").field("gmfBlackBoxX", &self.gmfBlackBoxX).field("gmfBlackBoxY", &self.gmfBlackBoxY).field("gmfptGlyphOrigin", &self.gmfptGlyphOrigin).field("gmfCellIncX", &self.gmfCellIncX).field("gmfCellIncY", &self.gmfCellIncY).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GLYPHMETRICSFLOAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GLYPHMETRICSFLOAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GLYPHMETRICSFLOAT {
     fn eq(&self, other: &Self) -> bool {
@@ -4229,8 +4229,8 @@ impl ::core::convert::From<::core::option::Option<HGLRC>> for HGLRC {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HGLRC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HGLRC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
@@ -4301,8 +4301,8 @@ impl ::core::fmt::Debug for LAYERPLANEDESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LAYERPLANEDESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LAYERPLANEDESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LAYERPLANEDESCRIPTOR {
@@ -4409,8 +4409,8 @@ impl ::core::fmt::Debug for PIXELFORMATDESCRIPTOR {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PIXELFORMATDESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PIXELFORMATDESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PIXELFORMATDESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -4465,8 +4465,8 @@ impl ::core::fmt::Debug for POINTFLOAT {
         f.debug_struct("POINTFLOAT").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POINTFLOAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POINTFLOAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POINTFLOAT {
     fn eq(&self, other: &Self) -> bool {

@@ -644,16 +644,16 @@ where
 pub struct ITraceEvent(::windows::core::IUnknown);
 impl ITraceEvent {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ITraceEvent> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITraceEvent>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUserContext(&self) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut ::core::ffi::c_void>();
+        (::windows::core::Vtable::vtable(self).GetUserContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventRecord(&self) -> ::windows::core::Result<*mut EVENT_RECORD> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEventRecord)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut EVENT_RECORD>();
+        (::windows::core::Vtable::vtable(self).GetEventRecord)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPayload(&self, payload: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPayload)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(payload.as_ptr()), payload.len() as _).ok()
@@ -684,11 +684,6 @@ impl ITraceEvent {
     }
 }
 ::windows::core::interface_hierarchy!(ITraceEvent, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITraceEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ITraceEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -702,6 +697,11 @@ impl ::core::fmt::Debug for ITraceEvent {
 }
 unsafe impl ::windows::core::Vtable for ITraceEvent {
     type Vtable = ITraceEvent_Vtbl;
+}
+impl ::core::clone::Clone for ITraceEvent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITraceEvent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
@@ -749,11 +749,6 @@ impl ITraceEventCallback {
     }
 }
 ::windows::core::interface_hierarchy!(ITraceEventCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITraceEventCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ITraceEventCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -767,6 +762,11 @@ impl ::core::fmt::Debug for ITraceEventCallback {
 }
 unsafe impl ::windows::core::Vtable for ITraceEventCallback {
     type Vtable = ITraceEventCallback_Vtbl;
+}
+impl ::core::clone::Clone for ITraceEventCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITraceEventCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
@@ -784,12 +784,12 @@ pub struct ITraceEventCallback_Vtbl {
 pub struct ITraceRelogger(::windows::core::IUnknown);
 impl ITraceRelogger {
     pub unsafe fn AddLogfileTraceStream(&self, logfilename: &::windows::core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<RELOGSTREAM_HANDLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddLogfileTraceStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(logfilename), usercontext, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<RELOGSTREAM_HANDLE>();
+        (::windows::core::Vtable::vtable(self).AddLogfileTraceStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(logfilename), usercontext, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddRealtimeTraceStream(&self, loggername: &::windows::core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<RELOGSTREAM_HANDLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddRealtimeTraceStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(loggername), usercontext, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<RELOGSTREAM_HANDLE>();
+        (::windows::core::Vtable::vtable(self).AddRealtimeTraceStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(loggername), usercontext, &mut result__).from_abi(result__)
     }
     pub unsafe fn RegisterCallback<P0>(&self, callback: P0) -> ::windows::core::Result<()>
     where
@@ -807,8 +807,8 @@ impl ITraceRelogger {
     where
         P0: ::std::convert::Into<RELOGSTREAM_HANDLE>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEventInstance)(::windows::core::Vtable::as_raw(self), tracehandle.into(), flags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITraceEvent>();
+        (::windows::core::Vtable::vtable(self).CreateEventInstance)(::windows::core::Vtable::as_raw(self), tracehandle.into(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn ProcessTrace(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ProcessTrace)(::windows::core::Vtable::as_raw(self)).ok()
@@ -829,11 +829,6 @@ impl ITraceRelogger {
     }
 }
 ::windows::core::interface_hierarchy!(ITraceRelogger, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITraceRelogger {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ITraceRelogger {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -848,6 +843,11 @@ impl ::core::fmt::Debug for ITraceRelogger {
 unsafe impl ::windows::core::Vtable for ITraceRelogger {
     type Vtable = ITraceRelogger_Vtbl;
 }
+impl ::core::clone::Clone for ITraceRelogger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITraceRelogger {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf754ad43_3bcc_4286_8009_9c5da214e84e);
 }
@@ -855,13 +855,13 @@ unsafe impl ::windows::core::Interface for ITraceRelogger {
 #[doc(hidden)]
 pub struct ITraceRelogger_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub AddLogfileTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfilename: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows::core::HRESULT,
-    pub AddRealtimeTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loggername: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows::core::HRESULT,
+    pub AddLogfileTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfilename: ::std::mem::MaybeUninit<::windows::core::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows::core::HRESULT,
+    pub AddRealtimeTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loggername: ::std::mem::MaybeUninit<::windows::core::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows::core::HRESULT,
     pub RegisterCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Inject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateEventInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tracehandle: RELOGSTREAM_HANDLE, flags: u32, event: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ProcessTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetOutputFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfilename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetOutputFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfilename: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetCompressionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compressionmode: super::super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1859,8 +1859,8 @@ impl ::core::default::Default for DECODING_SOURCE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DECODING_SOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DECODING_SOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DECODING_SOURCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1888,8 +1888,8 @@ impl ::core::default::Default for ENABLECALLBACK_ENABLED_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ENABLECALLBACK_ENABLED_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENABLECALLBACK_ENABLED_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ENABLECALLBACK_ENABLED_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1917,8 +1917,8 @@ impl ::core::default::Default for ETW_COMPRESSION_RESUMPTION_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ETW_COMPRESSION_RESUMPTION_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ETW_COMPRESSION_RESUMPTION_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ETW_COMPRESSION_RESUMPTION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1948,8 +1948,8 @@ impl ::core::default::Default for ETW_PMC_COUNTER_OWNER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ETW_PMC_COUNTER_OWNER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ETW_PMC_COUNTER_OWNER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ETW_PMC_COUNTER_OWNER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1979,8 +1979,8 @@ impl ::core::default::Default for ETW_PROCESS_HANDLE_INFO_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ETW_PROCESS_HANDLE_INFO_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ETW_PROCESS_HANDLE_INFO_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ETW_PROCESS_HANDLE_INFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2008,8 +2008,8 @@ impl ::core::default::Default for ETW_PROVIDER_TRAIT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ETW_PROVIDER_TRAIT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ETW_PROVIDER_TRAIT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ETW_PROVIDER_TRAIT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2041,8 +2041,8 @@ impl ::core::default::Default for EVENTSECURITYOPERATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EVENTSECURITYOPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENTSECURITYOPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EVENTSECURITYOPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2076,8 +2076,8 @@ impl ::core::default::Default for EVENT_FIELD_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_FIELD_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_FIELD_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EVENT_FIELD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2109,8 +2109,8 @@ impl ::core::default::Default for EVENT_INFO_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_INFO_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_INFO_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EVENT_INFO_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2140,8 +2140,8 @@ impl ::core::default::Default for EVENT_TRACE_CONTROL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE_CONTROL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_CONTROL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EVENT_TRACE_CONTROL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2217,8 +2217,8 @@ impl ::core::default::Default for EVENT_TRACE_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EVENT_TRACE_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2287,8 +2287,8 @@ impl ::core::default::Default for MAP_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MAP_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAP_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MAP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2314,8 +2314,8 @@ impl ::core::default::Default for MAP_VALUETYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MAP_VALUETYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAP_VALUETYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MAP_VALUETYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2365,8 +2365,8 @@ impl ::core::default::Default for PAYLOAD_OPERATOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PAYLOAD_OPERATOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAYLOAD_OPERATOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PAYLOAD_OPERATOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2404,8 +2404,8 @@ impl ::core::default::Default for PROPERTY_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PROPERTY_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPERTY_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PROPERTY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2439,8 +2439,8 @@ impl ::core::default::Default for TDH_CONTEXT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TDH_CONTEXT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TDH_CONTEXT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TDH_CONTEXT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2468,8 +2468,8 @@ impl ::core::default::Default for TEMPLATE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TEMPLATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TEMPLATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TEMPLATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2501,8 +2501,8 @@ impl ::core::default::Default for TRACE_MESSAGE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_MESSAGE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_MESSAGE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TRACE_MESSAGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2613,8 +2613,8 @@ impl ::core::default::Default for TRACE_QUERY_INFO_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_QUERY_INFO_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_QUERY_INFO_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TRACE_QUERY_INFO_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2658,8 +2658,8 @@ impl ::core::default::Default for WMIDPREQUESTCODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WMIDPREQUESTCODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WMIDPREQUESTCODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WMIDPREQUESTCODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2755,8 +2755,8 @@ impl ::core::default::Default for _TDH_IN_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _TDH_IN_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _TDH_IN_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for _TDH_IN_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2860,8 +2860,8 @@ impl ::core::default::Default for _TDH_OUT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _TDH_OUT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _TDH_OUT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for _TDH_OUT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2886,8 +2886,8 @@ impl ::core::fmt::Debug for CLASSIC_EVENT_ID {
         f.debug_struct("CLASSIC_EVENT_ID").field("EventGuid", &self.EventGuid).field("Type", &self.Type).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLASSIC_EVENT_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLASSIC_EVENT_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLASSIC_EVENT_ID {
     fn eq(&self, other: &Self) -> bool {
@@ -2929,8 +2929,8 @@ impl ::core::convert::From<::core::option::Option<CONTROLTRACE_HANDLE>> for CONT
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for CONTROLTRACE_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONTROLTRACE_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
@@ -2953,8 +2953,8 @@ impl ::core::fmt::Debug for ENABLE_TRACE_PARAMETERS {
         f.debug_struct("ENABLE_TRACE_PARAMETERS").field("Version", &self.Version).field("EnableProperty", &self.EnableProperty).field("ControlFlags", &self.ControlFlags).field("SourceId", &self.SourceId).field("EnableFilterDesc", &self.EnableFilterDesc).field("FilterDescCount", &self.FilterDescCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENABLE_TRACE_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENABLE_TRACE_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENABLE_TRACE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -2987,8 +2987,8 @@ impl ::core::fmt::Debug for ENABLE_TRACE_PARAMETERS_V1 {
         f.debug_struct("ENABLE_TRACE_PARAMETERS_V1").field("Version", &self.Version).field("EnableProperty", &self.EnableProperty).field("ControlFlags", &self.ControlFlags).field("SourceId", &self.SourceId).field("EnableFilterDesc", &self.EnableFilterDesc).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENABLE_TRACE_PARAMETERS_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENABLE_TRACE_PARAMETERS_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENABLE_TRACE_PARAMETERS_V1 {
     fn eq(&self, other: &Self) -> bool {
@@ -3013,8 +3013,8 @@ impl ::core::clone::Clone for ETW_BUFFER_CONTEXT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for ETW_BUFFER_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ETW_BUFFER_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for ETW_BUFFER_CONTEXT {
     fn default() -> Self {
@@ -3033,8 +3033,8 @@ impl ::core::clone::Clone for ETW_BUFFER_CONTEXT_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for ETW_BUFFER_CONTEXT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ETW_BUFFER_CONTEXT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for ETW_BUFFER_CONTEXT_0 {
     fn default() -> Self {
@@ -3058,8 +3058,8 @@ impl ::core::fmt::Debug for ETW_BUFFER_CONTEXT_0_0 {
         f.debug_struct("ETW_BUFFER_CONTEXT_0_0").field("ProcessorNumber", &self.ProcessorNumber).field("Alignment", &self.Alignment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ETW_BUFFER_CONTEXT_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ETW_BUFFER_CONTEXT_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ETW_BUFFER_CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3090,8 +3090,8 @@ impl ::core::fmt::Debug for ETW_PMC_COUNTER_OWNER {
         f.debug_struct("ETW_PMC_COUNTER_OWNER").field("OwnerType", &self.OwnerType).field("ProfileSource", &self.ProfileSource).field("OwnerTag", &self.OwnerTag).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ETW_PMC_COUNTER_OWNER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ETW_PMC_COUNTER_OWNER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ETW_PMC_COUNTER_OWNER {
     fn eq(&self, other: &Self) -> bool {
@@ -3122,8 +3122,8 @@ impl ::core::fmt::Debug for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
         f.debug_struct("ETW_PMC_COUNTER_OWNERSHIP_STATUS").field("ProcessorNumber", &self.ProcessorNumber).field("NumberOfCounters", &self.NumberOfCounters).field("CounterOwners", &self.CounterOwners).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -3155,8 +3155,8 @@ impl ::core::fmt::Debug for ETW_TRACE_PARTITION_INFORMATION {
         f.debug_struct("ETW_TRACE_PARTITION_INFORMATION").field("PartitionId", &self.PartitionId).field("ParentId", &self.ParentId).field("QpcOffsetFromRoot", &self.QpcOffsetFromRoot).field("PartitionType", &self.PartitionType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ETW_TRACE_PARTITION_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ETW_TRACE_PARTITION_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ETW_TRACE_PARTITION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -3188,8 +3188,8 @@ impl ::core::fmt::Debug for ETW_TRACE_PARTITION_INFORMATION_V2 {
         f.debug_struct("ETW_TRACE_PARTITION_INFORMATION_V2").field("QpcOffsetFromRoot", &self.QpcOffsetFromRoot).field("PartitionType", &self.PartitionType).field("PartitionId", &self.PartitionId).field("ParentId", &self.ParentId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ETW_TRACE_PARTITION_INFORMATION_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ETW_TRACE_PARTITION_INFORMATION_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ETW_TRACE_PARTITION_INFORMATION_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3215,8 +3215,8 @@ impl ::core::clone::Clone for EVENT_DATA_DESCRIPTOR {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_DATA_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_DATA_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_DATA_DESCRIPTOR {
     fn default() -> Self {
@@ -3235,8 +3235,8 @@ impl ::core::clone::Clone for EVENT_DATA_DESCRIPTOR_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_DATA_DESCRIPTOR_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_DATA_DESCRIPTOR_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_DATA_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -3261,8 +3261,8 @@ impl ::core::fmt::Debug for EVENT_DATA_DESCRIPTOR_0_0 {
         f.debug_struct("EVENT_DATA_DESCRIPTOR_0_0").field("Type", &self.Type).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_DATA_DESCRIPTOR_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_DATA_DESCRIPTOR_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_DATA_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3297,8 +3297,8 @@ impl ::core::fmt::Debug for EVENT_DESCRIPTOR {
         f.debug_struct("EVENT_DESCRIPTOR").field("Id", &self.Id).field("Version", &self.Version).field("Channel", &self.Channel).field("Level", &self.Level).field("Opcode", &self.Opcode).field("Task", &self.Task).field("Keyword", &self.Keyword).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -3327,8 +3327,8 @@ impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_EVENT_KEY {
         f.debug_struct("EVENT_EXTENDED_ITEM_EVENT_KEY").field("Key", &self.Key).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_EVENT_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_EXTENDED_ITEM_EVENT_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_EVENT_KEY {
     fn eq(&self, other: &Self) -> bool {
@@ -3359,8 +3359,8 @@ impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_INSTANCE {
         f.debug_struct("EVENT_EXTENDED_ITEM_INSTANCE").field("InstanceId", &self.InstanceId).field("ParentInstanceId", &self.ParentInstanceId).field("ParentGuid", &self.ParentGuid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_INSTANCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_EXTENDED_ITEM_INSTANCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_INSTANCE {
     fn eq(&self, other: &Self) -> bool {
@@ -3389,8 +3389,8 @@ impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_PEBS_INDEX {
         f.debug_struct("EVENT_EXTENDED_ITEM_PEBS_INDEX").field("PebsIndex", &self.PebsIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_PEBS_INDEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_EXTENDED_ITEM_PEBS_INDEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_PEBS_INDEX {
     fn eq(&self, other: &Self) -> bool {
@@ -3419,8 +3419,8 @@ impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
         f.debug_struct("EVENT_EXTENDED_ITEM_PMC_COUNTERS").field("Counter", &self.Counter).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -3449,8 +3449,8 @@ impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
         f.debug_struct("EVENT_EXTENDED_ITEM_PROCESS_START_KEY").field("ProcessStartKey", &self.ProcessStartKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     fn eq(&self, other: &Self) -> bool {
@@ -3479,8 +3479,8 @@ impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
         f.debug_struct("EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID").field("RelatedActivityId", &self.RelatedActivityId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     fn eq(&self, other: &Self) -> bool {
@@ -3511,8 +3511,8 @@ impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_STACK_KEY32 {
         f.debug_struct("EVENT_EXTENDED_ITEM_STACK_KEY32").field("MatchId", &self.MatchId).field("StackKey", &self.StackKey).field("Padding", &self.Padding).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_KEY32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_EXTENDED_ITEM_STACK_KEY32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_KEY32 {
     fn eq(&self, other: &Self) -> bool {
@@ -3542,8 +3542,8 @@ impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_STACK_KEY64 {
         f.debug_struct("EVENT_EXTENDED_ITEM_STACK_KEY64").field("MatchId", &self.MatchId).field("StackKey", &self.StackKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_KEY64 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_EXTENDED_ITEM_STACK_KEY64 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_KEY64 {
     fn eq(&self, other: &Self) -> bool {
@@ -3573,8 +3573,8 @@ impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
         f.debug_struct("EVENT_EXTENDED_ITEM_STACK_TRACE32").field("MatchId", &self.MatchId).field("Address", &self.Address).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     fn eq(&self, other: &Self) -> bool {
@@ -3604,8 +3604,8 @@ impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
         f.debug_struct("EVENT_EXTENDED_ITEM_STACK_TRACE64").field("MatchId", &self.MatchId).field("Address", &self.Address).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     fn eq(&self, other: &Self) -> bool {
@@ -3634,8 +3634,8 @@ impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_TS_ID {
         f.debug_struct("EVENT_EXTENDED_ITEM_TS_ID").field("SessionId", &self.SessionId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_TS_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_EXTENDED_ITEM_TS_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_TS_ID {
     fn eq(&self, other: &Self) -> bool {
@@ -3666,8 +3666,8 @@ impl ::core::fmt::Debug for EVENT_FILTER_DESCRIPTOR {
         f.debug_struct("EVENT_FILTER_DESCRIPTOR").field("Ptr", &self.Ptr).field("Size", &self.Size).field("Type", &self.Type).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_FILTER_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_FILTER_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_FILTER_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -3704,8 +3704,8 @@ impl ::core::fmt::Debug for EVENT_FILTER_EVENT_ID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENT_FILTER_EVENT_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_FILTER_EVENT_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENT_FILTER_EVENT_ID {
@@ -3747,8 +3747,8 @@ impl ::core::fmt::Debug for EVENT_FILTER_EVENT_NAME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENT_FILTER_EVENT_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_FILTER_EVENT_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENT_FILTER_EVENT_NAME {
@@ -3785,8 +3785,8 @@ impl ::core::fmt::Debug for EVENT_FILTER_HEADER {
         f.debug_struct("EVENT_FILTER_HEADER").field("Id", &self.Id).field("Version", &self.Version).field("Reserved", &self.Reserved).field("InstanceId", &self.InstanceId).field("Size", &self.Size).field("NextOffset", &self.NextOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_FILTER_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_FILTER_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_FILTER_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -3823,8 +3823,8 @@ impl ::core::fmt::Debug for EVENT_FILTER_LEVEL_KW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENT_FILTER_LEVEL_KW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_FILTER_LEVEL_KW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENT_FILTER_LEVEL_KW {
@@ -3861,8 +3861,8 @@ impl ::core::clone::Clone for EVENT_HEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_HEADER {
     fn default() -> Self {
@@ -3881,8 +3881,8 @@ impl ::core::clone::Clone for EVENT_HEADER_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_HEADER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_HEADER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_HEADER_0 {
     fn default() -> Self {
@@ -3906,8 +3906,8 @@ impl ::core::fmt::Debug for EVENT_HEADER_0_0 {
         f.debug_struct("EVENT_HEADER_0_0").field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_HEADER_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_HEADER_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3940,8 +3940,8 @@ impl ::core::fmt::Debug for EVENT_HEADER_EXTENDED_DATA_ITEM {
         f.debug_struct("EVENT_HEADER_EXTENDED_DATA_ITEM").field("Reserved1", &self.Reserved1).field("ExtType", &self.ExtType).field("Anonymous", &self.Anonymous).field("DataSize", &self.DataSize).field("DataPtr", &self.DataPtr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_HEADER_EXTENDED_DATA_ITEM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_HEADER_EXTENDED_DATA_ITEM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_HEADER_EXTENDED_DATA_ITEM {
     fn eq(&self, other: &Self) -> bool {
@@ -3970,8 +3970,8 @@ impl ::core::fmt::Debug for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
         f.debug_struct("EVENT_HEADER_EXTENDED_DATA_ITEM_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4005,8 +4005,8 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_INSTANCE_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_INSTANCE_HEADER {
     fn default() -> Self {
@@ -4025,8 +4025,8 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_INSTANCE_HEADER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_INSTANCE_HEADER_0 {
     fn default() -> Self {
@@ -4050,8 +4050,8 @@ impl ::core::fmt::Debug for EVENT_INSTANCE_HEADER_0_0 {
         f.debug_struct("EVENT_INSTANCE_HEADER_0_0").field("HeaderType", &self.HeaderType).field("MarkerFlags", &self.MarkerFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_INSTANCE_HEADER_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4076,8 +4076,8 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_INSTANCE_HEADER_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_INSTANCE_HEADER_1 {
     fn default() -> Self {
@@ -4102,8 +4102,8 @@ impl ::core::fmt::Debug for EVENT_INSTANCE_HEADER_1_0 {
         f.debug_struct("EVENT_INSTANCE_HEADER_1_0").field("Type", &self.Type).field("Level", &self.Level).field("Version", &self.Version).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_INSTANCE_HEADER_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4129,8 +4129,8 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_INSTANCE_HEADER_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_INSTANCE_HEADER_2 {
     fn default() -> Self {
@@ -4154,8 +4154,8 @@ impl ::core::fmt::Debug for EVENT_INSTANCE_HEADER_2_0 {
         f.debug_struct("EVENT_INSTANCE_HEADER_2_0").field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_INSTANCE_HEADER_2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_2_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4185,8 +4185,8 @@ impl ::core::fmt::Debug for EVENT_INSTANCE_HEADER_2_1 {
         f.debug_struct("EVENT_INSTANCE_HEADER_2_1").field("EventId", &self.EventId).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_2_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_INSTANCE_HEADER_2_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_2_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -4221,8 +4221,8 @@ impl ::core::fmt::Debug for EVENT_INSTANCE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENT_INSTANCE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_INSTANCE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENT_INSTANCE_INFO {
@@ -4250,8 +4250,8 @@ impl ::core::clone::Clone for EVENT_MAP_ENTRY {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_MAP_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_MAP_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_MAP_ENTRY {
     fn default() -> Self {
@@ -4270,8 +4270,8 @@ impl ::core::clone::Clone for EVENT_MAP_ENTRY_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_MAP_ENTRY_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_MAP_ENTRY_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_MAP_ENTRY_0 {
     fn default() -> Self {
@@ -4293,8 +4293,8 @@ impl ::core::clone::Clone for EVENT_MAP_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_MAP_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_MAP_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_MAP_INFO {
     fn default() -> Self {
@@ -4313,8 +4313,8 @@ impl ::core::clone::Clone for EVENT_MAP_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_MAP_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_MAP_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_MAP_INFO_0 {
     fn default() -> Self {
@@ -4337,8 +4337,8 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_PROPERTY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_PROPERTY_INFO {
     fn default() -> Self {
@@ -4358,8 +4358,8 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_PROPERTY_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_PROPERTY_INFO_0 {
     fn default() -> Self {
@@ -4384,8 +4384,8 @@ impl ::core::fmt::Debug for EVENT_PROPERTY_INFO_0_0 {
         f.debug_struct("EVENT_PROPERTY_INFO_0_0").field("InType", &self.InType).field("OutType", &self.OutType).field("CustomSchemaOffset", &self.CustomSchemaOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_PROPERTY_INFO_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4416,8 +4416,8 @@ impl ::core::fmt::Debug for EVENT_PROPERTY_INFO_0_1 {
         f.debug_struct("EVENT_PROPERTY_INFO_0_1").field("InType", &self.InType).field("OutType", &self.OutType).field("MapNameOffset", &self.MapNameOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_PROPERTY_INFO_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -4448,8 +4448,8 @@ impl ::core::fmt::Debug for EVENT_PROPERTY_INFO_0_2 {
         f.debug_struct("EVENT_PROPERTY_INFO_0_2").field("StructStartIndex", &self.StructStartIndex).field("NumOfStructMembers", &self.NumOfStructMembers).field("padding", &self.padding).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_PROPERTY_INFO_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4474,8 +4474,8 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_PROPERTY_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_PROPERTY_INFO_1 {
     fn default() -> Self {
@@ -4494,8 +4494,8 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_PROPERTY_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_PROPERTY_INFO_2 {
     fn default() -> Self {
@@ -4514,8 +4514,8 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_3 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_PROPERTY_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_PROPERTY_INFO_3 {
     fn default() -> Self {
@@ -4538,8 +4538,8 @@ impl ::core::fmt::Debug for EVENT_PROPERTY_INFO_3_0 {
         f.debug_struct("EVENT_PROPERTY_INFO_3_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_3_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_PROPERTY_INFO_3_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_3_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4569,8 +4569,8 @@ impl ::core::clone::Clone for EVENT_RECORD {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_RECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_RECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_RECORD {
     fn default() -> Self {
@@ -4594,8 +4594,8 @@ impl ::core::clone::Clone for EVENT_TRACE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_TRACE {
     fn default() -> Self {
@@ -4614,8 +4614,8 @@ impl ::core::clone::Clone for EVENT_TRACE_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_TRACE_0 {
     fn default() -> Self {
@@ -4640,8 +4640,8 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_TRACE_HEADER {
     fn default() -> Self {
@@ -4660,8 +4660,8 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_HEADER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_TRACE_HEADER_0 {
     fn default() -> Self {
@@ -4685,8 +4685,8 @@ impl ::core::fmt::Debug for EVENT_TRACE_HEADER_0_0 {
         f.debug_struct("EVENT_TRACE_HEADER_0_0").field("HeaderType", &self.HeaderType).field("MarkerFlags", &self.MarkerFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_HEADER_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4711,8 +4711,8 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_HEADER_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_TRACE_HEADER_1 {
     fn default() -> Self {
@@ -4737,8 +4737,8 @@ impl ::core::fmt::Debug for EVENT_TRACE_HEADER_1_0 {
         f.debug_struct("EVENT_TRACE_HEADER_1_0").field("Type", &self.Type).field("Level", &self.Level).field("Version", &self.Version).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_HEADER_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4763,8 +4763,8 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_HEADER_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_TRACE_HEADER_2 {
     fn default() -> Self {
@@ -4784,8 +4784,8 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_3 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_HEADER_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EVENT_TRACE_HEADER_3 {
     fn default() -> Self {
@@ -4809,8 +4809,8 @@ impl ::core::fmt::Debug for EVENT_TRACE_HEADER_3_0 {
         f.debug_struct("EVENT_TRACE_HEADER_3_0").field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_3_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_HEADER_3_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_3_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4840,8 +4840,8 @@ impl ::core::fmt::Debug for EVENT_TRACE_HEADER_3_1 {
         f.debug_struct("EVENT_TRACE_HEADER_3_1").field("ClientContext", &self.ClientContext).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_3_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_HEADER_3_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_3_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -4882,8 +4882,8 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_LOGFILEA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for EVENT_TRACE_LOGFILEA {
@@ -4907,8 +4907,8 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_LOGFILEA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for EVENT_TRACE_LOGFILEA_0 {
@@ -4932,8 +4932,8 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEA_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_LOGFILEA_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for EVENT_TRACE_LOGFILEA_1 {
@@ -4969,8 +4969,8 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_LOGFILEW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for EVENT_TRACE_LOGFILEW {
@@ -4994,8 +4994,8 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEW_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_LOGFILEW_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for EVENT_TRACE_LOGFILEW_0 {
@@ -5019,8 +5019,8 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEW_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_LOGFILEW_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for EVENT_TRACE_LOGFILEW_1 {
@@ -5060,8 +5060,8 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_PROPERTIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVENT_TRACE_PROPERTIES {
@@ -5085,8 +5085,8 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_PROPERTIES_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVENT_TRACE_PROPERTIES_0 {
@@ -5130,8 +5130,8 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_PROPERTIES_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVENT_TRACE_PROPERTIES_V2 {
@@ -5155,8 +5155,8 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_PROPERTIES_V2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVENT_TRACE_PROPERTIES_V2_0 {
@@ -5180,8 +5180,8 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_PROPERTIES_V2_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVENT_TRACE_PROPERTIES_V2_1 {
@@ -5210,8 +5210,8 @@ impl ::core::fmt::Debug for EVENT_TRACE_PROPERTIES_V2_1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_PROPERTIES_V2_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_1_0 {
@@ -5243,8 +5243,8 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_PROPERTIES_V2_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVENT_TRACE_PROPERTIES_V2_2 {
@@ -5273,8 +5273,8 @@ impl ::core::fmt::Debug for EVENT_TRACE_PROPERTIES_V2_2_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EVENT_TRACE_PROPERTIES_V2_2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_2_0 {
@@ -5308,8 +5308,8 @@ impl ::core::fmt::Debug for MOF_FIELD {
         f.debug_struct("MOF_FIELD").field("DataPtr", &self.DataPtr).field("Length", &self.Length).field("DataType", &self.DataType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MOF_FIELD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MOF_FIELD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MOF_FIELD {
     fn eq(&self, other: &Self) -> bool {
@@ -5339,8 +5339,8 @@ impl ::core::fmt::Debug for OFFSETINSTANCEDATAANDLENGTH {
         f.debug_struct("OFFSETINSTANCEDATAANDLENGTH").field("OffsetInstanceData", &self.OffsetInstanceData).field("LengthInstanceData", &self.LengthInstanceData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OFFSETINSTANCEDATAANDLENGTH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFSETINSTANCEDATAANDLENGTH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OFFSETINSTANCEDATAANDLENGTH {
     fn eq(&self, other: &Self) -> bool {
@@ -5371,8 +5371,8 @@ impl ::core::fmt::Debug for PAYLOAD_FILTER_PREDICATE {
         f.debug_struct("PAYLOAD_FILTER_PREDICATE").field("FieldName", &self.FieldName).field("CompareOp", &self.CompareOp).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PAYLOAD_FILTER_PREDICATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PAYLOAD_FILTER_PREDICATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PAYLOAD_FILTER_PREDICATE {
     fn eq(&self, other: &Self) -> bool {
@@ -5409,8 +5409,8 @@ impl ::core::convert::From<::core::option::Option<PROCESSTRACE_HANDLE>> for PROC
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for PROCESSTRACE_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESSTRACE_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
@@ -5433,8 +5433,8 @@ impl ::core::fmt::Debug for PROFILE_SOURCE_INFO {
         f.debug_struct("PROFILE_SOURCE_INFO").field("NextEntryOffset", &self.NextEntryOffset).field("Source", &self.Source).field("MinInterval", &self.MinInterval).field("MaxInterval", &self.MaxInterval).field("Reserved", &self.Reserved).field("Description", &self.Description).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROFILE_SOURCE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROFILE_SOURCE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROFILE_SOURCE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5465,8 +5465,8 @@ impl ::core::fmt::Debug for PROPERTY_DATA_DESCRIPTOR {
         f.debug_struct("PROPERTY_DATA_DESCRIPTOR").field("PropertyName", &self.PropertyName).field("ArrayIndex", &self.ArrayIndex).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROPERTY_DATA_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPERTY_DATA_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROPERTY_DATA_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -5497,8 +5497,8 @@ impl ::core::fmt::Debug for PROVIDER_ENUMERATION_INFO {
         f.debug_struct("PROVIDER_ENUMERATION_INFO").field("NumberOfProviders", &self.NumberOfProviders).field("Reserved", &self.Reserved).field("TraceProviderInfoArray", &self.TraceProviderInfoArray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROVIDER_ENUMERATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROVIDER_ENUMERATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROVIDER_ENUMERATION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5529,8 +5529,8 @@ impl ::core::fmt::Debug for PROVIDER_EVENT_INFO {
         f.debug_struct("PROVIDER_EVENT_INFO").field("NumberOfEvents", &self.NumberOfEvents).field("Reserved", &self.Reserved).field("EventDescriptorsArray", &self.EventDescriptorsArray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROVIDER_EVENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROVIDER_EVENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROVIDER_EVENT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5561,8 +5561,8 @@ impl ::core::fmt::Debug for PROVIDER_FIELD_INFO {
         f.debug_struct("PROVIDER_FIELD_INFO").field("NameOffset", &self.NameOffset).field("DescriptionOffset", &self.DescriptionOffset).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROVIDER_FIELD_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROVIDER_FIELD_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROVIDER_FIELD_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5593,8 +5593,8 @@ impl ::core::fmt::Debug for PROVIDER_FIELD_INFOARRAY {
         f.debug_struct("PROVIDER_FIELD_INFOARRAY").field("NumberOfElements", &self.NumberOfElements).field("FieldType", &self.FieldType).field("FieldInfoArray", &self.FieldInfoArray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROVIDER_FIELD_INFOARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROVIDER_FIELD_INFOARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROVIDER_FIELD_INFOARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -5623,8 +5623,8 @@ impl ::core::clone::Clone for PROVIDER_FILTER_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PROVIDER_FILTER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROVIDER_FILTER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PROVIDER_FILTER_INFO {
     fn default() -> Self {
@@ -5660,8 +5660,8 @@ impl ::core::convert::From<::core::option::Option<RELOGSTREAM_HANDLE>> for RELOG
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for RELOGSTREAM_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RELOGSTREAM_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
@@ -5681,8 +5681,8 @@ impl ::core::fmt::Debug for TDH_CONTEXT {
         f.debug_struct("TDH_CONTEXT").field("ParameterValue", &self.ParameterValue).field("ParameterType", &self.ParameterType).field("ParameterSize", &self.ParameterSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TDH_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TDH_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TDH_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -5724,8 +5724,8 @@ impl ::core::convert::From<::core::option::Option<TDH_HANDLE>> for TDH_HANDLE {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for TDH_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TDH_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
@@ -5750,8 +5750,8 @@ impl ::core::fmt::Debug for TRACE_ENABLE_INFO {
         f.debug_struct("TRACE_ENABLE_INFO").field("IsEnabled", &self.IsEnabled).field("Level", &self.Level).field("Reserved1", &self.Reserved1).field("LoggerId", &self.LoggerId).field("EnableProperty", &self.EnableProperty).field("Reserved2", &self.Reserved2).field("MatchAnyKeyword", &self.MatchAnyKeyword).field("MatchAllKeyword", &self.MatchAllKeyword).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_ENABLE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_ENABLE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRACE_ENABLE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5794,8 +5794,8 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_EVENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TRACE_EVENT_INFO {
     fn default() -> Self {
@@ -5814,8 +5814,8 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_EVENT_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TRACE_EVENT_INFO_0 {
     fn default() -> Self {
@@ -5834,8 +5834,8 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_EVENT_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TRACE_EVENT_INFO_1 {
     fn default() -> Self {
@@ -5854,8 +5854,8 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO_2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_EVENT_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TRACE_EVENT_INFO_2 {
     fn default() -> Self {
@@ -5878,8 +5878,8 @@ impl ::core::fmt::Debug for TRACE_EVENT_INFO_2_0 {
         f.debug_struct("TRACE_EVENT_INFO_2_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_EVENT_INFO_2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRACE_EVENT_INFO_2_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5909,8 +5909,8 @@ impl ::core::fmt::Debug for TRACE_GUID_INFO {
         f.debug_struct("TRACE_GUID_INFO").field("InstanceCount", &self.InstanceCount).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_GUID_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_GUID_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRACE_GUID_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5949,8 +5949,8 @@ impl ::core::fmt::Debug for TRACE_GUID_PROPERTIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRACE_GUID_PROPERTIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_GUID_PROPERTIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRACE_GUID_PROPERTIES {
@@ -5988,8 +5988,8 @@ impl ::core::fmt::Debug for TRACE_GUID_REGISTRATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRACE_GUID_REGISTRATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_GUID_REGISTRATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRACE_GUID_REGISTRATION {
@@ -6037,8 +6037,8 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER {
@@ -6062,8 +6062,8 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER_0 {
@@ -6095,8 +6095,8 @@ impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER_0_0 {
@@ -6128,8 +6128,8 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER_1 {
@@ -6161,8 +6161,8 @@ impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER_1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER_1_0 {
@@ -6210,8 +6210,8 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER32 {
@@ -6235,8 +6235,8 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER32_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER32_0 {
@@ -6268,8 +6268,8 @@ impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER32_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER32_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER32_0_0 {
@@ -6301,8 +6301,8 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER32_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER32_1 {
@@ -6334,8 +6334,8 @@ impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER32_1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER32_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER32_1_0 {
@@ -6383,8 +6383,8 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER64 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER64 {
@@ -6408,8 +6408,8 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER64_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER64_0 {
@@ -6441,8 +6441,8 @@ impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER64_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER64_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER64_0_0 {
@@ -6474,8 +6474,8 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER64_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER64_1 {
@@ -6507,8 +6507,8 @@ impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER64_1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_LOGFILE_HEADER64_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER64_1_0 {
@@ -6542,8 +6542,8 @@ impl ::core::fmt::Debug for TRACE_PERIODIC_CAPTURE_STATE_INFO {
         f.debug_struct("TRACE_PERIODIC_CAPTURE_STATE_INFO").field("CaptureStateFrequencyInSeconds", &self.CaptureStateFrequencyInSeconds).field("ProviderCount", &self.ProviderCount).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_PERIODIC_CAPTURE_STATE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_PERIODIC_CAPTURE_STATE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRACE_PERIODIC_CAPTURE_STATE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6573,8 +6573,8 @@ impl ::core::fmt::Debug for TRACE_PROFILE_INTERVAL {
         f.debug_struct("TRACE_PROFILE_INTERVAL").field("Source", &self.Source).field("Interval", &self.Interval).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_PROFILE_INTERVAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_PROFILE_INTERVAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRACE_PROFILE_INTERVAL {
     fn eq(&self, other: &Self) -> bool {
@@ -6605,8 +6605,8 @@ impl ::core::fmt::Debug for TRACE_PROVIDER_INFO {
         f.debug_struct("TRACE_PROVIDER_INFO").field("ProviderGuid", &self.ProviderGuid).field("SchemaSource", &self.SchemaSource).field("ProviderNameOffset", &self.ProviderNameOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_PROVIDER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_PROVIDER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRACE_PROVIDER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6638,8 +6638,8 @@ impl ::core::fmt::Debug for TRACE_PROVIDER_INSTANCE_INFO {
         f.debug_struct("TRACE_PROVIDER_INSTANCE_INFO").field("NextOffset", &self.NextOffset).field("EnableCount", &self.EnableCount).field("Pid", &self.Pid).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_PROVIDER_INSTANCE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_PROVIDER_INSTANCE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRACE_PROVIDER_INSTANCE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6675,8 +6675,8 @@ impl ::core::fmt::Debug for TRACE_STACK_CACHING_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRACE_STACK_CACHING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_STACK_CACHING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRACE_STACK_CACHING_INFO {
@@ -6709,8 +6709,8 @@ impl ::core::fmt::Debug for TRACE_VERSION_INFO {
         f.debug_struct("TRACE_VERSION_INFO").field("EtwTraceProcessingVersion", &self.EtwTraceProcessingVersion).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRACE_VERSION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACE_VERSION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRACE_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6737,8 +6737,8 @@ impl ::core::clone::Clone for WMIREGGUIDW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WMIREGGUIDW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WMIREGGUIDW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WMIREGGUIDW {
     fn default() -> Self {
@@ -6759,8 +6759,8 @@ impl ::core::clone::Clone for WMIREGGUIDW_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WMIREGGUIDW_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WMIREGGUIDW_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WMIREGGUIDW_0 {
     fn default() -> Self {
@@ -6783,8 +6783,8 @@ impl ::core::clone::Clone for WMIREGINFOW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WMIREGINFOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WMIREGINFOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WMIREGINFOW {
     fn default() -> Self {
@@ -6810,8 +6810,8 @@ impl ::core::clone::Clone for WNODE_ALL_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_ALL_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_ALL_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_ALL_DATA {
@@ -6835,8 +6835,8 @@ impl ::core::clone::Clone for WNODE_ALL_DATA_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_ALL_DATA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_ALL_DATA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_ALL_DATA_0 {
@@ -6859,8 +6859,8 @@ impl ::core::clone::Clone for WNODE_EVENT_ITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_EVENT_ITEM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_EVENT_ITEM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_EVENT_ITEM {
@@ -6886,8 +6886,8 @@ impl ::core::clone::Clone for WNODE_EVENT_REFERENCE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_EVENT_REFERENCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_EVENT_REFERENCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_EVENT_REFERENCE {
@@ -6911,8 +6911,8 @@ impl ::core::clone::Clone for WNODE_EVENT_REFERENCE_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_EVENT_REFERENCE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_EVENT_REFERENCE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_EVENT_REFERENCE_0 {
@@ -6941,8 +6941,8 @@ impl ::core::clone::Clone for WNODE_HEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_HEADER {
@@ -6966,8 +6966,8 @@ impl ::core::clone::Clone for WNODE_HEADER_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_HEADER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_HEADER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_HEADER_0 {
@@ -6997,8 +6997,8 @@ impl ::core::fmt::Debug for WNODE_HEADER_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_HEADER_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_HEADER_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WNODE_HEADER_0_0 {
@@ -7031,8 +7031,8 @@ impl ::core::clone::Clone for WNODE_HEADER_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_HEADER_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_HEADER_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_HEADER_1 {
@@ -7061,8 +7061,8 @@ impl ::core::clone::Clone for WNODE_METHOD_ITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_METHOD_ITEM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_METHOD_ITEM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_METHOD_ITEM {
@@ -7090,8 +7090,8 @@ impl ::core::clone::Clone for WNODE_SINGLE_INSTANCE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_SINGLE_INSTANCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_SINGLE_INSTANCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_SINGLE_INSTANCE {
@@ -7120,8 +7120,8 @@ impl ::core::clone::Clone for WNODE_SINGLE_ITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_SINGLE_ITEM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_SINGLE_ITEM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_SINGLE_ITEM {
@@ -7145,8 +7145,8 @@ impl ::core::clone::Clone for WNODE_TOO_SMALL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WNODE_TOO_SMALL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNODE_TOO_SMALL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_TOO_SMALL {

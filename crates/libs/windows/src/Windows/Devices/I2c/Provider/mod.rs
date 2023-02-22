@@ -5,17 +5,12 @@ impl II2cControllerProvider {
     pub fn GetDeviceProvider(&self, settings: &ProviderI2cConnectionSettings) -> ::windows::core::Result<II2cDeviceProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeviceProvider)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(settings), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<II2cDeviceProvider>();
+            (::windows::core::Vtable::vtable(this).GetDeviceProvider)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(settings), &mut result__).from_abi(result__)
         }
     }
 }
 ::windows::core::interface_hierarchy!(II2cControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for II2cControllerProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for II2cControllerProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27,15 +22,16 @@ impl ::core::fmt::Debug for II2cControllerProvider {
         f.debug_tuple("II2cControllerProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for II2cControllerProvider {
+impl ::windows::core::RuntimeType for II2cControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61c2bb82-4510-4163-a87c-4e15a9558980}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for II2cControllerProvider {
     type Vtable = II2cControllerProvider_Vtbl;
+}
+impl ::core::clone::Clone for II2cControllerProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for II2cControllerProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61c2bb82_4510_4163_a87c_4e15a9558980);
@@ -53,8 +49,8 @@ impl II2cDeviceProvider {
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Write(&self, buffer: &[u8]) -> ::windows::core::Result<()> {
@@ -64,8 +60,8 @@ impl II2cDeviceProvider {
     pub fn WritePartial(&self, buffer: &[u8]) -> ::windows::core::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WritePartial)(::windows::core::Vtable::as_raw(this), buffer.len() as u32, buffer.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ProviderI2cTransferResult>();
+            (::windows::core::Vtable::vtable(this).WritePartial)(::windows::core::Vtable::as_raw(this), buffer.len() as u32, buffer.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     pub fn Read(&self, buffer: &mut [u8]) -> ::windows::core::Result<()> {
@@ -75,8 +71,8 @@ impl II2cDeviceProvider {
     pub fn ReadPartial(&self, buffer: &mut [u8]) -> ::windows::core::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ReadPartial)(::windows::core::Vtable::as_raw(this), buffer.len() as u32, buffer.as_mut_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ProviderI2cTransferResult>();
+            (::windows::core::Vtable::vtable(this).ReadPartial)(::windows::core::Vtable::as_raw(this), buffer.len() as u32, buffer.as_mut_ptr(), &mut result__).from_abi(result__)
         }
     }
     pub fn WriteRead(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()> {
@@ -86,8 +82,8 @@ impl II2cDeviceProvider {
     pub fn WriteReadPartial(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WriteReadPartial)(::windows::core::Vtable::as_raw(this), writebuffer.len() as u32, writebuffer.as_ptr(), readbuffer.len() as u32, readbuffer.as_mut_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ProviderI2cTransferResult>();
+            (::windows::core::Vtable::vtable(this).WriteReadPartial)(::windows::core::Vtable::as_raw(this), writebuffer.len() as u32, writebuffer.as_ptr(), readbuffer.len() as u32, readbuffer.as_mut_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -117,12 +113,7 @@ impl ::core::convert::TryFrom<&II2cDeviceProvider> for ::windows::core::InParam<
     type Error = ::windows::core::Error;
     fn try_from(value: &II2cDeviceProvider) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::clone::Clone for II2cDeviceProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::cmp::PartialEq for II2cDeviceProvider {
@@ -136,15 +127,16 @@ impl ::core::fmt::Debug for II2cDeviceProvider {
         f.debug_tuple("II2cDeviceProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for II2cDeviceProvider {
+impl ::windows::core::RuntimeType for II2cDeviceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ad342654-57e8-453e-8329-d1e447d103a9}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for II2cDeviceProvider {
     type Vtable = II2cDeviceProvider_Vtbl;
+}
+impl ::core::clone::Clone for II2cDeviceProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for II2cDeviceProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad342654_57e8_453e_8329_d1e447d103a9);
@@ -153,7 +145,7 @@ unsafe impl ::windows::core::Interface for II2cDeviceProvider {
 #[doc(hidden)]
 pub struct II2cDeviceProvider_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> ::windows::core::HRESULT,
     pub WritePartial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8, result__: *mut ProviderI2cTransferResult) -> ::windows::core::HRESULT,
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> ::windows::core::HRESULT,
@@ -170,17 +162,12 @@ impl II2cProvider {
     pub fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetControllersAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>>();
+            (::windows::core::Vtable::vtable(this).GetControllersAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
 ::windows::core::interface_hierarchy!(II2cProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for II2cProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for II2cProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -192,15 +179,16 @@ impl ::core::fmt::Debug for II2cProvider {
         f.debug_tuple("II2cProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for II2cProvider {
+impl ::windows::core::RuntimeType for II2cProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6f13083e-bf62-4fe2-a95a-f08999669818}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for II2cProvider {
     type Vtable = II2cProvider_Vtbl;
+}
+impl ::core::clone::Clone for II2cProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for II2cProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f13083e_bf62_4fe2_a95a_f08999669818);
@@ -219,6 +207,11 @@ pub struct II2cProvider_Vtbl {
 pub struct IProviderI2cConnectionSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IProviderI2cConnectionSettings {
     type Vtable = IProviderI2cConnectionSettings_Vtbl;
+}
+impl ::core::clone::Clone for IProviderI2cConnectionSettings {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IProviderI2cConnectionSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9db4e34_e510_44b7_809d_f2f85b555339);
@@ -241,8 +234,8 @@ impl ProviderI2cConnectionSettings {
     pub fn SlaveAddress(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SlaveAddress)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).SlaveAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSlaveAddress(&self, value: i32) -> ::windows::core::Result<()> {
@@ -252,8 +245,8 @@ impl ProviderI2cConnectionSettings {
     pub fn BusSpeed(&self) -> ::windows::core::Result<ProviderI2cBusSpeed> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BusSpeed)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ProviderI2cBusSpeed>();
+            (::windows::core::Vtable::vtable(this).BusSpeed)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetBusSpeed(&self, value: ProviderI2cBusSpeed) -> ::windows::core::Result<()> {
@@ -263,18 +256,13 @@ impl ProviderI2cConnectionSettings {
     pub fn SharingMode(&self) -> ::windows::core::Result<ProviderI2cSharingMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SharingMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ProviderI2cSharingMode>();
+            (::windows::core::Vtable::vtable(this).SharingMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSharingMode(&self, value: ProviderI2cSharingMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetSharingMode)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for ProviderI2cConnectionSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for ProviderI2cConnectionSettings {
@@ -288,11 +276,12 @@ impl ::core::fmt::Debug for ProviderI2cConnectionSettings {
         f.debug_tuple("ProviderI2cConnectionSettings").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ProviderI2cConnectionSettings {
+impl ::windows::core::RuntimeType for ProviderI2cConnectionSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings;{e9db4e34-e510-44b7-809d-f2f85b555339})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for ProviderI2cConnectionSettings {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for ProviderI2cConnectionSettings {
@@ -326,20 +315,16 @@ impl ::core::default::Default for ProviderI2cBusSpeed {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ProviderI2cBusSpeed {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ProviderI2cBusSpeed {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ProviderI2cBusSpeed {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProviderI2cBusSpeed").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ProviderI2cBusSpeed {
+impl ::windows::core::RuntimeType for ProviderI2cBusSpeed {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cBusSpeed;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
@@ -360,20 +345,16 @@ impl ::core::default::Default for ProviderI2cSharingMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ProviderI2cSharingMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ProviderI2cSharingMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ProviderI2cSharingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProviderI2cSharingMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ProviderI2cSharingMode {
+impl ::windows::core::RuntimeType for ProviderI2cSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cSharingMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
@@ -395,20 +376,16 @@ impl ::core::default::Default for ProviderI2cTransferStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ProviderI2cTransferStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ProviderI2cTransferStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ProviderI2cTransferStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProviderI2cTransferStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ProviderI2cTransferStatus {
+impl ::windows::core::RuntimeType for ProviderI2cTransferStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
@@ -427,15 +404,11 @@ impl ::core::fmt::Debug for ProviderI2cTransferResult {
         f.debug_struct("ProviderI2cTransferResult").field("Status", &self.Status).field("BytesTransferred", &self.BytesTransferred).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ProviderI2cTransferResult {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ProviderI2cTransferResult {
+    type TypeKind = ::windows::core::CopyType;
 }
-unsafe impl ::windows::core::RuntimeType for ProviderI2cTransferResult {
+impl ::windows::core::RuntimeType for ProviderI2cTransferResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.I2c.Provider.ProviderI2cTransferResult;enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4);u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 impl ::core::cmp::PartialEq for ProviderI2cTransferResult {
     fn eq(&self, other: &Self) -> bool {

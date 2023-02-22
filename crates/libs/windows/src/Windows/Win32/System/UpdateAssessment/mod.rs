@@ -5,16 +5,11 @@ impl IWaaSAssessor {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows::core::Result<OSUpdateAssessment> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOSUpdateAssessment)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OSUpdateAssessment>();
+        (::windows::core::Vtable::vtable(self).GetOSUpdateAssessment)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWaaSAssessor, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWaaSAssessor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWaaSAssessor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28,6 +23,11 @@ impl ::core::fmt::Debug for IWaaSAssessor {
 }
 unsafe impl ::windows::core::Vtable for IWaaSAssessor {
     type Vtable = IWaaSAssessor_Vtbl;
+}
+impl ::core::clone::Clone for IWaaSAssessor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWaaSAssessor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
@@ -82,8 +82,8 @@ impl ::core::default::Default for UpdateAssessmentStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UpdateAssessmentStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UpdateAssessmentStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UpdateAssessmentStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -113,8 +113,8 @@ impl ::core::default::Default for UpdateImpactLevel {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UpdateImpactLevel {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UpdateImpactLevel {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UpdateImpactLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -162,8 +162,8 @@ impl ::core::fmt::Debug for OSUpdateAssessment {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OSUpdateAssessment {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OSUpdateAssessment {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OSUpdateAssessment {
@@ -197,8 +197,8 @@ impl ::core::fmt::Debug for UpdateAssessment {
         f.debug_struct("UpdateAssessment").field("status", &self.status).field("impact", &self.impact).field("daysOutOfDate", &self.daysOutOfDate).finish()
     }
 }
-unsafe impl ::windows::core::Abi for UpdateAssessment {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UpdateAssessment {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UpdateAssessment {
     fn eq(&self, other: &Self) -> bool {

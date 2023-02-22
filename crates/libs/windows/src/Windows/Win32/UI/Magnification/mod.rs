@@ -198,8 +198,8 @@ impl ::core::default::Default for MW_FILTERMODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MW_FILTERMODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MW_FILTERMODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MW_FILTERMODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -222,8 +222,8 @@ impl ::core::fmt::Debug for MAGCOLOREFFECT {
         f.debug_struct("MAGCOLOREFFECT").field("transform", &self.transform).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MAGCOLOREFFECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAGCOLOREFFECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MAGCOLOREFFECT {
     fn eq(&self, other: &Self) -> bool {
@@ -257,8 +257,8 @@ impl ::core::fmt::Debug for MAGIMAGEHEADER {
         f.debug_struct("MAGIMAGEHEADER").field("width", &self.width).field("height", &self.height).field("format", &self.format).field("stride", &self.stride).field("offset", &self.offset).field("cbSize", &self.cbSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MAGIMAGEHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAGIMAGEHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MAGIMAGEHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -287,8 +287,8 @@ impl ::core::fmt::Debug for MAGTRANSFORM {
         f.debug_struct("MAGTRANSFORM").field("v", &self.v).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MAGTRANSFORM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAGTRANSFORM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MAGTRANSFORM {
     fn eq(&self, other: &Self) -> bool {

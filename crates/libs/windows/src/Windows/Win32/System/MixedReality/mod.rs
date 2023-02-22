@@ -18,8 +18,8 @@ impl ::core::fmt::Debug for PERCEPTION_PAYLOAD_FIELD {
         f.debug_struct("PERCEPTION_PAYLOAD_FIELD").field("FieldId", &self.FieldId).field("OffsetInBytes", &self.OffsetInBytes).field("SizeInBytes", &self.SizeInBytes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PERCEPTION_PAYLOAD_FIELD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PERCEPTION_PAYLOAD_FIELD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PERCEPTION_PAYLOAD_FIELD {
     fn eq(&self, other: &Self) -> bool {
@@ -49,8 +49,8 @@ impl ::core::fmt::Debug for PERCEPTION_STATE_STREAM_TIMESTAMPS {
         f.debug_struct("PERCEPTION_STATE_STREAM_TIMESTAMPS").field("InputTimestampInQpcCounts", &self.InputTimestampInQpcCounts).field("AvailableTimestampInQpcCounts", &self.AvailableTimestampInQpcCounts).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PERCEPTION_STATE_STREAM_TIMESTAMPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PERCEPTION_STATE_STREAM_TIMESTAMPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PERCEPTION_STATE_STREAM_TIMESTAMPS {
     fn eq(&self, other: &Self) -> bool {

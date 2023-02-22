@@ -12,20 +12,15 @@ impl IEnumWIA_DEV_CAPS {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_CAPS>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumWIA_DEV_CAPS, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumWIA_DEV_CAPS {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumWIA_DEV_CAPS {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39,6 +34,11 @@ impl ::core::fmt::Debug for IEnumWIA_DEV_CAPS {
 }
 unsafe impl ::windows::core::Vtable for IEnumWIA_DEV_CAPS {
     type Vtable = IEnumWIA_DEV_CAPS_Vtbl;
+}
+impl ::core::clone::Clone for IEnumWIA_DEV_CAPS {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumWIA_DEV_CAPS {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fcc4287_aca6_11d2_a093_00c04f72dc3c);
@@ -67,20 +67,15 @@ impl IEnumWIA_DEV_INFO {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWIA_DEV_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_INFO>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumWIA_DEV_INFO, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumWIA_DEV_INFO {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumWIA_DEV_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -94,6 +89,11 @@ impl ::core::fmt::Debug for IEnumWIA_DEV_INFO {
 }
 unsafe impl ::windows::core::Vtable for IEnumWIA_DEV_INFO {
     type Vtable = IEnumWIA_DEV_INFO_Vtbl;
+}
+impl ::core::clone::Clone for IEnumWIA_DEV_INFO {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumWIA_DEV_INFO {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e38b83c_8cf1_11d1_bf92_0060081ed811);
@@ -122,20 +122,15 @@ impl IEnumWIA_FORMAT_INFO {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWIA_FORMAT_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWIA_FORMAT_INFO>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumWIA_FORMAT_INFO, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumWIA_FORMAT_INFO {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumWIA_FORMAT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -149,6 +144,11 @@ impl ::core::fmt::Debug for IEnumWIA_FORMAT_INFO {
 }
 unsafe impl ::windows::core::Vtable for IEnumWIA_FORMAT_INFO {
     type Vtable = IEnumWIA_FORMAT_INFO_Vtbl;
+}
+impl ::core::clone::Clone for IEnumWIA_FORMAT_INFO {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumWIA_FORMAT_INFO {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81befc5b_656d_44f1_b24c_d41d51b4dc81);
@@ -177,20 +177,15 @@ impl IEnumWiaItem {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWiaItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWiaItem>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumWiaItem, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumWiaItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumWiaItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -204,6 +199,11 @@ impl ::core::fmt::Debug for IEnumWiaItem {
 }
 unsafe impl ::windows::core::Vtable for IEnumWiaItem {
     type Vtable = IEnumWiaItem_Vtbl;
+}
+impl ::core::clone::Clone for IEnumWiaItem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumWiaItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e8383fc_3391_11d2_9a33_00c04fa36145);
@@ -232,20 +232,15 @@ impl IEnumWiaItem2 {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWiaItem2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWiaItem2>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumWiaItem2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumWiaItem2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumWiaItem2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -259,6 +254,11 @@ impl ::core::fmt::Debug for IEnumWiaItem2 {
 }
 unsafe impl ::windows::core::Vtable for IEnumWiaItem2 {
     type Vtable = IEnumWiaItem2_Vtbl;
+}
+impl ::core::clone::Clone for IEnumWiaItem2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumWiaItem2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59970af4_cd0d_44d9_ab24_52295630e582);
@@ -280,8 +280,8 @@ impl IWiaAppErrorHandler {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWindow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HWND>();
+        (::windows::core::Vtable::vtable(self).GetWindow)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ReportStatus<P0>(&self, lflags: i32, pwiaitem2: P0, hrstatus: ::windows::core::HRESULT, lpercentcomplete: i32) -> ::windows::core::Result<()>
     where
@@ -291,11 +291,6 @@ impl IWiaAppErrorHandler {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaAppErrorHandler, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaAppErrorHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaAppErrorHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -309,6 +304,11 @@ impl ::core::fmt::Debug for IWiaAppErrorHandler {
 }
 unsafe impl ::windows::core::Vtable for IWiaAppErrorHandler {
     type Vtable = IWiaAppErrorHandler_Vtbl;
+}
+impl ::core::clone::Clone for IWiaAppErrorHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWiaAppErrorHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c16186c_d0a6_400c_80f4_d26986a0e734);
@@ -332,11 +332,6 @@ impl IWiaDataCallback {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaDataCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaDataCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaDataCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -350,6 +345,11 @@ impl ::core::fmt::Debug for IWiaDataCallback {
 }
 unsafe impl ::windows::core::Vtable for IWiaDataCallback {
     type Vtable = IWiaDataCallback_Vtbl;
+}
+impl ::core::clone::Clone for IWiaDataCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWiaDataCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
@@ -384,19 +384,14 @@ impl IWiaDataTransfer {
         (::windows::core::Vtable::vtable(self).idtQueryGetData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfe.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn idtEnumWIA_FORMAT_INFO(&self) -> ::windows::core::Result<IEnumWIA_FORMAT_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).idtEnumWIA_FORMAT_INFO)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWIA_FORMAT_INFO>();
+        (::windows::core::Vtable::vtable(self).idtEnumWIA_FORMAT_INFO)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn idtGetExtendedTransferInfo(&self, pextendedtransferinfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).idtGetExtendedTransferInfo)(::windows::core::Vtable::as_raw(self), pextendedtransferinfo).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWiaDataTransfer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaDataTransfer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaDataTransfer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -410,6 +405,11 @@ impl ::core::fmt::Debug for IWiaDataTransfer {
 }
 unsafe impl ::windows::core::Vtable for IWiaDataTransfer {
     type Vtable = IWiaDataTransfer_Vtbl;
+}
+impl ::core::clone::Clone for IWiaDataTransfer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWiaDataTransfer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
@@ -435,12 +435,12 @@ pub struct IWiaDataTransfer_Vtbl {
 pub struct IWiaDevMgr(::windows::core::IUnknown);
 impl IWiaDevMgr {
     pub unsafe fn EnumDeviceInfo(&self, lflag: i32) -> ::windows::core::Result<IEnumWIA_DEV_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumDeviceInfo)(::windows::core::Vtable::as_raw(self), lflag, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_INFO>();
+        (::windows::core::Vtable::vtable(self).EnumDeviceInfo)(::windows::core::Vtable::as_raw(self), lflag, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateDevice(&self, bstrdeviceid: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaItem>();
+        (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -474,8 +474,8 @@ impl IWiaDevMgr {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWiaEventCallback>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterEventCallbackInterface)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).RegisterEventCallbackInterface)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &::windows::core::BSTR, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: &::windows::core::BSTR, bstrdescription: &::windows::core::BSTR, bstricon: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RegisterEventCallbackCLSID)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, pclsid, ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrdescription), ::core::mem::transmute_copy(bstricon)).ok()
@@ -490,11 +490,6 @@ impl IWiaDevMgr {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaDevMgr, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaDevMgr {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaDevMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -509,6 +504,11 @@ impl ::core::fmt::Debug for IWiaDevMgr {
 unsafe impl ::windows::core::Vtable for IWiaDevMgr {
     type Vtable = IWiaDevMgr_Vtbl;
 }
+impl ::core::clone::Clone for IWiaDevMgr {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDevMgr {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
 }
@@ -517,22 +517,22 @@ unsafe impl ::windows::core::Interface for IWiaDevMgr {
 pub struct IWiaDevMgr_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub EnumDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflag: i32, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceid: *mut ::core::ffi::c_void, ppwiaitemroot: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppwiaitemroot: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub SelectDeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut *mut ::core::ffi::c_void, ppitemroot: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectDeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, ppitemroot: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SelectDeviceDlg: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub SelectDeviceDlgID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectDeviceDlgID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SelectDeviceDlgID: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetImageDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: *mut ::core::ffi::c_void, bstrfilename: *mut ::core::ffi::c_void, pguidformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub GetImageDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: *mut ::core::ffi::c_void, bstrfilename: ::std::mem::MaybeUninit<::windows::core::BSTR>, pguidformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetImageDlg: usize,
-    pub RegisterEventCallbackProgram: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: *mut ::core::ffi::c_void, peventguid: *const ::windows::core::GUID, bstrcommandline: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrdescription: *mut ::core::ffi::c_void, bstricon: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub RegisterEventCallbackInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: *mut ::core::ffi::c_void, peventguid: *const ::windows::core::GUID, piwiaeventcallback: *mut ::core::ffi::c_void, peventobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub RegisterEventCallbackCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: *mut ::core::ffi::c_void, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: *mut ::core::ffi::c_void, bstrdescription: *mut ::core::ffi::c_void, bstricon: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RegisterEventCallbackProgram: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, peventguid: *const ::windows::core::GUID, bstrcommandline: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrdescription: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstricon: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub RegisterEventCallbackInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, peventguid: *const ::windows::core::GUID, piwiaeventcallback: *mut ::core::ffi::c_void, peventobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RegisterEventCallbackCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrdescription: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstricon: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub AddDeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, lflags: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -543,12 +543,12 @@ pub struct IWiaDevMgr_Vtbl {
 pub struct IWiaDevMgr2(::windows::core::IUnknown);
 impl IWiaDevMgr2 {
     pub unsafe fn EnumDeviceInfo(&self, lflags: i32) -> ::windows::core::Result<IEnumWIA_DEV_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumDeviceInfo)(::windows::core::Vtable::as_raw(self), lflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_INFO>();
+        (::windows::core::Vtable::vtable(self).EnumDeviceInfo)(::windows::core::Vtable::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateDevice(&self, lflags: i32, bstrdeviceid: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaItem2>();
+        (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -570,8 +570,8 @@ impl IWiaDevMgr2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWiaEventCallback>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterEventCallbackInterface)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).RegisterEventCallbackInterface)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn RegisterEventCallbackProgram(&self, lflags: i32, bstrdeviceid: &::windows::core::BSTR, peventguid: *const ::windows::core::GUID, bstrfullappname: &::windows::core::BSTR, bstrcommandlinearg: &::windows::core::BSTR, bstrname: &::windows::core::BSTR, bstrdescription: &::windows::core::BSTR, bstricon: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RegisterEventCallbackProgram)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, ::core::mem::transmute_copy(bstrfullappname), ::core::mem::transmute_copy(bstrcommandlinearg), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrdescription), ::core::mem::transmute_copy(bstricon)).ok()
@@ -589,11 +589,6 @@ impl IWiaDevMgr2 {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaDevMgr2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaDevMgr2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaDevMgr2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -608,6 +603,11 @@ impl ::core::fmt::Debug for IWiaDevMgr2 {
 unsafe impl ::windows::core::Vtable for IWiaDevMgr2 {
     type Vtable = IWiaDevMgr2_Vtbl;
 }
+impl ::core::clone::Clone for IWiaDevMgr2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDevMgr2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
 }
@@ -616,20 +616,20 @@ unsafe impl ::windows::core::Interface for IWiaDevMgr2 {
 pub struct IWiaDevMgr2_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub EnumDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: *mut ::core::ffi::c_void, ppwiaitem2root: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppwiaitem2root: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub SelectDeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut *mut ::core::ffi::c_void, ppitemroot: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectDeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, ppitemroot: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SelectDeviceDlg: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub SelectDeviceDlgID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectDeviceDlgID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SelectDeviceDlgID: usize,
-    pub RegisterEventCallbackInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: *mut ::core::ffi::c_void, peventguid: *const ::windows::core::GUID, piwiaeventcallback: *mut ::core::ffi::c_void, peventobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub RegisterEventCallbackProgram: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: *mut ::core::ffi::c_void, peventguid: *const ::windows::core::GUID, bstrfullappname: *mut ::core::ffi::c_void, bstrcommandlinearg: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrdescription: *mut ::core::ffi::c_void, bstricon: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub RegisterEventCallbackCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: *mut ::core::ffi::c_void, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: *mut ::core::ffi::c_void, bstrdescription: *mut ::core::ffi::c_void, bstricon: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RegisterEventCallbackInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, peventguid: *const ::windows::core::GUID, piwiaeventcallback: *mut ::core::ffi::c_void, peventobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RegisterEventCallbackProgram: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, peventguid: *const ::windows::core::GUID, bstrfullappname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrcommandlinearg: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrdescription: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstricon: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub RegisterEventCallbackCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrdescription: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstricon: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetImageDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, bstrfoldername: *mut ::core::ffi::c_void, bstrfilename: *mut ::core::ffi::c_void, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows::core::BSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetImageDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, hwndparent: super::super::Foundation::HWND, bstrfoldername: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrfilename: ::std::mem::MaybeUninit<::windows::core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows::core::BSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetImageDlg: usize,
 }
@@ -638,20 +638,20 @@ pub struct IWiaDevMgr2_Vtbl {
 pub struct IWiaDrvItem(::windows::core::IUnknown);
 impl IWiaDrvItem {
     pub unsafe fn GetItemFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItemFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).GetItemFlags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDeviceSpecContext(&self) -> ::windows::core::Result<*mut u8> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDeviceSpecContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut u8>();
+        (::windows::core::Vtable::vtable(self).GetDeviceSpecContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFullItemName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFullItemName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetFullItemName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetItemName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItemName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetItemName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddItemToFolder<P0>(&self, __midl__iwiadrvitem0004: P0) -> ::windows::core::Result<()>
     where
@@ -666,36 +666,31 @@ impl IWiaDrvItem {
         (::windows::core::Vtable::vtable(self).RemoveItemFromFolder)(::windows::core::Vtable::as_raw(self), __midl__iwiadrvitem0006).ok()
     }
     pub unsafe fn FindItemByName(&self, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: &::windows::core::BSTR) -> ::windows::core::Result<IWiaDrvItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindItemByName)(::windows::core::Vtable::as_raw(self), __midl__iwiadrvitem0007, ::core::mem::transmute_copy(__midl__iwiadrvitem0008), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaDrvItem>();
+        (::windows::core::Vtable::vtable(self).FindItemByName)(::windows::core::Vtable::as_raw(self), __midl__iwiadrvitem0007, ::core::mem::transmute_copy(__midl__iwiadrvitem0008), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindChildItemByName(&self, __midl__iwiadrvitem0010: &::windows::core::BSTR) -> ::windows::core::Result<IWiaDrvItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindChildItemByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(__midl__iwiadrvitem0010), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaDrvItem>();
+        (::windows::core::Vtable::vtable(self).FindChildItemByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(__midl__iwiadrvitem0010), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParentItem(&self) -> ::windows::core::Result<IWiaDrvItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParentItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaDrvItem>();
+        (::windows::core::Vtable::vtable(self).GetParentItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFirstChildItem(&self) -> ::windows::core::Result<IWiaDrvItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFirstChildItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaDrvItem>();
+        (::windows::core::Vtable::vtable(self).GetFirstChildItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextSiblingItem(&self) -> ::windows::core::Result<IWiaDrvItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNextSiblingItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaDrvItem>();
+        (::windows::core::Vtable::vtable(self).GetNextSiblingItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DumpItemData(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DumpItemData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).DumpItemData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWiaDrvItem, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaDrvItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaDrvItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -710,6 +705,11 @@ impl ::core::fmt::Debug for IWiaDrvItem {
 unsafe impl ::windows::core::Vtable for IWiaDrvItem {
     type Vtable = IWiaDrvItem_Vtbl;
 }
+impl ::core::clone::Clone for IWiaDrvItem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDrvItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
 }
@@ -719,17 +719,17 @@ pub struct IWiaDrvItem_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetItemFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0000: *mut i32) -> ::windows::core::HRESULT,
     pub GetDeviceSpecContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0001: *mut *mut u8) -> ::windows::core::HRESULT,
-    pub GetFullItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0002: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0003: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFullItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0002: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0003: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub AddItemToFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0004: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnlinkItemTree: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0005: i32) -> ::windows::core::HRESULT,
     pub RemoveItemFromFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0006: i32) -> ::windows::core::HRESULT,
-    pub FindItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: *mut ::core::ffi::c_void, __midl__iwiadrvitem0009: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub FindChildItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0010: *mut ::core::ffi::c_void, __midl__iwiadrvitem0011: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: ::std::mem::MaybeUninit<::windows::core::BSTR>, __midl__iwiadrvitem0009: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindChildItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0010: ::std::mem::MaybeUninit<::windows::core::BSTR>, __midl__iwiadrvitem0011: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetParentItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0012: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFirstChildItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0013: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNextSiblingItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0014: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DumpItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0015: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DumpItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0015: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
@@ -748,16 +748,11 @@ impl IWiaErrorHandler {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWiaItem2>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStatusDescription)(::windows::core::Vtable::as_raw(self), lflags, pwiaitem2.into().abi(), hrstatus, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetStatusDescription)(::windows::core::Vtable::as_raw(self), lflags, pwiaitem2.into().abi(), hrstatus, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWiaErrorHandler, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaErrorHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaErrorHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -772,6 +767,11 @@ impl ::core::fmt::Debug for IWiaErrorHandler {
 unsafe impl ::windows::core::Vtable for IWiaErrorHandler {
     type Vtable = IWiaErrorHandler_Vtbl;
 }
+impl ::core::clone::Clone for IWiaErrorHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaErrorHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
 }
@@ -783,7 +783,7 @@ pub struct IWiaErrorHandler_Vtbl {
     pub ReportStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, hwndparent: super::super::Foundation::HWND, pwiaitem2: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT, lpercentcomplete: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ReportStatus: usize,
-    pub GetStatusDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiaitem2: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT, pbstrdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetStatusDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiaitem2: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT, pbstrdescription: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
@@ -794,11 +794,6 @@ impl IWiaEventCallback {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaEventCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaEventCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaEventCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -813,6 +808,11 @@ impl ::core::fmt::Debug for IWiaEventCallback {
 unsafe impl ::windows::core::Vtable for IWiaEventCallback {
     type Vtable = IWiaEventCallback_Vtbl;
 }
+impl ::core::clone::Clone for IWiaEventCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaEventCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae6287b0_0084_11d2_973b_00a0c9068f2e);
 }
@@ -820,7 +820,7 @@ unsafe impl ::windows::core::Interface for IWiaEventCallback {
 #[doc(hidden)]
 pub struct IWiaEventCallback_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub ImageEventCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventguid: *const ::windows::core::GUID, bstreventdescription: *mut ::core::ffi::c_void, bstrdeviceid: *mut ::core::ffi::c_void, bstrdevicedescription: *mut ::core::ffi::c_void, dwdevicetype: u32, bstrfullitemname: *mut ::core::ffi::c_void, puleventtype: *mut u32, ulreserved: u32) -> ::windows::core::HRESULT,
+    pub ImageEventCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventguid: *const ::windows::core::GUID, bstreventdescription: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrdevicedescription: ::std::mem::MaybeUninit<::windows::core::BSTR>, dwdevicetype: u32, bstrfullitemname: ::std::mem::MaybeUninit<::windows::core::BSTR>, puleventtype: *mut u32, ulreserved: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
@@ -856,11 +856,6 @@ impl IWiaImageFilter {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaImageFilter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaImageFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaImageFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -874,6 +869,11 @@ impl ::core::fmt::Debug for IWiaImageFilter {
 }
 unsafe impl ::windows::core::Vtable for IWiaImageFilter {
     type Vtable = IWiaImageFilter_Vtbl;
+}
+impl ::core::clone::Clone for IWiaImageFilter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWiaImageFilter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
@@ -895,30 +895,30 @@ pub struct IWiaImageFilter_Vtbl {
 pub struct IWiaItem(::windows::core::IUnknown);
 impl IWiaItem {
     pub unsafe fn GetItemType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItemType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).GetItemType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AnalyzeItem(&self, lflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AnalyzeItem)(::windows::core::Vtable::as_raw(self), lflags).ok()
     }
     pub unsafe fn EnumChildItems(&self) -> ::windows::core::Result<IEnumWiaItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumChildItems)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWiaItem>();
+        (::windows::core::Vtable::vtable(self).EnumChildItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteItem(&self, lflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteItem)(::windows::core::Vtable::as_raw(self), lflags).ok()
     }
     pub unsafe fn CreateChildItem(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateChildItem)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaItem>();
+        (::windows::core::Vtable::vtable(self).CreateChildItem)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRegisterEventInfo)(::windows::core::Vtable::as_raw(self), lflags, peventguid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_CAPS>();
+        (::windows::core::Vtable::vtable(self).EnumRegisterEventInfo)(::windows::core::Vtable::as_raw(self), lflags, peventguid, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindItemByName(&self, lflags: i32, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindItemByName)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrfullitemname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaItem>();
+        (::windows::core::Vtable::vtable(self).FindItemByName)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -932,35 +932,30 @@ impl IWiaItem {
         (::windows::core::Vtable::vtable(self).DeviceCommand)(::windows::core::Vtable::as_raw(self), lflags, pcmdguid, ::core::mem::transmute(piwiaitem)).ok()
     }
     pub unsafe fn GetRootItem(&self) -> ::windows::core::Result<IWiaItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRootItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaItem>();
+        (::windows::core::Vtable::vtable(self).GetRootItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumDeviceCapabilities)(::windows::core::Vtable::as_raw(self), lflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_CAPS>();
+        (::windows::core::Vtable::vtable(self).EnumDeviceCapabilities)(::windows::core::Vtable::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn DumpItemData(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DumpItemData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).DumpItemData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DumpDrvItemData(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DumpDrvItemData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).DumpDrvItemData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DumpTreeItemData(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DumpTreeItemData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).DumpTreeItemData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Diagnostic)(::windows::core::Vtable::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWiaItem, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -975,6 +970,11 @@ impl ::core::fmt::Debug for IWiaItem {
 unsafe impl ::windows::core::Vtable for IWiaItem {
     type Vtable = IWiaItem_Vtbl;
 }
+impl ::core::clone::Clone for IWiaItem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4db1ad10_3391_11d2_9a33_00c04fa36145);
 }
@@ -986,9 +986,9 @@ pub struct IWiaItem_Vtbl {
     pub AnalyzeItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32) -> ::windows::core::HRESULT,
     pub EnumChildItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienumwiaitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DeleteItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32) -> ::windows::core::HRESULT,
-    pub CreateChildItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstritemname: *mut ::core::ffi::c_void, bstrfullitemname: *mut ::core::ffi::c_void, ppiwiaitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateChildItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstritemname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrfullitemname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppiwiaitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumRegisterEventInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, peventguid: *const ::windows::core::GUID, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub FindItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrfullitemname: *mut ::core::ffi::c_void, ppiwiaitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrfullitemname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppiwiaitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub DeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut ::core::option::Option<IWiaItem>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -996,9 +996,9 @@ pub struct IWiaItem_Vtbl {
     pub DeviceCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pcmdguid: *const ::windows::core::GUID, piwiaitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRootItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwiaitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumDeviceCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, ppienumwia_dev_caps: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DumpItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DumpDrvItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DumpTreeItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DumpItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdata: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DumpDrvItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdata: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DumpTreeItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdata: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Diagnostic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsize: u32, pbuffer: *const u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -1006,27 +1006,27 @@ pub struct IWiaItem_Vtbl {
 pub struct IWiaItem2(::windows::core::IUnknown);
 impl IWiaItem2 {
     pub unsafe fn CreateChildItem(&self, litemflags: i32, lcreationflags: i32, bstritemname: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateChildItem)(::windows::core::Vtable::as_raw(self), litemflags, lcreationflags, ::core::mem::transmute_copy(bstritemname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaItem2>();
+        (::windows::core::Vtable::vtable(self).CreateChildItem)(::windows::core::Vtable::as_raw(self), litemflags, lcreationflags, ::core::mem::transmute_copy(bstritemname), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteItem(&self, lflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteItem)(::windows::core::Vtable::as_raw(self), lflags).ok()
     }
     pub unsafe fn EnumChildItems(&self, pcategoryguid: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<IEnumWiaItem2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumChildItems)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcategoryguid.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWiaItem2>();
+        (::windows::core::Vtable::vtable(self).EnumChildItems)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcategoryguid.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindItemByName(&self, lflags: i32, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindItemByName)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrfullitemname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaItem2>();
+        (::windows::core::Vtable::vtable(self).FindItemByName)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetItemCategory(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItemCategory)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).GetItemCategory)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetItemType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItemType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).GetItemType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1040,8 +1040,8 @@ impl IWiaItem2 {
         (::windows::core::Vtable::vtable(self).DeviceCommand)(::windows::core::Vtable::as_raw(self), lflags, pcmdguid, ::core::mem::transmute(ppiwiaitem2)).ok()
     }
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumDeviceCapabilities)(::windows::core::Vtable::as_raw(self), lflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_CAPS>();
+        (::windows::core::Vtable::vtable(self).EnumDeviceCapabilities)(::windows::core::Vtable::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1052,31 +1052,26 @@ impl IWiaItem2 {
         (::windows::core::Vtable::vtable(self).GetExtension)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrname), riidextensioninterface, ppout).ok()
     }
     pub unsafe fn GetParentItem(&self) -> ::windows::core::Result<IWiaItem2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParentItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaItem2>();
+        (::windows::core::Vtable::vtable(self).GetParentItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRootItem(&self) -> ::windows::core::Result<IWiaItem2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRootItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaItem2>();
+        (::windows::core::Vtable::vtable(self).GetRootItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPreviewComponent(&self, lflags: i32) -> ::windows::core::Result<IWiaPreview> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPreviewComponent)(::windows::core::Vtable::as_raw(self), lflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWiaPreview>();
+        (::windows::core::Vtable::vtable(self).GetPreviewComponent)(::windows::core::Vtable::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRegisterEventInfo)(::windows::core::Vtable::as_raw(self), lflags, peventguid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_CAPS>();
+        (::windows::core::Vtable::vtable(self).EnumRegisterEventInfo)(::windows::core::Vtable::as_raw(self), lflags, peventguid, &mut result__).from_abi(result__)
     }
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Diagnostic)(::windows::core::Vtable::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWiaItem2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaItem2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaItem2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1091,6 +1086,11 @@ impl ::core::fmt::Debug for IWiaItem2 {
 unsafe impl ::windows::core::Vtable for IWiaItem2 {
     type Vtable = IWiaItem2_Vtbl;
 }
+impl ::core::clone::Clone for IWiaItem2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaItem2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cba0075_1287_407d_9b77_cf0e030435cc);
 }
@@ -1098,23 +1098,23 @@ unsafe impl ::windows::core::Interface for IWiaItem2 {
 #[doc(hidden)]
 pub struct IWiaItem2_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CreateChildItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, litemflags: i32, lcreationflags: i32, bstritemname: *mut ::core::ffi::c_void, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateChildItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, litemflags: i32, lcreationflags: i32, bstritemname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DeleteItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32) -> ::windows::core::HRESULT,
     pub EnumChildItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcategoryguid: *const ::windows::core::GUID, ppienumwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub FindItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrfullitemname: *mut ::core::ffi::c_void, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrfullitemname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetItemCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitemcategoryguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetItemType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitemtype: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub DeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, hwndparent: super::super::Foundation::HWND, bstrfoldername: *mut ::core::ffi::c_void, bstrfilename: *mut ::core::ffi::c_void, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows::core::BSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, hwndparent: super::super::Foundation::HWND, bstrfoldername: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrfilename: ::std::mem::MaybeUninit<::windows::core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows::core::BSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     DeviceDlg: usize,
     pub DeviceCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pcmdguid: *const ::windows::core::GUID, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumDeviceCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, ppienumwia_dev_caps: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub CheckExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrname: *mut ::core::ffi::c_void, riidextensioninterface: *const ::windows::core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub CheckExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, riidextensioninterface: *const ::windows::core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CheckExtension: usize,
-    pub GetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrname: *mut ::core::ffi::c_void, riidextensioninterface: *const ::windows::core::GUID, ppout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, riidextensioninterface: *const ::windows::core::GUID, ppout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetParentItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRootItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetPreviewComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, ppwiapreview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1126,8 +1126,8 @@ pub struct IWiaItem2_Vtbl {
 pub struct IWiaItemExtras(::windows::core::IUnknown);
 impl IWiaItemExtras {
     pub unsafe fn GetExtendedErrorInfo(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetExtendedErrorInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetExtendedErrorInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Escape(&self, dwescapecode: u32, lpindata: &[u8], poutdata: *mut u8, dwoutdatasize: u32, pdwactualdatasize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Escape)(::windows::core::Vtable::as_raw(self), dwescapecode, ::core::mem::transmute(lpindata.as_ptr()), lpindata.len() as _, poutdata, dwoutdatasize, pdwactualdatasize).ok()
@@ -1137,11 +1137,6 @@ impl IWiaItemExtras {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaItemExtras, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaItemExtras {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaItemExtras {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1156,6 +1151,11 @@ impl ::core::fmt::Debug for IWiaItemExtras {
 unsafe impl ::windows::core::Vtable for IWiaItemExtras {
     type Vtable = IWiaItemExtras_Vtbl;
 }
+impl ::core::clone::Clone for IWiaItemExtras {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaItemExtras {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6291ef2c_36ef_4532_876a_8e132593778d);
 }
@@ -1163,7 +1163,7 @@ unsafe impl ::windows::core::Interface for IWiaItemExtras {
 #[doc(hidden)]
 pub struct IWiaItemExtras_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetExtendedErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrerrortext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetExtendedErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrerrortext: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Escape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwescapecode: u32, lpindata: *const u8, cbindatasize: u32, poutdata: *mut u8, dwoutdatasize: u32, pdwactualdatasize: *mut u32) -> ::windows::core::HRESULT,
     pub CancelPendingIO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1182,11 +1182,6 @@ impl IWiaLog {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaLog, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaLog {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaLog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1201,6 +1196,11 @@ impl ::core::fmt::Debug for IWiaLog {
 unsafe impl ::windows::core::Vtable for IWiaLog {
     type Vtable = IWiaLog_Vtbl;
 }
+impl ::core::clone::Clone for IWiaLog {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaLog {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa00c10b6_82a1_452f_8b6c_86062aad6890);
 }
@@ -1210,7 +1210,7 @@ pub struct IWiaLog_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitializeLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinstance: i32) -> ::windows::core::HRESULT,
     pub hResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    pub Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, lresid: i32, ldetail: i32, bstrtext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, lresid: i32, ldetail: i32, bstrtext: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
@@ -1233,11 +1233,6 @@ impl IWiaLogEx {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaLogEx, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaLogEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaLogEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1252,6 +1247,11 @@ impl ::core::fmt::Debug for IWiaLogEx {
 unsafe impl ::windows::core::Vtable for IWiaLogEx {
     type Vtable = IWiaLogEx_Vtbl;
 }
+impl ::core::clone::Clone for IWiaLogEx {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaLogEx {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
 }
@@ -1261,9 +1261,9 @@ pub struct IWiaLogEx_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitializeLogEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinstance: *const u8) -> ::windows::core::HRESULT,
     pub hResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    pub Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, lresid: i32, ldetail: i32, bstrtext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, lresid: i32, ldetail: i32, bstrtext: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub hResultEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmethodid: i32, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    pub LogEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LogEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
@@ -1282,34 +1282,34 @@ impl IWiaMiniDrv {
         (::windows::core::Vtable::vtable(self).drvAcquireItemData)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0009, __midl__iwiaminidrv0010, __midl__iwiaminidrv0011, __midl__iwiaminidrv0012).ok()
     }
     pub unsafe fn drvInitItemProperties(&self, __midl__iwiaminidrv0013: *const u8, __midl__iwiaminidrv0014: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).drvInitItemProperties)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0013, __midl__iwiaminidrv0014, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).drvInitItemProperties)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0013, __midl__iwiaminidrv0014, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn drvValidateItemProperties(&self, __midl__iwiaminidrv0016: *const u8, __midl__iwiaminidrv0017: i32, __midl__iwiaminidrv0018: u32, __midl__iwiaminidrv0019: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).drvValidateItemProperties)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0016, __midl__iwiaminidrv0017, __midl__iwiaminidrv0018, __midl__iwiaminidrv0019, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).drvValidateItemProperties)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0016, __midl__iwiaminidrv0017, __midl__iwiaminidrv0018, __midl__iwiaminidrv0019, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn drvWriteItemProperties(&self, __midl__iwiaminidrv0021: *const u8, __midl__iwiaminidrv0022: i32, __midl__iwiaminidrv0023: *const MINIDRV_TRANSFER_CONTEXT) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).drvWriteItemProperties)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0021, __midl__iwiaminidrv0022, __midl__iwiaminidrv0023, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).drvWriteItemProperties)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0021, __midl__iwiaminidrv0022, __midl__iwiaminidrv0023, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn drvReadItemProperties(&self, __midl__iwiaminidrv0025: *const u8, __midl__iwiaminidrv0026: i32, __midl__iwiaminidrv0027: u32, __midl__iwiaminidrv0028: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).drvReadItemProperties)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0025, __midl__iwiaminidrv0026, __midl__iwiaminidrv0027, __midl__iwiaminidrv0028, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).drvReadItemProperties)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0025, __midl__iwiaminidrv0026, __midl__iwiaminidrv0027, __midl__iwiaminidrv0028, &mut result__).from_abi(result__)
     }
     pub unsafe fn drvLockWiaDevice(&self, __midl__iwiaminidrv0030: *const u8, __midl__iwiaminidrv0031: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).drvLockWiaDevice)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0030, __midl__iwiaminidrv0031, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).drvLockWiaDevice)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0030, __midl__iwiaminidrv0031, &mut result__).from_abi(result__)
     }
     pub unsafe fn drvUnLockWiaDevice(&self, __midl__iwiaminidrv0033: *const u8, __midl__iwiaminidrv0034: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).drvUnLockWiaDevice)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0033, __midl__iwiaminidrv0034, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).drvUnLockWiaDevice)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0033, __midl__iwiaminidrv0034, &mut result__).from_abi(result__)
     }
     pub unsafe fn drvAnalyzeItem(&self, __midl__iwiaminidrv0036: *const u8, __midl__iwiaminidrv0037: i32, __midl__iwiaminidrv0038: *const i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).drvAnalyzeItem)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0036, __midl__iwiaminidrv0037, __midl__iwiaminidrv0038).ok()
@@ -1324,12 +1324,12 @@ impl IWiaMiniDrv {
         (::windows::core::Vtable::vtable(self).drvGetCapabilities)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0048, __midl__iwiaminidrv0049, __midl__iwiaminidrv0050, __midl__iwiaminidrv0051, __midl__iwiaminidrv0052).ok()
     }
     pub unsafe fn drvDeleteItem(&self, __midl__iwiaminidrv0053: *const u8, __midl__iwiaminidrv0054: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).drvDeleteItem)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0053, __midl__iwiaminidrv0054, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).drvDeleteItem)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0053, __midl__iwiaminidrv0054, &mut result__).from_abi(result__)
     }
     pub unsafe fn drvFreeDrvItemContext(&self, __midl__iwiaminidrv0056: i32, __midl__iwiaminidrv0057: *const u8) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).drvFreeDrvItemContext)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0056, __midl__iwiaminidrv0057, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).drvFreeDrvItemContext)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0056, __midl__iwiaminidrv0057, &mut result__).from_abi(result__)
     }
     pub unsafe fn drvGetWiaFormatInfo(&self, __midl__iwiaminidrv0059: *const u8, __midl__iwiaminidrv0060: i32, __midl__iwiaminidrv0061: *mut i32, __midl__iwiaminidrv0062: *mut *mut WIA_FORMAT_INFO, __midl__iwiaminidrv0063: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).drvGetWiaFormatInfo)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0059, __midl__iwiaminidrv0060, __midl__iwiaminidrv0061, __midl__iwiaminidrv0062, __midl__iwiaminidrv0063).ok()
@@ -1342,11 +1342,6 @@ impl IWiaMiniDrv {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaMiniDrv, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaMiniDrv {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaMiniDrv {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1361,6 +1356,11 @@ impl ::core::fmt::Debug for IWiaMiniDrv {
 unsafe impl ::windows::core::Vtable for IWiaMiniDrv {
     type Vtable = IWiaMiniDrv_Vtbl;
 }
+impl ::core::clone::Clone for IWiaMiniDrv {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaMiniDrv {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
 }
@@ -1368,7 +1368,7 @@ unsafe impl ::windows::core::Interface for IWiaMiniDrv {
 #[doc(hidden)]
 pub struct IWiaMiniDrv_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub drvInitializeWia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: *mut ::core::ffi::c_void, __midl__iwiaminidrv0003: *mut ::core::ffi::c_void, __midl__iwiaminidrv0004: *mut ::core::ffi::c_void, __midl__iwiaminidrv0005: *mut ::core::ffi::c_void, __midl__iwiaminidrv0006: *mut *mut ::core::ffi::c_void, __midl__iwiaminidrv0007: *mut *mut ::core::ffi::c_void, __midl__iwiaminidrv0008: *mut i32) -> ::windows::core::HRESULT,
+    pub drvInitializeWia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: ::std::mem::MaybeUninit<::windows::core::BSTR>, __midl__iwiaminidrv0003: ::std::mem::MaybeUninit<::windows::core::BSTR>, __midl__iwiaminidrv0004: *mut ::core::ffi::c_void, __midl__iwiaminidrv0005: *mut ::core::ffi::c_void, __midl__iwiaminidrv0006: *mut *mut ::core::ffi::c_void, __midl__iwiaminidrv0007: *mut *mut ::core::ffi::c_void, __midl__iwiaminidrv0008: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub drvAcquireItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0009: *const u8, __midl__iwiaminidrv0010: i32, __midl__iwiaminidrv0011: *mut MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0012: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1395,7 +1395,7 @@ pub struct IWiaMiniDrv_Vtbl {
     pub drvDeleteItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0053: *const u8, __midl__iwiaminidrv0054: i32, __midl__iwiaminidrv0055: *mut i32) -> ::windows::core::HRESULT,
     pub drvFreeDrvItemContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0056: i32, __midl__iwiaminidrv0057: *const u8, __midl__iwiaminidrv0058: *mut i32) -> ::windows::core::HRESULT,
     pub drvGetWiaFormatInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0059: *const u8, __midl__iwiaminidrv0060: i32, __midl__iwiaminidrv0061: *mut i32, __midl__iwiaminidrv0062: *mut *mut WIA_FORMAT_INFO, __midl__iwiaminidrv0063: *mut i32) -> ::windows::core::HRESULT,
-    pub drvNotifyPnpEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventguid: *const ::windows::core::GUID, bstrdeviceid: *mut ::core::ffi::c_void, ulreserved: u32) -> ::windows::core::HRESULT,
+    pub drvNotifyPnpEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventguid: *const ::windows::core::GUID, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, ulreserved: u32) -> ::windows::core::HRESULT,
     pub drvUnInitializeWia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0064: *const u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -1409,11 +1409,6 @@ impl IWiaMiniDrvCallBack {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaMiniDrvCallBack, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaMiniDrvCallBack {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaMiniDrvCallBack {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1427,6 +1422,11 @@ impl ::core::fmt::Debug for IWiaMiniDrvCallBack {
 }
 unsafe impl ::windows::core::Vtable for IWiaMiniDrvCallBack {
     type Vtable = IWiaMiniDrvCallBack_Vtbl;
+}
+impl ::core::clone::Clone for IWiaMiniDrvCallBack {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWiaMiniDrvCallBack {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
@@ -1447,19 +1447,14 @@ impl IWiaMiniDrvTransferCallback {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNextStream)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).GetNextStream)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
     }
     pub unsafe fn SendMessage(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SendMessage)(::windows::core::Vtable::as_raw(self), lflags, pwiatransferparams).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWiaMiniDrvTransferCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaMiniDrvTransferCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaMiniDrvTransferCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1474,6 +1469,11 @@ impl ::core::fmt::Debug for IWiaMiniDrvTransferCallback {
 unsafe impl ::windows::core::Vtable for IWiaMiniDrvTransferCallback {
     type Vtable = IWiaMiniDrvTransferCallback_Vtbl;
 }
+impl ::core::clone::Clone for IWiaMiniDrvTransferCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaMiniDrvTransferCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9d2ee89_2ce5_4ff0_8adb_c961d1d774ca);
 }
@@ -1482,7 +1482,7 @@ unsafe impl ::windows::core::Interface for IWiaMiniDrvTransferCallback {
 pub struct IWiaMiniDrvTransferCallback_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetNextStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstritemname: *mut ::core::ffi::c_void, bstrfullitemname: *mut ::core::ffi::c_void, ppistream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetNextStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstritemname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrfullitemname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppistream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNextStream: usize,
     pub SendMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::HRESULT,
@@ -1496,11 +1496,6 @@ impl IWiaNotifyDevMgr {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaNotifyDevMgr, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaNotifyDevMgr {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaNotifyDevMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1514,6 +1509,11 @@ impl ::core::fmt::Debug for IWiaNotifyDevMgr {
 }
 unsafe impl ::windows::core::Vtable for IWiaNotifyDevMgr {
     type Vtable = IWiaNotifyDevMgr_Vtbl;
+}
+impl ::core::clone::Clone for IWiaNotifyDevMgr {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWiaNotifyDevMgr {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e);
@@ -1550,11 +1550,6 @@ impl IWiaPreview {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaPreview, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaPreview {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaPreview {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1568,6 +1563,11 @@ impl ::core::fmt::Debug for IWiaPreview {
 }
 unsafe impl ::windows::core::Vtable for IWiaPreview {
     type Vtable = IWiaPreview_Vtbl;
+}
+impl ::core::clone::Clone for IWiaPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWiaPreview {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7);
@@ -1618,8 +1618,8 @@ impl IWiaPropertyStorage {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Enum(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Enum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG>();
+        (::windows::core::Vtable::vtable(self).Enum)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1640,8 +1640,8 @@ impl IWiaPropertyStorage {
         (::windows::core::Vtable::vtable(self).GetPropertyAttributes)(::windows::core::Vtable::as_raw(self), cpspec, rgpspec, rgflags, rgpropvar).ok()
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1658,11 +1658,6 @@ impl IWiaPropertyStorage {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaPropertyStorage, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaPropertyStorage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaPropertyStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1676,6 +1671,11 @@ impl ::core::fmt::Debug for IWiaPropertyStorage {
 }
 unsafe impl ::windows::core::Vtable for IWiaPropertyStorage {
     type Vtable = IWiaPropertyStorage_Vtbl;
+}
+impl ::core::clone::Clone for IWiaPropertyStorage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWiaPropertyStorage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
@@ -1743,11 +1743,6 @@ impl IWiaSegmentationFilter {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaSegmentationFilter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaSegmentationFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaSegmentationFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1761,6 +1756,11 @@ impl ::core::fmt::Debug for IWiaSegmentationFilter {
 }
 unsafe impl ::windows::core::Vtable for IWiaSegmentationFilter {
     type Vtable = IWiaSegmentationFilter_Vtbl;
+}
+impl ::core::clone::Clone for IWiaSegmentationFilter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWiaSegmentationFilter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec46a697_ac04_4447_8f65_ff63d5154b21);
@@ -1797,16 +1797,11 @@ impl IWiaTransfer {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn EnumWIA_FORMAT_INFO(&self) -> ::windows::core::Result<IEnumWIA_FORMAT_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumWIA_FORMAT_INFO)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumWIA_FORMAT_INFO>();
+        (::windows::core::Vtable::vtable(self).EnumWIA_FORMAT_INFO)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWiaTransfer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaTransfer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaTransfer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1820,6 +1815,11 @@ impl ::core::fmt::Debug for IWiaTransfer {
 }
 unsafe impl ::windows::core::Vtable for IWiaTransfer {
     type Vtable = IWiaTransfer_Vtbl;
+}
+impl ::core::clone::Clone for IWiaTransfer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWiaTransfer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc39d6942_2f4e_4d04_92fe_4ef4d3a1de5a);
@@ -1846,16 +1846,11 @@ impl IWiaTransferCallback {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNextStream)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).GetNextStream)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWiaTransferCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaTransferCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaTransferCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1870,6 +1865,11 @@ impl ::core::fmt::Debug for IWiaTransferCallback {
 unsafe impl ::windows::core::Vtable for IWiaTransferCallback {
     type Vtable = IWiaTransferCallback_Vtbl;
 }
+impl ::core::clone::Clone for IWiaTransferCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaTransferCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
 }
@@ -1879,7 +1879,7 @@ pub struct IWiaTransferCallback_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub TransferCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetNextStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstritemname: *mut ::core::ffi::c_void, bstrfullitemname: *mut ::core::ffi::c_void, ppdestination: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetNextStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstritemname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrfullitemname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppdestination: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNextStream: usize,
 }
@@ -1904,11 +1904,6 @@ impl IWiaUIExtension {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaUIExtension, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaUIExtension {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaUIExtension {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1923,6 +1918,11 @@ impl ::core::fmt::Debug for IWiaUIExtension {
 unsafe impl ::windows::core::Vtable for IWiaUIExtension {
     type Vtable = IWiaUIExtension_Vtbl;
 }
+impl ::core::clone::Clone for IWiaUIExtension {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaUIExtension {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda319113_50ee_4c80_b460_57d005d44a2c);
 }
@@ -1935,11 +1935,11 @@ pub struct IWiaUIExtension_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DeviceDialog: usize,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub GetDeviceIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceid: *mut ::core::ffi::c_void, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::core::HRESULT,
+    pub GetDeviceIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     GetDeviceIcon: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetDeviceBitmapLogo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceid: *mut ::core::ffi::c_void, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> ::windows::core::HRESULT,
+    pub GetDeviceBitmapLogo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetDeviceBitmapLogo: usize,
 }
@@ -1959,11 +1959,6 @@ impl IWiaUIExtension2 {
     }
 }
 ::windows::core::interface_hierarchy!(IWiaUIExtension2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaUIExtension2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaUIExtension2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1978,6 +1973,11 @@ impl ::core::fmt::Debug for IWiaUIExtension2 {
 unsafe impl ::windows::core::Vtable for IWiaUIExtension2 {
     type Vtable = IWiaUIExtension2_Vtbl;
 }
+impl ::core::clone::Clone for IWiaUIExtension2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaUIExtension2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x305600d7_5088_46d7_9a15_b77b09cdba7a);
 }
@@ -1990,7 +1990,7 @@ pub struct IWiaUIExtension2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DeviceDialog: usize,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub GetDeviceIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceid: *mut ::core::ffi::c_void, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::core::HRESULT,
+    pub GetDeviceIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     GetDeviceIcon: usize,
 }
@@ -2001,8 +2001,8 @@ impl IWiaVideo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreviewVisible(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).PreviewVisible)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).PreviewVisible)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2013,8 +2013,8 @@ impl IWiaVideo {
         (::windows::core::Vtable::vtable(self).SetPreviewVisible)(::windows::core::Vtable::as_raw(self), bpreviewvisible.into()).ok()
     }
     pub unsafe fn ImagesDirectory(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ImagesDirectory)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).ImagesDirectory)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetImagesDirectory(&self, bstrimagedirectory: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetImagesDirectory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrimagedirectory)).ok()
@@ -2059,8 +2059,8 @@ impl IWiaVideo {
         (::windows::core::Vtable::vtable(self).Pause)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn TakePicture(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).TakePicture)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).TakePicture)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2071,16 +2071,11 @@ impl IWiaVideo {
         (::windows::core::Vtable::vtable(self).ResizeVideo)(::windows::core::Vtable::as_raw(self), bstretchtofitparent.into()).ok()
     }
     pub unsafe fn GetCurrentState(&self) -> ::windows::core::Result<WIAVIDEO_STATE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrentState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WIAVIDEO_STATE>();
+        (::windows::core::Vtable::vtable(self).GetCurrentState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWiaVideo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWiaVideo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWiaVideo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2094,6 +2089,11 @@ impl ::core::fmt::Debug for IWiaVideo {
 }
 unsafe impl ::windows::core::Vtable for IWiaVideo {
     type Vtable = IWiaVideo_Vtbl;
+}
+impl ::core::clone::Clone for IWiaVideo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWiaVideo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd52920aa_db88_41f0_946c_e00dc0a19cfa);
@@ -2110,10 +2110,10 @@ pub struct IWiaVideo_Vtbl {
     pub SetPreviewVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bpreviewvisible: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetPreviewVisible: usize,
-    pub ImagesDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrimagedirectory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetImagesDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrimagedirectory: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ImagesDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrimagedirectory: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetImagesDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrimagedirectory: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub CreateVideoByWiaDevID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrwiadeviceid: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub CreateVideoByWiaDevID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrwiadeviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateVideoByWiaDevID: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -2121,13 +2121,13 @@ pub struct IWiaVideo_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateVideoByDevNum: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub CreateVideoByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrfriendlyname: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub CreateVideoByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrfriendlyname: ::std::mem::MaybeUninit<::windows::core::BSTR>, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateVideoByName: usize,
     pub DestroyVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Play: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub TakePicture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnewimagefilename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TakePicture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnewimagefilename: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub ResizeVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstretchtofitparent: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4653,8 +4653,8 @@ impl ::core::default::Default for WIAVIDEO_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WIAVIDEO_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIAVIDEO_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WIAVIDEO_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4686,8 +4686,8 @@ impl ::core::fmt::Debug for DEVICEDIALOGDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVICEDIALOGDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVICEDIALOGDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVICEDIALOGDATA {
@@ -4730,8 +4730,8 @@ impl ::core::fmt::Debug for DEVICEDIALOGDATA2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVICEDIALOGDATA2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVICEDIALOGDATA2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVICEDIALOGDATA2 {
@@ -4820,8 +4820,8 @@ impl ::core::fmt::Debug for MINIDRV_TRANSFER_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MINIDRV_TRANSFER_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MINIDRV_TRANSFER_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MINIDRV_TRANSFER_CONTEXT {
@@ -4881,8 +4881,8 @@ impl ::core::fmt::Debug for RANGEVALUE {
         f.debug_struct("RANGEVALUE").field("lMin", &self.lMin).field("lMax", &self.lMax).field("lStep", &self.lStep).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RANGEVALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RANGEVALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RANGEVALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -4988,8 +4988,8 @@ impl ::core::fmt::Debug for SCANINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SCANINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCANINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SCANINFO {
@@ -5059,8 +5059,8 @@ impl ::core::fmt::Debug for SCANWINDOW {
         f.debug_struct("SCANWINDOW").field("xPos", &self.xPos).field("yPos", &self.yPos).field("xExtent", &self.xExtent).field("yExtent", &self.yExtent).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCANWINDOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCANWINDOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCANWINDOW {
     fn eq(&self, other: &Self) -> bool {
@@ -5096,8 +5096,8 @@ impl ::core::fmt::Debug for TWAIN_CAPABILITY {
         f.debug_struct("TWAIN_CAPABILITY").field("lSize", &self.lSize).field("lMSG", &self.lMSG).field("lCapID", &self.lCapID).field("lConType", &self.lConType).field("lRC", &self.lRC).field("lCC", &self.lCC).field("lDataSize", &self.lDataSize).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TWAIN_CAPABILITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TWAIN_CAPABILITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TWAIN_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
@@ -5139,8 +5139,8 @@ impl ::core::fmt::Debug for VAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VAL {
@@ -5172,8 +5172,8 @@ impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIAS_CHANGED_VALUE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO {
@@ -5197,8 +5197,8 @@ impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIAS_CHANGED_VALUE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO_0 {
@@ -5222,8 +5222,8 @@ impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIAS_CHANGED_VALUE_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO_1 {
@@ -5271,8 +5271,8 @@ impl ::core::fmt::Debug for WIAS_DOWN_SAMPLE_INFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIAS_DOWN_SAMPLE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIAS_DOWN_SAMPLE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIAS_DOWN_SAMPLE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5303,8 +5303,8 @@ impl ::core::fmt::Debug for WIAS_ENDORSER_INFO {
         f.debug_struct("WIAS_ENDORSER_INFO").field("ulPageCount", &self.ulPageCount).field("ulNumEndorserValues", &self.ulNumEndorserValues).field("pEndorserValues", &self.pEndorserValues).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIAS_ENDORSER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIAS_ENDORSER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIAS_ENDORSER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5334,8 +5334,8 @@ impl ::core::fmt::Debug for WIAS_ENDORSER_VALUE {
         f.debug_struct("WIAS_ENDORSER_VALUE").field("wszTokenName", &self.wszTokenName).field("wszValue", &self.wszValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIAS_ENDORSER_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIAS_ENDORSER_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIAS_ENDORSER_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -5368,8 +5368,8 @@ impl ::core::fmt::Debug for WIA_BARCODES {
         f.debug_struct("WIA_BARCODES").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Count", &self.Count).field("Barcodes", &self.Barcodes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_BARCODES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_BARCODES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_BARCODES {
     fn eq(&self, other: &Self) -> bool {
@@ -5406,8 +5406,8 @@ impl ::core::fmt::Debug for WIA_BARCODE_INFO {
         f.debug_struct("WIA_BARCODE_INFO").field("Size", &self.Size).field("Type", &self.Type).field("Page", &self.Page).field("Confidence", &self.Confidence).field("XOffset", &self.XOffset).field("YOffset", &self.YOffset).field("Rotation", &self.Rotation).field("Length", &self.Length).field("Text", &self.Text).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_BARCODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_BARCODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_BARCODE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5439,8 +5439,8 @@ impl ::core::fmt::Debug for WIA_DATA_CALLBACK_HEADER {
         f.debug_struct("WIA_DATA_CALLBACK_HEADER").field("lSize", &self.lSize).field("guidFormatID", &self.guidFormatID).field("lBufferSize", &self.lBufferSize).field("lPageCount", &self.lPageCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_DATA_CALLBACK_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_DATA_CALLBACK_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_DATA_CALLBACK_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -5480,8 +5480,8 @@ impl ::core::fmt::Debug for WIA_DATA_TRANSFER_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIA_DATA_TRANSFER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_DATA_TRANSFER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIA_DATA_TRANSFER_INFO {
@@ -5517,8 +5517,8 @@ impl ::core::fmt::Debug for WIA_DEV_CAP {
         f.debug_struct("WIA_DEV_CAP").field("guid", &self.guid).field("ulFlags", &self.ulFlags).field("bstrName", &self.bstrName).field("bstrDescription", &self.bstrDescription).field("bstrIcon", &self.bstrIcon).field("bstrCommandline", &self.bstrCommandline).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_DEV_CAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_DEV_CAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_DEV_CAP {
     fn eq(&self, other: &Self) -> bool {
@@ -5551,8 +5551,8 @@ impl ::core::fmt::Debug for WIA_DEV_CAP_DRV {
         f.debug_struct("WIA_DEV_CAP_DRV").field("guid", &self.guid).field("ulFlags", &self.ulFlags).field("wszName", &self.wszName).field("wszDescription", &self.wszDescription).field("wszIcon", &self.wszIcon).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_DEV_CAP_DRV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_DEV_CAP_DRV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_DEV_CAP_DRV {
     fn eq(&self, other: &Self) -> bool {
@@ -5585,8 +5585,8 @@ impl ::core::fmt::Debug for WIA_DITHER_PATTERN_DATA {
         f.debug_struct("WIA_DITHER_PATTERN_DATA").field("lSize", &self.lSize).field("bstrPatternName", &self.bstrPatternName).field("lPatternWidth", &self.lPatternWidth).field("lPatternLength", &self.lPatternLength).field("cbPattern", &self.cbPattern).field("pbPattern", &self.pbPattern).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_DITHER_PATTERN_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_DITHER_PATTERN_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_DITHER_PATTERN_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -5619,8 +5619,8 @@ impl ::core::fmt::Debug for WIA_EXTENDED_TRANSFER_INFO {
         f.debug_struct("WIA_EXTENDED_TRANSFER_INFO").field("ulSize", &self.ulSize).field("ulMinBufferSize", &self.ulMinBufferSize).field("ulOptimalBufferSize", &self.ulOptimalBufferSize).field("ulMaxBufferSize", &self.ulMaxBufferSize).field("ulNumBuffers", &self.ulNumBuffers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_EXTENDED_TRANSFER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_EXTENDED_TRANSFER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_EXTENDED_TRANSFER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5650,8 +5650,8 @@ impl ::core::fmt::Debug for WIA_FORMAT_INFO {
         f.debug_struct("WIA_FORMAT_INFO").field("guidFormatID", &self.guidFormatID).field("lTymed", &self.lTymed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_FORMAT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_FORMAT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_FORMAT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5686,8 +5686,8 @@ impl ::core::fmt::Debug for WIA_MICR {
         f.debug_struct("WIA_MICR").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Placeholder", &self.Placeholder).field("Reserved", &self.Reserved).field("Count", &self.Count).field("Micr", &self.Micr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_MICR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_MICR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_MICR {
     fn eq(&self, other: &Self) -> bool {
@@ -5719,8 +5719,8 @@ impl ::core::fmt::Debug for WIA_MICR_INFO {
         f.debug_struct("WIA_MICR_INFO").field("Size", &self.Size).field("Page", &self.Page).field("Length", &self.Length).field("Text", &self.Text).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_MICR_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_MICR_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_MICR_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5753,8 +5753,8 @@ impl ::core::fmt::Debug for WIA_PATCH_CODES {
         f.debug_struct("WIA_PATCH_CODES").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Count", &self.Count).field("PatchCodes", &self.PatchCodes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_PATCH_CODES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PATCH_CODES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_PATCH_CODES {
     fn eq(&self, other: &Self) -> bool {
@@ -5783,8 +5783,8 @@ impl ::core::fmt::Debug for WIA_PATCH_CODE_INFO {
         f.debug_struct("WIA_PATCH_CODE_INFO").field("Type", &self.Type).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_PATCH_CODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PATCH_CODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_PATCH_CODE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5820,8 +5820,8 @@ impl ::core::fmt::Debug for WIA_PROPERTY_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIA_PROPERTY_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PROPERTY_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_CONTEXT {
@@ -5852,8 +5852,8 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PROPERTY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for WIA_PROPERTY_INFO {
@@ -5881,8 +5881,8 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PROPERTY_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0 {
@@ -5912,8 +5912,8 @@ impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PROPERTY_INFO_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_0 {
@@ -5950,8 +5950,8 @@ impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_1 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PROPERTY_INFO_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_1 {
@@ -5990,8 +5990,8 @@ impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PROPERTY_INFO_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_2 {
@@ -6030,8 +6030,8 @@ impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PROPERTY_INFO_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_3 {
@@ -6070,8 +6070,8 @@ impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PROPERTY_INFO_0_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_4 {
@@ -6108,8 +6108,8 @@ impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_5 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PROPERTY_INFO_0_5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_5 {
@@ -6149,8 +6149,8 @@ impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_6 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PROPERTY_INFO_0_6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_6 {
@@ -6190,8 +6190,8 @@ impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_7 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_7 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PROPERTY_INFO_0_7 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_7 {
@@ -6224,8 +6224,8 @@ impl ::core::fmt::Debug for WIA_PROPID_TO_NAME {
         f.debug_struct("WIA_PROPID_TO_NAME").field("propid", &self.propid).field("pszName", &self.pszName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_PROPID_TO_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_PROPID_TO_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_PROPID_TO_NAME {
     fn eq(&self, other: &Self) -> bool {
@@ -6292,8 +6292,8 @@ impl ::core::fmt::Debug for WIA_RAW_HEADER {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIA_RAW_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIA_RAW_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIA_RAW_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -6325,8 +6325,8 @@ impl ::core::fmt::Debug for WiaTransferParams {
         f.debug_struct("WiaTransferParams").field("lMessage", &self.lMessage).field("lPercentComplete", &self.lPercentComplete).field("ulTransferredBytes", &self.ulTransferredBytes).field("hrErrorStatus", &self.hrErrorStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WiaTransferParams {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WiaTransferParams {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WiaTransferParams {
     fn eq(&self, other: &Self) -> bool {

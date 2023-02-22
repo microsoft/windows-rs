@@ -55,8 +55,8 @@ impl ::core::fmt::Debug for UAL_DATA_BLOB {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for UAL_DATA_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UAL_DATA_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for UAL_DATA_BLOB {

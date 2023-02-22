@@ -19,11 +19,6 @@ impl ISceSvcAttachmentData {
     }
 }
 ::windows::core::interface_hierarchy!(ISceSvcAttachmentData, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISceSvcAttachmentData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISceSvcAttachmentData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37,6 +32,11 @@ impl ::core::fmt::Debug for ISceSvcAttachmentData {
 }
 unsafe impl ::windows::core::Vtable for ISceSvcAttachmentData {
     type Vtable = ISceSvcAttachmentData_Vtbl;
+}
+impl ::core::clone::Clone for ISceSvcAttachmentData {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISceSvcAttachmentData {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17c35fde_200d_11d1_affb_00c04fb984f9);
@@ -67,11 +67,6 @@ impl ISceSvcAttachmentPersistInfo {
     }
 }
 ::windows::core::interface_hierarchy!(ISceSvcAttachmentPersistInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISceSvcAttachmentPersistInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISceSvcAttachmentPersistInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -85,6 +80,11 @@ impl ::core::fmt::Debug for ISceSvcAttachmentPersistInfo {
 }
 unsafe impl ::windows::core::Vtable for ISceSvcAttachmentPersistInfo {
     type Vtable = ISceSvcAttachmentPersistInfo_Vtbl;
+}
+impl ::core::clone::Clone for ISceSvcAttachmentPersistInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISceSvcAttachmentPersistInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
@@ -189,8 +189,8 @@ impl ::core::default::Default for SCESVC_INFO_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SCESVC_INFO_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCESVC_INFO_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SCESVC_INFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -220,8 +220,8 @@ impl ::core::default::Default for SCE_LOG_ERR_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SCE_LOG_ERR_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCE_LOG_ERR_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SCE_LOG_ERR_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -245,8 +245,8 @@ impl ::core::fmt::Debug for SCESVC_ANALYSIS_INFO {
         f.debug_struct("SCESVC_ANALYSIS_INFO").field("Count", &self.Count).field("Lines", &self.Lines).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCESVC_ANALYSIS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCESVC_ANALYSIS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -277,8 +277,8 @@ impl ::core::fmt::Debug for SCESVC_ANALYSIS_LINE {
         f.debug_struct("SCESVC_ANALYSIS_LINE").field("Key", &self.Key).field("Value", &self.Value).field("ValueLen", &self.ValueLen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_LINE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCESVC_ANALYSIS_LINE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCESVC_ANALYSIS_LINE {
     fn eq(&self, other: &Self) -> bool {
@@ -316,8 +316,8 @@ impl ::core::fmt::Debug for SCESVC_CALLBACK_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SCESVC_CALLBACK_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCESVC_CALLBACK_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SCESVC_CALLBACK_INFO {
@@ -342,8 +342,8 @@ impl ::core::fmt::Debug for SCESVC_CONFIGURATION_INFO {
         f.debug_struct("SCESVC_CONFIGURATION_INFO").field("Count", &self.Count).field("Lines", &self.Lines).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCESVC_CONFIGURATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCESVC_CONFIGURATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCESVC_CONFIGURATION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -374,8 +374,8 @@ impl ::core::fmt::Debug for SCESVC_CONFIGURATION_LINE {
         f.debug_struct("SCESVC_CONFIGURATION_LINE").field("Key", &self.Key).field("Value", &self.Value).field("ValueLen", &self.ValueLen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCESVC_CONFIGURATION_LINE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCESVC_CONFIGURATION_LINE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCESVC_CONFIGURATION_LINE {
     fn eq(&self, other: &Self) -> bool {

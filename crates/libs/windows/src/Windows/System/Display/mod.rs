@@ -4,6 +4,11 @@ pub struct IDisplayRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IDisplayRequest {
     type Vtable = IDisplayRequest_Vtbl;
 }
+impl ::core::clone::Clone for IDisplayRequest {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IDisplayRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
 }
@@ -34,11 +39,6 @@ impl DisplayRequest {
         unsafe { (::windows::core::Vtable::vtable(this).RequestRelease)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::clone::Clone for DisplayRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for DisplayRequest {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -50,11 +50,12 @@ impl ::core::fmt::Debug for DisplayRequest {
         f.debug_tuple("DisplayRequest").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for DisplayRequest {
+impl ::windows::core::RuntimeType for DisplayRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Display.DisplayRequest;{e5732044-f49f-4b60-8dd4-5e7e3a632ac0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for DisplayRequest {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for DisplayRequest {

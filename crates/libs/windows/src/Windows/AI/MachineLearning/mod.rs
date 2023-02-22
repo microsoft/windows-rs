@@ -4,6 +4,11 @@ pub struct IImageFeatureDescriptor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IImageFeatureDescriptor {
     type Vtable = IImageFeatureDescriptor_Vtbl;
 }
+impl ::core::clone::Clone for IImageFeatureDescriptor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IImageFeatureDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x365585a5_171a_4a2a_985f_265159d3895a);
 }
@@ -28,6 +33,11 @@ pub struct IImageFeatureDescriptor2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IImageFeatureDescriptor2 {
     type Vtable = IImageFeatureDescriptor2_Vtbl;
 }
+impl ::core::clone::Clone for IImageFeatureDescriptor2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IImageFeatureDescriptor2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b27cca7_d533_5862_bb98_1611b155b0e1);
 }
@@ -42,6 +52,11 @@ pub struct IImageFeatureDescriptor2_Vtbl {
 pub struct IImageFeatureValue(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IImageFeatureValue {
     type Vtable = IImageFeatureValue_Vtbl;
+}
+impl ::core::clone::Clone for IImageFeatureValue {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IImageFeatureValue {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0414fd9_c9aa_4405_b7fb_94f87c8a3037);
@@ -61,6 +76,11 @@ pub struct IImageFeatureValueStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IImageFeatureValueStatics {
     type Vtable = IImageFeatureValueStatics_Vtbl;
 }
+impl ::core::clone::Clone for IImageFeatureValueStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IImageFeatureValueStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc317fd_23cb_4610_b085_c8e1c87ebaa0);
 }
@@ -79,6 +99,11 @@ pub struct ILearningModel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModel {
     type Vtable = ILearningModel_Vtbl;
 }
+impl ::core::clone::Clone for ILearningModel {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ILearningModel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b8e4920_489f_4e86_9128_265a327b78fa);
 }
@@ -86,10 +111,10 @@ unsafe impl ::windows::core::Interface for ILearningModel {
 #[doc(hidden)]
 pub struct ILearningModel_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub Metadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -110,6 +135,11 @@ pub struct ILearningModelBinding(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelBinding {
     type Vtable = ILearningModelBinding_Vtbl;
 }
+impl ::core::clone::Clone for ILearningModelBinding {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ILearningModelBinding {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea312f20_168f_4f8c_94fe_2e7ac31b4aa8);
 }
@@ -117,9 +147,9 @@ unsafe impl ::windows::core::Interface for ILearningModelBinding {
 #[doc(hidden)]
 pub struct ILearningModelBinding_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Bind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Bind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub BindWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, props: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BindWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, value: *mut ::core::ffi::c_void, props: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     BindWithProperties: usize,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -129,6 +159,11 @@ pub struct ILearningModelBinding_Vtbl {
 pub struct ILearningModelBindingFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelBindingFactory {
     type Vtable = ILearningModelBindingFactory_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelBindingFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILearningModelBindingFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc95f7a7a_e788_475e_8917_23aa381faf0b);
@@ -144,6 +179,11 @@ pub struct ILearningModelBindingFactory_Vtbl {
 pub struct ILearningModelDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelDevice {
     type Vtable = ILearningModelDevice_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelDevice {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILearningModelDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252);
@@ -167,6 +207,11 @@ pub struct ILearningModelDeviceFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelDeviceFactory {
     type Vtable = ILearningModelDeviceFactory_Vtbl;
 }
+impl ::core::clone::Clone for ILearningModelDeviceFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ILearningModelDeviceFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cffd74d_b1e5_4f20_80ad_0a56690db06b);
 }
@@ -181,6 +226,11 @@ pub struct ILearningModelDeviceFactory_Vtbl {
 pub struct ILearningModelDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelDeviceStatics {
     type Vtable = ILearningModelDeviceStatics_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelDeviceStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILearningModelDeviceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49f32107_a8bf_42bb_92c7_10b12dc5d21f);
@@ -200,6 +250,11 @@ pub struct ILearningModelEvaluationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelEvaluationResult {
     type Vtable = ILearningModelEvaluationResult_Vtbl;
 }
+impl ::core::clone::Clone for ILearningModelEvaluationResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ILearningModelEvaluationResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2f9bfcd_960e_49c0_8593_eb190ae3eee2);
 }
@@ -207,7 +262,7 @@ unsafe impl ::windows::core::Interface for ILearningModelEvaluationResult {
 #[doc(hidden)]
 pub struct ILearningModelEvaluationResult_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ErrorStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -222,38 +277,33 @@ impl ILearningModelFeatureDescriptor {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsRequired)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsRequired)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
 ::windows::core::interface_hierarchy!(ILearningModelFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ILearningModelFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILearningModelFeatureDescriptor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -265,15 +315,16 @@ impl ::core::fmt::Debug for ILearningModelFeatureDescriptor {
         f.debug_tuple("ILearningModelFeatureDescriptor").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ILearningModelFeatureDescriptor {
+impl ::windows::core::RuntimeType for ILearningModelFeatureDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bc08cf7c-6ed0-4004-97ba-b9a2eecd2b4f}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for ILearningModelFeatureDescriptor {
     type Vtable = ILearningModelFeatureDescriptor_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelFeatureDescriptor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILearningModelFeatureDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc08cf7c_6ed0_4004_97ba_b9a2eecd2b4f);
@@ -282,8 +333,8 @@ unsafe impl ::windows::core::Interface for ILearningModelFeatureDescriptor {
 #[doc(hidden)]
 pub struct ILearningModelFeatureDescriptor_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> ::windows::core::HRESULT,
     pub IsRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -294,17 +345,12 @@ impl ILearningModelFeatureValue {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
 ::windows::core::interface_hierarchy!(ILearningModelFeatureValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ILearningModelFeatureValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILearningModelFeatureValue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -316,15 +362,16 @@ impl ::core::fmt::Debug for ILearningModelFeatureValue {
         f.debug_tuple("ILearningModelFeatureValue").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ILearningModelFeatureValue {
+impl ::windows::core::RuntimeType for ILearningModelFeatureValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f51005db-4085-4dfe-9fed-95eb0c0cf75c}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for ILearningModelFeatureValue {
     type Vtable = ILearningModelFeatureValue_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelFeatureValue {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILearningModelFeatureValue {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf51005db_4085_4dfe_9fed_95eb0c0cf75c);
@@ -340,11 +387,6 @@ pub struct ILearningModelFeatureValue_Vtbl {
 pub struct ILearningModelOperatorProvider(::windows::core::IUnknown);
 impl ILearningModelOperatorProvider {}
 ::windows::core::interface_hierarchy!(ILearningModelOperatorProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ILearningModelOperatorProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILearningModelOperatorProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -356,15 +398,16 @@ impl ::core::fmt::Debug for ILearningModelOperatorProvider {
         f.debug_tuple("ILearningModelOperatorProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ILearningModelOperatorProvider {
+impl ::windows::core::RuntimeType for ILearningModelOperatorProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2a222e5d-afb1-47ed-bfad-b5b3a459ec04}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for ILearningModelOperatorProvider {
     type Vtable = ILearningModelOperatorProvider_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelOperatorProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILearningModelOperatorProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a222e5d_afb1_47ed_bfad_b5b3a459ec04);
@@ -380,6 +423,11 @@ pub struct ILearningModelSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelSession {
     type Vtable = ILearningModelSession_Vtbl;
 }
+impl ::core::clone::Clone for ILearningModelSession {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ILearningModelSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e58f8f6_b787_4c11_90f0_7129aeca74a9);
 }
@@ -394,16 +442,16 @@ pub struct ILearningModelSession_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     EvaluationProperties: usize,
     #[cfg(feature = "Foundation")]
-    pub EvaluateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindings: *mut ::core::ffi::c_void, correlationid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub EvaluateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindings: *mut ::core::ffi::c_void, correlationid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     EvaluateAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub EvaluateFeaturesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, features: *mut ::core::ffi::c_void, correlationid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub EvaluateFeaturesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, features: *mut ::core::ffi::c_void, correlationid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     EvaluateFeaturesAsync: usize,
-    pub Evaluate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindings: *mut ::core::ffi::c_void, correlationid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Evaluate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindings: *mut ::core::ffi::c_void, correlationid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub EvaluateFeatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, features: *mut ::core::ffi::c_void, correlationid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub EvaluateFeatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, features: *mut ::core::ffi::c_void, correlationid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     EvaluateFeatures: usize,
 }
@@ -412,6 +460,11 @@ pub struct ILearningModelSession_Vtbl {
 pub struct ILearningModelSessionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelSessionFactory {
     type Vtable = ILearningModelSessionFactory_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelSessionFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILearningModelSessionFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f6b881d_1c9b_47b6_bfe0_f1cf62a67579);
@@ -429,6 +482,11 @@ pub struct ILearningModelSessionFactory2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelSessionFactory2 {
     type Vtable = ILearningModelSessionFactory2_Vtbl;
 }
+impl ::core::clone::Clone for ILearningModelSessionFactory2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ILearningModelSessionFactory2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e5c88bf_0a1f_5fec_ade0_2fd91e4ef29b);
 }
@@ -443,6 +501,11 @@ pub struct ILearningModelSessionFactory2_Vtbl {
 pub struct ILearningModelSessionOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelSessionOptions {
     type Vtable = ILearningModelSessionOptions_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelSessionOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILearningModelSessionOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8f63fa1_134d_5133_8cff_3a5c3c263beb);
@@ -460,6 +523,11 @@ pub struct ILearningModelSessionOptions2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelSessionOptions2 {
     type Vtable = ILearningModelSessionOptions2_Vtbl;
 }
+impl ::core::clone::Clone for ILearningModelSessionOptions2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ILearningModelSessionOptions2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fcd1dc4_175f_5bd2_8de5_2f2006a25adf);
 }
@@ -476,6 +544,11 @@ pub struct ILearningModelSessionOptions3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelSessionOptions3 {
     type Vtable = ILearningModelSessionOptions3_Vtbl;
 }
+impl ::core::clone::Clone for ILearningModelSessionOptions3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ILearningModelSessionOptions3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58e15cee_d8c2_56fc_92e8_76d751081086);
 }
@@ -483,13 +556,18 @@ unsafe impl ::windows::core::Interface for ILearningModelSessionOptions3 {
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions3_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub OverrideNamedDimension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, dimension: u32) -> ::windows::core::HRESULT,
+    pub OverrideNamedDimension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, dimension: u32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILearningModelStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ILearningModelStatics {
     type Vtable = ILearningModelStatics_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILearningModelStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3b977e8_6952_4e47_8ef4_1f7f07897c6d);
@@ -506,7 +584,7 @@ pub struct ILearningModelStatics_Vtbl {
     pub LoadFromStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
     LoadFromStreamAsync: usize,
-    pub LoadFromFilePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LoadFromFilePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub LoadFromStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -519,7 +597,7 @@ pub struct ILearningModelStatics_Vtbl {
     pub LoadFromStreamWithOperatorProviderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: *mut ::core::ffi::c_void, operatorprovider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
     LoadFromStreamWithOperatorProviderAsync: usize,
-    pub LoadFromFilePathWithOperatorProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, operatorprovider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LoadFromFilePathWithOperatorProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, operatorprovider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub LoadFromStreamWithOperatorProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: *mut ::core::ffi::c_void, operatorprovider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -530,6 +608,11 @@ pub struct ILearningModelStatics_Vtbl {
 pub struct IMapFeatureDescriptor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IMapFeatureDescriptor {
     type Vtable = IMapFeatureDescriptor_Vtbl;
+}
+impl ::core::clone::Clone for IMapFeatureDescriptor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMapFeatureDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x530424bd_a257_436d_9e60_c2981f7cc5c4);
@@ -547,6 +630,11 @@ pub struct ISequenceFeatureDescriptor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ISequenceFeatureDescriptor {
     type Vtable = ISequenceFeatureDescriptor_Vtbl;
 }
+impl ::core::clone::Clone for ISequenceFeatureDescriptor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ISequenceFeatureDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84f6945a_562b_4d62_a851_739aced96668);
 }
@@ -563,8 +651,8 @@ impl ITensor {
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -572,15 +660,15 @@ impl ITensor {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -601,12 +689,7 @@ impl ::core::convert::TryFrom<&ITensor> for ::windows::core::InParam<ILearningMo
     type Error = ::windows::core::Error;
     fn try_from(value: &ITensor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::clone::Clone for ITensor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::cmp::PartialEq for ITensor {
@@ -620,15 +703,16 @@ impl ::core::fmt::Debug for ITensor {
         f.debug_tuple("ITensor").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ITensor {
+impl ::windows::core::RuntimeType for ITensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{05489593-a305-4a25-ad09-440119b4b7f6}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for ITensor {
     type Vtable = ITensor_Vtbl;
+}
+impl ::core::clone::Clone for ITensor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05489593_a305_4a25_ad09_440119b4b7f6);
@@ -649,6 +733,11 @@ pub struct ITensorBoolean(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorBoolean {
     type Vtable = ITensorBoolean_Vtbl;
 }
+impl ::core::clone::Clone for ITensorBoolean {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorBoolean {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50f311ed_29e9_4a5c_a44d_8fc512584eed);
 }
@@ -666,6 +755,11 @@ pub struct ITensorBoolean_Vtbl {
 pub struct ITensorBooleanStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorBooleanStatics {
     type Vtable = ITensorBooleanStatics_Vtbl;
+}
+impl ::core::clone::Clone for ITensorBooleanStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorBooleanStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2796862c_2357_49a7_b476_d0aa3dfe6866);
@@ -694,6 +788,11 @@ pub struct ITensorBooleanStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorBooleanStatics2 {
     type Vtable = ITensorBooleanStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorBooleanStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorBooleanStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3a4a501_6a2d_52d7_b04b_c435baee0115);
 }
@@ -713,6 +812,11 @@ pub struct ITensorDouble(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorDouble {
     type Vtable = ITensorDouble_Vtbl;
 }
+impl ::core::clone::Clone for ITensorDouble {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorDouble {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91e41252_7a8f_4f0e_a28f_9637ffc8a3d0);
 }
@@ -730,6 +834,11 @@ pub struct ITensorDouble_Vtbl {
 pub struct ITensorDoubleStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorDoubleStatics {
     type Vtable = ITensorDoubleStatics_Vtbl;
+}
+impl ::core::clone::Clone for ITensorDoubleStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorDoubleStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa86693c5_9538_44e7_a3ca_5df374a5a70c);
@@ -758,6 +867,11 @@ pub struct ITensorDoubleStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorDoubleStatics2 {
     type Vtable = ITensorDoubleStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorDoubleStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorDoubleStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a570de_5e9a_5094_85c8_592c655e68ac);
 }
@@ -776,6 +890,11 @@ pub struct ITensorDoubleStatics2_Vtbl {
 pub struct ITensorFeatureDescriptor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorFeatureDescriptor {
     type Vtable = ITensorFeatureDescriptor_Vtbl;
+}
+impl ::core::clone::Clone for ITensorFeatureDescriptor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorFeatureDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74455c80_946a_4310_a19c_ee0af028fce4);
@@ -796,6 +915,11 @@ pub struct ITensorFloat(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorFloat {
     type Vtable = ITensorFloat_Vtbl;
 }
+impl ::core::clone::Clone for ITensorFloat {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorFloat {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2282d82_aa02_42c8_a0c8_df1efc9676e1);
 }
@@ -814,6 +938,11 @@ pub struct ITensorFloat16Bit(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorFloat16Bit {
     type Vtable = ITensorFloat16Bit_Vtbl;
 }
+impl ::core::clone::Clone for ITensorFloat16Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorFloat16Bit {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ab994fc_5b89_4c3c_b5e4_5282a5316c0a);
 }
@@ -831,6 +960,11 @@ pub struct ITensorFloat16Bit_Vtbl {
 pub struct ITensorFloat16BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorFloat16BitStatics {
     type Vtable = ITensorFloat16BitStatics_Vtbl;
+}
+impl ::core::clone::Clone for ITensorFloat16BitStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorFloat16BitStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa52db6f5_318a_44d4_820b_0cdc7054a84a);
@@ -859,6 +993,11 @@ pub struct ITensorFloat16BitStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorFloat16BitStatics2 {
     type Vtable = ITensorFloat16BitStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorFloat16BitStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorFloat16BitStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68545726_2dc7_51bf_b470_0b344cc2a1bc);
 }
@@ -877,6 +1016,11 @@ pub struct ITensorFloat16BitStatics2_Vtbl {
 pub struct ITensorFloatStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorFloatStatics {
     type Vtable = ITensorFloatStatics_Vtbl;
+}
+impl ::core::clone::Clone for ITensorFloatStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorFloatStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbcd395b_3ba3_452f_b10d_3c135e573fa9);
@@ -905,6 +1049,11 @@ pub struct ITensorFloatStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorFloatStatics2 {
     type Vtable = ITensorFloatStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorFloatStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorFloatStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24610bc1_5e44_5713_b281_8f4ad4d555e8);
 }
@@ -924,6 +1073,11 @@ pub struct ITensorInt16Bit(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorInt16Bit {
     type Vtable = ITensorInt16Bit_Vtbl;
 }
+impl ::core::clone::Clone for ITensorInt16Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorInt16Bit {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98a32d39_e6d6_44af_8afa_baebc44dc020);
 }
@@ -941,6 +1095,11 @@ pub struct ITensorInt16Bit_Vtbl {
 pub struct ITensorInt16BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorInt16BitStatics {
     type Vtable = ITensorInt16BitStatics_Vtbl;
+}
+impl ::core::clone::Clone for ITensorInt16BitStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorInt16BitStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98646293_266e_4b1a_821f_e60d70898b91);
@@ -969,6 +1128,11 @@ pub struct ITensorInt16BitStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorInt16BitStatics2 {
     type Vtable = ITensorInt16BitStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorInt16BitStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorInt16BitStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cd70cf4_696c_5e5f_95d8_5ebf9670148b);
 }
@@ -988,6 +1152,11 @@ pub struct ITensorInt32Bit(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorInt32Bit {
     type Vtable = ITensorInt32Bit_Vtbl;
 }
+impl ::core::clone::Clone for ITensorInt32Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorInt32Bit {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0c28d3_207c_4486_a7d2_884522c5e589);
 }
@@ -1005,6 +1174,11 @@ pub struct ITensorInt32Bit_Vtbl {
 pub struct ITensorInt32BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorInt32BitStatics {
     type Vtable = ITensorInt32BitStatics_Vtbl;
+}
+impl ::core::clone::Clone for ITensorInt32BitStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorInt32BitStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6539864b_52fa_4e35_907c_834cac417b50);
@@ -1033,6 +1207,11 @@ pub struct ITensorInt32BitStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorInt32BitStatics2 {
     type Vtable = ITensorInt32BitStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorInt32BitStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorInt32BitStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c4b079a_e956_5ce0_a3bd_157d9d79b5ec);
 }
@@ -1052,6 +1231,11 @@ pub struct ITensorInt64Bit(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorInt64Bit {
     type Vtable = ITensorInt64Bit_Vtbl;
 }
+impl ::core::clone::Clone for ITensorInt64Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorInt64Bit {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x499665ba_1fa2_45ad_af25_a0bd9bda4c87);
 }
@@ -1069,6 +1253,11 @@ pub struct ITensorInt64Bit_Vtbl {
 pub struct ITensorInt64BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorInt64BitStatics {
     type Vtable = ITensorInt64BitStatics_Vtbl;
+}
+impl ::core::clone::Clone for ITensorInt64BitStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorInt64BitStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9648ad9d_1198_4d74_9517_783ab62b9cc2);
@@ -1097,6 +1286,11 @@ pub struct ITensorInt64BitStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorInt64BitStatics2 {
     type Vtable = ITensorInt64BitStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorInt64BitStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorInt64BitStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d3d9dcb_ff40_5ec2_89fe_084e2b6bc6db);
 }
@@ -1116,6 +1310,11 @@ pub struct ITensorInt8Bit(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorInt8Bit {
     type Vtable = ITensorInt8Bit_Vtbl;
 }
+impl ::core::clone::Clone for ITensorInt8Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorInt8Bit {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcddd97c5_ffd8_4fef_aefb_30e1a485b2ee);
 }
@@ -1133,6 +1332,11 @@ pub struct ITensorInt8Bit_Vtbl {
 pub struct ITensorInt8BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorInt8BitStatics {
     type Vtable = ITensorInt8BitStatics_Vtbl;
+}
+impl ::core::clone::Clone for ITensorInt8BitStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorInt8BitStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1a12284_095c_4c76_a661_ac4cee1f3e8b);
@@ -1161,6 +1365,11 @@ pub struct ITensorInt8BitStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorInt8BitStatics2 {
     type Vtable = ITensorInt8BitStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorInt8BitStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorInt8BitStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0d59637_c468_56fb_9535_c052bdb93dc0);
 }
@@ -1180,6 +1389,11 @@ pub struct ITensorString(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorString {
     type Vtable = ITensorString_Vtbl;
 }
+impl ::core::clone::Clone for ITensorString {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorString {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x582335c8_bdb1_4610_bc75_35e9cbf009b7);
 }
@@ -1198,6 +1412,11 @@ pub struct ITensorStringStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorStringStatics {
     type Vtable = ITensorStringStatics_Vtbl;
 }
+impl ::core::clone::Clone for ITensorStringStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorStringStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83623324_cf26_4f17_a2d4_20ef8d097d53);
 }
@@ -1211,7 +1430,7 @@ pub struct ITensorStringStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
@@ -1225,6 +1444,11 @@ pub struct ITensorStringStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorStringStatics2 {
     type Vtable = ITensorStringStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorStringStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorStringStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e355ed0_c8e2_5254_9137_0193a3668fd8);
 }
@@ -1232,13 +1456,18 @@ unsafe impl ::windows::core::Interface for ITensorStringStatics2 {
 #[doc(hidden)]
 pub struct ITensorStringStatics2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITensorUInt16Bit(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorUInt16Bit {
     type Vtable = ITensorUInt16Bit_Vtbl;
+}
+impl ::core::clone::Clone for ITensorUInt16Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorUInt16Bit {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68140f4b_23c0_42f3_81f6_a891c011bc3f);
@@ -1257,6 +1486,11 @@ pub struct ITensorUInt16Bit_Vtbl {
 pub struct ITensorUInt16BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorUInt16BitStatics {
     type Vtable = ITensorUInt16BitStatics_Vtbl;
+}
+impl ::core::clone::Clone for ITensorUInt16BitStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorUInt16BitStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df745dd_028a_481a_a27c_c7e6435e52dd);
@@ -1285,6 +1519,11 @@ pub struct ITensorUInt16BitStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorUInt16BitStatics2 {
     type Vtable = ITensorUInt16BitStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorUInt16BitStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorUInt16BitStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8af40c64_d69f_5315_9348_490877bbd642);
 }
@@ -1304,6 +1543,11 @@ pub struct ITensorUInt32Bit(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorUInt32Bit {
     type Vtable = ITensorUInt32Bit_Vtbl;
 }
+impl ::core::clone::Clone for ITensorUInt32Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorUInt32Bit {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c9c2ff_7511_45a3_bfac_c38f370d2237);
 }
@@ -1321,6 +1565,11 @@ pub struct ITensorUInt32Bit_Vtbl {
 pub struct ITensorUInt32BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorUInt32BitStatics {
     type Vtable = ITensorUInt32BitStatics_Vtbl;
+}
+impl ::core::clone::Clone for ITensorUInt32BitStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorUInt32BitStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x417c3837_e773_4378_8e7f_0cc33dbea697);
@@ -1349,6 +1598,11 @@ pub struct ITensorUInt32BitStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorUInt32BitStatics2 {
     type Vtable = ITensorUInt32BitStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorUInt32BitStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorUInt32BitStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef1a1f1c_314e_569d_b496_5c8447d20cd2);
 }
@@ -1368,6 +1622,11 @@ pub struct ITensorUInt64Bit(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorUInt64Bit {
     type Vtable = ITensorUInt64Bit_Vtbl;
 }
+impl ::core::clone::Clone for ITensorUInt64Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorUInt64Bit {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e70ffad_04bf_4825_839a_82baef8c7886);
 }
@@ -1385,6 +1644,11 @@ pub struct ITensorUInt64Bit_Vtbl {
 pub struct ITensorUInt64BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorUInt64BitStatics {
     type Vtable = ITensorUInt64BitStatics_Vtbl;
+}
+impl ::core::clone::Clone for ITensorUInt64BitStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorUInt64BitStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a7e20eb_242f_47cb_a9c6_f602ecfbfee4);
@@ -1413,6 +1677,11 @@ pub struct ITensorUInt64BitStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorUInt64BitStatics2 {
     type Vtable = ITensorUInt64BitStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorUInt64BitStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorUInt64BitStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x085a687d_67e1_5b1e_b232_4fabe9ca20b3);
 }
@@ -1432,6 +1701,11 @@ pub struct ITensorUInt8Bit(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorUInt8Bit {
     type Vtable = ITensorUInt8Bit_Vtbl;
 }
+impl ::core::clone::Clone for ITensorUInt8Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorUInt8Bit {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58e1ae27_622b_48e3_be22_d867aed1daac);
 }
@@ -1449,6 +1723,11 @@ pub struct ITensorUInt8Bit_Vtbl {
 pub struct ITensorUInt8BitStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorUInt8BitStatics {
     type Vtable = ITensorUInt8BitStatics_Vtbl;
+}
+impl ::core::clone::Clone for ITensorUInt8BitStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorUInt8BitStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05f67583_bc24_4220_8a41_2dcd8c5ed33c);
@@ -1477,6 +1756,11 @@ pub struct ITensorUInt8BitStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ITensorUInt8BitStatics2 {
     type Vtable = ITensorUInt8BitStatics2_Vtbl;
 }
+impl ::core::clone::Clone for ITensorUInt8BitStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorUInt8BitStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ba042d6_373e_5a3a_a2fc_a6c41bd52789);
 }
@@ -1499,8 +1783,8 @@ impl ImageFeatureDescriptor {
     pub fn BitmapPixelFormat(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapPixelFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BitmapPixelFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Graphics::Imaging::BitmapPixelFormat>();
+            (::windows::core::Vtable::vtable(this).BitmapPixelFormat)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -1508,63 +1792,58 @@ impl ImageFeatureDescriptor {
     pub fn BitmapAlphaMode(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapAlphaMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BitmapAlphaMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Graphics::Imaging::BitmapAlphaMode>();
+            (::windows::core::Vtable::vtable(this).BitmapAlphaMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Width(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Width)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).Width)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Height(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Height)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).Height)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PixelRange(&self) -> ::windows::core::Result<LearningModelPixelRange> {
         let this = &::windows::core::Interface::cast::<IImageFeatureDescriptor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PixelRange)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelPixelRange>();
+            (::windows::core::Vtable::vtable(this).PixelRange)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsRequired)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsRequired)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for ImageFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for ImageFeatureDescriptor {
@@ -1578,11 +1857,12 @@ impl ::core::fmt::Debug for ImageFeatureDescriptor {
         f.debug_tuple("ImageFeatureDescriptor").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ImageFeatureDescriptor {
+impl ::windows::core::RuntimeType for ImageFeatureDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureDescriptor;{365585a5-171a-4a2a-985f-265159d3895a})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for ImageFeatureDescriptor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for ImageFeatureDescriptor {
@@ -1611,7 +1891,7 @@ impl ::core::convert::TryFrom<&ImageFeatureDescriptor> for ::windows::core::InPa
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageFeatureDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ImageFeatureDescriptor {}
@@ -1625,34 +1905,29 @@ impl ImageFeatureValue {
     pub fn VideoFrame(&self) -> ::windows::core::Result<super::super::Media::VideoFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).VideoFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Media::VideoFrame>();
+            (::windows::core::Vtable::vtable(this).VideoFrame)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     #[cfg(feature = "Media")]
     pub fn CreateFromVideoFrame(image: &super::super::Media::VideoFrame) -> ::windows::core::Result<ImageFeatureValue> {
         Self::IImageFeatureValueStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromVideoFrame)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(image), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ImageFeatureValue>();
+            (::windows::core::Vtable::vtable(this).CreateFromVideoFrame)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(image), &mut result__).from_abi(result__)
         })
     }
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc(hidden)]
     pub fn IImageFeatureValueStatics<R, F: FnOnce(&IImageFeatureValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<ImageFeatureValue, IImageFeatureValueStatics> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for ImageFeatureValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for ImageFeatureValue {
@@ -1666,11 +1941,12 @@ impl ::core::fmt::Debug for ImageFeatureValue {
         f.debug_tuple("ImageFeatureValue").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ImageFeatureValue {
+impl ::windows::core::RuntimeType for ImageFeatureValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureValue;{f0414fd9-c9aa-4405-b7fb-94f87c8a3037})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for ImageFeatureValue {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for ImageFeatureValue {
@@ -1699,7 +1975,7 @@ impl ::core::convert::TryFrom<&ImageFeatureValue> for ::windows::core::InParam<I
     type Error = ::windows::core::Error;
     fn try_from(value: &ImageFeatureValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ImageFeatureValue {}
@@ -1717,36 +1993,36 @@ impl LearningModel {
     pub fn Author(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Author)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Author)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Domain(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Domain)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Domain)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Version(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Version)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i64>();
+            (::windows::core::Vtable::vtable(this).Version)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1754,8 +2030,8 @@ impl LearningModel {
     pub fn Metadata(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Metadata)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>();
+            (::windows::core::Vtable::vtable(this).Metadata)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1763,8 +2039,8 @@ impl LearningModel {
     pub fn InputFeatures(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ILearningModelFeatureDescriptor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).InputFeatures)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<ILearningModelFeatureDescriptor>>();
+            (::windows::core::Vtable::vtable(this).InputFeatures)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1772,8 +2048,8 @@ impl LearningModel {
     pub fn OutputFeatures(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ILearningModelFeatureDescriptor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OutputFeatures)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<ILearningModelFeatureDescriptor>>();
+            (::windows::core::Vtable::vtable(this).OutputFeatures)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -1784,8 +2060,8 @@ impl LearningModel {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LoadFromStorageFileAsync)(::windows::core::Vtable::as_raw(this), modelfile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<LearningModel>>();
+            (::windows::core::Vtable::vtable(this).LoadFromStorageFileAsync)(::windows::core::Vtable::as_raw(this), modelfile.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1796,14 +2072,14 @@ impl LearningModel {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LoadFromStreamAsync)(::windows::core::Vtable::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<LearningModel>>();
+            (::windows::core::Vtable::vtable(this).LoadFromStreamAsync)(::windows::core::Vtable::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn LoadFromFilePath(filepath: &::windows::core::HSTRING) -> ::windows::core::Result<LearningModel> {
         Self::ILearningModelStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LoadFromFilePath)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filepath), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModel>();
+            (::windows::core::Vtable::vtable(this).LoadFromFilePath)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1814,8 +2090,8 @@ impl LearningModel {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LoadFromStream)(::windows::core::Vtable::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModel>();
+            (::windows::core::Vtable::vtable(this).LoadFromStream)(::windows::core::Vtable::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -1828,8 +2104,8 @@ impl LearningModel {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LoadFromStorageFileWithOperatorProviderAsync)(::windows::core::Vtable::as_raw(this), modelfile.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<LearningModel>>();
+            (::windows::core::Vtable::vtable(this).LoadFromStorageFileWithOperatorProviderAsync)(::windows::core::Vtable::as_raw(this), modelfile.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1842,8 +2118,8 @@ impl LearningModel {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LoadFromStreamWithOperatorProviderAsync)(::windows::core::Vtable::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<LearningModel>>();
+            (::windows::core::Vtable::vtable(this).LoadFromStreamWithOperatorProviderAsync)(::windows::core::Vtable::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn LoadFromFilePathWithOperatorProvider<P0, E0>(filepath: &::windows::core::HSTRING, operatorprovider: P0) -> ::windows::core::Result<LearningModel>
@@ -1852,8 +2128,8 @@ impl LearningModel {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LoadFromFilePathWithOperatorProvider)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filepath), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModel>();
+            (::windows::core::Vtable::vtable(this).LoadFromFilePathWithOperatorProvider)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filepath), operatorprovider.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1866,19 +2142,14 @@ impl LearningModel {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LoadFromStreamWithOperatorProvider)(::windows::core::Vtable::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModel>();
+            (::windows::core::Vtable::vtable(this).LoadFromStreamWithOperatorProvider)(::windows::core::Vtable::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn ILearningModelStatics<R, F: FnOnce(&ILearningModelStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<LearningModel, ILearningModelStatics> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for LearningModel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for LearningModel {
@@ -1892,11 +2163,12 @@ impl ::core::fmt::Debug for LearningModel {
         f.debug_tuple("LearningModel").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for LearningModel {
+impl ::windows::core::RuntimeType for LearningModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModel;{5b8e4920-489f-4e86-9128-265a327b78fa})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for LearningModel {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for LearningModel {
@@ -1928,7 +2200,7 @@ impl ::core::convert::TryFrom<&LearningModel> for ::windows::core::InParam<super
     type Error = ::windows::core::Error;
     fn try_from(value: &LearningModel) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LearningModel {}
@@ -1942,8 +2214,8 @@ impl LearningModelBinding {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).First)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>();
+            (::windows::core::Vtable::vtable(this).First)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Bind<P0>(&self, name: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
@@ -1970,8 +2242,8 @@ impl LearningModelBinding {
     }
     pub fn CreateFromSession(session: &LearningModelSession) -> ::windows::core::Result<LearningModelBinding> {
         Self::ILearningModelBindingFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromSession)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(session), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelBinding>();
+            (::windows::core::Vtable::vtable(this).CreateFromSession)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(session), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1979,8 +2251,8 @@ impl LearningModelBinding {
     pub fn Lookup(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Lookup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::IInspectable>();
+            (::windows::core::Vtable::vtable(this).Lookup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1988,8 +2260,8 @@ impl LearningModelBinding {
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1997,8 +2269,8 @@ impl LearningModelBinding {
     pub fn HasKey(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).HasKey)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).HasKey)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2013,11 +2285,6 @@ impl LearningModelBinding {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for LearningModelBinding {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for LearningModelBinding {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2029,11 +2296,12 @@ impl ::core::fmt::Debug for LearningModelBinding {
         f.debug_tuple("LearningModelBinding").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for LearningModelBinding {
+impl ::windows::core::RuntimeType for LearningModelBinding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelBinding;{ea312f20-168f-4f8c-94fe-2e7ac31b4aa8})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for LearningModelBinding {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for LearningModelBinding {
@@ -2081,7 +2349,7 @@ impl ::core::convert::TryFrom<&LearningModelBinding> for ::windows::core::InPara
     type Error = ::windows::core::Error;
     fn try_from(value: &LearningModelBinding) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2103,7 +2371,7 @@ impl ::core::convert::TryFrom<&LearningModelBinding> for ::windows::core::InPara
     type Error = ::windows::core::Error;
     fn try_from(value: &LearningModelBinding) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LearningModelBinding {}
@@ -2117,8 +2385,8 @@ impl LearningModelDevice {
     pub fn AdapterId(&self) -> ::windows::core::Result<super::super::Graphics::DisplayAdapterId> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AdapterId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Graphics::DisplayAdapterId>();
+            (::windows::core::Vtable::vtable(this).AdapterId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -2126,14 +2394,14 @@ impl LearningModelDevice {
     pub fn Direct3D11Device(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Direct3D11Device)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>();
+            (::windows::core::Vtable::vtable(this).Direct3D11Device)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(devicekind: LearningModelDeviceKind) -> ::windows::core::Result<LearningModelDevice> {
         Self::ILearningModelDeviceFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), devicekind, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelDevice>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), devicekind, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -2144,8 +2412,8 @@ impl LearningModelDevice {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILearningModelDeviceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromDirect3D11Device)(::windows::core::Vtable::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelDevice>();
+            (::windows::core::Vtable::vtable(this).CreateFromDirect3D11Device)(::windows::core::Vtable::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2159,11 +2427,6 @@ impl LearningModelDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for LearningModelDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for LearningModelDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2175,11 +2438,12 @@ impl ::core::fmt::Debug for LearningModelDevice {
         f.debug_tuple("LearningModelDevice").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for LearningModelDevice {
+impl ::windows::core::RuntimeType for LearningModelDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelDevice;{f5c2c8fe-3f56-4a8c-ac5f-fdb92d8b8252})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for LearningModelDevice {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for LearningModelDevice {
@@ -2201,22 +2465,22 @@ impl LearningModelEvaluationResult {
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CorrelationId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).CorrelationId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ErrorStatus(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ErrorStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).ErrorStatus)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Succeeded)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).Succeeded)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2224,14 +2488,9 @@ impl LearningModelEvaluationResult {
     pub fn Outputs(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Outputs)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>();
+            (::windows::core::Vtable::vtable(this).Outputs)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for LearningModelEvaluationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for LearningModelEvaluationResult {
@@ -2245,11 +2504,12 @@ impl ::core::fmt::Debug for LearningModelEvaluationResult {
         f.debug_tuple("LearningModelEvaluationResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for LearningModelEvaluationResult {
+impl ::windows::core::RuntimeType for LearningModelEvaluationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelEvaluationResult;{b2f9bfcd-960e-49c0-8593-eb190ae3eee2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for LearningModelEvaluationResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for LearningModelEvaluationResult {
@@ -2277,15 +2537,15 @@ impl LearningModelSession {
     pub fn Model(&self) -> ::windows::core::Result<LearningModel> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Model)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModel>();
+            (::windows::core::Vtable::vtable(this).Model)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Device(&self) -> ::windows::core::Result<LearningModelDevice> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Device)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelDevice>();
+            (::windows::core::Vtable::vtable(this).Device)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2293,8 +2553,8 @@ impl LearningModelSession {
     pub fn EvaluationProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EvaluationProperties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            (::windows::core::Vtable::vtable(this).EvaluationProperties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2302,8 +2562,8 @@ impl LearningModelSession {
     pub fn EvaluateAsync(&self, bindings: &LearningModelBinding, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EvaluateAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(bindings), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>();
+            (::windows::core::Vtable::vtable(this).EvaluateAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(bindings), ::core::mem::transmute_copy(correlationid), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2315,15 +2575,15 @@ impl LearningModelSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EvaluateFeaturesAsync)(::windows::core::Vtable::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>();
+            (::windows::core::Vtable::vtable(this).EvaluateFeaturesAsync)(::windows::core::Vtable::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(correlationid), &mut result__).from_abi(result__)
         }
     }
     pub fn Evaluate(&self, bindings: &LearningModelBinding, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<LearningModelEvaluationResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Evaluate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(bindings), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelEvaluationResult>();
+            (::windows::core::Vtable::vtable(this).Evaluate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(bindings), ::core::mem::transmute_copy(correlationid), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2335,26 +2595,26 @@ impl LearningModelSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EvaluateFeatures)(::windows::core::Vtable::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelEvaluationResult>();
+            (::windows::core::Vtable::vtable(this).EvaluateFeatures)(::windows::core::Vtable::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(correlationid), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateFromModel(model: &LearningModel) -> ::windows::core::Result<LearningModelSession> {
         Self::ILearningModelSessionFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromModel)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(model), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelSession>();
+            (::windows::core::Vtable::vtable(this).CreateFromModel)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(model), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromModelOnDevice(model: &LearningModel, devicetorunon: &LearningModelDevice) -> ::windows::core::Result<LearningModelSession> {
         Self::ILearningModelSessionFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromModelOnDevice)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(model), ::core::mem::transmute_copy(devicetorunon), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelSession>();
+            (::windows::core::Vtable::vtable(this).CreateFromModelOnDevice)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(model), ::core::mem::transmute_copy(devicetorunon), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromModelOnDeviceWithSessionOptions(model: &LearningModel, devicetorunon: &LearningModelDevice, learningmodelsessionoptions: &LearningModelSessionOptions) -> ::windows::core::Result<LearningModelSession> {
         Self::ILearningModelSessionFactory2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromModelOnDeviceWithSessionOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(model), ::core::mem::transmute_copy(devicetorunon), ::core::mem::transmute_copy(learningmodelsessionoptions), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelSession>();
+            (::windows::core::Vtable::vtable(this).CreateFromModelOnDeviceWithSessionOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(model), ::core::mem::transmute_copy(devicetorunon), ::core::mem::transmute_copy(learningmodelsessionoptions), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2368,11 +2628,6 @@ impl LearningModelSession {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for LearningModelSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for LearningModelSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2384,11 +2639,12 @@ impl ::core::fmt::Debug for LearningModelSession {
         f.debug_tuple("LearningModelSession").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for LearningModelSession {
+impl ::windows::core::RuntimeType for LearningModelSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSession;{8e58f8f6-b787-4c11-90f0-7129aeca74a9})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for LearningModelSession {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for LearningModelSession {
@@ -2420,7 +2676,7 @@ impl ::core::convert::TryFrom<&LearningModelSession> for ::windows::core::InPara
     type Error = ::windows::core::Error;
     fn try_from(value: &LearningModelSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LearningModelSession {}
@@ -2439,8 +2695,8 @@ impl LearningModelSessionOptions {
     pub fn BatchSizeOverride(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BatchSizeOverride)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).BatchSizeOverride)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetBatchSizeOverride(&self, value: u32) -> ::windows::core::Result<()> {
@@ -2450,8 +2706,8 @@ impl LearningModelSessionOptions {
     pub fn CloseModelOnSessionCreation(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelSessionOptions2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CloseModelOnSessionCreation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).CloseModelOnSessionCreation)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCloseModelOnSessionCreation(&self, value: bool) -> ::windows::core::Result<()> {
@@ -2461,11 +2717,6 @@ impl LearningModelSessionOptions {
     pub fn OverrideNamedDimension(&self, name: &::windows::core::HSTRING, dimension: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILearningModelSessionOptions3>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).OverrideNamedDimension)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), dimension).ok() }
-    }
-}
-impl ::core::clone::Clone for LearningModelSessionOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for LearningModelSessionOptions {
@@ -2479,11 +2730,12 @@ impl ::core::fmt::Debug for LearningModelSessionOptions {
         f.debug_tuple("LearningModelSessionOptions").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for LearningModelSessionOptions {
+impl ::windows::core::RuntimeType for LearningModelSessionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSessionOptions;{b8f63fa1-134d-5133-8cff-3a5c3c263beb})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for LearningModelSessionOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for LearningModelSessionOptions {
@@ -2505,49 +2757,44 @@ impl MapFeatureDescriptor {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsRequired)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsRequired)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn KeyKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).KeyKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).KeyKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ValueDescriptor(&self) -> ::windows::core::Result<ILearningModelFeatureDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ValueDescriptor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ILearningModelFeatureDescriptor>();
+            (::windows::core::Vtable::vtable(this).ValueDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for MapFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for MapFeatureDescriptor {
@@ -2561,11 +2808,12 @@ impl ::core::fmt::Debug for MapFeatureDescriptor {
         f.debug_tuple("MapFeatureDescriptor").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for MapFeatureDescriptor {
+impl ::windows::core::RuntimeType for MapFeatureDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.MapFeatureDescriptor;{530424bd-a257-436d-9e60-c2981f7cc5c4})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for MapFeatureDescriptor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for MapFeatureDescriptor {
@@ -2594,7 +2842,7 @@ impl ::core::convert::TryFrom<&MapFeatureDescriptor> for ::windows::core::InPara
     type Error = ::windows::core::Error;
     fn try_from(value: &MapFeatureDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MapFeatureDescriptor {}
@@ -2606,42 +2854,37 @@ impl SequenceFeatureDescriptor {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsRequired)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsRequired)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ElementDescriptor(&self) -> ::windows::core::Result<ILearningModelFeatureDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ElementDescriptor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ILearningModelFeatureDescriptor>();
+            (::windows::core::Vtable::vtable(this).ElementDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for SequenceFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for SequenceFeatureDescriptor {
@@ -2655,11 +2898,12 @@ impl ::core::fmt::Debug for SequenceFeatureDescriptor {
         f.debug_tuple("SequenceFeatureDescriptor").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for SequenceFeatureDescriptor {
+impl ::windows::core::RuntimeType for SequenceFeatureDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.SequenceFeatureDescriptor;{84f6945a-562b-4d62-a851-739aced96668})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for SequenceFeatureDescriptor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for SequenceFeatureDescriptor {
@@ -2688,7 +2932,7 @@ impl ::core::convert::TryFrom<&SequenceFeatureDescriptor> for ::windows::core::I
     type Error = ::windows::core::Error;
     fn try_from(value: &SequenceFeatureDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SequenceFeatureDescriptor {}
@@ -2706,8 +2950,8 @@ impl TensorBoolean {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2715,15 +2959,15 @@ impl TensorBoolean {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2731,8 +2975,8 @@ impl TensorBoolean {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2740,14 +2984,14 @@ impl TensorBoolean {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<bool>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorBoolean>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2758,8 +3002,8 @@ impl TensorBoolean {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorBooleanStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorBoolean>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2770,8 +3014,8 @@ impl TensorBoolean {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorBooleanStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorBoolean>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2784,14 +3028,14 @@ impl TensorBoolean {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorBooleanStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorBoolean>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[bool]) -> ::windows::core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorBoolean>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -2802,8 +3046,8 @@ impl TensorBoolean {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorBooleanStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorBoolean>();
+            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2817,11 +3061,6 @@ impl TensorBoolean {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorBoolean {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorBoolean {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2833,11 +3072,12 @@ impl ::core::fmt::Debug for TensorBoolean {
         f.debug_tuple("TensorBoolean").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorBoolean {
+impl ::windows::core::RuntimeType for TensorBoolean {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorBoolean;{50f311ed-29e9-4a5c-a44d-8fc512584eed})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorBoolean {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorBoolean {
@@ -2869,7 +3109,7 @@ impl ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<super
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorBoolean) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorBoolean> for ILearningModelFeatureValue {
@@ -2888,7 +3128,7 @@ impl ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<ILear
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorBoolean) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2910,7 +3150,7 @@ impl ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<super
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorBoolean) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorBoolean> for ITensor {
@@ -2929,7 +3169,7 @@ impl ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<ITens
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorBoolean) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorBoolean {}
@@ -2947,8 +3187,8 @@ impl TensorDouble {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2956,15 +3196,15 @@ impl TensorDouble {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2972,8 +3212,8 @@ impl TensorDouble {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2981,14 +3221,14 @@ impl TensorDouble {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<f64>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<f64>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorDouble> {
         Self::ITensorDoubleStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorDouble>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2999,8 +3239,8 @@ impl TensorDouble {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorDoubleStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorDouble>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3011,8 +3251,8 @@ impl TensorDouble {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorDoubleStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorDouble>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3025,14 +3265,14 @@ impl TensorDouble {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorDoubleStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorDouble>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f64]) -> ::windows::core::Result<TensorDouble> {
         Self::ITensorDoubleStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorDouble>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3043,8 +3283,8 @@ impl TensorDouble {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorDoubleStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorDouble>();
+            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3058,11 +3298,6 @@ impl TensorDouble {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorDouble {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorDouble {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3074,11 +3309,12 @@ impl ::core::fmt::Debug for TensorDouble {
         f.debug_tuple("TensorDouble").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorDouble {
+impl ::windows::core::RuntimeType for TensorDouble {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorDouble;{91e41252-7a8f-4f0e-a28f-9637ffc8a3d0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorDouble {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorDouble {
@@ -3110,7 +3346,7 @@ impl ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<super:
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorDouble) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorDouble> for ILearningModelFeatureValue {
@@ -3129,7 +3365,7 @@ impl ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<ILearn
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorDouble) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3151,7 +3387,7 @@ impl ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<super:
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorDouble) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorDouble> for ITensor {
@@ -3170,7 +3406,7 @@ impl ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<ITenso
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorDouble) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorDouble {}
@@ -3182,36 +3418,36 @@ impl TensorFeatureDescriptor {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsRequired)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsRequired)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3219,14 +3455,9 @@ impl TensorFeatureDescriptor {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for TensorFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for TensorFeatureDescriptor {
@@ -3240,11 +3471,12 @@ impl ::core::fmt::Debug for TensorFeatureDescriptor {
         f.debug_tuple("TensorFeatureDescriptor").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorFeatureDescriptor {
+impl ::windows::core::RuntimeType for TensorFeatureDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFeatureDescriptor;{74455c80-946a-4310-a19c-ee0af028fce4})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorFeatureDescriptor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorFeatureDescriptor {
@@ -3273,7 +3505,7 @@ impl ::core::convert::TryFrom<&TensorFeatureDescriptor> for ::windows::core::InP
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFeatureDescriptor) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorFeatureDescriptor {}
@@ -3291,8 +3523,8 @@ impl TensorFloat {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3300,15 +3532,15 @@ impl TensorFloat {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3316,8 +3548,8 @@ impl TensorFloat {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3325,14 +3557,14 @@ impl TensorFloat {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<f32>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorFloat> {
         Self::ITensorFloatStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorFloat>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3343,8 +3575,8 @@ impl TensorFloat {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloatStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorFloat>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3355,8 +3587,8 @@ impl TensorFloat {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloatStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorFloat>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3369,14 +3601,14 @@ impl TensorFloat {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloatStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorFloat>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f32]) -> ::windows::core::Result<TensorFloat> {
         Self::ITensorFloatStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorFloat>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3387,8 +3619,8 @@ impl TensorFloat {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloatStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorFloat>();
+            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3402,11 +3634,6 @@ impl TensorFloat {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorFloat {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorFloat {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3418,11 +3645,12 @@ impl ::core::fmt::Debug for TensorFloat {
         f.debug_tuple("TensorFloat").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorFloat {
+impl ::windows::core::RuntimeType for TensorFloat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat;{f2282d82-aa02-42c8-a0c8-df1efc9676e1})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorFloat {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorFloat {
@@ -3454,7 +3682,7 @@ impl ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<super::
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorFloat> for ILearningModelFeatureValue {
@@ -3473,7 +3701,7 @@ impl ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<ILearni
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3495,7 +3723,7 @@ impl ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<super::
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorFloat> for ITensor {
@@ -3514,7 +3742,7 @@ impl ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<ITensor
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorFloat {}
@@ -3532,8 +3760,8 @@ impl TensorFloat16Bit {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3541,15 +3769,15 @@ impl TensorFloat16Bit {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3557,8 +3785,8 @@ impl TensorFloat16Bit {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3566,14 +3794,14 @@ impl TensorFloat16Bit {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<f32>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorFloat16Bit>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3584,8 +3812,8 @@ impl TensorFloat16Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorFloat16Bit>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3596,8 +3824,8 @@ impl TensorFloat16Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorFloat16Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3610,14 +3838,14 @@ impl TensorFloat16Bit {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorFloat16Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f32]) -> ::windows::core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorFloat16Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3628,8 +3856,8 @@ impl TensorFloat16Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorFloat16Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3643,11 +3871,6 @@ impl TensorFloat16Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorFloat16Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorFloat16Bit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3659,11 +3882,12 @@ impl ::core::fmt::Debug for TensorFloat16Bit {
         f.debug_tuple("TensorFloat16Bit").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorFloat16Bit {
+impl ::windows::core::RuntimeType for TensorFloat16Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat16Bit;{0ab994fc-5b89-4c3c-b5e4-5282a5316c0a})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorFloat16Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorFloat16Bit {
@@ -3695,7 +3919,7 @@ impl ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<su
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorFloat16Bit> for ILearningModelFeatureValue {
@@ -3714,7 +3938,7 @@ impl ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<IL
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3736,7 +3960,7 @@ impl ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<su
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorFloat16Bit> for ITensor {
@@ -3755,7 +3979,7 @@ impl ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<IT
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorFloat16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorFloat16Bit {}
@@ -3773,8 +3997,8 @@ impl TensorInt16Bit {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3782,15 +4006,15 @@ impl TensorInt16Bit {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3798,8 +4022,8 @@ impl TensorInt16Bit {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3807,14 +4031,14 @@ impl TensorInt16Bit {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i16>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i16>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt16Bit>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3825,8 +4049,8 @@ impl TensorInt16Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt16Bit>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3837,8 +4061,8 @@ impl TensorInt16Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt16Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3851,14 +4075,14 @@ impl TensorInt16Bit {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt16Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i16]) -> ::windows::core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt16Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3869,8 +4093,8 @@ impl TensorInt16Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt16BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt16Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3884,11 +4108,6 @@ impl TensorInt16Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorInt16Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorInt16Bit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3900,11 +4119,12 @@ impl ::core::fmt::Debug for TensorInt16Bit {
         f.debug_tuple("TensorInt16Bit").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorInt16Bit {
+impl ::windows::core::RuntimeType for TensorInt16Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt16Bit;{98a32d39-e6d6-44af-8afa-baebc44dc020})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorInt16Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorInt16Bit {
@@ -3936,7 +4156,7 @@ impl ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<supe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt16Bit> for ILearningModelFeatureValue {
@@ -3955,7 +4175,7 @@ impl ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<ILea
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3977,7 +4197,7 @@ impl ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<supe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt16Bit> for ITensor {
@@ -3996,7 +4216,7 @@ impl ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<ITen
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorInt16Bit {}
@@ -4014,8 +4234,8 @@ impl TensorInt32Bit {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4023,15 +4243,15 @@ impl TensorInt32Bit {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4039,8 +4259,8 @@ impl TensorInt32Bit {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4048,14 +4268,14 @@ impl TensorInt32Bit {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i32>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt32Bit>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4066,8 +4286,8 @@ impl TensorInt32Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt32Bit>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4078,8 +4298,8 @@ impl TensorInt32Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt32Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4092,14 +4312,14 @@ impl TensorInt32Bit {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt32Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i32]) -> ::windows::core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt32Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -4110,8 +4330,8 @@ impl TensorInt32Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt32BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt32Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4125,11 +4345,6 @@ impl TensorInt32Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorInt32Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorInt32Bit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4141,11 +4356,12 @@ impl ::core::fmt::Debug for TensorInt32Bit {
         f.debug_tuple("TensorInt32Bit").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorInt32Bit {
+impl ::windows::core::RuntimeType for TensorInt32Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt32Bit;{2c0c28d3-207c-4486-a7d2-884522c5e589})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorInt32Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorInt32Bit {
@@ -4177,7 +4393,7 @@ impl ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<supe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt32Bit> for ILearningModelFeatureValue {
@@ -4196,7 +4412,7 @@ impl ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<ILea
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4218,7 +4434,7 @@ impl ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<supe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt32Bit> for ITensor {
@@ -4237,7 +4453,7 @@ impl ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<ITen
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorInt32Bit {}
@@ -4255,8 +4471,8 @@ impl TensorInt64Bit {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4264,15 +4480,15 @@ impl TensorInt64Bit {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4280,8 +4496,8 @@ impl TensorInt64Bit {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4289,14 +4505,14 @@ impl TensorInt64Bit {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt64Bit>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4307,8 +4523,8 @@ impl TensorInt64Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt64Bit>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4319,8 +4535,8 @@ impl TensorInt64Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt64Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4333,14 +4549,14 @@ impl TensorInt64Bit {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt64Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i64]) -> ::windows::core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt64Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -4351,8 +4567,8 @@ impl TensorInt64Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt64BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt64Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4366,11 +4582,6 @@ impl TensorInt64Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorInt64Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorInt64Bit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4382,11 +4593,12 @@ impl ::core::fmt::Debug for TensorInt64Bit {
         f.debug_tuple("TensorInt64Bit").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorInt64Bit {
+impl ::windows::core::RuntimeType for TensorInt64Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt64Bit;{499665ba-1fa2-45ad-af25-a0bd9bda4c87})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorInt64Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorInt64Bit {
@@ -4418,7 +4630,7 @@ impl ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<supe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt64Bit> for ILearningModelFeatureValue {
@@ -4437,7 +4649,7 @@ impl ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<ILea
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4459,7 +4671,7 @@ impl ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<supe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt64Bit> for ITensor {
@@ -4478,7 +4690,7 @@ impl ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<ITen
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorInt64Bit {}
@@ -4496,8 +4708,8 @@ impl TensorInt8Bit {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4505,15 +4717,15 @@ impl TensorInt8Bit {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4521,8 +4733,8 @@ impl TensorInt8Bit {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4530,14 +4742,14 @@ impl TensorInt8Bit {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<u8>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt8Bit>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4548,8 +4760,8 @@ impl TensorInt8Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt8Bit>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4560,8 +4772,8 @@ impl TensorInt8Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt8Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4574,14 +4786,14 @@ impl TensorInt8Bit {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt8Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u8]) -> ::windows::core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt8Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -4592,8 +4804,8 @@ impl TensorInt8Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorInt8BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorInt8Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4607,11 +4819,6 @@ impl TensorInt8Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorInt8Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorInt8Bit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4623,11 +4830,12 @@ impl ::core::fmt::Debug for TensorInt8Bit {
         f.debug_tuple("TensorInt8Bit").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorInt8Bit {
+impl ::windows::core::RuntimeType for TensorInt8Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt8Bit;{cddd97c5-ffd8-4fef-aefb-30e1a485b2ee})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorInt8Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorInt8Bit {
@@ -4659,7 +4867,7 @@ impl ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<super
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt8Bit> for ILearningModelFeatureValue {
@@ -4678,7 +4886,7 @@ impl ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<ILear
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4700,7 +4908,7 @@ impl ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<super
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt8Bit> for ITensor {
@@ -4719,7 +4927,7 @@ impl ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<ITens
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorInt8Bit {}
@@ -4737,8 +4945,8 @@ impl TensorString {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4746,15 +4954,15 @@ impl TensorString {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4762,8 +4970,8 @@ impl TensorString {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4771,14 +4979,14 @@ impl TensorString {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorString> {
         Self::ITensorStringStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorString>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4789,8 +4997,8 @@ impl TensorString {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorStringStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorString>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4801,8 +5009,8 @@ impl TensorString {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorStringStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorString>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4815,14 +5023,14 @@ impl TensorString {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorStringStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorString>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[::windows::core::HSTRING]) -> ::windows::core::Result<TensorString> {
         Self::ITensorStringStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorString>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4836,11 +5044,6 @@ impl TensorString {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorString {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorString {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4852,11 +5055,12 @@ impl ::core::fmt::Debug for TensorString {
         f.debug_tuple("TensorString").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorString {
+impl ::windows::core::RuntimeType for TensorString {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorString;{582335c8-bdb1-4610-bc75-35e9cbf009b7})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorString {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorString {
@@ -4888,7 +5092,7 @@ impl ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<super:
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorString) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorString> for ILearningModelFeatureValue {
@@ -4907,7 +5111,7 @@ impl ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<ILearn
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorString) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4929,7 +5133,7 @@ impl ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<super:
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorString) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorString> for ITensor {
@@ -4948,7 +5152,7 @@ impl ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<ITenso
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorString) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorString {}
@@ -4966,8 +5170,8 @@ impl TensorUInt16Bit {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4975,15 +5179,15 @@ impl TensorUInt16Bit {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4991,8 +5195,8 @@ impl TensorUInt16Bit {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5000,14 +5204,14 @@ impl TensorUInt16Bit {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u16>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<u16>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt16Bit>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5018,8 +5222,8 @@ impl TensorUInt16Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt16Bit>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5030,8 +5234,8 @@ impl TensorUInt16Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt16Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5044,14 +5248,14 @@ impl TensorUInt16Bit {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt16Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u16]) -> ::windows::core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt16Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -5062,8 +5266,8 @@ impl TensorUInt16Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt16Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5077,11 +5281,6 @@ impl TensorUInt16Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorUInt16Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorUInt16Bit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5093,11 +5292,12 @@ impl ::core::fmt::Debug for TensorUInt16Bit {
         f.debug_tuple("TensorUInt16Bit").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorUInt16Bit {
+impl ::windows::core::RuntimeType for TensorUInt16Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt16Bit;{68140f4b-23c0-42f3-81f6-a891c011bc3f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorUInt16Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorUInt16Bit {
@@ -5129,7 +5329,7 @@ impl ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<sup
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt16Bit> for ILearningModelFeatureValue {
@@ -5148,7 +5348,7 @@ impl ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<ILe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5170,7 +5370,7 @@ impl ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<sup
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt16Bit> for ITensor {
@@ -5189,7 +5389,7 @@ impl ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<ITe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt16Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorUInt16Bit {}
@@ -5207,8 +5407,8 @@ impl TensorUInt32Bit {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5216,15 +5416,15 @@ impl TensorUInt32Bit {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5232,8 +5432,8 @@ impl TensorUInt32Bit {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5241,14 +5441,14 @@ impl TensorUInt32Bit {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<u32>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt32Bit>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5259,8 +5459,8 @@ impl TensorUInt32Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt32Bit>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5271,8 +5471,8 @@ impl TensorUInt32Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt32Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5285,14 +5485,14 @@ impl TensorUInt32Bit {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt32Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u32]) -> ::windows::core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt32Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -5303,8 +5503,8 @@ impl TensorUInt32Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt32Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5318,11 +5518,6 @@ impl TensorUInt32Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorUInt32Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorUInt32Bit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5334,11 +5529,12 @@ impl ::core::fmt::Debug for TensorUInt32Bit {
         f.debug_tuple("TensorUInt32Bit").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorUInt32Bit {
+impl ::windows::core::RuntimeType for TensorUInt32Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt32Bit;{d8c9c2ff-7511-45a3-bfac-c38f370d2237})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorUInt32Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorUInt32Bit {
@@ -5370,7 +5566,7 @@ impl ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<sup
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt32Bit> for ILearningModelFeatureValue {
@@ -5389,7 +5585,7 @@ impl ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<ILe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5411,7 +5607,7 @@ impl ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<sup
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt32Bit> for ITensor {
@@ -5430,7 +5626,7 @@ impl ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<ITe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt32Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorUInt32Bit {}
@@ -5448,8 +5644,8 @@ impl TensorUInt64Bit {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5457,15 +5653,15 @@ impl TensorUInt64Bit {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5473,8 +5669,8 @@ impl TensorUInt64Bit {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5482,14 +5678,14 @@ impl TensorUInt64Bit {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u64>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<u64>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt64Bit>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5500,8 +5696,8 @@ impl TensorUInt64Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt64Bit>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5512,8 +5708,8 @@ impl TensorUInt64Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt64Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5526,14 +5722,14 @@ impl TensorUInt64Bit {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt64Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u64]) -> ::windows::core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt64Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -5544,8 +5740,8 @@ impl TensorUInt64Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt64Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5559,11 +5755,6 @@ impl TensorUInt64Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorUInt64Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorUInt64Bit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5575,11 +5766,12 @@ impl ::core::fmt::Debug for TensorUInt64Bit {
         f.debug_tuple("TensorUInt64Bit").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorUInt64Bit {
+impl ::windows::core::RuntimeType for TensorUInt64Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt64Bit;{2e70ffad-04bf-4825-839a-82baef8c7886})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorUInt64Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorUInt64Bit {
@@ -5611,7 +5803,7 @@ impl ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<sup
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt64Bit> for ILearningModelFeatureValue {
@@ -5630,7 +5822,7 @@ impl ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<ILe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5652,7 +5844,7 @@ impl ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<sup
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt64Bit> for ITensor {
@@ -5671,7 +5863,7 @@ impl ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<ITe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt64Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorUInt64Bit {}
@@ -5689,8 +5881,8 @@ impl TensorUInt8Bit {
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<LearningModelFeatureKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5698,15 +5890,15 @@ impl TensorUInt8Bit {
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IMemoryBufferReference>();
+            (::windows::core::Vtable::vtable(this).CreateReference)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorKind>();
+            (::windows::core::Vtable::vtable(this).TensorKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5714,8 +5906,8 @@ impl TensorUInt8Bit {
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<i64>>();
+            (::windows::core::Vtable::vtable(this).Shape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5723,14 +5915,14 @@ impl TensorUInt8Bit {
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<u8>>();
+            (::windows::core::Vtable::vtable(this).GetAsVectorView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create() -> ::windows::core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt8Bit>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5741,8 +5933,8 @@ impl TensorUInt8Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt8Bit>();
+            (::windows::core::Vtable::vtable(this).Create2)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5753,8 +5945,8 @@ impl TensorUInt8Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt8Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromArray)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5767,14 +5959,14 @@ impl TensorUInt8Bit {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt8Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromIterable)(::windows::core::Vtable::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u8]) -> ::windows::core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt8Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromShapeArrayAndDataArray)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), data.len() as u32, data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -5785,8 +5977,8 @@ impl TensorUInt8Bit {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<TensorUInt8Bit>();
+            (::windows::core::Vtable::vtable(this).CreateFromBuffer)(::windows::core::Vtable::as_raw(this), shape.len() as u32, shape.as_ptr(), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5800,11 +5992,6 @@ impl TensorUInt8Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for TensorUInt8Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for TensorUInt8Bit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5816,11 +6003,12 @@ impl ::core::fmt::Debug for TensorUInt8Bit {
         f.debug_tuple("TensorUInt8Bit").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorUInt8Bit {
+impl ::windows::core::RuntimeType for TensorUInt8Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt8Bit;{58e1ae27-622b-48e3-be22-d867aed1daac})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for TensorUInt8Bit {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for TensorUInt8Bit {
@@ -5852,7 +6040,7 @@ impl ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<supe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt8Bit> for ILearningModelFeatureValue {
@@ -5871,7 +6059,7 @@ impl ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<ILea
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5893,7 +6081,7 @@ impl ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<supe
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt8Bit> for ITensor {
@@ -5912,7 +6100,7 @@ impl ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<ITen
     type Error = ::windows::core::Error;
     fn try_from(value: &TensorUInt8Bit) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorUInt8Bit {}
@@ -5939,20 +6127,16 @@ impl ::core::default::Default for LearningModelDeviceKind {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LearningModelDeviceKind {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LearningModelDeviceKind {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LearningModelDeviceKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LearningModelDeviceKind").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for LearningModelDeviceKind {
+impl ::windows::core::RuntimeType for LearningModelDeviceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelDeviceKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
@@ -5975,20 +6159,16 @@ impl ::core::default::Default for LearningModelFeatureKind {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LearningModelFeatureKind {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LearningModelFeatureKind {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LearningModelFeatureKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LearningModelFeatureKind").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKind {
+impl ::windows::core::RuntimeType for LearningModelFeatureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelFeatureKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
@@ -6010,20 +6190,16 @@ impl ::core::default::Default for LearningModelPixelRange {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LearningModelPixelRange {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LearningModelPixelRange {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LearningModelPixelRange {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LearningModelPixelRange").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for LearningModelPixelRange {
+impl ::windows::core::RuntimeType for LearningModelPixelRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelPixelRange;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
@@ -6058,20 +6234,16 @@ impl ::core::default::Default for TensorKind {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TensorKind {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TensorKind {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TensorKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TensorKind").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for TensorKind {
+impl ::windows::core::RuntimeType for TensorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.TensorKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

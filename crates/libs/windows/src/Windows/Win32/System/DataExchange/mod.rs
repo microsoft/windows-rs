@@ -859,8 +859,8 @@ impl ::core::default::Default for CONVINFO_CONVERSATION_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CONVINFO_CONVERSATION_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONVINFO_CONVERSATION_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CONVINFO_CONVERSATION_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -900,8 +900,8 @@ impl ::core::default::Default for CONVINFO_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CONVINFO_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONVINFO_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CONVINFO_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -986,8 +986,8 @@ impl ::core::default::Default for DDE_CLIENT_TRANSACTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DDE_CLIENT_TRANSACTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDE_CLIENT_TRANSACTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DDE_CLIENT_TRANSACTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1017,8 +1017,8 @@ impl ::core::default::Default for DDE_ENABLE_CALLBACK_CMD {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DDE_ENABLE_CALLBACK_CMD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDE_ENABLE_CALLBACK_CMD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DDE_ENABLE_CALLBACK_CMD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1086,8 +1086,8 @@ impl ::core::default::Default for DDE_INITIALIZE_COMMAND {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DDE_INITIALIZE_COMMAND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDE_INITIALIZE_COMMAND {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DDE_INITIALIZE_COMMAND {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1150,8 +1150,8 @@ impl ::core::default::Default for DDE_NAME_SERVICE_CMD {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DDE_NAME_SERVICE_CMD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDE_NAME_SERVICE_CMD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DDE_NAME_SERVICE_CMD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1185,8 +1185,8 @@ impl ::core::fmt::Debug for CONVCONTEXT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for CONVCONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONVCONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for CONVCONTEXT {
@@ -1255,8 +1255,8 @@ impl ::core::fmt::Debug for CONVINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for CONVINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONVINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for CONVINFO {
@@ -1290,8 +1290,8 @@ impl ::core::fmt::Debug for COPYDATASTRUCT {
         f.debug_struct("COPYDATASTRUCT").field("dwData", &self.dwData).field("cbData", &self.cbData).field("lpData", &self.lpData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for COPYDATASTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYDATASTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for COPYDATASTRUCT {
     fn eq(&self, other: &Self) -> bool {
@@ -1320,8 +1320,8 @@ impl ::core::fmt::Debug for DDEACK {
         f.debug_struct("DDEACK").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDEACK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDEACK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDEACK {
     fn eq(&self, other: &Self) -> bool {
@@ -1351,8 +1351,8 @@ impl ::core::fmt::Debug for DDEADVISE {
         f.debug_struct("DDEADVISE").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDEADVISE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDEADVISE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDEADVISE {
     fn eq(&self, other: &Self) -> bool {
@@ -1383,8 +1383,8 @@ impl ::core::fmt::Debug for DDEDATA {
         f.debug_struct("DDEDATA").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -1414,8 +1414,8 @@ impl ::core::fmt::Debug for DDELN {
         f.debug_struct("DDELN").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDELN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDELN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDELN {
     fn eq(&self, other: &Self) -> bool {
@@ -1447,8 +1447,8 @@ impl ::core::fmt::Debug for DDEML_MSG_HOOK_DATA {
         f.debug_struct("DDEML_MSG_HOOK_DATA").field("uiLo", &self.uiLo).field("uiHi", &self.uiHi).field("cbData", &self.cbData).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDEML_MSG_HOOK_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDEML_MSG_HOOK_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDEML_MSG_HOOK_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -1479,8 +1479,8 @@ impl ::core::fmt::Debug for DDEPOKE {
         f.debug_struct("DDEPOKE").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDEPOKE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDEPOKE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDEPOKE {
     fn eq(&self, other: &Self) -> bool {
@@ -1511,8 +1511,8 @@ impl ::core::fmt::Debug for DDEUP {
         f.debug_struct("DDEUP").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("rgb", &self.rgb).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDEUP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDEUP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDEUP {
     fn eq(&self, other: &Self) -> bool {
@@ -1554,8 +1554,8 @@ impl ::core::convert::From<::core::option::Option<HCONV>> for HCONV {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCONV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCONV {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1586,8 +1586,8 @@ impl ::core::convert::From<::core::option::Option<HCONVLIST>> for HCONVLIST {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCONVLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCONVLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1618,8 +1618,8 @@ impl ::core::convert::From<::core::option::Option<HDDEDATA>> for HDDEDATA {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HDDEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDDEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1650,8 +1650,8 @@ impl ::core::convert::From<::core::option::Option<HSZ>> for HSZ {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HSZ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HSZ {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -1670,8 +1670,8 @@ impl ::core::fmt::Debug for HSZPAIR {
         f.debug_struct("HSZPAIR").field("hszSvc", &self.hszSvc).field("hszTopic", &self.hszTopic).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HSZPAIR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HSZPAIR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HSZPAIR {
     fn eq(&self, other: &Self) -> bool {
@@ -1708,8 +1708,8 @@ impl ::core::fmt::Debug for METAFILEPICT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for METAFILEPICT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for METAFILEPICT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for METAFILEPICT {
@@ -1760,8 +1760,8 @@ impl ::core::fmt::Debug for MONCBSTRUCT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for MONCBSTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONCBSTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for MONCBSTRUCT {
@@ -1805,8 +1805,8 @@ impl ::core::fmt::Debug for MONCONVSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MONCONVSTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONCONVSTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONCONVSTRUCT {
@@ -1846,8 +1846,8 @@ impl ::core::fmt::Debug for MONERRSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MONERRSTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONERRSTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONERRSTRUCT {
@@ -1889,8 +1889,8 @@ impl ::core::fmt::Debug for MONHSZSTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MONHSZSTRUCTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONHSZSTRUCTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONHSZSTRUCTA {
@@ -1932,8 +1932,8 @@ impl ::core::fmt::Debug for MONHSZSTRUCTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MONHSZSTRUCTW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONHSZSTRUCTW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONHSZSTRUCTW {
@@ -1981,8 +1981,8 @@ impl ::core::fmt::Debug for MONLINKSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MONLINKSTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONLINKSTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONLINKSTRUCT {
@@ -2026,8 +2026,8 @@ impl ::core::fmt::Debug for MONMSGSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MONMSGSTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONMSGSTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONMSGSTRUCT {

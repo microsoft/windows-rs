@@ -13,8 +13,8 @@ where
 #[inline]
 pub unsafe fn ApplicationRecoveryInProgress() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "kernel32.dll""system" fn ApplicationRecoveryInProgress ( pbcancelled : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ApplicationRecoveryInProgress(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+    ApplicationRecoveryInProgress(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Recovery\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
@@ -87,8 +87,8 @@ impl ::core::default::Default for REGISTER_APPLICATION_RESTART_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REGISTER_APPLICATION_RESTART_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REGISTER_APPLICATION_RESTART_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REGISTER_APPLICATION_RESTART_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

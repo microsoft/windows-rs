@@ -165,8 +165,8 @@ impl ::core::default::Default for NS_CMD_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NS_CMD_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_CMD_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NS_CMD_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -198,8 +198,8 @@ impl ::core::default::Default for NS_EVENTS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NS_EVENTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_EVENTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NS_EVENTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -231,8 +231,8 @@ impl ::core::default::Default for NS_MODE_CHANGE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NS_MODE_CHANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_MODE_CHANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NS_MODE_CHANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -262,8 +262,8 @@ impl ::core::default::Default for NS_REQS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NS_REQS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_REQS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NS_REQS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -296,8 +296,8 @@ impl ::core::fmt::Debug for CMD_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMD_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMD_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMD_ENTRY {
@@ -331,8 +331,8 @@ impl ::core::fmt::Debug for CMD_GROUP_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMD_GROUP_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMD_GROUP_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMD_GROUP_ENTRY {
@@ -368,8 +368,8 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_CONTEXT_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES {
@@ -393,8 +393,8 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_CONTEXT_ATTRIBUTES_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0 {
@@ -424,8 +424,8 @@ impl ::core::fmt::Debug for NS_CONTEXT_ATTRIBUTES_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_CONTEXT_ATTRIBUTES_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
@@ -455,8 +455,8 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_HELPER_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NS_HELPER_ATTRIBUTES {
     fn default() -> Self {
@@ -475,8 +475,8 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_HELPER_ATTRIBUTES_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0 {
     fn default() -> Self {
@@ -500,8 +500,8 @@ impl ::core::fmt::Debug for NS_HELPER_ATTRIBUTES_0_0 {
         f.debug_struct("NS_HELPER_ATTRIBUTES_0_0").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_HELPER_ATTRIBUTES_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -537,8 +537,8 @@ impl ::core::fmt::Debug for TAG_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TAG_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAG_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TAG_TYPE {
@@ -571,8 +571,8 @@ impl ::core::fmt::Debug for TOKEN_VALUE {
         f.debug_struct("TOKEN_VALUE").field("pwszToken", &self.pwszToken).field("dwValue", &self.dwValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TOKEN_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TOKEN_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TOKEN_VALUE {
     fn eq(&self, other: &Self) -> bool {
