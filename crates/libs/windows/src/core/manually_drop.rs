@@ -1,16 +1,18 @@
+use super::Type;
+
 /// Similar to the Rust Standard Library's `ManuallyDrop` wrapper, the `windows` crate's `ManuallyDrop`
 /// makes it easier to work with Win32 structs that lack ownership semantics but nevertheless allow
 /// callers to reference such non-blittable fields. Rust's `ManuallyDrop` is not used primarily because
 // it makes it very difficult to reference the wrapped value without taking ownership of it.
 #[repr(transparent)]
 #[derive(Debug)]
-pub struct ManuallyDrop<T: super::Abi> {
+pub struct ManuallyDrop<T: Type<T>> {
     abi: T::Abi,
 }
 
-impl<T: super::Abi> ManuallyDrop<T> {
+impl<T: Type<T>> ManuallyDrop<T> {
     pub fn new(value: &T) -> Self {
-        Self { abi: value.abi() }
+        unsafe { std::mem::transmute_copy(value) }
     }
 
     pub fn abi(&self) -> T::Abi {
@@ -18,7 +20,7 @@ impl<T: super::Abi> ManuallyDrop<T> {
     }
 
     pub fn as_ref(&self) -> Option<&T> {
-        unsafe { <T as super::Abi>::from_abi_ref(&self.abi).ok() }
+        unsafe { <T as Type<T>>::from_abi_ref(&self.abi) }
     }
 
     #[track_caller]
@@ -31,15 +33,15 @@ impl<T: super::Abi> ManuallyDrop<T> {
     }
 }
 
-impl<T: super::Abi> Clone for ManuallyDrop<T> {
+impl<T: Type<T>> Clone for ManuallyDrop<T> {
     fn clone(&self) -> Self {
         unsafe { std::mem::transmute_copy(self) }
     }
 }
 
-impl<T: super::Abi + PartialEq> Eq for ManuallyDrop<T> {}
+impl<T: Type<T> + PartialEq> Eq for ManuallyDrop<T> {}
 
-impl<T: super::Abi + PartialEq> PartialEq for ManuallyDrop<T> {
+impl<T: Type<T> + PartialEq> PartialEq for ManuallyDrop<T> {
     fn eq(&self, other: &Self) -> bool {
         self.as_ref() == other.as_ref()
     }
@@ -47,7 +49,7 @@ impl<T: super::Abi + PartialEq> PartialEq for ManuallyDrop<T> {
 
 impl<'a, T: 'a, U> From<&'a U> for ManuallyDrop<T>
 where
-    T: super::Abi,
+    T: Type<T>,
     &'a U: Into<&'a T>,
 {
     fn from(item: &'a U) -> Self {
@@ -55,7 +57,7 @@ where
     }
 }
 
-impl<'a, T: super::Abi> From<Option<&'a T>> for ManuallyDrop<T>
+impl<'a, T: Type<T>> From<Option<&'a T>> for ManuallyDrop<T>
 where
     &'a T: Into<ManuallyDrop<T>>,
 {

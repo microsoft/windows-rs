@@ -107,7 +107,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<T> #where_clause {
                     #link
-                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                    let mut result__ = ::std::ptr::null_mut();
                     #name(#args).from_abi(result__)
                 }
             }
@@ -141,7 +141,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
                     #link
-                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                    let mut result__ = ::windows::core::zeroed::<#return_type>();
                     #name(#args).from_abi(result__)
                 }
             }
@@ -174,9 +174,9 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
                         #link
-                        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                        let mut result__ = ::windows::core::zeroed::<#return_type>();
                         #name(#args);
-                        <#return_type as ::windows::core::Abi>::from_abi(result__.assume_init())
+                        ::windows::core::from_abi(result__.assume_init())
                     }
                 }
             } else {
@@ -186,9 +186,9 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> #return_type #where_clause {
                         #link
-                        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                        let mut result__ = ::windows::core::zeroed::<#return_type>();
                         #name(#args);
-                        result__.assume_init()
+                        ::std::mem::transmute(result__)
                     }
                 }
             }

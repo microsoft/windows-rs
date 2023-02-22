@@ -17,7 +17,7 @@ pub fn gen_mod(gen: &Gen, namespace: &str) -> TokenStream {
             include_str!("mod/Foundation/Numerics/Vector3.rs"),
             include_str!("mod/Foundation/Numerics/Vector4.rs"),
         ),
-        "Windows.Foundation" => concat!(include_str!("mod/Foundation/TimeSpan.rs"),),
+        "Windows.Foundation" => include_str!("mod/Foundation/TimeSpan.rs"),
         "Windows.Win32.Foundation" => concat!(
             include_str!("mod/Win32/Foundation/BOOL.rs"),
             include_str!("mod/Win32/Foundation/BOOLEAN.rs"),
@@ -32,9 +32,9 @@ pub fn gen_mod(gen: &Gen, namespace: &str) -> TokenStream {
             include_str!("mod/Win32/Networking/WinSock/SOCKADDR_IN6.rs"),
             include_str!("mod/Win32/Networking/WinSock/SOCKADDR_INET.rs"),
         ),
-        "Windows.Win32.UI.WindowsAndMessaging" => concat!(include_str!(
-            "mod/Win32/UI/WindowsAndMessaging/WindowLong.rs"
-        ),),
+        "Windows.Win32.UI.WindowsAndMessaging" => {
+            include_str!("mod/Win32/UI/WindowsAndMessaging/WindowLong.rs")
+        }
         _ => "",
     }
     .into()

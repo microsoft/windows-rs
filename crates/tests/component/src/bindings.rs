@@ -5,6 +5,11 @@ pub struct IClass(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IClass {
     type Vtable = IClass_Vtbl;
 }
+impl ::core::clone::Clone for IClass {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IClass {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25aa41cb_1aae_5c2e_a14a_48b91fd98f1e);
 }
@@ -16,7 +21,7 @@ pub struct IClass_Vtbl {
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Flags) -> ::windows::core::HRESULT,
     pub Int32Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const i32, b_array_size: u32, b: *mut i32, c_array_size: *mut u32, c: *mut *mut i32, result_size__: *mut u32, result__: *mut *mut i32) -> ::windows::core::HRESULT,
-    pub StringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const *mut ::core::ffi::c_void, b_array_size: u32, b: *mut *mut ::core::ffi::c_void, c_array_size: *mut u32, c: *mut *mut *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const ::std::mem::MaybeUninit<::windows::core::HSTRING>, b_array_size: u32, b: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>, c_array_size: *mut u32, c: *mut *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>, result_size__: *mut u32, result__: *mut *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
 pub struct Class(::windows::core::IUnknown);
@@ -31,8 +36,8 @@ impl Class {
     pub fn Property(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Property)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).Property)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetProperty(&self, value: i32) -> ::windows::core::Result<()> {
@@ -42,8 +47,8 @@ impl Class {
     pub fn Flags(&self) -> ::windows::core::Result<Flags> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Flags)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Flags>();
+            (::windows::core::Vtable::vtable(this).Flags)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Int32Array(&self, a: &[i32], b: &mut [i32], c: &mut ::windows::core::Array<i32>) -> ::windows::core::Result<::windows::core::Array<i32>> {
@@ -61,11 +66,6 @@ impl Class {
         }
     }
 }
-impl ::core::clone::Clone for Class {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for Class {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -77,11 +77,12 @@ impl ::core::fmt::Debug for Class {
         f.debug_tuple("Class").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Class {
+impl ::windows::core::RuntimeType for Class {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(test_component.Class;{25aa41cb-1aae-5c2e-a14a-48b91fd98f1e})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Class {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Class {
@@ -113,8 +114,8 @@ impl ::core::default::Default for Flags {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for Flags {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Flags {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for Flags {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -154,12 +155,8 @@ impl ::core::ops::Not for Flags {
         Self(self.0.not())
     }
 }
-unsafe impl ::windows::core::RuntimeType for Flags {
+impl ::windows::core::RuntimeType for Flags {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(test_component.Flags;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 pub trait IClass_Impl: Sized {
     fn Property(&self) -> ::windows::core::Result<i32>;
@@ -215,7 +212,7 @@ impl IClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StringArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const *mut ::core::ffi::c_void, b_array_size: u32, b: *mut *mut ::core::ffi::c_void, c_array_size: *mut u32, c: *mut *mut *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StringArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const ::std::mem::MaybeUninit<::windows::core::HSTRING>, b_array_size: u32, b: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>, c_array_size: *mut u32, c: *mut *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>, result_size__: *mut u32, result__: *mut *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StringArray(::core::slice::from_raw_parts(::core::mem::transmute_copy(&a), a_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&b), b_array_size as _), ::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&c), c_array_size).as_array()) {

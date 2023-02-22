@@ -1,4 +1,3 @@
-mod abi;
 mod agile_reference;
 mod array;
 mod as_impl;
@@ -21,14 +20,13 @@ mod runtime_type;
 mod scoped_interface;
 mod sha1;
 mod strings;
+mod r#type;
 mod unknown;
 mod vtable;
 mod waiter;
 mod weak;
 mod weak_ref_count;
 
-#[doc(hidden)]
-pub use abi::*;
 pub use agile_reference::*;
 pub use array::*;
 #[doc(hidden)]
@@ -46,11 +44,11 @@ pub use inspectable::*;
 pub use interface::*;
 pub use manually_drop::*;
 pub use param::*;
+pub use r#type::*;
 #[doc(hidden)]
 pub use ref_count::*;
 #[doc(hidden)]
 pub use runtime_name::*;
-#[doc(hidden)]
 pub use runtime_type::*;
 pub use scoped_interface::*;
 #[doc(hidden)]

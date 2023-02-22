@@ -82,8 +82,8 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
                 optional.unwrap_or_default()
             }
         }
-        unsafe impl ::windows::core::Abi for #ident {
-            type Abi = Self;
+        impl ::windows::core::TypeKind for #ident {
+            type TypeKind = ::windows::core::CopyType;
         }
     };
 

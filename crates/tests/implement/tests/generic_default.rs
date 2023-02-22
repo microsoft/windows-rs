@@ -9,11 +9,16 @@ use windows::Win32::Foundation::E_BOUNDS;
 #[implement(
     IVectorView<T>,
 )]
-struct Thing<T>(Vec<T::DefaultType>)
+struct Thing<T>(Vec<T::Default>)
 where
-    T: ::windows::core::RuntimeType + 'static;
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq;
 
-impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Impl<T> for Thing<T> {
+impl<T> IVectorView_Impl<T> for Thing<T>
+where
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq,
+{
     fn GetAt(&self, index: u32) -> Result<T> {
         match self.0.get(index as usize) {
             Some(value) => T::from_default(value),
@@ -25,7 +30,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Impl<T> for Thing<T>
         Ok(self.0.len() as _)
     }
 
-    fn IndexOf(&self, value: &T::DefaultType, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
         match self.0.iter().position(|element| element == value) {
             Some(index) => {
                 *result = index as _;
@@ -35,12 +40,16 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Impl<T> for Thing<T>
         }
     }
 
-    fn GetMany(&self, _startindex: u32, _items: &mut [T::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, _startindex: u32, _items: &mut [T::Default]) -> Result<u32> {
         panic!();
     }
 }
 
-impl<T: ::windows::core::RuntimeType + 'static> IIterable_Impl<T> for Thing<T> {
+impl<T> IIterable_Impl<T> for Thing<T>
+where
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq,
+{
     fn First(&self) -> Result<IIterator<T>> {
         todo!()
     }

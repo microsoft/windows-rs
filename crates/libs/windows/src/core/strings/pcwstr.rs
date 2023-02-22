@@ -64,8 +64,8 @@ impl PCWSTR {
     }
 }
 
-unsafe impl Abi for PCWSTR {
-    type Abi = Self;
+impl TypeKind for PCWSTR {
+    type TypeKind = CopyType;
 }
 
 // This just ensures that `None` can be used for optional PCWSTR parameters, which can be quite common

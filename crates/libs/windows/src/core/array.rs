@@ -2,18 +2,18 @@ use super::*;
 use bindings::*;
 
 /// A WinRT array stores elements contiguously in a heap-allocated buffer.
-pub struct Array<T: RuntimeType> {
-    data: *mut T::DefaultType,
+pub struct Array<T: Type<T>> {
+    data: *mut T::Default,
     len: u32,
 }
 
-impl<T: RuntimeType> Default for Array<T> {
+impl<T: Type<T>> Default for Array<T> {
     fn default() -> Self {
         Array { data: std::ptr::null_mut(), len: 0 }
     }
 }
 
-impl<T: RuntimeType> Array<T> {
+impl<T: Type<T>> Array<T> {
     /// Creates an empty array.
     pub fn new() -> Self {
         Self::default()
@@ -28,7 +28,7 @@ impl<T: RuntimeType> Array<T> {
         // SAFETY: the call to CoTaskMemAlloc is safe to perform
         // if len is zero and overflow was checked above.
         // We ensured we alloc enough space by multiplying len * size_of::<T>
-        let data = unsafe { CoTaskMemAlloc(bytes_amount) as *mut T::DefaultType };
+        let data = unsafe { CoTaskMemAlloc(bytes_amount) as *mut T::Default };
 
         assert!(!data.is_null(), "Could not successfully allocate for Array");
 
@@ -45,9 +45,9 @@ impl<T: RuntimeType> Array<T> {
     }
 
     /// Creates an array by copying the elements from the slice.
-    pub fn from_slice(values: &[T::DefaultType]) -> Self
+    pub fn from_slice(values: &[T::Default]) -> Self
     where
-        T::DefaultType: Clone,
+        T::Default: Clone,
     {
         let mut array = Self::with_len(values.len());
         array.clone_from_slice(values);
@@ -107,10 +107,10 @@ impl<T: RuntimeType> Array<T> {
     }
 }
 
-impl<T: RuntimeType> std::ops::Deref for Array<T> {
-    type Target = [T::DefaultType];
+impl<T: Type<T>> std::ops::Deref for Array<T> {
+    type Target = [T::Default];
 
-    fn deref(&self) -> &[T::DefaultType] {
+    fn deref(&self) -> &[T::Default] {
         if self.is_empty() {
             return &[];
         }
@@ -120,8 +120,8 @@ impl<T: RuntimeType> std::ops::Deref for Array<T> {
     }
 }
 
-impl<T: RuntimeType> std::ops::DerefMut for Array<T> {
-    fn deref_mut(&mut self) -> &mut [T::DefaultType] {
+impl<T: Type<T>> std::ops::DerefMut for Array<T> {
+    fn deref_mut(&mut self) -> &mut [T::Default] {
         if self.is_empty() {
             return &mut [];
         }
@@ -131,21 +131,21 @@ impl<T: RuntimeType> std::ops::DerefMut for Array<T> {
     }
 }
 
-impl<T: RuntimeType> Drop for Array<T> {
+impl<T: Type<T>> Drop for Array<T> {
     fn drop(&mut self) {
         self.clear();
     }
 }
 
 #[doc(hidden)]
-pub struct ArrayProxy<T: RuntimeType> {
-    data: *mut *mut T::DefaultType,
+pub struct ArrayProxy<T: Type<T>> {
+    data: *mut *mut T::Default,
     len: *mut u32,
     temp: std::mem::ManuallyDrop<Array<T>>,
 }
 
-impl<T: RuntimeType> ArrayProxy<T> {
-    pub fn from_raw_parts(data: *mut *mut T::DefaultType, len: *mut u32) -> Self {
+impl<T: Type<T>> ArrayProxy<T> {
+    pub fn from_raw_parts(data: *mut *mut T::Default, len: *mut u32) -> Self {
         Self { data, len, temp: std::mem::ManuallyDrop::new(Array::new()) }
     }
 
@@ -154,7 +154,7 @@ impl<T: RuntimeType> ArrayProxy<T> {
     }
 }
 
-impl<T: RuntimeType> Drop for ArrayProxy<T> {
+impl<T: Type<T>> Drop for ArrayProxy<T> {
     fn drop(&mut self) {
         unsafe {
             *self.data = self.temp.data;

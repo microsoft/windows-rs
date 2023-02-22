@@ -42,7 +42,7 @@ pub fn gen(
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<T> #where_clause {
-                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                    let mut result__ = ::std::ptr::null_mut();
                     (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).from_abi(result__)
                 }
             }
@@ -72,7 +72,7 @@ pub fn gen(
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type> #where_clause {
-                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                    let mut result__ = ::windows::core::zeroed::<#return_type>();
                     (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).from_abi(result__)
                 }
             }
@@ -101,9 +101,9 @@ pub fn gen(
                     #doc
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type> #where_clause {
-                        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                        let mut result__ = ::windows::core::zeroed::<#return_type>();
                         (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args);
-                        <#return_type as ::windows::core::Abi>::from_abi(result__.assume_init())
+                        ::windows::core::from_abi(result__)
                     }
                 }
             } else {
@@ -111,9 +111,9 @@ pub fn gen(
                     #doc
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
-                        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                        let mut result__ = ::windows::core::zeroed::<#return_type>();
                         (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args);
-                        result__.assume_init()
+                        ::std::mem::transmute(result__)
                     }
                 }
             }

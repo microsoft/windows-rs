@@ -134,6 +134,7 @@ impl std::ops::Drop for BSTR {
         }
     }
 }
-unsafe impl windows::core::Abi for BSTR {
-    type Abi = *mut std::ffi::c_void;
+
+impl TypeKind for BSTR {
+    type TypeKind = ValueType;
 }

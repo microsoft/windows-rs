@@ -92,16 +92,12 @@ impl HSTRING {
     }
 }
 
-unsafe impl Abi for HSTRING {
-    type Abi = *mut std::ffi::c_void;
+impl RuntimeType for HSTRING {
+    const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"string");
 }
 
-unsafe impl RuntimeType for HSTRING {
-    const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"string");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> Result<Self> {
-        Ok(from.clone())
-    }
+impl TypeKind for HSTRING {
+    type TypeKind = ValueType;
 }
 
 impl Default for HSTRING {
@@ -394,7 +390,7 @@ impl std::convert::From<HSTRING> for std::ffi::OsString {
 
 impl From<&HSTRING> for InParam<PCWSTR> {
     fn from(hstring: &HSTRING) -> Self {
-        Self::owned(PCWSTR(hstring.as_ptr()))
+        Self::Owned(PCWSTR(hstring.as_ptr()))
     }
 }
 

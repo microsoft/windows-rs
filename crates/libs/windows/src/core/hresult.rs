@@ -73,9 +73,9 @@ impl HRESULT {
     /// Safe to call if
     /// * `abi` is initialized if `self` is `Ok`
     /// * `abi` can be safely transmuted to `T`
-    pub unsafe fn from_abi<T: Abi>(self, abi: std::mem::MaybeUninit<T::Abi>) -> Result<T> {
+    pub unsafe fn from_abi<T: Type<T>>(self, abi: T::Abi) -> Result<T> {
         if self.is_ok() {
-            T::from_abi(abi.assume_init())
+            T::from_abi(abi)
         } else {
             Err(Error::from(self))
         }
@@ -98,16 +98,12 @@ impl HRESULT {
     }
 }
 
-unsafe impl Abi for HRESULT {
-    type Abi = Self;
+impl RuntimeType for HRESULT {
+    const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"struct(Windows.Foundation.HResult;i32)");
 }
 
-unsafe impl RuntimeType for HRESULT {
-    const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"struct(Windows.Foundation.HResult;i32)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> Result<Self> {
-        Ok(*from)
-    }
+impl TypeKind for HRESULT {
+    type TypeKind = CopyType;
 }
 
 impl<T> std::convert::From<Result<T>> for HRESULT {

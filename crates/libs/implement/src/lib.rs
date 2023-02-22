@@ -1,14 +1,10 @@
-use quote::quote;
+use quote::{quote, ToTokens};
 
 #[proc_macro_attribute]
 pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
     let generics: Vec<proc_macro2::TokenStream> = attributes.generics().iter().map(|g| syn::parse_str::<proc_macro2::TokenStream>(g).expect("Invalid token stream")).collect();
     let interfaces_len = proc_macro2::Literal::usize_unsuffixed(attributes.implement.len());
-
-    let constraints = quote! {
-        #(#generics: ::windows::core::RuntimeType + 'static,)*
-    };
 
     let identity_type = if let Some(first) = attributes.implement.get(0) {
         first.to_ident()
@@ -17,7 +13,14 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     };
 
     let original_type2 = original_type.clone();
-    let original_ident = syn::parse_macro_input!(original_type2 as syn::ItemStruct).ident;
+    let original_type2 = syn::parse_macro_input!(original_type2 as syn::ItemStruct);
+    let original_ident = original_type2.ident;
+    let mut constraints = quote! {};
+
+    if let Some(where_clause) = original_type2.generics.where_clause {
+        where_clause.predicates.to_tokens(&mut constraints);
+    }
+
     let impl_ident = quote::format_ident!("{}_Impl", original_ident);
     let vtbl_idents = attributes.implement.iter().map(|implement| implement.to_vtbl_ident());
     let vtbl_idents2 = vtbl_idents.clone();
@@ -44,7 +47,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         let interface_ident = implement.to_ident();
         let offset = proc_macro2::Literal::usize_unsuffixed(enumerate);
         quote! {
-            impl <#constraints> ::core::convert::From<#original_ident::<#(#generics,)*>> for #interface_ident {
+            impl <#(#generics,)*> ::core::convert::From<#original_ident::<#(#generics,)*>> for #interface_ident where #constraints {
                 fn from(this: #original_ident::<#(#generics,)*>) -> Self {
                     let this = #impl_ident::<#(#generics,)*>::new(this);
                     let mut this = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
@@ -53,7 +56,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                     unsafe { ::core::mem::transmute(vtable_ptr) }
                 }
             }
-            impl <#constraints> ::windows::core::AsImpl<#original_ident::<#(#generics,)*>> for #interface_ident {
+            impl <#(#generics,)*> ::windows::core::AsImpl<#original_ident::<#(#generics,)*>> for #interface_ident where #constraints {
                 fn as_impl(&self) -> &#original_ident::<#(#generics,)*> {
                     let this = ::windows::core::Vtable::as_raw(self);
                     // SAFETY: the offset is guranteed to be in bounds, and the implementation struct
@@ -74,10 +77,10 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         struct #impl_ident<#(#generics,)*> where #constraints {
             identity: *const ::windows::core::IInspectable_Vtbl,
             vtables: (#(*const #vtbl_idents,)*),
-            this: #original_ident::<#(#generics,)*>,
+             this: #original_ident::<#(#generics,)*>,
             count: ::windows::core::WeakRefCount,
         }
-        impl <#constraints> #impl_ident::<#(#generics,)*> {
+        impl <#(#generics,)*> #impl_ident::<#(#generics,)*> where #constraints {
             const VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
             const IDENTITY: ::windows::core::IInspectable_Vtbl = ::windows::core::IInspectable_Vtbl::new::<Self, #identity_type, 0>();
             fn new(this: #original_ident::<#(#generics,)*>) -> Self {
@@ -89,7 +92,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 }
             }
         }
-        impl <#constraints> ::windows::core::IUnknownImpl for #impl_ident::<#(#generics,)*> {
+         impl <#(#generics,)*> ::windows::core::IUnknownImpl for #impl_ident::<#(#generics,)*> where #constraints {
             type Impl = #original_ident::<#(#generics,)*>;
             fn get_impl(&self) -> &Self::Impl {
                 &self.this
@@ -130,8 +133,8 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 }
                 remaining
             }
-        }
-        impl <#constraints> #original_ident::<#(#generics,)*> {
+         }
+        impl <#(#generics,)*> #original_ident::<#(#generics,)*> where #constraints {
             /// Try casting as the provided interface
             ///
             /// # Safety
@@ -144,7 +147,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 <#impl_ident::<#(#generics,)*> as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result as *mut _ as _).and_some(result)
             }
         }
-        impl <#constraints> ::core::convert::From<#original_ident::<#(#generics,)*>> for ::windows::core::IUnknown {
+        impl <#(#generics,)*> ::core::convert::From<#original_ident::<#(#generics,)*>> for ::windows::core::IUnknown where #constraints {
             fn from(this: #original_ident::<#(#generics,)*>) -> Self {
                 let this = #impl_ident::<#(#generics,)*>::new(this);
                 let boxed = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
@@ -153,7 +156,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 }
             }
         }
-        impl <#constraints> ::core::convert::From<#original_ident::<#(#generics,)*>> for ::windows::core::IInspectable {
+        impl <#(#generics,)*> ::core::convert::From<#original_ident::<#(#generics,)*>> for ::windows::core::IInspectable where #constraints {
             fn from(this: #original_ident::<#(#generics,)*>) -> Self {
                 let this = #impl_ident::<#(#generics,)*>::new(this);
                 let boxed = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
