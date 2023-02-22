@@ -58,7 +58,7 @@ where
     }
 
     unsafe fn from_abi_ref(abi: &Self::Abi) -> Option<&Self> {
-        Some(abi.assume_init_ref())
+        Some(std::mem::transmute(abi))
     }
 
     fn from_default(default: &Self::Default) -> Result<Self> {
