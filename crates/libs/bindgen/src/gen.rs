@@ -816,14 +816,14 @@ impl<'a> Gen<'a> {
 
             let mut tokens = quote! {
                 #features
+                unsafe impl<#constraints> ::windows::core::Vtable for #ident {
+                    type Vtable = #vtbl;
+                }
+                #features
                 impl<#constraints> ::core::clone::Clone for #ident {
                     fn clone(&self) -> Self {
                         Self(self.0.clone(), #phantoms)
                     }
-                }
-                #features
-                unsafe impl<#constraints> ::windows::core::Vtable for #ident {
-                    type Vtable = #vtbl;
                 }
             };
 
