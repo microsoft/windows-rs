@@ -133,3 +133,18 @@ fn hstring() -> Result<()> {
 
     Ok(())
 }
+
+#[test]
+fn calendar() -> Result<()> {
+    use windows::Globalization::*;
+
+    let languages = IIterable::try_from(vec![HSTRING::from("he-IL"), HSTRING::from("ja-JP")])?;
+    let calendar = Calendar::CreateCalendar(&languages, &CalendarIdentifiers::Hebrew()?, &ClockIdentifiers::TwentyFourHour()?)?;
+
+    let languages2 = calendar.Languages()?;
+    assert_eq!(languages2.Size()?, 2);
+    assert_eq!(&languages2.GetAt(0)?, h!("he-IL"));
+    assert_eq!(&languages2.GetAt(1)?, h!("ja-JP"));
+
+    Ok(())
+}
