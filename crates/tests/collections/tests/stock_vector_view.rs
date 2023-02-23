@@ -37,6 +37,10 @@ fn primitive() -> Result<()> {
     assert_eq!(v.GetMany(1, &mut values)?, 1);
     assert_eq!(values, [2]);
 
+    let able: IIterable<i32> = v.cast()?;
+    let v2: IVectorView<i32> = able.cast()?;
+    assert_eq!(v, v2);
+
     Ok(())
 }
 
