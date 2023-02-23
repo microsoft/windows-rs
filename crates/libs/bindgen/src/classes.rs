@@ -68,8 +68,8 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
                         pub fn #interface_type<R, F: FnOnce(&#interface_type) -> ::windows::core::Result<R>>(
                             callback: F,
                         ) -> ::windows::core::Result<R> {
-                            static SHARED: ::windows::core::FactoryCache<#name, #interface_type> =
-                                ::windows::core::FactoryCache::new();
+                            static SHARED: ::windows::imp::FactoryCache<#name, #interface_type> =
+                                ::windows::imp::FactoryCache::new();
                             SHARED.call(callback)
                         }
                     });
@@ -86,11 +86,11 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
                 pub fn new() -> ::windows::core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
                 }
-                fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(
+                fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(
                     callback: F,
                 ) -> ::windows::core::Result<R> {
-                    static SHARED: ::windows::core::FactoryCache<#name, ::windows::core::IGenericFactory> =
-                        ::windows::core::FactoryCache::new();
+                    static SHARED: ::windows::imp::FactoryCache<#name, ::windows::imp::IGenericFactory> =
+                        ::windows::imp::FactoryCache::new();
                     SHARED.call(callback)
                 }
             }
@@ -176,7 +176,7 @@ fn gen_conversions(
     let features = gen.cfg_features(cfg);
     let mut tokens = quote! {
         #features
-        ::windows::core::interface_hierarchy!(#name, ::windows::core::IUnknown, ::windows::core::IInspectable);
+        ::windows::imp::interface_hierarchy!(#name, ::windows::core::IUnknown, ::windows::core::IInspectable);
     };
 
     for interface in interfaces {

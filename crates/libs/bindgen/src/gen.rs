@@ -640,7 +640,7 @@ impl<'a> Gen<'a> {
                 impl<#constraints> #ident {
                     pub fn get(&self) -> ::windows::core::Result<#return_type> {
                         if self.Status()? == #namespace AsyncStatus::Started {
-                            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
+                            let (_waiter, signaler) = ::windows::imp::Waiter::new()?;
                             self.SetCompleted(&#namespace  #handler::new(move |_sender, _args| {
                                 // Safe because the waiter will only be dropped after being signaled.
                                 unsafe { signaler.signal(); }
@@ -689,14 +689,14 @@ impl<'a> Gen<'a> {
             let type_signature = if self.reader.type_def_kind(def) == TypeKind::Class {
                 let type_signature =
                     Literal::byte_string(self.reader.type_def_signature(def, generics).as_bytes());
-                quote! { ::windows::core::ConstBuffer::from_slice(#type_signature) }
+                quote! { ::windows::imp::ConstBuffer::from_slice(#type_signature) }
             } else {
                 let signature = Literal::byte_string(
                     format!("{{{:#?}}}", self.reader.type_def_guid(def).unwrap()).as_bytes(),
                 );
 
                 if generics.is_empty() {
-                    quote! { ::windows::core::ConstBuffer::from_slice(#signature) }
+                    quote! { ::windows::imp::ConstBuffer::from_slice(#signature) }
                 } else {
                     let generics = generics.iter().enumerate().map(|(index, g)| {
                         let g = self.type_name(g);
@@ -716,7 +716,7 @@ impl<'a> Gen<'a> {
 
                     quote! {
                         {
-                            ::windows::core::ConstBuffer::new()
+                            ::windows::imp::ConstBuffer::new()
                             .push_slice(b"pinterface(")
                             .push_slice(#signature)
                             .push_slice(b";")
@@ -730,7 +730,7 @@ impl<'a> Gen<'a> {
             quote! {
                 #features
                 impl<#constraints> ::windows::core::RuntimeType for #ident {
-                    const SIGNATURE: ::windows::core::ConstBuffer = #type_signature;
+                    const SIGNATURE: ::windows::imp::ConstBuffer = #type_signature;
                 }
             }
         } else {

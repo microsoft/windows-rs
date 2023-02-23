@@ -1,5 +1,5 @@
 use super::*;
-use bindings::IWeakReferenceSource;
+use imp::IWeakReferenceSource;
 
 /// Provides low-level access to a COM interface.
 ///

@@ -1,14 +1,15 @@
 use super::*;
 
 pub trait RuntimeType: Type<Self> {
-    const SIGNATURE: ConstBuffer;
+    // TODO: hidden?
+    const SIGNATURE: imp::ConstBuffer;
 }
 
 macro_rules! primitives {
     ($(($t:ty, $s:literal)),+) => {
         $(
             impl RuntimeType for $t {
-                const SIGNATURE: ConstBuffer = ConstBuffer::from_slice($s);
+                const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice($s);
             }
         )*
     };

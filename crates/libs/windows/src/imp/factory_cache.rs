@@ -1,7 +1,7 @@
 use super::*;
-use bindings::*;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
+use windows::core::Interface;
 
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
@@ -16,8 +16,8 @@ impl<C, I> FactoryCache<C, I> {
     }
 }
 
-impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
-    pub fn call<R, F: FnOnce(&I) -> Result<R>>(&self, callback: F) -> Result<R> {
+impl<C: core::RuntimeName, I: core::Interface> FactoryCache<C, I> {
+    pub fn call<R, F: FnOnce(&I) -> core::Result<R>>(&self, callback: F) -> core::Result<R> {
         loop {
             // Attempt to load a previously cached factory pointer.
             let ptr = self.shared.load(Ordering::Relaxed);
@@ -49,9 +49,9 @@ unsafe impl<C, I> std::marker::Sync for FactoryCache<C, I> {}
 
 /// Attempts to load the factory object for the given WinRT class.
 /// This can be used to access COM interfaces implemented on a Windows Runtime class factory.
-pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
+pub fn factory<C: core::RuntimeName, I: core::Interface>() -> core::Result<I> {
     let mut factory: Option<I> = None;
-    let name = HSTRING::from(C::NAME);
+    let name = core::HSTRING::from(C::NAME);
 
     let code = if let Some(function) = unsafe { delay_load::<RoGetActivationFactory>(s!("combase.dll"), s!("RoGetActivationFactory")) } {
         unsafe {
@@ -82,7 +82,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
     // If not, first capture the error information from the failure above so that we
     // can ultimately return this error information if all else fails.
-    let original: Error = code.into();
+    let original: core::Error = code.into();
 
     // Now attempt to find the factory's implementation heuristically.
     if let Some(i) = search_path(C::NAME, |library| unsafe { get_activation_factory(library, &name) }) {
@@ -100,7 +100,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 ///   2. A.dll
 fn search_path<F, R>(mut path: &str, mut callback: F) -> Option<R>
 where
-    F: FnMut(PCSTR) -> Result<R>,
+    F: FnMut(core::PCSTR) -> core::Result<R>,
 {
     let suffix = b".dll\0";
     let mut library = vec![0; path.len() + suffix.len()];
@@ -110,7 +110,7 @@ where
         library[..path.len()].copy_from_slice(path.as_bytes());
         library[path.len()..].copy_from_slice(suffix);
 
-        if let Ok(r) = callback(PCSTR::from_raw(library.as_ptr())) {
+        if let Ok(r) = callback(core::PCSTR::from_raw(library.as_ptr())) {
             return Some(r);
         }
     }
@@ -118,15 +118,15 @@ where
     None
 }
 
-unsafe fn get_activation_factory(library: PCSTR, name: &HSTRING) -> Result<IGenericFactory> {
-    let function = delay_load::<DllGetActivationFactory>(library, s!("DllGetActivationFactory")).ok_or_else(Error::from_win32)?;
+unsafe fn get_activation_factory(library: core::PCSTR, name: &core::HSTRING) -> core::Result<IGenericFactory> {
+    let function = delay_load::<DllGetActivationFactory>(library, s!("DllGetActivationFactory")).ok_or_else(core::Error::from_win32)?;
     let mut abi = std::ptr::null_mut();
     function(std::mem::transmute_copy(name), &mut abi).from_abi(abi)
 }
 
-type CoIncrementMTAUsage = extern "system" fn(cookie: *mut *mut std::ffi::c_void) -> HRESULT;
-type RoGetActivationFactory = extern "system" fn(hstring: *mut std::ffi::c_void, interface: &GUID, result: *mut *mut std::ffi::c_void) -> HRESULT;
-type DllGetActivationFactory = extern "system" fn(name: *mut std::ffi::c_void, factory: *mut *mut std::ffi::c_void) -> HRESULT;
+type CoIncrementMTAUsage = extern "system" fn(cookie: *mut *mut std::ffi::c_void) -> core::HRESULT;
+type RoGetActivationFactory = extern "system" fn(hstring: *mut std::ffi::c_void, interface: &core::GUID, result: *mut *mut std::ffi::c_void) -> core::HRESULT;
+type DllGetActivationFactory = extern "system" fn(name: *mut std::ffi::c_void, factory: *mut *mut std::ffi::c_void) -> core::HRESULT;
 
 #[cfg(test)]
 mod tests {
@@ -143,7 +143,7 @@ mod tests {
             if unsafe { library.as_bytes() } == &b"A.dll"[..] {
                 Ok(42)
             } else {
-                Err(Error::OK)
+                Err(core::Error::OK)
             }
         });
         assert!(matches!(end_result, Some(42)));
@@ -153,7 +153,7 @@ mod tests {
         let mut results = Vec::new();
         let end_result = search_path(path, |library| {
             results.push(unsafe { library.to_string().unwrap() });
-            Result::<()>::Err(Error::OK)
+            core::Result::<()>::Err(core::Error::OK)
         });
         assert!(matches!(end_result, None));
         assert_eq!(results, vec!["A.B.dll", "A.dll"]);

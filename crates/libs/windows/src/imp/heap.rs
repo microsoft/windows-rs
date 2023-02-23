@@ -1,5 +1,4 @@
 use super::*;
-use bindings::*;
 
 /// Allocate memory of size `bytes` using `HeapAlloc`.
 ///
@@ -7,7 +6,7 @@ use bindings::*;
 ///
 /// This function will fail in OOM situations, if the heap is otherwise corrupt,
 /// or if getting a handle to the process heap fails.
-pub fn heap_alloc(bytes: usize) -> Result<*mut std::ffi::c_void> {
+pub fn heap_alloc(bytes: usize) -> core::Result<*mut std::ffi::c_void> {
     let ptr = unsafe { HeapAlloc(GetProcessHeap(), 0, bytes) };
 
     if ptr.is_null() {

@@ -1,5 +1,5 @@
 use super::*;
-use bindings::*;
+use imp::*;
 use std::sync::*;
 
 /// A type that you can use to declare and implement an event of a specified delegate type.

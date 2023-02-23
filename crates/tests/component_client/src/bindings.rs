@@ -29,8 +29,8 @@ impl Class {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Class, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Class, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Property(&self) -> ::windows::core::Result<i32> {
@@ -78,7 +78,7 @@ impl ::core::fmt::Debug for Class {
     }
 }
 impl ::windows::core::RuntimeType for Class {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(test_component.Class;{25aa41cb-1aae-5c2e-a14a-48b91fd98f1e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(test_component.Class;{25aa41cb-1aae-5c2e-a14a-48b91fd98f1e})");
 }
 impl ::core::clone::Clone for Class {
     fn clone(&self) -> Self {
@@ -94,7 +94,7 @@ unsafe impl ::windows::core::Interface for Class {
 impl ::windows::core::RuntimeName for Class {
     const NAME: &'static str = "test_component.Class";
 }
-::windows::core::interface_hierarchy!(Class, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Class, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Class {}
 unsafe impl ::core::marker::Sync for Class {}
 #[repr(transparent)]
@@ -156,7 +156,7 @@ impl ::core::ops::Not for Flags {
     }
 }
 impl ::windows::core::RuntimeType for Flags {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(test_component.Flags;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(test_component.Flags;u4)");
 }
 pub trait IClass_Impl: Sized {
     fn Property(&self) -> ::windows::core::Result<i32>;

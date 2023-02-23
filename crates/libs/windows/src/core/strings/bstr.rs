@@ -1,5 +1,5 @@
 use super::*;
-use bindings::*;
+use imp::*;
 
 #[repr(transparent)]
 pub struct BSTR(*const u16);
@@ -59,32 +59,32 @@ impl std::clone::Clone for BSTR {
 }
 impl std::convert::From<&str> for BSTR {
     fn from(value: &str) -> Self {
-        let value: windows::core::alloc::vec::Vec<u16> = value.encode_utf16().collect();
+        let value: std::vec::Vec<u16> = value.encode_utf16().collect();
         Self::from_wide(&value).unwrap()
     }
 }
-impl std::convert::From<windows::core::alloc::string::String> for BSTR {
-    fn from(value: windows::core::alloc::string::String) -> Self {
+impl std::convert::From<std::string::String> for BSTR {
+    fn from(value: std::string::String) -> Self {
         value.as_str().into()
     }
 }
-impl std::convert::From<&windows::core::alloc::string::String> for BSTR {
-    fn from(value: &windows::core::alloc::string::String) -> Self {
+impl std::convert::From<&std::string::String> for BSTR {
+    fn from(value: &std::string::String) -> Self {
         value.as_str().into()
     }
 }
-impl<'a> std::convert::TryFrom<&'a BSTR> for windows::core::alloc::string::String {
-    type Error = windows::core::alloc::string::FromUtf16Error;
+impl<'a> std::convert::TryFrom<&'a BSTR> for std::string::String {
+    type Error = std::string::FromUtf16Error;
 
     fn try_from(value: &BSTR) -> std::result::Result<Self, Self::Error> {
-        windows::core::alloc::string::String::from_utf16(value.as_wide())
+        std::string::String::from_utf16(value.as_wide())
     }
 }
-impl std::convert::TryFrom<BSTR> for windows::core::alloc::string::String {
-    type Error = windows::core::alloc::string::FromUtf16Error;
+impl std::convert::TryFrom<BSTR> for std::string::String {
+    type Error = std::string::FromUtf16Error;
 
     fn try_from(value: BSTR) -> std::result::Result<Self, Self::Error> {
-        windows::core::alloc::string::String::try_from(&value)
+        std::string::String::try_from(&value)
     }
 }
 impl std::default::Default for BSTR {

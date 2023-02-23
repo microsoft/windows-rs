@@ -191,7 +191,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             tokens.combine(&quote! {
                 #features
                 impl ::windows::core::RuntimeType for #ident {
-                    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
+                    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(#signature);
                 }
             });
         }

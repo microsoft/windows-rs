@@ -1,5 +1,5 @@
 use super::*;
-use bindings::*;
+use imp::*;
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
 /// [`IInspectable`] represents the
@@ -38,7 +38,7 @@ unsafe impl Interface for IInspectable {
 }
 
 impl RuntimeType for IInspectable {
-    const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"cinterface(IInspectable)");
+    const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"cinterface(IInspectable)");
 }
 
 impl RuntimeName for IInspectable {}

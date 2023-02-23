@@ -1,4 +1,5 @@
-use windows::core::*;
+use windows::core::Interface;
+use windows::imp::WeakRefCount;
 use windows::Win32::System::WinRT::IWeakReferenceSource;
 
 #[test]

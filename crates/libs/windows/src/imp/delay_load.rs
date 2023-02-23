@@ -1,5 +1,4 @@
 use super::*;
-use bindings::*;
 
 /// Attempts to load a function from a given library.
 ///
@@ -8,7 +7,7 @@ use bindings::*;
 /// # Safety
 ///
 /// * Both the library and function names must be valid null-terminated strings.
-pub unsafe fn delay_load<T>(library: PCSTR, function: PCSTR) -> Option<T> {
+pub unsafe fn delay_load<T>(library: core::PCSTR, function: core::PCSTR) -> Option<T> {
     let library = LoadLibraryA(library);
 
     if library == 0 {

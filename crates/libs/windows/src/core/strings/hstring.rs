@@ -49,8 +49,8 @@ impl HSTRING {
     }
 
     /// Get the contents of this `HSTRING` as a String lossily.
-    pub fn to_string_lossy(&self) -> alloc::string::String {
-        alloc::string::String::from_utf16_lossy(self.as_wide())
+    pub fn to_string_lossy(&self) -> std::string::String {
+        std::string::String::from_utf16_lossy(self.as_wide())
     }
 
     /// Get the contents of this `HSTRING` as a OsString.
@@ -93,7 +93,7 @@ impl HSTRING {
 }
 
 impl RuntimeType for HSTRING {
-    const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"string");
+    const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"string");
 }
 
 impl TypeKind for HSTRING {
@@ -128,7 +128,7 @@ impl Drop for HSTRING {
             unsafe {
                 let header = header.as_ref();
                 if header.flags & REFERENCE_FLAG == 0 && header.count.release() == 0 {
-                    heap_free(header as *const _ as *mut _);
+                    imp::heap_free(header as *const _ as *mut _);
                 }
             }
         }
@@ -156,14 +156,14 @@ impl std::convert::From<&str> for HSTRING {
     }
 }
 
-impl std::convert::From<alloc::string::String> for HSTRING {
-    fn from(value: alloc::string::String) -> Self {
+impl std::convert::From<std::string::String> for HSTRING {
+    fn from(value: std::string::String) -> Self {
         value.as_str().into()
     }
 }
 
-impl std::convert::From<&alloc::string::String> for HSTRING {
-    fn from(value: &alloc::string::String) -> Self {
+impl std::convert::From<&std::string::String> for HSTRING {
+    fn from(value: &std::string::String) -> Self {
         value.as_str().into()
     }
 }
@@ -202,20 +202,20 @@ impl PartialEq for HSTRING {
     }
 }
 
-impl PartialEq<alloc::string::String> for HSTRING {
-    fn eq(&self, other: &alloc::string::String) -> bool {
+impl PartialEq<std::string::String> for HSTRING {
+    fn eq(&self, other: &std::string::String) -> bool {
         *self == **other
     }
 }
 
-impl PartialEq<alloc::string::String> for &HSTRING {
-    fn eq(&self, other: &alloc::string::String) -> bool {
+impl PartialEq<std::string::String> for &HSTRING {
+    fn eq(&self, other: &std::string::String) -> bool {
         **self == **other
     }
 }
 
-impl PartialEq<&alloc::string::String> for HSTRING {
-    fn eq(&self, other: &&alloc::string::String) -> bool {
+impl PartialEq<&std::string::String> for HSTRING {
+    fn eq(&self, other: &&std::string::String) -> bool {
         *self == ***other
     }
 }
@@ -256,19 +256,19 @@ impl PartialEq<&HSTRING> for str {
     }
 }
 
-impl PartialEq<HSTRING> for alloc::string::String {
+impl PartialEq<HSTRING> for std::string::String {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == **self
     }
 }
 
-impl PartialEq<HSTRING> for &alloc::string::String {
+impl PartialEq<HSTRING> for &std::string::String {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == ***self
     }
 }
 
-impl PartialEq<&HSTRING> for alloc::string::String {
+impl PartialEq<&HSTRING> for std::string::String {
     fn eq(&self, other: &&HSTRING) -> bool {
         **other == **self
     }
@@ -358,19 +358,19 @@ impl PartialEq<&HSTRING> for std::ffi::OsString {
     }
 }
 
-impl<'a> std::convert::TryFrom<&'a HSTRING> for alloc::string::String {
-    type Error = alloc::string::FromUtf16Error;
+impl<'a> std::convert::TryFrom<&'a HSTRING> for std::string::String {
+    type Error = std::string::FromUtf16Error;
 
     fn try_from(hstring: &HSTRING) -> std::result::Result<Self, Self::Error> {
-        alloc::string::String::from_utf16(hstring.as_wide())
+        std::string::String::from_utf16(hstring.as_wide())
     }
 }
 
-impl std::convert::TryFrom<HSTRING> for alloc::string::String {
-    type Error = alloc::string::FromUtf16Error;
+impl std::convert::TryFrom<HSTRING> for std::string::String {
+    type Error = std::string::FromUtf16Error;
 
     fn try_from(hstring: HSTRING) -> std::result::Result<Self, Self::Error> {
-        alloc::string::String::try_from(&hstring)
+        std::string::String::try_from(&hstring)
     }
 }
 
@@ -403,7 +403,7 @@ struct Header {
     _0: u32,
     _1: u32,
     data: *mut u16,
-    count: RefCount,
+    count: imp::RefCount,
     buffer_start: u16,
 }
 
@@ -414,13 +414,13 @@ impl Header {
         // The space for the terminating null character is already accounted for inside of `Header`.
         let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
 
-        let header = heap_alloc(alloc_size)? as *mut Header;
+        let header = imp::heap_alloc(alloc_size)? as *mut Header;
 
         // SAFETY: uses `std::ptr::write` (since `header` is unintialized). `Header` is safe to be all zeros.
         unsafe {
             header.write(std::mem::MaybeUninit::<Header>::zeroed().assume_init());
             (*header).len = len;
-            (*header).count = RefCount::new(1);
+            (*header).count = imp::RefCount::new(1);
             (*header).data = &mut (*header).buffer_start;
         }
         Ok(header)

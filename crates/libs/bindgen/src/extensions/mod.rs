@@ -40,6 +40,10 @@ pub fn gen_mod(gen: &Gen, namespace: &str) -> TokenStream {
     .into()
 }
 
-pub fn gen_impl(_namespace: &str) -> TokenStream {
-    TokenStream::new()
+pub fn gen_impl(namespace: &str) -> TokenStream {
+    match namespace {
+        "Windows.Foundation.Collections" => include_str!("impl/Foundation/Collections/Iterable.rs"),
+        _ => "",
+    }
+    .into()
 }
