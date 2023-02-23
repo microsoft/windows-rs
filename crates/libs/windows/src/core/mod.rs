@@ -15,8 +15,8 @@ mod scoped_interface;
 mod strings;
 mod r#type;
 mod unknown;
-mod weak;
 mod vtable;
+mod weak;
 
 use super::*;
 pub use agile_reference::*;
@@ -36,8 +36,8 @@ pub use runtime_type::*;
 pub use scoped_interface::*;
 pub use strings::*;
 pub use unknown::*;
-pub use weak::*;
 pub use vtable::*;
+pub use weak::*;
 
 /// A specialized [`Result`] type that provides Windows error information.
 pub type Result<T> = std::result::Result<T, Error>;

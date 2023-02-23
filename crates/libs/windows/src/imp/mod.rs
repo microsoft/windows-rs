@@ -48,7 +48,6 @@ pub fn wide_trim_end(mut wide: &[u16]) -> &[u16] {
     wide
 }
 
-
 #[doc(hidden)]
 #[macro_export]
 macro_rules! interface_hierarchy {

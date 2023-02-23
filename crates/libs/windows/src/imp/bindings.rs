@@ -40,13 +40,12 @@ pub const S_OK: core::HRESULT = core::HRESULT(0i32);
 // TODO: need a "windows::imp" for public/implementation details
 pub const E_BOUNDS: core::HRESULT = core::HRESULT(-2147483637i32);
 
-
 // TODO: whatever depends on this needs to move to Windows.Foundation
 
 #[doc(hidden)]
 #[repr(transparent)]
 #[derive(Clone)]
-pub struct IPropertyValueStatics( core::IUnknown);
+pub struct IPropertyValueStatics(core::IUnknown);
 unsafe impl core::Vtable for IPropertyValueStatics {
     type Vtable = IPropertyValueStatics_Vtbl;
 }
@@ -73,7 +72,7 @@ pub struct IPropertyValueStatics_Vtbl {
 }
 
 #[repr(transparent)]
-pub struct IReference<T>( core::IUnknown, std::marker::PhantomData<T>)
+pub struct IReference<T>(core::IUnknown, std::marker::PhantomData<T>)
 where
     T: core::RuntimeType + 'static;
 impl<T: core::RuntimeType + 'static> IReference<T> {
@@ -118,7 +117,7 @@ where
 }
 
 #[repr(transparent)]
-pub struct IStringable( core::IUnknown);
+pub struct IStringable(core::IUnknown);
 impl IStringable {
     pub fn ToString(&self) -> core::Result<core::HSTRING> {
         let this = self;
@@ -234,7 +233,7 @@ impl core::RuntimeName for PropertyValue {
 }
 
 #[repr(transparent)]
-pub struct IAgileObject( core::IUnknown);
+pub struct IAgileObject(core::IUnknown);
 impl std::clone::Clone for IAgileObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -259,7 +258,7 @@ pub struct IAgileObject_Vtbl {
 }
 
 #[repr(transparent)]
-pub struct IErrorInfo( core::IUnknown);
+pub struct IErrorInfo(core::IUnknown);
 impl IErrorInfo {
     pub unsafe fn GetDescription(&self) -> core::Result<core::BSTR> {
         let mut result__ = core::zeroed::<core::BSTR>();
@@ -296,7 +295,7 @@ pub struct IErrorInfo_Vtbl {
 }
 
 #[repr(transparent)]
-pub struct IAgileReference(pub(crate)  core::IUnknown);
+pub struct IAgileReference(pub(crate) core::IUnknown);
 impl IAgileReference {
     pub unsafe fn Resolve<T>(&self) -> core::Result<T>
     where
@@ -332,7 +331,7 @@ pub struct IAgileReference_Vtbl {
 }
 
 #[repr(transparent)]
-pub struct ILanguageExceptionErrorInfo( core::IUnknown);
+pub struct ILanguageExceptionErrorInfo(core::IUnknown);
 impl std::clone::Clone for ILanguageExceptionErrorInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -358,11 +357,11 @@ pub struct ILanguageExceptionErrorInfo_Vtbl {
 }
 
 #[repr(transparent)]
-pub struct ILanguageExceptionErrorInfo2( core::IUnknown);
+pub struct ILanguageExceptionErrorInfo2(core::IUnknown);
 impl ILanguageExceptionErrorInfo2 {
     pub unsafe fn CapturePropagationContext<P0>(&self, languageexception: P0) -> core::Result<()>
     where
-        P0: std::convert::Into<core::InParam< core::IUnknown>>,
+        P0: std::convert::Into<core::InParam<core::IUnknown>>,
     {
         (core::Vtable::vtable(self).CapturePropagationContext)(core::Vtable::as_raw(self), languageexception.into().abi()).ok()
     }
@@ -394,7 +393,7 @@ pub struct ILanguageExceptionErrorInfo2_Vtbl {
 }
 
 #[repr(transparent)]
-pub struct IRestrictedErrorInfo( core::IUnknown);
+pub struct IRestrictedErrorInfo(core::IUnknown);
 impl IRestrictedErrorInfo {
     pub unsafe fn GetErrorDetails(&self, description: &mut core::BSTR, error: &mut core::HRESULT, restricteddescription: &mut core::BSTR, capabilitysid: &mut core::BSTR) -> core::Result<()> {
         (core::Vtable::vtable(self).GetErrorDetails)(core::Vtable::as_raw(self), description as *mut _, error as *mut _, restricteddescription as *mut _, capabilitysid as *mut _).ok()
@@ -432,7 +431,7 @@ pub struct IRestrictedErrorInfo_Vtbl {
 }
 
 #[repr(transparent)]
-pub struct IWeakReference( core::IUnknown);
+pub struct IWeakReference(core::IUnknown);
 impl IWeakReference {
     pub unsafe fn Resolve<T>(&self) -> core::Result<T>
     where
@@ -467,7 +466,7 @@ pub struct IWeakReference_Vtbl {
 }
 
 #[repr(transparent)]
-pub struct IWeakReferenceSource( core::IUnknown);
+pub struct IWeakReferenceSource(core::IUnknown);
 impl IWeakReferenceSource {
     pub unsafe fn GetWeakReference(&self) -> core::Result<IWeakReference> {
         let mut result__ = std::ptr::null_mut();
