@@ -175,11 +175,11 @@ hstring          : "This is an HSTRING" [Type: windows::core::strings::hstring::
 
 out_of_memory_error : 0x8007000e (Not enough memory resources are available to complete this operation.) [Type: windows::core::error::Error]
     [<Raw View>]     [Type: windows::core::error::Error]
-    [info]           : Some [Type: enum2$<core::option::Option<windows::core::bindings::IRestrictedErrorInfo> >]
+    [info]           : Some [Type: enum2$<core::option::Option<windows::imp::bindings::IRestrictedErrorInfo> >]
 
 invalid_argument_error : 0x80070057 (The parameter is incorrect.) [Type: windows::core::error::Error]
     [<Raw View>]     [Type: windows::core::error::Error]
-    [info]           : Some [Type: enum2$<core::option::Option<windows::core::bindings::IRestrictedErrorInfo> >]
+    [info]           : Some [Type: enum2$<core::option::Option<windows::imp::bindings::IRestrictedErrorInfo> >]
     "#
 )]
 fn test_debugger_visualizer() {
