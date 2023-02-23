@@ -1,5 +1,5 @@
 #[::windows::core::implement(IIterable<T>)]
-struct Iterable<T>
+struct StockIterable<T>
 where
     T: ::windows::core::RuntimeType + 'static,
     <T as ::windows::core::Type<T>>::Default: ::std::clone::Clone,
@@ -7,7 +7,7 @@ where
     values: std::vec::Vec<T::Default>,
 }
 
-impl<T> IIterable_Impl<T> for Iterable<T>
+impl<T> IIterable_Impl<T> for StockIterable<T>
 where
     T: ::windows::core::RuntimeType,
     <T as ::windows::core::Type<T>>::Default: ::std::clone::Clone,
@@ -16,7 +16,7 @@ where
         unsafe {
             // TODO: ideally we can do an AddRef rather than a QI here (via cast)...
             // and then we can get rid of the unsafe as well.
-            Ok(Iterator {
+            Ok(StockIterator {
                 owner: self.cast()?,
                 current: 0.into(),
             }
@@ -26,7 +26,7 @@ where
 }
 
 #[::windows::core::implement(IIterator<T>)]
-struct Iterator<T>
+struct StockIterator<T>
 where
     T: ::windows::core::RuntimeType + 'static,
     <T as ::windows::core::Type<T>>::Default: ::std::clone::Clone,
@@ -35,13 +35,13 @@ where
     current: ::std::sync::atomic::AtomicUsize,
 }
 
-impl<T> IIterator_Impl<T> for Iterator<T>
+impl<T> IIterator_Impl<T> for StockIterator<T>
 where
     T: ::windows::core::RuntimeType,
     <T as ::windows::core::Type<T>>::Default: ::std::clone::Clone,
 {
     fn Current(&self) -> ::windows::core::Result<T> {
-        let owner = ::windows::core::AsImpl::as_impl(&self.owner);
+        let owner: &StockIterable<T> = ::windows::core::AsImpl::as_impl(&self.owner);
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         if owner.values.len() > current {
@@ -52,14 +52,14 @@ where
     }
 
     fn HasCurrent(&self) -> ::windows::core::Result<bool> {
-        let owner = ::windows::core::AsImpl::as_impl(&self.owner);
+        let owner: &StockIterable<T> = ::windows::core::AsImpl::as_impl(&self.owner);
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         Ok(owner.values.len() > current)
     }
 
     fn MoveNext(&self) -> ::windows::core::Result<bool> {
-        let owner = ::windows::core::AsImpl::as_impl(&self.owner);
+        let owner: &StockIterable<T> = ::windows::core::AsImpl::as_impl(&self.owner);
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         if current < owner.values.len() {
@@ -71,7 +71,7 @@ where
     }
 
     fn GetMany(&self, values: &mut [T::Default]) -> ::windows::core::Result<u32> {
-        let owner = ::windows::core::AsImpl::as_impl(&self.owner);
+        let owner: &StockIterable<T> = ::windows::core::AsImpl::as_impl(&self.owner);
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         let actual = std::cmp::min(owner.values.len() - current, values.len());
@@ -91,6 +91,6 @@ where
     type Error = ::windows::core::Error;
     fn try_from(values: ::std::vec::Vec<T::Default>) -> ::windows::core::Result<Self> {
         // TODO: should provide a fallible try_into or more explicit allocator
-        Ok(Iterable { values }.into())
+        Ok(StockIterable { values }.into())
     }
 }
