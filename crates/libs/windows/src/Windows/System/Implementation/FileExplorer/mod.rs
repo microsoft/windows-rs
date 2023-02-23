@@ -58,7 +58,7 @@ impl ISysStorageProviderEventSource {
         unsafe { (::windows::core::Vtable::vtable(this).RemoveEventReceived)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ISysStorageProviderEventSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISysStorageProviderEventSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISysStorageProviderEventSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -71,7 +71,7 @@ impl ::core::fmt::Debug for ISysStorageProviderEventSource {
     }
 }
 impl ::windows::core::RuntimeType for ISysStorageProviderEventSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1f36c476-9546-536a-8381-2f9a2c08cedd}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1f36c476-9546-536a-8381-2f9a2c08cedd}");
 }
 unsafe impl ::windows::core::Vtable for ISysStorageProviderEventSource {
     type Vtable = ISysStorageProviderEventSource_Vtbl;
@@ -116,7 +116,7 @@ impl ISysStorageProviderHandlerFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(ISysStorageProviderHandlerFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISysStorageProviderHandlerFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISysStorageProviderHandlerFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -129,7 +129,7 @@ impl ::core::fmt::Debug for ISysStorageProviderHandlerFactory {
     }
 }
 impl ::windows::core::RuntimeType for ISysStorageProviderHandlerFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ee798431-8213-5e89-a623-14d8c72b8a61}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ee798431-8213-5e89-a623-14d8c72b8a61}");
 }
 unsafe impl ::windows::core::Vtable for ISysStorageProviderHandlerFactory {
     type Vtable = ISysStorageProviderHandlerFactory_Vtbl;
@@ -163,7 +163,7 @@ impl ISysStorageProviderHttpRequestProvider {
         }
     }
 }
-::windows::core::interface_hierarchy!(ISysStorageProviderHttpRequestProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISysStorageProviderHttpRequestProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISysStorageProviderHttpRequestProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -176,7 +176,7 @@ impl ::core::fmt::Debug for ISysStorageProviderHttpRequestProvider {
     }
 }
 impl ::windows::core::RuntimeType for ISysStorageProviderHttpRequestProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb6fefb6-e76a-5c25-a33e-3e78a6e0e0ce}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{cb6fefb6-e76a-5c25-a33e-3e78a6e0e0ce}");
 }
 unsafe impl ::windows::core::Vtable for ISysStorageProviderHttpRequestProvider {
     type Vtable = ISysStorageProviderHttpRequestProvider_Vtbl;
@@ -217,7 +217,7 @@ impl SysStorageProviderEventReceivedEventArgs {
     }
     #[doc(hidden)]
     pub fn ISysStorageProviderEventReceivedEventArgsFactory<R, F: FnOnce(&ISysStorageProviderEventReceivedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SysStorageProviderEventReceivedEventArgs, ISysStorageProviderEventReceivedEventArgsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SysStorageProviderEventReceivedEventArgs, ISysStorageProviderEventReceivedEventArgsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -233,7 +233,7 @@ impl ::core::fmt::Debug for SysStorageProviderEventReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SysStorageProviderEventReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs;{e132d1b9-7b9d-5820-9728-4262b5289142})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs;{e132d1b9-7b9d-5820-9728-4262b5289142})");
 }
 impl ::core::clone::Clone for SysStorageProviderEventReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -249,7 +249,7 @@ unsafe impl ::windows::core::Interface for SysStorageProviderEventReceivedEventA
 impl ::windows::core::RuntimeName for SysStorageProviderEventReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(SysStorageProviderEventReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SysStorageProviderEventReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SysStorageProviderEventReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for SysStorageProviderEventReceivedEventArgs {}
 #[cfg(feature = "implement")]

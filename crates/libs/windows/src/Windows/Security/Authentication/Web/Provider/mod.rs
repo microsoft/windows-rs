@@ -264,7 +264,7 @@ impl IWebAccountProviderBaseReportOperation {
         unsafe { (::windows::core::Vtable::vtable(this).ReportError)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IWebAccountProviderBaseReportOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebAccountProviderBaseReportOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWebAccountProviderBaseReportOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -277,7 +277,7 @@ impl ::core::fmt::Debug for IWebAccountProviderBaseReportOperation {
     }
 }
 impl ::windows::core::RuntimeType for IWebAccountProviderBaseReportOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bba4acbb-993b-4d57-bbe4-1421e3668b4c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{bba4acbb-993b-4d57-bbe4-1421e3668b4c}");
 }
 unsafe impl ::windows::core::Vtable for IWebAccountProviderBaseReportOperation {
     type Vtable = IWebAccountProviderBaseReportOperation_Vtbl;
@@ -359,7 +359,7 @@ impl IWebAccountProviderOperation {
         }
     }
 }
-::windows::core::interface_hierarchy!(IWebAccountProviderOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebAccountProviderOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWebAccountProviderOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -372,7 +372,7 @@ impl ::core::fmt::Debug for IWebAccountProviderOperation {
     }
 }
 impl ::windows::core::RuntimeType for IWebAccountProviderOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6d5d2426-10b1-419a-a44e-f9c5161574e6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{6d5d2426-10b1-419a-a44e-f9c5161574e6}");
 }
 unsafe impl ::windows::core::Vtable for IWebAccountProviderOperation {
     type Vtable = IWebAccountProviderOperation_Vtbl;
@@ -483,7 +483,7 @@ impl IWebAccountProviderSilentReportOperation {
         unsafe { (::windows::core::Vtable::vtable(this).ReportError)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IWebAccountProviderSilentReportOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebAccountProviderSilentReportOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebAccountProviderSilentReportOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebAccountProviderSilentReportOperation) -> ::windows::core::Result<Self> {
@@ -515,7 +515,7 @@ impl ::core::fmt::Debug for IWebAccountProviderSilentReportOperation {
     }
 }
 impl ::windows::core::RuntimeType for IWebAccountProviderSilentReportOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e0b545f8-3b0f-44da-924c-7b18baaa62a9}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e0b545f8-3b0f-44da-924c-7b18baaa62a9}");
 }
 unsafe impl ::windows::core::Vtable for IWebAccountProviderSilentReportOperation {
     type Vtable = IWebAccountProviderSilentReportOperation_Vtbl;
@@ -550,7 +550,7 @@ impl IWebAccountProviderTokenObjects {
         }
     }
 }
-::windows::core::interface_hierarchy!(IWebAccountProviderTokenObjects, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebAccountProviderTokenObjects, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWebAccountProviderTokenObjects {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -563,7 +563,7 @@ impl ::core::fmt::Debug for IWebAccountProviderTokenObjects {
     }
 }
 impl ::windows::core::RuntimeType for IWebAccountProviderTokenObjects {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{408f284b-1328-42db-89a4-0bce7a717d8e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{408f284b-1328-42db-89a4-0bce7a717d8e}");
 }
 unsafe impl ::windows::core::Vtable for IWebAccountProviderTokenObjects {
     type Vtable = IWebAccountProviderTokenObjects_Vtbl;
@@ -603,7 +603,7 @@ impl IWebAccountProviderTokenObjects2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IWebAccountProviderTokenObjects2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebAccountProviderTokenObjects2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebAccountProviderTokenObjects2> for IWebAccountProviderTokenObjects {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebAccountProviderTokenObjects2) -> ::windows::core::Result<Self> {
@@ -635,7 +635,7 @@ impl ::core::fmt::Debug for IWebAccountProviderTokenObjects2 {
     }
 }
 impl ::windows::core::RuntimeType for IWebAccountProviderTokenObjects2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1020b893-5ca5-4fff-95fb-b820273fc395}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1020b893-5ca5-4fff-95fb-b820273fc395}");
 }
 unsafe impl ::windows::core::Vtable for IWebAccountProviderTokenObjects2 {
     type Vtable = IWebAccountProviderTokenObjects2_Vtbl;
@@ -700,7 +700,7 @@ impl IWebAccountProviderTokenOperation {
         }
     }
 }
-::windows::core::interface_hierarchy!(IWebAccountProviderTokenOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebAccountProviderTokenOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebAccountProviderTokenOperation> for IWebAccountProviderOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebAccountProviderTokenOperation) -> ::windows::core::Result<Self> {
@@ -732,7 +732,7 @@ impl ::core::fmt::Debug for IWebAccountProviderTokenOperation {
     }
 }
 impl ::windows::core::RuntimeType for IWebAccountProviderTokenOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{95c613be-2034-4c38-9434-d26c14b2b4b2}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{95c613be-2034-4c38-9434-d26c14b2b4b2}");
 }
 unsafe impl ::windows::core::Vtable for IWebAccountProviderTokenOperation {
     type Vtable = IWebAccountProviderTokenOperation_Vtbl;
@@ -782,7 +782,7 @@ impl IWebAccountProviderUIReportOperation {
         unsafe { (::windows::core::Vtable::vtable(this).ReportError)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IWebAccountProviderUIReportOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebAccountProviderUIReportOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebAccountProviderUIReportOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebAccountProviderUIReportOperation) -> ::windows::core::Result<Self> {
@@ -814,7 +814,7 @@ impl ::core::fmt::Debug for IWebAccountProviderUIReportOperation {
     }
 }
 impl ::windows::core::RuntimeType for IWebAccountProviderUIReportOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{28ff92d3-8f80-42fb-944f-b2107bbd42e6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{28ff92d3-8f80-42fb-944f-b2107bbd42e6}");
 }
 unsafe impl ::windows::core::Vtable for IWebAccountProviderUIReportOperation {
     type Vtable = IWebAccountProviderUIReportOperation_Vtbl;
@@ -1039,7 +1039,7 @@ impl WebAccountClientView {
     }
     #[doc(hidden)]
     pub fn IWebAccountClientViewFactory<R, F: FnOnce(&IWebAccountClientViewFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAccountClientView, IWebAccountClientViewFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAccountClientView, IWebAccountClientViewFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1055,7 +1055,7 @@ impl ::core::fmt::Debug for WebAccountClientView {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountClientView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountClientView;{e7bd66ba-0bc7-4c66-bfd4-65d3082cbca8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountClientView;{e7bd66ba-0bc7-4c66-bfd4-65d3082cbca8})");
 }
 impl ::core::clone::Clone for WebAccountClientView {
     fn clone(&self) -> Self {
@@ -1071,7 +1071,7 @@ unsafe impl ::windows::core::Interface for WebAccountClientView {
 impl ::windows::core::RuntimeName for WebAccountClientView {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountClientView";
 }
-::windows::core::interface_hierarchy!(WebAccountClientView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountClientView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebAccountClientView {}
 unsafe impl ::core::marker::Sync for WebAccountClientView {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
@@ -1307,32 +1307,32 @@ impl WebAccountManager {
     }
     #[doc(hidden)]
     pub fn IWebAccountManagerStatics<R, F: FnOnce(&IWebAccountManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAccountManager, IWebAccountManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAccountManager, IWebAccountManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWebAccountManagerStatics2<R, F: FnOnce(&IWebAccountManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAccountManager, IWebAccountManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAccountManager, IWebAccountManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWebAccountManagerStatics3<R, F: FnOnce(&IWebAccountManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAccountManager, IWebAccountManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAccountManager, IWebAccountManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWebAccountManagerStatics4<R, F: FnOnce(&IWebAccountManagerStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAccountManager, IWebAccountManagerStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAccountManager, IWebAccountManagerStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWebAccountMapManagerStatics<R, F: FnOnce(&IWebAccountMapManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAccountManager, IWebAccountMapManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAccountManager, IWebAccountMapManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWebAccountScopeManagerStatics<R, F: FnOnce(&IWebAccountScopeManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAccountManager, IWebAccountScopeManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAccountManager, IWebAccountScopeManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1367,7 +1367,7 @@ impl ::core::fmt::Debug for WebAccountProviderAddAccountOperation {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountProviderAddAccountOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation;{73ebdccf-4378-4c79-9335-a5d7ab81594e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation;{73ebdccf-4378-4c79-9335-a5d7ab81594e})");
 }
 impl ::core::clone::Clone for WebAccountProviderAddAccountOperation {
     fn clone(&self) -> Self {
@@ -1383,7 +1383,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderAddAccountOperation
 impl ::windows::core::RuntimeName for WebAccountProviderAddAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation";
 }
-::windows::core::interface_hierarchy!(WebAccountProviderAddAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountProviderAddAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderAddAccountOperation> for IWebAccountProviderOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderAddAccountOperation) -> ::windows::core::Result<Self> {
@@ -1448,7 +1448,7 @@ impl ::core::fmt::Debug for WebAccountProviderDeleteAccountOperation {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountProviderDeleteAccountOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation;{0abb48b8-9e01-49c9-a355-7d48caf7d6ca})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation;{0abb48b8-9e01-49c9-a355-7d48caf7d6ca})");
 }
 impl ::core::clone::Clone for WebAccountProviderDeleteAccountOperation {
     fn clone(&self) -> Self {
@@ -1464,7 +1464,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderDeleteAccountOperat
 impl ::windows::core::RuntimeName for WebAccountProviderDeleteAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation";
 }
-::windows::core::interface_hierarchy!(WebAccountProviderDeleteAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountProviderDeleteAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderDeleteAccountOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderDeleteAccountOperation) -> ::windows::core::Result<Self> {
@@ -1580,7 +1580,7 @@ impl ::core::fmt::Debug for WebAccountProviderGetTokenSilentOperation {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountProviderGetTokenSilentOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation;{95c613be-2034-4c38-9434-d26c14b2b4b2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation;{95c613be-2034-4c38-9434-d26c14b2b4b2})");
 }
 impl ::core::clone::Clone for WebAccountProviderGetTokenSilentOperation {
     fn clone(&self) -> Self {
@@ -1596,7 +1596,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderGetTokenSilentOpera
 impl ::windows::core::RuntimeName for WebAccountProviderGetTokenSilentOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation";
 }
-::windows::core::interface_hierarchy!(WebAccountProviderGetTokenSilentOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountProviderGetTokenSilentOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderGetTokenSilentOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderGetTokenSilentOperation) -> ::windows::core::Result<Self> {
@@ -1712,7 +1712,7 @@ impl ::core::fmt::Debug for WebAccountProviderManageAccountOperation {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountProviderManageAccountOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation;{ed20dc5c-d21b-463e-a9b7-c1fd0edae978})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation;{ed20dc5c-d21b-463e-a9b7-c1fd0edae978})");
 }
 impl ::core::clone::Clone for WebAccountProviderManageAccountOperation {
     fn clone(&self) -> Self {
@@ -1728,7 +1728,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderManageAccountOperat
 impl ::windows::core::RuntimeName for WebAccountProviderManageAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation";
 }
-::windows::core::interface_hierarchy!(WebAccountProviderManageAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountProviderManageAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderManageAccountOperation> for IWebAccountProviderOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderManageAccountOperation) -> ::windows::core::Result<Self> {
@@ -1819,7 +1819,7 @@ impl ::core::fmt::Debug for WebAccountProviderRequestTokenOperation {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountProviderRequestTokenOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation;{95c613be-2034-4c38-9434-d26c14b2b4b2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation;{95c613be-2034-4c38-9434-d26c14b2b4b2})");
 }
 impl ::core::clone::Clone for WebAccountProviderRequestTokenOperation {
     fn clone(&self) -> Self {
@@ -1835,7 +1835,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderRequestTokenOperati
 impl ::windows::core::RuntimeName for WebAccountProviderRequestTokenOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation";
 }
-::windows::core::interface_hierarchy!(WebAccountProviderRequestTokenOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountProviderRequestTokenOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderRequestTokenOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderRequestTokenOperation) -> ::windows::core::Result<Self> {
@@ -1990,7 +1990,7 @@ impl ::core::fmt::Debug for WebAccountProviderRetrieveCookiesOperation {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountProviderRetrieveCookiesOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation;{5a040441-0fa3-4ab1-a01c-20b110358594})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation;{5a040441-0fa3-4ab1-a01c-20b110358594})");
 }
 impl ::core::clone::Clone for WebAccountProviderRetrieveCookiesOperation {
     fn clone(&self) -> Self {
@@ -2006,7 +2006,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderRetrieveCookiesOper
 impl ::windows::core::RuntimeName for WebAccountProviderRetrieveCookiesOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation";
 }
-::windows::core::interface_hierarchy!(WebAccountProviderRetrieveCookiesOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountProviderRetrieveCookiesOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderRetrieveCookiesOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderRetrieveCookiesOperation) -> ::windows::core::Result<Self> {
@@ -2106,7 +2106,7 @@ impl ::core::fmt::Debug for WebAccountProviderSignOutAccountOperation {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountProviderSignOutAccountOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation;{b890e21d-0c55-47bc-8c72-04a6fc7cac07})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation;{b890e21d-0c55-47bc-8c72-04a6fc7cac07})");
 }
 impl ::core::clone::Clone for WebAccountProviderSignOutAccountOperation {
     fn clone(&self) -> Self {
@@ -2122,7 +2122,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderSignOutAccountOpera
 impl ::windows::core::RuntimeName for WebAccountProviderSignOutAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation";
 }
-::windows::core::interface_hierarchy!(WebAccountProviderSignOutAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountProviderSignOutAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderSignOutAccountOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderSignOutAccountOperation) -> ::windows::core::Result<Self> {
@@ -2196,7 +2196,7 @@ impl ::core::fmt::Debug for WebAccountProviderTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountProviderTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails;{408f284b-1328-42db-89a4-0bce7a717d8e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails;{408f284b-1328-42db-89a4-0bce7a717d8e})");
 }
 impl ::core::clone::Clone for WebAccountProviderTriggerDetails {
     fn clone(&self) -> Self {
@@ -2212,7 +2212,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderTriggerDetails {
 impl ::windows::core::RuntimeName for WebAccountProviderTriggerDetails {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails";
 }
-::windows::core::interface_hierarchy!(WebAccountProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderTriggerDetails> for IWebAccountProviderTokenObjects {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderTriggerDetails) -> ::windows::core::Result<Self> {
@@ -2345,7 +2345,7 @@ impl ::core::fmt::Debug for WebProviderTokenRequest {
     }
 }
 impl ::windows::core::RuntimeType for WebProviderTokenRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest;{1e18778b-8805-454b-9f11-468d2af1095a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest;{1e18778b-8805-454b-9f11-468d2af1095a})");
 }
 impl ::core::clone::Clone for WebProviderTokenRequest {
     fn clone(&self) -> Self {
@@ -2361,7 +2361,7 @@ unsafe impl ::windows::core::Interface for WebProviderTokenRequest {
 impl ::windows::core::RuntimeName for WebProviderTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest";
 }
-::windows::core::interface_hierarchy!(WebProviderTokenRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebProviderTokenRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebProviderTokenRequest {}
 unsafe impl ::core::marker::Sync for WebProviderTokenRequest {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
@@ -2387,7 +2387,7 @@ impl WebProviderTokenResponse {
     }
     #[doc(hidden)]
     pub fn IWebProviderTokenResponseFactory<R, F: FnOnce(&IWebProviderTokenResponseFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebProviderTokenResponse, IWebProviderTokenResponseFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebProviderTokenResponse, IWebProviderTokenResponseFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2403,7 +2403,7 @@ impl ::core::fmt::Debug for WebProviderTokenResponse {
     }
 }
 impl ::windows::core::RuntimeType for WebProviderTokenResponse {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse;{ef213793-ef55-4186-b7ce-8cb2e7f9849e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse;{ef213793-ef55-4186-b7ce-8cb2e7f9849e})");
 }
 impl ::core::clone::Clone for WebProviderTokenResponse {
     fn clone(&self) -> Self {
@@ -2419,7 +2419,7 @@ unsafe impl ::windows::core::Interface for WebProviderTokenResponse {
 impl ::windows::core::RuntimeName for WebProviderTokenResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse";
 }
-::windows::core::interface_hierarchy!(WebProviderTokenResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebProviderTokenResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebProviderTokenResponse {}
 unsafe impl ::core::marker::Sync for WebProviderTokenResponse {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
@@ -2450,7 +2450,7 @@ impl ::core::fmt::Debug for WebAccountClientViewType {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountClientViewType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountClientViewType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountClientViewType;i4)");
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
@@ -2485,7 +2485,7 @@ impl ::core::fmt::Debug for WebAccountProviderOperationKind {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountProviderOperationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind;i4)");
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
@@ -2515,7 +2515,7 @@ impl ::core::fmt::Debug for WebAccountScope {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountScope {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountScope;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountScope;i4)");
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
@@ -2578,7 +2578,7 @@ impl ::core::ops::Not for WebAccountSelectionOptions {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountSelectionOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountSelectionOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountSelectionOptions;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

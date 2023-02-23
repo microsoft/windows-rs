@@ -134,7 +134,7 @@ impl ::core::fmt::Debug for RequestingFocusOnKeyboardInputEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RequestingFocusOnKeyboardInputEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs;{a1195f27-b1a7-41a2-879d-6a68687e5985})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs;{a1195f27-b1a7-41a2-879d-6a68687e5985})");
 }
 impl ::core::clone::Clone for RequestingFocusOnKeyboardInputEventArgs {
     fn clone(&self) -> Self {
@@ -150,7 +150,7 @@ unsafe impl ::windows::core::Interface for RequestingFocusOnKeyboardInputEventAr
 impl ::windows::core::RuntimeName for RequestingFocusOnKeyboardInputEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs";
 }
-::windows::core::interface_hierarchy!(RequestingFocusOnKeyboardInputEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RequestingFocusOnKeyboardInputEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RequestingFocusOnKeyboardInputEventArgs {}
 unsafe impl ::core::marker::Sync for RequestingFocusOnKeyboardInputEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
@@ -214,7 +214,7 @@ impl ::core::fmt::Debug for SearchSuggestion {
     }
 }
 impl ::windows::core::RuntimeType for SearchSuggestion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestion;{5b5554b0-1527-437b-95c5-8d18d2b8af55})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestion;{5b5554b0-1527-437b-95c5-8d18d2b8af55})");
 }
 impl ::core::clone::Clone for SearchSuggestion {
     fn clone(&self) -> Self {
@@ -230,7 +230,7 @@ unsafe impl ::windows::core::Interface for SearchSuggestion {
 impl ::windows::core::RuntimeName for SearchSuggestion {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestion";
 }
-::windows::core::interface_hierarchy!(SearchSuggestion, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SearchSuggestion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct SearchSuggestionManager(::windows::core::IUnknown);
@@ -238,8 +238,8 @@ impl SearchSuggestionManager {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SearchSuggestionManager, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SearchSuggestionManager, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SearchHistoryEnabled(&self) -> ::windows::core::Result<bool> {
@@ -344,7 +344,7 @@ impl ::core::fmt::Debug for SearchSuggestionManager {
     }
 }
 impl ::windows::core::RuntimeType for SearchSuggestionManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestionManager;{3f0c50a1-cb9d-497b-b500-3c04ac959ad2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestionManager;{3f0c50a1-cb9d-497b-b500-3c04ac959ad2})");
 }
 impl ::core::clone::Clone for SearchSuggestionManager {
     fn clone(&self) -> Self {
@@ -360,7 +360,7 @@ unsafe impl ::windows::core::Interface for SearchSuggestionManager {
 impl ::windows::core::RuntimeName for SearchSuggestionManager {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestionManager";
 }
-::windows::core::interface_hierarchy!(SearchSuggestionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SearchSuggestionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct SearchSuggestionsRequestedEventArgs(::windows::core::IUnknown);
@@ -406,7 +406,7 @@ impl ::core::fmt::Debug for SearchSuggestionsRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SearchSuggestionsRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs;{6fd519e5-9e7e-4ab4-8be3-c76b1bd4344a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs;{6fd519e5-9e7e-4ab4-8be3-c76b1bd4344a})");
 }
 impl ::core::clone::Clone for SearchSuggestionsRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -422,7 +422,7 @@ unsafe impl ::windows::core::Interface for SearchSuggestionsRequestedEventArgs {
 impl ::windows::core::RuntimeName for SearchSuggestionsRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(SearchSuggestionsRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SearchSuggestionsRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SearchSuggestionsRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for SearchSuggestionsRequestedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
@@ -454,7 +454,7 @@ impl ::core::fmt::Debug for SearchSuggestionKind {
     }
 }
 impl ::windows::core::RuntimeType for SearchSuggestionKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Search.Core.SearchSuggestionKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Search.Core.SearchSuggestionKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

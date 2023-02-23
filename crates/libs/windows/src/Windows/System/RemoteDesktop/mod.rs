@@ -31,7 +31,7 @@ impl InteractiveSession {
     }
     #[doc(hidden)]
     pub fn IInteractiveSessionStatics<R, F: FnOnce(&IInteractiveSessionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InteractiveSession, IInteractiveSessionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InteractiveSession, IInteractiveSessionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

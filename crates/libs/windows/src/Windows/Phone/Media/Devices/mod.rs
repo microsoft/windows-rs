@@ -93,7 +93,7 @@ impl AudioRoutingManager {
     }
     #[doc(hidden)]
     pub fn IAudioRoutingManagerStatics<R, F: FnOnce(&IAudioRoutingManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioRoutingManager, IAudioRoutingManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AudioRoutingManager, IAudioRoutingManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -109,7 +109,7 @@ impl ::core::fmt::Debug for AudioRoutingManager {
     }
 }
 impl ::windows::core::RuntimeType for AudioRoutingManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Media.Devices.AudioRoutingManager;{79340d20-71cc-4526-9f29-fc8d2486418b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Media.Devices.AudioRoutingManager;{79340d20-71cc-4526-9f29-fc8d2486418b})");
 }
 impl ::core::clone::Clone for AudioRoutingManager {
     fn clone(&self) -> Self {
@@ -125,7 +125,7 @@ unsafe impl ::windows::core::Interface for AudioRoutingManager {
 impl ::windows::core::RuntimeName for AudioRoutingManager {
     const NAME: &'static str = "Windows.Phone.Media.Devices.AudioRoutingManager";
 }
-::windows::core::interface_hierarchy!(AudioRoutingManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioRoutingManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioRoutingManager {}
 unsafe impl ::core::marker::Sync for AudioRoutingManager {}
 #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
@@ -162,7 +162,7 @@ impl ::core::fmt::Debug for AudioRoutingEndpoint {
     }
 }
 impl ::windows::core::RuntimeType for AudioRoutingEndpoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
 }
 #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
 #[repr(transparent)]
@@ -227,7 +227,7 @@ impl ::core::ops::Not for AvailableAudioRoutingEndpoints {
     }
 }
 impl ::windows::core::RuntimeType for AvailableAudioRoutingEndpoints {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AvailableAudioRoutingEndpoints;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AvailableAudioRoutingEndpoints;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

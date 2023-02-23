@@ -5,7 +5,7 @@ pub unsafe fn PssCaptureSnapshot<P0>(processhandle: P0, captureflags: PSS_CAPTUR
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssCaptureSnapshot ( processhandle : super::super::super::Foundation:: HANDLE , captureflags : PSS_CAPTURE_FLAGS , threadcontextflags : u32 , snapshothandle : *mut HPSS ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssCaptureSnapshot ( processhandle : super::super::super::Foundation:: HANDLE , captureflags : PSS_CAPTURE_FLAGS , threadcontextflags : u32 , snapshothandle : *mut HPSS ) -> u32 );
     PssCaptureSnapshot(processhandle.into(), captureflags, threadcontextflags, snapshothandle)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
@@ -17,7 +17,7 @@ where
     P1: ::std::convert::Into<HPSS>,
     P2: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssDuplicateSnapshot ( sourceprocesshandle : super::super::super::Foundation:: HANDLE , snapshothandle : HPSS , targetprocesshandle : super::super::super::Foundation:: HANDLE , targetsnapshothandle : *mut HPSS , flags : PSS_DUPLICATE_FLAGS ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssDuplicateSnapshot ( sourceprocesshandle : super::super::super::Foundation:: HANDLE , snapshothandle : HPSS , targetprocesshandle : super::super::super::Foundation:: HANDLE , targetsnapshothandle : *mut HPSS , flags : PSS_DUPLICATE_FLAGS ) -> u32 );
     PssDuplicateSnapshot(sourceprocesshandle.into(), snapshothandle.into(), targetprocesshandle.into(), targetsnapshothandle, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
@@ -28,7 +28,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<HPSS>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssFreeSnapshot ( processhandle : super::super::super::Foundation:: HANDLE , snapshothandle : HPSS ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssFreeSnapshot ( processhandle : super::super::super::Foundation:: HANDLE , snapshothandle : HPSS ) -> u32 );
     PssFreeSnapshot(processhandle.into(), snapshothandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
@@ -37,13 +37,13 @@ pub unsafe fn PssQuerySnapshot<P0>(snapshothandle: P0, informationclass: PSS_QUE
 where
     P0: ::std::convert::Into<HPSS>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssQuerySnapshot ( snapshothandle : HPSS , informationclass : PSS_QUERY_INFORMATION_CLASS , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssQuerySnapshot ( snapshothandle : HPSS , informationclass : PSS_QUERY_INFORMATION_CLASS , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> u32 );
     PssQuerySnapshot(snapshothandle.into(), informationclass, buffer, bufferlength)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerCreate(allocator: ::core::option::Option<*const PSS_ALLOCATOR>, walkmarkerhandle: *mut HPSSWALK) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssWalkMarkerCreate ( allocator : *const PSS_ALLOCATOR , walkmarkerhandle : *mut HPSSWALK ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssWalkMarkerCreate ( allocator : *const PSS_ALLOCATOR , walkmarkerhandle : *mut HPSSWALK ) -> u32 );
     PssWalkMarkerCreate(::core::mem::transmute(allocator.unwrap_or(::std::ptr::null())), walkmarkerhandle)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
@@ -52,7 +52,7 @@ pub unsafe fn PssWalkMarkerFree<P0>(walkmarkerhandle: P0) -> u32
 where
     P0: ::std::convert::Into<HPSSWALK>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssWalkMarkerFree ( walkmarkerhandle : HPSSWALK ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssWalkMarkerFree ( walkmarkerhandle : HPSSWALK ) -> u32 );
     PssWalkMarkerFree(walkmarkerhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
@@ -61,7 +61,7 @@ pub unsafe fn PssWalkMarkerGetPosition<P0>(walkmarkerhandle: P0, position: *mut 
 where
     P0: ::std::convert::Into<HPSSWALK>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssWalkMarkerGetPosition ( walkmarkerhandle : HPSSWALK , position : *mut usize ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssWalkMarkerGetPosition ( walkmarkerhandle : HPSSWALK , position : *mut usize ) -> u32 );
     PssWalkMarkerGetPosition(walkmarkerhandle.into(), position)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
@@ -70,7 +70,7 @@ pub unsafe fn PssWalkMarkerSeekToBeginning<P0>(walkmarkerhandle: P0) -> u32
 where
     P0: ::std::convert::Into<HPSSWALK>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssWalkMarkerSeekToBeginning ( walkmarkerhandle : HPSSWALK ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssWalkMarkerSeekToBeginning ( walkmarkerhandle : HPSSWALK ) -> u32 );
     PssWalkMarkerSeekToBeginning(walkmarkerhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
@@ -79,7 +79,7 @@ pub unsafe fn PssWalkMarkerSetPosition<P0>(walkmarkerhandle: P0, position: usize
 where
     P0: ::std::convert::Into<HPSSWALK>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssWalkMarkerSetPosition ( walkmarkerhandle : HPSSWALK , position : usize ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssWalkMarkerSetPosition ( walkmarkerhandle : HPSSWALK , position : usize ) -> u32 );
     PssWalkMarkerSetPosition(walkmarkerhandle.into(), position)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
@@ -89,7 +89,7 @@ where
     P0: ::std::convert::Into<HPSS>,
     P1: ::std::convert::Into<HPSSWALK>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssWalkSnapshot ( snapshothandle : HPSS , informationclass : PSS_WALK_INFORMATION_CLASS , walkmarkerhandle : HPSSWALK , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssWalkSnapshot ( snapshothandle : HPSS , informationclass : PSS_WALK_INFORMATION_CLASS , walkmarkerhandle : HPSSWALK , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> u32 );
     PssWalkSnapshot(snapshothandle.into(), informationclass, walkmarkerhandle.into(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]

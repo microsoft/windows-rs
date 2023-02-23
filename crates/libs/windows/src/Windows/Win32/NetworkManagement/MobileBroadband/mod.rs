@@ -5,7 +5,7 @@ pub struct IDummyMBNUCMExt(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDummyMBNUCMExt {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDummyMBNUCMExt, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDummyMBNUCMExt, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDummyMBNUCMExt {
     fn eq(&self, other: &Self) -> bool {
@@ -75,7 +75,7 @@ impl IMbnConnection {
         (::windows::core::Vtable::vtable(self).GetActivationNetworkError)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -128,7 +128,7 @@ impl IMbnConnectionContext {
         (::windows::core::Vtable::vtable(self).SetProvisionedContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(provisionedcontexts), providerid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnConnectionContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnConnectionContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnConnectionContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -178,7 +178,7 @@ impl IMbnConnectionContextEvents {
         (::windows::core::Vtable::vtable(self).OnSetProvisionedContextComplete)(::windows::core::Vtable::as_raw(self), newinterface.into().abi(), requestid, status).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnConnectionContextEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnConnectionContextEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnConnectionContextEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -237,7 +237,7 @@ impl IMbnConnectionEvents {
         (::windows::core::Vtable::vtable(self).OnVoiceCallStateChange)(::windows::core::Vtable::as_raw(self), newconnection.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnConnectionEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnConnectionEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnConnectionEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -287,7 +287,7 @@ impl IMbnConnectionManager {
         (::windows::core::Vtable::vtable(self).GetConnections)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnConnectionManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnConnectionManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnConnectionManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -337,7 +337,7 @@ impl IMbnConnectionManagerEvents {
         (::windows::core::Vtable::vtable(self).OnConnectionRemoval)(::windows::core::Vtable::as_raw(self), oldconnection.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnConnectionManagerEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnConnectionManagerEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnConnectionManagerEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -385,7 +385,7 @@ impl IMbnConnectionProfile {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnConnectionProfile, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnConnectionProfile, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnConnectionProfile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -427,7 +427,7 @@ impl IMbnConnectionProfileEvents {
         (::windows::core::Vtable::vtable(self).OnProfileUpdate)(::windows::core::Vtable::as_raw(self), newprofile.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnConnectionProfileEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnConnectionProfileEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnConnectionProfileEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -484,7 +484,7 @@ impl IMbnConnectionProfileManager {
         (::windows::core::Vtable::vtable(self).CreateConnectionProfile)(::windows::core::Vtable::as_raw(self), xmlprofile.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnConnectionProfileManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnConnectionProfileManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnConnectionProfileManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -535,7 +535,7 @@ impl IMbnConnectionProfileManagerEvents {
         (::windows::core::Vtable::vtable(self).OnConnectionProfileRemoval)(::windows::core::Vtable::as_raw(self), oldconnectionprofile.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnConnectionProfileManagerEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnConnectionProfileManagerEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnConnectionProfileManagerEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -628,7 +628,7 @@ impl IMbnDeviceService {
         (::windows::core::Vtable::vtable(self).IsDataSessionOpen)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnDeviceService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnDeviceService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnDeviceService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -691,7 +691,7 @@ impl IMbnDeviceServiceStateEvents {
         (::windows::core::Vtable::vtable(self).OnSessionsStateChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(interfaceid), statechange).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnDeviceServiceStateEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnDeviceServiceStateEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnDeviceServiceStateEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -743,7 +743,7 @@ impl IMbnDeviceServicesContext {
         (::windows::core::Vtable::vtable(self).MaxDataSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnDeviceServicesContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnDeviceServicesContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnDeviceServicesContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -856,7 +856,7 @@ impl IMbnDeviceServicesEvents {
         (::windows::core::Vtable::vtable(self).OnInterfaceStateChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(interfaceid), statechange).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnDeviceServicesEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnDeviceServicesEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnDeviceServicesEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -919,7 +919,7 @@ impl IMbnDeviceServicesManager {
         (::windows::core::Vtable::vtable(self).GetDeviceServicesContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(networkinterfaceid), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnDeviceServicesManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnDeviceServicesManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnDeviceServicesManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1003,7 +1003,7 @@ impl IMbnInterface {
         (::windows::core::Vtable::vtable(self).GetConnection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnInterface, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnInterface, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnInterface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1107,7 +1107,7 @@ impl IMbnInterfaceEvents {
         (::windows::core::Vtable::vtable(self).OnScanNetworkComplete)(::windows::core::Vtable::as_raw(self), newinterface.into().abi(), requestid, status).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnInterfaceEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnInterfaceEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnInterfaceEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1161,7 +1161,7 @@ impl IMbnInterfaceManager {
         (::windows::core::Vtable::vtable(self).GetInterfaces)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnInterfaceManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnInterfaceManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnInterfaceManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1211,7 +1211,7 @@ impl IMbnInterfaceManagerEvents {
         (::windows::core::Vtable::vtable(self).OnInterfaceRemoval)(::windows::core::Vtable::as_raw(self), oldinterface.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnInterfaceManagerEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnInterfaceManagerEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnInterfaceManagerEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1275,7 +1275,7 @@ impl IMbnMultiCarrier {
         (::windows::core::Vtable::vtable(self).ScanNetwork)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnMultiCarrier, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnMultiCarrier, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnMultiCarrier {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1353,7 +1353,7 @@ impl IMbnMultiCarrierEvents {
         (::windows::core::Vtable::vtable(self).OnInterfaceCapabilityChange)(::windows::core::Vtable::as_raw(self), mbninterface.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnMultiCarrierEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnMultiCarrierEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnMultiCarrierEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1452,7 +1452,7 @@ impl IMbnPin {
         (::windows::core::Vtable::vtable(self).GetPinManager)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnPin, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnPin, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnPin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1526,7 +1526,7 @@ impl IMbnPinEvents {
         (::windows::core::Vtable::vtable(self).OnUnblockComplete)(::windows::core::Vtable::as_raw(self), pin.into().abi(), pininfo, requestid, status).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnPinEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnPinEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnPinEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1578,7 +1578,7 @@ impl IMbnPinManager {
         (::windows::core::Vtable::vtable(self).GetPinState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnPinManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnPinManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnPinManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1629,7 +1629,7 @@ impl IMbnPinManagerEvents {
         (::windows::core::Vtable::vtable(self).OnGetPinStateComplete)(::windows::core::Vtable::as_raw(self), pinmanager.into().abi(), ::core::mem::transmute(pininfo), requestid, status).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnPinManagerEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnPinManagerEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnPinManagerEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1676,7 +1676,7 @@ impl IMbnRadio {
         (::windows::core::Vtable::vtable(self).SetSoftwareRadioState)(::windows::core::Vtable::as_raw(self), radiostate, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnRadio, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnRadio, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnRadio {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1724,7 +1724,7 @@ impl IMbnRadioEvents {
         (::windows::core::Vtable::vtable(self).OnSetSoftwareRadioStateComplete)(::windows::core::Vtable::as_raw(self), newinterface.into().abi(), requestid, status).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnRadioEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnRadioEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnRadioEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1802,7 +1802,7 @@ impl IMbnRegistration {
         (::windows::core::Vtable::vtable(self).SetRegisterMode)(::windows::core::Vtable::as_raw(self), registermode, providerid.into().abi(), dataclass, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnRegistration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnRegistration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnRegistration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1869,7 +1869,7 @@ impl IMbnRegistrationEvents {
         (::windows::core::Vtable::vtable(self).OnSetRegisterModeComplete)(::windows::core::Vtable::as_raw(self), newinterface.into().abi(), requestid, status).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnRegistrationEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnRegistrationEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnRegistrationEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1912,7 +1912,7 @@ impl IMbnServiceActivation {
         (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), vendorspecificdata, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnServiceActivation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnServiceActivation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnServiceActivation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1957,7 +1957,7 @@ impl IMbnServiceActivationEvents {
         (::windows::core::Vtable::vtable(self).OnActivationComplete)(::windows::core::Vtable::as_raw(self), serviceactivation.into().abi(), vendorspecificdata, requestid, status, networkerror).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnServiceActivationEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnServiceActivationEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnServiceActivationEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2002,7 +2002,7 @@ impl IMbnSignal {
         (::windows::core::Vtable::vtable(self).GetSignalError)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnSignal, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnSignal, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnSignal {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2043,7 +2043,7 @@ impl IMbnSignalEvents {
         (::windows::core::Vtable::vtable(self).OnSignalStateChange)(::windows::core::Vtable::as_raw(self), newinterface.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnSignalEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnSignalEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnSignalEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2122,7 +2122,7 @@ impl IMbnSms {
         (::windows::core::Vtable::vtable(self).GetSmsStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnSms, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnSms, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnSms {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2194,7 +2194,7 @@ impl IMbnSmsConfiguration {
         (::windows::core::Vtable::vtable(self).SetSmsFormat)(::windows::core::Vtable::as_raw(self), smsformat).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnSmsConfiguration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnSmsConfiguration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnSmsConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2280,7 +2280,7 @@ impl IMbnSmsEvents {
         (::windows::core::Vtable::vtable(self).OnSmsStatusChange)(::windows::core::Vtable::as_raw(self), sms.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnSmsEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnSmsEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnSmsEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2344,7 +2344,7 @@ impl IMbnSmsReadMsgPdu {
         (::windows::core::Vtable::vtable(self).Message)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnSmsReadMsgPdu, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnSmsReadMsgPdu, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnSmsReadMsgPdu {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2418,7 +2418,7 @@ impl IMbnSmsReadMsgTextCdma {
         (::windows::core::Vtable::vtable(self).Message)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnSmsReadMsgTextCdma, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnSmsReadMsgTextCdma, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnSmsReadMsgTextCdma {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2476,7 +2476,7 @@ impl IMbnSubscriberInformation {
         (::windows::core::Vtable::vtable(self).TelephoneNumbers)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnSubscriberInformation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnSubscriberInformation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnSubscriberInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2531,7 +2531,7 @@ impl IMbnVendorSpecificEvents {
         (::windows::core::Vtable::vtable(self).OnSetVendorSpecificComplete)(::windows::core::Vtable::as_raw(self), vendoroperation.into().abi(), vendorspecificdata, requestid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMbnVendorSpecificEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnVendorSpecificEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnVendorSpecificEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2578,7 +2578,7 @@ impl IMbnVendorSpecificOperation {
         (::windows::core::Vtable::vtable(self).SetVendorSpecific)(::windows::core::Vtable::as_raw(self), vendorspecificdata, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMbnVendorSpecificOperation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMbnVendorSpecificOperation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMbnVendorSpecificOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

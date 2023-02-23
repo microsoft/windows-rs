@@ -571,8 +571,8 @@ impl MiracastReceiver {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MiracastReceiver, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MiracastReceiver, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn GetDefaultSettings(&self) -> ::windows::core::Result<MiracastReceiverSettings> {
@@ -684,7 +684,7 @@ impl ::core::fmt::Debug for MiracastReceiver {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiver {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiver;{7a315258-e444-51b4-aff7-b88daa1229e0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiver;{7a315258-e444-51b4-aff7-b88daa1229e0})");
 }
 impl ::core::clone::Clone for MiracastReceiver {
     fn clone(&self) -> Self {
@@ -700,7 +700,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiver {
 impl ::windows::core::RuntimeName for MiracastReceiver {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiver";
 }
-::windows::core::interface_hierarchy!(MiracastReceiver, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiver {}
 unsafe impl ::core::marker::Sync for MiracastReceiver {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -734,7 +734,7 @@ impl ::core::fmt::Debug for MiracastReceiverApplySettingsResult {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverApplySettingsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverApplySettingsResult;{d0aa6272-09cd-58e1-a4f2-5d5143d312f9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverApplySettingsResult;{d0aa6272-09cd-58e1-a4f2-5d5143d312f9})");
 }
 impl ::core::clone::Clone for MiracastReceiverApplySettingsResult {
     fn clone(&self) -> Self {
@@ -750,7 +750,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverApplySettingsResult {
 impl ::windows::core::RuntimeName for MiracastReceiverApplySettingsResult {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverApplySettingsResult";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverApplySettingsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverApplySettingsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverApplySettingsResult {}
 unsafe impl ::core::marker::Sync for MiracastReceiverApplySettingsResult {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -838,7 +838,7 @@ impl ::core::fmt::Debug for MiracastReceiverConnection {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverConnection;{704b2f36-d2e5-551f-a854-f822b7917d28})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverConnection;{704b2f36-d2e5-551f-a854-f822b7917d28})");
 }
 impl ::core::clone::Clone for MiracastReceiverConnection {
     fn clone(&self) -> Self {
@@ -854,7 +854,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverConnection {
 impl ::windows::core::RuntimeName for MiracastReceiverConnection {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverConnection";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MiracastReceiverConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -919,7 +919,7 @@ impl ::core::fmt::Debug for MiracastReceiverConnectionCreatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverConnectionCreatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverConnectionCreatedEventArgs;{7d8dfa39-307a-5c0f-94bd-d0c69d169982})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverConnectionCreatedEventArgs;{7d8dfa39-307a-5c0f-94bd-d0c69d169982})");
 }
 impl ::core::clone::Clone for MiracastReceiverConnectionCreatedEventArgs {
     fn clone(&self) -> Self {
@@ -935,7 +935,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverConnectionCreatedEven
 impl ::windows::core::RuntimeName for MiracastReceiverConnectionCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverConnectionCreatedEventArgs";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverConnectionCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverConnectionCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverConnectionCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for MiracastReceiverConnectionCreatedEventArgs {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1019,7 +1019,7 @@ impl ::core::fmt::Debug for MiracastReceiverCursorImageChannel {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverCursorImageChannel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverCursorImageChannel;{d9ac332d-723a-5a9d-b90a-81153efa2a0f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverCursorImageChannel;{d9ac332d-723a-5a9d-b90a-81153efa2a0f})");
 }
 impl ::core::clone::Clone for MiracastReceiverCursorImageChannel {
     fn clone(&self) -> Self {
@@ -1035,7 +1035,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverCursorImageChannel {
 impl ::windows::core::RuntimeName for MiracastReceiverCursorImageChannel {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverCursorImageChannel";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverCursorImageChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverCursorImageChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverCursorImageChannel {}
 unsafe impl ::core::marker::Sync for MiracastReceiverCursorImageChannel {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1081,7 +1081,7 @@ impl ::core::fmt::Debug for MiracastReceiverCursorImageChannelSettings {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverCursorImageChannelSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings;{ccdbedff-bd00-5b9c-8e4c-00cacf86b634})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings;{ccdbedff-bd00-5b9c-8e4c-00cacf86b634})");
 }
 impl ::core::clone::Clone for MiracastReceiverCursorImageChannelSettings {
     fn clone(&self) -> Self {
@@ -1097,7 +1097,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverCursorImageChannelSet
 impl ::windows::core::RuntimeName for MiracastReceiverCursorImageChannelSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverCursorImageChannelSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverCursorImageChannelSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverCursorImageChannelSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverCursorImageChannelSettings {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1124,7 +1124,7 @@ impl ::core::fmt::Debug for MiracastReceiverDisconnectedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverDisconnectedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverDisconnectedEventArgs;{d9a15e5e-5fee-57e6-b4b0-04727db93229})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverDisconnectedEventArgs;{d9a15e5e-5fee-57e6-b4b0-04727db93229})");
 }
 impl ::core::clone::Clone for MiracastReceiverDisconnectedEventArgs {
     fn clone(&self) -> Self {
@@ -1140,7 +1140,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverDisconnectedEventArgs
 impl ::windows::core::RuntimeName for MiracastReceiverDisconnectedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverDisconnectedEventArgs";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverDisconnectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverDisconnectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for MiracastReceiverDisconnectedEventArgs {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1211,7 +1211,7 @@ impl ::core::fmt::Debug for MiracastReceiverGameControllerDevice {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverGameControllerDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverGameControllerDevice;{2d7171e8-bed4-5118-a058-e2477eb5888d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverGameControllerDevice;{2d7171e8-bed4-5118-a058-e2477eb5888d})");
 }
 impl ::core::clone::Clone for MiracastReceiverGameControllerDevice {
     fn clone(&self) -> Self {
@@ -1227,7 +1227,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverGameControllerDevice 
 impl ::windows::core::RuntimeName for MiracastReceiverGameControllerDevice {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverGameControllerDevice";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverGameControllerDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverGameControllerDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverGameControllerDevice {}
 unsafe impl ::core::marker::Sync for MiracastReceiverGameControllerDevice {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1261,7 +1261,7 @@ impl ::core::fmt::Debug for MiracastReceiverInputDevices {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverInputDevices {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverInputDevices;{da35bb02-28aa-5ee8-96f5-a42901c66f00})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverInputDevices;{da35bb02-28aa-5ee8-96f5-a42901c66f00})");
 }
 impl ::core::clone::Clone for MiracastReceiverInputDevices {
     fn clone(&self) -> Self {
@@ -1277,7 +1277,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverInputDevices {
 impl ::windows::core::RuntimeName for MiracastReceiverInputDevices {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverInputDevices";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverInputDevices, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverInputDevices, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverInputDevices {}
 unsafe impl ::core::marker::Sync for MiracastReceiverInputDevices {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1337,7 +1337,7 @@ impl ::core::fmt::Debug for MiracastReceiverKeyboardDevice {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverKeyboardDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverKeyboardDevice;{beb67272-06c0-54ff-ac96-217464ff2501})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverKeyboardDevice;{beb67272-06c0-54ff-ac96-217464ff2501})");
 }
 impl ::core::clone::Clone for MiracastReceiverKeyboardDevice {
     fn clone(&self) -> Self {
@@ -1353,7 +1353,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverKeyboardDevice {
 impl ::windows::core::RuntimeName for MiracastReceiverKeyboardDevice {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverKeyboardDevice";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverKeyboardDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverKeyboardDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverKeyboardDevice {}
 unsafe impl ::core::marker::Sync for MiracastReceiverKeyboardDevice {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1405,7 +1405,7 @@ impl ::core::fmt::Debug for MiracastReceiverMediaSourceCreatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverMediaSourceCreatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverMediaSourceCreatedEventArgs;{17cf519e-1246-531d-945a-6b158e39c3aa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverMediaSourceCreatedEventArgs;{17cf519e-1246-531d-945a-6b158e39c3aa})");
 }
 impl ::core::clone::Clone for MiracastReceiverMediaSourceCreatedEventArgs {
     fn clone(&self) -> Self {
@@ -1421,7 +1421,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverMediaSourceCreatedEve
 impl ::windows::core::RuntimeName for MiracastReceiverMediaSourceCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverMediaSourceCreatedEventArgs";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverMediaSourceCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverMediaSourceCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverMediaSourceCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for MiracastReceiverMediaSourceCreatedEventArgs {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1530,7 +1530,7 @@ impl ::core::fmt::Debug for MiracastReceiverSession {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSession;{1d2bcdb4-ef8b-5209-bfc9-c32116504803})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSession;{1d2bcdb4-ef8b-5209-bfc9-c32116504803})");
 }
 impl ::core::clone::Clone for MiracastReceiverSession {
     fn clone(&self) -> Self {
@@ -1546,7 +1546,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverSession {
 impl ::windows::core::RuntimeName for MiracastReceiverSession {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSession";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MiracastReceiverSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1602,7 +1602,7 @@ impl ::core::fmt::Debug for MiracastReceiverSessionStartResult {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverSessionStartResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSessionStartResult;{b7c573ee-40ca-51ff-95f2-c9de34f2e90e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSessionStartResult;{b7c573ee-40ca-51ff-95f2-c9de34f2e90e})");
 }
 impl ::core::clone::Clone for MiracastReceiverSessionStartResult {
     fn clone(&self) -> Self {
@@ -1618,7 +1618,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverSessionStartResult {
 impl ::windows::core::RuntimeName for MiracastReceiverSessionStartResult {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSessionStartResult";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverSessionStartResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverSessionStartResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverSessionStartResult {}
 unsafe impl ::core::marker::Sync for MiracastReceiverSessionStartResult {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1693,7 +1693,7 @@ impl ::core::fmt::Debug for MiracastReceiverSettings {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSettings;{57cd2f24-c55a-5fbe-9464-eb05307705dd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSettings;{57cd2f24-c55a-5fbe-9464-eb05307705dd})");
 }
 impl ::core::clone::Clone for MiracastReceiverSettings {
     fn clone(&self) -> Self {
@@ -1709,7 +1709,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverSettings {
 impl ::windows::core::RuntimeName for MiracastReceiverSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSettings";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverSettings {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1766,7 +1766,7 @@ impl ::core::fmt::Debug for MiracastReceiverStatus {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverStatus;{c28a5591-23ab-519e-ad09-90bff6dcc87e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverStatus;{c28a5591-23ab-519e-ad09-90bff6dcc87e})");
 }
 impl ::core::clone::Clone for MiracastReceiverStatus {
     fn clone(&self) -> Self {
@@ -1782,7 +1782,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverStatus {
 impl ::windows::core::RuntimeName for MiracastReceiverStatus {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverStatus";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverStatus {}
 unsafe impl ::core::marker::Sync for MiracastReceiverStatus {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1842,7 +1842,7 @@ impl ::core::fmt::Debug for MiracastReceiverStreamControl {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverStreamControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverStreamControl;{38ea2d8b-2769-5ad7-8a8a-254b9df7ba82})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverStreamControl;{38ea2d8b-2769-5ad7-8a8a-254b9df7ba82})");
 }
 impl ::core::clone::Clone for MiracastReceiverStreamControl {
     fn clone(&self) -> Self {
@@ -1858,7 +1858,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverStreamControl {
 impl ::windows::core::RuntimeName for MiracastReceiverStreamControl {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverStreamControl";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverStreamControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverStreamControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverStreamControl {}
 unsafe impl ::core::marker::Sync for MiracastReceiverStreamControl {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1904,7 +1904,7 @@ impl ::core::fmt::Debug for MiracastReceiverVideoStreamSettings {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverVideoStreamSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverVideoStreamSettings;{169b5e1b-149d-52d0-b126-6f89744e4f50})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverVideoStreamSettings;{169b5e1b-149d-52d0-b126-6f89744e4f50})");
 }
 impl ::core::clone::Clone for MiracastReceiverVideoStreamSettings {
     fn clone(&self) -> Self {
@@ -1920,7 +1920,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverVideoStreamSettings {
 impl ::windows::core::RuntimeName for MiracastReceiverVideoStreamSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverVideoStreamSettings";
 }
-::windows::core::interface_hierarchy!(MiracastReceiverVideoStreamSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastReceiverVideoStreamSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverVideoStreamSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverVideoStreamSettings {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1987,7 +1987,7 @@ impl ::core::fmt::Debug for MiracastTransmitter {
     }
 }
 impl ::windows::core::RuntimeType for MiracastTransmitter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastTransmitter;{342d79fd-2e64-5508-8a30-833d1eac70d0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastTransmitter;{342d79fd-2e64-5508-8a30-833d1eac70d0})");
 }
 impl ::core::clone::Clone for MiracastTransmitter {
     fn clone(&self) -> Self {
@@ -2003,7 +2003,7 @@ unsafe impl ::windows::core::Interface for MiracastTransmitter {
 impl ::windows::core::RuntimeName for MiracastTransmitter {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastTransmitter";
 }
-::windows::core::interface_hierarchy!(MiracastTransmitter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MiracastTransmitter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastTransmitter {}
 unsafe impl ::core::marker::Sync for MiracastTransmitter {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -2040,7 +2040,7 @@ impl ::core::fmt::Debug for MiracastReceiverApplySettingsStatus {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverApplySettingsStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverApplySettingsStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverApplySettingsStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
@@ -2072,7 +2072,7 @@ impl ::core::fmt::Debug for MiracastReceiverAuthorizationMethod {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverAuthorizationMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverAuthorizationMethod;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverAuthorizationMethod;i4)");
 }
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
@@ -2108,7 +2108,7 @@ impl ::core::fmt::Debug for MiracastReceiverDisconnectReason {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverDisconnectReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverDisconnectReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverDisconnectReason;i4)");
 }
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
@@ -2138,7 +2138,7 @@ impl ::core::fmt::Debug for MiracastReceiverGameControllerDeviceUsageMode {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverGameControllerDeviceUsageMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
@@ -2172,7 +2172,7 @@ impl ::core::fmt::Debug for MiracastReceiverListeningStatus {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverListeningStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverListeningStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverListeningStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
@@ -2204,7 +2204,7 @@ impl ::core::fmt::Debug for MiracastReceiverSessionStartStatus {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverSessionStartStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverSessionStartStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverSessionStartStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
@@ -2236,7 +2236,7 @@ impl ::core::fmt::Debug for MiracastReceiverWiFiStatus {
     }
 }
 impl ::windows::core::RuntimeType for MiracastReceiverWiFiStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverWiFiStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverWiFiStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
@@ -2268,7 +2268,7 @@ impl ::core::fmt::Debug for MiracastTransmitterAuthorizationStatus {
     }
 }
 impl ::windows::core::RuntimeType for MiracastTransmitterAuthorizationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastTransmitterAuthorizationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastTransmitterAuthorizationStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

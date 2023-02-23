@@ -335,7 +335,7 @@ impl ILampArrayEffect {
         unsafe { (::windows::core::Vtable::vtable(this).SetZIndex)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ILampArrayEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILampArrayEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ILampArrayEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -348,7 +348,7 @@ impl ::core::fmt::Debug for ILampArrayEffect {
     }
 }
 impl ::windows::core::RuntimeType for ILampArrayEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{11d45590-57fb-4546-b1ce-863107f740df}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{11d45590-57fb-4546-b1ce-863107f740df}");
 }
 unsafe impl ::windows::core::Vtable for ILampArrayEffect {
     type Vtable = ILampArrayEffect_Vtbl;
@@ -625,7 +625,7 @@ impl LampArrayBitmapEffect {
     }
     #[doc(hidden)]
     pub fn ILampArrayBitmapEffectFactory<R, F: FnOnce(&ILampArrayBitmapEffectFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LampArrayBitmapEffect, ILampArrayBitmapEffectFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LampArrayBitmapEffect, ILampArrayBitmapEffectFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -641,7 +641,7 @@ impl ::core::fmt::Debug for LampArrayBitmapEffect {
     }
 }
 impl ::windows::core::RuntimeType for LampArrayBitmapEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBitmapEffect;{3238e065-d877-4627-89e5-2a88f7052fa6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBitmapEffect;{3238e065-d877-4627-89e5-2a88f7052fa6})");
 }
 impl ::core::clone::Clone for LampArrayBitmapEffect {
     fn clone(&self) -> Self {
@@ -657,7 +657,7 @@ unsafe impl ::windows::core::Interface for LampArrayBitmapEffect {
 impl ::windows::core::RuntimeName for LampArrayBitmapEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapEffect";
 }
-::windows::core::interface_hierarchy!(LampArrayBitmapEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LampArrayBitmapEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LampArrayBitmapEffect> for ILampArrayEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: LampArrayBitmapEffect) -> ::windows::core::Result<Self> {
@@ -711,7 +711,7 @@ impl ::core::fmt::Debug for LampArrayBitmapRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LampArrayBitmapRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs;{c8b4af9e-fe63-4d51-babd-619defb454ba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs;{c8b4af9e-fe63-4d51-babd-619defb454ba})");
 }
 impl ::core::clone::Clone for LampArrayBitmapRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -727,7 +727,7 @@ unsafe impl ::windows::core::Interface for LampArrayBitmapRequestedEventArgs {
 impl ::windows::core::RuntimeName for LampArrayBitmapRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(LampArrayBitmapRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LampArrayBitmapRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LampArrayBitmapRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayBitmapRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
@@ -865,7 +865,7 @@ impl LampArrayBlinkEffect {
     }
     #[doc(hidden)]
     pub fn ILampArrayBlinkEffectFactory<R, F: FnOnce(&ILampArrayBlinkEffectFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LampArrayBlinkEffect, ILampArrayBlinkEffectFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LampArrayBlinkEffect, ILampArrayBlinkEffectFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -881,7 +881,7 @@ impl ::core::fmt::Debug for LampArrayBlinkEffect {
     }
 }
 impl ::windows::core::RuntimeType for LampArrayBlinkEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBlinkEffect;{ebbf35f6-2fc5-4bb3-b3c3-6221a7680d13})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBlinkEffect;{ebbf35f6-2fc5-4bb3-b3c3-6221a7680d13})");
 }
 impl ::core::clone::Clone for LampArrayBlinkEffect {
     fn clone(&self) -> Self {
@@ -897,7 +897,7 @@ unsafe impl ::windows::core::Interface for LampArrayBlinkEffect {
 impl ::windows::core::RuntimeName for LampArrayBlinkEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBlinkEffect";
 }
-::windows::core::interface_hierarchy!(LampArrayBlinkEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LampArrayBlinkEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LampArrayBlinkEffect> for ILampArrayEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: LampArrayBlinkEffect) -> ::windows::core::Result<Self> {
@@ -998,7 +998,7 @@ impl LampArrayColorRampEffect {
     }
     #[doc(hidden)]
     pub fn ILampArrayColorRampEffectFactory<R, F: FnOnce(&ILampArrayColorRampEffectFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LampArrayColorRampEffect, ILampArrayColorRampEffectFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LampArrayColorRampEffect, ILampArrayColorRampEffectFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1014,7 +1014,7 @@ impl ::core::fmt::Debug for LampArrayColorRampEffect {
     }
 }
 impl ::windows::core::RuntimeType for LampArrayColorRampEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayColorRampEffect;{2b004437-40a7-432e-a0b9-0d570c2153ff})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayColorRampEffect;{2b004437-40a7-432e-a0b9-0d570c2153ff})");
 }
 impl ::core::clone::Clone for LampArrayColorRampEffect {
     fn clone(&self) -> Self {
@@ -1030,7 +1030,7 @@ unsafe impl ::windows::core::Interface for LampArrayColorRampEffect {
 impl ::windows::core::RuntimeName for LampArrayColorRampEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayColorRampEffect";
 }
-::windows::core::interface_hierarchy!(LampArrayColorRampEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LampArrayColorRampEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LampArrayColorRampEffect> for ILampArrayEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: LampArrayColorRampEffect) -> ::windows::core::Result<Self> {
@@ -1120,7 +1120,7 @@ impl LampArrayCustomEffect {
     }
     #[doc(hidden)]
     pub fn ILampArrayCustomEffectFactory<R, F: FnOnce(&ILampArrayCustomEffectFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LampArrayCustomEffect, ILampArrayCustomEffectFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LampArrayCustomEffect, ILampArrayCustomEffectFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1136,7 +1136,7 @@ impl ::core::fmt::Debug for LampArrayCustomEffect {
     }
 }
 impl ::windows::core::RuntimeType for LampArrayCustomEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayCustomEffect;{ec579170-3c34-4876-818b-5765f78b0ee4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayCustomEffect;{ec579170-3c34-4876-818b-5765f78b0ee4})");
 }
 impl ::core::clone::Clone for LampArrayCustomEffect {
     fn clone(&self) -> Self {
@@ -1152,7 +1152,7 @@ unsafe impl ::windows::core::Interface for LampArrayCustomEffect {
 impl ::windows::core::RuntimeName for LampArrayCustomEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayCustomEffect";
 }
-::windows::core::interface_hierarchy!(LampArrayCustomEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LampArrayCustomEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LampArrayCustomEffect> for ILampArrayEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: LampArrayCustomEffect) -> ::windows::core::Result<Self> {
@@ -1181,8 +1181,8 @@ impl LampArrayEffectPlaylist {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LampArrayEffectPlaylist, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<LampArrayEffectPlaylist, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1320,7 +1320,7 @@ impl LampArrayEffectPlaylist {
     }
     #[doc(hidden)]
     pub fn ILampArrayEffectPlaylistStatics<R, F: FnOnce(&ILampArrayEffectPlaylistStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LampArrayEffectPlaylist, ILampArrayEffectPlaylistStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LampArrayEffectPlaylist, ILampArrayEffectPlaylistStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1336,7 +1336,7 @@ impl ::core::fmt::Debug for LampArrayEffectPlaylist {
     }
 }
 impl ::windows::core::RuntimeType for LampArrayEffectPlaylist {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayEffectPlaylist;{7de58bfe-6f61-4103-98c7-d6632f7b9169})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayEffectPlaylist;{7de58bfe-6f61-4103-98c7-d6632f7b9169})");
 }
 impl ::core::clone::Clone for LampArrayEffectPlaylist {
     fn clone(&self) -> Self {
@@ -1368,7 +1368,7 @@ impl ::core::iter::IntoIterator for &LampArrayEffectPlaylist {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(LampArrayEffectPlaylist, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LampArrayEffectPlaylist, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<LampArrayEffectPlaylist> for super::super::super::Foundation::Collections::IIterable<ILampArrayEffect> {
     type Error = ::windows::core::Error;
@@ -1494,7 +1494,7 @@ impl LampArraySolidEffect {
     }
     #[doc(hidden)]
     pub fn ILampArraySolidEffectFactory<R, F: FnOnce(&ILampArraySolidEffectFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LampArraySolidEffect, ILampArraySolidEffectFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LampArraySolidEffect, ILampArraySolidEffectFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1510,7 +1510,7 @@ impl ::core::fmt::Debug for LampArraySolidEffect {
     }
 }
 impl ::windows::core::RuntimeType for LampArraySolidEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArraySolidEffect;{441f8213-43cc-4b33-80eb-c6ddde7dc8ed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArraySolidEffect;{441f8213-43cc-4b33-80eb-c6ddde7dc8ed})");
 }
 impl ::core::clone::Clone for LampArraySolidEffect {
     fn clone(&self) -> Self {
@@ -1526,7 +1526,7 @@ unsafe impl ::windows::core::Interface for LampArraySolidEffect {
 impl ::windows::core::RuntimeName for LampArraySolidEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArraySolidEffect";
 }
-::windows::core::interface_hierarchy!(LampArraySolidEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LampArraySolidEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LampArraySolidEffect> for ILampArrayEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: LampArraySolidEffect) -> ::windows::core::Result<Self> {
@@ -1598,7 +1598,7 @@ impl ::core::fmt::Debug for LampArrayUpdateRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LampArrayUpdateRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs;{73560d6a-576a-48af-8539-67ffa0ab3516})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs;{73560d6a-576a-48af-8539-67ffa0ab3516})");
 }
 impl ::core::clone::Clone for LampArrayUpdateRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1614,7 +1614,7 @@ unsafe impl ::windows::core::Interface for LampArrayUpdateRequestedEventArgs {
 impl ::windows::core::RuntimeName for LampArrayUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(LampArrayUpdateRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LampArrayUpdateRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LampArrayUpdateRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayUpdateRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
@@ -1645,7 +1645,7 @@ impl ::core::fmt::Debug for LampArrayEffectCompletionBehavior {
     }
 }
 impl ::windows::core::RuntimeType for LampArrayEffectCompletionBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
 }
 #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
@@ -1675,7 +1675,7 @@ impl ::core::fmt::Debug for LampArrayEffectStartMode {
     }
 }
 impl ::windows::core::RuntimeType for LampArrayEffectStartMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectStartMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectStartMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
@@ -1705,7 +1705,7 @@ impl ::core::fmt::Debug for LampArrayRepetitionMode {
     }
 }
 impl ::windows::core::RuntimeType for LampArrayRepetitionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayRepetitionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayRepetitionMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

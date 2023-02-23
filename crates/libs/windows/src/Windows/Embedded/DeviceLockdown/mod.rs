@@ -80,7 +80,7 @@ impl DeviceLockdownProfile {
     }
     #[doc(hidden)]
     pub fn IDeviceLockdownProfileStatics<R, F: FnOnce(&IDeviceLockdownProfileStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeviceLockdownProfile, IDeviceLockdownProfileStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DeviceLockdownProfile, IDeviceLockdownProfileStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -111,7 +111,7 @@ impl ::core::fmt::Debug for DeviceLockdownProfileInformation {
     }
 }
 impl ::windows::core::RuntimeType for DeviceLockdownProfileInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation;{7980e14e-45b1-4a96-92fc-62756b739678})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation;{7980e14e-45b1-4a96-92fc-62756b739678})");
 }
 impl ::core::clone::Clone for DeviceLockdownProfileInformation {
     fn clone(&self) -> Self {
@@ -127,7 +127,7 @@ unsafe impl ::windows::core::Interface for DeviceLockdownProfileInformation {
 impl ::windows::core::RuntimeName for DeviceLockdownProfileInformation {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation";
 }
-::windows::core::interface_hierarchy!(DeviceLockdownProfileInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceLockdownProfileInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceLockdownProfileInformation {}
 unsafe impl ::core::marker::Sync for DeviceLockdownProfileInformation {}
 #[cfg(feature = "implement")]

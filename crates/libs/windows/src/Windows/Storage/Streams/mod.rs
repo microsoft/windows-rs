@@ -21,7 +21,7 @@ impl IBuffer {
         unsafe { (::windows::core::Vtable::vtable(this).SetLength)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -34,7 +34,7 @@ impl ::core::fmt::Debug for IBuffer {
     }
 }
 impl ::windows::core::RuntimeType for IBuffer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe0-bc53-11df-8c49-001e4fc686da}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{905a0fe0-bc53-11df-8c49-001e4fc686da}");
 }
 unsafe impl ::windows::core::Vtable for IBuffer {
     type Vtable = IBuffer_Vtbl;
@@ -114,7 +114,7 @@ impl IContentTypeProvider {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContentTypeProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContentTypeProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IContentTypeProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -127,7 +127,7 @@ impl ::core::fmt::Debug for IContentTypeProvider {
     }
 }
 impl ::windows::core::RuntimeType for IContentTypeProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{97d098a5-3b99-4de9-88a5-e11d2f50c795}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{97d098a5-3b99-4de9-88a5-e11d2f50c795}");
 }
 unsafe impl ::windows::core::Vtable for IContentTypeProvider {
     type Vtable = IContentTypeProvider_Vtbl;
@@ -327,7 +327,7 @@ impl IDataReader {
         }
     }
 }
-::windows::core::interface_hierarchy!(IDataReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IDataReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IDataReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -340,7 +340,7 @@ impl ::core::fmt::Debug for IDataReader {
     }
 }
 impl ::windows::core::RuntimeType for IDataReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e2b50029-b4c1-4314-a4b8-fb813a2f275e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e2b50029-b4c1-4314-a4b8-fb813a2f275e}");
 }
 unsafe impl ::windows::core::Vtable for IDataReader {
     type Vtable = IDataReader_Vtbl;
@@ -589,7 +589,7 @@ impl IDataWriter {
         }
     }
 }
-::windows::core::interface_hierarchy!(IDataWriter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IDataWriter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IDataWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -602,7 +602,7 @@ impl ::core::fmt::Debug for IDataWriter {
     }
 }
 impl ::windows::core::RuntimeType for IDataWriter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{64b89265-d341-4922-b38a-dd4af8808c4e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{64b89265-d341-4922-b38a-dd4af8808c4e}");
 }
 unsafe impl ::windows::core::Vtable for IDataWriter {
     type Vtable = IDataWriter_Vtbl;
@@ -754,7 +754,7 @@ impl IInputStream {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IInputStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IInputStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IInputStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -789,7 +789,7 @@ impl ::core::fmt::Debug for IInputStream {
     }
 }
 impl ::windows::core::RuntimeType for IInputStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe2-bc53-11df-8c49-001e4fc686da}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{905a0fe2-bc53-11df-8c49-001e4fc686da}");
 }
 unsafe impl ::windows::core::Vtable for IInputStream {
     type Vtable = IInputStream_Vtbl;
@@ -825,7 +825,7 @@ impl IInputStreamReference {
         }
     }
 }
-::windows::core::interface_hierarchy!(IInputStreamReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IInputStreamReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IInputStreamReference {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -838,7 +838,7 @@ impl ::core::fmt::Debug for IInputStreamReference {
     }
 }
 impl ::windows::core::RuntimeType for IInputStreamReference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{43929d18-5ec9-4b5a-919c-4205b0c804b6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{43929d18-5ec9-4b5a-919c-4205b0c804b6}");
 }
 unsafe impl ::windows::core::Vtable for IInputStreamReference {
     type Vtable = IInputStreamReference_Vtbl;
@@ -893,7 +893,7 @@ impl IOutputStream {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IOutputStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IOutputStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IOutputStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -928,7 +928,7 @@ impl ::core::fmt::Debug for IOutputStream {
     }
 }
 impl ::windows::core::RuntimeType for IOutputStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe6-bc53-11df-8c49-001e4fc686da}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{905a0fe6-bc53-11df-8c49-001e4fc686da}");
 }
 unsafe impl ::windows::core::Vtable for IOutputStream {
     type Vtable = IOutputStream_Vtbl;
@@ -984,7 +984,7 @@ impl IPropertySetSerializer {
         unsafe { (::windows::core::Vtable::vtable(this).Deserialize)(::windows::core::Vtable::as_raw(this), propertyset.try_into().map_err(|e| e.into())?.abi(), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IPropertySetSerializer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPropertySetSerializer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPropertySetSerializer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -997,7 +997,7 @@ impl ::core::fmt::Debug for IPropertySetSerializer {
     }
 }
 impl ::windows::core::RuntimeType for IPropertySetSerializer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6e8ebf1c-ef3d-4376-b20e-5be638aeac77}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{6e8ebf1c-ef3d-4376-b20e-5be638aeac77}");
 }
 unsafe impl ::windows::core::Vtable for IPropertySetSerializer {
     type Vtable = IPropertySetSerializer_Vtbl;
@@ -1126,7 +1126,7 @@ impl IRandomAccessStream {
         }
     }
 }
-::windows::core::interface_hierarchy!(IRandomAccessStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IRandomAccessStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IRandomAccessStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1199,7 +1199,7 @@ impl ::core::fmt::Debug for IRandomAccessStream {
     }
 }
 impl ::windows::core::RuntimeType for IRandomAccessStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe1-bc53-11df-8c49-001e4fc686da}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{905a0fe1-bc53-11df-8c49-001e4fc686da}");
 }
 unsafe impl ::windows::core::Vtable for IRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
@@ -1240,7 +1240,7 @@ impl IRandomAccessStreamReference {
         }
     }
 }
-::windows::core::interface_hierarchy!(IRandomAccessStreamReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IRandomAccessStreamReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IRandomAccessStreamReference {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1253,7 +1253,7 @@ impl ::core::fmt::Debug for IRandomAccessStreamReference {
     }
 }
 impl ::windows::core::RuntimeType for IRandomAccessStreamReference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{33ee3134-1dd6-4e3a-8067-d1c162e8642b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{33ee3134-1dd6-4e3a-8067-d1c162e8642b}");
 }
 unsafe impl ::windows::core::Vtable for IRandomAccessStreamReference {
     type Vtable = IRandomAccessStreamReference_Vtbl;
@@ -1441,7 +1441,7 @@ impl IRandomAccessStreamWithContentType {
         }
     }
 }
-::windows::core::interface_hierarchy!(IRandomAccessStreamWithContentType, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IRandomAccessStreamWithContentType, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IRandomAccessStreamWithContentType> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1552,7 +1552,7 @@ impl ::core::fmt::Debug for IRandomAccessStreamWithContentType {
     }
 }
 impl ::windows::core::RuntimeType for IRandomAccessStreamWithContentType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cc254827-4b3d-438f-9232-10c76bc7e038}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{cc254827-4b3d-438f-9232-10c76bc7e038}");
 }
 unsafe impl ::windows::core::Vtable for IRandomAccessStreamWithContentType {
     type Vtable = IRandomAccessStreamWithContentType_Vtbl;
@@ -1624,12 +1624,12 @@ impl Buffer {
     }
     #[doc(hidden)]
     pub fn IBufferFactory<R, F: FnOnce(&IBufferFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Buffer, IBufferFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Buffer, IBufferFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBufferStatics<R, F: FnOnce(&IBufferStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Buffer, IBufferStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Buffer, IBufferStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1645,7 +1645,7 @@ impl ::core::fmt::Debug for Buffer {
     }
 }
 impl ::windows::core::RuntimeType for Buffer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.Buffer;{905a0fe0-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.Buffer;{905a0fe0-bc53-11df-8c49-001e4fc686da})");
 }
 impl ::core::clone::Clone for Buffer {
     fn clone(&self) -> Self {
@@ -1661,7 +1661,7 @@ unsafe impl ::windows::core::Interface for Buffer {
 impl ::windows::core::RuntimeName for Buffer {
     const NAME: &'static str = "Windows.Storage.Streams.Buffer";
 }
-::windows::core::interface_hierarchy!(Buffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Buffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Buffer> for IBuffer {
     type Error = ::windows::core::Error;
     fn try_from(value: Buffer) -> ::windows::core::Result<Self> {
@@ -1891,12 +1891,12 @@ impl DataReader {
     }
     #[doc(hidden)]
     pub fn IDataReaderFactory<R, F: FnOnce(&IDataReaderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DataReader, IDataReaderFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DataReader, IDataReaderFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IDataReaderStatics<R, F: FnOnce(&IDataReaderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DataReader, IDataReaderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DataReader, IDataReaderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1912,7 +1912,7 @@ impl ::core::fmt::Debug for DataReader {
     }
 }
 impl ::windows::core::RuntimeType for DataReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataReader;{e2b50029-b4c1-4314-a4b8-fb813a2f275e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataReader;{e2b50029-b4c1-4314-a4b8-fb813a2f275e})");
 }
 impl ::core::clone::Clone for DataReader {
     fn clone(&self) -> Self {
@@ -1928,7 +1928,7 @@ unsafe impl ::windows::core::Interface for DataReader {
 impl ::windows::core::RuntimeName for DataReader {
     const NAME: &'static str = "Windows.Storage.Streams.DataReader";
 }
-::windows::core::interface_hierarchy!(DataReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DataReader> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2058,7 +2058,7 @@ impl ::core::fmt::Debug for DataReaderLoadOperation {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for DataReaderLoadOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataReaderLoadOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};u4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataReaderLoadOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};u4))");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::clone::Clone for DataReaderLoadOperation {
@@ -2082,7 +2082,7 @@ impl ::windows::core::RuntimeName for DataReaderLoadOperation {
 impl DataReaderLoadOperation {
     pub fn get(&self) -> ::windows::core::Result<u32> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
-            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
+            let (_waiter, signaler) = ::windows::imp::Waiter::new()?;
             self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
@@ -2110,7 +2110,7 @@ impl ::std::future::Future for DataReaderLoadOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-::windows::core::interface_hierarchy!(DataReaderLoadOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataReaderLoadOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DataReaderLoadOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -2166,8 +2166,8 @@ impl DataWriter {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DataWriter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DataWriter, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2339,7 +2339,7 @@ impl DataWriter {
     }
     #[doc(hidden)]
     pub fn IDataWriterFactory<R, F: FnOnce(&IDataWriterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DataWriter, IDataWriterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DataWriter, IDataWriterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2355,7 +2355,7 @@ impl ::core::fmt::Debug for DataWriter {
     }
 }
 impl ::windows::core::RuntimeType for DataWriter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataWriter;{64b89265-d341-4922-b38a-dd4af8808c4e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataWriter;{64b89265-d341-4922-b38a-dd4af8808c4e})");
 }
 impl ::core::clone::Clone for DataWriter {
     fn clone(&self) -> Self {
@@ -2371,7 +2371,7 @@ unsafe impl ::windows::core::Interface for DataWriter {
 impl ::windows::core::RuntimeName for DataWriter {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriter";
 }
-::windows::core::interface_hierarchy!(DataWriter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataWriter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DataWriter> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2501,7 +2501,7 @@ impl ::core::fmt::Debug for DataWriterStoreOperation {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for DataWriterStoreOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataWriterStoreOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};u4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataWriterStoreOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};u4))");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::clone::Clone for DataWriterStoreOperation {
@@ -2525,7 +2525,7 @@ impl ::windows::core::RuntimeName for DataWriterStoreOperation {
 impl DataWriterStoreOperation {
     pub fn get(&self) -> ::windows::core::Result<u32> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
-            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
+            let (_waiter, signaler) = ::windows::imp::Waiter::new()?;
             self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
@@ -2553,7 +2553,7 @@ impl ::std::future::Future for DataWriterStoreOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-::windows::core::interface_hierarchy!(DataWriterStoreOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataWriterStoreOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DataWriterStoreOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -2638,7 +2638,7 @@ impl ::core::fmt::Debug for FileInputStream {
     }
 }
 impl ::windows::core::RuntimeType for FileInputStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileInputStream;{905a0fe2-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileInputStream;{905a0fe2-bc53-11df-8c49-001e4fc686da})");
 }
 impl ::core::clone::Clone for FileInputStream {
     fn clone(&self) -> Self {
@@ -2654,7 +2654,7 @@ unsafe impl ::windows::core::Interface for FileInputStream {
 impl ::windows::core::RuntimeName for FileInputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileInputStream";
 }
-::windows::core::interface_hierarchy!(FileInputStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileInputStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<FileInputStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2743,7 +2743,7 @@ impl ::core::fmt::Debug for FileOutputStream {
     }
 }
 impl ::windows::core::RuntimeType for FileOutputStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileOutputStream;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileOutputStream;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
 }
 impl ::core::clone::Clone for FileOutputStream {
     fn clone(&self) -> Self {
@@ -2759,7 +2759,7 @@ unsafe impl ::windows::core::Interface for FileOutputStream {
 impl ::windows::core::RuntimeName for FileOutputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileOutputStream";
 }
-::windows::core::interface_hierarchy!(FileOutputStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileOutputStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<FileOutputStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2971,7 +2971,7 @@ impl FileRandomAccessStream {
     }
     #[doc(hidden)]
     pub fn IFileRandomAccessStreamStatics<R, F: FnOnce(&IFileRandomAccessStreamStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileRandomAccessStream, IFileRandomAccessStreamStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FileRandomAccessStream, IFileRandomAccessStreamStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2987,7 +2987,7 @@ impl ::core::fmt::Debug for FileRandomAccessStream {
     }
 }
 impl ::windows::core::RuntimeType for FileRandomAccessStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileRandomAccessStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileRandomAccessStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
 }
 impl ::core::clone::Clone for FileRandomAccessStream {
     fn clone(&self) -> Self {
@@ -3003,7 +3003,7 @@ unsafe impl ::windows::core::Interface for FileRandomAccessStream {
 impl ::windows::core::RuntimeName for FileRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileRandomAccessStream";
 }
-::windows::core::interface_hierarchy!(FileRandomAccessStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileRandomAccessStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<FileRandomAccessStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3092,8 +3092,8 @@ impl InMemoryRandomAccessStream {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InMemoryRandomAccessStream, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<InMemoryRandomAccessStream, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3207,7 +3207,7 @@ impl ::core::fmt::Debug for InMemoryRandomAccessStream {
     }
 }
 impl ::windows::core::RuntimeType for InMemoryRandomAccessStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.InMemoryRandomAccessStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.InMemoryRandomAccessStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
 }
 impl ::core::clone::Clone for InMemoryRandomAccessStream {
     fn clone(&self) -> Self {
@@ -3223,7 +3223,7 @@ unsafe impl ::windows::core::Interface for InMemoryRandomAccessStream {
 impl ::windows::core::RuntimeName for InMemoryRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.InMemoryRandomAccessStream";
 }
-::windows::core::interface_hierarchy!(InMemoryRandomAccessStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InMemoryRandomAccessStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<InMemoryRandomAccessStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3341,7 +3341,7 @@ impl ::core::fmt::Debug for InputStreamOverStream {
     }
 }
 impl ::windows::core::RuntimeType for InputStreamOverStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.InputStreamOverStream;{905a0fe2-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.InputStreamOverStream;{905a0fe2-bc53-11df-8c49-001e4fc686da})");
 }
 impl ::core::clone::Clone for InputStreamOverStream {
     fn clone(&self) -> Self {
@@ -3357,7 +3357,7 @@ unsafe impl ::windows::core::Interface for InputStreamOverStream {
 impl ::windows::core::RuntimeName for InputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.InputStreamOverStream";
 }
-::windows::core::interface_hierarchy!(InputStreamOverStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InputStreamOverStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<InputStreamOverStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3446,7 +3446,7 @@ impl ::core::fmt::Debug for OutputStreamOverStream {
     }
 }
 impl ::windows::core::RuntimeType for OutputStreamOverStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.OutputStreamOverStream;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.OutputStreamOverStream;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
 }
 impl ::core::clone::Clone for OutputStreamOverStream {
     fn clone(&self) -> Self {
@@ -3462,7 +3462,7 @@ unsafe impl ::windows::core::Interface for OutputStreamOverStream {
 impl ::windows::core::RuntimeName for OutputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.OutputStreamOverStream";
 }
-::windows::core::interface_hierarchy!(OutputStreamOverStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OutputStreamOverStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<OutputStreamOverStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3553,7 +3553,7 @@ impl RandomAccessStream {
     }
     #[doc(hidden)]
     pub fn IRandomAccessStreamStatics<R, F: FnOnce(&IRandomAccessStreamStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RandomAccessStream, IRandomAccessStreamStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RandomAccessStream, IRandomAccessStreamStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3675,7 +3675,7 @@ impl ::core::fmt::Debug for RandomAccessStreamOverStream {
     }
 }
 impl ::windows::core::RuntimeType for RandomAccessStreamOverStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.RandomAccessStreamOverStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.RandomAccessStreamOverStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
 }
 impl ::core::clone::Clone for RandomAccessStreamOverStream {
     fn clone(&self) -> Self {
@@ -3691,7 +3691,7 @@ unsafe impl ::windows::core::Interface for RandomAccessStreamOverStream {
 impl ::windows::core::RuntimeName for RandomAccessStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamOverStream";
 }
-::windows::core::interface_hierarchy!(RandomAccessStreamOverStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RandomAccessStreamOverStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<RandomAccessStreamOverStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3816,7 +3816,7 @@ impl RandomAccessStreamReference {
     }
     #[doc(hidden)]
     pub fn IRandomAccessStreamReferenceStatics<R, F: FnOnce(&IRandomAccessStreamReferenceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RandomAccessStreamReference, IRandomAccessStreamReferenceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RandomAccessStreamReference, IRandomAccessStreamReferenceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3832,7 +3832,7 @@ impl ::core::fmt::Debug for RandomAccessStreamReference {
     }
 }
 impl ::windows::core::RuntimeType for RandomAccessStreamReference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.RandomAccessStreamReference;{33ee3134-1dd6-4e3a-8067-d1c162e8642b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.RandomAccessStreamReference;{33ee3134-1dd6-4e3a-8067-d1c162e8642b})");
 }
 impl ::core::clone::Clone for RandomAccessStreamReference {
     fn clone(&self) -> Self {
@@ -3848,7 +3848,7 @@ unsafe impl ::windows::core::Interface for RandomAccessStreamReference {
 impl ::windows::core::RuntimeName for RandomAccessStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamReference";
 }
-::windows::core::interface_hierarchy!(RandomAccessStreamReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RandomAccessStreamReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RandomAccessStreamReference> for IRandomAccessStreamReference {
     type Error = ::windows::core::Error;
     fn try_from(value: RandomAccessStreamReference) -> ::windows::core::Result<Self> {
@@ -3898,7 +3898,7 @@ impl ::core::fmt::Debug for ByteOrder {
     }
 }
 impl ::windows::core::RuntimeType for ByteOrder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.ByteOrder;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.ByteOrder;i4)");
 }
 #[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
@@ -3931,7 +3931,7 @@ impl ::core::fmt::Debug for FileOpenDisposition {
     }
 }
 impl ::windows::core::RuntimeType for FileOpenDisposition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.FileOpenDisposition;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.FileOpenDisposition;i4)");
 }
 #[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
@@ -3995,7 +3995,7 @@ impl ::core::ops::Not for InputStreamOptions {
     }
 }
 impl ::windows::core::RuntimeType for InputStreamOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.InputStreamOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.InputStreamOptions;u4)");
 }
 #[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
@@ -4026,7 +4026,7 @@ impl ::core::fmt::Debug for UnicodeEncoding {
     }
 }
 impl ::windows::core::RuntimeType for UnicodeEncoding {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.UnicodeEncoding;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.UnicodeEncoding;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

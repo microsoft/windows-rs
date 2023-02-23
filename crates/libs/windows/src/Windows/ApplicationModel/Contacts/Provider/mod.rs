@@ -164,7 +164,7 @@ impl ::core::fmt::Debug for ContactPickerUI {
     }
 }
 impl ::windows::core::RuntimeType for ContactPickerUI {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactPickerUI;{e2cc1366-cf66-43c4-a96a-a5a112db4746})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactPickerUI;{e2cc1366-cf66-43c4-a96a-a5a112db4746})");
 }
 impl ::core::clone::Clone for ContactPickerUI {
     fn clone(&self) -> Self {
@@ -180,7 +180,7 @@ unsafe impl ::windows::core::Interface for ContactPickerUI {
 impl ::windows::core::RuntimeName for ContactPickerUI {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactPickerUI";
 }
-::windows::core::interface_hierarchy!(ContactPickerUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactPickerUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
 #[repr(transparent)]
 pub struct ContactRemovedEventArgs(::windows::core::IUnknown);
@@ -205,7 +205,7 @@ impl ::core::fmt::Debug for ContactRemovedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs;{6f354338-3302-4d13-ad8d-adcc0ff9e47c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs;{6f354338-3302-4d13-ad8d-adcc0ff9e47c})");
 }
 impl ::core::clone::Clone for ContactRemovedEventArgs {
     fn clone(&self) -> Self {
@@ -221,7 +221,7 @@ unsafe impl ::windows::core::Interface for ContactRemovedEventArgs {
 impl ::windows::core::RuntimeName for ContactRemovedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -251,7 +251,7 @@ impl ::core::fmt::Debug for AddContactResult {
     }
 }
 impl ::windows::core::RuntimeType for AddContactResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.Provider.AddContactResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.Provider.AddContactResult;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -28,7 +28,7 @@ impl IPhotoAcquire {
         (::windows::core::Vtable::vtable(self).EnumResults)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPhotoAcquire, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPhotoAcquire, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPhotoAcquire {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -90,7 +90,7 @@ impl IPhotoAcquireDeviceSelectionDialog {
         (::windows::core::Vtable::vtable(self).DoModal)(::windows::core::Vtable::as_raw(self), hwndparent.into(), dwdeviceflags, ::core::mem::transmute(pbstrdeviceid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pndevicetype.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPhotoAcquireDeviceSelectionDialog, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPhotoAcquireDeviceSelectionDialog, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPhotoAcquireDeviceSelectionDialog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -173,7 +173,7 @@ impl IPhotoAcquireItem {
         (::windows::core::Vtable::vtable(self).GetSubItemAt)(::windows::core::Vtable::as_raw(self), nitemindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPhotoAcquireItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPhotoAcquireItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPhotoAcquireItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -259,7 +259,7 @@ impl IPhotoAcquireOptionsDialog {
         (::windows::core::Vtable::vtable(self).SaveData)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPhotoAcquireOptionsDialog, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPhotoAcquireOptionsDialog, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPhotoAcquireOptionsDialog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -332,7 +332,7 @@ impl IPhotoAcquirePlugin {
         (::windows::core::Vtable::vtable(self).DisplayConfigureDialog)(::windows::core::Vtable::as_raw(self), hwndparent.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPhotoAcquirePlugin, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPhotoAcquirePlugin, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPhotoAcquirePlugin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -479,7 +479,7 @@ impl IPhotoAcquireProgressCB {
         (::windows::core::Vtable::vtable(self).GetUserInput)(::windows::core::Vtable::as_raw(self), riidtype, punknown.into().abi(), ppropvarresult, ::core::mem::transmute(ppropvardefault.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPhotoAcquireProgressCB, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPhotoAcquireProgressCB, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPhotoAcquireProgressCB {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -608,7 +608,7 @@ impl IPhotoAcquireSettings {
         (::windows::core::Vtable::vtable(self).GetAcquisitionTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPhotoAcquireSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPhotoAcquireSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPhotoAcquireSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -703,7 +703,7 @@ impl IPhotoAcquireSource {
         (::windows::core::Vtable::vtable(self).BindToObject)(::windows::core::Vtable::as_raw(self), riid, ppv).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPhotoAcquireSource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPhotoAcquireSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPhotoAcquireSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -758,7 +758,7 @@ impl IPhotoProgressActionCB {
         (::windows::core::Vtable::vtable(self).DoAction)(::windows::core::Vtable::as_raw(self), hwndparent.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPhotoProgressActionCB, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPhotoProgressActionCB, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPhotoProgressActionCB {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -910,7 +910,7 @@ impl IPhotoProgressDialog {
         (::windows::core::Vtable::vtable(self).GetUserInput)(::windows::core::Vtable::as_raw(self), riidtype, punknown.into().abi(), ppropvarresult, ::core::mem::transmute(ppropvardefault.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPhotoProgressDialog, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPhotoProgressDialog, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPhotoProgressDialog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1029,7 +1029,7 @@ impl IUserInputString {
         (::windows::core::Vtable::vtable(self).GetImage)(::windows::core::Vtable::as_raw(self), nsize, ::core::mem::transmute(phbitmap.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phicon.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUserInputString, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUserInputString, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUserInputString {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

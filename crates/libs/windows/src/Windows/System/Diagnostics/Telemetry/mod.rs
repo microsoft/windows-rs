@@ -79,7 +79,7 @@ impl PlatformTelemetryClient {
     }
     #[doc(hidden)]
     pub fn IPlatformTelemetryClientStatics<R, F: FnOnce(&IPlatformTelemetryClientStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlatformTelemetryClient, IPlatformTelemetryClientStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlatformTelemetryClient, IPlatformTelemetryClientStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -110,7 +110,7 @@ impl ::core::fmt::Debug for PlatformTelemetryRegistrationResult {
     }
 }
 impl ::windows::core::RuntimeType for PlatformTelemetryRegistrationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult;{4d8518ab-2292-49bd-a15a-3d71d2145112})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult;{4d8518ab-2292-49bd-a15a-3d71d2145112})");
 }
 impl ::core::clone::Clone for PlatformTelemetryRegistrationResult {
     fn clone(&self) -> Self {
@@ -126,7 +126,7 @@ unsafe impl ::windows::core::Interface for PlatformTelemetryRegistrationResult {
 impl ::windows::core::RuntimeName for PlatformTelemetryRegistrationResult {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult";
 }
-::windows::core::interface_hierarchy!(PlatformTelemetryRegistrationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlatformTelemetryRegistrationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationResult {}
 unsafe impl ::core::marker::Sync for PlatformTelemetryRegistrationResult {}
 #[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
@@ -136,8 +136,8 @@ impl PlatformTelemetryRegistrationSettings {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlatformTelemetryRegistrationSettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PlatformTelemetryRegistrationSettings, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn StorageSize(&self) -> ::windows::core::Result<u32> {
@@ -175,7 +175,7 @@ impl ::core::fmt::Debug for PlatformTelemetryRegistrationSettings {
     }
 }
 impl ::windows::core::RuntimeType for PlatformTelemetryRegistrationSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings;{819a8582-ca19-415e-bb79-9c224bfa3a73})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings;{819a8582-ca19-415e-bb79-9c224bfa3a73})");
 }
 impl ::core::clone::Clone for PlatformTelemetryRegistrationSettings {
     fn clone(&self) -> Self {
@@ -191,7 +191,7 @@ unsafe impl ::windows::core::Interface for PlatformTelemetryRegistrationSettings
 impl ::windows::core::RuntimeName for PlatformTelemetryRegistrationSettings {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings";
 }
-::windows::core::interface_hierarchy!(PlatformTelemetryRegistrationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlatformTelemetryRegistrationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationSettings {}
 unsafe impl ::core::marker::Sync for PlatformTelemetryRegistrationSettings {}
 #[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
@@ -223,7 +223,7 @@ impl ::core::fmt::Debug for PlatformTelemetryRegistrationStatus {
     }
 }
 impl ::windows::core::RuntimeType for PlatformTelemetryRegistrationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

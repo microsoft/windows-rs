@@ -496,7 +496,7 @@ impl ::core::fmt::Debug for WiFiDirectAdvertisement {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectAdvertisement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectAdvertisement;{ab511a2d-2a06-49a1-a584-61435c7905a6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectAdvertisement;{ab511a2d-2a06-49a1-a584-61435c7905a6})");
 }
 impl ::core::clone::Clone for WiFiDirectAdvertisement {
     fn clone(&self) -> Self {
@@ -512,7 +512,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectAdvertisement {
 impl ::windows::core::RuntimeName for WiFiDirectAdvertisement {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectAdvertisement";
 }
-::windows::core::interface_hierarchy!(WiFiDirectAdvertisement, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiDirectAdvertisement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectAdvertisement {}
 unsafe impl ::core::marker::Sync for WiFiDirectAdvertisement {}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
@@ -522,8 +522,8 @@ impl WiFiDirectAdvertisementPublisher {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WiFiDirectAdvertisementPublisher, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WiFiDirectAdvertisementPublisher, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Advertisement(&self) -> ::windows::core::Result<WiFiDirectAdvertisement> {
@@ -576,7 +576,7 @@ impl ::core::fmt::Debug for WiFiDirectAdvertisementPublisher {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectAdvertisementPublisher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisher;{b35a2d1a-9b1f-45d9-925a-694d66df68ef})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisher;{b35a2d1a-9b1f-45d9-925a-694d66df68ef})");
 }
 impl ::core::clone::Clone for WiFiDirectAdvertisementPublisher {
     fn clone(&self) -> Self {
@@ -592,7 +592,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectAdvertisementPublisher {
 impl ::windows::core::RuntimeName for WiFiDirectAdvertisementPublisher {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisher";
 }
-::windows::core::interface_hierarchy!(WiFiDirectAdvertisementPublisher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiDirectAdvertisementPublisher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectAdvertisementPublisher {}
 unsafe impl ::core::marker::Sync for WiFiDirectAdvertisementPublisher {}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
@@ -626,7 +626,7 @@ impl ::core::fmt::Debug for WiFiDirectAdvertisementPublisherStatusChangedEventAr
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisherStatusChangedEventArgs;{aafde53c-5481-46e6-90dd-32116518f192})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisherStatusChangedEventArgs;{aafde53c-5481-46e6-90dd-32116518f192})");
 }
 impl ::core::clone::Clone for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
     fn clone(&self) -> Self {
@@ -642,7 +642,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectAdvertisementPublisherStatu
 impl ::windows::core::RuntimeName for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisherStatusChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(WiFiDirectAdvertisementPublisherStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiDirectAdvertisementPublisherStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
@@ -652,8 +652,8 @@ impl WiFiDirectConnectionListener {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WiFiDirectConnectionListener, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WiFiDirectConnectionListener, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -684,7 +684,7 @@ impl ::core::fmt::Debug for WiFiDirectConnectionListener {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectConnectionListener {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectConnectionListener;{699c1b0d-8d13-4ee9-b9ec-9c72f8251f7d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectConnectionListener;{699c1b0d-8d13-4ee9-b9ec-9c72f8251f7d})");
 }
 impl ::core::clone::Clone for WiFiDirectConnectionListener {
     fn clone(&self) -> Self {
@@ -700,7 +700,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectConnectionListener {
 impl ::windows::core::RuntimeName for WiFiDirectConnectionListener {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectConnectionListener";
 }
-::windows::core::interface_hierarchy!(WiFiDirectConnectionListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiDirectConnectionListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectConnectionListener {}
 unsafe impl ::core::marker::Sync for WiFiDirectConnectionListener {}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
@@ -710,8 +710,8 @@ impl WiFiDirectConnectionParameters {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WiFiDirectConnectionParameters, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WiFiDirectConnectionParameters, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn GroupOwnerIntent(&self) -> ::windows::core::Result<i16> {
@@ -755,7 +755,7 @@ impl WiFiDirectConnectionParameters {
     }
     #[doc(hidden)]
     pub fn IWiFiDirectConnectionParametersStatics<R, F: FnOnce(&IWiFiDirectConnectionParametersStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WiFiDirectConnectionParameters, IWiFiDirectConnectionParametersStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WiFiDirectConnectionParameters, IWiFiDirectConnectionParametersStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -771,7 +771,7 @@ impl ::core::fmt::Debug for WiFiDirectConnectionParameters {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectConnectionParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters;{b2e55405-5702-4b16-a02c-bbcd21ef6098})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters;{b2e55405-5702-4b16-a02c-bbcd21ef6098})");
 }
 impl ::core::clone::Clone for WiFiDirectConnectionParameters {
     fn clone(&self) -> Self {
@@ -787,7 +787,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectConnectionParameters {
 impl ::windows::core::RuntimeName for WiFiDirectConnectionParameters {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters";
 }
-::windows::core::interface_hierarchy!(WiFiDirectConnectionParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiDirectConnectionParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Devices_Enumeration")]
 impl ::core::convert::TryFrom<WiFiDirectConnectionParameters> for super::Enumeration::IDevicePairingSettings {
     type Error = ::windows::core::Error;
@@ -844,7 +844,7 @@ impl ::core::fmt::Debug for WiFiDirectConnectionRequest {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectConnectionRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectConnectionRequest;{8eb99605-914f-49c3-a614-d18dc5b19b43})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectConnectionRequest;{8eb99605-914f-49c3-a614-d18dc5b19b43})");
 }
 impl ::core::clone::Clone for WiFiDirectConnectionRequest {
     fn clone(&self) -> Self {
@@ -860,7 +860,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectConnectionRequest {
 impl ::windows::core::RuntimeName for WiFiDirectConnectionRequest {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectConnectionRequest";
 }
-::windows::core::interface_hierarchy!(WiFiDirectConnectionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiDirectConnectionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<WiFiDirectConnectionRequest> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -909,7 +909,7 @@ impl ::core::fmt::Debug for WiFiDirectConnectionRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectConnectionRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectConnectionRequestedEventArgs;{f99d20be-d38d-484f-8215-e7b65abf244c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectConnectionRequestedEventArgs;{f99d20be-d38d-484f-8215-e7b65abf244c})");
 }
 impl ::core::clone::Clone for WiFiDirectConnectionRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -925,7 +925,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectConnectionRequestedEventArg
 impl ::windows::core::RuntimeName for WiFiDirectConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectConnectionRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(WiFiDirectConnectionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiDirectConnectionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectConnectionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for WiFiDirectConnectionRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
@@ -1006,12 +1006,12 @@ impl WiFiDirectDevice {
     }
     #[doc(hidden)]
     pub fn IWiFiDirectDeviceStatics<R, F: FnOnce(&IWiFiDirectDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WiFiDirectDevice, IWiFiDirectDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WiFiDirectDevice, IWiFiDirectDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWiFiDirectDeviceStatics2<R, F: FnOnce(&IWiFiDirectDeviceStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WiFiDirectDevice, IWiFiDirectDeviceStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WiFiDirectDevice, IWiFiDirectDeviceStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1027,7 +1027,7 @@ impl ::core::fmt::Debug for WiFiDirectDevice {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectDevice;{72deaaa8-72eb-4dae-8a28-8513355d2777})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectDevice;{72deaaa8-72eb-4dae-8a28-8513355d2777})");
 }
 impl ::core::clone::Clone for WiFiDirectDevice {
     fn clone(&self) -> Self {
@@ -1043,7 +1043,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectDevice {
 impl ::windows::core::RuntimeName for WiFiDirectDevice {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectDevice";
 }
-::windows::core::interface_hierarchy!(WiFiDirectDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiDirectDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<WiFiDirectDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1075,8 +1075,8 @@ impl WiFiDirectInformationElement {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WiFiDirectInformationElement, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WiFiDirectInformationElement, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1150,7 +1150,7 @@ impl WiFiDirectInformationElement {
     }
     #[doc(hidden)]
     pub fn IWiFiDirectInformationElementStatics<R, F: FnOnce(&IWiFiDirectInformationElementStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WiFiDirectInformationElement, IWiFiDirectInformationElementStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WiFiDirectInformationElement, IWiFiDirectInformationElementStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1166,7 +1166,7 @@ impl ::core::fmt::Debug for WiFiDirectInformationElement {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectInformationElement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectInformationElement;{affb72d6-76bb-497e-ac8b-dc72838bc309})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectInformationElement;{affb72d6-76bb-497e-ac8b-dc72838bc309})");
 }
 impl ::core::clone::Clone for WiFiDirectInformationElement {
     fn clone(&self) -> Self {
@@ -1182,7 +1182,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectInformationElement {
 impl ::windows::core::RuntimeName for WiFiDirectInformationElement {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectInformationElement";
 }
-::windows::core::interface_hierarchy!(WiFiDirectInformationElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiDirectInformationElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectInformationElement {}
 unsafe impl ::core::marker::Sync for WiFiDirectInformationElement {}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
@@ -1239,7 +1239,7 @@ impl ::core::fmt::Debug for WiFiDirectLegacySettings {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectLegacySettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectLegacySettings;{a64fdbba-f2fd-4567-a91b-f5c2f5321057})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectLegacySettings;{a64fdbba-f2fd-4567-a91b-f5c2f5321057})");
 }
 impl ::core::clone::Clone for WiFiDirectLegacySettings {
     fn clone(&self) -> Self {
@@ -1255,7 +1255,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectLegacySettings {
 impl ::windows::core::RuntimeName for WiFiDirectLegacySettings {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectLegacySettings";
 }
-::windows::core::interface_hierarchy!(WiFiDirectLegacySettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiDirectLegacySettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectLegacySettings {}
 unsafe impl ::core::marker::Sync for WiFiDirectLegacySettings {}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
@@ -1287,7 +1287,7 @@ impl ::core::fmt::Debug for WiFiDirectAdvertisementListenStateDiscoverability {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectAdvertisementListenStateDiscoverability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementListenStateDiscoverability;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementListenStateDiscoverability;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
@@ -1319,7 +1319,7 @@ impl ::core::fmt::Debug for WiFiDirectAdvertisementPublisherStatus {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectAdvertisementPublisherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisherStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisherStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
@@ -1350,7 +1350,7 @@ impl ::core::fmt::Debug for WiFiDirectConfigurationMethod {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectConfigurationMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectConfigurationMethod;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectConfigurationMethod;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
@@ -1380,7 +1380,7 @@ impl ::core::fmt::Debug for WiFiDirectConnectionStatus {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectConnectionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectConnectionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectConnectionStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
@@ -1410,7 +1410,7 @@ impl ::core::fmt::Debug for WiFiDirectDeviceSelectorType {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectDeviceSelectorType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectDeviceSelectorType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectDeviceSelectorType;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
@@ -1441,7 +1441,7 @@ impl ::core::fmt::Debug for WiFiDirectError {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectError;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectError;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
@@ -1471,7 +1471,7 @@ impl ::core::fmt::Debug for WiFiDirectPairingProcedure {
     }
 }
 impl ::windows::core::RuntimeType for WiFiDirectPairingProcedure {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectPairingProcedure;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectPairingProcedure;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

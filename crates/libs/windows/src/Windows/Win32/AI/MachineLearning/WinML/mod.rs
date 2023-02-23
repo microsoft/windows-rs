@@ -1,14 +1,14 @@
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[inline]
 pub unsafe fn MLCreateOperatorRegistry() -> ::windows::core::Result<IMLOperatorRegistry> {
-    ::windows::core::link ! ( "windows.ai.machinelearning.dll""system" fn MLCreateOperatorRegistry ( registry : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.ai.machinelearning.dll""system" fn MLCreateOperatorRegistry ( registry : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMLOperatorRegistry>();
     MLCreateOperatorRegistry(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[inline]
 pub unsafe fn WinMLCreateRuntime() -> ::windows::core::Result<IWinMLRuntime> {
-    ::windows::core::link ! ( "winml.dll""system" fn WinMLCreateRuntime ( runtime : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "winml.dll""system" fn WinMLCreateRuntime ( runtime : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWinMLRuntime>();
     WinMLCreateRuntime(&mut result__).from_abi(result__)
 }
@@ -43,7 +43,7 @@ impl IMLOperatorAttributes {
         (::windows::core::Vtable::vtable(self).GetStringAttributeElement)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMLOperatorAttributes, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMLOperatorAttributes, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMLOperatorAttributes {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -86,7 +86,7 @@ impl IMLOperatorKernel {
         (::windows::core::Vtable::vtable(self).Compute)(::windows::core::Vtable::as_raw(self), context.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMLOperatorKernel, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMLOperatorKernel, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMLOperatorKernel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -141,7 +141,7 @@ impl IMLOperatorKernelContext {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMLOperatorKernelContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMLOperatorKernelContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMLOperatorKernelContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -237,7 +237,7 @@ impl IMLOperatorKernelCreationContext {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMLOperatorKernelCreationContext, ::windows::core::IUnknown, IMLOperatorAttributes);
+::windows::imp::interface_hierarchy!(IMLOperatorKernelCreationContext, ::windows::core::IUnknown, IMLOperatorAttributes);
 impl ::core::cmp::PartialEq for IMLOperatorKernelCreationContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -286,7 +286,7 @@ impl IMLOperatorKernelFactory {
         (::windows::core::Vtable::vtable(self).CreateKernel)(::windows::core::Vtable::as_raw(self), context.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMLOperatorKernelFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMLOperatorKernelFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMLOperatorKernelFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -334,7 +334,7 @@ impl IMLOperatorRegistry {
         (::windows::core::Vtable::vtable(self).RegisterOperatorKernel)(::windows::core::Vtable::as_raw(self), operatorkernel, operatorkernelfactory.into().abi(), shapeinferrer.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMLOperatorRegistry, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMLOperatorRegistry, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMLOperatorRegistry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -421,7 +421,7 @@ impl IMLOperatorShapeInferenceContext {
         (::windows::core::Vtable::vtable(self).SetOutputTensorShape)(::windows::core::Vtable::as_raw(self), outputindex, dimensioncount, dimensions).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMLOperatorShapeInferenceContext, ::windows::core::IUnknown, IMLOperatorAttributes);
+::windows::imp::interface_hierarchy!(IMLOperatorShapeInferenceContext, ::windows::core::IUnknown, IMLOperatorAttributes);
 impl ::core::cmp::PartialEq for IMLOperatorShapeInferenceContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -468,7 +468,7 @@ impl IMLOperatorShapeInferrer {
         (::windows::core::Vtable::vtable(self).InferOutputShapes)(::windows::core::Vtable::as_raw(self), context.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMLOperatorShapeInferrer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMLOperatorShapeInferrer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMLOperatorShapeInferrer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -525,7 +525,7 @@ impl IMLOperatorTensor {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMLOperatorTensor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMLOperatorTensor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMLOperatorTensor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -582,7 +582,7 @@ impl IMLOperatorTensorShapeDescription {
         (::windows::core::Vtable::vtable(self).GetOutputTensorShape)(::windows::core::Vtable::as_raw(self), outputindex, dimensions.len() as _, ::core::mem::transmute(dimensions.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMLOperatorTensorShapeDescription, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMLOperatorTensorShapeDescription, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMLOperatorTensorShapeDescription {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -665,7 +665,7 @@ impl IMLOperatorTypeInferenceContext {
         (::windows::core::Vtable::vtable(self).SetOutputEdgeDescription)(::windows::core::Vtable::as_raw(self), outputindex, edgedescription).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMLOperatorTypeInferenceContext, ::windows::core::IUnknown, IMLOperatorAttributes);
+::windows::imp::interface_hierarchy!(IMLOperatorTypeInferenceContext, ::windows::core::IUnknown, IMLOperatorAttributes);
 impl ::core::cmp::PartialEq for IMLOperatorTypeInferenceContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -710,7 +710,7 @@ impl IMLOperatorTypeInferrer {
         (::windows::core::Vtable::vtable(self).InferOutputTypes)(::windows::core::Vtable::as_raw(self), context.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMLOperatorTypeInferrer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMLOperatorTypeInferrer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMLOperatorTypeInferrer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -761,7 +761,7 @@ impl IWinMLEvaluationContext {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWinMLEvaluationContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWinMLEvaluationContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWinMLEvaluationContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -822,7 +822,7 @@ impl IWinMLModel {
         (::windows::core::Vtable::vtable(self).EnumerateModelOutputs)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWinMLModel, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWinMLModel, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWinMLModel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -887,7 +887,7 @@ impl IWinMLRuntime {
         (::windows::core::Vtable::vtable(self).EvaluateModel)(::windows::core::Vtable::as_raw(self), pcontext.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWinMLRuntime, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWinMLRuntime, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWinMLRuntime {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -930,7 +930,7 @@ impl IWinMLRuntimeFactory {
         (::windows::core::Vtable::vtable(self).CreateRuntime)(::windows::core::Vtable::as_raw(self), runtimetype, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWinMLRuntimeFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWinMLRuntimeFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWinMLRuntimeFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

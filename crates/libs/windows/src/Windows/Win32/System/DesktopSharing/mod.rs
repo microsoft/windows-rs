@@ -38,7 +38,7 @@ impl IRDPSRAPIApplication {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIApplication, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIApplication, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIApplication {
     fn eq(&self, other: &Self) -> bool {
@@ -122,7 +122,7 @@ impl IRDPSRAPIApplicationFilter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIApplicationFilter, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIApplicationFilter, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIApplicationFilter {
     fn eq(&self, other: &Self) -> bool {
@@ -191,7 +191,7 @@ impl IRDPSRAPIApplicationList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIApplicationList, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIApplicationList, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIApplicationList {
     fn eq(&self, other: &Self) -> bool {
@@ -271,7 +271,7 @@ impl IRDPSRAPIAttendee {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIAttendee, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIAttendee, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIAttendee {
     fn eq(&self, other: &Self) -> bool {
@@ -339,7 +339,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIAttendeeDisconnectInfo, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIAttendeeDisconnectInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIAttendeeDisconnectInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -398,7 +398,7 @@ impl IRDPSRAPIAttendeeManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIAttendeeManager, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIAttendeeManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIAttendeeManager {
     fn eq(&self, other: &Self) -> bool {
@@ -459,7 +459,7 @@ impl IRDPSRAPIAudioStream {
         (::windows::core::Vtable::vtable(self).FreeBuffer)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRDPSRAPIAudioStream, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRDPSRAPIAudioStream, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRDPSRAPIAudioStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -506,7 +506,7 @@ impl IRDPSRAPIClipboardUseEvents {
         (::windows::core::Vtable::vtable(self).OnPasteFromClipboard)(::windows::core::Vtable::as_raw(self), clipboardformat, pattendee.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRDPSRAPIClipboardUseEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRDPSRAPIClipboardUseEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRDPSRAPIClipboardUseEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -550,7 +550,7 @@ impl IRDPSRAPIDebug {
         (::windows::core::Vtable::vtable(self).CLXCmdLine)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRDPSRAPIDebug, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRDPSRAPIDebug, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRDPSRAPIDebug {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -606,7 +606,7 @@ impl IRDPSRAPIFrameBuffer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIFrameBuffer, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIFrameBuffer, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIFrameBuffer {
     fn eq(&self, other: &Self) -> bool {
@@ -689,7 +689,7 @@ impl IRDPSRAPIInvitation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIInvitation, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIInvitation, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIInvitation {
     fn eq(&self, other: &Self) -> bool {
@@ -765,7 +765,7 @@ impl IRDPSRAPIInvitationManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIInvitationManager, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIInvitationManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIInvitationManager {
     fn eq(&self, other: &Self) -> bool {
@@ -818,7 +818,7 @@ impl IRDPSRAPIPerfCounterLogger {
         (::windows::core::Vtable::vtable(self).LogValue)(::windows::core::Vtable::as_raw(self), lvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRDPSRAPIPerfCounterLogger, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRDPSRAPIPerfCounterLogger, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRDPSRAPIPerfCounterLogger {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -856,7 +856,7 @@ impl IRDPSRAPIPerfCounterLoggingManager {
         (::windows::core::Vtable::vtable(self).CreateLogger)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcountername), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRDPSRAPIPerfCounterLoggingManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRDPSRAPIPerfCounterLoggingManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRDPSRAPIPerfCounterLoggingManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -904,7 +904,7 @@ impl IRDPSRAPISessionProperties {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPISessionProperties, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPISessionProperties, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPISessionProperties {
     fn eq(&self, other: &Self) -> bool {
@@ -1013,7 +1013,7 @@ impl IRDPSRAPISharingSession {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPISharingSession, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPISharingSession, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPISharingSession {
     fn eq(&self, other: &Self) -> bool {
@@ -1163,7 +1163,7 @@ impl IRDPSRAPISharingSession2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPISharingSession2, ::windows::core::IUnknown, super::Com::IDispatch, IRDPSRAPISharingSession);
+::windows::imp::interface_hierarchy!(IRDPSRAPISharingSession2, ::windows::core::IUnknown, super::Com::IDispatch, IRDPSRAPISharingSession);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPISharingSession2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1235,7 +1235,7 @@ impl IRDPSRAPITcpConnectionInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPITcpConnectionInfo, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPITcpConnectionInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPITcpConnectionInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -1311,7 +1311,7 @@ impl IRDPSRAPITransportStream {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRDPSRAPITransportStream, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRDPSRAPITransportStream, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRDPSRAPITransportStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1389,7 +1389,7 @@ impl IRDPSRAPITransportStreamBuffer {
         (::windows::core::Vtable::vtable(self).SetContext)(::windows::core::Vtable::as_raw(self), pcontext.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRDPSRAPITransportStreamBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRDPSRAPITransportStreamBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRDPSRAPITransportStreamBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1447,7 +1447,7 @@ impl IRDPSRAPITransportStreamEvents {
         (::windows::core::Vtable::vtable(self).OnStreamClosed)(::windows::core::Vtable::as_raw(self), hrreason)
     }
 }
-::windows::core::interface_hierarchy!(IRDPSRAPITransportStreamEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRDPSRAPITransportStreamEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRDPSRAPITransportStreamEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1553,7 +1553,7 @@ impl IRDPSRAPIViewer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIViewer, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIViewer, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIViewer {
     fn eq(&self, other: &Self) -> bool {
@@ -1649,7 +1649,7 @@ impl IRDPSRAPIVirtualChannel {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIVirtualChannel, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIVirtualChannel, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIVirtualChannel {
     fn eq(&self, other: &Self) -> bool {
@@ -1713,7 +1713,7 @@ impl IRDPSRAPIVirtualChannelManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIVirtualChannelManager, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIVirtualChannelManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIVirtualChannelManager {
     fn eq(&self, other: &Self) -> bool {
@@ -1800,7 +1800,7 @@ impl IRDPSRAPIWindow {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIWindow, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIWindow, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIWindow {
     fn eq(&self, other: &Self) -> bool {
@@ -1869,7 +1869,7 @@ impl IRDPSRAPIWindowList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRDPSRAPIWindowList, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRDPSRAPIWindowList, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRDPSRAPIWindowList {
     fn eq(&self, other: &Self) -> bool {
@@ -1950,7 +1950,7 @@ impl IRDPViewerInputSink {
         (::windows::core::Vtable::vtable(self).EndTouchFrame)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRDPViewerInputSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRDPViewerInputSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRDPViewerInputSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1999,7 +1999,7 @@ pub struct _IRDPSessionEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IRDPSessionEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_IRDPSessionEvents, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_IRDPSessionEvents, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _IRDPSessionEvents {
     fn eq(&self, other: &Self) -> bool {

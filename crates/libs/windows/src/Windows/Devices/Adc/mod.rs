@@ -139,7 +139,7 @@ impl ::core::fmt::Debug for AdcChannel {
     }
 }
 impl ::windows::core::RuntimeType for AdcChannel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcChannel;{040bf414-2588-4a56-abef-73a260acc60a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcChannel;{040bf414-2588-4a56-abef-73a260acc60a})");
 }
 impl ::core::clone::Clone for AdcChannel {
     fn clone(&self) -> Self {
@@ -155,7 +155,7 @@ unsafe impl ::windows::core::Interface for AdcChannel {
 impl ::windows::core::RuntimeName for AdcChannel {
     const NAME: &'static str = "Windows.Devices.Adc.AdcChannel";
 }
-::windows::core::interface_hierarchy!(AdcChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdcChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AdcChannel> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -259,12 +259,12 @@ impl AdcController {
     }
     #[doc(hidden)]
     pub fn IAdcControllerStatics<R, F: FnOnce(&IAdcControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AdcController, IAdcControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AdcController, IAdcControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAdcControllerStatics2<R, F: FnOnce(&IAdcControllerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AdcController, IAdcControllerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AdcController, IAdcControllerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -280,7 +280,7 @@ impl ::core::fmt::Debug for AdcController {
     }
 }
 impl ::windows::core::RuntimeType for AdcController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcController;{2a76e4b0-a896-4219-86b6-ea8cdce98f56})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcController;{2a76e4b0-a896-4219-86b6-ea8cdce98f56})");
 }
 impl ::core::clone::Clone for AdcController {
     fn clone(&self) -> Self {
@@ -296,7 +296,7 @@ unsafe impl ::windows::core::Interface for AdcController {
 impl ::windows::core::RuntimeName for AdcController {
     const NAME: &'static str = "Windows.Devices.Adc.AdcController";
 }
-::windows::core::interface_hierarchy!(AdcController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdcController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdcController {}
 unsafe impl ::core::marker::Sync for AdcController {}
 #[doc = "*Required features: `\"Devices_Adc\"`*"]
@@ -327,7 +327,7 @@ impl ::core::fmt::Debug for AdcChannelMode {
     }
 }
 impl ::windows::core::RuntimeType for AdcChannelMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.AdcChannelMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.AdcChannelMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

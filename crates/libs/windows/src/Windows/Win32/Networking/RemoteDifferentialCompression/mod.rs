@@ -10,7 +10,7 @@ impl IFindSimilarResults {
         (::windows::core::Vtable::vtable(self).GetNextFileId)(::windows::core::Vtable::as_raw(self), numtraitsmatched, similarityfileid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFindSimilarResults, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFindSimilarResults, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFindSimilarResults {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -53,7 +53,7 @@ impl IRdcComparator {
         (::windows::core::Vtable::vtable(self).Process)(::windows::core::Vtable::as_raw(self), endofinput.into(), endofoutput, inputbuffer, outputbuffer, rdc_errorcode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRdcComparator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRdcComparator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRdcComparator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -103,7 +103,7 @@ impl IRdcFileReader {
         (::windows::core::Vtable::vtable(self).GetFilePosition)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRdcFileReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRdcFileReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRdcFileReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -165,7 +165,7 @@ impl IRdcFileWriter {
         (::windows::core::Vtable::vtable(self).DeleteOnClose)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRdcFileWriter, ::windows::core::IUnknown, IRdcFileReader);
+::windows::imp::interface_hierarchy!(IRdcFileWriter, ::windows::core::IUnknown, IRdcFileReader);
 impl ::core::cmp::PartialEq for IRdcFileWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -213,7 +213,7 @@ impl IRdcGenerator {
         (::windows::core::Vtable::vtable(self).Process)(::windows::core::Vtable::as_raw(self), endofinput.into(), endofoutput, inputbuffer, outputbuffers.len() as _, ::core::mem::transmute(outputbuffers.as_ptr()), rdc_errorcode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRdcGenerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRdcGenerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRdcGenerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -265,7 +265,7 @@ impl IRdcGeneratorFilterMaxParameters {
         (::windows::core::Vtable::vtable(self).SetHashWindowSize)(::windows::core::Vtable::as_raw(self), hashwindowsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRdcGeneratorFilterMaxParameters, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRdcGeneratorFilterMaxParameters, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRdcGeneratorFilterMaxParameters {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -316,7 +316,7 @@ impl IRdcGeneratorParameters {
         (::windows::core::Vtable::vtable(self).Serialize)(::windows::core::Vtable::as_raw(self), size, parametersblob, byteswritten).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRdcGeneratorParameters, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRdcGeneratorParameters, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRdcGeneratorParameters {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -386,7 +386,7 @@ impl IRdcLibrary {
         (::windows::core::Vtable::vtable(self).GetRDCVersion)(::windows::core::Vtable::as_raw(self), currentversion, minimumcompatibleappversion).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRdcLibrary, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRdcLibrary, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRdcLibrary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -435,7 +435,7 @@ impl IRdcSignatureReader {
         (::windows::core::Vtable::vtable(self).ReadSignatures)(::windows::core::Vtable::as_raw(self), rdcsignaturepointer, endofoutput).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRdcSignatureReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRdcSignatureReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRdcSignatureReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -480,7 +480,7 @@ impl IRdcSimilarityGenerator {
         (::windows::core::Vtable::vtable(self).Results)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRdcSimilarityGenerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRdcSimilarityGenerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRdcSimilarityGenerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -562,7 +562,7 @@ impl ISimilarity {
         (::windows::core::Vtable::vtable(self).GetRecordCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISimilarity, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISimilarity, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISimilarity {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -653,7 +653,7 @@ impl ISimilarityFileIdTable {
         (::windows::core::Vtable::vtable(self).GetRecordCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISimilarityFileIdTable, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISimilarityFileIdTable, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISimilarityFileIdTable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -705,7 +705,7 @@ impl ISimilarityReportProgress {
         (::windows::core::Vtable::vtable(self).ReportProgress)(::windows::core::Vtable::as_raw(self), percentcompleted).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISimilarityReportProgress, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISimilarityReportProgress, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISimilarityReportProgress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -744,7 +744,7 @@ impl ISimilarityTableDumpState {
         (::windows::core::Vtable::vtable(self).GetNextData)(::windows::core::Vtable::as_raw(self), resultssize, resultsused, eof, results).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISimilarityTableDumpState, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISimilarityTableDumpState, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISimilarityTableDumpState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -799,7 +799,7 @@ impl ISimilarityTraitsMappedView {
         (::windows::core::Vtable::vtable(self).GetView)(::windows::core::Vtable::as_raw(self), mappedpagebegin, mappedpageend)
     }
 }
-::windows::core::interface_hierarchy!(ISimilarityTraitsMappedView, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISimilarityTraitsMappedView, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISimilarityTraitsMappedView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -866,7 +866,7 @@ impl ISimilarityTraitsMapping {
         (::windows::core::Vtable::vtable(self).CreateView)(::windows::core::Vtable::as_raw(self), minimummappedpages, accessmode, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISimilarityTraitsMapping, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISimilarityTraitsMapping, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISimilarityTraitsMapping {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -948,7 +948,7 @@ impl ISimilarityTraitsTable {
         (::windows::core::Vtable::vtable(self).GetLastIndex)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISimilarityTraitsTable, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISimilarityTraitsTable, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISimilarityTraitsTable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

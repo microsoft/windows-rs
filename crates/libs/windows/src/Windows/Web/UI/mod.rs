@@ -424,7 +424,7 @@ impl IWebViewControl {
         unsafe { (::windows::core::Vtable::vtable(this).RemoveWebResourceRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IWebViewControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebViewControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWebViewControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -437,7 +437,7 @@ impl ::core::fmt::Debug for IWebViewControl {
     }
 }
 impl ::windows::core::RuntimeType for IWebViewControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3f921316-bc70-4bda-9136-c94370899fab}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{3f921316-bc70-4bda-9136-c94370899fab}");
 }
 unsafe impl ::windows::core::Vtable for IWebViewControl {
     type Vtable = IWebViewControl_Vtbl;
@@ -659,7 +659,7 @@ impl IWebViewControl2 {
         unsafe { (::windows::core::Vtable::vtable(this).AddInitializeScript)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(script)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IWebViewControl2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebViewControl2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWebViewControl2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -672,7 +672,7 @@ impl ::core::fmt::Debug for IWebViewControl2 {
     }
 }
 impl ::windows::core::RuntimeType for IWebViewControl2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4d3c06f9-c8df-41cc-8bd5-2a947b204503}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4d3c06f9-c8df-41cc-8bd5-2a947b204503}");
 }
 unsafe impl ::windows::core::Vtable for IWebViewControl2 {
     type Vtable = IWebViewControl2_Vtbl;
@@ -1105,7 +1105,7 @@ impl ::core::fmt::Debug for WebViewControlContentLoadingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlContentLoadingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlContentLoadingEventArgs;{9a3fccb2-b9bb-404b-a22b-66dccd1250c6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlContentLoadingEventArgs;{9a3fccb2-b9bb-404b-a22b-66dccd1250c6})");
 }
 impl ::core::clone::Clone for WebViewControlContentLoadingEventArgs {
     fn clone(&self) -> Self {
@@ -1121,7 +1121,7 @@ unsafe impl ::windows::core::Interface for WebViewControlContentLoadingEventArgs
 impl ::windows::core::RuntimeName for WebViewControlContentLoadingEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlContentLoadingEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlContentLoadingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlContentLoadingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlDOMContentLoadedEventArgs(::windows::core::IUnknown);
@@ -1148,7 +1148,7 @@ impl ::core::fmt::Debug for WebViewControlDOMContentLoadedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlDOMContentLoadedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlDOMContentLoadedEventArgs;{be8bc008-9541-4545-9ff2-2df585b29f7d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlDOMContentLoadedEventArgs;{be8bc008-9541-4545-9ff2-2df585b29f7d})");
 }
 impl ::core::clone::Clone for WebViewControlDOMContentLoadedEventArgs {
     fn clone(&self) -> Self {
@@ -1164,7 +1164,7 @@ unsafe impl ::windows::core::Interface for WebViewControlDOMContentLoadedEventAr
 impl ::windows::core::RuntimeName for WebViewControlDOMContentLoadedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlDOMContentLoadedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlDOMContentLoadedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlDOMContentLoadedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlDeferredPermissionRequest(::windows::core::IUnknown);
@@ -1213,7 +1213,7 @@ impl ::core::fmt::Debug for WebViewControlDeferredPermissionRequest {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlDeferredPermissionRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlDeferredPermissionRequest;{2ce349e0-d759-445c-9926-8995298f152b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlDeferredPermissionRequest;{2ce349e0-d759-445c-9926-8995298f152b})");
 }
 impl ::core::clone::Clone for WebViewControlDeferredPermissionRequest {
     fn clone(&self) -> Self {
@@ -1229,7 +1229,7 @@ unsafe impl ::windows::core::Interface for WebViewControlDeferredPermissionReque
 impl ::windows::core::RuntimeName for WebViewControlDeferredPermissionRequest {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlDeferredPermissionRequest";
 }
-::windows::core::interface_hierarchy!(WebViewControlDeferredPermissionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlDeferredPermissionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlLongRunningScriptDetectedEventArgs(::windows::core::IUnknown);
@@ -1267,7 +1267,7 @@ impl ::core::fmt::Debug for WebViewControlLongRunningScriptDetectedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlLongRunningScriptDetectedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlLongRunningScriptDetectedEventArgs;{2a6e5bba-98b4-45bc-bbeb-0f69ce49c599})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlLongRunningScriptDetectedEventArgs;{2a6e5bba-98b4-45bc-bbeb-0f69ce49c599})");
 }
 impl ::core::clone::Clone for WebViewControlLongRunningScriptDetectedEventArgs {
     fn clone(&self) -> Self {
@@ -1283,7 +1283,7 @@ unsafe impl ::windows::core::Interface for WebViewControlLongRunningScriptDetect
 impl ::windows::core::RuntimeName for WebViewControlLongRunningScriptDetectedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlLongRunningScriptDetectedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlLongRunningScriptDetectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlLongRunningScriptDetectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlNavigationCompletedEventArgs(::windows::core::IUnknown);
@@ -1324,7 +1324,7 @@ impl ::core::fmt::Debug for WebViewControlNavigationCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlNavigationCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlNavigationCompletedEventArgs;{20409918-4a15-4c46-a55d-f79edb0bde8b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlNavigationCompletedEventArgs;{20409918-4a15-4c46-a55d-f79edb0bde8b})");
 }
 impl ::core::clone::Clone for WebViewControlNavigationCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -1340,7 +1340,7 @@ unsafe impl ::windows::core::Interface for WebViewControlNavigationCompletedEven
 impl ::windows::core::RuntimeName for WebViewControlNavigationCompletedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlNavigationCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlNavigationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlNavigationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlNavigationStartingEventArgs(::windows::core::IUnknown);
@@ -1378,7 +1378,7 @@ impl ::core::fmt::Debug for WebViewControlNavigationStartingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlNavigationStartingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlNavigationStartingEventArgs;{0c9057c5-0a08-41c7-863b-71e3a9549137})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlNavigationStartingEventArgs;{0c9057c5-0a08-41c7-863b-71e3a9549137})");
 }
 impl ::core::clone::Clone for WebViewControlNavigationStartingEventArgs {
     fn clone(&self) -> Self {
@@ -1394,7 +1394,7 @@ unsafe impl ::windows::core::Interface for WebViewControlNavigationStartingEvent
 impl ::windows::core::RuntimeName for WebViewControlNavigationStartingEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlNavigationStartingEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlNavigationStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlNavigationStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlNewWindowRequestedEventArgs(::windows::core::IUnknown);
@@ -1465,7 +1465,7 @@ impl ::core::fmt::Debug for WebViewControlNewWindowRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlNewWindowRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlNewWindowRequestedEventArgs;{3df44bbb-a124-46d5-a083-d02cacdff5ad})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlNewWindowRequestedEventArgs;{3df44bbb-a124-46d5-a083-d02cacdff5ad})");
 }
 impl ::core::clone::Clone for WebViewControlNewWindowRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1481,7 +1481,7 @@ unsafe impl ::windows::core::Interface for WebViewControlNewWindowRequestedEvent
 impl ::windows::core::RuntimeName for WebViewControlNewWindowRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlNewWindowRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlNewWindowRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlNewWindowRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlPermissionRequest(::windows::core::IUnknown);
@@ -1541,7 +1541,7 @@ impl ::core::fmt::Debug for WebViewControlPermissionRequest {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlPermissionRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlPermissionRequest;{e5bc836c-f22f-40e2-95b2-7729f840eb7f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlPermissionRequest;{e5bc836c-f22f-40e2-95b2-7729f840eb7f})");
 }
 impl ::core::clone::Clone for WebViewControlPermissionRequest {
     fn clone(&self) -> Self {
@@ -1557,7 +1557,7 @@ unsafe impl ::windows::core::Interface for WebViewControlPermissionRequest {
 impl ::windows::core::RuntimeName for WebViewControlPermissionRequest {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlPermissionRequest";
 }
-::windows::core::interface_hierarchy!(WebViewControlPermissionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlPermissionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlPermissionRequestedEventArgs(::windows::core::IUnknown);
@@ -1582,7 +1582,7 @@ impl ::core::fmt::Debug for WebViewControlPermissionRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlPermissionRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlPermissionRequestedEventArgs;{27204d51-2488-4cc5-968e-0a771e59c147})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlPermissionRequestedEventArgs;{27204d51-2488-4cc5-968e-0a771e59c147})");
 }
 impl ::core::clone::Clone for WebViewControlPermissionRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1598,7 +1598,7 @@ unsafe impl ::windows::core::Interface for WebViewControlPermissionRequestedEven
 impl ::windows::core::RuntimeName for WebViewControlPermissionRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlPermissionRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlPermissionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlPermissionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlScriptNotifyEventArgs(::windows::core::IUnknown);
@@ -1632,7 +1632,7 @@ impl ::core::fmt::Debug for WebViewControlScriptNotifyEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlScriptNotifyEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlScriptNotifyEventArgs;{491de57b-6f49-41bb-b591-51b85b817037})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlScriptNotifyEventArgs;{491de57b-6f49-41bb-b591-51b85b817037})");
 }
 impl ::core::clone::Clone for WebViewControlScriptNotifyEventArgs {
     fn clone(&self) -> Self {
@@ -1648,7 +1648,7 @@ unsafe impl ::windows::core::Interface for WebViewControlScriptNotifyEventArgs {
 impl ::windows::core::RuntimeName for WebViewControlScriptNotifyEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlScriptNotifyEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlScriptNotifyEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlScriptNotifyEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlSettings(::windows::core::IUnknown);
@@ -1699,7 +1699,7 @@ impl ::core::fmt::Debug for WebViewControlSettings {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlSettings;{c9967fbf-5e98-4cfd-8cce-27b0911e3de8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlSettings;{c9967fbf-5e98-4cfd-8cce-27b0911e3de8})");
 }
 impl ::core::clone::Clone for WebViewControlSettings {
     fn clone(&self) -> Self {
@@ -1715,7 +1715,7 @@ unsafe impl ::windows::core::Interface for WebViewControlSettings {
 impl ::windows::core::RuntimeName for WebViewControlSettings {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlSettings";
 }
-::windows::core::interface_hierarchy!(WebViewControlSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlUnsupportedUriSchemeIdentifiedEventArgs(::windows::core::IUnknown);
@@ -1753,7 +1753,7 @@ impl ::core::fmt::Debug for WebViewControlUnsupportedUriSchemeIdentifiedEventArg
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlUnsupportedUriSchemeIdentifiedEventArgs;{e3b81944-e4fc-43dc-94ca-f980f30bc51d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlUnsupportedUriSchemeIdentifiedEventArgs;{e3b81944-e4fc-43dc-94ca-f980f30bc51d})");
 }
 impl ::core::clone::Clone for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
     fn clone(&self) -> Self {
@@ -1769,7 +1769,7 @@ unsafe impl ::windows::core::Interface for WebViewControlUnsupportedUriSchemeIde
 impl ::windows::core::RuntimeName for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlUnsupportedUriSchemeIdentifiedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlUnsupportedUriSchemeIdentifiedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlUnsupportedUriSchemeIdentifiedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlUnviewableContentIdentifiedEventArgs(::windows::core::IUnknown);
@@ -1812,7 +1812,7 @@ impl ::core::fmt::Debug for WebViewControlUnviewableContentIdentifiedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlUnviewableContentIdentifiedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlUnviewableContentIdentifiedEventArgs;{4a9680db-88f2-4e20-b693-b4e2df4aa581})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlUnviewableContentIdentifiedEventArgs;{4a9680db-88f2-4e20-b693-b4e2df4aa581})");
 }
 impl ::core::clone::Clone for WebViewControlUnviewableContentIdentifiedEventArgs {
     fn clone(&self) -> Self {
@@ -1828,7 +1828,7 @@ unsafe impl ::windows::core::Interface for WebViewControlUnviewableContentIdenti
 impl ::windows::core::RuntimeName for WebViewControlUnviewableContentIdentifiedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlUnviewableContentIdentifiedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlUnviewableContentIdentifiedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlUnviewableContentIdentifiedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlWebResourceRequestedEventArgs(::windows::core::IUnknown);
@@ -1879,7 +1879,7 @@ impl ::core::fmt::Debug for WebViewControlWebResourceRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlWebResourceRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlWebResourceRequestedEventArgs;{44d6524d-55a4-4d8b-891c-931d8e25d42e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlWebResourceRequestedEventArgs;{44d6524d-55a4-4d8b-891c-931d8e25d42e})");
 }
 impl ::core::clone::Clone for WebViewControlWebResourceRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1895,7 +1895,7 @@ unsafe impl ::windows::core::Interface for WebViewControlWebResourceRequestedEve
 impl ::windows::core::RuntimeName for WebViewControlWebResourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlWebResourceRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlWebResourceRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlWebResourceRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1926,7 +1926,7 @@ impl ::core::fmt::Debug for WebViewControlPermissionState {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlPermissionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionState;i4)");
 }
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
@@ -1961,7 +1961,7 @@ impl ::core::fmt::Debug for WebViewControlPermissionType {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlPermissionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1481,7 +1481,7 @@ impl SpatialGestureRecognizer {
     }
     #[doc(hidden)]
     pub fn ISpatialGestureRecognizerFactory<R, F: FnOnce(&ISpatialGestureRecognizerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialGestureRecognizer, ISpatialGestureRecognizerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialGestureRecognizer, ISpatialGestureRecognizerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1497,7 +1497,7 @@ impl ::core::fmt::Debug for SpatialGestureRecognizer {
     }
 }
 impl ::windows::core::RuntimeType for SpatialGestureRecognizer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialGestureRecognizer;{71605bcc-0c35-4673-adbd-cc04caa6ef45})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialGestureRecognizer;{71605bcc-0c35-4673-adbd-cc04caa6ef45})");
 }
 impl ::core::clone::Clone for SpatialGestureRecognizer {
     fn clone(&self) -> Self {
@@ -1513,7 +1513,7 @@ unsafe impl ::windows::core::Interface for SpatialGestureRecognizer {
 impl ::windows::core::RuntimeName for SpatialGestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialGestureRecognizer";
 }
-::windows::core::interface_hierarchy!(SpatialGestureRecognizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialGestureRecognizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialGestureRecognizer {}
 unsafe impl ::core::marker::Sync for SpatialGestureRecognizer {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1540,7 +1540,7 @@ impl ::core::fmt::Debug for SpatialHoldCanceledEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialHoldCanceledEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldCanceledEventArgs;{5dfcb667-4caa-4093-8c35-b601a839f31b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldCanceledEventArgs;{5dfcb667-4caa-4093-8c35-b601a839f31b})");
 }
 impl ::core::clone::Clone for SpatialHoldCanceledEventArgs {
     fn clone(&self) -> Self {
@@ -1556,7 +1556,7 @@ unsafe impl ::windows::core::Interface for SpatialHoldCanceledEventArgs {
 impl ::windows::core::RuntimeName for SpatialHoldCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldCanceledEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialHoldCanceledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialHoldCanceledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialHoldCanceledEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialHoldCanceledEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1583,7 +1583,7 @@ impl ::core::fmt::Debug for SpatialHoldCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialHoldCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldCompletedEventArgs;{3f64470b-4cfd-43da-8dc4-e64552173971})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldCompletedEventArgs;{3f64470b-4cfd-43da-8dc4-e64552173971})");
 }
 impl ::core::clone::Clone for SpatialHoldCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -1599,7 +1599,7 @@ unsafe impl ::windows::core::Interface for SpatialHoldCompletedEventArgs {
 impl ::windows::core::RuntimeName for SpatialHoldCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialHoldCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialHoldCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialHoldCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialHoldCompletedEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1635,7 +1635,7 @@ impl ::core::fmt::Debug for SpatialHoldStartedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialHoldStartedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldStartedEventArgs;{8e343d79-acb6-4144-8615-2cfba8a3cb3f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldStartedEventArgs;{8e343d79-acb6-4144-8615-2cfba8a3cb3f})");
 }
 impl ::core::clone::Clone for SpatialHoldStartedEventArgs {
     fn clone(&self) -> Self {
@@ -1651,7 +1651,7 @@ unsafe impl ::windows::core::Interface for SpatialHoldStartedEventArgs {
 impl ::windows::core::RuntimeName for SpatialHoldStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldStartedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialHoldStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialHoldStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialHoldStartedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialHoldStartedEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1678,7 +1678,7 @@ impl ::core::fmt::Debug for SpatialInteraction {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteraction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteraction;{fc967639-88e6-4646-9112-4344aaec9dfa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteraction;{fc967639-88e6-4646-9112-4344aaec9dfa})");
 }
 impl ::core::clone::Clone for SpatialInteraction {
     fn clone(&self) -> Self {
@@ -1694,7 +1694,7 @@ unsafe impl ::windows::core::Interface for SpatialInteraction {
 impl ::windows::core::RuntimeName for SpatialInteraction {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteraction";
 }
-::windows::core::interface_hierarchy!(SpatialInteraction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialInteraction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialInteraction {}
 unsafe impl ::core::marker::Sync for SpatialInteraction {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1776,7 +1776,7 @@ impl ::core::fmt::Debug for SpatialInteractionController {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionController;{5f0e5ba3-0954-4e97-86c5-e7f30b114dfd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionController;{5f0e5ba3-0954-4e97-86c5-e7f30b114dfd})");
 }
 impl ::core::clone::Clone for SpatialInteractionController {
     fn clone(&self) -> Self {
@@ -1792,7 +1792,7 @@ unsafe impl ::windows::core::Interface for SpatialInteractionController {
 impl ::windows::core::RuntimeName for SpatialInteractionController {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionController";
 }
-::windows::core::interface_hierarchy!(SpatialInteractionController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialInteractionController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialInteractionController {}
 unsafe impl ::core::marker::Sync for SpatialInteractionController {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1861,7 +1861,7 @@ impl ::core::fmt::Debug for SpatialInteractionControllerProperties {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionControllerProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionControllerProperties;{61056fb1-7ba9-4e35-b93f-9272cba9b28b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionControllerProperties;{61056fb1-7ba9-4e35-b93f-9272cba9b28b})");
 }
 impl ::core::clone::Clone for SpatialInteractionControllerProperties {
     fn clone(&self) -> Self {
@@ -1877,7 +1877,7 @@ unsafe impl ::windows::core::Interface for SpatialInteractionControllerPropertie
 impl ::windows::core::RuntimeName for SpatialInteractionControllerProperties {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionControllerProperties";
 }
-::windows::core::interface_hierarchy!(SpatialInteractionControllerProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialInteractionControllerProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialInteractionControllerProperties {}
 unsafe impl ::core::marker::Sync for SpatialInteractionControllerProperties {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1927,7 +1927,7 @@ impl ::core::fmt::Debug for SpatialInteractionDetectedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionDetectedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionDetectedEventArgs;{075878e4-5961-3b41-9dfb-cea5d89cc38a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionDetectedEventArgs;{075878e4-5961-3b41-9dfb-cea5d89cc38a})");
 }
 impl ::core::clone::Clone for SpatialInteractionDetectedEventArgs {
     fn clone(&self) -> Self {
@@ -1943,7 +1943,7 @@ unsafe impl ::windows::core::Interface for SpatialInteractionDetectedEventArgs {
 impl ::windows::core::RuntimeName for SpatialInteractionDetectedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionDetectedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialInteractionDetectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialInteractionDetectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialInteractionDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialInteractionDetectedEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2063,12 +2063,12 @@ impl SpatialInteractionManager {
     }
     #[doc(hidden)]
     pub fn ISpatialInteractionManagerStatics<R, F: FnOnce(&ISpatialInteractionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialInteractionManager, ISpatialInteractionManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialInteractionManager, ISpatialInteractionManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISpatialInteractionManagerStatics2<R, F: FnOnce(&ISpatialInteractionManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialInteractionManager, ISpatialInteractionManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialInteractionManager, ISpatialInteractionManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2084,7 +2084,7 @@ impl ::core::fmt::Debug for SpatialInteractionManager {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionManager;{32a64ea8-a15a-3995-b8bd-80513cb5adef})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionManager;{32a64ea8-a15a-3995-b8bd-80513cb5adef})");
 }
 impl ::core::clone::Clone for SpatialInteractionManager {
     fn clone(&self) -> Self {
@@ -2100,7 +2100,7 @@ unsafe impl ::windows::core::Interface for SpatialInteractionManager {
 impl ::windows::core::RuntimeName for SpatialInteractionManager {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionManager";
 }
-::windows::core::interface_hierarchy!(SpatialInteractionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialInteractionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialInteractionManager {}
 unsafe impl ::core::marker::Sync for SpatialInteractionManager {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2196,7 +2196,7 @@ impl ::core::fmt::Debug for SpatialInteractionSource {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSource;{fb5433ba-b0b3-3148-9f3b-e9f5de568f5d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSource;{fb5433ba-b0b3-3148-9f3b-e9f5de568f5d})");
 }
 impl ::core::clone::Clone for SpatialInteractionSource {
     fn clone(&self) -> Self {
@@ -2212,7 +2212,7 @@ unsafe impl ::windows::core::Interface for SpatialInteractionSource {
 impl ::windows::core::RuntimeName for SpatialInteractionSource {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSource";
 }
-::windows::core::interface_hierarchy!(SpatialInteractionSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialInteractionSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialInteractionSource {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSource {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2246,7 +2246,7 @@ impl ::core::fmt::Debug for SpatialInteractionSourceEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionSourceEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceEventArgs;{23b786cf-ec23-3979-b27c-eb0e12feb7c7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceEventArgs;{23b786cf-ec23-3979-b27c-eb0e12feb7c7})");
 }
 impl ::core::clone::Clone for SpatialInteractionSourceEventArgs {
     fn clone(&self) -> Self {
@@ -2262,7 +2262,7 @@ unsafe impl ::windows::core::Interface for SpatialInteractionSourceEventArgs {
 impl ::windows::core::RuntimeName for SpatialInteractionSourceEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialInteractionSourceEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialInteractionSourceEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialInteractionSourceEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSourceEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2332,7 +2332,7 @@ impl ::core::fmt::Debug for SpatialInteractionSourceLocation {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionSourceLocation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceLocation;{ea4696c4-7e8b-30ca-bcc5-c77189cea30a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceLocation;{ea4696c4-7e8b-30ca-bcc5-c77189cea30a})");
 }
 impl ::core::clone::Clone for SpatialInteractionSourceLocation {
     fn clone(&self) -> Self {
@@ -2348,7 +2348,7 @@ unsafe impl ::windows::core::Interface for SpatialInteractionSourceLocation {
 impl ::windows::core::RuntimeName for SpatialInteractionSourceLocation {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceLocation";
 }
-::windows::core::interface_hierarchy!(SpatialInteractionSourceLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialInteractionSourceLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialInteractionSourceLocation {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSourceLocation {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2393,7 +2393,7 @@ impl ::core::fmt::Debug for SpatialInteractionSourceProperties {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionSourceProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceProperties;{05604542-3ef7-3222-9f53-63c9cb7e3bc7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceProperties;{05604542-3ef7-3222-9f53-63c9cb7e3bc7})");
 }
 impl ::core::clone::Clone for SpatialInteractionSourceProperties {
     fn clone(&self) -> Self {
@@ -2409,7 +2409,7 @@ unsafe impl ::windows::core::Interface for SpatialInteractionSourceProperties {
 impl ::windows::core::RuntimeName for SpatialInteractionSourceProperties {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceProperties";
 }
-::windows::core::interface_hierarchy!(SpatialInteractionSourceProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialInteractionSourceProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialInteractionSourceProperties {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSourceProperties {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2512,7 +2512,7 @@ impl ::core::fmt::Debug for SpatialInteractionSourceState {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionSourceState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceState;{d5c475ef-4b63-37ec-98b9-9fc652b9d2f2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceState;{d5c475ef-4b63-37ec-98b9-9fc652b9d2f2})");
 }
 impl ::core::clone::Clone for SpatialInteractionSourceState {
     fn clone(&self) -> Self {
@@ -2528,7 +2528,7 @@ unsafe impl ::windows::core::Interface for SpatialInteractionSourceState {
 impl ::windows::core::RuntimeName for SpatialInteractionSourceState {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceState";
 }
-::windows::core::interface_hierarchy!(SpatialInteractionSourceState, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialInteractionSourceState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialInteractionSourceState {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSourceState {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2555,7 +2555,7 @@ impl ::core::fmt::Debug for SpatialManipulationCanceledEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialManipulationCanceledEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationCanceledEventArgs;{2d40d1cb-e7da-4220-b0bf-819301674780})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationCanceledEventArgs;{2d40d1cb-e7da-4220-b0bf-819301674780})");
 }
 impl ::core::clone::Clone for SpatialManipulationCanceledEventArgs {
     fn clone(&self) -> Self {
@@ -2571,7 +2571,7 @@ unsafe impl ::windows::core::Interface for SpatialManipulationCanceledEventArgs 
 impl ::windows::core::RuntimeName for SpatialManipulationCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationCanceledEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialManipulationCanceledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialManipulationCanceledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialManipulationCanceledEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialManipulationCanceledEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2607,7 +2607,7 @@ impl ::core::fmt::Debug for SpatialManipulationCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialManipulationCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationCompletedEventArgs;{05086802-f301-4343-9250-2fbaa5f87a37})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationCompletedEventArgs;{05086802-f301-4343-9250-2fbaa5f87a37})");
 }
 impl ::core::clone::Clone for SpatialManipulationCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -2623,7 +2623,7 @@ unsafe impl ::windows::core::Interface for SpatialManipulationCompletedEventArgs
 impl ::windows::core::RuntimeName for SpatialManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialManipulationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialManipulationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialManipulationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialManipulationCompletedEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2652,7 +2652,7 @@ impl ::core::fmt::Debug for SpatialManipulationDelta {
     }
 }
 impl ::windows::core::RuntimeType for SpatialManipulationDelta {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationDelta;{a7ec967a-d123-3a81-a15b-992923dcbe91})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationDelta;{a7ec967a-d123-3a81-a15b-992923dcbe91})");
 }
 impl ::core::clone::Clone for SpatialManipulationDelta {
     fn clone(&self) -> Self {
@@ -2668,7 +2668,7 @@ unsafe impl ::windows::core::Interface for SpatialManipulationDelta {
 impl ::windows::core::RuntimeName for SpatialManipulationDelta {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationDelta";
 }
-::windows::core::interface_hierarchy!(SpatialManipulationDelta, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialManipulationDelta, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialManipulationDelta {}
 unsafe impl ::core::marker::Sync for SpatialManipulationDelta {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2704,7 +2704,7 @@ impl ::core::fmt::Debug for SpatialManipulationStartedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialManipulationStartedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationStartedEventArgs;{a1d6bbce-42a5-377b-ada6-d28e3d384737})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationStartedEventArgs;{a1d6bbce-42a5-377b-ada6-d28e3d384737})");
 }
 impl ::core::clone::Clone for SpatialManipulationStartedEventArgs {
     fn clone(&self) -> Self {
@@ -2720,7 +2720,7 @@ unsafe impl ::windows::core::Interface for SpatialManipulationStartedEventArgs {
 impl ::windows::core::RuntimeName for SpatialManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationStartedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialManipulationStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialManipulationStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialManipulationStartedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialManipulationStartedEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2756,7 +2756,7 @@ impl ::core::fmt::Debug for SpatialManipulationUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialManipulationUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationUpdatedEventArgs;{5f230b9b-60c6-4dc6-bdc9-9f4a6f15fe49})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationUpdatedEventArgs;{5f230b9b-60c6-4dc6-bdc9-9f4a6f15fe49})");
 }
 impl ::core::clone::Clone for SpatialManipulationUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -2772,7 +2772,7 @@ unsafe impl ::windows::core::Interface for SpatialManipulationUpdatedEventArgs {
 impl ::windows::core::RuntimeName for SpatialManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialManipulationUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialManipulationUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialManipulationUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialManipulationUpdatedEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2799,7 +2799,7 @@ impl ::core::fmt::Debug for SpatialNavigationCanceledEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialNavigationCanceledEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationCanceledEventArgs;{ce503edc-e8a5-46f0-92d4-3c122b35112a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationCanceledEventArgs;{ce503edc-e8a5-46f0-92d4-3c122b35112a})");
 }
 impl ::core::clone::Clone for SpatialNavigationCanceledEventArgs {
     fn clone(&self) -> Self {
@@ -2815,7 +2815,7 @@ unsafe impl ::windows::core::Interface for SpatialNavigationCanceledEventArgs {
 impl ::windows::core::RuntimeName for SpatialNavigationCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationCanceledEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialNavigationCanceledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialNavigationCanceledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialNavigationCanceledEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialNavigationCanceledEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2851,7 +2851,7 @@ impl ::core::fmt::Debug for SpatialNavigationCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialNavigationCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationCompletedEventArgs;{012e80b7-af3b-42c2-9e41-baaa0e721f3a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationCompletedEventArgs;{012e80b7-af3b-42c2-9e41-baaa0e721f3a})");
 }
 impl ::core::clone::Clone for SpatialNavigationCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -2867,7 +2867,7 @@ unsafe impl ::windows::core::Interface for SpatialNavigationCompletedEventArgs {
 impl ::windows::core::RuntimeName for SpatialNavigationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialNavigationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialNavigationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialNavigationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialNavigationCompletedEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2924,7 +2924,7 @@ impl ::core::fmt::Debug for SpatialNavigationStartedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialNavigationStartedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationStartedEventArgs;{754a348a-fb64-4656-8ebd-9deecaafe475})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationStartedEventArgs;{754a348a-fb64-4656-8ebd-9deecaafe475})");
 }
 impl ::core::clone::Clone for SpatialNavigationStartedEventArgs {
     fn clone(&self) -> Self {
@@ -2940,7 +2940,7 @@ unsafe impl ::windows::core::Interface for SpatialNavigationStartedEventArgs {
 impl ::windows::core::RuntimeName for SpatialNavigationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationStartedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialNavigationStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialNavigationStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialNavigationStartedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialNavigationStartedEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2976,7 +2976,7 @@ impl ::core::fmt::Debug for SpatialNavigationUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialNavigationUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationUpdatedEventArgs;{9b713fd7-839d-4a74-8732-45466fc044b5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationUpdatedEventArgs;{9b713fd7-839d-4a74-8732-45466fc044b5})");
 }
 impl ::core::clone::Clone for SpatialNavigationUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -2992,7 +2992,7 @@ unsafe impl ::windows::core::Interface for SpatialNavigationUpdatedEventArgs {
 impl ::windows::core::RuntimeName for SpatialNavigationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialNavigationUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialNavigationUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialNavigationUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialNavigationUpdatedEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -3055,7 +3055,7 @@ impl ::core::fmt::Debug for SpatialPointerInteractionSourcePose {
     }
 }
 impl ::windows::core::RuntimeType for SpatialPointerInteractionSourcePose {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialPointerInteractionSourcePose;{a7104307-2c2b-4d3a-92a7-80ced7c4a0d0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialPointerInteractionSourcePose;{a7104307-2c2b-4d3a-92a7-80ced7c4a0d0})");
 }
 impl ::core::clone::Clone for SpatialPointerInteractionSourcePose {
     fn clone(&self) -> Self {
@@ -3071,7 +3071,7 @@ unsafe impl ::windows::core::Interface for SpatialPointerInteractionSourcePose {
 impl ::windows::core::RuntimeName for SpatialPointerInteractionSourcePose {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialPointerInteractionSourcePose";
 }
-::windows::core::interface_hierarchy!(SpatialPointerInteractionSourcePose, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialPointerInteractionSourcePose, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialPointerInteractionSourcePose {}
 unsafe impl ::core::marker::Sync for SpatialPointerInteractionSourcePose {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -3129,7 +3129,7 @@ impl SpatialPointerPose {
     }
     #[doc(hidden)]
     pub fn ISpatialPointerPoseStatics<R, F: FnOnce(&ISpatialPointerPoseStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialPointerPose, ISpatialPointerPoseStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialPointerPose, ISpatialPointerPoseStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3145,7 +3145,7 @@ impl ::core::fmt::Debug for SpatialPointerPose {
     }
 }
 impl ::windows::core::RuntimeType for SpatialPointerPose {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialPointerPose;{6953a42e-c17e-357d-97a1-7269d0ed2d10})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialPointerPose;{6953a42e-c17e-357d-97a1-7269d0ed2d10})");
 }
 impl ::core::clone::Clone for SpatialPointerPose {
     fn clone(&self) -> Self {
@@ -3161,7 +3161,7 @@ unsafe impl ::windows::core::Interface for SpatialPointerPose {
 impl ::windows::core::RuntimeName for SpatialPointerPose {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialPointerPose";
 }
-::windows::core::interface_hierarchy!(SpatialPointerPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialPointerPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialPointerPose {}
 unsafe impl ::core::marker::Sync for SpatialPointerPose {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -3188,7 +3188,7 @@ impl ::core::fmt::Debug for SpatialRecognitionEndedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialRecognitionEndedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialRecognitionEndedEventArgs;{0e35f5cb-3f75-43f3-ac81-d1dc2df9b1fb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialRecognitionEndedEventArgs;{0e35f5cb-3f75-43f3-ac81-d1dc2df9b1fb})");
 }
 impl ::core::clone::Clone for SpatialRecognitionEndedEventArgs {
     fn clone(&self) -> Self {
@@ -3204,7 +3204,7 @@ unsafe impl ::windows::core::Interface for SpatialRecognitionEndedEventArgs {
 impl ::windows::core::RuntimeName for SpatialRecognitionEndedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialRecognitionEndedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialRecognitionEndedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialRecognitionEndedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialRecognitionEndedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialRecognitionEndedEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -3247,7 +3247,7 @@ impl ::core::fmt::Debug for SpatialRecognitionStartedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialRecognitionStartedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialRecognitionStartedEventArgs;{24da128f-0008-4a6d-aa50-2a76f9cfb264})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialRecognitionStartedEventArgs;{24da128f-0008-4a6d-aa50-2a76f9cfb264})");
 }
 impl ::core::clone::Clone for SpatialRecognitionStartedEventArgs {
     fn clone(&self) -> Self {
@@ -3263,7 +3263,7 @@ unsafe impl ::windows::core::Interface for SpatialRecognitionStartedEventArgs {
 impl ::windows::core::RuntimeName for SpatialRecognitionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialRecognitionStartedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialRecognitionStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialRecognitionStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialRecognitionStartedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialRecognitionStartedEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -3306,7 +3306,7 @@ impl ::core::fmt::Debug for SpatialTappedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialTappedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialTappedEventArgs;{296d83de-f444-4aa1-b2bf-9dc88d567da6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialTappedEventArgs;{296d83de-f444-4aa1-b2bf-9dc88d567da6})");
 }
 impl ::core::clone::Clone for SpatialTappedEventArgs {
     fn clone(&self) -> Self {
@@ -3322,7 +3322,7 @@ unsafe impl ::windows::core::Interface for SpatialTappedEventArgs {
 impl ::windows::core::RuntimeName for SpatialTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialTappedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialTappedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialTappedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialTappedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialTappedEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -3395,7 +3395,7 @@ impl ::core::ops::Not for SpatialGestureSettings {
     }
 }
 impl ::windows::core::RuntimeType for SpatialGestureSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialGestureSettings;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialGestureSettings;u4)");
 }
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
 #[repr(transparent)]
@@ -3429,7 +3429,7 @@ impl ::core::fmt::Debug for SpatialInteractionPressKind {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionPressKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionPressKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionPressKind;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
 #[repr(transparent)]
@@ -3460,7 +3460,7 @@ impl ::core::fmt::Debug for SpatialInteractionSourceHandedness {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionSourceHandedness {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceHandedness;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceHandedness;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
 #[repr(transparent)]
@@ -3492,7 +3492,7 @@ impl ::core::fmt::Debug for SpatialInteractionSourceKind {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionSourceKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceKind;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
 #[repr(transparent)]
@@ -3522,7 +3522,7 @@ impl ::core::fmt::Debug for SpatialInteractionSourcePositionAccuracy {
     }
 }
 impl ::windows::core::RuntimeType for SpatialInteractionSourcePositionAccuracy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourcePositionAccuracy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourcePositionAccuracy;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

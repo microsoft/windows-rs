@@ -2,7 +2,7 @@
 #[repr(transparent)]
 pub struct IDontSupportEventSubscription(::windows::core::IUnknown);
 impl IDontSupportEventSubscription {}
-::windows::core::interface_hierarchy!(IDontSupportEventSubscription, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDontSupportEventSubscription, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDontSupportEventSubscription {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -48,7 +48,7 @@ impl IEnumEventObject {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), cskipelem).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumEventObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumEventObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumEventObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -134,7 +134,7 @@ impl IEventClass {
         (::windows::core::Vtable::vtable(self).SetTypeLib)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtypelib)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEventClass, ::windows::core::IUnknown, super::IDispatch);
+::windows::imp::interface_hierarchy!(IEventClass, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::cmp::PartialEq for IEventClass {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -272,7 +272,7 @@ impl IEventClass2 {
         (::windows::core::Vtable::vtable(self).SetFireInParallel)(::windows::core::Vtable::as_raw(self), ffireinparallel.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEventClass2, ::windows::core::IUnknown, super::IDispatch, IEventClass);
+::windows::imp::interface_hierarchy!(IEventClass2, ::windows::core::IUnknown, super::IDispatch, IEventClass);
 impl ::core::cmp::PartialEq for IEventClass2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -353,7 +353,7 @@ impl IEventControl {
         (::windows::core::Vtable::vtable(self).SetDefaultQuery)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(methodname), ::core::mem::transmute_copy(criteria), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEventControl, ::windows::core::IUnknown, super::IDispatch);
+::windows::imp::interface_hierarchy!(IEventControl, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::cmp::PartialEq for IEventControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -406,7 +406,7 @@ impl IEventObjectChange {
         (::windows::core::Vtable::vtable(self).ChangedPublisher)(::windows::core::Vtable::as_raw(self), changetype, ::core::mem::transmute_copy(bstrpublisherid)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEventObjectChange, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEventObjectChange, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEventObjectChange {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -448,7 +448,7 @@ impl IEventObjectChange2 {
         (::windows::core::Vtable::vtable(self).ChangedEventClass)(::windows::core::Vtable::as_raw(self), pinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEventObjectChange2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEventObjectChange2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEventObjectChange2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -509,7 +509,7 @@ impl IEventObjectCollection {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(objectid)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEventObjectCollection, ::windows::core::IUnknown, super::IDispatch);
+::windows::imp::interface_hierarchy!(IEventObjectCollection, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::cmp::PartialEq for IEventObjectCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -572,7 +572,7 @@ impl IEventProperty {
         (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), propertyvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEventProperty, ::windows::core::IUnknown, super::IDispatch);
+::windows::imp::interface_hierarchy!(IEventProperty, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::cmp::PartialEq for IEventProperty {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -668,7 +668,7 @@ impl IEventPublisher {
         (::windows::core::Vtable::vtable(self).GetDefaultPropertyCollection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEventPublisher, ::windows::core::IUnknown, super::IDispatch);
+::windows::imp::interface_hierarchy!(IEventPublisher, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::cmp::PartialEq for IEventPublisher {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -865,7 +865,7 @@ impl IEventSubscription {
         (::windows::core::Vtable::vtable(self).SetInterfaceID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrinterfaceid)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEventSubscription, ::windows::core::IUnknown, super::IDispatch);
+::windows::imp::interface_hierarchy!(IEventSubscription, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::cmp::PartialEq for IEventSubscription {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -980,7 +980,7 @@ impl IEventSystem {
         (::windows::core::Vtable::vtable(self).RemoveS)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(progid), ::core::mem::transmute_copy(querycriteria)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEventSystem, ::windows::core::IUnknown, super::IDispatch);
+::windows::imp::interface_hierarchy!(IEventSystem, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::cmp::PartialEq for IEventSystem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1025,7 +1025,7 @@ impl IFiringControl {
         (::windows::core::Vtable::vtable(self).FireSubscription)(::windows::core::Vtable::as_raw(self), subscription.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFiringControl, ::windows::core::IUnknown, super::IDispatch);
+::windows::imp::interface_hierarchy!(IFiringControl, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::cmp::PartialEq for IFiringControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1101,7 +1101,7 @@ impl IMultiInterfaceEventControl {
         (::windows::core::Vtable::vtable(self).SetFireInParallel)(::windows::core::Vtable::as_raw(self), ffireinparallel.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMultiInterfaceEventControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMultiInterfaceEventControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMultiInterfaceEventControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1165,7 +1165,7 @@ impl IMultiInterfacePublisherFilter {
         (::windows::core::Vtable::vtable(self).PrepareToFire)(::windows::core::Vtable::as_raw(self), iid, ::core::mem::transmute_copy(methodname), firingcontrol.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMultiInterfacePublisherFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMultiInterfacePublisherFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMultiInterfacePublisherFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1212,7 +1212,7 @@ impl IPublisherFilter {
         (::windows::core::Vtable::vtable(self).PrepareToFire)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(methodname), firingcontrol.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPublisherFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPublisherFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPublisherFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

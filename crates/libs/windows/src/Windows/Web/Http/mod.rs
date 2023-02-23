@@ -273,7 +273,7 @@ impl IHttpContent {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IHttpContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IHttpContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IHttpContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -308,7 +308,7 @@ impl ::core::fmt::Debug for IHttpContent {
     }
 }
 impl ::windows::core::RuntimeType for IHttpContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6b14a441-fba7-4bd2-af0a-839de7c295da}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{6b14a441-fba7-4bd2-af0a-839de7c295da}");
 }
 unsafe impl ::windows::core::Vtable for IHttpContent {
     type Vtable = IHttpContent_Vtbl;
@@ -1043,7 +1043,7 @@ impl HttpBufferContent {
     }
     #[doc(hidden)]
     pub fn IHttpBufferContentFactory<R, F: FnOnce(&IHttpBufferContentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpBufferContent, IHttpBufferContentFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpBufferContent, IHttpBufferContentFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1059,7 +1059,7 @@ impl ::core::fmt::Debug for HttpBufferContent {
     }
 }
 impl ::windows::core::RuntimeType for HttpBufferContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpBufferContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpBufferContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
 }
 impl ::core::clone::Clone for HttpBufferContent {
     fn clone(&self) -> Self {
@@ -1075,7 +1075,7 @@ unsafe impl ::windows::core::Interface for HttpBufferContent {
 impl ::windows::core::RuntimeName for HttpBufferContent {
     const NAME: &'static str = "Windows.Web.Http.HttpBufferContent";
 }
-::windows::core::interface_hierarchy!(HttpBufferContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpBufferContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpBufferContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1148,8 +1148,8 @@ impl HttpClient {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpClient, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<HttpClient, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1397,7 +1397,7 @@ impl HttpClient {
     }
     #[doc(hidden)]
     pub fn IHttpClientFactory<R, F: FnOnce(&IHttpClientFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpClient, IHttpClientFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpClient, IHttpClientFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1413,7 +1413,7 @@ impl ::core::fmt::Debug for HttpClient {
     }
 }
 impl ::windows::core::RuntimeType for HttpClient {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpClient;{7fda1151-3574-4880-a8ba-e6b1e0061f3d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpClient;{7fda1151-3574-4880-a8ba-e6b1e0061f3d})");
 }
 impl ::core::clone::Clone for HttpClient {
     fn clone(&self) -> Self {
@@ -1429,7 +1429,7 @@ unsafe impl ::windows::core::Interface for HttpClient {
 impl ::windows::core::RuntimeName for HttpClient {
     const NAME: &'static str = "Windows.Web.Http.HttpClient";
 }
-::windows::core::interface_hierarchy!(HttpClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpClient> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1570,7 +1570,7 @@ impl HttpCookie {
     }
     #[doc(hidden)]
     pub fn IHttpCookieFactory<R, F: FnOnce(&IHttpCookieFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpCookie, IHttpCookieFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpCookie, IHttpCookieFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1586,7 +1586,7 @@ impl ::core::fmt::Debug for HttpCookie {
     }
 }
 impl ::windows::core::RuntimeType for HttpCookie {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookie;{1f5488e2-cc2d-4779-86a7-88f10687d249})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookie;{1f5488e2-cc2d-4779-86a7-88f10687d249})");
 }
 impl ::core::clone::Clone for HttpCookie {
     fn clone(&self) -> Self {
@@ -1602,7 +1602,7 @@ unsafe impl ::windows::core::Interface for HttpCookie {
 impl ::windows::core::RuntimeName for HttpCookie {
     const NAME: &'static str = "Windows.Web.Http.HttpCookie";
 }
-::windows::core::interface_hierarchy!(HttpCookie, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpCookie, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpCookie> for super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -1695,7 +1695,7 @@ impl ::core::fmt::Debug for HttpCookieCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for HttpCookieCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookieCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Web.Http.HttpCookie;{1f5488e2-cc2d-4779-86a7-88f10687d249})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookieCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Web.Http.HttpCookie;{1f5488e2-cc2d-4779-86a7-88f10687d249})))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for HttpCookieCollection {
@@ -1732,7 +1732,7 @@ impl ::core::iter::IntoIterator for &HttpCookieCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(HttpCookieCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpCookieCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpCookieCollection> for super::super::Foundation::Collections::IIterable<HttpCookie> {
     type Error = ::windows::core::Error;
@@ -1825,7 +1825,7 @@ impl ::core::fmt::Debug for HttpCookieManager {
     }
 }
 impl ::windows::core::RuntimeType for HttpCookieManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookieManager;{7a431780-cd4f-4e57-a84a-5b0a53d6bb96})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookieManager;{7a431780-cd4f-4e57-a84a-5b0a53d6bb96})");
 }
 impl ::core::clone::Clone for HttpCookieManager {
     fn clone(&self) -> Self {
@@ -1841,7 +1841,7 @@ unsafe impl ::windows::core::Interface for HttpCookieManager {
 impl ::windows::core::RuntimeName for HttpCookieManager {
     const NAME: &'static str = "Windows.Web.Http.HttpCookieManager";
 }
-::windows::core::interface_hierarchy!(HttpCookieManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpCookieManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpCookieManager {}
 unsafe impl ::core::marker::Sync for HttpCookieManager {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1942,7 +1942,7 @@ impl HttpFormUrlEncodedContent {
     }
     #[doc(hidden)]
     pub fn IHttpFormUrlEncodedContentFactory<R, F: FnOnce(&IHttpFormUrlEncodedContentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpFormUrlEncodedContent, IHttpFormUrlEncodedContentFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpFormUrlEncodedContent, IHttpFormUrlEncodedContentFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1958,7 +1958,7 @@ impl ::core::fmt::Debug for HttpFormUrlEncodedContent {
     }
 }
 impl ::windows::core::RuntimeType for HttpFormUrlEncodedContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpFormUrlEncodedContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpFormUrlEncodedContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
 }
 impl ::core::clone::Clone for HttpFormUrlEncodedContent {
     fn clone(&self) -> Self {
@@ -1974,7 +1974,7 @@ unsafe impl ::windows::core::Interface for HttpFormUrlEncodedContent {
 impl ::windows::core::RuntimeName for HttpFormUrlEncodedContent {
     const NAME: &'static str = "Windows.Web.Http.HttpFormUrlEncodedContent";
 }
-::windows::core::interface_hierarchy!(HttpFormUrlEncodedContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpFormUrlEncodedContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpFormUrlEncodedContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2109,7 +2109,7 @@ impl ::core::fmt::Debug for HttpGetBufferResult {
     }
 }
 impl ::windows::core::RuntimeType for HttpGetBufferResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetBufferResult;{53d08e7c-e209-404e-9a49-742d8236fd3a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetBufferResult;{53d08e7c-e209-404e-9a49-742d8236fd3a})");
 }
 impl ::core::clone::Clone for HttpGetBufferResult {
     fn clone(&self) -> Self {
@@ -2125,7 +2125,7 @@ unsafe impl ::windows::core::Interface for HttpGetBufferResult {
 impl ::windows::core::RuntimeName for HttpGetBufferResult {
     const NAME: &'static str = "Windows.Web.Http.HttpGetBufferResult";
 }
-::windows::core::interface_hierarchy!(HttpGetBufferResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpGetBufferResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpGetBufferResult> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2241,7 +2241,7 @@ impl ::core::fmt::Debug for HttpGetInputStreamResult {
     }
 }
 impl ::windows::core::RuntimeType for HttpGetInputStreamResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetInputStreamResult;{d5d63463-13aa-4ee0-be95-a0c39fe91203})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetInputStreamResult;{d5d63463-13aa-4ee0-be95-a0c39fe91203})");
 }
 impl ::core::clone::Clone for HttpGetInputStreamResult {
     fn clone(&self) -> Self {
@@ -2257,7 +2257,7 @@ unsafe impl ::windows::core::Interface for HttpGetInputStreamResult {
 impl ::windows::core::RuntimeName for HttpGetInputStreamResult {
     const NAME: &'static str = "Windows.Web.Http.HttpGetInputStreamResult";
 }
-::windows::core::interface_hierarchy!(HttpGetInputStreamResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpGetInputStreamResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpGetInputStreamResult> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2371,7 +2371,7 @@ impl ::core::fmt::Debug for HttpGetStringResult {
     }
 }
 impl ::windows::core::RuntimeType for HttpGetStringResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetStringResult;{9bac466d-8509-4775-b16d-8953f47a7f5f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetStringResult;{9bac466d-8509-4775-b16d-8953f47a7f5f})");
 }
 impl ::core::clone::Clone for HttpGetStringResult {
     fn clone(&self) -> Self {
@@ -2387,7 +2387,7 @@ unsafe impl ::windows::core::Interface for HttpGetStringResult {
 impl ::windows::core::RuntimeName for HttpGetStringResult {
     const NAME: &'static str = "Windows.Web.Http.HttpGetStringResult";
 }
-::windows::core::interface_hierarchy!(HttpGetStringResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpGetStringResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpGetStringResult> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2504,12 +2504,12 @@ impl HttpMethod {
     }
     #[doc(hidden)]
     pub fn IHttpMethodFactory<R, F: FnOnce(&IHttpMethodFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpMethod, IHttpMethodFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpMethod, IHttpMethodFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpMethodStatics<R, F: FnOnce(&IHttpMethodStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpMethod, IHttpMethodStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpMethod, IHttpMethodStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2525,7 +2525,7 @@ impl ::core::fmt::Debug for HttpMethod {
     }
 }
 impl ::windows::core::RuntimeType for HttpMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMethod;{728d4022-700d-4fe0-afa5-40299c58dbfd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMethod;{728d4022-700d-4fe0-afa5-40299c58dbfd})");
 }
 impl ::core::clone::Clone for HttpMethod {
     fn clone(&self) -> Self {
@@ -2541,7 +2541,7 @@ unsafe impl ::windows::core::Interface for HttpMethod {
 impl ::windows::core::RuntimeName for HttpMethod {
     const NAME: &'static str = "Windows.Web.Http.HttpMethod";
 }
-::windows::core::interface_hierarchy!(HttpMethod, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpMethod, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpMethod> for super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -2573,8 +2573,8 @@ impl HttpMultipartContent {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpMultipartContent, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<HttpMultipartContent, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2688,7 +2688,7 @@ impl HttpMultipartContent {
     }
     #[doc(hidden)]
     pub fn IHttpMultipartContentFactory<R, F: FnOnce(&IHttpMultipartContentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpMultipartContent, IHttpMultipartContentFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpMultipartContent, IHttpMultipartContentFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2704,7 +2704,7 @@ impl ::core::fmt::Debug for HttpMultipartContent {
     }
 }
 impl ::windows::core::RuntimeType for HttpMultipartContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMultipartContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMultipartContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
 }
 impl ::core::clone::Clone for HttpMultipartContent {
     fn clone(&self) -> Self {
@@ -2736,7 +2736,7 @@ impl ::core::iter::IntoIterator for &HttpMultipartContent {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(HttpMultipartContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpMultipartContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpMultipartContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2831,8 +2831,8 @@ impl HttpMultipartFormDataContent {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpMultipartFormDataContent, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<HttpMultipartFormDataContent, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2956,7 +2956,7 @@ impl HttpMultipartFormDataContent {
     }
     #[doc(hidden)]
     pub fn IHttpMultipartFormDataContentFactory<R, F: FnOnce(&IHttpMultipartFormDataContentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpMultipartFormDataContent, IHttpMultipartFormDataContentFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpMultipartFormDataContent, IHttpMultipartFormDataContentFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2972,7 +2972,7 @@ impl ::core::fmt::Debug for HttpMultipartFormDataContent {
     }
 }
 impl ::windows::core::RuntimeType for HttpMultipartFormDataContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMultipartFormDataContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMultipartFormDataContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
 }
 impl ::core::clone::Clone for HttpMultipartFormDataContent {
     fn clone(&self) -> Self {
@@ -3004,7 +3004,7 @@ impl ::core::iter::IntoIterator for &HttpMultipartFormDataContent {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(HttpMultipartFormDataContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpMultipartFormDataContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpMultipartFormDataContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3099,8 +3099,8 @@ impl HttpRequestMessage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpRequestMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<HttpRequestMessage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3205,7 +3205,7 @@ impl HttpRequestMessage {
     }
     #[doc(hidden)]
     pub fn IHttpRequestMessageFactory<R, F: FnOnce(&IHttpRequestMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpRequestMessage, IHttpRequestMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpRequestMessage, IHttpRequestMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3221,7 +3221,7 @@ impl ::core::fmt::Debug for HttpRequestMessage {
     }
 }
 impl ::windows::core::RuntimeType for HttpRequestMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpRequestMessage;{f5762b3c-74d4-4811-b5dc-9f8b4e2f9abf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpRequestMessage;{f5762b3c-74d4-4811-b5dc-9f8b4e2f9abf})");
 }
 impl ::core::clone::Clone for HttpRequestMessage {
     fn clone(&self) -> Self {
@@ -3237,7 +3237,7 @@ unsafe impl ::windows::core::Interface for HttpRequestMessage {
 impl ::windows::core::RuntimeName for HttpRequestMessage {
     const NAME: &'static str = "Windows.Web.Http.HttpRequestMessage";
 }
-::windows::core::interface_hierarchy!(HttpRequestMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpRequestMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpRequestMessage> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3344,7 +3344,7 @@ impl ::core::fmt::Debug for HttpRequestResult {
     }
 }
 impl ::windows::core::RuntimeType for HttpRequestResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpRequestResult;{6acf4da8-b5eb-4a35-a902-4217fbe820c5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpRequestResult;{6acf4da8-b5eb-4a35-a902-4217fbe820c5})");
 }
 impl ::core::clone::Clone for HttpRequestResult {
     fn clone(&self) -> Self {
@@ -3360,7 +3360,7 @@ unsafe impl ::windows::core::Interface for HttpRequestResult {
 impl ::windows::core::RuntimeName for HttpRequestResult {
     const NAME: &'static str = "Windows.Web.Http.HttpRequestResult";
 }
-::windows::core::interface_hierarchy!(HttpRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpRequestResult> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3414,8 +3414,8 @@ impl HttpResponseMessage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpResponseMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<HttpResponseMessage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3534,7 +3534,7 @@ impl HttpResponseMessage {
     }
     #[doc(hidden)]
     pub fn IHttpResponseMessageFactory<R, F: FnOnce(&IHttpResponseMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpResponseMessage, IHttpResponseMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpResponseMessage, IHttpResponseMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3550,7 +3550,7 @@ impl ::core::fmt::Debug for HttpResponseMessage {
     }
 }
 impl ::windows::core::RuntimeType for HttpResponseMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpResponseMessage;{fee200fb-8664-44e0-95d9-42696199bffc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpResponseMessage;{fee200fb-8664-44e0-95d9-42696199bffc})");
 }
 impl ::core::clone::Clone for HttpResponseMessage {
     fn clone(&self) -> Self {
@@ -3566,7 +3566,7 @@ unsafe impl ::windows::core::Interface for HttpResponseMessage {
 impl ::windows::core::RuntimeName for HttpResponseMessage {
     const NAME: &'static str = "Windows.Web.Http.HttpResponseMessage";
 }
-::windows::core::interface_hierarchy!(HttpResponseMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpResponseMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpResponseMessage> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3711,7 +3711,7 @@ impl HttpStreamContent {
     }
     #[doc(hidden)]
     pub fn IHttpStreamContentFactory<R, F: FnOnce(&IHttpStreamContentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpStreamContent, IHttpStreamContentFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpStreamContent, IHttpStreamContentFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3727,7 +3727,7 @@ impl ::core::fmt::Debug for HttpStreamContent {
     }
 }
 impl ::windows::core::RuntimeType for HttpStreamContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpStreamContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpStreamContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
 }
 impl ::core::clone::Clone for HttpStreamContent {
     fn clone(&self) -> Self {
@@ -3743,7 +3743,7 @@ unsafe impl ::windows::core::Interface for HttpStreamContent {
 impl ::windows::core::RuntimeName for HttpStreamContent {
     const NAME: &'static str = "Windows.Web.Http.HttpStreamContent";
 }
-::windows::core::interface_hierarchy!(HttpStreamContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpStreamContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpStreamContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3917,7 +3917,7 @@ impl HttpStringContent {
     }
     #[doc(hidden)]
     pub fn IHttpStringContentFactory<R, F: FnOnce(&IHttpStringContentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpStringContent, IHttpStringContentFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpStringContent, IHttpStringContentFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3933,7 +3933,7 @@ impl ::core::fmt::Debug for HttpStringContent {
     }
 }
 impl ::windows::core::RuntimeType for HttpStringContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpStringContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpStringContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
 }
 impl ::core::clone::Clone for HttpStringContent {
     fn clone(&self) -> Self {
@@ -3949,7 +3949,7 @@ unsafe impl ::windows::core::Interface for HttpStringContent {
 impl ::windows::core::RuntimeName for HttpStringContent {
     const NAME: &'static str = "Windows.Web.Http.HttpStringContent";
 }
-::windows::core::interface_hierarchy!(HttpStringContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpStringContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpStringContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4077,7 +4077,7 @@ impl ::core::fmt::Debug for HttpTransportInformation {
     }
 }
 impl ::windows::core::RuntimeType for HttpTransportInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpTransportInformation;{70127198-c6a7-4ed0-833a-83fd8b8f178d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpTransportInformation;{70127198-c6a7-4ed0-833a-83fd8b8f178d})");
 }
 impl ::core::clone::Clone for HttpTransportInformation {
     fn clone(&self) -> Self {
@@ -4093,7 +4093,7 @@ unsafe impl ::windows::core::Interface for HttpTransportInformation {
 impl ::windows::core::RuntimeName for HttpTransportInformation {
     const NAME: &'static str = "Windows.Web.Http.HttpTransportInformation";
 }
-::windows::core::interface_hierarchy!(HttpTransportInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpTransportInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpTransportInformation> for super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -4146,7 +4146,7 @@ impl ::core::fmt::Debug for HttpCompletionOption {
     }
 }
 impl ::windows::core::RuntimeType for HttpCompletionOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpCompletionOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpCompletionOption;i4)");
 }
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
@@ -4184,7 +4184,7 @@ impl ::core::fmt::Debug for HttpProgressStage {
     }
 }
 impl ::windows::core::RuntimeType for HttpProgressStage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
 }
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
@@ -4215,7 +4215,7 @@ impl ::core::fmt::Debug for HttpResponseMessageSource {
     }
 }
 impl ::windows::core::RuntimeType for HttpResponseMessageSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpResponseMessageSource;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpResponseMessageSource;i4)");
 }
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
@@ -4301,7 +4301,7 @@ impl ::core::fmt::Debug for HttpStatusCode {
     }
 }
 impl ::windows::core::RuntimeType for HttpStatusCode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpStatusCode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpStatusCode;i4)");
 }
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
@@ -4333,7 +4333,7 @@ impl ::core::fmt::Debug for HttpVersion {
     }
 }
 impl ::windows::core::RuntimeType for HttpVersion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpVersion;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpVersion;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -4371,7 +4371,7 @@ impl ::windows::core::TypeKind for HttpProgress {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for HttpProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Web.Http.HttpProgress;enum(Windows.Web.Http.HttpProgressStage;i4);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Web.Http.HttpProgress;enum(Windows.Web.Http.HttpProgressStage;i4);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u4)");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for HttpProgress {

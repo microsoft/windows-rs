@@ -33,7 +33,7 @@ impl IAutomaticUpdates {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IAutomaticUpdates, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IAutomaticUpdates, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAutomaticUpdates {
     fn eq(&self, other: &Self) -> bool {
@@ -122,7 +122,7 @@ impl IAutomaticUpdates2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IAutomaticUpdates2, ::windows::core::IUnknown, super::Com::IDispatch, IAutomaticUpdates);
+::windows::imp::interface_hierarchy!(IAutomaticUpdates2, ::windows::core::IUnknown, super::Com::IDispatch, IAutomaticUpdates);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAutomaticUpdates2 {
     fn eq(&self, other: &Self) -> bool {
@@ -181,7 +181,7 @@ impl IAutomaticUpdatesResults {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IAutomaticUpdatesResults, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IAutomaticUpdatesResults, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAutomaticUpdatesResults {
     fn eq(&self, other: &Self) -> bool {
@@ -271,7 +271,7 @@ impl IAutomaticUpdatesSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IAutomaticUpdatesSettings, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IAutomaticUpdatesSettings, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAutomaticUpdatesSettings {
     fn eq(&self, other: &Self) -> bool {
@@ -389,7 +389,7 @@ impl IAutomaticUpdatesSettings2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IAutomaticUpdatesSettings2, ::windows::core::IUnknown, super::Com::IDispatch, IAutomaticUpdatesSettings);
+::windows::imp::interface_hierarchy!(IAutomaticUpdatesSettings2, ::windows::core::IUnknown, super::Com::IDispatch, IAutomaticUpdatesSettings);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAutomaticUpdatesSettings2 {
     fn eq(&self, other: &Self) -> bool {
@@ -531,7 +531,7 @@ impl IAutomaticUpdatesSettings3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IAutomaticUpdatesSettings3, ::windows::core::IUnknown, super::Com::IDispatch, IAutomaticUpdatesSettings, IAutomaticUpdatesSettings2);
+::windows::imp::interface_hierarchy!(IAutomaticUpdatesSettings3, ::windows::core::IUnknown, super::Com::IDispatch, IAutomaticUpdatesSettings, IAutomaticUpdatesSettings2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAutomaticUpdatesSettings3 {
     fn eq(&self, other: &Self) -> bool {
@@ -634,7 +634,7 @@ impl ICategory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICategory, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICategory, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICategory {
     fn eq(&self, other: &Self) -> bool {
@@ -712,7 +712,7 @@ impl ICategoryCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICategoryCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICategoryCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICategoryCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -767,7 +767,7 @@ impl IDownloadCompletedCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), downloadjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDownloadCompletedCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDownloadCompletedCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDownloadCompletedCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -806,7 +806,7 @@ pub struct IDownloadCompletedCallbackArgs(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDownloadCompletedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDownloadCompletedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDownloadCompletedCallbackArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -879,7 +879,7 @@ impl IDownloadJob {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDownloadJob, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDownloadJob, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDownloadJob {
     fn eq(&self, other: &Self) -> bool {
@@ -986,7 +986,7 @@ impl IDownloadProgress {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDownloadProgress, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDownloadProgress, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDownloadProgress {
     fn eq(&self, other: &Self) -> bool {
@@ -1059,7 +1059,7 @@ impl IDownloadProgressChangedCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), downloadjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDownloadProgressChangedCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDownloadProgressChangedCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDownloadProgressChangedCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1105,7 +1105,7 @@ impl IDownloadProgressChangedCallbackArgs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDownloadProgressChangedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDownloadProgressChangedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDownloadProgressChangedCallbackArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -1166,7 +1166,7 @@ impl IDownloadResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDownloadResult, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDownloadResult, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDownloadResult {
     fn eq(&self, other: &Self) -> bool {
@@ -1231,7 +1231,7 @@ impl IImageInformation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IImageInformation, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IImageInformation, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IImageInformation {
     fn eq(&self, other: &Self) -> bool {
@@ -1286,7 +1286,7 @@ impl IInstallationAgent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInstallationAgent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInstallationAgent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInstallationAgent {
     fn eq(&self, other: &Self) -> bool {
@@ -1353,7 +1353,7 @@ impl IInstallationBehavior {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInstallationBehavior, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInstallationBehavior, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInstallationBehavior {
     fn eq(&self, other: &Self) -> bool {
@@ -1412,7 +1412,7 @@ impl IInstallationCompletedCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), installationjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInstallationCompletedCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInstallationCompletedCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInstallationCompletedCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1451,7 +1451,7 @@ pub struct IInstallationCompletedCallbackArgs(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInstallationCompletedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInstallationCompletedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInstallationCompletedCallbackArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -1524,7 +1524,7 @@ impl IInstallationJob {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInstallationJob, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInstallationJob, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInstallationJob {
     fn eq(&self, other: &Self) -> bool {
@@ -1603,7 +1603,7 @@ impl IInstallationProgress {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInstallationProgress, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInstallationProgress, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInstallationProgress {
     fn eq(&self, other: &Self) -> bool {
@@ -1659,7 +1659,7 @@ impl IInstallationProgressChangedCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), installationjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInstallationProgressChangedCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInstallationProgressChangedCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInstallationProgressChangedCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1705,7 +1705,7 @@ impl IInstallationProgressChangedCallbackArgs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInstallationProgressChangedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInstallationProgressChangedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInstallationProgressChangedCallbackArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -1772,7 +1772,7 @@ impl IInstallationResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInstallationResult, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInstallationResult, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInstallationResult {
     fn eq(&self, other: &Self) -> bool {
@@ -1841,7 +1841,7 @@ impl IInvalidProductLicenseException {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInvalidProductLicenseException, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateException);
+::windows::imp::interface_hierarchy!(IInvalidProductLicenseException, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateException);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInvalidProductLicenseException {
     fn eq(&self, other: &Self) -> bool {
@@ -1891,7 +1891,7 @@ impl ISearchCompletedCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), searchjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISearchCompletedCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISearchCompletedCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISearchCompletedCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1930,7 +1930,7 @@ pub struct ISearchCompletedCallbackArgs(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISearchCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISearchCompletedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISearchCompletedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISearchCompletedCallbackArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -1991,7 +1991,7 @@ impl ISearchJob {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISearchJob, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISearchJob, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISearchJob {
     fn eq(&self, other: &Self) -> bool {
@@ -2066,7 +2066,7 @@ impl ISearchResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISearchResult, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISearchResult, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISearchResult {
     fn eq(&self, other: &Self) -> bool {
@@ -2162,7 +2162,7 @@ impl IStringCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IStringCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IStringCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IStringCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -2231,7 +2231,7 @@ impl ISystemInformation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISystemInformation, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISystemInformation, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISystemInformation {
     fn eq(&self, other: &Self) -> bool {
@@ -2520,7 +2520,7 @@ impl IUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdate, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdate, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdate {
     fn eq(&self, other: &Self) -> bool {
@@ -2962,7 +2962,7 @@ impl IUpdate2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdate2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate);
+::windows::imp::interface_hierarchy!(IUpdate2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdate2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3294,7 +3294,7 @@ impl IUpdate3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdate3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2);
+::windows::imp::interface_hierarchy!(IUpdate3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdate3 {
     fn eq(&self, other: &Self) -> bool {
@@ -3620,7 +3620,7 @@ impl IUpdate4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdate4, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3);
+::windows::imp::interface_hierarchy!(IUpdate4, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdate4 {
     fn eq(&self, other: &Self) -> bool {
@@ -3954,7 +3954,7 @@ impl IUpdate5 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdate5, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3, IUpdate4);
+::windows::imp::interface_hierarchy!(IUpdate5, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3, IUpdate4);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdate5 {
     fn eq(&self, other: &Self) -> bool {
@@ -4056,7 +4056,7 @@ impl IUpdateCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -4131,7 +4131,7 @@ impl IUpdateDownloadContent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateDownloadContent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateDownloadContent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateDownloadContent {
     fn eq(&self, other: &Self) -> bool {
@@ -4185,7 +4185,7 @@ impl IUpdateDownloadContent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateDownloadContent2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateDownloadContent);
+::windows::imp::interface_hierarchy!(IUpdateDownloadContent2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateDownloadContent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateDownloadContent2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4246,7 +4246,7 @@ impl IUpdateDownloadContentCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateDownloadContentCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateDownloadContentCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateDownloadContentCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -4303,7 +4303,7 @@ impl IUpdateDownloadResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateDownloadResult, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateDownloadResult, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateDownloadResult {
     fn eq(&self, other: &Self) -> bool {
@@ -4415,7 +4415,7 @@ impl IUpdateDownloader {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateDownloader, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateDownloader, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateDownloader {
     fn eq(&self, other: &Self) -> bool {
@@ -4502,7 +4502,7 @@ impl IUpdateException {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateException, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateException, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateException {
     fn eq(&self, other: &Self) -> bool {
@@ -4562,7 +4562,7 @@ impl IUpdateExceptionCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateExceptionCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateExceptionCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateExceptionCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -4671,7 +4671,7 @@ impl IUpdateHistoryEntry {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateHistoryEntry, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateHistoryEntry, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateHistoryEntry {
     fn eq(&self, other: &Self) -> bool {
@@ -4800,7 +4800,7 @@ impl IUpdateHistoryEntry2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateHistoryEntry2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateHistoryEntry);
+::windows::imp::interface_hierarchy!(IUpdateHistoryEntry2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateHistoryEntry);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateHistoryEntry2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4861,7 +4861,7 @@ impl IUpdateHistoryEntryCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateHistoryEntryCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateHistoryEntryCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateHistoryEntryCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -4918,7 +4918,7 @@ impl IUpdateIdentity {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateIdentity, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateIdentity, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateIdentity {
     fn eq(&self, other: &Self) -> bool {
@@ -4977,7 +4977,7 @@ impl IUpdateInstallationResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateInstallationResult, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateInstallationResult, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateInstallationResult {
     fn eq(&self, other: &Self) -> bool {
@@ -5167,7 +5167,7 @@ impl IUpdateInstaller {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateInstaller, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateInstaller, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateInstaller {
     fn eq(&self, other: &Self) -> bool {
@@ -5437,7 +5437,7 @@ impl IUpdateInstaller2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateInstaller2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateInstaller);
+::windows::imp::interface_hierarchy!(IUpdateInstaller2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateInstaller);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateInstaller2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5657,7 +5657,7 @@ impl IUpdateInstaller3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateInstaller3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateInstaller, IUpdateInstaller2);
+::windows::imp::interface_hierarchy!(IUpdateInstaller3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateInstaller, IUpdateInstaller2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateInstaller3 {
     fn eq(&self, other: &Self) -> bool {
@@ -5880,7 +5880,7 @@ impl IUpdateInstaller4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateInstaller4, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateInstaller, IUpdateInstaller2, IUpdateInstaller3);
+::windows::imp::interface_hierarchy!(IUpdateInstaller4, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateInstaller, IUpdateInstaller2, IUpdateInstaller3);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateInstaller4 {
     fn eq(&self, other: &Self) -> bool {
@@ -5924,7 +5924,7 @@ impl IUpdateLockdown {
         (::windows::core::Vtable::vtable(self).LockDown)(::windows::core::Vtable::as_raw(self), flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUpdateLockdown, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUpdateLockdown, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUpdateLockdown {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6062,7 +6062,7 @@ impl IUpdateSearcher {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateSearcher, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateSearcher, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateSearcher {
     fn eq(&self, other: &Self) -> bool {
@@ -6268,7 +6268,7 @@ impl IUpdateSearcher2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateSearcher2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateSearcher);
+::windows::imp::interface_hierarchy!(IUpdateSearcher2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateSearcher);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateSearcher2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6441,7 +6441,7 @@ impl IUpdateSearcher3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateSearcher3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateSearcher, IUpdateSearcher2);
+::windows::imp::interface_hierarchy!(IUpdateSearcher3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateSearcher, IUpdateSearcher2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateSearcher3 {
     fn eq(&self, other: &Self) -> bool {
@@ -6552,7 +6552,7 @@ impl IUpdateService {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateService, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateService, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateService {
     fn eq(&self, other: &Self) -> bool {
@@ -6701,7 +6701,7 @@ impl IUpdateService2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateService2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateService);
+::windows::imp::interface_hierarchy!(IUpdateService2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateService);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateService2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6762,7 +6762,7 @@ impl IUpdateServiceCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateServiceCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateServiceCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateServiceCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -6843,7 +6843,7 @@ impl IUpdateServiceManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateServiceManager, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateServiceManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateServiceManager {
     fn eq(&self, other: &Self) -> bool {
@@ -6956,7 +6956,7 @@ impl IUpdateServiceManager2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateServiceManager2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateServiceManager);
+::windows::imp::interface_hierarchy!(IUpdateServiceManager2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateServiceManager);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateServiceManager2 {
     fn eq(&self, other: &Self) -> bool {
@@ -7029,7 +7029,7 @@ impl IUpdateServiceRegistration {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateServiceRegistration, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateServiceRegistration, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateServiceRegistration {
     fn eq(&self, other: &Self) -> bool {
@@ -7127,7 +7127,7 @@ impl IUpdateSession {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateSession, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUpdateSession, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateSession {
     fn eq(&self, other: &Self) -> bool {
@@ -7248,7 +7248,7 @@ impl IUpdateSession2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateSession2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateSession);
+::windows::imp::interface_hierarchy!(IUpdateSession2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateSession);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateSession2 {
     fn eq(&self, other: &Self) -> bool {
@@ -7357,7 +7357,7 @@ impl IUpdateSession3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUpdateSession3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateSession, IUpdateSession2);
+::windows::imp::interface_hierarchy!(IUpdateSession3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateSession, IUpdateSession2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUpdateSession3 {
     fn eq(&self, other: &Self) -> bool {
@@ -7487,7 +7487,7 @@ impl IWebProxy {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWebProxy, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWebProxy, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWebProxy {
     fn eq(&self, other: &Self) -> bool {
@@ -7841,7 +7841,7 @@ impl IWindowsDriverUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsDriverUpdate, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate);
+::windows::imp::interface_hierarchy!(IWindowsDriverUpdate, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsDriverUpdate {
     fn eq(&self, other: &Self) -> bool {
@@ -8191,7 +8191,7 @@ impl IWindowsDriverUpdate2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsDriverUpdate2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate);
+::windows::imp::interface_hierarchy!(IWindowsDriverUpdate2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsDriverUpdate2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8555,7 +8555,7 @@ impl IWindowsDriverUpdate3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsDriverUpdate3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2);
+::windows::imp::interface_hierarchy!(IWindowsDriverUpdate3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsDriverUpdate3 {
     fn eq(&self, other: &Self) -> bool {
@@ -8919,7 +8919,7 @@ impl IWindowsDriverUpdate4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsDriverUpdate4, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2, IWindowsDriverUpdate3);
+::windows::imp::interface_hierarchy!(IWindowsDriverUpdate4, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2, IWindowsDriverUpdate3);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsDriverUpdate4 {
     fn eq(&self, other: &Self) -> bool {
@@ -9295,7 +9295,7 @@ impl IWindowsDriverUpdate5 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsDriverUpdate5, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2, IWindowsDriverUpdate3, IWindowsDriverUpdate4);
+::windows::imp::interface_hierarchy!(IWindowsDriverUpdate5, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2, IWindowsDriverUpdate3, IWindowsDriverUpdate4);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsDriverUpdate5 {
     fn eq(&self, other: &Self) -> bool {
@@ -9372,7 +9372,7 @@ impl IWindowsDriverUpdateEntry {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsDriverUpdateEntry, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWindowsDriverUpdateEntry, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsDriverUpdateEntry {
     fn eq(&self, other: &Self) -> bool {
@@ -9437,7 +9437,7 @@ impl IWindowsDriverUpdateEntryCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsDriverUpdateEntryCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWindowsDriverUpdateEntryCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsDriverUpdateEntryCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -9492,7 +9492,7 @@ impl IWindowsUpdateAgentInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsUpdateAgentInfo, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWindowsUpdateAgentInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsUpdateAgentInfo {
     fn eq(&self, other: &Self) -> bool {

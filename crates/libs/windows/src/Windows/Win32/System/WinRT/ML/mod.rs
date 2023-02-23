@@ -12,7 +12,7 @@ impl ILearningModelDeviceFactoryNative {
         (::windows::core::Vtable::vtable(self).CreateFromD3D12CommandQueue)(::windows::core::Vtable::as_raw(self), value.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ILearningModelDeviceFactoryNative, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILearningModelDeviceFactoryNative, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILearningModelDeviceFactoryNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -55,7 +55,7 @@ impl ILearningModelOperatorProviderNative {
         (::windows::core::Vtable::vtable(self).GetRegistry)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ILearningModelOperatorProviderNative, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILearningModelOperatorProviderNative, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILearningModelOperatorProviderNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -95,7 +95,7 @@ impl ILearningModelSessionOptionsNative {
         (::windows::core::Vtable::vtable(self).SetIntraOpNumThreadsOverride)(::windows::core::Vtable::as_raw(self), intraopnumthreads).ok()
     }
 }
-::windows::core::interface_hierarchy!(ILearningModelSessionOptionsNative, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILearningModelSessionOptionsNative, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILearningModelSessionOptionsNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -138,7 +138,7 @@ impl ITensorNative {
         (::windows::core::Vtable::vtable(self).GetD3D12Resource)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITensorNative, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITensorNative, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITensorNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -184,7 +184,7 @@ impl ITensorStaticsNative {
         (::windows::core::Vtable::vtable(self).CreateFromD3D12Resource)(::windows::core::Vtable::as_raw(self), value.into().abi(), shape, shapecount, ::core::mem::transmute(result)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITensorStaticsNative, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITensorStaticsNative, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITensorStaticsNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

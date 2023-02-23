@@ -9,7 +9,7 @@ impl IWCNConnectNotify {
         (::windows::core::Vtable::vtable(self).ConnectFailed)(::windows::core::Vtable::as_raw(self), hrfailure).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWCNConnectNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWCNConnectNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWCNConnectNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -95,7 +95,7 @@ impl IWCNDevice {
         .ok()
     }
 }
-::windows::core::interface_hierarchy!(IWCNDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWCNDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWCNDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

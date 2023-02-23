@@ -78,7 +78,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             identity: *const ::windows::core::IInspectable_Vtbl,
             vtables: (#(*const #vtbl_idents,)*),
              this: #original_ident::<#(#generics,)*>,
-            count: ::windows::core::WeakRefCount,
+            count: ::windows::imp::WeakRefCount,
         }
         impl <#(#generics,)*> #impl_ident::<#(#generics,)*> where #constraints {
             const VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
@@ -88,7 +88,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                     identity: &Self::IDENTITY,
                     vtables:(#(&Self::VTABLES.#offset,)*),
                     this,
-                    count: ::windows::core::WeakRefCount::new(),
+                    count: ::windows::imp::WeakRefCount::new(),
                 }
             }
         }
@@ -101,7 +101,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 unsafe {
                     *interface = if iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID
                         || iid == &<::windows::core::IInspectable as ::windows::core::Interface>::IID
-                        || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
+                        || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID {
                             &self.identity as *const _ as *const _
                     } #(#queries)* else {
                         ::core::ptr::null_mut()

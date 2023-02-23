@@ -161,7 +161,7 @@ impl ::core::fmt::Debug for DesktopWindowTarget {
     }
 }
 impl ::windows::core::RuntimeType for DesktopWindowTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Desktop.DesktopWindowTarget;{6329d6ca-3366-490e-9db3-25312929ac51})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Desktop.DesktopWindowTarget;{6329d6ca-3366-490e-9db3-25312929ac51})");
 }
 impl ::core::clone::Clone for DesktopWindowTarget {
     fn clone(&self) -> Self {
@@ -177,7 +177,7 @@ unsafe impl ::windows::core::Interface for DesktopWindowTarget {
 impl ::windows::core::RuntimeName for DesktopWindowTarget {
     const NAME: &'static str = "Windows.UI.Composition.Desktop.DesktopWindowTarget";
 }
-::windows::core::interface_hierarchy!(DesktopWindowTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DesktopWindowTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DesktopWindowTarget> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: DesktopWindowTarget) -> ::windows::core::Result<Self> {

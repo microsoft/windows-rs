@@ -50,7 +50,7 @@ impl ClassicAppManager {
     }
     #[doc(hidden)]
     pub fn IClassicAppManagerStatics<R, F: FnOnce(&IClassicAppManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ClassicAppManager, IClassicAppManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ClassicAppManager, IClassicAppManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -88,7 +88,7 @@ impl ::core::fmt::Debug for InstalledClassicAppInfo {
     }
 }
 impl ::windows::core::RuntimeType for InstalledClassicAppInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.Preview.InstalledClassicAppInfo;{0a7d3da3-65d0-4086-80d6-0610d760207d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.Preview.InstalledClassicAppInfo;{0a7d3da3-65d0-4086-80d6-0610d760207d})");
 }
 impl ::core::clone::Clone for InstalledClassicAppInfo {
     fn clone(&self) -> Self {
@@ -104,7 +104,7 @@ unsafe impl ::windows::core::Interface for InstalledClassicAppInfo {
 impl ::windows::core::RuntimeName for InstalledClassicAppInfo {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.InstalledClassicAppInfo";
 }
-::windows::core::interface_hierarchy!(InstalledClassicAppInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InstalledClassicAppInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InstalledClassicAppInfo {}
 unsafe impl ::core::marker::Sync for InstalledClassicAppInfo {}
 #[cfg(feature = "implement")]

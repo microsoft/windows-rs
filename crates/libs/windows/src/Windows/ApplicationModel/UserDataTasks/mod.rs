@@ -482,8 +482,8 @@ impl UserDataTask {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserDataTask, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<UserDataTask, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -684,7 +684,7 @@ impl ::core::fmt::Debug for UserDataTask {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTask {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTask;{7c6585d1-e0d4-4f99-aee2-bc2d5ddadf4c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTask;{7c6585d1-e0d4-4f99-aee2-bc2d5ddadf4c})");
 }
 impl ::core::clone::Clone for UserDataTask {
     fn clone(&self) -> Self {
@@ -700,7 +700,7 @@ unsafe impl ::windows::core::Interface for UserDataTask {
 impl ::windows::core::RuntimeName for UserDataTask {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTask";
 }
-::windows::core::interface_hierarchy!(UserDataTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTask {}
 unsafe impl ::core::marker::Sync for UserDataTask {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -729,7 +729,7 @@ impl ::core::fmt::Debug for UserDataTaskBatch {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskBatch {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch;{382da5fe-20b5-431c-8f42-a5d292ec930c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch;{382da5fe-20b5-431c-8f42-a5d292ec930c})");
 }
 impl ::core::clone::Clone for UserDataTaskBatch {
     fn clone(&self) -> Self {
@@ -745,7 +745,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskBatch {
 impl ::windows::core::RuntimeName for UserDataTaskBatch {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch";
 }
-::windows::core::interface_hierarchy!(UserDataTaskBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskBatch {}
 unsafe impl ::core::marker::Sync for UserDataTaskBatch {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -901,7 +901,7 @@ impl ::core::fmt::Debug for UserDataTaskList {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskList;{49412e39-7c1d-4df1-bed3-314b7cbf5e4e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskList;{49412e39-7c1d-4df1-bed3-314b7cbf5e4e})");
 }
 impl ::core::clone::Clone for UserDataTaskList {
     fn clone(&self) -> Self {
@@ -917,7 +917,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskList {
 impl ::windows::core::RuntimeName for UserDataTaskList {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskList";
 }
-::windows::core::interface_hierarchy!(UserDataTaskList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskList {}
 unsafe impl ::core::marker::Sync for UserDataTaskList {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -973,7 +973,7 @@ impl ::core::fmt::Debug for UserDataTaskListLimitedWriteOperations {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListLimitedWriteOperations {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations;{7aa267f2-6078-4183-919e-4f29f19cfae9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations;{7aa267f2-6078-4183-919e-4f29f19cfae9})");
 }
 impl ::core::clone::Clone for UserDataTaskListLimitedWriteOperations {
     fn clone(&self) -> Self {
@@ -989,7 +989,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListLimitedWriteOperation
 impl ::windows::core::RuntimeName for UserDataTaskListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations";
 }
-::windows::core::interface_hierarchy!(UserDataTaskListLimitedWriteOperations, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskListLimitedWriteOperations, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListLimitedWriteOperations {}
 unsafe impl ::core::marker::Sync for UserDataTaskListLimitedWriteOperations {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1074,7 +1074,7 @@ impl ::core::fmt::Debug for UserDataTaskListSyncManager {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListSyncManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager;{8e591a95-1dcf-469f-93ec-ba48bb553c6b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager;{8e591a95-1dcf-469f-93ec-ba48bb553c6b})");
 }
 impl ::core::clone::Clone for UserDataTaskListSyncManager {
     fn clone(&self) -> Self {
@@ -1090,7 +1090,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListSyncManager {
 impl ::windows::core::RuntimeName for UserDataTaskListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager";
 }
-::windows::core::interface_hierarchy!(UserDataTaskListSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskListSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListSyncManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManager {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1131,7 +1131,7 @@ impl UserDataTaskManager {
     }
     #[doc(hidden)]
     pub fn IUserDataTaskManagerStatics<R, F: FnOnce(&IUserDataTaskManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserDataTaskManager, IUserDataTaskManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserDataTaskManager, IUserDataTaskManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1147,7 +1147,7 @@ impl ::core::fmt::Debug for UserDataTaskManager {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskManager;{8451c914-e60b-48a9-9211-7fb8a56cb84c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskManager;{8451c914-e60b-48a9-9211-7fb8a56cb84c})");
 }
 impl ::core::clone::Clone for UserDataTaskManager {
     fn clone(&self) -> Self {
@@ -1163,7 +1163,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskManager {
 impl ::windows::core::RuntimeName for UserDataTaskManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskManager";
 }
-::windows::core::interface_hierarchy!(UserDataTaskManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskManager {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1173,8 +1173,8 @@ impl UserDataTaskQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserDataTaskQueryOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<UserDataTaskQueryOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SortProperty(&self) -> ::windows::core::Result<UserDataTaskQuerySortProperty> {
@@ -1212,7 +1212,7 @@ impl ::core::fmt::Debug for UserDataTaskQueryOptions {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskQueryOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions;{959f27ed-909a-4d30-8c1b-331d8fe667e2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions;{959f27ed-909a-4d30-8c1b-331d8fe667e2})");
 }
 impl ::core::clone::Clone for UserDataTaskQueryOptions {
     fn clone(&self) -> Self {
@@ -1228,7 +1228,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskQueryOptions {
 impl ::windows::core::RuntimeName for UserDataTaskQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions";
 }
-::windows::core::interface_hierarchy!(UserDataTaskQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskQueryOptions {}
 unsafe impl ::core::marker::Sync for UserDataTaskQueryOptions {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1257,7 +1257,7 @@ impl ::core::fmt::Debug for UserDataTaskReader {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskReader;{03e688b1-4ccf-4500-883b-e76290cfed63})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskReader;{03e688b1-4ccf-4500-883b-e76290cfed63})");
 }
 impl ::core::clone::Clone for UserDataTaskReader {
     fn clone(&self) -> Self {
@@ -1273,7 +1273,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskReader {
 impl ::windows::core::RuntimeName for UserDataTaskReader {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskReader";
 }
-::windows::core::interface_hierarchy!(UserDataTaskReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskReader {}
 unsafe impl ::core::marker::Sync for UserDataTaskReader {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1283,8 +1283,8 @@ impl UserDataTaskRecurrenceProperties {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserDataTaskRecurrenceProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<UserDataTaskRecurrenceProperties, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Unit(&self) -> ::windows::core::Result<UserDataTaskRecurrenceUnit> {
@@ -1436,7 +1436,7 @@ impl ::core::fmt::Debug for UserDataTaskRecurrenceProperties {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskRecurrenceProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties;{73df80b0-27c6-40ce-b149-9cd41485a69e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties;{73df80b0-27c6-40ce-b149-9cd41485a69e})");
 }
 impl ::core::clone::Clone for UserDataTaskRecurrenceProperties {
     fn clone(&self) -> Self {
@@ -1452,7 +1452,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskRecurrenceProperties {
 impl ::windows::core::RuntimeName for UserDataTaskRecurrenceProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties";
 }
-::windows::core::interface_hierarchy!(UserDataTaskRecurrenceProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskRecurrenceProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskRecurrenceProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRecurrenceProperties {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1462,8 +1462,8 @@ impl UserDataTaskRegenerationProperties {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserDataTaskRegenerationProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<UserDataTaskRegenerationProperties, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Unit(&self) -> ::windows::core::Result<UserDataTaskRegenerationUnit> {
@@ -1539,7 +1539,7 @@ impl ::core::fmt::Debug for UserDataTaskRegenerationProperties {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskRegenerationProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties;{92ab0007-090e-4704-bb5c-84fc0b0d9c31})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties;{92ab0007-090e-4704-bb5c-84fc0b0d9c31})");
 }
 impl ::core::clone::Clone for UserDataTaskRegenerationProperties {
     fn clone(&self) -> Self {
@@ -1555,7 +1555,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskRegenerationProperties {
 impl ::windows::core::RuntimeName for UserDataTaskRegenerationProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties";
 }
-::windows::core::interface_hierarchy!(UserDataTaskRegenerationProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskRegenerationProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskRegenerationProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRegenerationProperties {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1611,7 +1611,7 @@ impl ::core::fmt::Debug for UserDataTaskStore {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskStore;{f06a9cb0-f1db-45ba-8a62-086004c0213d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskStore;{f06a9cb0-f1db-45ba-8a62-086004c0213d})");
 }
 impl ::core::clone::Clone for UserDataTaskStore {
     fn clone(&self) -> Self {
@@ -1627,7 +1627,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskStore {
 impl ::windows::core::RuntimeName for UserDataTaskStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskStore";
 }
-::windows::core::interface_hierarchy!(UserDataTaskStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskStore {}
 unsafe impl ::core::marker::Sync for UserDataTaskStore {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1697,7 +1697,7 @@ impl ::core::ops::Not for UserDataTaskDaysOfWeek {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskDaysOfWeek {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDaysOfWeek;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDaysOfWeek;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1727,7 +1727,7 @@ impl ::core::fmt::Debug for UserDataTaskDetailsKind {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskDetailsKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDetailsKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDetailsKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1758,7 +1758,7 @@ impl ::core::fmt::Debug for UserDataTaskKind {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1789,7 +1789,7 @@ impl ::core::fmt::Debug for UserDataTaskListOtherAppReadAccess {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListOtherAppReadAccess {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppReadAccess;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppReadAccess;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1819,7 +1819,7 @@ impl ::core::fmt::Debug for UserDataTaskListOtherAppWriteAccess {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListOtherAppWriteAccess {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppWriteAccess;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppWriteAccess;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1853,7 +1853,7 @@ impl ::core::fmt::Debug for UserDataTaskListSyncStatus {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListSyncStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1884,7 +1884,7 @@ impl ::core::fmt::Debug for UserDataTaskPriority {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskPriority {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskPriority;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskPriority;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1915,7 +1915,7 @@ impl ::core::fmt::Debug for UserDataTaskQueryKind {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskQueryKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1944,7 +1944,7 @@ impl ::core::fmt::Debug for UserDataTaskQuerySortProperty {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskQuerySortProperty {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQuerySortProperty;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQuerySortProperty;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1978,7 +1978,7 @@ impl ::core::fmt::Debug for UserDataTaskRecurrenceUnit {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskRecurrenceUnit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceUnit;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceUnit;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -2010,7 +2010,7 @@ impl ::core::fmt::Debug for UserDataTaskRegenerationUnit {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskRegenerationUnit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationUnit;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationUnit;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -2040,7 +2040,7 @@ impl ::core::fmt::Debug for UserDataTaskSensitivity {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskSensitivity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskSensitivity;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskSensitivity;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -2070,7 +2070,7 @@ impl ::core::fmt::Debug for UserDataTaskStoreAccessType {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskStoreAccessType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskStoreAccessType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskStoreAccessType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -2103,7 +2103,7 @@ impl ::core::fmt::Debug for UserDataTaskWeekOfMonth {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskWeekOfMonth {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskWeekOfMonth;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskWeekOfMonth;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

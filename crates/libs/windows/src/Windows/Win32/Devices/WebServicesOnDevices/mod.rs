@@ -1,13 +1,13 @@
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDAllocateLinkedMemory(pparent: *mut ::core::ffi::c_void, cbsize: usize) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDAllocateLinkedMemory ( pparent : *mut ::core::ffi::c_void , cbsize : usize ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDAllocateLinkedMemory ( pparent : *mut ::core::ffi::c_void , cbsize : usize ) -> *mut ::core::ffi::c_void );
     WSDAllocateLinkedMemory(pparent, cbsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDAttachLinkedMemory(pparent: *mut ::core::ffi::c_void, pchild: *mut ::core::ffi::c_void) {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDAttachLinkedMemory ( pparent : *mut ::core::ffi::c_void , pchild : *mut ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDAttachLinkedMemory ( pparent : *mut ::core::ffi::c_void , pchild : *mut ::core::ffi::c_void ) -> ( ) );
     WSDAttachLinkedMemory(pparent, pchild)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<IWSDXMLContext>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceHost ( pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppdevicehost : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceHost ( pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppdevicehost : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDDeviceHost>();
     WSDCreateDeviceHost(pszlocalid.into().abi(), pcontext.into().abi(), &mut result__).from_abi(result__)
 }
@@ -28,7 +28,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<IWSDXMLContext>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceHost2 ( pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , ppdevicehost : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceHost2 ( pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , ppdevicehost : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDDeviceHost>();
     WSDCreateDeviceHost2(pszlocalid.into().abi(), pcontext.into().abi(), ::core::mem::transmute(pconfigparams.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
@@ -39,7 +39,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<IWSDXMLContext>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceHostAdvanced ( pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , pphostaddresses : *const * mut::core::ffi::c_void , dwhostaddresscount : u32 , ppdevicehost : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceHostAdvanced ( pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , pphostaddresses : *const * mut::core::ffi::c_void , dwhostaddresscount : u32 , ppdevicehost : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDDeviceHost>();
     WSDCreateDeviceHostAdvanced(pszlocalid.into().abi(), pcontext.into().abi(), ::core::mem::transmute(pphostaddresses.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pphostaddresses.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
@@ -51,7 +51,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<IWSDXMLContext>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceProxy ( pszdeviceid : :: windows::core::PCWSTR , pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppdeviceproxy : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceProxy ( pszdeviceid : :: windows::core::PCWSTR , pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppdeviceproxy : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDDeviceProxy>();
     WSDCreateDeviceProxy(pszdeviceid.into().abi(), pszlocalid.into().abi(), pcontext.into().abi(), &mut result__).from_abi(result__)
 }
@@ -63,7 +63,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<IWSDXMLContext>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceProxy2 ( pszdeviceid : :: windows::core::PCWSTR , pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , ppdeviceproxy : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceProxy2 ( pszdeviceid : :: windows::core::PCWSTR , pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , ppdeviceproxy : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDDeviceProxy>();
     WSDCreateDeviceProxy2(pszdeviceid.into().abi(), pszlocalid.into().abi(), pcontext.into().abi(), ::core::mem::transmute(pconfigparams.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
@@ -76,7 +76,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<IWSDXMLContext>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceProxyAdvanced ( pszdeviceid : :: windows::core::PCWSTR , pdeviceaddress : * mut::core::ffi::c_void , pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppdeviceproxy : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceProxyAdvanced ( pszdeviceid : :: windows::core::PCWSTR , pdeviceaddress : * mut::core::ffi::c_void , pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppdeviceproxy : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDDeviceProxy>();
     WSDCreateDeviceProxyAdvanced(pszdeviceid.into().abi(), pdeviceaddress.into().abi(), pszlocalid.into().abi(), pcontext.into().abi(), &mut result__).from_abi(result__)
 }
@@ -86,7 +86,7 @@ pub unsafe fn WSDCreateDiscoveryProvider<P0>(pcontext: P0) -> ::windows::core::R
 where
     P0: ::std::convert::Into<::windows::core::InParam<IWSDXMLContext>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryProvider ( pcontext : * mut::core::ffi::c_void , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryProvider ( pcontext : * mut::core::ffi::c_void , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDiscoveryProvider>();
     WSDCreateDiscoveryProvider(pcontext.into().abi(), &mut result__).from_abi(result__)
 }
@@ -96,7 +96,7 @@ pub unsafe fn WSDCreateDiscoveryProvider2<P0>(pcontext: P0, pconfigparams: ::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<IWSDXMLContext>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryProvider2 ( pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryProvider2 ( pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDiscoveryProvider>();
     WSDCreateDiscoveryProvider2(pcontext.into().abi(), ::core::mem::transmute(pconfigparams.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
@@ -106,7 +106,7 @@ pub unsafe fn WSDCreateDiscoveryPublisher<P0>(pcontext: P0) -> ::windows::core::
 where
     P0: ::std::convert::Into<::windows::core::InParam<IWSDXMLContext>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryPublisher ( pcontext : * mut::core::ffi::c_void , pppublisher : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryPublisher ( pcontext : * mut::core::ffi::c_void , pppublisher : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDiscoveryPublisher>();
     WSDCreateDiscoveryPublisher(pcontext.into().abi(), &mut result__).from_abi(result__)
 }
@@ -116,55 +116,55 @@ pub unsafe fn WSDCreateDiscoveryPublisher2<P0>(pcontext: P0, pconfigparams: ::co
 where
     P0: ::std::convert::Into<::windows::core::InParam<IWSDXMLContext>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryPublisher2 ( pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , pppublisher : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryPublisher2 ( pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , pppublisher : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDiscoveryPublisher>();
     WSDCreateDiscoveryPublisher2(pcontext.into().abi(), ::core::mem::transmute(pconfigparams.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDCreateHttpAddress() -> ::windows::core::Result<IWSDHttpAddress> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateHttpAddress ( ppaddress : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateHttpAddress ( ppaddress : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDHttpAddress>();
     WSDCreateHttpAddress(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDCreateHttpMessageParameters() -> ::windows::core::Result<IWSDHttpMessageParameters> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateHttpMessageParameters ( pptxparams : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateHttpMessageParameters ( pptxparams : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDHttpMessageParameters>();
     WSDCreateHttpMessageParameters(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDCreateOutboundAttachment() -> ::windows::core::Result<IWSDOutboundAttachment> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateOutboundAttachment ( ppattachment : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateOutboundAttachment ( ppattachment : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDOutboundAttachment>();
     WSDCreateOutboundAttachment(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDCreateUdpAddress() -> ::windows::core::Result<IWSDUdpAddress> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateUdpAddress ( ppaddress : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateUdpAddress ( ppaddress : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDUdpAddress>();
     WSDCreateUdpAddress(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDCreateUdpMessageParameters() -> ::windows::core::Result<IWSDUdpMessageParameters> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDCreateUdpMessageParameters ( pptxparams : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateUdpMessageParameters ( pptxparams : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDUdpMessageParameters>();
     WSDCreateUdpMessageParameters(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDDetachLinkedMemory(pvoid: *mut ::core::ffi::c_void) {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDDetachLinkedMemory ( pvoid : *mut ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDDetachLinkedMemory ( pvoid : *mut ::core::ffi::c_void ) -> ( ) );
     WSDDetachLinkedMemory(pvoid)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDFreeLinkedMemory(pvoid: *mut ::core::ffi::c_void) {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDFreeLinkedMemory ( pvoid : *mut ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDFreeLinkedMemory ( pvoid : *mut ::core::ffi::c_void ) -> ( ) );
     WSDFreeLinkedMemory(pvoid)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
@@ -177,7 +177,7 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P4: ::std::convert::Into<::windows::core::InParam<IWSDXMLContext>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDGenerateFault ( pszcode : :: windows::core::PCWSTR , pszsubcode : :: windows::core::PCWSTR , pszreason : :: windows::core::PCWSTR , pszdetail : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppfault : *mut *mut WSD_SOAP_FAULT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDGenerateFault ( pszcode : :: windows::core::PCWSTR , pszsubcode : :: windows::core::PCWSTR , pszreason : :: windows::core::PCWSTR , pszdetail : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppfault : *mut *mut WSD_SOAP_FAULT ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut WSD_SOAP_FAULT>();
     WSDGenerateFault(pszcode.into().abi(), pszsubcode.into().abi(), pszreason.into().abi(), pszdetail.into().abi(), pcontext.into().abi(), &mut result__).from_abi(result__)
 }
@@ -187,44 +187,44 @@ pub unsafe fn WSDGenerateFaultEx<P0>(pcode: *const WSDXML_NAME, psubcode: ::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDGenerateFaultEx ( pcode : *const WSDXML_NAME , psubcode : *const WSDXML_NAME , preasons : *const WSD_LOCALIZED_STRING_LIST , pszdetail : :: windows::core::PCWSTR , ppfault : *mut *mut WSD_SOAP_FAULT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDGenerateFaultEx ( pcode : *const WSDXML_NAME , psubcode : *const WSDXML_NAME , preasons : *const WSD_LOCALIZED_STRING_LIST , pszdetail : :: windows::core::PCWSTR , ppfault : *mut *mut WSD_SOAP_FAULT ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut WSD_SOAP_FAULT>();
     WSDGenerateFaultEx(pcode, ::core::mem::transmute(psubcode.unwrap_or(::std::ptr::null())), preasons, pszdetail.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDGetConfigurationOption(dwoption: u32, pvoid: *mut ::core::ffi::c_void, cboutbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDGetConfigurationOption ( dwoption : u32 , pvoid : *mut ::core::ffi::c_void , cboutbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDGetConfigurationOption ( dwoption : u32 , pvoid : *mut ::core::ffi::c_void , cboutbuffer : u32 ) -> :: windows::core::HRESULT );
     WSDGetConfigurationOption(dwoption, pvoid, cboutbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDSetConfigurationOption(dwoption: u32, pvoid: *const ::core::ffi::c_void, cbinbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDSetConfigurationOption ( dwoption : u32 , pvoid : *const ::core::ffi::c_void , cbinbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDSetConfigurationOption ( dwoption : u32 , pvoid : *const ::core::ffi::c_void , cbinbuffer : u32 ) -> :: windows::core::HRESULT );
     WSDSetConfigurationOption(dwoption, pvoid, cbinbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDUriDecode(source: &[u16], destout: *mut ::windows::core::PWSTR, cchdestout: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDUriDecode ( source : :: windows::core::PCWSTR , cchsource : u32 , destout : *mut :: windows::core::PWSTR , cchdestout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDUriDecode ( source : :: windows::core::PCWSTR , cchsource : u32 , destout : *mut :: windows::core::PWSTR , cchdestout : *mut u32 ) -> :: windows::core::HRESULT );
     WSDUriDecode(::core::mem::transmute(source.as_ptr()), source.len() as _, destout, ::core::mem::transmute(cchdestout.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDUriEncode(source: &[u16], destout: *mut ::windows::core::PWSTR, cchdestout: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDUriEncode ( source : :: windows::core::PCWSTR , cchsource : u32 , destout : *mut :: windows::core::PWSTR , cchdestout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDUriEncode ( source : :: windows::core::PCWSTR , cchsource : u32 , destout : *mut :: windows::core::PWSTR , cchdestout : *mut u32 ) -> :: windows::core::HRESULT );
     WSDUriEncode(::core::mem::transmute(source.as_ptr()), source.len() as _, destout, ::core::mem::transmute(cchdestout.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDXMLAddChild(pparent: *mut WSDXML_ELEMENT, pchild: *mut WSDXML_ELEMENT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDXMLAddChild ( pparent : *mut WSDXML_ELEMENT , pchild : *mut WSDXML_ELEMENT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLAddChild ( pparent : *mut WSDXML_ELEMENT , pchild : *mut WSDXML_ELEMENT ) -> :: windows::core::HRESULT );
     WSDXMLAddChild(pparent, pchild).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDXMLAddSibling(pfirst: *mut WSDXML_ELEMENT, psecond: *mut WSDXML_ELEMENT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDXMLAddSibling ( pfirst : *mut WSDXML_ELEMENT , psecond : *mut WSDXML_ELEMENT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLAddSibling ( pfirst : *mut WSDXML_ELEMENT , psecond : *mut WSDXML_ELEMENT ) -> :: windows::core::HRESULT );
     WSDXMLAddSibling(pfirst, psecond).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
@@ -233,19 +233,19 @@ pub unsafe fn WSDXMLBuildAnyForSingleElement<P0>(pelementname: *mut WSDXML_NAME,
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDXMLBuildAnyForSingleElement ( pelementname : *mut WSDXML_NAME , psztext : :: windows::core::PCWSTR , ppany : *mut *mut WSDXML_ELEMENT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLBuildAnyForSingleElement ( pelementname : *mut WSDXML_NAME , psztext : :: windows::core::PCWSTR , ppany : *mut *mut WSDXML_ELEMENT ) -> :: windows::core::HRESULT );
     WSDXMLBuildAnyForSingleElement(pelementname, psztext.into().abi(), ppany).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDXMLCleanupElement ( pany : *mut WSDXML_ELEMENT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLCleanupElement ( pany : *mut WSDXML_ELEMENT ) -> :: windows::core::HRESULT );
     WSDXMLCleanupElement(pany).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDXMLCreateContext() -> ::windows::core::Result<IWSDXMLContext> {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDXMLCreateContext ( ppcontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLCreateContext ( ppcontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDXMLContext>();
     WSDXMLCreateContext(&mut result__).from_abi(result__)
 }
@@ -256,7 +256,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDXMLGetNameFromBuiltinNamespace ( psznamespace : :: windows::core::PCWSTR , pszname : :: windows::core::PCWSTR , ppname : *mut *mut WSDXML_NAME ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLGetNameFromBuiltinNamespace ( psznamespace : :: windows::core::PCWSTR , pszname : :: windows::core::PCWSTR , ppname : *mut *mut WSDXML_NAME ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut WSDXML_NAME>();
     WSDXMLGetNameFromBuiltinNamespace(psznamespace.into().abi(), pszname.into().abi(), &mut result__).from_abi(result__)
 }
@@ -267,7 +267,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wsdapi.dll""system" fn WSDXMLGetValueFromAny ( psznamespace : :: windows::core::PCWSTR , pszname : :: windows::core::PCWSTR , pany : *mut WSDXML_ELEMENT , ppszvalue : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLGetValueFromAny ( psznamespace : :: windows::core::PCWSTR , pszname : :: windows::core::PCWSTR , pany : *mut WSDXML_ELEMENT , ppszvalue : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     WSDXMLGetValueFromAny(psznamespace.into().abi(), pszname.into().abi(), pany, ppszvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
@@ -289,7 +289,7 @@ impl IWSDAddress {
         (::windows::core::Vtable::vtable(self).Deserialize)(::windows::core::Vtable::as_raw(self), pszbuffer.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDAddress, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDAddress, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDAddress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -334,7 +334,7 @@ impl IWSDAsyncCallback {
         (::windows::core::Vtable::vtable(self).AsyncOperationComplete)(::windows::core::Vtable::as_raw(self), pasyncresult.into().abi(), pasyncstate.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDAsyncCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDAsyncCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDAsyncCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -400,7 +400,7 @@ impl IWSDAsyncResult {
         (::windows::core::Vtable::vtable(self).GetEndpointProxy)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDAsyncResult, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDAsyncResult, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDAsyncResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -442,7 +442,7 @@ pub struct IWSDAsyncResult_Vtbl {
 #[repr(transparent)]
 pub struct IWSDAttachment(::windows::core::IUnknown);
 impl IWSDAttachment {}
-::windows::core::interface_hierarchy!(IWSDAttachment, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDAttachment, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDAttachment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -542,7 +542,7 @@ impl IWSDDeviceHost {
         (::windows::core::Vtable::vtable(self).SignalEvent)(::windows::core::Vtable::as_raw(self), pszserviceid.into().abi(), ::core::mem::transmute(pbody.unwrap_or(::std::ptr::null())), poperation).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDDeviceHost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDDeviceHost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDDeviceHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -597,7 +597,7 @@ impl IWSDDeviceHostNotify {
         (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), pszserviceid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDDeviceHostNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDDeviceHostNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDDeviceHostNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -682,7 +682,7 @@ impl IWSDDeviceProxy {
         (::windows::core::Vtable::vtable(self).GetEndpointProxy)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDDeviceProxy, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDDeviceProxy, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDDeviceProxy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -758,7 +758,7 @@ impl IWSDEndpointProxy {
         (::windows::core::Vtable::vtable(self).GetFaultInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDEndpointProxy, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDEndpointProxy, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDEndpointProxy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -819,7 +819,7 @@ impl IWSDEventingStatus {
         (::windows::core::Vtable::vtable(self).SubscriptionEnded)(::windows::core::Vtable::as_raw(self), pszsubscriptionaction.into().abi())
     }
 }
-::windows::core::interface_hierarchy!(IWSDEventingStatus, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDEventingStatus, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDEventingStatus {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -916,7 +916,7 @@ impl IWSDHttpAddress {
         (::windows::core::Vtable::vtable(self).SetPath)(::windows::core::Vtable::as_raw(self), pszpath.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDHttpAddress, ::windows::core::IUnknown, IWSDAddress, IWSDTransportAddress);
+::windows::imp::interface_hierarchy!(IWSDHttpAddress, ::windows::core::IUnknown, IWSDAddress, IWSDTransportAddress);
 impl ::core::cmp::PartialEq for IWSDHttpAddress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -966,7 +966,7 @@ impl IWSDHttpAuthParameters {
         (::windows::core::Vtable::vtable(self).GetAuthType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDHttpAuthParameters, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDHttpAuthParameters, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDHttpAuthParameters {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1071,7 +1071,7 @@ impl IWSDHttpMessageParameters {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDHttpMessageParameters, ::windows::core::IUnknown, IWSDMessageParameters);
+::windows::imp::interface_hierarchy!(IWSDHttpMessageParameters, ::windows::core::IUnknown, IWSDMessageParameters);
 impl ::core::cmp::PartialEq for IWSDHttpMessageParameters {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1119,7 +1119,7 @@ impl IWSDInboundAttachment {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDInboundAttachment, ::windows::core::IUnknown, IWSDAttachment);
+::windows::imp::interface_hierarchy!(IWSDInboundAttachment, ::windows::core::IUnknown, IWSDAttachment);
 impl ::core::cmp::PartialEq for IWSDInboundAttachment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1178,7 +1178,7 @@ impl IWSDMessageParameters {
         (::windows::core::Vtable::vtable(self).GetLowerParameters)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDMessageParameters, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDMessageParameters, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDMessageParameters {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1220,7 +1220,7 @@ impl IWSDMetadataExchange {
         (::windows::core::Vtable::vtable(self).GetMetadata)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDMetadataExchange, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDMetadataExchange, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDMetadataExchange {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1264,7 +1264,7 @@ impl IWSDOutboundAttachment {
         (::windows::core::Vtable::vtable(self).Abort)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDOutboundAttachment, ::windows::core::IUnknown, IWSDAttachment);
+::windows::imp::interface_hierarchy!(IWSDOutboundAttachment, ::windows::core::IUnknown, IWSDAttachment);
 impl ::core::cmp::PartialEq for IWSDOutboundAttachment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1312,7 +1312,7 @@ impl IWSDSSLClientCertificate {
         (::windows::core::Vtable::vtable(self).GetMappedAccessToken)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDSSLClientCertificate, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDSSLClientCertificate, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDSSLClientCertificate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1367,7 +1367,7 @@ impl IWSDScopeMatchingRule {
         (::windows::core::Vtable::vtable(self).MatchScopes)(::windows::core::Vtable::as_raw(self), pszscope1.into().abi(), pszscope2.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDScopeMatchingRule, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDScopeMatchingRule, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDScopeMatchingRule {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1417,7 +1417,7 @@ impl IWSDServiceMessaging {
         (::windows::core::Vtable::vtable(self).FaultRequest)(::windows::core::Vtable::as_raw(self), prequestheader, pmessageparameters.into().abi(), ::core::mem::transmute(pfault.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDServiceMessaging, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDServiceMessaging, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDServiceMessaging {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1490,7 +1490,7 @@ impl IWSDServiceProxy {
         (::windows::core::Vtable::vtable(self).GetEndpointProxy)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDServiceProxy, ::windows::core::IUnknown, IWSDMetadataExchange);
+::windows::imp::interface_hierarchy!(IWSDServiceProxy, ::windows::core::IUnknown, IWSDMetadataExchange);
 impl ::core::cmp::PartialEq for IWSDServiceProxy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1656,7 +1656,7 @@ impl IWSDServiceProxyEventing {
         (::windows::core::Vtable::vtable(self).EndGetStatusForMultipleOperations)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(poperations.as_ptr()), poperations.len() as _, presult.into().abi(), ::core::mem::transmute(ppexpires.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppany.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDServiceProxyEventing, ::windows::core::IUnknown, IWSDMetadataExchange, IWSDServiceProxy);
+::windows::imp::interface_hierarchy!(IWSDServiceProxyEventing, ::windows::core::IUnknown, IWSDMetadataExchange, IWSDServiceProxy);
 impl ::core::cmp::PartialEq for IWSDServiceProxyEventing {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1746,7 +1746,7 @@ impl IWSDSignatureProperty {
         (::windows::core::Vtable::vtable(self).GetSignedInfoHash)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbsignedinfohash.unwrap_or(::std::ptr::null_mut())), pdwhashsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDSignatureProperty, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDSignatureProperty, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDSignatureProperty {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1830,7 +1830,7 @@ impl IWSDTransportAddress {
         (::windows::core::Vtable::vtable(self).SetTransportAddress)(::windows::core::Vtable::as_raw(self), pszaddress.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDTransportAddress, ::windows::core::IUnknown, IWSDAddress);
+::windows::imp::interface_hierarchy!(IWSDTransportAddress, ::windows::core::IUnknown, IWSDAddress);
 impl ::core::cmp::PartialEq for IWSDTransportAddress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1953,7 +1953,7 @@ impl IWSDUdpAddress {
         (::windows::core::Vtable::vtable(self).GetAlias)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDUdpAddress, ::windows::core::IUnknown, IWSDAddress, IWSDTransportAddress);
+::windows::imp::interface_hierarchy!(IWSDUdpAddress, ::windows::core::IUnknown, IWSDAddress, IWSDTransportAddress);
 impl ::core::cmp::PartialEq for IWSDUdpAddress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2035,7 +2035,7 @@ impl IWSDUdpMessageParameters {
         (::windows::core::Vtable::vtable(self).GetRetransmitParams)(::windows::core::Vtable::as_raw(self), pparams).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDUdpMessageParameters, ::windows::core::IUnknown, IWSDMessageParameters);
+::windows::imp::interface_hierarchy!(IWSDUdpMessageParameters, ::windows::core::IUnknown, IWSDMessageParameters);
 impl ::core::cmp::PartialEq for IWSDUdpMessageParameters {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2090,7 +2090,7 @@ impl IWSDXMLContext {
         (::windows::core::Vtable::vtable(self).SetTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptypes.as_ptr()), ptypes.len() as _, blayernumber).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDXMLContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDXMLContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDXMLContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2170,7 +2170,7 @@ impl IWSDiscoveredService {
         (::windows::core::Vtable::vtable(self).GetInstanceId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDiscoveredService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDiscoveredService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDiscoveredService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2251,7 +2251,7 @@ impl IWSDiscoveryProvider {
         (::windows::core::Vtable::vtable(self).GetXMLContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDiscoveryProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDiscoveryProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDiscoveryProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2315,7 +2315,7 @@ impl IWSDiscoveryProviderNotify {
         (::windows::core::Vtable::vtable(self).SearchComplete)(::windows::core::Vtable::as_raw(self), psztag.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDiscoveryProviderNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDiscoveryProviderNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDiscoveryProviderNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2488,7 +2488,7 @@ impl IWSDiscoveryPublisher {
         (::windows::core::Vtable::vtable(self).GetXMLContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWSDiscoveryPublisher, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDiscoveryPublisher, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDiscoveryPublisher {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2546,7 +2546,7 @@ impl IWSDiscoveryPublisherNotify {
         (::windows::core::Vtable::vtable(self).ResolveHandler)(::windows::core::Vtable::as_raw(self), psoap, pmessageparameters.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWSDiscoveryPublisherNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWSDiscoveryPublisherNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWSDiscoveryPublisherNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

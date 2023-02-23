@@ -858,7 +858,7 @@ impl ::core::fmt::Debug for SceneBoundingBox {
     }
 }
 impl ::windows::core::RuntimeType for SceneBoundingBox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneBoundingBox;{5d8ffc70-c618-4083-8251-9962593114aa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneBoundingBox;{5d8ffc70-c618-4083-8251-9962593114aa})");
 }
 impl ::core::clone::Clone for SceneBoundingBox {
     fn clone(&self) -> Self {
@@ -874,7 +874,7 @@ unsafe impl ::windows::core::Interface for SceneBoundingBox {
 impl ::windows::core::RuntimeName for SceneBoundingBox {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneBoundingBox";
 }
-::windows::core::interface_hierarchy!(SceneBoundingBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneBoundingBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneBoundingBox> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneBoundingBox) -> ::windows::core::Result<Self> {
@@ -1077,7 +1077,7 @@ impl ::core::fmt::Debug for SceneComponent {
     }
 }
 impl ::windows::core::RuntimeType for SceneComponent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneComponent;{ae20fc96-226c-44bd-95cb-dd5ed9ebe9a5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneComponent;{ae20fc96-226c-44bd-95cb-dd5ed9ebe9a5})");
 }
 impl ::core::clone::Clone for SceneComponent {
     fn clone(&self) -> Self {
@@ -1093,7 +1093,7 @@ unsafe impl ::windows::core::Interface for SceneComponent {
 impl ::windows::core::RuntimeName for SceneComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneComponent";
 }
-::windows::core::interface_hierarchy!(SceneComponent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneComponent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneComponent> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneComponent) -> ::windows::core::Result<Self> {
@@ -1403,7 +1403,7 @@ impl ::core::fmt::Debug for SceneComponentCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for SceneComponentCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneComponentCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.Scenes.SceneComponent;{ae20fc96-226c-44bd-95cb-dd5ed9ebe9a5})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneComponentCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.Scenes.SceneComponent;{ae20fc96-226c-44bd-95cb-dd5ed9ebe9a5})))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for SceneComponentCollection {
@@ -1440,7 +1440,7 @@ impl ::core::iter::IntoIterator for &SceneComponentCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(SceneComponentCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneComponentCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<SceneComponentCollection> for super::IAnimationObject {
     type Error = ::windows::core::Error;
@@ -1691,7 +1691,7 @@ impl ::core::fmt::Debug for SceneMaterial {
     }
 }
 impl ::windows::core::RuntimeType for SceneMaterial {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMaterial;{8ca74b7c-30df-4e07-9490-37875af1a123})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMaterial;{8ca74b7c-30df-4e07-9490-37875af1a123})");
 }
 impl ::core::clone::Clone for SceneMaterial {
     fn clone(&self) -> Self {
@@ -1707,7 +1707,7 @@ unsafe impl ::windows::core::Interface for SceneMaterial {
 impl ::windows::core::RuntimeName for SceneMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMaterial";
 }
-::windows::core::interface_hierarchy!(SceneMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneMaterial> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneMaterial) -> ::windows::core::Result<Self> {
@@ -1903,7 +1903,7 @@ impl ::core::fmt::Debug for SceneMaterialInput {
     }
 }
 impl ::windows::core::RuntimeType for SceneMaterialInput {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMaterialInput;{422a1642-1ef1-485c-97e9-ae6f95ad812f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMaterialInput;{422a1642-1ef1-485c-97e9-ae6f95ad812f})");
 }
 impl ::core::clone::Clone for SceneMaterialInput {
     fn clone(&self) -> Self {
@@ -1919,7 +1919,7 @@ unsafe impl ::windows::core::Interface for SceneMaterialInput {
 impl ::windows::core::RuntimeName for SceneMaterialInput {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMaterialInput";
 }
-::windows::core::interface_hierarchy!(SceneMaterialInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneMaterialInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneMaterialInput> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneMaterialInput) -> ::windows::core::Result<Self> {
@@ -2138,7 +2138,7 @@ impl SceneMesh {
     }
     #[doc(hidden)]
     pub fn ISceneMeshStatics<R, F: FnOnce(&ISceneMeshStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SceneMesh, ISceneMeshStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SceneMesh, ISceneMeshStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2154,7 +2154,7 @@ impl ::core::fmt::Debug for SceneMesh {
     }
 }
 impl ::windows::core::RuntimeType for SceneMesh {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMesh;{ee9a1530-1155-4c0c-92bd-40020cf78347})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMesh;{ee9a1530-1155-4c0c-92bd-40020cf78347})");
 }
 impl ::core::clone::Clone for SceneMesh {
     fn clone(&self) -> Self {
@@ -2170,7 +2170,7 @@ unsafe impl ::windows::core::Interface for SceneMesh {
 impl ::windows::core::RuntimeName for SceneMesh {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMesh";
 }
-::windows::core::interface_hierarchy!(SceneMesh, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneMesh, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneMesh> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneMesh) -> ::windows::core::Result<Self> {
@@ -2432,7 +2432,7 @@ impl ::core::fmt::Debug for SceneMeshMaterialAttributeMap {
     }
 }
 impl ::windows::core::RuntimeType for SceneMeshMaterialAttributeMap {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMeshMaterialAttributeMap;{ce843171-3d43-4855-aa69-31ff988d049d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMeshMaterialAttributeMap;{ce843171-3d43-4855-aa69-31ff988d049d})");
 }
 impl ::core::clone::Clone for SceneMeshMaterialAttributeMap {
     fn clone(&self) -> Self {
@@ -2464,7 +2464,7 @@ impl ::core::iter::IntoIterator for &SceneMeshMaterialAttributeMap {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(SceneMeshMaterialAttributeMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneMeshMaterialAttributeMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneMeshMaterialAttributeMap> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneMeshMaterialAttributeMap) -> ::windows::core::Result<Self> {
@@ -2738,7 +2738,7 @@ impl SceneMeshRendererComponent {
     }
     #[doc(hidden)]
     pub fn ISceneMeshRendererComponentStatics<R, F: FnOnce(&ISceneMeshRendererComponentStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SceneMeshRendererComponent, ISceneMeshRendererComponentStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SceneMeshRendererComponent, ISceneMeshRendererComponentStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2754,7 +2754,7 @@ impl ::core::fmt::Debug for SceneMeshRendererComponent {
     }
 }
 impl ::windows::core::RuntimeType for SceneMeshRendererComponent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMeshRendererComponent;{9929f7e3-6364-477e-98fe-74ed9fd4c2de})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMeshRendererComponent;{9929f7e3-6364-477e-98fe-74ed9fd4c2de})");
 }
 impl ::core::clone::Clone for SceneMeshRendererComponent {
     fn clone(&self) -> Self {
@@ -2770,7 +2770,7 @@ unsafe impl ::windows::core::Interface for SceneMeshRendererComponent {
 impl ::windows::core::RuntimeName for SceneMeshRendererComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMeshRendererComponent";
 }
-::windows::core::interface_hierarchy!(SceneMeshRendererComponent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneMeshRendererComponent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneMeshRendererComponent> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneMeshRendererComponent) -> ::windows::core::Result<Self> {
@@ -3168,7 +3168,7 @@ impl SceneMetallicRoughnessMaterial {
     }
     #[doc(hidden)]
     pub fn ISceneMetallicRoughnessMaterialStatics<R, F: FnOnce(&ISceneMetallicRoughnessMaterialStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SceneMetallicRoughnessMaterial, ISceneMetallicRoughnessMaterialStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SceneMetallicRoughnessMaterial, ISceneMetallicRoughnessMaterialStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3184,7 +3184,7 @@ impl ::core::fmt::Debug for SceneMetallicRoughnessMaterial {
     }
 }
 impl ::windows::core::RuntimeType for SceneMetallicRoughnessMaterial {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial;{c1d91446-799c-429e-a4e4-5da645f18e61})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial;{c1d91446-799c-429e-a4e4-5da645f18e61})");
 }
 impl ::core::clone::Clone for SceneMetallicRoughnessMaterial {
     fn clone(&self) -> Self {
@@ -3200,7 +3200,7 @@ unsafe impl ::windows::core::Interface for SceneMetallicRoughnessMaterial {
 impl ::windows::core::RuntimeName for SceneMetallicRoughnessMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial";
 }
-::windows::core::interface_hierarchy!(SceneMetallicRoughnessMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneMetallicRoughnessMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneMetallicRoughnessMaterial> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneMetallicRoughnessMaterial) -> ::windows::core::Result<Self> {
@@ -3508,7 +3508,7 @@ impl ::core::fmt::Debug for SceneModelTransform {
     }
 }
 impl ::windows::core::RuntimeType for SceneModelTransform {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneModelTransform;{c05576c2-32b1-4269-980d-b98537100ae4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneModelTransform;{c05576c2-32b1-4269-980d-b98537100ae4})");
 }
 impl ::core::clone::Clone for SceneModelTransform {
     fn clone(&self) -> Self {
@@ -3524,7 +3524,7 @@ unsafe impl ::windows::core::Interface for SceneModelTransform {
 impl ::windows::core::RuntimeName for SceneModelTransform {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneModelTransform";
 }
-::windows::core::interface_hierarchy!(SceneModelTransform, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneModelTransform, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneModelTransform> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneModelTransform) -> ::windows::core::Result<Self> {
@@ -3754,7 +3754,7 @@ impl SceneNode {
     }
     #[doc(hidden)]
     pub fn ISceneNodeStatics<R, F: FnOnce(&ISceneNodeStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SceneNode, ISceneNodeStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SceneNode, ISceneNodeStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3770,7 +3770,7 @@ impl ::core::fmt::Debug for SceneNode {
     }
 }
 impl ::windows::core::RuntimeType for SceneNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneNode;{acf2c247-f307-4581-9c41-af2e29c3b016})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneNode;{acf2c247-f307-4581-9c41-af2e29c3b016})");
 }
 impl ::core::clone::Clone for SceneNode {
     fn clone(&self) -> Self {
@@ -3786,7 +3786,7 @@ unsafe impl ::windows::core::Interface for SceneNode {
 impl ::windows::core::RuntimeName for SceneNode {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneNode";
 }
-::windows::core::interface_hierarchy!(SceneNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneNode> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneNode) -> ::windows::core::Result<Self> {
@@ -4084,7 +4084,7 @@ impl ::core::fmt::Debug for SceneNodeCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for SceneNodeCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneNodeCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.Scenes.SceneNode;{acf2c247-f307-4581-9c41-af2e29c3b016})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneNodeCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.Scenes.SceneNode;{acf2c247-f307-4581-9c41-af2e29c3b016})))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for SceneNodeCollection {
@@ -4121,7 +4121,7 @@ impl ::core::iter::IntoIterator for &SceneNodeCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(SceneNodeCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneNodeCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<SceneNodeCollection> for super::IAnimationObject {
     type Error = ::windows::core::Error;
@@ -4372,7 +4372,7 @@ impl ::core::fmt::Debug for SceneObject {
     }
 }
 impl ::windows::core::RuntimeType for SceneObject {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneObject;{1e94249b-0f1b-49eb-a819-877d8450005b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneObject;{1e94249b-0f1b-49eb-a819-877d8450005b})");
 }
 impl ::core::clone::Clone for SceneObject {
     fn clone(&self) -> Self {
@@ -4388,7 +4388,7 @@ unsafe impl ::windows::core::Interface for SceneObject {
 impl ::windows::core::RuntimeName for SceneObject {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneObject";
 }
-::windows::core::interface_hierarchy!(SceneObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneObject> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneObject) -> ::windows::core::Result<Self> {
@@ -4681,7 +4681,7 @@ impl ::core::fmt::Debug for ScenePbrMaterial {
     }
 }
 impl ::windows::core::RuntimeType for ScenePbrMaterial {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.ScenePbrMaterial;{aab6ebbe-d680-46df-8294-b6800a9f95e7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.ScenePbrMaterial;{aab6ebbe-d680-46df-8294-b6800a9f95e7})");
 }
 impl ::core::clone::Clone for ScenePbrMaterial {
     fn clone(&self) -> Self {
@@ -4697,7 +4697,7 @@ unsafe impl ::windows::core::Interface for ScenePbrMaterial {
 impl ::windows::core::RuntimeName for ScenePbrMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ScenePbrMaterial";
 }
-::windows::core::interface_hierarchy!(ScenePbrMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ScenePbrMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ScenePbrMaterial> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ScenePbrMaterial) -> ::windows::core::Result<Self> {
@@ -4915,7 +4915,7 @@ impl ::core::fmt::Debug for SceneRendererComponent {
     }
 }
 impl ::windows::core::RuntimeType for SceneRendererComponent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneRendererComponent;{f1acb857-cf4f-4025-9b25-a2d1944cf507})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneRendererComponent;{f1acb857-cf4f-4025-9b25-a2d1944cf507})");
 }
 impl ::core::clone::Clone for SceneRendererComponent {
     fn clone(&self) -> Self {
@@ -4931,7 +4931,7 @@ unsafe impl ::windows::core::Interface for SceneRendererComponent {
 impl ::windows::core::RuntimeName for SceneRendererComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneRendererComponent";
 }
-::windows::core::interface_hierarchy!(SceneRendererComponent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneRendererComponent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneRendererComponent> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneRendererComponent) -> ::windows::core::Result<Self> {
@@ -5185,7 +5185,7 @@ impl SceneSurfaceMaterialInput {
     }
     #[doc(hidden)]
     pub fn ISceneSurfaceMaterialInputStatics<R, F: FnOnce(&ISceneSurfaceMaterialInputStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SceneSurfaceMaterialInput, ISceneSurfaceMaterialInputStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SceneSurfaceMaterialInput, ISceneSurfaceMaterialInputStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5201,7 +5201,7 @@ impl ::core::fmt::Debug for SceneSurfaceMaterialInput {
     }
 }
 impl ::windows::core::RuntimeType for SceneSurfaceMaterialInput {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput;{9937da5c-a9ca-4cfc-b3aa-088356518742})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput;{9937da5c-a9ca-4cfc-b3aa-088356518742})");
 }
 impl ::core::clone::Clone for SceneSurfaceMaterialInput {
     fn clone(&self) -> Self {
@@ -5217,7 +5217,7 @@ unsafe impl ::windows::core::Interface for SceneSurfaceMaterialInput {
 impl ::windows::core::RuntimeName for SceneSurfaceMaterialInput {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput";
 }
-::windows::core::interface_hierarchy!(SceneSurfaceMaterialInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneSurfaceMaterialInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneSurfaceMaterialInput> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneSurfaceMaterialInput) -> ::windows::core::Result<Self> {
@@ -5725,7 +5725,7 @@ impl SceneVisual {
     }
     #[doc(hidden)]
     pub fn ISceneVisualStatics<R, F: FnOnce(&ISceneVisualStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SceneVisual, ISceneVisualStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SceneVisual, ISceneVisualStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5741,7 +5741,7 @@ impl ::core::fmt::Debug for SceneVisual {
     }
 }
 impl ::windows::core::RuntimeType for SceneVisual {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneVisual;{8e672c1e-d734-47b1-be14-3d694ffa4301})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneVisual;{8e672c1e-d734-47b1-be14-3d694ffa4301})");
 }
 impl ::core::clone::Clone for SceneVisual {
     fn clone(&self) -> Self {
@@ -5757,7 +5757,7 @@ unsafe impl ::windows::core::Interface for SceneVisual {
 impl ::windows::core::RuntimeName for SceneVisual {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneVisual";
 }
-::windows::core::interface_hierarchy!(SceneVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneVisual> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneVisual) -> ::windows::core::Result<Self> {
@@ -5875,7 +5875,7 @@ impl ::core::fmt::Debug for SceneAlphaMode {
     }
 }
 impl ::windows::core::RuntimeType for SceneAlphaMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAlphaMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAlphaMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
 #[repr(transparent)]
@@ -5910,7 +5910,7 @@ impl ::core::fmt::Debug for SceneAttributeSemantic {
     }
 }
 impl ::windows::core::RuntimeType for SceneAttributeSemantic {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAttributeSemantic;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAttributeSemantic;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
 #[repr(transparent)]
@@ -5939,7 +5939,7 @@ impl ::core::fmt::Debug for SceneComponentType {
     }
 }
 impl ::windows::core::RuntimeType for SceneComponentType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneComponentType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneComponentType;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
 #[repr(transparent)]
@@ -5970,7 +5970,7 @@ impl ::core::fmt::Debug for SceneWrappingMode {
     }
 }
 impl ::windows::core::RuntimeType for SceneWrappingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneWrappingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneWrappingMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -4,7 +4,7 @@ pub unsafe fn SwDeviceClose<P0>(hswdevice: P0)
 where
     P0: ::std::convert::Into<HSWDEVICE>,
 {
-    ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDeviceClose ( hswdevice : HSWDEVICE ) -> ( ) );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn SwDeviceClose ( hswdevice : HSWDEVICE ) -> ( ) );
     SwDeviceClose(hswdevice.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -15,7 +15,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDeviceCreate ( pszenumeratorname : :: windows::core::PCWSTR , pszparentdeviceinstance : :: windows::core::PCWSTR , pcreateinfo : *const SW_DEVICE_CREATE_INFO , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , pcallback : SW_DEVICE_CREATE_CALLBACK , pcontext : *const ::core::ffi::c_void , phswdevice : *mut isize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn SwDeviceCreate ( pszenumeratorname : :: windows::core::PCWSTR , pszparentdeviceinstance : :: windows::core::PCWSTR , pcreateinfo : *const SW_DEVICE_CREATE_INFO , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , pcallback : SW_DEVICE_CREATE_CALLBACK , pcontext : *const ::core::ffi::c_void , phswdevice : *mut isize ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<isize>();
     SwDeviceCreate(pszenumeratorname.into().abi(), pszparentdeviceinstance.into().abi(), pcreateinfo, pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -25,7 +25,7 @@ pub unsafe fn SwDeviceGetLifetime<P0>(hswdevice: P0) -> ::windows::core::Result<
 where
     P0: ::std::convert::Into<HSWDEVICE>,
 {
-    ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDeviceGetLifetime ( hswdevice : HSWDEVICE , plifetime : *mut SW_DEVICE_LIFETIME ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn SwDeviceGetLifetime ( hswdevice : HSWDEVICE , plifetime : *mut SW_DEVICE_LIFETIME ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<SW_DEVICE_LIFETIME>();
     SwDeviceGetLifetime(hswdevice.into(), &mut result__).from_abi(result__)
 }
@@ -37,7 +37,7 @@ where
     P0: ::std::convert::Into<HSWDEVICE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDeviceInterfacePropertySet ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn SwDeviceInterfacePropertySet ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows::core::HRESULT );
     SwDeviceInterfacePropertySet(hswdevice.into(), pszdeviceinterfaceid.into().abi(), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
@@ -49,7 +49,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDeviceInterfaceRegister ( hswdevice : HSWDEVICE , pinterfaceclassguid : *const :: windows::core::GUID , pszreferencestring : :: windows::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , fenabled : super::super::super::Foundation:: BOOL , ppszdeviceinterfaceid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn SwDeviceInterfaceRegister ( hswdevice : HSWDEVICE , pinterfaceclassguid : *const :: windows::core::GUID , pszreferencestring : :: windows::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , fenabled : super::super::super::Foundation:: BOOL , ppszdeviceinterfaceid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     SwDeviceInterfaceRegister(hswdevice.into(), pinterfaceclassguid, pszreferencestring.into().abi(), pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), fenabled.into(), &mut result__).from_abi(result__)
 }
@@ -62,7 +62,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDeviceInterfaceSetState ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows::core::PCWSTR , fenabled : super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn SwDeviceInterfaceSetState ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows::core::PCWSTR , fenabled : super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     SwDeviceInterfaceSetState(hswdevice.into(), pszdeviceinterfaceid.into().abi(), fenabled.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`*"]
@@ -72,7 +72,7 @@ pub unsafe fn SwDevicePropertySet<P0>(hswdevice: P0, pproperties: &[super::super
 where
     P0: ::std::convert::Into<HSWDEVICE>,
 {
-    ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDevicePropertySet ( hswdevice : HSWDEVICE , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn SwDevicePropertySet ( hswdevice : HSWDEVICE , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows::core::HRESULT );
     SwDevicePropertySet(hswdevice.into(), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
@@ -81,13 +81,13 @@ pub unsafe fn SwDeviceSetLifetime<P0>(hswdevice: P0, lifetime: SW_DEVICE_LIFETIM
 where
     P0: ::std::convert::Into<HSWDEVICE>,
 {
-    ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwDeviceSetLifetime ( hswdevice : HSWDEVICE , lifetime : SW_DEVICE_LIFETIME ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn SwDeviceSetLifetime ( hswdevice : HSWDEVICE , lifetime : SW_DEVICE_LIFETIME ) -> :: windows::core::HRESULT );
     SwDeviceSetLifetime(hswdevice.into(), lifetime).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 #[inline]
 pub unsafe fn SwMemFree(pmem: *const ::core::ffi::c_void) {
-    ::windows::core::link ! ( "cfgmgr32.dll""system" fn SwMemFree ( pmem : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn SwMemFree ( pmem : *const ::core::ffi::c_void ) -> ( ) );
     SwMemFree(pmem)
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
@@ -102,7 +102,7 @@ impl IUPnPAddressFamilyControl {
         (::windows::core::Vtable::vtable(self).GetAddressFamily)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUPnPAddressFamilyControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPAddressFamilyControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPAddressFamilyControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -140,7 +140,7 @@ impl IUPnPAsyncResult {
         (::windows::core::Vtable::vtable(self).AsyncOperationComplete)(::windows::core::Vtable::as_raw(self), ullrequestid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPAsyncResult, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPAsyncResult, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPAsyncResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -209,7 +209,7 @@ impl IUPnPDescriptionDocument {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUPnPDescriptionDocument, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUPnPDescriptionDocument, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUPnPDescriptionDocument {
     fn eq(&self, other: &Self) -> bool {
@@ -265,7 +265,7 @@ impl IUPnPDescriptionDocumentCallback {
         (::windows::core::Vtable::vtable(self).LoadComplete)(::windows::core::Vtable::as_raw(self), hrloadresult).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPDescriptionDocumentCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPDescriptionDocumentCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPDescriptionDocumentCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -390,7 +390,7 @@ impl IUPnPDevice {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUPnPDevice, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUPnPDevice, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUPnPDevice {
     fn eq(&self, other: &Self) -> bool {
@@ -476,7 +476,7 @@ impl IUPnPDeviceControl {
         (::windows::core::Vtable::vtable(self).GetServiceObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrudn), ::core::mem::transmute_copy(bstrserviceid), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUPnPDeviceControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPDeviceControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPDeviceControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -518,7 +518,7 @@ impl IUPnPDeviceControlHttpHeaders {
         (::windows::core::Vtable::vtable(self).GetAdditionalResponseHeaders)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUPnPDeviceControlHttpHeaders, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPDeviceControlHttpHeaders, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPDeviceControlHttpHeaders {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -556,7 +556,7 @@ impl IUPnPDeviceDocumentAccess {
         (::windows::core::Vtable::vtable(self).GetDocumentURL)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUPnPDeviceDocumentAccess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPDeviceDocumentAccess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPDeviceDocumentAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -594,7 +594,7 @@ impl IUPnPDeviceDocumentAccessEx {
         (::windows::core::Vtable::vtable(self).GetDocument)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUPnPDeviceDocumentAccessEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPDeviceDocumentAccessEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPDeviceDocumentAccessEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -656,7 +656,7 @@ impl IUPnPDeviceFinder {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUPnPDeviceFinder, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUPnPDeviceFinder, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUPnPDeviceFinder {
     fn eq(&self, other: &Self) -> bool {
@@ -715,7 +715,7 @@ impl IUPnPDeviceFinderAddCallbackWithInterface {
         (::windows::core::Vtable::vtable(self).DeviceAddedWithInterface)(::windows::core::Vtable::as_raw(self), lfinddata, pdevice.into().abi(), pguidinterface).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPDeviceFinderAddCallbackWithInterface, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPDeviceFinderAddCallbackWithInterface, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPDeviceFinderAddCallbackWithInterface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -766,7 +766,7 @@ impl IUPnPDeviceFinderCallback {
         (::windows::core::Vtable::vtable(self).SearchComplete)(::windows::core::Vtable::as_raw(self), lfinddata).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPDeviceFinderCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPDeviceFinderCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPDeviceFinderCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -811,7 +811,7 @@ impl IUPnPDeviceProvider {
         (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPDeviceProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPDeviceProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPDeviceProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -863,7 +863,7 @@ impl IUPnPDevices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUPnPDevices, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUPnPDevices, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUPnPDevices {
     fn eq(&self, other: &Self) -> bool {
@@ -917,7 +917,7 @@ impl IUPnPEventSink {
         (::windows::core::Vtable::vtable(self).OnStateChangedSafe)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varsadispidchanges)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -967,7 +967,7 @@ impl IUPnPEventSource {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), pessubscriber.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPEventSource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPEventSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPEventSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1005,7 +1005,7 @@ impl IUPnPHttpHeaderControl {
         (::windows::core::Vtable::vtable(self).AddRequestHeaders)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrhttpheaders)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPHttpHeaderControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPHttpHeaderControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPHttpHeaderControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1068,7 +1068,7 @@ impl IUPnPRegistrar {
         (::windows::core::Vtable::vtable(self).UnregisterDeviceProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprovidername)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPRegistrar, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPRegistrar, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPRegistrar {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1122,7 +1122,7 @@ impl IUPnPRemoteEndpointInfo {
         (::windows::core::Vtable::vtable(self).GetGuidValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrvaluename), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUPnPRemoteEndpointInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPRemoteEndpointInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPRemoteEndpointInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1167,7 +1167,7 @@ impl IUPnPReregistrar {
         (::windows::core::Vtable::vtable(self).ReregisterRunningDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdeviceidentifier), ::core::mem::transmute_copy(bstrxmldesc), punkdevicecontrol.into().abi(), ::core::mem::transmute_copy(bstrinitstring), ::core::mem::transmute_copy(bstrresourcepath), nlifetime).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPReregistrar, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPReregistrar, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPReregistrar {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1234,7 +1234,7 @@ impl IUPnPService {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUPnPService, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUPnPService, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUPnPService {
     fn eq(&self, other: &Self) -> bool {
@@ -1337,7 +1337,7 @@ impl IUPnPServiceAsync {
         (::windows::core::Vtable::vtable(self).CancelAsyncOperation)(::windows::core::Vtable::as_raw(self), ullrequestid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPServiceAsync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPServiceAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPServiceAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1405,7 +1405,7 @@ impl IUPnPServiceCallback {
         (::windows::core::Vtable::vtable(self).ServiceInstanceDied)(::windows::core::Vtable::as_raw(self), pus.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPServiceCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPServiceCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPServiceCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1454,7 +1454,7 @@ impl IUPnPServiceDocumentAccess {
         (::windows::core::Vtable::vtable(self).GetDocument)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUPnPServiceDocumentAccess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPServiceDocumentAccess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPServiceDocumentAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1492,7 +1492,7 @@ impl IUPnPServiceEnumProperty {
         (::windows::core::Vtable::vtable(self).SetServiceEnumProperty)(::windows::core::Vtable::as_raw(self), dwmask).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUPnPServiceEnumProperty, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUPnPServiceEnumProperty, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUPnPServiceEnumProperty {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1543,7 +1543,7 @@ impl IUPnPServices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUPnPServices, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUPnPServices, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUPnPServices {
     fn eq(&self, other: &Self) -> bool {

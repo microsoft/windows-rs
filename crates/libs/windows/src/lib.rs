@@ -10,6 +10,12 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 #![cfg_attr(windows_raw_dylib, feature(raw_dylib))]
 
 extern crate self as windows;
-mod Windows;
-pub mod core;
+
 pub use Windows::*;
+pub mod core;
+
+#[doc(hidden)]
+mod Windows;
+
+#[doc(hidden)]
+pub mod imp;

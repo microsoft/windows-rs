@@ -2,14 +2,14 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
 pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9> {
-    ::windows::core::link ! ( "d3d9.dll""system" fn Direct3DCreate9On12 ( sdkversion : u32 , poverridelist : *mut D3D9ON12_ARGS , numoverrideentries : u32 ) -> ::core::option::Option < super::Direct3D9:: IDirect3D9 > );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn Direct3DCreate9On12 ( sdkversion : u32 , poverridelist : *mut D3D9ON12_ARGS , numoverrideentries : u32 ) -> ::core::option::Option < super::Direct3D9:: IDirect3D9 > );
     Direct3DCreate9On12(sdkversion, poverridelist, numoverrideentries)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
 pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut ::core::option::Option<super::Direct3D9::IDirect3D9Ex>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d9.dll""system" fn Direct3DCreate9On12Ex ( sdkversion : u32 , poverridelist : *mut D3D9ON12_ARGS , numoverrideentries : u32 , ppoutputinterface : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn Direct3DCreate9On12Ex ( sdkversion : u32 , poverridelist : *mut D3D9ON12_ARGS , numoverrideentries : u32 , ppoutputinterface : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     Direct3DCreate9On12Ex(sdkversion, poverridelist, numoverrideentries, ::core::mem::transmute(ppoutputinterface)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`*"]
@@ -37,7 +37,7 @@ impl IDirect3DDevice9On12 {
         (::windows::core::Vtable::vtable(self).ReturnUnderlyingResource)(::windows::core::Vtable::as_raw(self), presource.into().abi(), numsync, psignalvalues, ::core::mem::transmute(ppfences)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DDevice9On12, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DDevice9On12, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DDevice9On12 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

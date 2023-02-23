@@ -1242,7 +1242,7 @@ impl ::core::fmt::Debug for HolographicCamera {
     }
 }
 impl ::windows::core::RuntimeType for HolographicCamera {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCamera;{e4e98445-9bed-4980-9ba0-e87680d1cb74})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCamera;{e4e98445-9bed-4980-9ba0-e87680d1cb74})");
 }
 impl ::core::clone::Clone for HolographicCamera {
     fn clone(&self) -> Self {
@@ -1258,7 +1258,7 @@ unsafe impl ::windows::core::Interface for HolographicCamera {
 impl ::windows::core::RuntimeName for HolographicCamera {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCamera";
 }
-::windows::core::interface_hierarchy!(HolographicCamera, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicCamera, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicCamera {}
 unsafe impl ::core::marker::Sync for HolographicCamera {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1362,7 +1362,7 @@ impl ::core::fmt::Debug for HolographicCameraPose {
     }
 }
 impl ::windows::core::RuntimeType for HolographicCameraPose {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraPose;{0d7d7e30-12de-45bd-912b-c7f6561599d1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraPose;{0d7d7e30-12de-45bd-912b-c7f6561599d1})");
 }
 impl ::core::clone::Clone for HolographicCameraPose {
     fn clone(&self) -> Self {
@@ -1378,7 +1378,7 @@ unsafe impl ::windows::core::Interface for HolographicCameraPose {
 impl ::windows::core::RuntimeName for HolographicCameraPose {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraPose";
 }
-::windows::core::interface_hierarchy!(HolographicCameraPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicCameraPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicCameraPose {}
 unsafe impl ::core::marker::Sync for HolographicCameraPose {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1477,7 +1477,7 @@ impl ::core::fmt::Debug for HolographicCameraRenderingParameters {
     }
 }
 impl ::windows::core::RuntimeType for HolographicCameraRenderingParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraRenderingParameters;{8eac2ed1-5bf4-4e16-8236-ae0800c11d0d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraRenderingParameters;{8eac2ed1-5bf4-4e16-8236-ae0800c11d0d})");
 }
 impl ::core::clone::Clone for HolographicCameraRenderingParameters {
     fn clone(&self) -> Self {
@@ -1493,7 +1493,7 @@ unsafe impl ::windows::core::Interface for HolographicCameraRenderingParameters 
 impl ::windows::core::RuntimeName for HolographicCameraRenderingParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraRenderingParameters";
 }
-::windows::core::interface_hierarchy!(HolographicCameraRenderingParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicCameraRenderingParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicCameraRenderingParameters {}
 unsafe impl ::core::marker::Sync for HolographicCameraRenderingParameters {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1531,7 +1531,7 @@ impl ::core::fmt::Debug for HolographicCameraViewportParameters {
     }
 }
 impl ::windows::core::RuntimeType for HolographicCameraViewportParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraViewportParameters;{80cdf3f7-842a-41e1-93ed-5692ab1fbb10})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraViewportParameters;{80cdf3f7-842a-41e1-93ed-5692ab1fbb10})");
 }
 impl ::core::clone::Clone for HolographicCameraViewportParameters {
     fn clone(&self) -> Self {
@@ -1547,7 +1547,7 @@ unsafe impl ::windows::core::Interface for HolographicCameraViewportParameters {
 impl ::windows::core::RuntimeName for HolographicCameraViewportParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraViewportParameters";
 }
-::windows::core::interface_hierarchy!(HolographicCameraViewportParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicCameraViewportParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicCameraViewportParameters {}
 unsafe impl ::core::marker::Sync for HolographicCameraViewportParameters {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1622,7 +1622,7 @@ impl HolographicDisplay {
     }
     #[doc(hidden)]
     pub fn IHolographicDisplayStatics<R, F: FnOnce(&IHolographicDisplayStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HolographicDisplay, IHolographicDisplayStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HolographicDisplay, IHolographicDisplayStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1638,7 +1638,7 @@ impl ::core::fmt::Debug for HolographicDisplay {
     }
 }
 impl ::windows::core::RuntimeType for HolographicDisplay {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicDisplay;{9acea414-1d9f-4090-a388-90c06f6eae9c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicDisplay;{9acea414-1d9f-4090-a388-90c06f6eae9c})");
 }
 impl ::core::clone::Clone for HolographicDisplay {
     fn clone(&self) -> Self {
@@ -1654,7 +1654,7 @@ unsafe impl ::windows::core::Interface for HolographicDisplay {
 impl ::windows::core::RuntimeName for HolographicDisplay {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicDisplay";
 }
-::windows::core::interface_hierarchy!(HolographicDisplay, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicDisplay, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicDisplay {}
 unsafe impl ::core::marker::Sync for HolographicDisplay {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1751,7 +1751,7 @@ impl ::core::fmt::Debug for HolographicFrame {
     }
 }
 impl ::windows::core::RuntimeType for HolographicFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrame;{c6988eb6-a8b9-3054-a6eb-d624b6536375})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrame;{c6988eb6-a8b9-3054-a6eb-d624b6536375})");
 }
 impl ::core::clone::Clone for HolographicFrame {
     fn clone(&self) -> Self {
@@ -1767,7 +1767,7 @@ unsafe impl ::windows::core::Interface for HolographicFrame {
 impl ::windows::core::RuntimeName for HolographicFrame {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrame";
 }
-::windows::core::interface_hierarchy!(HolographicFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicFrame {}
 unsafe impl ::core::marker::Sync for HolographicFrame {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1805,7 +1805,7 @@ impl ::core::fmt::Debug for HolographicFramePrediction {
     }
 }
 impl ::windows::core::RuntimeType for HolographicFramePrediction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePrediction;{520f4de1-5c0a-4e79-a81e-6abe02bb2739})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePrediction;{520f4de1-5c0a-4e79-a81e-6abe02bb2739})");
 }
 impl ::core::clone::Clone for HolographicFramePrediction {
     fn clone(&self) -> Self {
@@ -1821,7 +1821,7 @@ unsafe impl ::windows::core::Interface for HolographicFramePrediction {
 impl ::windows::core::RuntimeName for HolographicFramePrediction {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePrediction";
 }
-::windows::core::interface_hierarchy!(HolographicFramePrediction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicFramePrediction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicFramePrediction {}
 unsafe impl ::core::marker::Sync for HolographicFramePrediction {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`, `\"deprecated\"`*"]
@@ -1862,7 +1862,7 @@ impl ::core::fmt::Debug for HolographicFramePresentationMonitor {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for HolographicFramePresentationMonitor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationMonitor;{ca87256c-6fae-428e-bb83-25dfee51136b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationMonitor;{ca87256c-6fae-428e-bb83-25dfee51136b})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for HolographicFramePresentationMonitor {
@@ -1883,7 +1883,7 @@ impl ::windows::core::RuntimeName for HolographicFramePresentationMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationMonitor";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(HolographicFramePresentationMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicFramePresentationMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<HolographicFramePresentationMonitor> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1978,7 +1978,7 @@ impl ::core::fmt::Debug for HolographicFramePresentationReport {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for HolographicFramePresentationReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationReport;{80baf614-f2f4-4c8a-8de3-065c78f6d5de})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationReport;{80baf614-f2f4-4c8a-8de3-065c78f6d5de})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for HolographicFramePresentationReport {
@@ -1999,7 +1999,7 @@ impl ::windows::core::RuntimeName for HolographicFramePresentationReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationReport";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(HolographicFramePresentationReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicFramePresentationReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for HolographicFramePresentationReport {}
 #[cfg(feature = "deprecated")]
@@ -2062,7 +2062,7 @@ impl ::core::fmt::Debug for HolographicFrameRenderingReport {
     }
 }
 impl ::windows::core::RuntimeType for HolographicFrameRenderingReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameRenderingReport;{05f32de4-e384-51b3-b934-f0d3a0f78606})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameRenderingReport;{05f32de4-e384-51b3-b934-f0d3a0f78606})");
 }
 impl ::core::clone::Clone for HolographicFrameRenderingReport {
     fn clone(&self) -> Self {
@@ -2078,7 +2078,7 @@ unsafe impl ::windows::core::Interface for HolographicFrameRenderingReport {
 impl ::windows::core::RuntimeName for HolographicFrameRenderingReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameRenderingReport";
 }
-::windows::core::interface_hierarchy!(HolographicFrameRenderingReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicFrameRenderingReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicFrameRenderingReport {}
 unsafe impl ::core::marker::Sync for HolographicFrameRenderingReport {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -2113,7 +2113,7 @@ impl ::core::fmt::Debug for HolographicFrameScanoutMonitor {
     }
 }
 impl ::windows::core::RuntimeType for HolographicFrameScanoutMonitor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameScanoutMonitor;{7e83efa9-843c-5401-8095-9bc1b8b08638})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameScanoutMonitor;{7e83efa9-843c-5401-8095-9bc1b8b08638})");
 }
 impl ::core::clone::Clone for HolographicFrameScanoutMonitor {
     fn clone(&self) -> Self {
@@ -2129,7 +2129,7 @@ unsafe impl ::windows::core::Interface for HolographicFrameScanoutMonitor {
 impl ::windows::core::RuntimeName for HolographicFrameScanoutMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameScanoutMonitor";
 }
-::windows::core::interface_hierarchy!(HolographicFrameScanoutMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicFrameScanoutMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HolographicFrameScanoutMonitor> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2212,7 +2212,7 @@ impl ::core::fmt::Debug for HolographicFrameScanoutReport {
     }
 }
 impl ::windows::core::RuntimeType for HolographicFrameScanoutReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameScanoutReport;{0ebbe606-03a0-5ca0-b46e-bba068d7233f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameScanoutReport;{0ebbe606-03a0-5ca0-b46e-bba068d7233f})");
 }
 impl ::core::clone::Clone for HolographicFrameScanoutReport {
     fn clone(&self) -> Self {
@@ -2228,7 +2228,7 @@ unsafe impl ::windows::core::Interface for HolographicFrameScanoutReport {
 impl ::windows::core::RuntimeName for HolographicFrameScanoutReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameScanoutReport";
 }
-::windows::core::interface_hierarchy!(HolographicFrameScanoutReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicFrameScanoutReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicFrameScanoutReport {}
 unsafe impl ::core::marker::Sync for HolographicFrameScanoutReport {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -2277,7 +2277,7 @@ impl HolographicQuadLayer {
     }
     #[doc(hidden)]
     pub fn IHolographicQuadLayerFactory<R, F: FnOnce(&IHolographicQuadLayerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HolographicQuadLayer, IHolographicQuadLayerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HolographicQuadLayer, IHolographicQuadLayerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2293,7 +2293,7 @@ impl ::core::fmt::Debug for HolographicQuadLayer {
     }
 }
 impl ::windows::core::RuntimeType for HolographicQuadLayer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicQuadLayer;{903460c9-c9d9-5d5c-41ac-a2d5ab0fd331})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicQuadLayer;{903460c9-c9d9-5d5c-41ac-a2d5ab0fd331})");
 }
 impl ::core::clone::Clone for HolographicQuadLayer {
     fn clone(&self) -> Self {
@@ -2309,7 +2309,7 @@ unsafe impl ::windows::core::Interface for HolographicQuadLayer {
 impl ::windows::core::RuntimeName for HolographicQuadLayer {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicQuadLayer";
 }
-::windows::core::interface_hierarchy!(HolographicQuadLayer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicQuadLayer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HolographicQuadLayer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2404,7 +2404,7 @@ impl ::core::fmt::Debug for HolographicQuadLayerUpdateParameters {
     }
 }
 impl ::windows::core::RuntimeType for HolographicQuadLayerUpdateParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters;{2b0ea3b0-798d-5bca-55c2-2c0c762ebb08})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters;{2b0ea3b0-798d-5bca-55c2-2c0c762ebb08})");
 }
 impl ::core::clone::Clone for HolographicQuadLayerUpdateParameters {
     fn clone(&self) -> Self {
@@ -2420,7 +2420,7 @@ unsafe impl ::windows::core::Interface for HolographicQuadLayerUpdateParameters 
 impl ::windows::core::RuntimeName for HolographicQuadLayerUpdateParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters";
 }
-::windows::core::interface_hierarchy!(HolographicQuadLayerUpdateParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicQuadLayerUpdateParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicQuadLayerUpdateParameters {}
 unsafe impl ::core::marker::Sync for HolographicQuadLayerUpdateParameters {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -2570,17 +2570,17 @@ impl HolographicSpace {
     }
     #[doc(hidden)]
     pub fn IHolographicSpaceStatics<R, F: FnOnce(&IHolographicSpaceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HolographicSpace, IHolographicSpaceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HolographicSpace, IHolographicSpaceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHolographicSpaceStatics2<R, F: FnOnce(&IHolographicSpaceStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HolographicSpace, IHolographicSpaceStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HolographicSpace, IHolographicSpaceStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHolographicSpaceStatics3<R, F: FnOnce(&IHolographicSpaceStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HolographicSpace, IHolographicSpaceStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HolographicSpace, IHolographicSpaceStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2596,7 +2596,7 @@ impl ::core::fmt::Debug for HolographicSpace {
     }
 }
 impl ::windows::core::RuntimeType for HolographicSpace {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpace;{4380dba6-5e78-434f-807c-3433d1efe8b7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpace;{4380dba6-5e78-434f-807c-3433d1efe8b7})");
 }
 impl ::core::clone::Clone for HolographicSpace {
     fn clone(&self) -> Self {
@@ -2612,7 +2612,7 @@ unsafe impl ::windows::core::Interface for HolographicSpace {
 impl ::windows::core::RuntimeName for HolographicSpace {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpace";
 }
-::windows::core::interface_hierarchy!(HolographicSpace, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicSpace, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicSpace {}
 unsafe impl ::core::marker::Sync for HolographicSpace {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -2648,7 +2648,7 @@ impl ::core::fmt::Debug for HolographicSpaceCameraAddedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for HolographicSpaceCameraAddedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs;{58f1da35-bbb3-3c8f-993d-6c80e7feb99f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs;{58f1da35-bbb3-3c8f-993d-6c80e7feb99f})");
 }
 impl ::core::clone::Clone for HolographicSpaceCameraAddedEventArgs {
     fn clone(&self) -> Self {
@@ -2664,7 +2664,7 @@ unsafe impl ::windows::core::Interface for HolographicSpaceCameraAddedEventArgs 
 impl ::windows::core::RuntimeName for HolographicSpaceCameraAddedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs";
 }
-::windows::core::interface_hierarchy!(HolographicSpaceCameraAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicSpaceCameraAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicSpaceCameraAddedEventArgs {}
 unsafe impl ::core::marker::Sync for HolographicSpaceCameraAddedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -2691,7 +2691,7 @@ impl ::core::fmt::Debug for HolographicSpaceCameraRemovedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for HolographicSpaceCameraRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs;{805444a8-f2ae-322e-8da9-836a0a95a4c1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs;{805444a8-f2ae-322e-8da9-836a0a95a4c1})");
 }
 impl ::core::clone::Clone for HolographicSpaceCameraRemovedEventArgs {
     fn clone(&self) -> Self {
@@ -2707,7 +2707,7 @@ unsafe impl ::windows::core::Interface for HolographicSpaceCameraRemovedEventArg
 impl ::windows::core::RuntimeName for HolographicSpaceCameraRemovedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs";
 }
-::windows::core::interface_hierarchy!(HolographicSpaceCameraRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicSpaceCameraRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicSpaceCameraRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for HolographicSpaceCameraRemovedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -2826,7 +2826,7 @@ impl ::core::fmt::Debug for HolographicViewConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for HolographicViewConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicViewConfiguration;{5c1de6e6-67e9-5004-b02c-67a3a122b576})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicViewConfiguration;{5c1de6e6-67e9-5004-b02c-67a3a122b576})");
 }
 impl ::core::clone::Clone for HolographicViewConfiguration {
     fn clone(&self) -> Self {
@@ -2842,7 +2842,7 @@ unsafe impl ::windows::core::Interface for HolographicViewConfiguration {
 impl ::windows::core::RuntimeName for HolographicViewConfiguration {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicViewConfiguration";
 }
-::windows::core::interface_hierarchy!(HolographicViewConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicViewConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicViewConfiguration {}
 unsafe impl ::core::marker::Sync for HolographicViewConfiguration {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -2873,7 +2873,7 @@ impl ::core::fmt::Debug for HolographicDepthReprojectionMethod {
     }
 }
 impl ::windows::core::RuntimeType for HolographicDepthReprojectionMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicDepthReprojectionMethod;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicDepthReprojectionMethod;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
@@ -2903,7 +2903,7 @@ impl ::core::fmt::Debug for HolographicFramePresentResult {
     }
 }
 impl ::windows::core::RuntimeType for HolographicFramePresentResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentResult;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
@@ -2933,7 +2933,7 @@ impl ::core::fmt::Debug for HolographicFramePresentWaitBehavior {
     }
 }
 impl ::windows::core::RuntimeType for HolographicFramePresentWaitBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
@@ -2964,7 +2964,7 @@ impl ::core::fmt::Debug for HolographicReprojectionMode {
     }
 }
 impl ::windows::core::RuntimeType for HolographicReprojectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicReprojectionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicReprojectionMode;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
@@ -2995,7 +2995,7 @@ impl ::core::fmt::Debug for HolographicSpaceUserPresence {
     }
 }
 impl ::windows::core::RuntimeType for HolographicSpaceUserPresence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicSpaceUserPresence;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicSpaceUserPresence;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
@@ -3025,7 +3025,7 @@ impl ::core::fmt::Debug for HolographicViewConfigurationKind {
     }
 }
 impl ::windows::core::RuntimeType for HolographicViewConfigurationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -3048,7 +3048,7 @@ impl ::windows::core::TypeKind for HolographicAdapterId {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for HolographicAdapterId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicAdapterId;u4;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicAdapterId;u4;i4)");
 }
 impl ::core::cmp::PartialEq for HolographicAdapterId {
     fn eq(&self, other: &Self) -> bool {
@@ -3081,7 +3081,7 @@ impl ::windows::core::TypeKind for HolographicFrameId {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for HolographicFrameId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicFrameId;u8)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicFrameId;u8)");
 }
 impl ::core::cmp::PartialEq for HolographicFrameId {
     fn eq(&self, other: &Self) -> bool {
@@ -3121,7 +3121,7 @@ impl ::windows::core::TypeKind for HolographicStereoTransform {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::windows::core::RuntimeType for HolographicStereoTransform {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicStereoTransform;struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicStereoTransform;struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4))");
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for HolographicStereoTransform {

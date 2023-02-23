@@ -5,7 +5,7 @@ pub unsafe fn FhServiceBlockBackup<P0>(pipe: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
 {
-    ::windows::core::link ! ( "fhsvcctl.dll""system" fn FhServiceBlockBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "fhsvcctl.dll""system" fn FhServiceBlockBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows::core::HRESULT );
     FhServiceBlockBackup(pipe.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
@@ -15,7 +15,7 @@ pub unsafe fn FhServiceClosePipe<P0>(pipe: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
 {
-    ::windows::core::link ! ( "fhsvcctl.dll""system" fn FhServiceClosePipe ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "fhsvcctl.dll""system" fn FhServiceClosePipe ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows::core::HRESULT );
     FhServiceClosePipe(pipe.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
@@ -25,7 +25,7 @@ pub unsafe fn FhServiceOpenPipe<P0>(startserviceifstopped: P0) -> ::windows::cor
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "fhsvcctl.dll""system" fn FhServiceOpenPipe ( startserviceifstopped : super::super::Foundation:: BOOL , pipe : *mut super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "fhsvcctl.dll""system" fn FhServiceOpenPipe ( startserviceifstopped : super::super::Foundation:: BOOL , pipe : *mut super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>();
     FhServiceOpenPipe(startserviceifstopped.into(), &mut result__).from_abi(result__)
 }
@@ -36,7 +36,7 @@ pub unsafe fn FhServiceReloadConfiguration<P0>(pipe: P0) -> ::windows::core::Res
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
 {
-    ::windows::core::link ! ( "fhsvcctl.dll""system" fn FhServiceReloadConfiguration ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "fhsvcctl.dll""system" fn FhServiceReloadConfiguration ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows::core::HRESULT );
     FhServiceReloadConfiguration(pipe.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
@@ -47,7 +47,7 @@ where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "fhsvcctl.dll""system" fn FhServiceStartBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE , lowpriorityio : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "fhsvcctl.dll""system" fn FhServiceStartBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE , lowpriorityio : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     FhServiceStartBackup(pipe.into(), lowpriorityio.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
@@ -58,7 +58,7 @@ where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "fhsvcctl.dll""system" fn FhServiceStopBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE , stoptracking : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "fhsvcctl.dll""system" fn FhServiceStopBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE , stoptracking : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     FhServiceStopBackup(pipe.into(), stoptracking.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
@@ -68,7 +68,7 @@ pub unsafe fn FhServiceUnblockBackup<P0>(pipe: P0) -> ::windows::core::Result<()
 where
     P0: ::std::convert::Into<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>,
 {
-    ::windows::core::link ! ( "fhsvcctl.dll""system" fn FhServiceUnblockBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "fhsvcctl.dll""system" fn FhServiceUnblockBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows::core::HRESULT );
     FhServiceUnblockBackup(pipe.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
@@ -143,7 +143,7 @@ impl IFhConfigMgr {
         (::windows::core::Vtable::vtable(self).QueryProtectionStatus)(::windows::core::Vtable::as_raw(self), protectionstate, ::core::mem::transmute(protecteduntiltime)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFhConfigMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFhConfigMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFhConfigMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -225,7 +225,7 @@ impl IFhReassociation {
         (::windows::core::Vtable::vtable(self).PerformReassociation)(::windows::core::Vtable::as_raw(self), overwriteifexists.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFhReassociation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFhReassociation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFhReassociation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -276,7 +276,7 @@ impl IFhScopeIterator {
         (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFhScopeIterator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFhScopeIterator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFhScopeIterator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -319,7 +319,7 @@ impl IFhTarget {
         (::windows::core::Vtable::vtable(self).GetNumericalProperty)(::windows::core::Vtable::as_raw(self), propertytype, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFhTarget, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFhTarget, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFhTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

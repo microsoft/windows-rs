@@ -498,12 +498,12 @@ impl AnalyticsInfo {
     }
     #[doc(hidden)]
     pub fn IAnalyticsInfoStatics<R, F: FnOnce(&IAnalyticsInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAnalyticsInfoStatics2<R, F: FnOnce(&IAnalyticsInfoStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -548,7 +548,7 @@ impl ::core::fmt::Debug for AnalyticsVersionInfo {
     }
 }
 impl ::windows::core::RuntimeType for AnalyticsVersionInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.AnalyticsVersionInfo;{926130b8-9955-4c74-bdc1-7cd0decf9b03})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Profile.AnalyticsVersionInfo;{926130b8-9955-4c74-bdc1-7cd0decf9b03})");
 }
 impl ::core::clone::Clone for AnalyticsVersionInfo {
     fn clone(&self) -> Self {
@@ -564,7 +564,7 @@ unsafe impl ::windows::core::Interface for AnalyticsVersionInfo {
 impl ::windows::core::RuntimeName for AnalyticsVersionInfo {
     const NAME: &'static str = "Windows.System.Profile.AnalyticsVersionInfo";
 }
-::windows::core::interface_hierarchy!(AnalyticsVersionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AnalyticsVersionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AnalyticsVersionInfo {}
 unsafe impl ::core::marker::Sync for AnalyticsVersionInfo {}
 #[doc = "*Required features: `\"System_Profile\"`*"]
@@ -584,7 +584,7 @@ impl AppApplicability {
     }
     #[doc(hidden)]
     pub fn IAppApplicabilityStatics<R, F: FnOnce(&IAppApplicabilityStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppApplicability, IAppApplicabilityStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppApplicability, IAppApplicabilityStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -602,7 +602,7 @@ impl EducationSettings {
     }
     #[doc(hidden)]
     pub fn IEducationSettingsStatics<R, F: FnOnce(&IEducationSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EducationSettings, IEducationSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EducationSettings, IEducationSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -626,7 +626,7 @@ impl HardwareIdentification {
     }
     #[doc(hidden)]
     pub fn IHardwareIdentificationStatics<R, F: FnOnce(&IHardwareIdentificationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HardwareIdentification, IHardwareIdentificationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HardwareIdentification, IHardwareIdentificationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -677,7 +677,7 @@ impl ::core::fmt::Debug for HardwareToken {
     }
 }
 impl ::windows::core::RuntimeType for HardwareToken {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.HardwareToken;{28f6d4c0-fb12-40a4-8167-7f4e03d2724c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Profile.HardwareToken;{28f6d4c0-fb12-40a4-8167-7f4e03d2724c})");
 }
 impl ::core::clone::Clone for HardwareToken {
     fn clone(&self) -> Self {
@@ -693,7 +693,7 @@ unsafe impl ::windows::core::Interface for HardwareToken {
 impl ::windows::core::RuntimeName for HardwareToken {
     const NAME: &'static str = "Windows.System.Profile.HardwareToken";
 }
-::windows::core::interface_hierarchy!(HardwareToken, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HardwareToken, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HardwareToken {}
 unsafe impl ::core::marker::Sync for HardwareToken {}
 #[doc = "*Required features: `\"System_Profile\"`*"]
@@ -833,7 +833,7 @@ impl KnownRetailInfoProperties {
     }
     #[doc(hidden)]
     pub fn IKnownRetailInfoPropertiesStatics<R, F: FnOnce(&IKnownRetailInfoPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownRetailInfoProperties, IKnownRetailInfoPropertiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownRetailInfoProperties, IKnownRetailInfoPropertiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -870,7 +870,7 @@ impl PlatformDiagnosticsAndUsageDataSettings {
     }
     #[doc(hidden)]
     pub fn IPlatformDiagnosticsAndUsageDataSettingsStatics<R, F: FnOnce(&IPlatformDiagnosticsAndUsageDataSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlatformDiagnosticsAndUsageDataSettings, IPlatformDiagnosticsAndUsageDataSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlatformDiagnosticsAndUsageDataSettings, IPlatformDiagnosticsAndUsageDataSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -896,7 +896,7 @@ impl RetailInfo {
     }
     #[doc(hidden)]
     pub fn IRetailInfoStatics<R, F: FnOnce(&IRetailInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RetailInfo, IRetailInfoStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RetailInfo, IRetailInfoStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -920,12 +920,12 @@ impl SharedModeSettings {
     }
     #[doc(hidden)]
     pub fn ISharedModeSettingsStatics<R, F: FnOnce(&ISharedModeSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SharedModeSettings, ISharedModeSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SharedModeSettings, ISharedModeSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISharedModeSettingsStatics2<R, F: FnOnce(&ISharedModeSettingsStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SharedModeSettings, ISharedModeSettingsStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SharedModeSettings, ISharedModeSettingsStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -956,7 +956,7 @@ impl SmartAppControlPolicy {
     }
     #[doc(hidden)]
     pub fn ISmartAppControlPolicyStatics<R, F: FnOnce(&ISmartAppControlPolicyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartAppControlPolicy, ISmartAppControlPolicyStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartAppControlPolicy, ISmartAppControlPolicyStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -980,7 +980,7 @@ impl SystemIdentification {
     }
     #[doc(hidden)]
     pub fn ISystemIdentificationStatics<R, F: FnOnce(&ISystemIdentificationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemIdentification, ISystemIdentificationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemIdentification, ISystemIdentificationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1020,7 +1020,7 @@ impl ::core::fmt::Debug for SystemIdentificationInfo {
     }
 }
 impl ::windows::core::RuntimeType for SystemIdentificationInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemIdentificationInfo;{0c659e7d-c3c2-4d33-a2df-21bc41916eb3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemIdentificationInfo;{0c659e7d-c3c2-4d33-a2df-21bc41916eb3})");
 }
 impl ::core::clone::Clone for SystemIdentificationInfo {
     fn clone(&self) -> Self {
@@ -1036,7 +1036,7 @@ unsafe impl ::windows::core::Interface for SystemIdentificationInfo {
 impl ::windows::core::RuntimeName for SystemIdentificationInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemIdentificationInfo";
 }
-::windows::core::interface_hierarchy!(SystemIdentificationInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemIdentificationInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemIdentificationInfo {}
 unsafe impl ::core::marker::Sync for SystemIdentificationInfo {}
 #[doc = "*Required features: `\"System_Profile\"`*"]
@@ -1063,7 +1063,7 @@ impl SystemSetupInfo {
     }
     #[doc(hidden)]
     pub fn ISystemSetupInfoStatics<R, F: FnOnce(&ISystemSetupInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemSetupInfo, ISystemSetupInfoStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemSetupInfo, ISystemSetupInfoStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1101,7 +1101,7 @@ impl ::core::fmt::Debug for UnsupportedAppRequirement {
     }
 }
 impl ::windows::core::RuntimeType for UnsupportedAppRequirement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.UnsupportedAppRequirement;{6182445c-894b-5cbc-8976-a98e0a9b998d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Profile.UnsupportedAppRequirement;{6182445c-894b-5cbc-8976-a98e0a9b998d})");
 }
 impl ::core::clone::Clone for UnsupportedAppRequirement {
     fn clone(&self) -> Self {
@@ -1117,7 +1117,7 @@ unsafe impl ::windows::core::Interface for UnsupportedAppRequirement {
 impl ::windows::core::RuntimeName for UnsupportedAppRequirement {
     const NAME: &'static str = "Windows.System.Profile.UnsupportedAppRequirement";
 }
-::windows::core::interface_hierarchy!(UnsupportedAppRequirement, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UnsupportedAppRequirement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UnsupportedAppRequirement {}
 unsafe impl ::core::marker::Sync for UnsupportedAppRequirement {}
 #[doc = "*Required features: `\"System_Profile\"`*"]
@@ -1162,7 +1162,7 @@ impl WindowsIntegrityPolicy {
     }
     #[doc(hidden)]
     pub fn IWindowsIntegrityPolicyStatics<R, F: FnOnce(&IWindowsIntegrityPolicyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WindowsIntegrityPolicy, IWindowsIntegrityPolicyStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WindowsIntegrityPolicy, IWindowsIntegrityPolicyStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1199,7 +1199,7 @@ impl ::core::fmt::Debug for PlatformDataCollectionLevel {
     }
 }
 impl ::windows::core::RuntimeType for PlatformDataCollectionLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformDataCollectionLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformDataCollectionLevel;i4)");
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
@@ -1231,7 +1231,7 @@ impl ::core::fmt::Debug for SystemIdentificationSource {
     }
 }
 impl ::windows::core::RuntimeType for SystemIdentificationSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemIdentificationSource;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemIdentificationSource;i4)");
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
@@ -1262,7 +1262,7 @@ impl ::core::fmt::Debug for SystemOutOfBoxExperienceState {
     }
 }
 impl ::windows::core::RuntimeType for SystemOutOfBoxExperienceState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemOutOfBoxExperienceState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemOutOfBoxExperienceState;i4)");
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
@@ -1325,7 +1325,7 @@ impl ::core::ops::Not for UnsupportedAppRequirementReasons {
     }
 }
 impl ::windows::core::RuntimeType for UnsupportedAppRequirementReasons {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.UnsupportedAppRequirementReasons;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.UnsupportedAppRequirementReasons;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

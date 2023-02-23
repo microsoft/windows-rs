@@ -963,7 +963,7 @@ impl ::core::fmt::Debug for BarcodeScannerDisableScannerRequest {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerDisableScannerRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest;{88ecf7c0-37b9-4275-8e77-c8e52ae5a9c8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest;{88ecf7c0-37b9-4275-8e77-c8e52ae5a9c8})");
 }
 impl ::core::clone::Clone for BarcodeScannerDisableScannerRequest {
     fn clone(&self) -> Self {
@@ -979,7 +979,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerDisableScannerRequest {
 impl ::windows::core::RuntimeName for BarcodeScannerDisableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerDisableScannerRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerDisableScannerRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerDisableScannerRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerDisableScannerRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1015,7 +1015,7 @@ impl ::core::fmt::Debug for BarcodeScannerDisableScannerRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerDisableScannerRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequestEventArgs;{7006e142-e802-46f5-b604-352a15ce9232})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequestEventArgs;{7006e142-e802-46f5-b604-352a15ce9232})");
 }
 impl ::core::clone::Clone for BarcodeScannerDisableScannerRequestEventArgs {
     fn clone(&self) -> Self {
@@ -1031,7 +1031,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerDisableScannerRequestEv
 impl ::windows::core::RuntimeName for BarcodeScannerDisableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerDisableScannerRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerDisableScannerRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerDisableScannerRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerDisableScannerRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1087,7 +1087,7 @@ impl ::core::fmt::Debug for BarcodeScannerEnableScannerRequest {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerEnableScannerRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest;{c0b3e9ba-816a-452b-bd77-b7e453ec446d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest;{c0b3e9ba-816a-452b-bd77-b7e453ec446d})");
 }
 impl ::core::clone::Clone for BarcodeScannerEnableScannerRequest {
     fn clone(&self) -> Self {
@@ -1103,7 +1103,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerEnableScannerRequest {
 impl ::windows::core::RuntimeName for BarcodeScannerEnableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerEnableScannerRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerEnableScannerRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerEnableScannerRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerEnableScannerRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1139,7 +1139,7 @@ impl ::core::fmt::Debug for BarcodeScannerEnableScannerRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerEnableScannerRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequestEventArgs;{956c9419-7b4e-4451-8c41-8e10cfbc5b41})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequestEventArgs;{956c9419-7b4e-4451-8c41-8e10cfbc5b41})");
 }
 impl ::core::clone::Clone for BarcodeScannerEnableScannerRequestEventArgs {
     fn clone(&self) -> Self {
@@ -1155,7 +1155,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerEnableScannerRequestEve
 impl ::windows::core::RuntimeName for BarcodeScannerEnableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerEnableScannerRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerEnableScannerRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerEnableScannerRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerEnableScannerRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1230,7 +1230,7 @@ impl ::core::fmt::Debug for BarcodeScannerFrameReader {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerFrameReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader;{dbc72b07-64c3-482b-93c8-65fb33c22208})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader;{dbc72b07-64c3-482b-93c8-65fb33c22208})");
 }
 impl ::core::clone::Clone for BarcodeScannerFrameReader {
     fn clone(&self) -> Self {
@@ -1246,7 +1246,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerFrameReader {
 impl ::windows::core::RuntimeName for BarcodeScannerFrameReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerFrameReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerFrameReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BarcodeScannerFrameReader> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1297,7 +1297,7 @@ impl ::core::fmt::Debug for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerFrameReaderFrameArrivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReaderFrameArrivedEventArgs;{b0bbd604-54fd-436d-8629-712e787223dd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReaderFrameArrivedEventArgs;{b0bbd604-54fd-436d-8629-712e787223dd})");
 }
 impl ::core::clone::Clone for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     fn clone(&self) -> Self {
@@ -1313,7 +1313,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerFrameReaderFrameArrived
 impl ::windows::core::RuntimeName for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReaderFrameArrivedEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerFrameReaderFrameArrivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerFrameReaderFrameArrivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1376,7 +1376,7 @@ impl ::core::fmt::Debug for BarcodeScannerGetSymbologyAttributesRequest {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerGetSymbologyAttributesRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest;{9774c46a-58e4-4c5f-b8e9-e41467632700})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest;{9774c46a-58e4-4c5f-b8e9-e41467632700})");
 }
 impl ::core::clone::Clone for BarcodeScannerGetSymbologyAttributesRequest {
     fn clone(&self) -> Self {
@@ -1392,7 +1392,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerGetSymbologyAttributesR
 impl ::windows::core::RuntimeName for BarcodeScannerGetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerGetSymbologyAttributesRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerGetSymbologyAttributesRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerGetSymbologyAttributesRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerGetSymbologyAttributesRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1428,7 +1428,7 @@ impl ::core::fmt::Debug for BarcodeScannerGetSymbologyAttributesRequestEventArgs
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequestEventArgs;{7f89de3e-fb5d-493c-b402-356b24d574a6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequestEventArgs;{7f89de3e-fb5d-493c-b402-356b24d574a6})");
 }
 impl ::core::clone::Clone for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     fn clone(&self) -> Self {
@@ -1444,7 +1444,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerGetSymbologyAttributesR
 impl ::windows::core::RuntimeName for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerGetSymbologyAttributesRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerGetSymbologyAttributesRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1500,7 +1500,7 @@ impl ::core::fmt::Debug for BarcodeScannerHideVideoPreviewRequest {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerHideVideoPreviewRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest;{fa4ebe7f-6670-40e1-b90b-bb10d8d425fa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest;{fa4ebe7f-6670-40e1-b90b-bb10d8d425fa})");
 }
 impl ::core::clone::Clone for BarcodeScannerHideVideoPreviewRequest {
     fn clone(&self) -> Self {
@@ -1516,7 +1516,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerHideVideoPreviewRequest
 impl ::windows::core::RuntimeName for BarcodeScannerHideVideoPreviewRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerHideVideoPreviewRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerHideVideoPreviewRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerHideVideoPreviewRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerHideVideoPreviewRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1552,7 +1552,7 @@ impl ::core::fmt::Debug for BarcodeScannerHideVideoPreviewRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerHideVideoPreviewRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequestEventArgs;{16a281fc-d6be-4bc7-9df1-33741f3eadea})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequestEventArgs;{16a281fc-d6be-4bc7-9df1-33741f3eadea})");
 }
 impl ::core::clone::Clone for BarcodeScannerHideVideoPreviewRequestEventArgs {
     fn clone(&self) -> Self {
@@ -1568,7 +1568,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerHideVideoPreviewRequest
 impl ::windows::core::RuntimeName for BarcodeScannerHideVideoPreviewRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerHideVideoPreviewRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerHideVideoPreviewRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerHideVideoPreviewRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerHideVideoPreviewRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1837,7 +1837,7 @@ impl ::core::fmt::Debug for BarcodeScannerProviderConnection {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerProviderConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection;{b44acbed-0b3a-4fa3-86c5-491ea30780eb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection;{b44acbed-0b3a-4fa3-86c5-491ea30780eb})");
 }
 impl ::core::clone::Clone for BarcodeScannerProviderConnection {
     fn clone(&self) -> Self {
@@ -1853,7 +1853,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerProviderConnection {
 impl ::windows::core::RuntimeName for BarcodeScannerProviderConnection {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BarcodeScannerProviderConnection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1902,7 +1902,7 @@ impl ::core::fmt::Debug for BarcodeScannerProviderTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerProviderTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerProviderTriggerDetails;{50856d82-24e3-48ce-99c7-70aac1cbc9f7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerProviderTriggerDetails;{50856d82-24e3-48ce-99c7-70aac1cbc9f7})");
 }
 impl ::core::clone::Clone for BarcodeScannerProviderTriggerDetails {
     fn clone(&self) -> Self {
@@ -1918,7 +1918,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerProviderTriggerDetails 
 impl ::windows::core::RuntimeName for BarcodeScannerProviderTriggerDetails {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderTriggerDetails";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for BarcodeScannerProviderTriggerDetails {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1983,7 +1983,7 @@ impl ::core::fmt::Debug for BarcodeScannerSetActiveSymbologiesRequest {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerSetActiveSymbologiesRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest;{db3f32b9-f7da-41a1-9f79-07bcd95f0bdf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest;{db3f32b9-f7da-41a1-9f79-07bcd95f0bdf})");
 }
 impl ::core::clone::Clone for BarcodeScannerSetActiveSymbologiesRequest {
     fn clone(&self) -> Self {
@@ -1999,7 +1999,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerSetActiveSymbologiesReq
 impl ::windows::core::RuntimeName for BarcodeScannerSetActiveSymbologiesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerSetActiveSymbologiesRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerSetActiveSymbologiesRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerSetActiveSymbologiesRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerSetActiveSymbologiesRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2035,7 +2035,7 @@ impl ::core::fmt::Debug for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequestEventArgs;{06305afa-7bf6-4d52-801a-330272f60ae1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequestEventArgs;{06305afa-7bf6-4d52-801a-330272f60ae1})");
 }
 impl ::core::clone::Clone for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     fn clone(&self) -> Self {
@@ -2051,7 +2051,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerSetActiveSymbologiesReq
 impl ::windows::core::RuntimeName for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerSetActiveSymbologiesRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerSetActiveSymbologiesRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2121,7 +2121,7 @@ impl ::core::fmt::Debug for BarcodeScannerSetSymbologyAttributesRequest {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerSetSymbologyAttributesRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest;{32fb814f-a37f-48b0-acea-dce1480f12ae})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest;{32fb814f-a37f-48b0-acea-dce1480f12ae})");
 }
 impl ::core::clone::Clone for BarcodeScannerSetSymbologyAttributesRequest {
     fn clone(&self) -> Self {
@@ -2137,7 +2137,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerSetSymbologyAttributesR
 impl ::windows::core::RuntimeName for BarcodeScannerSetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerSetSymbologyAttributesRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerSetSymbologyAttributesRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerSetSymbologyAttributesRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerSetSymbologyAttributesRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2173,7 +2173,7 @@ impl ::core::fmt::Debug for BarcodeScannerSetSymbologyAttributesRequestEventArgs
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequestEventArgs;{b2b89809-9824-47d4-85bd-d0077baa7bd2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequestEventArgs;{b2b89809-9824-47d4-85bd-d0077baa7bd2})");
 }
 impl ::core::clone::Clone for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     fn clone(&self) -> Self {
@@ -2189,7 +2189,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerSetSymbologyAttributesR
 impl ::windows::core::RuntimeName for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerSetSymbologyAttributesRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerSetSymbologyAttributesRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2245,7 +2245,7 @@ impl ::core::fmt::Debug for BarcodeScannerStartSoftwareTriggerRequest {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerStartSoftwareTriggerRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest;{e3fa7b27-ff62-4454-af4a-cb6144a3e3f7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest;{e3fa7b27-ff62-4454-af4a-cb6144a3e3f7})");
 }
 impl ::core::clone::Clone for BarcodeScannerStartSoftwareTriggerRequest {
     fn clone(&self) -> Self {
@@ -2261,7 +2261,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerStartSoftwareTriggerReq
 impl ::windows::core::RuntimeName for BarcodeScannerStartSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerStartSoftwareTriggerRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerStartSoftwareTriggerRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerStartSoftwareTriggerRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStartSoftwareTriggerRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2297,7 +2297,7 @@ impl ::core::fmt::Debug for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequestEventArgs;{2305d843-c88f-4f3b-8c3b-d3df071051ec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequestEventArgs;{2305d843-c88f-4f3b-8c3b-d3df071051ec})");
 }
 impl ::core::clone::Clone for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     fn clone(&self) -> Self {
@@ -2313,7 +2313,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerStartSoftwareTriggerReq
 impl ::windows::core::RuntimeName for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerStartSoftwareTriggerRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerStartSoftwareTriggerRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2369,7 +2369,7 @@ impl ::core::fmt::Debug for BarcodeScannerStopSoftwareTriggerRequest {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerStopSoftwareTriggerRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest;{6f9faf35-e287-4ca8-b70d-5a91d694f668})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest;{6f9faf35-e287-4ca8-b70d-5a91d694f668})");
 }
 impl ::core::clone::Clone for BarcodeScannerStopSoftwareTriggerRequest {
     fn clone(&self) -> Self {
@@ -2385,7 +2385,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerStopSoftwareTriggerRequ
 impl ::windows::core::RuntimeName for BarcodeScannerStopSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerStopSoftwareTriggerRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerStopSoftwareTriggerRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerStopSoftwareTriggerRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStopSoftwareTriggerRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2421,7 +2421,7 @@ impl ::core::fmt::Debug for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequestEventArgs;{eac34450-4eb7-481a-9273-147a273b99b8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequestEventArgs;{eac34450-4eb7-481a-9273-147a273b99b8})");
 }
 impl ::core::clone::Clone for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     fn clone(&self) -> Self {
@@ -2437,7 +2437,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerStopSoftwareTriggerRequ
 impl ::windows::core::RuntimeName for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerStopSoftwareTriggerRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerStopSoftwareTriggerRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2495,7 +2495,7 @@ impl ::core::fmt::Debug for BarcodeScannerVideoFrame {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerVideoFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerVideoFrame;{7e585248-9df7-4121-a175-801d8000112e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerVideoFrame;{7e585248-9df7-4121-a175-801d8000112e})");
 }
 impl ::core::clone::Clone for BarcodeScannerVideoFrame {
     fn clone(&self) -> Self {
@@ -2511,7 +2511,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerVideoFrame {
 impl ::windows::core::RuntimeName for BarcodeScannerVideoFrame {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerVideoFrame";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerVideoFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerVideoFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BarcodeScannerVideoFrame> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2543,8 +2543,8 @@ impl BarcodeSymbologyAttributesBuilder {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BarcodeSymbologyAttributesBuilder, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BarcodeSymbologyAttributesBuilder, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn IsCheckDigitValidationSupported(&self) -> ::windows::core::Result<bool> {
@@ -2600,7 +2600,7 @@ impl ::core::fmt::Debug for BarcodeSymbologyAttributesBuilder {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeSymbologyAttributesBuilder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder;{c57b0cbf-e4f5-40b9-84cf-e63fbaea42b4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder;{c57b0cbf-e4f5-40b9-84cf-e63fbaea42b4})");
 }
 impl ::core::clone::Clone for BarcodeSymbologyAttributesBuilder {
     fn clone(&self) -> Self {
@@ -2616,7 +2616,7 @@ unsafe impl ::windows::core::Interface for BarcodeSymbologyAttributesBuilder {
 impl ::windows::core::RuntimeName for BarcodeSymbologyAttributesBuilder {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder";
 }
-::windows::core::interface_hierarchy!(BarcodeSymbologyAttributesBuilder, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeSymbologyAttributesBuilder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeSymbologyAttributesBuilder {}
 unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributesBuilder {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2647,7 +2647,7 @@ impl ::core::fmt::Debug for BarcodeScannerTriggerState {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerTriggerState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.Provider.BarcodeScannerTriggerState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.Provider.BarcodeScannerTriggerState;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

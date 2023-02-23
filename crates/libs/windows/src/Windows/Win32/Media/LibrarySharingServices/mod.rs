@@ -23,7 +23,7 @@ impl IWindowsMediaLibrarySharingDevice {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsMediaLibrarySharingDevice, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWindowsMediaLibrarySharingDevice, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingDevice {
     fn eq(&self, other: &Self) -> bool {
@@ -89,7 +89,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsMediaLibrarySharingDeviceProperties, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWindowsMediaLibrarySharingDeviceProperties, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingDeviceProperties {
     fn eq(&self, other: &Self) -> bool {
@@ -151,7 +151,7 @@ impl IWindowsMediaLibrarySharingDeviceProperty {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsMediaLibrarySharingDeviceProperty, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWindowsMediaLibrarySharingDeviceProperty, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingDeviceProperty {
     fn eq(&self, other: &Self) -> bool {
@@ -215,7 +215,7 @@ impl IWindowsMediaLibrarySharingDevices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsMediaLibrarySharingDevices, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWindowsMediaLibrarySharingDevices, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingDevices {
     fn eq(&self, other: &Self) -> bool {
@@ -382,7 +382,7 @@ impl IWindowsMediaLibrarySharingServices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWindowsMediaLibrarySharingServices, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWindowsMediaLibrarySharingServices, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingServices {
     fn eq(&self, other: &Self) -> bool {

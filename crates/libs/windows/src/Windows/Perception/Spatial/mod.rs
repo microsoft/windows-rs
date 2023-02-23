@@ -910,7 +910,7 @@ impl SpatialAnchor {
     }
     #[doc(hidden)]
     pub fn ISpatialAnchorStatics<R, F: FnOnce(&ISpatialAnchorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialAnchor, ISpatialAnchorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialAnchor, ISpatialAnchorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -926,7 +926,7 @@ impl ::core::fmt::Debug for SpatialAnchor {
     }
 }
 impl ::windows::core::RuntimeType for SpatialAnchor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchor;{0529e5ce-1d34-3702-bcec-eabff578a869})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchor;{0529e5ce-1d34-3702-bcec-eabff578a869})");
 }
 impl ::core::clone::Clone for SpatialAnchor {
     fn clone(&self) -> Self {
@@ -942,7 +942,7 @@ unsafe impl ::windows::core::Interface for SpatialAnchor {
 impl ::windows::core::RuntimeName for SpatialAnchor {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchor";
 }
-::windows::core::interface_hierarchy!(SpatialAnchor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialAnchor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAnchor {}
 unsafe impl ::core::marker::Sync for SpatialAnchor {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -983,7 +983,7 @@ impl ::core::fmt::Debug for SpatialAnchorExportSufficiency {
     }
 }
 impl ::windows::core::RuntimeType for SpatialAnchorExportSufficiency {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorExportSufficiency;{77c25b2b-3409-4088-b91b-fdfd05d1648f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorExportSufficiency;{77c25b2b-3409-4088-b91b-fdfd05d1648f})");
 }
 impl ::core::clone::Clone for SpatialAnchorExportSufficiency {
     fn clone(&self) -> Self {
@@ -999,7 +999,7 @@ unsafe impl ::windows::core::Interface for SpatialAnchorExportSufficiency {
 impl ::windows::core::RuntimeName for SpatialAnchorExportSufficiency {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorExportSufficiency";
 }
-::windows::core::interface_hierarchy!(SpatialAnchorExportSufficiency, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialAnchorExportSufficiency, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAnchorExportSufficiency {}
 unsafe impl ::core::marker::Sync for SpatialAnchorExportSufficiency {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1044,7 +1044,7 @@ impl SpatialAnchorExporter {
     }
     #[doc(hidden)]
     pub fn ISpatialAnchorExporterStatics<R, F: FnOnce(&ISpatialAnchorExporterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialAnchorExporter, ISpatialAnchorExporterStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialAnchorExporter, ISpatialAnchorExporterStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1060,7 +1060,7 @@ impl ::core::fmt::Debug for SpatialAnchorExporter {
     }
 }
 impl ::windows::core::RuntimeType for SpatialAnchorExporter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorExporter;{9a2a4338-24fb-4269-89c5-88304aeef20f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorExporter;{9a2a4338-24fb-4269-89c5-88304aeef20f})");
 }
 impl ::core::clone::Clone for SpatialAnchorExporter {
     fn clone(&self) -> Self {
@@ -1076,7 +1076,7 @@ unsafe impl ::windows::core::Interface for SpatialAnchorExporter {
 impl ::windows::core::RuntimeName for SpatialAnchorExporter {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorExporter";
 }
-::windows::core::interface_hierarchy!(SpatialAnchorExporter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialAnchorExporter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAnchorExporter {}
 unsafe impl ::core::marker::Sync for SpatialAnchorExporter {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1092,7 +1092,7 @@ impl SpatialAnchorManager {
     }
     #[doc(hidden)]
     pub fn ISpatialAnchorManagerStatics<R, F: FnOnce(&ISpatialAnchorManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialAnchorManager, ISpatialAnchorManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialAnchorManager, ISpatialAnchorManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1125,7 +1125,7 @@ impl ::core::fmt::Debug for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorRawCoordinateSystemAdjustedEventArgs;{a1e81eb8-56c7-3117-a2e4-81e0fcf28e00})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorRawCoordinateSystemAdjustedEventArgs;{a1e81eb8-56c7-3117-a2e4-81e0fcf28e00})");
 }
 impl ::core::clone::Clone for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     fn clone(&self) -> Self {
@@ -1141,7 +1141,7 @@ unsafe impl ::windows::core::Interface for SpatialAnchorRawCoordinateSystemAdjus
 impl ::windows::core::RuntimeName for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorRawCoordinateSystemAdjustedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialAnchorRawCoordinateSystemAdjustedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialAnchorRawCoordinateSystemAdjustedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1185,7 +1185,7 @@ impl ::core::fmt::Debug for SpatialAnchorStore {
     }
 }
 impl ::windows::core::RuntimeType for SpatialAnchorStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorStore;{b0bc3636-486a-3cb0-9e6f-1245165c4db6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorStore;{b0bc3636-486a-3cb0-9e6f-1245165c4db6})");
 }
 impl ::core::clone::Clone for SpatialAnchorStore {
     fn clone(&self) -> Self {
@@ -1201,7 +1201,7 @@ unsafe impl ::windows::core::Interface for SpatialAnchorStore {
 impl ::windows::core::RuntimeName for SpatialAnchorStore {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorStore";
 }
-::windows::core::interface_hierarchy!(SpatialAnchorStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialAnchorStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAnchorStore {}
 unsafe impl ::core::marker::Sync for SpatialAnchorStore {}
 #[doc = "*Required features: `\"Perception_Spatial\"`, `\"deprecated\"`*"]
@@ -1246,7 +1246,7 @@ impl SpatialAnchorTransferManager {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn ISpatialAnchorTransferManagerStatics<R, F: FnOnce(&ISpatialAnchorTransferManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialAnchorTransferManager, ISpatialAnchorTransferManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialAnchorTransferManager, ISpatialAnchorTransferManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1292,7 +1292,7 @@ impl SpatialBoundingVolume {
     }
     #[doc(hidden)]
     pub fn ISpatialBoundingVolumeStatics<R, F: FnOnce(&ISpatialBoundingVolumeStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialBoundingVolume, ISpatialBoundingVolumeStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialBoundingVolume, ISpatialBoundingVolumeStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1308,7 +1308,7 @@ impl ::core::fmt::Debug for SpatialBoundingVolume {
     }
 }
 impl ::windows::core::RuntimeType for SpatialBoundingVolume {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialBoundingVolume;{fb2065da-68c3-33df-b7af-4c787207999c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialBoundingVolume;{fb2065da-68c3-33df-b7af-4c787207999c})");
 }
 impl ::core::clone::Clone for SpatialBoundingVolume {
     fn clone(&self) -> Self {
@@ -1324,7 +1324,7 @@ unsafe impl ::windows::core::Interface for SpatialBoundingVolume {
 impl ::windows::core::RuntimeName for SpatialBoundingVolume {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialBoundingVolume";
 }
-::windows::core::interface_hierarchy!(SpatialBoundingVolume, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialBoundingVolume, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialBoundingVolume {}
 unsafe impl ::core::marker::Sync for SpatialBoundingVolume {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1353,7 +1353,7 @@ impl ::core::fmt::Debug for SpatialCoordinateSystem {
     }
 }
 impl ::windows::core::RuntimeType for SpatialCoordinateSystem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialCoordinateSystem;{69ebca4b-60a3-3586-a653-59a7bd676d07})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialCoordinateSystem;{69ebca4b-60a3-3586-a653-59a7bd676d07})");
 }
 impl ::core::clone::Clone for SpatialCoordinateSystem {
     fn clone(&self) -> Self {
@@ -1369,7 +1369,7 @@ unsafe impl ::windows::core::Interface for SpatialCoordinateSystem {
 impl ::windows::core::RuntimeName for SpatialCoordinateSystem {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialCoordinateSystem";
 }
-::windows::core::interface_hierarchy!(SpatialCoordinateSystem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialCoordinateSystem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialCoordinateSystem {}
 unsafe impl ::core::marker::Sync for SpatialCoordinateSystem {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1415,7 +1415,7 @@ impl SpatialEntity {
     }
     #[doc(hidden)]
     pub fn ISpatialEntityFactory<R, F: FnOnce(&ISpatialEntityFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialEntity, ISpatialEntityFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialEntity, ISpatialEntityFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1431,7 +1431,7 @@ impl ::core::fmt::Debug for SpatialEntity {
     }
 }
 impl ::windows::core::RuntimeType for SpatialEntity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntity;{166de955-e1eb-454c-ba08-e6c0668ddc65})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntity;{166de955-e1eb-454c-ba08-e6c0668ddc65})");
 }
 impl ::core::clone::Clone for SpatialEntity {
     fn clone(&self) -> Self {
@@ -1447,7 +1447,7 @@ unsafe impl ::windows::core::Interface for SpatialEntity {
 impl ::windows::core::RuntimeName for SpatialEntity {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntity";
 }
-::windows::core::interface_hierarchy!(SpatialEntity, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialEntity, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialEntity {}
 unsafe impl ::core::marker::Sync for SpatialEntity {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1474,7 +1474,7 @@ impl ::core::fmt::Debug for SpatialEntityAddedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialEntityAddedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityAddedEventArgs;{a397f49b-156a-4707-ac2c-d31d570ed399})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityAddedEventArgs;{a397f49b-156a-4707-ac2c-d31d570ed399})");
 }
 impl ::core::clone::Clone for SpatialEntityAddedEventArgs {
     fn clone(&self) -> Self {
@@ -1490,7 +1490,7 @@ unsafe impl ::windows::core::Interface for SpatialEntityAddedEventArgs {
 impl ::windows::core::RuntimeName for SpatialEntityAddedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityAddedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialEntityAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialEntityAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialEntityAddedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialEntityAddedEventArgs {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1517,7 +1517,7 @@ impl ::core::fmt::Debug for SpatialEntityRemovedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialEntityRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityRemovedEventArgs;{91741800-536d-4e9f-abf6-415b5444d651})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityRemovedEventArgs;{91741800-536d-4e9f-abf6-415b5444d651})");
 }
 impl ::core::clone::Clone for SpatialEntityRemovedEventArgs {
     fn clone(&self) -> Self {
@@ -1533,7 +1533,7 @@ unsafe impl ::windows::core::Interface for SpatialEntityRemovedEventArgs {
 impl ::windows::core::RuntimeName for SpatialEntityRemovedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityRemovedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialEntityRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialEntityRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialEntityRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialEntityRemovedEventArgs {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1581,7 +1581,7 @@ impl SpatialEntityStore {
     }
     #[doc(hidden)]
     pub fn ISpatialEntityStoreStatics<R, F: FnOnce(&ISpatialEntityStoreStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialEntityStore, ISpatialEntityStoreStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialEntityStore, ISpatialEntityStoreStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1597,7 +1597,7 @@ impl ::core::fmt::Debug for SpatialEntityStore {
     }
 }
 impl ::windows::core::RuntimeType for SpatialEntityStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityStore;{329788ba-e513-4f06-889d-1be30ecf43e6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityStore;{329788ba-e513-4f06-889d-1be30ecf43e6})");
 }
 impl ::core::clone::Clone for SpatialEntityStore {
     fn clone(&self) -> Self {
@@ -1613,7 +1613,7 @@ unsafe impl ::windows::core::Interface for SpatialEntityStore {
 impl ::windows::core::RuntimeName for SpatialEntityStore {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityStore";
 }
-::windows::core::interface_hierarchy!(SpatialEntityStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialEntityStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialEntityStore {}
 unsafe impl ::core::marker::Sync for SpatialEntityStore {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1640,7 +1640,7 @@ impl ::core::fmt::Debug for SpatialEntityUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpatialEntityUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityUpdatedEventArgs;{e5671766-627b-43cb-a49f-b3be6d47deed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityUpdatedEventArgs;{e5671766-627b-43cb-a49f-b3be6d47deed})");
 }
 impl ::core::clone::Clone for SpatialEntityUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -1656,7 +1656,7 @@ unsafe impl ::windows::core::Interface for SpatialEntityUpdatedEventArgs {
 impl ::windows::core::RuntimeName for SpatialEntityUpdatedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialEntityUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialEntityUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialEntityUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialEntityUpdatedEventArgs {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1751,7 +1751,7 @@ impl ::core::fmt::Debug for SpatialEntityWatcher {
     }
 }
 impl ::windows::core::RuntimeType for SpatialEntityWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityWatcher;{b3b85fa0-6d5e-4bbc-805d-5fe5b9ba1959})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityWatcher;{b3b85fa0-6d5e-4bbc-805d-5fe5b9ba1959})");
 }
 impl ::core::clone::Clone for SpatialEntityWatcher {
     fn clone(&self) -> Self {
@@ -1767,7 +1767,7 @@ unsafe impl ::windows::core::Interface for SpatialEntityWatcher {
 impl ::windows::core::RuntimeName for SpatialEntityWatcher {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityWatcher";
 }
-::windows::core::interface_hierarchy!(SpatialEntityWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialEntityWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialEntityWatcher {}
 unsafe impl ::core::marker::Sync for SpatialEntityWatcher {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1859,7 +1859,7 @@ impl ::core::fmt::Debug for SpatialLocation {
     }
 }
 impl ::windows::core::RuntimeType for SpatialLocation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocation;{1d81d29d-24a1-37d5-8fa1-39b4f9ad67e2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocation;{1d81d29d-24a1-37d5-8fa1-39b4f9ad67e2})");
 }
 impl ::core::clone::Clone for SpatialLocation {
     fn clone(&self) -> Self {
@@ -1875,7 +1875,7 @@ unsafe impl ::windows::core::Interface for SpatialLocation {
 impl ::windows::core::RuntimeName for SpatialLocation {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocation";
 }
-::windows::core::interface_hierarchy!(SpatialLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialLocation {}
 unsafe impl ::core::marker::Sync for SpatialLocation {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2002,7 +2002,7 @@ impl SpatialLocator {
     }
     #[doc(hidden)]
     pub fn ISpatialLocatorStatics<R, F: FnOnce(&ISpatialLocatorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialLocator, ISpatialLocatorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialLocator, ISpatialLocatorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2018,7 +2018,7 @@ impl ::core::fmt::Debug for SpatialLocator {
     }
 }
 impl ::windows::core::RuntimeType for SpatialLocator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocator;{f6478925-9e0c-3bb6-997e-b64ecca24cf4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocator;{f6478925-9e0c-3bb6-997e-b64ecca24cf4})");
 }
 impl ::core::clone::Clone for SpatialLocator {
     fn clone(&self) -> Self {
@@ -2034,7 +2034,7 @@ unsafe impl ::windows::core::Interface for SpatialLocator {
 impl ::windows::core::RuntimeName for SpatialLocator {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocator";
 }
-::windows::core::interface_hierarchy!(SpatialLocator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialLocator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialLocator {}
 unsafe impl ::core::marker::Sync for SpatialLocator {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2104,7 +2104,7 @@ impl ::core::fmt::Debug for SpatialLocatorAttachedFrameOfReference {
     }
 }
 impl ::windows::core::RuntimeType for SpatialLocatorAttachedFrameOfReference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocatorAttachedFrameOfReference;{e1774ef6-1f4f-499c-9625-ef5e6ed7a048})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocatorAttachedFrameOfReference;{e1774ef6-1f4f-499c-9625-ef5e6ed7a048})");
 }
 impl ::core::clone::Clone for SpatialLocatorAttachedFrameOfReference {
     fn clone(&self) -> Self {
@@ -2120,7 +2120,7 @@ unsafe impl ::windows::core::Interface for SpatialLocatorAttachedFrameOfReferenc
 impl ::windows::core::RuntimeName for SpatialLocatorAttachedFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocatorAttachedFrameOfReference";
 }
-::windows::core::interface_hierarchy!(SpatialLocatorAttachedFrameOfReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialLocatorAttachedFrameOfReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialLocatorAttachedFrameOfReference {}
 unsafe impl ::core::marker::Sync for SpatialLocatorAttachedFrameOfReference {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2151,7 +2151,7 @@ impl ::core::fmt::Debug for SpatialLocatorPositionalTrackingDeactivatingEventArg
     }
 }
 impl ::windows::core::RuntimeType for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocatorPositionalTrackingDeactivatingEventArgs;{b8a84063-e3f4-368b-9061-9ea9d1d6cc16})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocatorPositionalTrackingDeactivatingEventArgs;{b8a84063-e3f4-368b-9061-9ea9d1d6cc16})");
 }
 impl ::core::clone::Clone for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     fn clone(&self) -> Self {
@@ -2167,7 +2167,7 @@ unsafe impl ::windows::core::Interface for SpatialLocatorPositionalTrackingDeact
 impl ::windows::core::RuntimeName for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocatorPositionalTrackingDeactivatingEventArgs";
 }
-::windows::core::interface_hierarchy!(SpatialLocatorPositionalTrackingDeactivatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialLocatorPositionalTrackingDeactivatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2240,7 +2240,7 @@ impl SpatialStageFrameOfReference {
     }
     #[doc(hidden)]
     pub fn ISpatialStageFrameOfReferenceStatics<R, F: FnOnce(&ISpatialStageFrameOfReferenceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialStageFrameOfReference, ISpatialStageFrameOfReferenceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialStageFrameOfReference, ISpatialStageFrameOfReferenceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2256,7 +2256,7 @@ impl ::core::fmt::Debug for SpatialStageFrameOfReference {
     }
 }
 impl ::windows::core::RuntimeType for SpatialStageFrameOfReference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialStageFrameOfReference;{7a8a3464-ad0d-4590-ab86-33062b674926})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialStageFrameOfReference;{7a8a3464-ad0d-4590-ab86-33062b674926})");
 }
 impl ::core::clone::Clone for SpatialStageFrameOfReference {
     fn clone(&self) -> Self {
@@ -2272,7 +2272,7 @@ unsafe impl ::windows::core::Interface for SpatialStageFrameOfReference {
 impl ::windows::core::RuntimeName for SpatialStageFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialStageFrameOfReference";
 }
-::windows::core::interface_hierarchy!(SpatialStageFrameOfReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialStageFrameOfReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialStageFrameOfReference {}
 unsafe impl ::core::marker::Sync for SpatialStageFrameOfReference {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2299,7 +2299,7 @@ impl ::core::fmt::Debug for SpatialStationaryFrameOfReference {
     }
 }
 impl ::windows::core::RuntimeType for SpatialStationaryFrameOfReference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialStationaryFrameOfReference;{09dbccb9-bcf8-3e7f-be7e-7edccbb178a8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialStationaryFrameOfReference;{09dbccb9-bcf8-3e7f-be7e-7edccbb178a8})");
 }
 impl ::core::clone::Clone for SpatialStationaryFrameOfReference {
     fn clone(&self) -> Self {
@@ -2315,7 +2315,7 @@ unsafe impl ::windows::core::Interface for SpatialStationaryFrameOfReference {
 impl ::windows::core::RuntimeName for SpatialStationaryFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialStationaryFrameOfReference";
 }
-::windows::core::interface_hierarchy!(SpatialStationaryFrameOfReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialStationaryFrameOfReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialStationaryFrameOfReference {}
 unsafe impl ::core::marker::Sync for SpatialStationaryFrameOfReference {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2346,7 +2346,7 @@ impl ::core::fmt::Debug for SpatialAnchorExportPurpose {
     }
 }
 impl ::windows::core::RuntimeType for SpatialAnchorExportPurpose {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialAnchorExportPurpose;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialAnchorExportPurpose;i4)");
 }
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
@@ -2380,7 +2380,7 @@ impl ::core::fmt::Debug for SpatialEntityWatcherStatus {
     }
 }
 impl ::windows::core::RuntimeType for SpatialEntityWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialEntityWatcherStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialEntityWatcherStatus;i4)");
 }
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
@@ -2413,7 +2413,7 @@ impl ::core::fmt::Debug for SpatialLocatability {
     }
 }
 impl ::windows::core::RuntimeType for SpatialLocatability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLocatability;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLocatability;i4)");
 }
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
@@ -2443,7 +2443,7 @@ impl ::core::fmt::Debug for SpatialLookDirectionRange {
     }
 }
 impl ::windows::core::RuntimeType for SpatialLookDirectionRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLookDirectionRange;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLookDirectionRange;i4)");
 }
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
@@ -2473,7 +2473,7 @@ impl ::core::fmt::Debug for SpatialMovementRange {
     }
 }
 impl ::windows::core::RuntimeType for SpatialMovementRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialMovementRange;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialMovementRange;i4)");
 }
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
@@ -2505,7 +2505,7 @@ impl ::core::fmt::Debug for SpatialPerceptionAccessStatus {
     }
 }
 impl ::windows::core::RuntimeType for SpatialPerceptionAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialPerceptionAccessStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialPerceptionAccessStatus;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
@@ -2534,7 +2534,7 @@ impl ::windows::core::TypeKind for SpatialBoundingBox {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::windows::core::RuntimeType for SpatialBoundingBox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for SpatialBoundingBox {
@@ -2581,7 +2581,7 @@ impl ::windows::core::TypeKind for SpatialBoundingFrustum {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::windows::core::RuntimeType for SpatialBoundingFrustum {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingFrustum;struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingFrustum;struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4))");
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for SpatialBoundingFrustum {
@@ -2625,7 +2625,7 @@ impl ::windows::core::TypeKind for SpatialBoundingOrientedBox {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::windows::core::RuntimeType for SpatialBoundingOrientedBox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingOrientedBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingOrientedBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4))");
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for SpatialBoundingOrientedBox {
@@ -2668,7 +2668,7 @@ impl ::windows::core::TypeKind for SpatialBoundingSphere {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::windows::core::RuntimeType for SpatialBoundingSphere {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingSphere;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingSphere;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for SpatialBoundingSphere {
@@ -2711,7 +2711,7 @@ impl ::windows::core::TypeKind for SpatialRay {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::windows::core::RuntimeType for SpatialRay {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialRay;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialRay;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for SpatialRay {

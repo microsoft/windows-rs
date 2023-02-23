@@ -10,7 +10,7 @@ impl IAdaptiveCard {
         }
     }
 }
-::windows::core::interface_hierarchy!(IAdaptiveCard, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAdaptiveCard, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IAdaptiveCard {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23,7 +23,7 @@ impl ::core::fmt::Debug for IAdaptiveCard {
     }
 }
 impl ::windows::core::RuntimeType for IAdaptiveCard {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72d0568c-a274-41cd-82a8-989d40b9b05e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{72d0568c-a274-41cd-82a8-989d40b9b05e}");
 }
 unsafe impl ::windows::core::Vtable for IAdaptiveCard {
     type Vtable = IAdaptiveCard_Vtbl;
@@ -54,7 +54,7 @@ impl IAdaptiveCardBuilderStatics {
         }
     }
 }
-::windows::core::interface_hierarchy!(IAdaptiveCardBuilderStatics, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAdaptiveCardBuilderStatics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IAdaptiveCardBuilderStatics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -67,7 +67,7 @@ impl ::core::fmt::Debug for IAdaptiveCardBuilderStatics {
     }
 }
 impl ::windows::core::RuntimeType for IAdaptiveCardBuilderStatics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{766d8f08-d3fe-4347-a0bc-b9ea9a6dc28e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{766d8f08-d3fe-4347-a0bc-b9ea9a6dc28e}");
 }
 unsafe impl ::windows::core::Vtable for IAdaptiveCardBuilderStatics {
     type Vtable = IAdaptiveCardBuilderStatics_Vtbl;
@@ -370,7 +370,7 @@ impl AdaptiveCardBuilder {
     }
     #[doc(hidden)]
     pub fn IAdaptiveCardBuilderStatics<R, F: FnOnce(&IAdaptiveCardBuilderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AdaptiveCardBuilder, IAdaptiveCardBuilderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AdaptiveCardBuilder, IAdaptiveCardBuilderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -405,7 +405,7 @@ impl ::core::fmt::Debug for FocusSession {
     }
 }
 impl ::windows::core::RuntimeType for FocusSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.FocusSession;{069fbab8-0e84-5f2f-8614-9b6544326277})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.FocusSession;{069fbab8-0e84-5f2f-8614-9b6544326277})");
 }
 impl ::core::clone::Clone for FocusSession {
     fn clone(&self) -> Self {
@@ -421,7 +421,7 @@ unsafe impl ::windows::core::Interface for FocusSession {
 impl ::windows::core::RuntimeName for FocusSession {
     const NAME: &'static str = "Windows.UI.Shell.FocusSession";
 }
-::windows::core::interface_hierarchy!(FocusSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FocusSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FocusSession {}
 unsafe impl ::core::marker::Sync for FocusSession {}
 #[doc = "*Required features: `\"UI_Shell\"`*"]
@@ -491,7 +491,7 @@ impl FocusSessionManager {
     }
     #[doc(hidden)]
     pub fn IFocusSessionManagerStatics<R, F: FnOnce(&IFocusSessionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FocusSessionManager, IFocusSessionManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FocusSessionManager, IFocusSessionManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -507,7 +507,7 @@ impl ::core::fmt::Debug for FocusSessionManager {
     }
 }
 impl ::windows::core::RuntimeType for FocusSessionManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.FocusSessionManager;{e7ffbaa9-d8be-5dbf-bac6-49364842e37e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.FocusSessionManager;{e7ffbaa9-d8be-5dbf-bac6-49364842e37e})");
 }
 impl ::core::clone::Clone for FocusSessionManager {
     fn clone(&self) -> Self {
@@ -523,7 +523,7 @@ unsafe impl ::windows::core::Interface for FocusSessionManager {
 impl ::windows::core::RuntimeName for FocusSessionManager {
     const NAME: &'static str = "Windows.UI.Shell.FocusSessionManager";
 }
-::windows::core::interface_hierarchy!(FocusSessionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FocusSessionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FocusSessionManager {}
 unsafe impl ::core::marker::Sync for FocusSessionManager {}
 #[doc = "*Required features: `\"UI_Shell\"`*"]
@@ -533,8 +533,8 @@ impl SecurityAppManager {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SecurityAppManager, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SecurityAppManager, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -569,7 +569,7 @@ impl ::core::fmt::Debug for SecurityAppManager {
     }
 }
 impl ::windows::core::RuntimeType for SecurityAppManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.SecurityAppManager;{96ac500c-aed4-561d-bde8-953520343a2d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.SecurityAppManager;{96ac500c-aed4-561d-bde8-953520343a2d})");
 }
 impl ::core::clone::Clone for SecurityAppManager {
     fn clone(&self) -> Self {
@@ -585,7 +585,7 @@ unsafe impl ::windows::core::Interface for SecurityAppManager {
 impl ::windows::core::RuntimeName for SecurityAppManager {
     const NAME: &'static str = "Windows.UI.Shell.SecurityAppManager";
 }
-::windows::core::interface_hierarchy!(SecurityAppManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SecurityAppManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SecurityAppManager {}
 unsafe impl ::core::marker::Sync for SecurityAppManager {}
 #[doc = "*Required features: `\"UI_Shell\"`*"]
@@ -623,7 +623,7 @@ impl ::core::fmt::Debug for ShareWindowCommandEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ShareWindowCommandEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.ShareWindowCommandEventArgs;{4578dc09-a523-5756-a995-e4feb991fff0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.ShareWindowCommandEventArgs;{4578dc09-a523-5756-a995-e4feb991fff0})");
 }
 impl ::core::clone::Clone for ShareWindowCommandEventArgs {
     fn clone(&self) -> Self {
@@ -639,7 +639,7 @@ unsafe impl ::windows::core::Interface for ShareWindowCommandEventArgs {
 impl ::windows::core::RuntimeName for ShareWindowCommandEventArgs {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandEventArgs";
 }
-::windows::core::interface_hierarchy!(ShareWindowCommandEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ShareWindowCommandEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ShareWindowCommandEventArgs {}
 unsafe impl ::core::marker::Sync for ShareWindowCommandEventArgs {}
 #[doc = "*Required features: `\"UI_Shell\"`*"]
@@ -696,7 +696,7 @@ impl ShareWindowCommandSource {
     }
     #[doc(hidden)]
     pub fn IShareWindowCommandSourceStatics<R, F: FnOnce(&IShareWindowCommandSourceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ShareWindowCommandSource, IShareWindowCommandSourceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ShareWindowCommandSource, IShareWindowCommandSourceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -712,7 +712,7 @@ impl ::core::fmt::Debug for ShareWindowCommandSource {
     }
 }
 impl ::windows::core::RuntimeType for ShareWindowCommandSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.ShareWindowCommandSource;{cb3b7ae3-6b9c-561e-bccc-61e68e0abfef})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.ShareWindowCommandSource;{cb3b7ae3-6b9c-561e-bccc-61e68e0abfef})");
 }
 impl ::core::clone::Clone for ShareWindowCommandSource {
     fn clone(&self) -> Self {
@@ -728,7 +728,7 @@ unsafe impl ::windows::core::Interface for ShareWindowCommandSource {
 impl ::windows::core::RuntimeName for ShareWindowCommandSource {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandSource";
 }
-::windows::core::interface_hierarchy!(ShareWindowCommandSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ShareWindowCommandSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ShareWindowCommandSource {}
 unsafe impl ::core::marker::Sync for ShareWindowCommandSource {}
 #[doc = "*Required features: `\"UI_Shell\"`*"]
@@ -820,7 +820,7 @@ impl TaskbarManager {
     }
     #[doc(hidden)]
     pub fn ITaskbarManagerStatics<R, F: FnOnce(&ITaskbarManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TaskbarManager, ITaskbarManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TaskbarManager, ITaskbarManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -836,7 +836,7 @@ impl ::core::fmt::Debug for TaskbarManager {
     }
 }
 impl ::windows::core::RuntimeType for TaskbarManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.TaskbarManager;{87490a19-1ad9-49f4-b2e8-86738dc5ac40})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.TaskbarManager;{87490a19-1ad9-49f4-b2e8-86738dc5ac40})");
 }
 impl ::core::clone::Clone for TaskbarManager {
     fn clone(&self) -> Self {
@@ -852,7 +852,7 @@ unsafe impl ::windows::core::Interface for TaskbarManager {
 impl ::windows::core::RuntimeName for TaskbarManager {
     const NAME: &'static str = "Windows.UI.Shell.TaskbarManager";
 }
-::windows::core::interface_hierarchy!(TaskbarManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TaskbarManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TaskbarManager {}
 unsafe impl ::core::marker::Sync for TaskbarManager {}
 #[doc = "*Required features: `\"UI_Shell\"`*"]
@@ -882,7 +882,7 @@ impl ::core::fmt::Debug for SecurityAppKind {
     }
 }
 impl ::windows::core::RuntimeType for SecurityAppKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppKind;i4)");
 }
 #[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
@@ -912,7 +912,7 @@ impl ::core::fmt::Debug for SecurityAppState {
     }
 }
 impl ::windows::core::RuntimeType for SecurityAppState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppState;i4)");
 }
 #[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
@@ -944,7 +944,7 @@ impl ::core::fmt::Debug for SecurityAppSubstatus {
     }
 }
 impl ::windows::core::RuntimeType for SecurityAppSubstatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppSubstatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppSubstatus;i4)");
 }
 #[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
@@ -975,7 +975,7 @@ impl ::core::fmt::Debug for ShareWindowCommand {
     }
 }
 impl ::windows::core::RuntimeType for ShareWindowCommand {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.ShareWindowCommand;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.ShareWindowCommand;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

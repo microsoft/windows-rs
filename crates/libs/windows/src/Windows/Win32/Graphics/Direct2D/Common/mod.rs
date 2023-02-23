@@ -24,7 +24,7 @@ impl ID2D1SimplifiedGeometrySink {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1SimplifiedGeometrySink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1SimplifiedGeometrySink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1SimplifiedGeometrySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

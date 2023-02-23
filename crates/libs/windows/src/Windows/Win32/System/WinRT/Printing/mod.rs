@@ -23,7 +23,7 @@ impl IPrintManagerInterop {
         (::windows::core::Vtable::vtable(self).ShowPrintUIForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPrintManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrintManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPrintManagerInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -82,7 +82,7 @@ impl IPrintWorkflowConfigurationNative {
         (::windows::core::Vtable::vtable(self).UserProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPrintWorkflowConfigurationNative, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPrintWorkflowConfigurationNative, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPrintWorkflowConfigurationNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -139,7 +139,7 @@ impl IPrintWorkflowObjectModelSourceFileContentNative {
         (::windows::core::Vtable::vtable(self).ObjectFactory)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPrintWorkflowObjectModelSourceFileContentNative, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPrintWorkflowObjectModelSourceFileContentNative, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPrintWorkflowObjectModelSourceFileContentNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -183,7 +183,7 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative {
         (::windows::core::Vtable::vtable(self).DocumentPackageTarget)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPrintWorkflowXpsObjectModelTargetPackageNative, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPrintWorkflowXpsObjectModelTargetPackageNative, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPrintWorkflowXpsObjectModelTargetPackageNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -255,7 +255,7 @@ impl IPrintWorkflowXpsReceiver {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPrintWorkflowXpsReceiver, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPrintWorkflowXpsReceiver, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPrintWorkflowXpsReceiver {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -340,7 +340,7 @@ impl IPrintWorkflowXpsReceiver2 {
         (::windows::core::Vtable::vtable(self).Failed)(::windows::core::Vtable::as_raw(self), xpserror).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPrintWorkflowXpsReceiver2, ::windows::core::IUnknown, IPrintWorkflowXpsReceiver);
+::windows::imp::interface_hierarchy!(IPrintWorkflowXpsReceiver2, ::windows::core::IUnknown, IPrintWorkflowXpsReceiver);
 impl ::core::cmp::PartialEq for IPrintWorkflowXpsReceiver2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -394,7 +394,7 @@ impl IPrinting3DManagerInterop {
         (::windows::core::Vtable::vtable(self).ShowPrintUIForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPrinting3DManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrinting3DManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPrinting3DManagerInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

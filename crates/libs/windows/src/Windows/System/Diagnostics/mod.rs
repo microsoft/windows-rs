@@ -524,7 +524,7 @@ impl ::core::fmt::Debug for DiagnosticActionResult {
     }
 }
 impl ::windows::core::RuntimeType for DiagnosticActionResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticActionResult;{c265a296-e73b-4097-b28f-3442f03dd831})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticActionResult;{c265a296-e73b-4097-b28f-3442f03dd831})");
 }
 impl ::core::clone::Clone for DiagnosticActionResult {
     fn clone(&self) -> Self {
@@ -540,7 +540,7 @@ unsafe impl ::windows::core::Interface for DiagnosticActionResult {
 impl ::windows::core::RuntimeName for DiagnosticActionResult {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticActionResult";
 }
-::windows::core::interface_hierarchy!(DiagnosticActionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DiagnosticActionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DiagnosticActionResult {}
 unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -585,7 +585,7 @@ impl DiagnosticInvoker {
     }
     #[doc(hidden)]
     pub fn IDiagnosticInvokerStatics<R, F: FnOnce(&IDiagnosticInvokerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DiagnosticInvoker, IDiagnosticInvokerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DiagnosticInvoker, IDiagnosticInvokerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -601,7 +601,7 @@ impl ::core::fmt::Debug for DiagnosticInvoker {
     }
 }
 impl ::windows::core::RuntimeType for DiagnosticInvoker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticInvoker;{187b270a-02e3-4f86-84fc-fdd892b5940f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticInvoker;{187b270a-02e3-4f86-84fc-fdd892b5940f})");
 }
 impl ::core::clone::Clone for DiagnosticInvoker {
     fn clone(&self) -> Self {
@@ -617,7 +617,7 @@ unsafe impl ::windows::core::Interface for DiagnosticInvoker {
 impl ::windows::core::RuntimeName for DiagnosticInvoker {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticInvoker";
 }
-::windows::core::interface_hierarchy!(DiagnosticInvoker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DiagnosticInvoker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DiagnosticInvoker {}
 unsafe impl ::core::marker::Sync for DiagnosticInvoker {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -644,7 +644,7 @@ impl ::core::fmt::Debug for ProcessCpuUsage {
     }
 }
 impl ::windows::core::RuntimeType for ProcessCpuUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessCpuUsage;{0bbb2472-c8bf-423a-a810-b559ae4354e2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessCpuUsage;{0bbb2472-c8bf-423a-a810-b559ae4354e2})");
 }
 impl ::core::clone::Clone for ProcessCpuUsage {
     fn clone(&self) -> Self {
@@ -660,7 +660,7 @@ unsafe impl ::windows::core::Interface for ProcessCpuUsage {
 impl ::windows::core::RuntimeName for ProcessCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsage";
 }
-::windows::core::interface_hierarchy!(ProcessCpuUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProcessCpuUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessCpuUsage {}
 unsafe impl ::core::marker::Sync for ProcessCpuUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -698,7 +698,7 @@ impl ::core::fmt::Debug for ProcessCpuUsageReport {
     }
 }
 impl ::windows::core::RuntimeType for ProcessCpuUsageReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessCpuUsageReport;{8a6d9cac-3987-4e2f-a119-6b5fa214f1b4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessCpuUsageReport;{8a6d9cac-3987-4e2f-a119-6b5fa214f1b4})");
 }
 impl ::core::clone::Clone for ProcessCpuUsageReport {
     fn clone(&self) -> Self {
@@ -714,7 +714,7 @@ unsafe impl ::windows::core::Interface for ProcessCpuUsageReport {
 impl ::windows::core::RuntimeName for ProcessCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsageReport";
 }
-::windows::core::interface_hierarchy!(ProcessCpuUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProcessCpuUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessCpuUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessCpuUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -810,12 +810,12 @@ impl ProcessDiagnosticInfo {
     }
     #[doc(hidden)]
     pub fn IProcessDiagnosticInfoStatics<R, F: FnOnce(&IProcessDiagnosticInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProcessDiagnosticInfo, IProcessDiagnosticInfoStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProcessDiagnosticInfo, IProcessDiagnosticInfoStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IProcessDiagnosticInfoStatics2<R, F: FnOnce(&IProcessDiagnosticInfoStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProcessDiagnosticInfo, IProcessDiagnosticInfoStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProcessDiagnosticInfo, IProcessDiagnosticInfoStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -831,7 +831,7 @@ impl ::core::fmt::Debug for ProcessDiagnosticInfo {
     }
 }
 impl ::windows::core::RuntimeType for ProcessDiagnosticInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiagnosticInfo;{e830b04b-300e-4ee6-a0ab-5b5f5231b434})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiagnosticInfo;{e830b04b-300e-4ee6-a0ab-5b5f5231b434})");
 }
 impl ::core::clone::Clone for ProcessDiagnosticInfo {
     fn clone(&self) -> Self {
@@ -847,7 +847,7 @@ unsafe impl ::windows::core::Interface for ProcessDiagnosticInfo {
 impl ::windows::core::RuntimeName for ProcessDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiagnosticInfo";
 }
-::windows::core::interface_hierarchy!(ProcessDiagnosticInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProcessDiagnosticInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for ProcessDiagnosticInfo {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -874,7 +874,7 @@ impl ::core::fmt::Debug for ProcessDiskUsage {
     }
 }
 impl ::windows::core::RuntimeType for ProcessDiskUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiskUsage;{5ad78bfd-7e51-4e53-bfaa-5a6ee1aabbf8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiskUsage;{5ad78bfd-7e51-4e53-bfaa-5a6ee1aabbf8})");
 }
 impl ::core::clone::Clone for ProcessDiskUsage {
     fn clone(&self) -> Self {
@@ -890,7 +890,7 @@ unsafe impl ::windows::core::Interface for ProcessDiskUsage {
 impl ::windows::core::RuntimeName for ProcessDiskUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsage";
 }
-::windows::core::interface_hierarchy!(ProcessDiskUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProcessDiskUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessDiskUsage {}
 unsafe impl ::core::marker::Sync for ProcessDiskUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -952,7 +952,7 @@ impl ::core::fmt::Debug for ProcessDiskUsageReport {
     }
 }
 impl ::windows::core::RuntimeType for ProcessDiskUsageReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiskUsageReport;{401627fd-535d-4c1f-81b8-da54e1be635e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiskUsageReport;{401627fd-535d-4c1f-81b8-da54e1be635e})");
 }
 impl ::core::clone::Clone for ProcessDiskUsageReport {
     fn clone(&self) -> Self {
@@ -968,7 +968,7 @@ unsafe impl ::windows::core::Interface for ProcessDiskUsageReport {
 impl ::windows::core::RuntimeName for ProcessDiskUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsageReport";
 }
-::windows::core::interface_hierarchy!(ProcessDiskUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProcessDiskUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessDiskUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessDiskUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -995,7 +995,7 @@ impl ::core::fmt::Debug for ProcessMemoryUsage {
     }
 }
 impl ::windows::core::RuntimeType for ProcessMemoryUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessMemoryUsage;{f50b229b-827c-42b7-b07c-0e32627e6b3e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessMemoryUsage;{f50b229b-827c-42b7-b07c-0e32627e6b3e})");
 }
 impl ::core::clone::Clone for ProcessMemoryUsage {
     fn clone(&self) -> Self {
@@ -1011,7 +1011,7 @@ unsafe impl ::windows::core::Interface for ProcessMemoryUsage {
 impl ::windows::core::RuntimeName for ProcessMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsage";
 }
-::windows::core::interface_hierarchy!(ProcessMemoryUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProcessMemoryUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessMemoryUsage {}
 unsafe impl ::core::marker::Sync for ProcessMemoryUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1115,7 +1115,7 @@ impl ::core::fmt::Debug for ProcessMemoryUsageReport {
     }
 }
 impl ::windows::core::RuntimeType for ProcessMemoryUsageReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessMemoryUsageReport;{c2c77cba-1951-4685-8532-7e749ecf8eeb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessMemoryUsageReport;{c2c77cba-1951-4685-8532-7e749ecf8eeb})");
 }
 impl ::core::clone::Clone for ProcessMemoryUsageReport {
     fn clone(&self) -> Self {
@@ -1131,7 +1131,7 @@ unsafe impl ::windows::core::Interface for ProcessMemoryUsageReport {
 impl ::windows::core::RuntimeName for ProcessMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsageReport";
 }
-::windows::core::interface_hierarchy!(ProcessMemoryUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProcessMemoryUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessMemoryUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessMemoryUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1158,7 +1158,7 @@ impl ::core::fmt::Debug for SystemCpuUsage {
     }
 }
 impl ::windows::core::RuntimeType for SystemCpuUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemCpuUsage;{6037b3ac-02d6-4234-8362-7fe3adc81f5f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemCpuUsage;{6037b3ac-02d6-4234-8362-7fe3adc81f5f})");
 }
 impl ::core::clone::Clone for SystemCpuUsage {
     fn clone(&self) -> Self {
@@ -1174,7 +1174,7 @@ unsafe impl ::windows::core::Interface for SystemCpuUsage {
 impl ::windows::core::RuntimeName for SystemCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsage";
 }
-::windows::core::interface_hierarchy!(SystemCpuUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemCpuUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemCpuUsage {}
 unsafe impl ::core::marker::Sync for SystemCpuUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1221,7 +1221,7 @@ impl ::core::fmt::Debug for SystemCpuUsageReport {
     }
 }
 impl ::windows::core::RuntimeType for SystemCpuUsageReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemCpuUsageReport;{2c26d0b2-9483-4f62-ab57-82b29d9719b8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemCpuUsageReport;{2c26d0b2-9483-4f62-ab57-82b29d9719b8})");
 }
 impl ::core::clone::Clone for SystemCpuUsageReport {
     fn clone(&self) -> Self {
@@ -1237,7 +1237,7 @@ unsafe impl ::windows::core::Interface for SystemCpuUsageReport {
 impl ::windows::core::RuntimeName for SystemCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsageReport";
 }
-::windows::core::interface_hierarchy!(SystemCpuUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemCpuUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemCpuUsageReport {}
 unsafe impl ::core::marker::Sync for SystemCpuUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1278,12 +1278,12 @@ impl SystemDiagnosticInfo {
     }
     #[doc(hidden)]
     pub fn ISystemDiagnosticInfoStatics<R, F: FnOnce(&ISystemDiagnosticInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemDiagnosticInfo, ISystemDiagnosticInfoStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemDiagnosticInfo, ISystemDiagnosticInfoStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISystemDiagnosticInfoStatics2<R, F: FnOnce(&ISystemDiagnosticInfoStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemDiagnosticInfo, ISystemDiagnosticInfoStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemDiagnosticInfo, ISystemDiagnosticInfoStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1299,7 +1299,7 @@ impl ::core::fmt::Debug for SystemDiagnosticInfo {
     }
 }
 impl ::windows::core::RuntimeType for SystemDiagnosticInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemDiagnosticInfo;{a290fe05-dff3-407f-9a1b-0b2b317ca800})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemDiagnosticInfo;{a290fe05-dff3-407f-9a1b-0b2b317ca800})");
 }
 impl ::core::clone::Clone for SystemDiagnosticInfo {
     fn clone(&self) -> Self {
@@ -1315,7 +1315,7 @@ unsafe impl ::windows::core::Interface for SystemDiagnosticInfo {
 impl ::windows::core::RuntimeName for SystemDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemDiagnosticInfo";
 }
-::windows::core::interface_hierarchy!(SystemDiagnosticInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemDiagnosticInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for SystemDiagnosticInfo {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1342,7 +1342,7 @@ impl ::core::fmt::Debug for SystemMemoryUsage {
     }
 }
 impl ::windows::core::RuntimeType for SystemMemoryUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemMemoryUsage;{17ffc595-1702-49cf-aa27-2f0a32591404})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemMemoryUsage;{17ffc595-1702-49cf-aa27-2f0a32591404})");
 }
 impl ::core::clone::Clone for SystemMemoryUsage {
     fn clone(&self) -> Self {
@@ -1358,7 +1358,7 @@ unsafe impl ::windows::core::Interface for SystemMemoryUsage {
 impl ::windows::core::RuntimeName for SystemMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsage";
 }
-::windows::core::interface_hierarchy!(SystemMemoryUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemMemoryUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemMemoryUsage {}
 unsafe impl ::core::marker::Sync for SystemMemoryUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1399,7 +1399,7 @@ impl ::core::fmt::Debug for SystemMemoryUsageReport {
     }
 }
 impl ::windows::core::RuntimeType for SystemMemoryUsageReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemMemoryUsageReport;{38663c87-2a9f-403a-bd19-2cf3e8169500})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemMemoryUsageReport;{38663c87-2a9f-403a-bd19-2cf3e8169500})");
 }
 impl ::core::clone::Clone for SystemMemoryUsageReport {
     fn clone(&self) -> Self {
@@ -1415,7 +1415,7 @@ unsafe impl ::windows::core::Interface for SystemMemoryUsageReport {
 impl ::windows::core::RuntimeName for SystemMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsageReport";
 }
-::windows::core::interface_hierarchy!(SystemMemoryUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemMemoryUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemMemoryUsageReport {}
 unsafe impl ::core::marker::Sync for SystemMemoryUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1451,7 +1451,7 @@ impl ::core::fmt::Debug for DiagnosticActionState {
     }
 }
 impl ::windows::core::RuntimeType for DiagnosticActionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DiagnosticActionState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DiagnosticActionState;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

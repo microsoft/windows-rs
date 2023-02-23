@@ -941,7 +941,7 @@ impl AppWindow {
     }
     #[doc(hidden)]
     pub fn IAppWindowStatics<R, F: FnOnce(&IAppWindowStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppWindow, IAppWindowStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppWindow, IAppWindowStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -957,7 +957,7 @@ impl ::core::fmt::Debug for AppWindow {
     }
 }
 impl ::windows::core::RuntimeType for AppWindow {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindow;{663014a6-b75e-5dbd-995c-f0117fa3fb61})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindow;{663014a6-b75e-5dbd-995c-f0117fa3fb61})");
 }
 impl ::core::clone::Clone for AppWindow {
     fn clone(&self) -> Self {
@@ -973,7 +973,7 @@ unsafe impl ::windows::core::Interface for AppWindow {
 impl ::windows::core::RuntimeName for AppWindow {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindow";
 }
-::windows::core::interface_hierarchy!(AppWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindow {}
 unsafe impl ::core::marker::Sync for AppWindow {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1049,7 +1049,7 @@ impl ::core::fmt::Debug for AppWindowChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowChangedEventArgs;{1de1f3be-a655-55ad-b2b6-eb240f880356})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowChangedEventArgs;{1de1f3be-a655-55ad-b2b6-eb240f880356})");
 }
 impl ::core::clone::Clone for AppWindowChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1065,7 +1065,7 @@ unsafe impl ::windows::core::Interface for AppWindowChangedEventArgs {
 impl ::windows::core::RuntimeName for AppWindowChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppWindowChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppWindowChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowChangedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1105,7 +1105,7 @@ impl ::core::fmt::Debug for AppWindowCloseRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowCloseRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs;{e9ff01da-e7a2-57a8-8b5e-39c4003afdbb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs;{e9ff01da-e7a2-57a8-8b5e-39c4003afdbb})");
 }
 impl ::core::clone::Clone for AppWindowCloseRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1121,7 +1121,7 @@ unsafe impl ::windows::core::Interface for AppWindowCloseRequestedEventArgs {
 impl ::windows::core::RuntimeName for AppWindowCloseRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppWindowCloseRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppWindowCloseRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowCloseRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowCloseRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1148,7 +1148,7 @@ impl ::core::fmt::Debug for AppWindowClosedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowClosedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowClosedEventArgs;{cc7df816-9520-5a06-821e-456ad8b358aa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowClosedEventArgs;{cc7df816-9520-5a06-821e-456ad8b358aa})");
 }
 impl ::core::clone::Clone for AppWindowClosedEventArgs {
     fn clone(&self) -> Self {
@@ -1164,7 +1164,7 @@ unsafe impl ::windows::core::Interface for AppWindowClosedEventArgs {
 impl ::windows::core::RuntimeName for AppWindowClosedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowClosedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppWindowClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppWindowClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowClosedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1204,7 +1204,7 @@ impl ::core::fmt::Debug for AppWindowFrame {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowFrame;{9ee22601-7e5d-52af-846b-01dc6c296567})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowFrame;{9ee22601-7e5d-52af-846b-01dc6c296567})");
 }
 impl ::core::clone::Clone for AppWindowFrame {
     fn clone(&self) -> Self {
@@ -1220,7 +1220,7 @@ unsafe impl ::windows::core::Interface for AppWindowFrame {
 impl ::windows::core::RuntimeName for AppWindowFrame {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowFrame";
 }
-::windows::core::interface_hierarchy!(AppWindowFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppWindowFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowFrame {}
 unsafe impl ::core::marker::Sync for AppWindowFrame {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1265,7 +1265,7 @@ impl ::core::fmt::Debug for AppWindowPlacement {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowPlacement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPlacement;{03dc815e-e7a9-5857-9c03-7d670594410e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPlacement;{03dc815e-e7a9-5857-9c03-7d670594410e})");
 }
 impl ::core::clone::Clone for AppWindowPlacement {
     fn clone(&self) -> Self {
@@ -1281,7 +1281,7 @@ unsafe impl ::windows::core::Interface for AppWindowPlacement {
 impl ::windows::core::RuntimeName for AppWindowPlacement {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPlacement";
 }
-::windows::core::interface_hierarchy!(AppWindowPlacement, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppWindowPlacement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowPlacement {}
 unsafe impl ::core::marker::Sync for AppWindowPlacement {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1308,7 +1308,7 @@ impl ::core::fmt::Debug for AppWindowPresentationConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowPresentationConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPresentationConfiguration;{b5a43ee3-df33-5e67-bd31-1072457300df})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPresentationConfiguration;{b5a43ee3-df33-5e67-bd31-1072457300df})");
 }
 impl ::core::clone::Clone for AppWindowPresentationConfiguration {
     fn clone(&self) -> Self {
@@ -1324,7 +1324,7 @@ unsafe impl ::windows::core::Interface for AppWindowPresentationConfiguration {
 impl ::windows::core::RuntimeName for AppWindowPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresentationConfiguration";
 }
-::windows::core::interface_hierarchy!(AppWindowPresentationConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppWindowPresentationConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for AppWindowPresentationConfiguration {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1375,7 +1375,7 @@ impl ::core::fmt::Debug for AppWindowPresenter {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowPresenter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPresenter;{5ae9ed73-e1fd-5317-ad78-5a3ed271bbde})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPresenter;{5ae9ed73-e1fd-5317-ad78-5a3ed271bbde})");
 }
 impl ::core::clone::Clone for AppWindowPresenter {
     fn clone(&self) -> Self {
@@ -1391,7 +1391,7 @@ unsafe impl ::windows::core::Interface for AppWindowPresenter {
 impl ::windows::core::RuntimeName for AppWindowPresenter {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresenter";
 }
-::windows::core::interface_hierarchy!(AppWindowPresenter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppWindowPresenter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowPresenter {}
 unsafe impl ::core::marker::Sync for AppWindowPresenter {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1677,7 +1677,7 @@ impl ::core::fmt::Debug for AppWindowTitleBar {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowTitleBar {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowTitleBar;{6e932c84-f644-541d-a2d7-0c262437842d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowTitleBar;{6e932c84-f644-541d-a2d7-0c262437842d})");
 }
 impl ::core::clone::Clone for AppWindowTitleBar {
     fn clone(&self) -> Self {
@@ -1693,7 +1693,7 @@ unsafe impl ::windows::core::Interface for AppWindowTitleBar {
 impl ::windows::core::RuntimeName for AppWindowTitleBar {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBar";
 }
-::windows::core::interface_hierarchy!(AppWindowTitleBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppWindowTitleBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowTitleBar {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBar {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1722,7 +1722,7 @@ impl ::core::fmt::Debug for AppWindowTitleBarOcclusion {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowTitleBarOcclusion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowTitleBarOcclusion;{fea3cffd-2ccf-5fc3-aeae-f843876bf37e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowTitleBarOcclusion;{fea3cffd-2ccf-5fc3-aeae-f843876bf37e})");
 }
 impl ::core::clone::Clone for AppWindowTitleBarOcclusion {
     fn clone(&self) -> Self {
@@ -1738,7 +1738,7 @@ unsafe impl ::windows::core::Interface for AppWindowTitleBarOcclusion {
 impl ::windows::core::RuntimeName for AppWindowTitleBarOcclusion {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBarOcclusion";
 }
-::windows::core::interface_hierarchy!(AppWindowTitleBarOcclusion, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppWindowTitleBarOcclusion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowTitleBarOcclusion {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBarOcclusion {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1748,8 +1748,8 @@ impl CompactOverlayPresentationConfiguration {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CompactOverlayPresentationConfiguration, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CompactOverlayPresentationConfiguration, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind> {
@@ -1772,7 +1772,7 @@ impl ::core::fmt::Debug for CompactOverlayPresentationConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for CompactOverlayPresentationConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration;{a7e5750f-5730-56c6-8e1f-d63ff4d7980d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration;{a7e5750f-5730-56c6-8e1f-d63ff4d7980d})");
 }
 impl ::core::clone::Clone for CompactOverlayPresentationConfiguration {
     fn clone(&self) -> Self {
@@ -1788,7 +1788,7 @@ unsafe impl ::windows::core::Interface for CompactOverlayPresentationConfigurati
 impl ::windows::core::RuntimeName for CompactOverlayPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration";
 }
-::windows::core::interface_hierarchy!(CompactOverlayPresentationConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompactOverlayPresentationConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::From<CompactOverlayPresentationConfiguration> for AppWindowPresentationConfiguration {
     fn from(value: CompactOverlayPresentationConfiguration) -> Self {
         ::core::convert::From::from(&value)
@@ -1813,8 +1813,8 @@ impl DefaultPresentationConfiguration {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DefaultPresentationConfiguration, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DefaultPresentationConfiguration, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind> {
@@ -1837,7 +1837,7 @@ impl ::core::fmt::Debug for DefaultPresentationConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for DefaultPresentationConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.DefaultPresentationConfiguration;{d8c2b53b-2168-5703-a853-d525589fe2b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.DefaultPresentationConfiguration;{d8c2b53b-2168-5703-a853-d525589fe2b9})");
 }
 impl ::core::clone::Clone for DefaultPresentationConfiguration {
     fn clone(&self) -> Self {
@@ -1853,7 +1853,7 @@ unsafe impl ::windows::core::Interface for DefaultPresentationConfiguration {
 impl ::windows::core::RuntimeName for DefaultPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.DefaultPresentationConfiguration";
 }
-::windows::core::interface_hierarchy!(DefaultPresentationConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DefaultPresentationConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::From<DefaultPresentationConfiguration> for AppWindowPresentationConfiguration {
     fn from(value: DefaultPresentationConfiguration) -> Self {
         ::core::convert::From::from(&value)
@@ -1942,7 +1942,7 @@ impl ::core::fmt::Debug for DisplayRegion {
     }
 }
 impl ::windows::core::RuntimeType for DisplayRegion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.DisplayRegion;{db50c3a2-4094-5f47-8cb1-ea01ddafaa94})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.DisplayRegion;{db50c3a2-4094-5f47-8cb1-ea01ddafaa94})");
 }
 impl ::core::clone::Clone for DisplayRegion {
     fn clone(&self) -> Self {
@@ -1958,7 +1958,7 @@ unsafe impl ::windows::core::Interface for DisplayRegion {
 impl ::windows::core::RuntimeName for DisplayRegion {
     const NAME: &'static str = "Windows.UI.WindowManagement.DisplayRegion";
 }
-::windows::core::interface_hierarchy!(DisplayRegion, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayRegion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayRegion {}
 unsafe impl ::core::marker::Sync for DisplayRegion {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1968,8 +1968,8 @@ impl FullScreenPresentationConfiguration {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FullScreenPresentationConfiguration, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<FullScreenPresentationConfiguration, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind> {
@@ -2003,7 +2003,7 @@ impl ::core::fmt::Debug for FullScreenPresentationConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for FullScreenPresentationConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.FullScreenPresentationConfiguration;{43d3dcd8-d2a8-503d-a626-15533d6d5f62})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.FullScreenPresentationConfiguration;{43d3dcd8-d2a8-503d-a626-15533d6d5f62})");
 }
 impl ::core::clone::Clone for FullScreenPresentationConfiguration {
     fn clone(&self) -> Self {
@@ -2019,7 +2019,7 @@ unsafe impl ::windows::core::Interface for FullScreenPresentationConfiguration {
 impl ::windows::core::RuntimeName for FullScreenPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.FullScreenPresentationConfiguration";
 }
-::windows::core::interface_hierarchy!(FullScreenPresentationConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FullScreenPresentationConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::From<FullScreenPresentationConfiguration> for AppWindowPresentationConfiguration {
     fn from(value: FullScreenPresentationConfiguration) -> Self {
         ::core::convert::From::from(&value)
@@ -2050,7 +2050,7 @@ impl WindowServices {
     }
     #[doc(hidden)]
     pub fn IWindowServicesStatics<R, F: FnOnce(&IWindowServicesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WindowServices, IWindowServicesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WindowServices, IWindowServicesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2117,7 +2117,7 @@ impl WindowingEnvironment {
     }
     #[doc(hidden)]
     pub fn IWindowingEnvironmentStatics<R, F: FnOnce(&IWindowingEnvironmentStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WindowingEnvironment, IWindowingEnvironmentStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WindowingEnvironment, IWindowingEnvironmentStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2133,7 +2133,7 @@ impl ::core::fmt::Debug for WindowingEnvironment {
     }
 }
 impl ::windows::core::RuntimeType for WindowingEnvironment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironment;{264363c0-2a49-5417-b3ae-48a71c63a3bd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironment;{264363c0-2a49-5417-b3ae-48a71c63a3bd})");
 }
 impl ::core::clone::Clone for WindowingEnvironment {
     fn clone(&self) -> Self {
@@ -2149,7 +2149,7 @@ unsafe impl ::windows::core::Interface for WindowingEnvironment {
 impl ::windows::core::RuntimeName for WindowingEnvironment {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironment";
 }
-::windows::core::interface_hierarchy!(WindowingEnvironment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowingEnvironment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironment {}
 unsafe impl ::core::marker::Sync for WindowingEnvironment {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -2176,7 +2176,7 @@ impl ::core::fmt::Debug for WindowingEnvironmentAddedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WindowingEnvironmentAddedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs;{ff2a5b7f-f183-5c66-99b2-429082069299})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs;{ff2a5b7f-f183-5c66-99b2-429082069299})");
 }
 impl ::core::clone::Clone for WindowingEnvironmentAddedEventArgs {
     fn clone(&self) -> Self {
@@ -2192,7 +2192,7 @@ unsafe impl ::windows::core::Interface for WindowingEnvironmentAddedEventArgs {
 impl ::windows::core::RuntimeName for WindowingEnvironmentAddedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs";
 }
-::windows::core::interface_hierarchy!(WindowingEnvironmentAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowingEnvironmentAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironmentAddedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentAddedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -2211,7 +2211,7 @@ impl ::core::fmt::Debug for WindowingEnvironmentChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WindowingEnvironmentChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs;{4160cfc6-023d-5e9a-b431-350e67dc978a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs;{4160cfc6-023d-5e9a-b431-350e67dc978a})");
 }
 impl ::core::clone::Clone for WindowingEnvironmentChangedEventArgs {
     fn clone(&self) -> Self {
@@ -2227,7 +2227,7 @@ unsafe impl ::windows::core::Interface for WindowingEnvironmentChangedEventArgs 
 impl ::windows::core::RuntimeName for WindowingEnvironmentChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(WindowingEnvironmentChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowingEnvironmentChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironmentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentChangedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -2254,7 +2254,7 @@ impl ::core::fmt::Debug for WindowingEnvironmentRemovedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WindowingEnvironmentRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs;{2e5b5473-beff-5e53-9316-7e775fe568b3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs;{2e5b5473-beff-5e53-9316-7e775fe568b3})");
 }
 impl ::core::clone::Clone for WindowingEnvironmentRemovedEventArgs {
     fn clone(&self) -> Self {
@@ -2270,7 +2270,7 @@ unsafe impl ::windows::core::Interface for WindowingEnvironmentRemovedEventArgs 
 impl ::windows::core::RuntimeName for WindowingEnvironmentRemovedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs";
 }
-::windows::core::interface_hierarchy!(WindowingEnvironmentRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowingEnvironmentRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironmentRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentRemovedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -2302,7 +2302,7 @@ impl ::core::fmt::Debug for AppWindowClosedReason {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowClosedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowClosedReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowClosedReason;i4)");
 }
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
@@ -2332,7 +2332,7 @@ impl ::core::fmt::Debug for AppWindowFrameStyle {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowFrameStyle {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowFrameStyle;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowFrameStyle;i4)");
 }
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
@@ -2363,7 +2363,7 @@ impl ::core::fmt::Debug for AppWindowPresentationKind {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowPresentationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowPresentationKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowPresentationKind;i4)");
 }
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
@@ -2393,7 +2393,7 @@ impl ::core::fmt::Debug for AppWindowTitleBarVisibility {
     }
 }
 impl ::windows::core::RuntimeType for AppWindowTitleBarVisibility {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowTitleBarVisibility;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowTitleBarVisibility;i4)");
 }
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
@@ -2424,7 +2424,7 @@ impl ::core::fmt::Debug for WindowingEnvironmentKind {
     }
 }
 impl ::windows::core::RuntimeType for WindowingEnvironmentKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.WindowingEnvironmentKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.WindowingEnvironmentKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

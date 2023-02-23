@@ -230,8 +230,8 @@ impl OnlineIdAuthenticator {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<OnlineIdAuthenticator, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<OnlineIdAuthenticator, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -303,7 +303,7 @@ impl ::core::fmt::Debug for OnlineIdAuthenticator {
     }
 }
 impl ::windows::core::RuntimeType for OnlineIdAuthenticator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator;{a003f58a-29ab-4817-b884-d7516dad18b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator;{a003f58a-29ab-4817-b884-d7516dad18b9})");
 }
 impl ::core::clone::Clone for OnlineIdAuthenticator {
     fn clone(&self) -> Self {
@@ -319,7 +319,7 @@ unsafe impl ::windows::core::Interface for OnlineIdAuthenticator {
 impl ::windows::core::RuntimeName for OnlineIdAuthenticator {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator";
 }
-::windows::core::interface_hierarchy!(OnlineIdAuthenticator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OnlineIdAuthenticator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdAuthenticator {}
 unsafe impl ::core::marker::Sync for OnlineIdAuthenticator {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
@@ -360,7 +360,7 @@ impl ::core::fmt::Debug for OnlineIdServiceTicket {
     }
 }
 impl ::windows::core::RuntimeType for OnlineIdServiceTicket {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket;{c95c547f-d781-4a94-acb8-c59874238c26})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket;{c95c547f-d781-4a94-acb8-c59874238c26})");
 }
 impl ::core::clone::Clone for OnlineIdServiceTicket {
     fn clone(&self) -> Self {
@@ -376,7 +376,7 @@ unsafe impl ::windows::core::Interface for OnlineIdServiceTicket {
 impl ::windows::core::RuntimeName for OnlineIdServiceTicket {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket";
 }
-::windows::core::interface_hierarchy!(OnlineIdServiceTicket, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OnlineIdServiceTicket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdServiceTicket {}
 unsafe impl ::core::marker::Sync for OnlineIdServiceTicket {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
@@ -411,7 +411,7 @@ impl OnlineIdServiceTicketRequest {
     }
     #[doc(hidden)]
     pub fn IOnlineIdServiceTicketRequestFactory<R, F: FnOnce(&IOnlineIdServiceTicketRequestFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<OnlineIdServiceTicketRequest, IOnlineIdServiceTicketRequestFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<OnlineIdServiceTicketRequest, IOnlineIdServiceTicketRequestFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -427,7 +427,7 @@ impl ::core::fmt::Debug for OnlineIdServiceTicketRequest {
     }
 }
 impl ::windows::core::RuntimeType for OnlineIdServiceTicketRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest;{297445d3-fb63-4135-8909-4e354c061466})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest;{297445d3-fb63-4135-8909-4e354c061466})");
 }
 impl ::core::clone::Clone for OnlineIdServiceTicketRequest {
     fn clone(&self) -> Self {
@@ -443,7 +443,7 @@ unsafe impl ::windows::core::Interface for OnlineIdServiceTicketRequest {
 impl ::windows::core::RuntimeName for OnlineIdServiceTicketRequest {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest";
 }
-::windows::core::interface_hierarchy!(OnlineIdServiceTicketRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OnlineIdServiceTicketRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdServiceTicketRequest {}
 unsafe impl ::core::marker::Sync for OnlineIdServiceTicketRequest {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
@@ -465,7 +465,7 @@ impl OnlineIdSystemAuthenticator {
     }
     #[doc(hidden)]
     pub fn IOnlineIdSystemAuthenticatorStatics<R, F: FnOnce(&IOnlineIdSystemAuthenticatorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<OnlineIdSystemAuthenticator, IOnlineIdSystemAuthenticatorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<OnlineIdSystemAuthenticator, IOnlineIdSystemAuthenticatorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -518,7 +518,7 @@ impl ::core::fmt::Debug for OnlineIdSystemAuthenticatorForUser {
     }
 }
 impl ::windows::core::RuntimeType for OnlineIdSystemAuthenticatorForUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser;{5798befb-1de4-4186-a2e6-b563f86aaf44})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser;{5798befb-1de4-4186-a2e6-b563f86aaf44})");
 }
 impl ::core::clone::Clone for OnlineIdSystemAuthenticatorForUser {
     fn clone(&self) -> Self {
@@ -534,7 +534,7 @@ unsafe impl ::windows::core::Interface for OnlineIdSystemAuthenticatorForUser {
 impl ::windows::core::RuntimeName for OnlineIdSystemAuthenticatorForUser {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser";
 }
-::windows::core::interface_hierarchy!(OnlineIdSystemAuthenticatorForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OnlineIdSystemAuthenticatorForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdSystemAuthenticatorForUser {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemAuthenticatorForUser {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
@@ -568,7 +568,7 @@ impl ::core::fmt::Debug for OnlineIdSystemIdentity {
     }
 }
 impl ::windows::core::RuntimeType for OnlineIdSystemIdentity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity;{743cd20d-b6ca-434d-8124-53ea12685307})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity;{743cd20d-b6ca-434d-8124-53ea12685307})");
 }
 impl ::core::clone::Clone for OnlineIdSystemIdentity {
     fn clone(&self) -> Self {
@@ -584,7 +584,7 @@ unsafe impl ::windows::core::Interface for OnlineIdSystemIdentity {
 impl ::windows::core::RuntimeName for OnlineIdSystemIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity";
 }
-::windows::core::interface_hierarchy!(OnlineIdSystemIdentity, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OnlineIdSystemIdentity, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdSystemIdentity {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemIdentity {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
@@ -625,7 +625,7 @@ impl ::core::fmt::Debug for OnlineIdSystemTicketResult {
     }
 }
 impl ::windows::core::RuntimeType for OnlineIdSystemTicketResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult;{db0a5ff8-b098-4acd-9d13-9e640652b5b6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult;{db0a5ff8-b098-4acd-9d13-9e640652b5b6})");
 }
 impl ::core::clone::Clone for OnlineIdSystemTicketResult {
     fn clone(&self) -> Self {
@@ -641,7 +641,7 @@ unsafe impl ::windows::core::Interface for OnlineIdSystemTicketResult {
 impl ::windows::core::RuntimeName for OnlineIdSystemTicketResult {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult";
 }
-::windows::core::interface_hierarchy!(OnlineIdSystemTicketResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OnlineIdSystemTicketResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdSystemTicketResult {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemTicketResult {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
@@ -727,7 +727,7 @@ impl ::core::fmt::Debug for SignOutUserOperation {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for SignOutUserOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.SignOutUserOperation;{5a648006-843a-4da9-865b-9d26e5dfad7b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.SignOutUserOperation;{5a648006-843a-4da9-865b-9d26e5dfad7b})");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::clone::Clone for SignOutUserOperation {
@@ -751,7 +751,7 @@ impl ::windows::core::RuntimeName for SignOutUserOperation {
 impl SignOutUserOperation {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
-            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
+            let (_waiter, signaler) = ::windows::imp::Waiter::new()?;
             self.SetCompleted(&super::super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
@@ -779,7 +779,7 @@ impl ::std::future::Future for SignOutUserOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-::windows::core::interface_hierarchy!(SignOutUserOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SignOutUserOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SignOutUserOperation> for super::super::super::Foundation::IAsyncAction {
     type Error = ::windows::core::Error;
@@ -914,7 +914,7 @@ impl ::core::fmt::Debug for UserAuthenticationOperation {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for UserAuthenticationOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.UserAuthenticationOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};rc(Windows.Security.Authentication.OnlineId.UserIdentity;{2146d9cd-0742-4be3-8a1c-7c7ae679aa88})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.UserAuthenticationOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};rc(Windows.Security.Authentication.OnlineId.UserIdentity;{2146d9cd-0742-4be3-8a1c-7c7ae679aa88})))");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::clone::Clone for UserAuthenticationOperation {
@@ -938,7 +938,7 @@ impl ::windows::core::RuntimeName for UserAuthenticationOperation {
 impl UserAuthenticationOperation {
     pub fn get(&self) -> ::windows::core::Result<UserIdentity> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
-            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
+            let (_waiter, signaler) = ::windows::imp::Waiter::new()?;
             self.SetCompleted(&super::super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
@@ -966,7 +966,7 @@ impl ::std::future::Future for UserAuthenticationOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-::windows::core::interface_hierarchy!(UserAuthenticationOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserAuthenticationOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<UserAuthenticationOperation> for super::super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -1090,7 +1090,7 @@ impl ::core::fmt::Debug for UserIdentity {
     }
 }
 impl ::windows::core::RuntimeType for UserIdentity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.UserIdentity;{2146d9cd-0742-4be3-8a1c-7c7ae679aa88})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.UserIdentity;{2146d9cd-0742-4be3-8a1c-7c7ae679aa88})");
 }
 impl ::core::clone::Clone for UserIdentity {
     fn clone(&self) -> Self {
@@ -1106,7 +1106,7 @@ unsafe impl ::windows::core::Interface for UserIdentity {
 impl ::windows::core::RuntimeName for UserIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserIdentity";
 }
-::windows::core::interface_hierarchy!(UserIdentity, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserIdentity, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserIdentity {}
 unsafe impl ::core::marker::Sync for UserIdentity {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
@@ -1138,7 +1138,7 @@ impl ::core::fmt::Debug for CredentialPromptType {
     }
 }
 impl ::windows::core::RuntimeType for CredentialPromptType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
 }
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
 #[repr(transparent)]
@@ -1169,7 +1169,7 @@ impl ::core::fmt::Debug for OnlineIdSystemTicketStatus {
     }
 }
 impl ::windows::core::RuntimeType for OnlineIdSystemTicketStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

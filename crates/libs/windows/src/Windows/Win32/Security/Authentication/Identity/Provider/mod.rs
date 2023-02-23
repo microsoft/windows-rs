@@ -41,7 +41,7 @@ impl AsyncIAssociatedIdentityProvider {
         (::windows::core::Vtable::vtable(self).Finish_ChangeCredential)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIAssociatedIdentityProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIAssociatedIdentityProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIAssociatedIdentityProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -133,7 +133,7 @@ impl AsyncIConnectedIdentityProvider {
         (::windows::core::Vtable::vtable(self).Finish_GetAccountState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(AsyncIConnectedIdentityProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIConnectedIdentityProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIConnectedIdentityProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -194,7 +194,7 @@ impl AsyncIIdentityAdvise {
         (::windows::core::Vtable::vtable(self).Finish_IdentityUpdated)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIIdentityAdvise, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIIdentityAdvise, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIIdentityAdvise {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -245,7 +245,7 @@ impl AsyncIIdentityAuthentication {
         (::windows::core::Vtable::vtable(self).Finish_ValidateIdentityCredential)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppidentityproperties.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIIdentityAuthentication, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIIdentityAuthentication, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIIdentityAuthentication {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -372,7 +372,7 @@ impl AsyncIIdentityProvider {
         (::windows::core::Vtable::vtable(self).Finish_UnAdvise)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIIdentityProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIIdentityProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIIdentityProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -493,7 +493,7 @@ impl AsyncIIdentityStore {
         (::windows::core::Vtable::vtable(self).Finish_Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIIdentityStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIIdentityStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIIdentityStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -563,7 +563,7 @@ impl AsyncIIdentityStoreEx {
         (::windows::core::Vtable::vtable(self).Finish_DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIIdentityStoreEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIIdentityStoreEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIIdentityStoreEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -627,7 +627,7 @@ impl IAssociatedIdentityProvider {
         (::windows::core::Vtable::vtable(self).ChangeCredential)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lpszuniqueid.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAssociatedIdentityProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAssociatedIdentityProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAssociatedIdentityProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -696,7 +696,7 @@ impl IConnectedIdentityProvider {
         (::windows::core::Vtable::vtable(self).GetAccountState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IConnectedIdentityProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IConnectedIdentityProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IConnectedIdentityProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -746,7 +746,7 @@ impl IIdentityAdvise {
         (::windows::core::Vtable::vtable(self).IdentityUpdated)(::windows::core::Vtable::as_raw(self), dwidentityupdateevents, lpszuniqueid.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IIdentityAdvise, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IIdentityAdvise, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IIdentityAdvise {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -788,7 +788,7 @@ impl IIdentityAuthentication {
         (::windows::core::Vtable::vtable(self).ValidateIdentityCredential)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(credbuffer.as_ptr()), credbuffer.len() as _, ::core::mem::transmute(ppidentityproperties.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IIdentityAuthentication, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IIdentityAuthentication, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IIdentityAuthentication {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -881,7 +881,7 @@ impl IIdentityProvider {
         (::windows::core::Vtable::vtable(self).UnAdvise)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IIdentityProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IIdentityProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IIdentityProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -968,7 +968,7 @@ impl IIdentityStore {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IIdentityStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IIdentityStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IIdentityStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1023,7 +1023,7 @@ impl IIdentityStoreEx {
         (::windows::core::Vtable::vtable(self).DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self), connectedname.into().abi(), providerguid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IIdentityStoreEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IIdentityStoreEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IIdentityStoreEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

@@ -170,7 +170,7 @@ impl ISyndicationClient {
         }
     }
 }
-::windows::core::interface_hierarchy!(ISyndicationClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISyndicationClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISyndicationClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -183,7 +183,7 @@ impl ::core::fmt::Debug for ISyndicationClient {
     }
 }
 impl ::windows::core::RuntimeType for ISyndicationClient {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9e18a9b7-7249-4b45-b229-7df895a5a1f5}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{9e18a9b7-7249-4b45-b229-7df895a5a1f5}");
 }
 unsafe impl ::windows::core::Vtable for ISyndicationClient {
     type Vtable = ISyndicationClient_Vtbl;
@@ -758,7 +758,7 @@ impl ISyndicationNode {
         }
     }
 }
-::windows::core::interface_hierarchy!(ISyndicationNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISyndicationNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISyndicationNode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -771,7 +771,7 @@ impl ::core::fmt::Debug for ISyndicationNode {
     }
 }
 impl ::windows::core::RuntimeType for ISyndicationNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{753cef78-51f8-45c0-a9f5-f1719dec3fb2}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{753cef78-51f8-45c0-a9f5-f1719dec3fb2}");
 }
 unsafe impl ::windows::core::Vtable for ISyndicationNode {
     type Vtable = ISyndicationNode_Vtbl;
@@ -1020,7 +1020,7 @@ impl ISyndicationText {
         }
     }
 }
-::windows::core::interface_hierarchy!(ISyndicationText, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISyndicationText, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ISyndicationText> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: ISyndicationText) -> ::windows::core::Result<Self> {
@@ -1052,7 +1052,7 @@ impl ::core::fmt::Debug for ISyndicationText {
     }
 }
 impl ::windows::core::RuntimeType for ISyndicationText {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b9cc5e80-313a-4091-a2a6-243e0ee923f9}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b9cc5e80-313a-4091-a2a6-243e0ee923f9}");
 }
 unsafe impl ::windows::core::Vtable for ISyndicationText {
     type Vtable = ISyndicationText_Vtbl;
@@ -1110,8 +1110,8 @@ impl SyndicationAttribute {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationAttribute, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SyndicationAttribute, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1155,7 +1155,7 @@ impl SyndicationAttribute {
     }
     #[doc(hidden)]
     pub fn ISyndicationAttributeFactory<R, F: FnOnce(&ISyndicationAttributeFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationAttribute, ISyndicationAttributeFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SyndicationAttribute, ISyndicationAttributeFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1171,7 +1171,7 @@ impl ::core::fmt::Debug for SyndicationAttribute {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationAttribute {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationAttribute;{71e8f969-526e-4001-9a91-e84f83161ab1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationAttribute;{71e8f969-526e-4001-9a91-e84f83161ab1})");
 }
 impl ::core::clone::Clone for SyndicationAttribute {
     fn clone(&self) -> Self {
@@ -1187,7 +1187,7 @@ unsafe impl ::windows::core::Interface for SyndicationAttribute {
 impl ::windows::core::RuntimeName for SyndicationAttribute {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationAttribute";
 }
-::windows::core::interface_hierarchy!(SyndicationAttribute, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SyndicationAttribute, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SyndicationAttribute {}
 unsafe impl ::core::marker::Sync for SyndicationAttribute {}
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
@@ -1197,8 +1197,8 @@ impl SyndicationCategory {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationCategory, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SyndicationCategory, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1334,7 +1334,7 @@ impl SyndicationCategory {
     }
     #[doc(hidden)]
     pub fn ISyndicationCategoryFactory<R, F: FnOnce(&ISyndicationCategoryFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationCategory, ISyndicationCategoryFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SyndicationCategory, ISyndicationCategoryFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1350,7 +1350,7 @@ impl ::core::fmt::Debug for SyndicationCategory {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationCategory;{8715626f-0cba-4a7f-89ff-ecb5281423b6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationCategory;{8715626f-0cba-4a7f-89ff-ecb5281423b6})");
 }
 impl ::core::clone::Clone for SyndicationCategory {
     fn clone(&self) -> Self {
@@ -1366,7 +1366,7 @@ unsafe impl ::windows::core::Interface for SyndicationCategory {
 impl ::windows::core::RuntimeName for SyndicationCategory {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationCategory";
 }
-::windows::core::interface_hierarchy!(SyndicationCategory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SyndicationCategory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationCategory> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationCategory) -> ::windows::core::Result<Self> {
@@ -1395,8 +1395,8 @@ impl SyndicationClient {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationClient, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SyndicationClient, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1485,7 +1485,7 @@ impl SyndicationClient {
     }
     #[doc(hidden)]
     pub fn ISyndicationClientFactory<R, F: FnOnce(&ISyndicationClientFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationClient, ISyndicationClientFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SyndicationClient, ISyndicationClientFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1501,7 +1501,7 @@ impl ::core::fmt::Debug for SyndicationClient {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationClient {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationClient;{9e18a9b7-7249-4b45-b229-7df895a5a1f5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationClient;{9e18a9b7-7249-4b45-b229-7df895a5a1f5})");
 }
 impl ::core::clone::Clone for SyndicationClient {
     fn clone(&self) -> Self {
@@ -1517,7 +1517,7 @@ unsafe impl ::windows::core::Interface for SyndicationClient {
 impl ::windows::core::RuntimeName for SyndicationClient {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationClient";
 }
-::windows::core::interface_hierarchy!(SyndicationClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SyndicationClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationClient> for ISyndicationClient {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationClient) -> ::windows::core::Result<Self> {
@@ -1546,8 +1546,8 @@ impl SyndicationContent {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationContent, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SyndicationContent, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1704,7 +1704,7 @@ impl SyndicationContent {
     }
     #[doc(hidden)]
     pub fn ISyndicationContentFactory<R, F: FnOnce(&ISyndicationContentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationContent, ISyndicationContentFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SyndicationContent, ISyndicationContentFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1720,7 +1720,7 @@ impl ::core::fmt::Debug for SyndicationContent {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationContent;{4641fefe-0e55-40d0-b8d0-6a2ccba9fc7c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationContent;{4641fefe-0e55-40d0-b8d0-6a2ccba9fc7c})");
 }
 impl ::core::clone::Clone for SyndicationContent {
     fn clone(&self) -> Self {
@@ -1736,7 +1736,7 @@ unsafe impl ::windows::core::Interface for SyndicationContent {
 impl ::windows::core::RuntimeName for SyndicationContent {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationContent";
 }
-::windows::core::interface_hierarchy!(SyndicationContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SyndicationContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationContent> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationContent) -> ::windows::core::Result<Self> {
@@ -1788,7 +1788,7 @@ impl SyndicationError {
     }
     #[doc(hidden)]
     pub fn ISyndicationErrorStatics<R, F: FnOnce(&ISyndicationErrorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationError, ISyndicationErrorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SyndicationError, ISyndicationErrorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1802,8 +1802,8 @@ impl SyndicationFeed {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationFeed, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SyndicationFeed, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2112,7 +2112,7 @@ impl SyndicationFeed {
     }
     #[doc(hidden)]
     pub fn ISyndicationFeedFactory<R, F: FnOnce(&ISyndicationFeedFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationFeed, ISyndicationFeedFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SyndicationFeed, ISyndicationFeedFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2128,7 +2128,7 @@ impl ::core::fmt::Debug for SyndicationFeed {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationFeed {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationFeed;{7ffe3cd2-5b66-4d62-8403-1bc10d910d6b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationFeed;{7ffe3cd2-5b66-4d62-8403-1bc10d910d6b})");
 }
 impl ::core::clone::Clone for SyndicationFeed {
     fn clone(&self) -> Self {
@@ -2144,7 +2144,7 @@ unsafe impl ::windows::core::Interface for SyndicationFeed {
 impl ::windows::core::RuntimeName for SyndicationFeed {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationFeed";
 }
-::windows::core::interface_hierarchy!(SyndicationFeed, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SyndicationFeed, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationFeed> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationFeed) -> ::windows::core::Result<Self> {
@@ -2173,8 +2173,8 @@ impl SyndicationGenerator {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationGenerator, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SyndicationGenerator, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2308,7 +2308,7 @@ impl SyndicationGenerator {
     }
     #[doc(hidden)]
     pub fn ISyndicationGeneratorFactory<R, F: FnOnce(&ISyndicationGeneratorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationGenerator, ISyndicationGeneratorFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SyndicationGenerator, ISyndicationGeneratorFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2324,7 +2324,7 @@ impl ::core::fmt::Debug for SyndicationGenerator {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationGenerator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationGenerator;{9768b379-fb2b-4f6d-b41c-088a5868825c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationGenerator;{9768b379-fb2b-4f6d-b41c-088a5868825c})");
 }
 impl ::core::clone::Clone for SyndicationGenerator {
     fn clone(&self) -> Self {
@@ -2340,7 +2340,7 @@ unsafe impl ::windows::core::Interface for SyndicationGenerator {
 impl ::windows::core::RuntimeName for SyndicationGenerator {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationGenerator";
 }
-::windows::core::interface_hierarchy!(SyndicationGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SyndicationGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationGenerator> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationGenerator) -> ::windows::core::Result<Self> {
@@ -2369,8 +2369,8 @@ impl SyndicationItem {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationItem, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SyndicationItem, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2672,7 +2672,7 @@ impl SyndicationItem {
     }
     #[doc(hidden)]
     pub fn ISyndicationItemFactory<R, F: FnOnce(&ISyndicationItemFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationItem, ISyndicationItemFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SyndicationItem, ISyndicationItemFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2688,7 +2688,7 @@ impl ::core::fmt::Debug for SyndicationItem {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationItem;{548db883-c384-45c1-8ae8-a378c4ec486c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationItem;{548db883-c384-45c1-8ae8-a378c4ec486c})");
 }
 impl ::core::clone::Clone for SyndicationItem {
     fn clone(&self) -> Self {
@@ -2704,7 +2704,7 @@ unsafe impl ::windows::core::Interface for SyndicationItem {
 impl ::windows::core::RuntimeName for SyndicationItem {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationItem";
 }
-::windows::core::interface_hierarchy!(SyndicationItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SyndicationItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationItem> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationItem) -> ::windows::core::Result<Self> {
@@ -2733,8 +2733,8 @@ impl SyndicationLink {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationLink, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SyndicationLink, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Length(&self) -> ::windows::core::Result<u32> {
@@ -2911,7 +2911,7 @@ impl SyndicationLink {
     }
     #[doc(hidden)]
     pub fn ISyndicationLinkFactory<R, F: FnOnce(&ISyndicationLinkFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationLink, ISyndicationLinkFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SyndicationLink, ISyndicationLinkFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2927,7 +2927,7 @@ impl ::core::fmt::Debug for SyndicationLink {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationLink {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationLink;{27553abd-a10e-41b5-86bd-9759086eb0c5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationLink;{27553abd-a10e-41b5-86bd-9759086eb0c5})");
 }
 impl ::core::clone::Clone for SyndicationLink {
     fn clone(&self) -> Self {
@@ -2943,7 +2943,7 @@ unsafe impl ::windows::core::Interface for SyndicationLink {
 impl ::windows::core::RuntimeName for SyndicationLink {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationLink";
 }
-::windows::core::interface_hierarchy!(SyndicationLink, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SyndicationLink, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationLink> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationLink) -> ::windows::core::Result<Self> {
@@ -2972,8 +2972,8 @@ impl SyndicationNode {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationNode, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SyndicationNode, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3070,7 +3070,7 @@ impl SyndicationNode {
     }
     #[doc(hidden)]
     pub fn ISyndicationNodeFactory<R, F: FnOnce(&ISyndicationNodeFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationNode, ISyndicationNodeFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SyndicationNode, ISyndicationNodeFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3086,7 +3086,7 @@ impl ::core::fmt::Debug for SyndicationNode {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationNode;{753cef78-51f8-45c0-a9f5-f1719dec3fb2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationNode;{753cef78-51f8-45c0-a9f5-f1719dec3fb2})");
 }
 impl ::core::clone::Clone for SyndicationNode {
     fn clone(&self) -> Self {
@@ -3102,7 +3102,7 @@ unsafe impl ::windows::core::Interface for SyndicationNode {
 impl ::windows::core::RuntimeName for SyndicationNode {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationNode";
 }
-::windows::core::interface_hierarchy!(SyndicationNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SyndicationNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationNode> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationNode) -> ::windows::core::Result<Self> {
@@ -3131,8 +3131,8 @@ impl SyndicationPerson {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationPerson, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SyndicationPerson, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3274,7 +3274,7 @@ impl SyndicationPerson {
     }
     #[doc(hidden)]
     pub fn ISyndicationPersonFactory<R, F: FnOnce(&ISyndicationPersonFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationPerson, ISyndicationPersonFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SyndicationPerson, ISyndicationPersonFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3290,7 +3290,7 @@ impl ::core::fmt::Debug for SyndicationPerson {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationPerson {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationPerson;{fa1ee5da-a7c6-4517-a096-0143faf29327})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationPerson;{fa1ee5da-a7c6-4517-a096-0143faf29327})");
 }
 impl ::core::clone::Clone for SyndicationPerson {
     fn clone(&self) -> Self {
@@ -3306,7 +3306,7 @@ unsafe impl ::windows::core::Interface for SyndicationPerson {
 impl ::windows::core::RuntimeName for SyndicationPerson {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationPerson";
 }
-::windows::core::interface_hierarchy!(SyndicationPerson, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SyndicationPerson, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationPerson> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationPerson) -> ::windows::core::Result<Self> {
@@ -3335,8 +3335,8 @@ impl SyndicationText {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationText, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SyndicationText, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3476,7 +3476,7 @@ impl SyndicationText {
     }
     #[doc(hidden)]
     pub fn ISyndicationTextFactory<R, F: FnOnce(&ISyndicationTextFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SyndicationText, ISyndicationTextFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SyndicationText, ISyndicationTextFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3492,7 +3492,7 @@ impl ::core::fmt::Debug for SyndicationText {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationText {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationText;{b9cc5e80-313a-4091-a2a6-243e0ee923f9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationText;{b9cc5e80-313a-4091-a2a6-243e0ee923f9})");
 }
 impl ::core::clone::Clone for SyndicationText {
     fn clone(&self) -> Self {
@@ -3508,7 +3508,7 @@ unsafe impl ::windows::core::Interface for SyndicationText {
 impl ::windows::core::RuntimeName for SyndicationText {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationText";
 }
-::windows::core::interface_hierarchy!(SyndicationText, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SyndicationText, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationText> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationText) -> ::windows::core::Result<Self> {
@@ -3581,7 +3581,7 @@ impl ::core::fmt::Debug for SyndicationErrorStatus {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationErrorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationErrorStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationErrorStatus;i4)");
 }
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
 #[repr(transparent)]
@@ -3615,7 +3615,7 @@ impl ::core::fmt::Debug for SyndicationFormat {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationFormat;i4)");
 }
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
 #[repr(transparent)]
@@ -3646,7 +3646,7 @@ impl ::core::fmt::Debug for SyndicationTextType {
     }
 }
 impl ::windows::core::RuntimeType for SyndicationTextType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationTextType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationTextType;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
@@ -3669,7 +3669,7 @@ impl ::windows::core::TypeKind for RetrievalProgress {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for RetrievalProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.RetrievalProgress;u4;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.RetrievalProgress;u4;u4)");
 }
 impl ::core::cmp::PartialEq for RetrievalProgress {
     fn eq(&self, other: &Self) -> bool {
@@ -3705,7 +3705,7 @@ impl ::windows::core::TypeKind for TransferProgress {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for TransferProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.TransferProgress;u4;u4;u4;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.TransferProgress;u4;u4;u4;u4)");
 }
 impl ::core::cmp::PartialEq for TransferProgress {
     fn eq(&self, other: &Self) -> bool {

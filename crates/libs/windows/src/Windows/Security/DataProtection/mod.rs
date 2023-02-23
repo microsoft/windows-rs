@@ -159,7 +159,7 @@ impl ::core::fmt::Debug for UserDataAvailabilityStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UserDataAvailabilityStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs;{a76582c9-06a2-4273-a803-834c9f87fbeb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs;{a76582c9-06a2-4273-a803-834c9f87fbeb})");
 }
 impl ::core::clone::Clone for UserDataAvailabilityStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -175,7 +175,7 @@ unsafe impl ::windows::core::Interface for UserDataAvailabilityStateChangedEvent
 impl ::windows::core::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(UserDataAvailabilityStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataAvailabilityStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataAvailabilityStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataAvailabilityStateChangedEventArgs {}
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]
@@ -211,7 +211,7 @@ impl ::core::fmt::Debug for UserDataBufferUnprotectResult {
     }
 }
 impl ::windows::core::RuntimeType for UserDataBufferUnprotectResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataBufferUnprotectResult;{8efd0e90-fa9a-46a4-a377-01cebf1e74d8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataBufferUnprotectResult;{8efd0e90-fa9a-46a4-a377-01cebf1e74d8})");
 }
 impl ::core::clone::Clone for UserDataBufferUnprotectResult {
     fn clone(&self) -> Self {
@@ -227,7 +227,7 @@ unsafe impl ::windows::core::Interface for UserDataBufferUnprotectResult {
 impl ::windows::core::RuntimeName for UserDataBufferUnprotectResult {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataBufferUnprotectResult";
 }
-::windows::core::interface_hierarchy!(UserDataBufferUnprotectResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataBufferUnprotectResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataBufferUnprotectResult {}
 unsafe impl ::core::marker::Sync for UserDataBufferUnprotectResult {}
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]
@@ -324,7 +324,7 @@ impl UserDataProtectionManager {
     }
     #[doc(hidden)]
     pub fn IUserDataProtectionManagerStatics<R, F: FnOnce(&IUserDataProtectionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserDataProtectionManager, IUserDataProtectionManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserDataProtectionManager, IUserDataProtectionManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -340,7 +340,7 @@ impl ::core::fmt::Debug for UserDataProtectionManager {
     }
 }
 impl ::windows::core::RuntimeType for UserDataProtectionManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataProtectionManager;{1f13237d-b42e-4a88-9480-0f240924c876})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataProtectionManager;{1f13237d-b42e-4a88-9480-0f240924c876})");
 }
 impl ::core::clone::Clone for UserDataProtectionManager {
     fn clone(&self) -> Self {
@@ -356,7 +356,7 @@ unsafe impl ::windows::core::Interface for UserDataProtectionManager {
 impl ::windows::core::RuntimeName for UserDataProtectionManager {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataProtectionManager";
 }
-::windows::core::interface_hierarchy!(UserDataProtectionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataProtectionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataProtectionManager {}
 unsafe impl ::core::marker::Sync for UserDataProtectionManager {}
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]
@@ -383,7 +383,7 @@ impl ::core::fmt::Debug for UserDataStorageItemProtectionInfo {
     }
 }
 impl ::windows::core::RuntimeType for UserDataStorageItemProtectionInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataStorageItemProtectionInfo;{5b6680f6-e87f-40a1-b19d-a6187a0c662f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataStorageItemProtectionInfo;{5b6680f6-e87f-40a1-b19d-a6187a0c662f})");
 }
 impl ::core::clone::Clone for UserDataStorageItemProtectionInfo {
     fn clone(&self) -> Self {
@@ -399,7 +399,7 @@ unsafe impl ::windows::core::Interface for UserDataStorageItemProtectionInfo {
 impl ::windows::core::RuntimeName for UserDataStorageItemProtectionInfo {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataStorageItemProtectionInfo";
 }
-::windows::core::interface_hierarchy!(UserDataStorageItemProtectionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataStorageItemProtectionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataStorageItemProtectionInfo {}
 unsafe impl ::core::marker::Sync for UserDataStorageItemProtectionInfo {}
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]
@@ -431,7 +431,7 @@ impl ::core::fmt::Debug for UserDataAvailability {
     }
 }
 impl ::windows::core::RuntimeType for UserDataAvailability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
 }
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]
 #[repr(transparent)]
@@ -461,7 +461,7 @@ impl ::core::fmt::Debug for UserDataBufferUnprotectStatus {
     }
 }
 impl ::windows::core::RuntimeType for UserDataBufferUnprotectStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
 }
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]
 #[repr(transparent)]
@@ -492,7 +492,7 @@ impl ::core::fmt::Debug for UserDataStorageItemProtectionStatus {
     }
 }
 impl ::windows::core::RuntimeType for UserDataStorageItemProtectionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataStorageItemProtectionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataStorageItemProtectionStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

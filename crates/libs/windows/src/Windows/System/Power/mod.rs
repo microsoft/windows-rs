@@ -299,7 +299,7 @@ impl BackgroundEnergyManager {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IBackgroundEnergyManagerStatics<R, F: FnOnce(&IBackgroundEnergyManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundEnergyManager, IBackgroundEnergyManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundEnergyManager, IBackgroundEnergyManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -389,7 +389,7 @@ impl ForegroundEnergyManager {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IForegroundEnergyManagerStatics<R, F: FnOnce(&IForegroundEnergyManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ForegroundEnergyManager, IForegroundEnergyManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ForegroundEnergyManager, IForegroundEnergyManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -499,7 +499,7 @@ impl PowerManager {
     }
     #[doc(hidden)]
     pub fn IPowerManagerStatics<R, F: FnOnce(&IPowerManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PowerManager, IPowerManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PowerManager, IPowerManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -536,7 +536,7 @@ impl ::core::fmt::Debug for BatteryStatus {
     }
 }
 impl ::windows::core::RuntimeType for BatteryStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Power.BatteryStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.BatteryStatus;i4)");
 }
 #[doc = "*Required features: `\"System_Power\"`*"]
 #[repr(transparent)]
@@ -567,7 +567,7 @@ impl ::core::fmt::Debug for EnergySaverStatus {
     }
 }
 impl ::windows::core::RuntimeType for EnergySaverStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Power.EnergySaverStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.EnergySaverStatus;i4)");
 }
 #[doc = "*Required features: `\"System_Power\"`*"]
 #[repr(transparent)]
@@ -598,7 +598,7 @@ impl ::core::fmt::Debug for PowerSupplyStatus {
     }
 }
 impl ::windows::core::RuntimeType for PowerSupplyStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Power.PowerSupplyStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.PowerSupplyStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

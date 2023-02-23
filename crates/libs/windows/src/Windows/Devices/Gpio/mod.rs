@@ -312,7 +312,7 @@ impl GpioChangeCounter {
     }
     #[doc(hidden)]
     pub fn IGpioChangeCounterFactory<R, F: FnOnce(&IGpioChangeCounterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GpioChangeCounter, IGpioChangeCounterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GpioChangeCounter, IGpioChangeCounterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -328,7 +328,7 @@ impl ::core::fmt::Debug for GpioChangeCounter {
     }
 }
 impl ::windows::core::RuntimeType for GpioChangeCounter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioChangeCounter;{cb5ec0de-6801-43ff-803d-4576628a8b26})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioChangeCounter;{cb5ec0de-6801-43ff-803d-4576628a8b26})");
 }
 impl ::core::clone::Clone for GpioChangeCounter {
     fn clone(&self) -> Self {
@@ -344,7 +344,7 @@ unsafe impl ::windows::core::Interface for GpioChangeCounter {
 impl ::windows::core::RuntimeName for GpioChangeCounter {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeCounter";
 }
-::windows::core::interface_hierarchy!(GpioChangeCounter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GpioChangeCounter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<GpioChangeCounter> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -487,7 +487,7 @@ impl GpioChangeReader {
     }
     #[doc(hidden)]
     pub fn IGpioChangeReaderFactory<R, F: FnOnce(&IGpioChangeReaderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GpioChangeReader, IGpioChangeReaderFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GpioChangeReader, IGpioChangeReaderFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -503,7 +503,7 @@ impl ::core::fmt::Debug for GpioChangeReader {
     }
 }
 impl ::windows::core::RuntimeType for GpioChangeReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioChangeReader;{0abc885f-e031-48e8-8590-70de78363c6d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioChangeReader;{0abc885f-e031-48e8-8590-70de78363c6d})");
 }
 impl ::core::clone::Clone for GpioChangeReader {
     fn clone(&self) -> Self {
@@ -519,7 +519,7 @@ unsafe impl ::windows::core::Interface for GpioChangeReader {
 impl ::windows::core::RuntimeName for GpioChangeReader {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeReader";
 }
-::windows::core::interface_hierarchy!(GpioChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GpioChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<GpioChangeReader> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -604,12 +604,12 @@ impl GpioController {
     }
     #[doc(hidden)]
     pub fn IGpioControllerStatics<R, F: FnOnce(&IGpioControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GpioController, IGpioControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GpioController, IGpioControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGpioControllerStatics2<R, F: FnOnce(&IGpioControllerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GpioController, IGpioControllerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GpioController, IGpioControllerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -625,7 +625,7 @@ impl ::core::fmt::Debug for GpioController {
     }
 }
 impl ::windows::core::RuntimeType for GpioController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioController;{284012e3-7461-469c-a8bc-61d69d08a53c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioController;{284012e3-7461-469c-a8bc-61d69d08a53c})");
 }
 impl ::core::clone::Clone for GpioController {
     fn clone(&self) -> Self {
@@ -641,7 +641,7 @@ unsafe impl ::windows::core::Interface for GpioController {
 impl ::windows::core::RuntimeName for GpioController {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioController";
 }
-::windows::core::interface_hierarchy!(GpioController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GpioController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GpioController {}
 unsafe impl ::core::marker::Sync for GpioController {}
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
@@ -740,7 +740,7 @@ impl ::core::fmt::Debug for GpioPin {
     }
 }
 impl ::windows::core::RuntimeType for GpioPin {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioPin;{11d9b087-afae-4790-9ee9-e0eac942d201})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioPin;{11d9b087-afae-4790-9ee9-e0eac942d201})");
 }
 impl ::core::clone::Clone for GpioPin {
     fn clone(&self) -> Self {
@@ -756,7 +756,7 @@ unsafe impl ::windows::core::Interface for GpioPin {
 impl ::windows::core::RuntimeName for GpioPin {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPin";
 }
-::windows::core::interface_hierarchy!(GpioPin, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GpioPin, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<GpioPin> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -805,7 +805,7 @@ impl ::core::fmt::Debug for GpioPinValueChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GpioPinValueChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioPinValueChangedEventArgs;{3137aae1-703d-4059-bd24-b5b25dffb84e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioPinValueChangedEventArgs;{3137aae1-703d-4059-bd24-b5b25dffb84e})");
 }
 impl ::core::clone::Clone for GpioPinValueChangedEventArgs {
     fn clone(&self) -> Self {
@@ -821,7 +821,7 @@ unsafe impl ::windows::core::Interface for GpioPinValueChangedEventArgs {
 impl ::windows::core::RuntimeName for GpioPinValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPinValueChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(GpioPinValueChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GpioPinValueChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GpioPinValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GpioPinValueChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
@@ -853,7 +853,7 @@ impl ::core::fmt::Debug for GpioChangePolarity {
     }
 }
 impl ::windows::core::RuntimeType for GpioChangePolarity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioChangePolarity;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioChangePolarity;i4)");
 }
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
@@ -886,7 +886,7 @@ impl ::core::fmt::Debug for GpioOpenStatus {
     }
 }
 impl ::windows::core::RuntimeType for GpioOpenStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioOpenStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioOpenStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
@@ -922,7 +922,7 @@ impl ::core::fmt::Debug for GpioPinDriveMode {
     }
 }
 impl ::windows::core::RuntimeType for GpioPinDriveMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinDriveMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinDriveMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
@@ -952,7 +952,7 @@ impl ::core::fmt::Debug for GpioPinEdge {
     }
 }
 impl ::windows::core::RuntimeType for GpioPinEdge {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinEdge;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinEdge;i4)");
 }
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
@@ -982,7 +982,7 @@ impl ::core::fmt::Debug for GpioPinValue {
     }
 }
 impl ::windows::core::RuntimeType for GpioPinValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinValue;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinValue;i4)");
 }
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
@@ -1012,7 +1012,7 @@ impl ::core::fmt::Debug for GpioSharingMode {
     }
 }
 impl ::windows::core::RuntimeType for GpioSharingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioSharingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioSharingMode;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Devices_Gpio\"`, `\"Foundation\"`*"]
@@ -1041,7 +1041,7 @@ impl ::windows::core::TypeKind for GpioChangeCount {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for GpioChangeCount {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeCount;u8;struct(Windows.Foundation.TimeSpan;i8))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeCount;u8;struct(Windows.Foundation.TimeSpan;i8))");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for GpioChangeCount {
@@ -1084,7 +1084,7 @@ impl ::windows::core::TypeKind for GpioChangeRecord {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for GpioChangeRecord {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeRecord;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.Devices.Gpio.GpioPinEdge;i4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeRecord;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.Devices.Gpio.GpioPinEdge;i4))");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for GpioChangeRecord {

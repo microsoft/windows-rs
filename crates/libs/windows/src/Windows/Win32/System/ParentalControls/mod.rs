@@ -23,7 +23,7 @@ impl IWPCGamesSettings {
         (::windows::core::Vtable::vtable(self).IsBlocked)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidappid), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWPCGamesSettings, ::windows::core::IUnknown, IWPCSettings);
+::windows::imp::interface_hierarchy!(IWPCGamesSettings, ::windows::core::IUnknown, IWPCSettings);
 impl ::core::cmp::PartialEq for IWPCGamesSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -77,7 +77,7 @@ impl IWPCProviderConfig {
         (::windows::core::Vtable::vtable(self).RequestOverride)(::windows::core::Vtable::as_raw(self), hwnd.into(), ::core::mem::transmute_copy(bstrpath), dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWPCProviderConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWPCProviderConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWPCProviderConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -125,7 +125,7 @@ impl IWPCProviderState {
         (::windows::core::Vtable::vtable(self).Disable)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWPCProviderState, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWPCProviderState, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWPCProviderState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -164,7 +164,7 @@ impl IWPCProviderSupport {
         (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWPCProviderSupport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWPCProviderSupport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWPCProviderSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -214,7 +214,7 @@ impl IWPCSettings {
         (::windows::core::Vtable::vtable(self).GetRestrictions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWPCSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWPCSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWPCSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -286,7 +286,7 @@ impl IWPCWebSettings {
         (::windows::core::Vtable::vtable(self).RequestURLOverride)(::windows::core::Vtable::as_raw(self), hwnd.into(), pcszurl.into().abi(), ppcszsuburls.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppcszsuburls.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWPCWebSettings, ::windows::core::IUnknown, IWPCSettings);
+::windows::imp::interface_hierarchy!(IWPCWebSettings, ::windows::core::IUnknown, IWPCSettings);
 impl ::core::cmp::PartialEq for IWPCWebSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -352,7 +352,7 @@ impl IWindowsParentalControls {
         (::windows::core::Vtable::vtable(self).GetGamesSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWindowsParentalControls, ::windows::core::IUnknown, IWindowsParentalControlsCore);
+::windows::imp::interface_hierarchy!(IWindowsParentalControls, ::windows::core::IUnknown, IWindowsParentalControlsCore);
 impl ::core::cmp::PartialEq for IWindowsParentalControls {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -407,7 +407,7 @@ impl IWindowsParentalControlsCore {
         (::windows::core::Vtable::vtable(self).GetWebFilterInfo)(::windows::core::Vtable::as_raw(self), pguidid, ::core::mem::transmute(ppszname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWindowsParentalControlsCore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWindowsParentalControlsCore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWindowsParentalControlsCore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

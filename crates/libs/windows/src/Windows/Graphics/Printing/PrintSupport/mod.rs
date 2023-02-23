@@ -447,7 +447,7 @@ impl ::core::fmt::Debug for PrintSupportExtensionSession {
     }
 }
 impl ::windows::core::RuntimeType for PrintSupportExtensionSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession;{eea45f1a-f4c6-54b3-a0b8-a559839aa4c3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession;{eea45f1a-f4c6-54b3-a0b8-a559839aa4c3})");
 }
 impl ::core::clone::Clone for PrintSupportExtensionSession {
     fn clone(&self) -> Self {
@@ -463,7 +463,7 @@ unsafe impl ::windows::core::Interface for PrintSupportExtensionSession {
 impl ::windows::core::RuntimeName for PrintSupportExtensionSession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession";
 }
-::windows::core::interface_hierarchy!(PrintSupportExtensionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintSupportExtensionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportExtensionSession {}
 unsafe impl ::core::marker::Sync for PrintSupportExtensionSession {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -490,7 +490,7 @@ impl ::core::fmt::Debug for PrintSupportExtensionTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintSupportExtensionTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionTriggerDetails;{ae083711-9b09-55d1-a0ae-2a14c5f83d6a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionTriggerDetails;{ae083711-9b09-55d1-a0ae-2a14c5f83d6a})");
 }
 impl ::core::clone::Clone for PrintSupportExtensionTriggerDetails {
     fn clone(&self) -> Self {
@@ -506,7 +506,7 @@ unsafe impl ::windows::core::Interface for PrintSupportExtensionTriggerDetails {
 impl ::windows::core::RuntimeName for PrintSupportExtensionTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionTriggerDetails";
 }
-::windows::core::interface_hierarchy!(PrintSupportExtensionTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintSupportExtensionTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportExtensionTriggerDetails {}
 unsafe impl ::core::marker::Sync for PrintSupportExtensionTriggerDetails {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -586,7 +586,7 @@ impl ::core::fmt::Debug for PrintSupportPrintDeviceCapabilitiesChangedEventArgs 
     }
 }
 impl ::windows::core::RuntimeType for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs;{15969bf0-9028-5722-8a37-7d7c34b41dd6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs;{15969bf0-9028-5722-8a37-7d7c34b41dd6})");
 }
 impl ::core::clone::Clone for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     fn clone(&self) -> Self {
@@ -602,7 +602,7 @@ unsafe impl ::windows::core::Interface for PrintSupportPrintDeviceCapabilitiesCh
 impl ::windows::core::RuntimeName for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -625,7 +625,7 @@ impl PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     }
     #[doc(hidden)]
     pub fn IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics<R, F: FnOnce(&IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PrintSupportPrintDeviceCapabilitiesUpdatePolicy, IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PrintSupportPrintDeviceCapabilitiesUpdatePolicy, IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -641,7 +641,7 @@ impl ::core::fmt::Debug for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     }
 }
 impl ::windows::core::RuntimeType for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesUpdatePolicy;{5f5fc025-8c35-5529-8038-8cdc3634bbcd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesUpdatePolicy;{5f5fc025-8c35-5529-8038-8cdc3634bbcd})");
 }
 impl ::core::clone::Clone for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     fn clone(&self) -> Self {
@@ -657,7 +657,7 @@ unsafe impl ::windows::core::Interface for PrintSupportPrintDeviceCapabilitiesUp
 impl ::windows::core::RuntimeName for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesUpdatePolicy";
 }
-::windows::core::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesUpdatePolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesUpdatePolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
 unsafe impl ::core::marker::Sync for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -667,8 +667,8 @@ impl PrintSupportPrintTicketElement {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PrintSupportPrintTicketElement, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PrintSupportPrintTicketElement, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -706,7 +706,7 @@ impl ::core::fmt::Debug for PrintSupportPrintTicketElement {
     }
 }
 impl ::windows::core::RuntimeType for PrintSupportPrintTicketElement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketElement;{4b2a4489-730d-5be7-80e6-8332941abf13})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketElement;{4b2a4489-730d-5be7-80e6-8332941abf13})");
 }
 impl ::core::clone::Clone for PrintSupportPrintTicketElement {
     fn clone(&self) -> Self {
@@ -722,7 +722,7 @@ unsafe impl ::windows::core::Interface for PrintSupportPrintTicketElement {
 impl ::windows::core::RuntimeName for PrintSupportPrintTicketElement {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketElement";
 }
-::windows::core::interface_hierarchy!(PrintSupportPrintTicketElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintSupportPrintTicketElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportPrintTicketElement {}
 unsafe impl ::core::marker::Sync for PrintSupportPrintTicketElement {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -764,7 +764,7 @@ impl ::core::fmt::Debug for PrintSupportPrintTicketValidationRequestedEventArgs 
     }
 }
 impl ::windows::core::RuntimeType for PrintSupportPrintTicketValidationRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs;{338e4e69-db55-55c7-8338-ef64680a8f90})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs;{338e4e69-db55-55c7-8338-ef64680a8f90})");
 }
 impl ::core::clone::Clone for PrintSupportPrintTicketValidationRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -780,7 +780,7 @@ unsafe impl ::windows::core::Interface for PrintSupportPrintTicketValidationRequ
 impl ::windows::core::RuntimeName for PrintSupportPrintTicketValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintSupportPrintTicketValidationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintSupportPrintTicketValidationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportPrintTicketValidationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintSupportPrintTicketValidationRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -870,7 +870,7 @@ impl ::core::fmt::Debug for PrintSupportPrinterSelectedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintSupportPrinterSelectedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrinterSelectedEventArgs;{7b1cb7d9-a8a4-5c09-adb2-66165f817977})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrinterSelectedEventArgs;{7b1cb7d9-a8a4-5c09-adb2-66165f817977})");
 }
 impl ::core::clone::Clone for PrintSupportPrinterSelectedEventArgs {
     fn clone(&self) -> Self {
@@ -886,7 +886,7 @@ unsafe impl ::windows::core::Interface for PrintSupportPrinterSelectedEventArgs 
 impl ::windows::core::RuntimeName for PrintSupportPrinterSelectedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrinterSelectedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintSupportPrinterSelectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintSupportPrinterSelectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportPrinterSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintSupportPrinterSelectedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -924,7 +924,7 @@ impl ::core::fmt::Debug for PrintSupportSessionInfo {
     }
 }
 impl ::windows::core::RuntimeType for PrintSupportSessionInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSessionInfo;{852149af-777d-53e9-9ee9-45d3f4b5be9c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSessionInfo;{852149af-777d-53e9-9ee9-45d3f4b5be9c})");
 }
 impl ::core::clone::Clone for PrintSupportSessionInfo {
     fn clone(&self) -> Self {
@@ -940,7 +940,7 @@ unsafe impl ::windows::core::Interface for PrintSupportSessionInfo {
 impl ::windows::core::RuntimeName for PrintSupportSessionInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSessionInfo";
 }
-::windows::core::interface_hierarchy!(PrintSupportSessionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintSupportSessionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportSessionInfo {}
 unsafe impl ::core::marker::Sync for PrintSupportSessionInfo {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -1012,7 +1012,7 @@ impl ::core::fmt::Debug for PrintSupportSettingsActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintSupportSettingsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs;{1e1b565e-a013-55ea-9b8c-eea39d9fb6c1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs;{1e1b565e-a013-55ea-9b8c-eea39d9fb6c1})");
 }
 impl ::core::clone::Clone for PrintSupportSettingsActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -1028,7 +1028,7 @@ unsafe impl ::windows::core::Interface for PrintSupportSettingsActivatedEventArg
 impl ::windows::core::RuntimeName for PrintSupportSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintSupportSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintSupportSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<PrintSupportSettingsActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -1128,7 +1128,7 @@ impl ::core::fmt::Debug for PrintSupportSettingsUISession {
     }
 }
 impl ::windows::core::RuntimeType for PrintSupportSettingsUISession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession;{c6da2251-83c3-55e4-a0f8-5de8b062adbf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession;{c6da2251-83c3-55e4-a0f8-5de8b062adbf})");
 }
 impl ::core::clone::Clone for PrintSupportSettingsUISession {
     fn clone(&self) -> Self {
@@ -1144,7 +1144,7 @@ unsafe impl ::windows::core::Interface for PrintSupportSettingsUISession {
 impl ::windows::core::RuntimeName for PrintSupportSettingsUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession";
 }
-::windows::core::interface_hierarchy!(PrintSupportSettingsUISession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintSupportSettingsUISession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportSettingsUISession {}
 unsafe impl ::core::marker::Sync for PrintSupportSettingsUISession {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -1175,7 +1175,7 @@ impl ::core::fmt::Debug for SettingsLaunchKind {
     }
 }
 impl ::windows::core::RuntimeType for SettingsLaunchKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.SettingsLaunchKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.SettingsLaunchKind;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
 #[repr(transparent)]
@@ -1206,7 +1206,7 @@ impl ::core::fmt::Debug for WorkflowPrintTicketValidationStatus {
     }
 }
 impl ::windows::core::RuntimeType for WorkflowPrintTicketValidationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.WorkflowPrintTicketValidationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.WorkflowPrintTicketValidationStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

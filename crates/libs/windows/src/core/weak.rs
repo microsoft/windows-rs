@@ -1,5 +1,5 @@
 use super::*;
-use bindings::*;
+use imp::*;
 use std::marker::PhantomData;
 
 /// `Weak` holds a non-owning reference to an object.

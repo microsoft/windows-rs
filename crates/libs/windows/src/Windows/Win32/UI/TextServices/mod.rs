@@ -5,19 +5,19 @@ pub unsafe fn DoMsCtfMonitor<P0>(dwflags: u32, heventforservicestop: P0) -> supe
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "msctfmonitor.dll""system" fn DoMsCtfMonitor ( dwflags : u32 , heventforservicestop : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "msctfmonitor.dll""system" fn DoMsCtfMonitor ( dwflags : u32 , heventforservicestop : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     DoMsCtfMonitor(dwflags, heventforservicestop.into())
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[inline]
 pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "msctfmonitor.dll""system" fn InitLocalMsCtfMonitor ( dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msctfmonitor.dll""system" fn InitLocalMsCtfMonitor ( dwflags : u32 ) -> :: windows::core::HRESULT );
     InitLocalMsCtfMonitor(dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[inline]
 pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "msctfmonitor.dll""system" fn UninitLocalMsCtfMonitor ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msctfmonitor.dll""system" fn UninitLocalMsCtfMonitor ( ) -> :: windows::core::HRESULT );
     UninitLocalMsCtfMonitor().ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -50,7 +50,7 @@ impl IAccClientDocMgr {
         (::windows::core::Vtable::vtable(self).GetFocused)(::windows::core::Vtable::as_raw(self), riid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAccClientDocMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccClientDocMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccClientDocMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -116,7 +116,7 @@ impl IAccDictionary {
         (::windows::core::Vtable::vtable(self).ConvertValueToString)(::windows::core::Vtable::as_raw(self), term, lcid, ::core::mem::transmute(varvalue), ::core::mem::transmute(pbstrresult), plcid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAccDictionary, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccDictionary, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccDictionary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -175,7 +175,7 @@ impl IAccServerDocMgr {
         (::windows::core::Vtable::vtable(self).OnDocumentFocus)(::windows::core::Vtable::as_raw(self), punk.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAccServerDocMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccServerDocMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccServerDocMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -254,7 +254,7 @@ impl IAccStore {
         (::windows::core::Vtable::vtable(self).GetFocused)(::windows::core::Vtable::as_raw(self), riid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAccStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -358,7 +358,7 @@ impl IAnchor {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAnchor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAnchor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAnchor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -415,7 +415,7 @@ impl IClonableWrapper {
         (::windows::core::Vtable::vtable(self).CloneNewWrapper)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IClonableWrapper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IClonableWrapper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IClonableWrapper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -457,7 +457,7 @@ impl ICoCreateLocally {
         (::windows::core::Vtable::vtable(self).CoCreateLocally)(::windows::core::Vtable::as_raw(self), rclsid, dwclscontext, riid, ::core::mem::transmute(punk), riidparam, punkparam.into().abi(), ::core::mem::transmute(varparam)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICoCreateLocally, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICoCreateLocally, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICoCreateLocally {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -503,7 +503,7 @@ impl ICoCreatedLocally {
         (::windows::core::Vtable::vtable(self).LocalInit)(::windows::core::Vtable::as_raw(self), punklocalobject.into().abi(), riidparam, punkparam.into().abi(), ::core::mem::transmute(varparam)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICoCreatedLocally, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICoCreatedLocally, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICoCreatedLocally {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -550,7 +550,7 @@ impl IDocWrap {
         (::windows::core::Vtable::vtable(self).GetWrappedDoc)(::windows::core::Vtable::as_raw(self), riid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDocWrap, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDocWrap, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDocWrap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -598,7 +598,7 @@ impl IEnumITfCompositionView {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumITfCompositionView, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumITfCompositionView, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumITfCompositionView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -648,7 +648,7 @@ impl IEnumSpeechCommands {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumSpeechCommands, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumSpeechCommands, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumSpeechCommands {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -698,7 +698,7 @@ impl IEnumTfCandidates {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfCandidates, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfCandidates, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfCandidates {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -748,7 +748,7 @@ impl IEnumTfContextViews {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfContextViews, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfContextViews, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfContextViews {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -798,7 +798,7 @@ impl IEnumTfContexts {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfContexts, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfContexts, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfContexts {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -848,7 +848,7 @@ impl IEnumTfDisplayAttributeInfo {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfDisplayAttributeInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfDisplayAttributeInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfDisplayAttributeInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -898,7 +898,7 @@ impl IEnumTfDocumentMgrs {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfDocumentMgrs, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfDocumentMgrs, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfDocumentMgrs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -948,7 +948,7 @@ impl IEnumTfFunctionProviders {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfFunctionProviders, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfFunctionProviders, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfFunctionProviders {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -998,7 +998,7 @@ impl IEnumTfInputProcessorProfiles {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfInputProcessorProfiles, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfInputProcessorProfiles, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfInputProcessorProfiles {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1048,7 +1048,7 @@ impl IEnumTfLangBarItems {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfLangBarItems, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfLangBarItems, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfLangBarItems {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1100,7 +1100,7 @@ impl IEnumTfLanguageProfiles {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfLanguageProfiles, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfLanguageProfiles, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfLanguageProfiles {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1153,7 +1153,7 @@ impl IEnumTfLatticeElements {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfLatticeElements, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfLatticeElements, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfLatticeElements {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1203,7 +1203,7 @@ impl IEnumTfProperties {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1255,7 +1255,7 @@ impl IEnumTfPropertyValue {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfPropertyValue, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfPropertyValue, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfPropertyValue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1308,7 +1308,7 @@ impl IEnumTfRanges {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfRanges, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfRanges, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfRanges {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1358,7 +1358,7 @@ impl IEnumTfUIElements {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumTfUIElements, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTfUIElements, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTfUIElements {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1398,7 +1398,7 @@ impl IInternalDocWrap {
         (::windows::core::Vtable::vtable(self).NotifyRevoke)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInternalDocWrap, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInternalDocWrap, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInternalDocWrap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1439,7 +1439,7 @@ impl ISpeechCommandProvider {
         (::windows::core::Vtable::vtable(self).ProcessCommand)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszcommand.as_ptr()), pszcommand.len() as _, langid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpeechCommandProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpeechCommandProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpeechCommandProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1600,7 +1600,7 @@ impl ITextStoreACP {
         (::windows::core::Vtable::vtable(self).GetWnd)(::windows::core::Vtable::as_raw(self), vcview, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITextStoreACP, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextStoreACP, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextStoreACP {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1815,7 +1815,7 @@ impl ITextStoreACP2 {
         (::windows::core::Vtable::vtable(self).GetScreenExt)(::windows::core::Vtable::as_raw(self), vcview, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITextStoreACP2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextStoreACP2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextStoreACP2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1911,7 +1911,7 @@ impl ITextStoreACPEx {
         (::windows::core::Vtable::vtable(self).ScrollToRect)(::windows::core::Vtable::as_raw(self), acpstart, acpend, ::core::mem::transmute(rc), dwposition).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextStoreACPEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextStoreACPEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextStoreACPEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1978,7 +1978,7 @@ impl ITextStoreACPServices {
         (::windows::core::Vtable::vtable(self).CreateRange)(::windows::core::Vtable::as_raw(self), acpstart, acpend, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITextStoreACPServices, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextStoreACPServices, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextStoreACPServices {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2045,7 +2045,7 @@ impl ITextStoreACPSink {
         (::windows::core::Vtable::vtable(self).OnEndEditTransaction)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextStoreACPSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextStoreACPSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextStoreACPSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2113,7 +2113,7 @@ impl ITextStoreACPSinkEx {
         (::windows::core::Vtable::vtable(self).OnDisconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextStoreACPSinkEx, ::windows::core::IUnknown, ITextStoreACPSink);
+::windows::imp::interface_hierarchy!(ITextStoreACPSinkEx, ::windows::core::IUnknown, ITextStoreACPSink);
 impl ::core::cmp::PartialEq for ITextStoreACPSinkEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2313,7 +2313,7 @@ impl ITextStoreAnchor {
         (::windows::core::Vtable::vtable(self).InsertEmbeddedAtSelection)(::windows::core::Vtable::as_raw(self), dwflags, pdataobject.into().abi(), ::core::mem::transmute(ppastart), ::core::mem::transmute(ppaend)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextStoreAnchor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextStoreAnchor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextStoreAnchor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2421,7 +2421,7 @@ impl ITextStoreAnchorEx {
         (::windows::core::Vtable::vtable(self).ScrollToRect)(::windows::core::Vtable::as_raw(self), pstart.into().abi(), pend.into().abi(), ::core::mem::transmute(rc), dwposition).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextStoreAnchorEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextStoreAnchorEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextStoreAnchorEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2490,7 +2490,7 @@ impl ITextStoreAnchorSink {
         (::windows::core::Vtable::vtable(self).OnEndEditTransaction)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextStoreAnchorSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextStoreAnchorSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextStoreAnchorSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2566,7 +2566,7 @@ impl ITextStoreSinkAnchorEx {
         (::windows::core::Vtable::vtable(self).OnDisconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextStoreSinkAnchorEx, ::windows::core::IUnknown, ITextStoreAnchorSink);
+::windows::imp::interface_hierarchy!(ITextStoreSinkAnchorEx, ::windows::core::IUnknown, ITextStoreAnchorSink);
 impl ::core::cmp::PartialEq for ITextStoreSinkAnchorEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2608,7 +2608,7 @@ impl ITfActiveLanguageProfileNotifySink {
         (::windows::core::Vtable::vtable(self).OnActivated)(::windows::core::Vtable::as_raw(self), clsid, guidprofile, factivated.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfActiveLanguageProfileNotifySink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfActiveLanguageProfileNotifySink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfActiveLanguageProfileNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2660,7 +2660,7 @@ impl ITfCandidateList {
         (::windows::core::Vtable::vtable(self).SetResult)(::windows::core::Vtable::as_raw(self), nindex, imcr).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfCandidateList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfCandidateList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfCandidateList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2749,7 +2749,7 @@ impl ITfCandidateListUIElement {
         (::windows::core::Vtable::vtable(self).GetCurrentPage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfCandidateListUIElement, ::windows::core::IUnknown, ITfUIElement);
+::windows::imp::interface_hierarchy!(ITfCandidateListUIElement, ::windows::core::IUnknown, ITfUIElement);
 impl ::core::cmp::PartialEq for ITfCandidateListUIElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2851,7 +2851,7 @@ impl ITfCandidateListUIElementBehavior {
         (::windows::core::Vtable::vtable(self).Abort)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfCandidateListUIElementBehavior, ::windows::core::IUnknown, ITfUIElement, ITfCandidateListUIElement);
+::windows::imp::interface_hierarchy!(ITfCandidateListUIElementBehavior, ::windows::core::IUnknown, ITfUIElement, ITfCandidateListUIElement);
 impl ::core::cmp::PartialEq for ITfCandidateListUIElementBehavior {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2895,7 +2895,7 @@ impl ITfCandidateString {
         (::windows::core::Vtable::vtable(self).GetIndex)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfCandidateString, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfCandidateString, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfCandidateString {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2985,7 +2985,7 @@ impl ITfCategoryMgr {
         (::windows::core::Vtable::vtable(self).IsEqualTfGuidAtom)(::windows::core::Vtable::as_raw(self), guidatom, rguid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfCategoryMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfCategoryMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfCategoryMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3047,7 +3047,7 @@ impl ITfCleanupContextDurationSink {
         (::windows::core::Vtable::vtable(self).OnEndCleanupContext)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfCleanupContextDurationSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfCleanupContextDurationSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfCleanupContextDurationSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3088,7 +3088,7 @@ impl ITfCleanupContextSink {
         (::windows::core::Vtable::vtable(self).OnCleanupContext)(::windows::core::Vtable::as_raw(self), ecwrite, pic.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfCleanupContextSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfCleanupContextSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfCleanupContextSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3126,7 +3126,7 @@ impl ITfClientId {
         (::windows::core::Vtable::vtable(self).GetClientId)(::windows::core::Vtable::as_raw(self), rclsid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfClientId, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfClientId, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfClientId {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3171,7 +3171,7 @@ impl ITfCompartment {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfCompartment, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfCompartment, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfCompartment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3215,7 +3215,7 @@ impl ITfCompartmentEventSink {
         (::windows::core::Vtable::vtable(self).OnChange)(::windows::core::Vtable::as_raw(self), rguid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfCompartmentEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfCompartmentEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfCompartmentEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3262,7 +3262,7 @@ impl ITfCompartmentMgr {
         (::windows::core::Vtable::vtable(self).EnumCompartments)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfCompartmentMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfCompartmentMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfCompartmentMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3320,7 +3320,7 @@ impl ITfComposition {
         (::windows::core::Vtable::vtable(self).EndComposition)(::windows::core::Vtable::as_raw(self), ecwrite).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfComposition, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfComposition, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfComposition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3363,7 +3363,7 @@ impl ITfCompositionSink {
         (::windows::core::Vtable::vtable(self).OnCompositionTerminated)(::windows::core::Vtable::as_raw(self), ecwrite, pcomposition.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfCompositionSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfCompositionSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfCompositionSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3405,7 +3405,7 @@ impl ITfCompositionView {
         (::windows::core::Vtable::vtable(self).GetRange)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfCompositionView, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfCompositionView, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfCompositionView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3446,7 +3446,7 @@ impl ITfConfigureSystemKeystrokeFeed {
         (::windows::core::Vtable::vtable(self).EnableSystemKeystrokeFeed)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfConfigureSystemKeystrokeFeed, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfConfigureSystemKeystrokeFeed, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfConfigureSystemKeystrokeFeed {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3551,7 +3551,7 @@ impl ITfContext {
         (::windows::core::Vtable::vtable(self).CreateRangeBackup)(::windows::core::Vtable::as_raw(self), ec, prange.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3635,7 +3635,7 @@ impl ITfContextComposition {
         (::windows::core::Vtable::vtable(self).TakeOwnership)(::windows::core::Vtable::as_raw(self), ecwrite, pcomposition.into().abi(), psink.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfContextComposition, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfContextComposition, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfContextComposition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3712,7 +3712,7 @@ impl ITfContextKeyEventSink {
         (::windows::core::Vtable::vtable(self).OnTestKeyUp)(::windows::core::Vtable::as_raw(self), wparam.into(), lparam.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfContextKeyEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfContextKeyEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfContextKeyEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3794,7 +3794,7 @@ impl ITfContextOwner {
         (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), rguidattribute, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfContextOwner, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfContextOwner, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfContextOwner {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3881,7 +3881,7 @@ impl ITfContextOwnerCompositionServices {
         (::windows::core::Vtable::vtable(self).TerminateComposition)(::windows::core::Vtable::as_raw(self), pcomposition.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfContextOwnerCompositionServices, ::windows::core::IUnknown, ITfContextComposition);
+::windows::imp::interface_hierarchy!(ITfContextOwnerCompositionServices, ::windows::core::IUnknown, ITfContextComposition);
 impl ::core::cmp::PartialEq for ITfContextOwnerCompositionServices {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3937,7 +3937,7 @@ impl ITfContextOwnerCompositionSink {
         (::windows::core::Vtable::vtable(self).OnEndComposition)(::windows::core::Vtable::as_raw(self), pcomposition.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfContextOwnerCompositionSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfContextOwnerCompositionSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfContextOwnerCompositionSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4015,7 +4015,7 @@ impl ITfContextOwnerServices {
         (::windows::core::Vtable::vtable(self).CreateRange)(::windows::core::Vtable::as_raw(self), acpstart, acpend, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfContextOwnerServices, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfContextOwnerServices, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfContextOwnerServices {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4087,7 +4087,7 @@ impl ITfContextView {
         (::windows::core::Vtable::vtable(self).GetWnd)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfContextView, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfContextView, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfContextView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4156,7 +4156,7 @@ impl ITfCreatePropertyStore {
         (::windows::core::Vtable::vtable(self).CreatePropertyStore)(::windows::core::Vtable::as_raw(self), guidprop, prange.into().abi(), cb, pstream.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfCreatePropertyStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfCreatePropertyStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfCreatePropertyStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4218,7 +4218,7 @@ impl ITfDisplayAttributeInfo {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfDisplayAttributeInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfDisplayAttributeInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfDisplayAttributeInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4272,7 +4272,7 @@ impl ITfDisplayAttributeMgr {
         (::windows::core::Vtable::vtable(self).GetDisplayAttributeInfo)(::windows::core::Vtable::as_raw(self), guid, ::core::mem::transmute(ppinfo), pclsidowner).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfDisplayAttributeMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfDisplayAttributeMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfDisplayAttributeMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4311,7 +4311,7 @@ impl ITfDisplayAttributeNotifySink {
         (::windows::core::Vtable::vtable(self).OnUpdateInfo)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfDisplayAttributeNotifySink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfDisplayAttributeNotifySink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfDisplayAttributeNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4353,7 +4353,7 @@ impl ITfDisplayAttributeProvider {
         (::windows::core::Vtable::vtable(self).GetDisplayAttributeInfo)(::windows::core::Vtable::as_raw(self), guid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfDisplayAttributeProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfDisplayAttributeProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfDisplayAttributeProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4415,7 +4415,7 @@ impl ITfDocumentMgr {
         (::windows::core::Vtable::vtable(self).EnumContexts)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfDocumentMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfDocumentMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfDocumentMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4464,7 +4464,7 @@ impl ITfEditRecord {
         (::windows::core::Vtable::vtable(self).GetTextAndPropertyUpdates)(::windows::core::Vtable::as_raw(self), dwflags, ::core::mem::transmute(prgproperties.as_ptr()), prgproperties.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfEditRecord, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfEditRecord, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfEditRecord {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4505,7 +4505,7 @@ impl ITfEditSession {
         (::windows::core::Vtable::vtable(self).DoEditSession)(::windows::core::Vtable::as_raw(self), ec).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfEditSession, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfEditSession, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfEditSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4551,7 +4551,7 @@ impl ITfEditTransactionSink {
         (::windows::core::Vtable::vtable(self).OnEndEditTransaction)(::windows::core::Vtable::as_raw(self), pic.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfEditTransactionSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfEditTransactionSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfEditTransactionSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4603,7 +4603,7 @@ impl ITfFnAdviseText {
         (::windows::core::Vtable::vtable(self).OnLatticeUpdate)(::windows::core::Vtable::as_raw(self), prange.into().abi(), plattice.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnAdviseText, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnAdviseText, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnAdviseText {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4641,7 +4641,7 @@ impl ITfFnBalloon {
         (::windows::core::Vtable::vtable(self).UpdateBalloon)(::windows::core::Vtable::as_raw(self), style, ::core::mem::transmute(pch.as_ptr()), pch.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnBalloon, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfFnBalloon, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfFnBalloon {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4687,7 +4687,7 @@ impl ITfFnConfigure {
         (::windows::core::Vtable::vtable(self).Show)(::windows::core::Vtable::as_raw(self), hwndparent.into(), langid, rguidprofile).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnConfigure, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnConfigure, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnConfigure {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4736,7 +4736,7 @@ impl ITfFnConfigureRegisterEudc {
         (::windows::core::Vtable::vtable(self).Show)(::windows::core::Vtable::as_raw(self), hwndparent.into(), langid, rguidprofile, ::core::mem::transmute_copy(bstrregistered)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnConfigureRegisterEudc, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnConfigureRegisterEudc, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnConfigureRegisterEudc {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4785,7 +4785,7 @@ impl ITfFnConfigureRegisterWord {
         (::windows::core::Vtable::vtable(self).Show)(::windows::core::Vtable::as_raw(self), hwndparent.into(), langid, rguidprofile, ::core::mem::transmute_copy(bstrregistered)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnConfigureRegisterWord, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnConfigureRegisterWord, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnConfigureRegisterWord {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4832,7 +4832,7 @@ impl ITfFnCustomSpeechCommand {
         (::windows::core::Vtable::vtable(self).SetSpeechCommandProvider)(::windows::core::Vtable::as_raw(self), pspcmdprovider.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnCustomSpeechCommand, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnCustomSpeechCommand, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnCustomSpeechCommand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4877,7 +4877,7 @@ impl ITfFnGetLinguisticAlternates {
         (::windows::core::Vtable::vtable(self).GetAlternates)(::windows::core::Vtable::as_raw(self), prange.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfFnGetLinguisticAlternates, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnGetLinguisticAlternates, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnGetLinguisticAlternates {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4918,7 +4918,7 @@ impl ITfFnGetPreferredTouchKeyboardLayout {
         (::windows::core::Vtable::vtable(self).GetLayout)(::windows::core::Vtable::as_raw(self), ptkblayouttype, pwpreferredlayoutid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnGetPreferredTouchKeyboardLayout, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnGetPreferredTouchKeyboardLayout, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnGetPreferredTouchKeyboardLayout {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4960,7 +4960,7 @@ impl ITfFnGetSAPIObject {
         (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), sobj, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfFnGetSAPIObject, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnGetSAPIObject, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnGetSAPIObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5058,7 +5058,7 @@ impl ITfFnLMInternal {
         (::windows::core::Vtable::vtable(self).ProcessLattice)(::windows::core::Vtable::as_raw(self), prange.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnLMInternal, ::windows::core::IUnknown, ITfFunction, ITfFnLMProcessor);
+::windows::imp::interface_hierarchy!(ITfFnLMInternal, ::windows::core::IUnknown, ITfFunction, ITfFnLMProcessor);
 impl ::core::cmp::PartialEq for ITfFnLMInternal {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5150,7 +5150,7 @@ impl ITfFnLMProcessor {
         (::windows::core::Vtable::vtable(self).InvokeFunc)(::windows::core::Vtable::as_raw(self), pic.into().abi(), refguidfunc).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnLMProcessor, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnLMProcessor, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnLMProcessor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5215,7 +5215,7 @@ impl ITfFnLangProfileUtil {
         (::windows::core::Vtable::vtable(self).IsProfileAvailableForLang)(::windows::core::Vtable::as_raw(self), langid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfFnLangProfileUtil, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnLangProfileUtil, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnLangProfileUtil {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5271,7 +5271,7 @@ impl ITfFnPlayBack {
         (::windows::core::Vtable::vtable(self).Play)(::windows::core::Vtable::as_raw(self), prange.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnPlayBack, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnPlayBack, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnPlayBack {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5320,7 +5320,7 @@ impl ITfFnPropertyUIStatus {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), refguidprop, dw).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnPropertyUIStatus, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnPropertyUIStatus, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnPropertyUIStatus {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5380,7 +5380,7 @@ impl ITfFnReconversion {
         (::windows::core::Vtable::vtable(self).Reconvert)(::windows::core::Vtable::as_raw(self), prange.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnReconversion, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnReconversion, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnReconversion {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5430,7 +5430,7 @@ impl ITfFnSearchCandidateProvider {
         (::windows::core::Vtable::vtable(self).SetResult)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrquery), ::core::mem::transmute_copy(bstrapplicationid), ::core::mem::transmute_copy(bstrresult)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnSearchCandidateProvider, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnSearchCandidateProvider, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnSearchCandidateProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5477,7 +5477,7 @@ impl ITfFnShowHelp {
         (::windows::core::Vtable::vtable(self).Show)(::windows::core::Vtable::as_raw(self), hwndparent.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfFnShowHelp, ::windows::core::IUnknown, ITfFunction);
+::windows::imp::interface_hierarchy!(ITfFnShowHelp, ::windows::core::IUnknown, ITfFunction);
 impl ::core::cmp::PartialEq for ITfFnShowHelp {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5518,7 +5518,7 @@ impl ITfFunction {
         (::windows::core::Vtable::vtable(self).GetDisplayName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfFunction, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfFunction, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfFunction {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5564,7 +5564,7 @@ impl ITfFunctionProvider {
         (::windows::core::Vtable::vtable(self).GetFunction)(::windows::core::Vtable::as_raw(self), rguid, riid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfFunctionProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfFunctionProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfFunctionProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5606,7 +5606,7 @@ impl ITfInputProcessorProfileActivationSink {
         (::windows::core::Vtable::vtable(self).OnActivated)(::windows::core::Vtable::as_raw(self), dwprofiletype, langid, clsid, catid, guidprofile, hkl.into(), dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfInputProcessorProfileActivationSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfInputProcessorProfileActivationSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfInputProcessorProfileActivationSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5680,7 +5680,7 @@ impl ITfInputProcessorProfileMgr {
         (::windows::core::Vtable::vtable(self).GetActiveProfile)(::windows::core::Vtable::as_raw(self), catid, pprofile).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfInputProcessorProfileMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfInputProcessorProfileMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfInputProcessorProfileMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5728,7 +5728,7 @@ impl ITfInputProcessorProfileSubstituteLayout {
         (::windows::core::Vtable::vtable(self).GetSubstituteKeyboardLayout)(::windows::core::Vtable::as_raw(self), rclsid, langid, guidprofile, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfInputProcessorProfileSubstituteLayout, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfInputProcessorProfileSubstituteLayout, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfInputProcessorProfileSubstituteLayout {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5838,7 +5838,7 @@ impl ITfInputProcessorProfiles {
         (::windows::core::Vtable::vtable(self).SubstituteKeyboardLayout)(::windows::core::Vtable::as_raw(self), rclsid, langid, guidprofile, hkl.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfInputProcessorProfiles, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfInputProcessorProfiles, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfInputProcessorProfiles {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5980,7 +5980,7 @@ impl ITfInputProcessorProfilesEx {
         (::windows::core::Vtable::vtable(self).SetLanguageProfileDisplayName)(::windows::core::Vtable::as_raw(self), rclsid, langid, guidprofile, ::core::mem::transmute(pchfile.as_ptr()), pchfile.len() as _, uresid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfInputProcessorProfilesEx, ::windows::core::IUnknown, ITfInputProcessorProfiles);
+::windows::imp::interface_hierarchy!(ITfInputProcessorProfilesEx, ::windows::core::IUnknown, ITfInputProcessorProfiles);
 impl ::core::cmp::PartialEq for ITfInputProcessorProfilesEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6032,7 +6032,7 @@ impl ITfInputScope {
         (::windows::core::Vtable::vtable(self).GetXML)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfInputScope, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfInputScope, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfInputScope {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6094,7 +6094,7 @@ impl ITfInputScope2 {
         (::windows::core::Vtable::vtable(self).EnumWordList)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfInputScope2, ::windows::core::IUnknown, ITfInputScope);
+::windows::imp::interface_hierarchy!(ITfInputScope2, ::windows::core::IUnknown, ITfInputScope);
 impl ::core::cmp::PartialEq for ITfInputScope2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6144,7 +6144,7 @@ impl ITfInsertAtSelection {
         (::windows::core::Vtable::vtable(self).InsertEmbeddedAtSelection)(::windows::core::Vtable::as_raw(self), ec, dwflags, pdataobject.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfInsertAtSelection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfInsertAtSelection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfInsertAtSelection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6208,7 +6208,7 @@ impl ITfIntegratableCandidateListUIElement {
         (::windows::core::Vtable::vtable(self).FinalizeExactCompositionString)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfIntegratableCandidateListUIElement, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfIntegratableCandidateListUIElement, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfIntegratableCandidateListUIElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6313,7 +6313,7 @@ impl ITfKeyEventSink {
         (::windows::core::Vtable::vtable(self).OnPreservedKey)(::windows::core::Vtable::as_raw(self), pic.into().abi(), rguid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfKeyEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfKeyEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfKeyEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6388,7 +6388,7 @@ impl ITfKeyTraceEventSink {
         (::windows::core::Vtable::vtable(self).OnKeyTraceUp)(::windows::core::Vtable::as_raw(self), wparam.into(), lparam.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfKeyTraceEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfKeyTraceEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfKeyTraceEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6520,7 +6520,7 @@ impl ITfKeystrokeMgr {
         (::windows::core::Vtable::vtable(self).SimulatePreservedKey)(::windows::core::Vtable::as_raw(self), pic.into().abi(), rguid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfKeystrokeMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfKeystrokeMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfKeystrokeMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6598,7 +6598,7 @@ impl ITfLMLattice {
         (::windows::core::Vtable::vtable(self).EnumLatticeElements)(::windows::core::Vtable::as_raw(self), dwframestart, rguidtype, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfLMLattice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfLMLattice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfLMLattice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6663,7 +6663,7 @@ impl ITfLangBarEventSink {
         (::windows::core::Vtable::vtable(self).GetItemFloatingRect)(::windows::core::Vtable::as_raw(self), dwthreadid, rguid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfLangBarEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfLangBarEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfLangBarEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6727,7 +6727,7 @@ impl ITfLangBarItem {
         (::windows::core::Vtable::vtable(self).GetTooltipString)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfLangBarItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfLangBarItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfLangBarItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6801,7 +6801,7 @@ impl ITfLangBarItemBalloon {
         (::windows::core::Vtable::vtable(self).GetBalloonInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfLangBarItemBalloon, ::windows::core::IUnknown, ITfLangBarItem);
+::windows::imp::interface_hierarchy!(ITfLangBarItemBalloon, ::windows::core::IUnknown, ITfLangBarItem);
 impl ::core::cmp::PartialEq for ITfLangBarItemBalloon {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6878,7 +6878,7 @@ impl ITfLangBarItemBitmap {
         (::windows::core::Vtable::vtable(self).DrawBitmap)(::windows::core::Vtable::as_raw(self), bmwidth, bmheight, dwflags, phbmp, phbmpmask).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfLangBarItemBitmap, ::windows::core::IUnknown, ITfLangBarItem);
+::windows::imp::interface_hierarchy!(ITfLangBarItemBitmap, ::windows::core::IUnknown, ITfLangBarItem);
 impl ::core::cmp::PartialEq for ITfLangBarItemBitmap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6971,7 +6971,7 @@ impl ITfLangBarItemBitmapButton {
         (::windows::core::Vtable::vtable(self).GetText)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfLangBarItemBitmapButton, ::windows::core::IUnknown, ITfLangBarItem);
+::windows::imp::interface_hierarchy!(ITfLangBarItemBitmapButton, ::windows::core::IUnknown, ITfLangBarItem);
 impl ::core::cmp::PartialEq for ITfLangBarItemBitmapButton {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7062,7 +7062,7 @@ impl ITfLangBarItemButton {
         (::windows::core::Vtable::vtable(self).GetText)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfLangBarItemButton, ::windows::core::IUnknown, ITfLangBarItem);
+::windows::imp::interface_hierarchy!(ITfLangBarItemButton, ::windows::core::IUnknown, ITfLangBarItem);
 impl ::core::cmp::PartialEq for ITfLangBarItemButton {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7157,7 +7157,7 @@ impl ITfLangBarItemMgr {
         (::windows::core::Vtable::vtable(self).UnadviseItemsSink)(::windows::core::Vtable::as_raw(self), pdwcookie.len() as _, ::core::mem::transmute(pdwcookie.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfLangBarItemMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfLangBarItemMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfLangBarItemMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7208,7 +7208,7 @@ impl ITfLangBarItemSink {
         (::windows::core::Vtable::vtable(self).OnUpdate)(::windows::core::Vtable::as_raw(self), dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfLangBarItemSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfLangBarItemSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfLangBarItemSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7285,7 +7285,7 @@ impl ITfLangBarMgr {
         (::windows::core::Vtable::vtable(self).GetShowFloatingStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfLangBarMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfLangBarMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfLangBarMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7342,7 +7342,7 @@ impl ITfLanguageProfileNotifySink {
         (::windows::core::Vtable::vtable(self).OnLanguageChanged)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfLanguageProfileNotifySink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfLanguageProfileNotifySink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfLanguageProfileNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7386,7 +7386,7 @@ impl ITfMSAAControl {
         (::windows::core::Vtable::vtable(self).SystemDisableMSAA)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfMSAAControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfMSAAControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfMSAAControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7430,7 +7430,7 @@ impl ITfMenu {
         (::windows::core::Vtable::vtable(self).AddMenuItem)(::windows::core::Vtable::as_raw(self), uid, dwflags, hbmp.into(), hbmpmask.into(), ::core::mem::transmute(pch.as_ptr()), pch.len() as _, ::core::mem::transmute(ppmenu)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfMenu, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfMenu, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfMenu {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7499,7 +7499,7 @@ impl ITfMessagePump {
         (::windows::core::Vtable::vtable(self).GetMessageW)(::windows::core::Vtable::as_raw(self), pmsg, hwnd.into(), wmsgfiltermin, wmsgfiltermax, pfresult).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfMessagePump, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfMessagePump, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfMessagePump {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7554,7 +7554,7 @@ impl ITfMouseSink {
         (::windows::core::Vtable::vtable(self).OnMouseEvent)(::windows::core::Vtable::as_raw(self), uedge, uquadrant, dwbtnstatus, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfMouseSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfMouseSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfMouseSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7602,7 +7602,7 @@ impl ITfMouseTracker {
         (::windows::core::Vtable::vtable(self).UnadviseMouseSink)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfMouseTracker, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfMouseTracker, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfMouseTracker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7648,7 +7648,7 @@ impl ITfMouseTrackerACP {
         (::windows::core::Vtable::vtable(self).UnadviseMouseSink)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfMouseTrackerACP, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfMouseTrackerACP, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfMouseTrackerACP {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7689,7 +7689,7 @@ impl ITfPersistentPropertyLoaderACP {
         (::windows::core::Vtable::vtable(self).LoadProperty)(::windows::core::Vtable::as_raw(self), phdr, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfPersistentPropertyLoaderACP, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfPersistentPropertyLoaderACP, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfPersistentPropertyLoaderACP {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7729,7 +7729,7 @@ impl ITfPreservedKeyNotifySink {
         (::windows::core::Vtable::vtable(self).OnUpdated)(::windows::core::Vtable::as_raw(self), pprekey).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfPreservedKeyNotifySink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfPreservedKeyNotifySink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfPreservedKeyNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7813,7 +7813,7 @@ impl ITfProperty {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self), ec, prange.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfProperty, ::windows::core::IUnknown, ITfReadOnlyProperty);
+::windows::imp::interface_hierarchy!(ITfProperty, ::windows::core::IUnknown, ITfReadOnlyProperty);
 impl ::core::cmp::PartialEq for ITfProperty {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7910,7 +7910,7 @@ impl ITfPropertyStore {
         (::windows::core::Vtable::vtable(self).Serialize)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfPropertyStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfPropertyStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfPropertyStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7970,7 +7970,7 @@ impl ITfQueryEmbedded {
         (::windows::core::Vtable::vtable(self).QueryInsertEmbedded)(::windows::core::Vtable::as_raw(self), pguidservice, pformatetc, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfQueryEmbedded, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfQueryEmbedded, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfQueryEmbedded {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8122,7 +8122,7 @@ impl ITfRange {
         (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfRange, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfRange, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfRange {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8322,7 +8322,7 @@ impl ITfRangeACP {
         (::windows::core::Vtable::vtable(self).SetExtent)(::windows::core::Vtable::as_raw(self), acpanchor, cch).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfRangeACP, ::windows::core::IUnknown, ITfRange);
+::windows::imp::interface_hierarchy!(ITfRangeACP, ::windows::core::IUnknown, ITfRange);
 impl ::core::cmp::PartialEq for ITfRangeACP {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8363,7 +8363,7 @@ impl ITfRangeBackup {
         (::windows::core::Vtable::vtable(self).Restore)(::windows::core::Vtable::as_raw(self), ec, prange.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfRangeBackup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfRangeBackup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfRangeBackup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8420,7 +8420,7 @@ impl ITfReadOnlyProperty {
         (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfReadOnlyProperty, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfReadOnlyProperty, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfReadOnlyProperty {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8508,7 +8508,7 @@ impl ITfReadingInformationUIElement {
         (::windows::core::Vtable::vtable(self).IsVerticalOrderPreferred)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfReadingInformationUIElement, ::windows::core::IUnknown, ITfUIElement);
+::windows::imp::interface_hierarchy!(ITfReadingInformationUIElement, ::windows::core::IUnknown, ITfUIElement);
 impl ::core::cmp::PartialEq for ITfReadingInformationUIElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8557,7 +8557,7 @@ impl ITfReverseConversion {
         (::windows::core::Vtable::vtable(self).DoReverseConversion)(::windows::core::Vtable::as_raw(self), lpstr.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfReverseConversion, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfReverseConversion, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfReverseConversion {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8599,7 +8599,7 @@ impl ITfReverseConversionList {
         (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), uindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfReverseConversionList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfReverseConversionList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfReverseConversionList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8638,7 +8638,7 @@ impl ITfReverseConversionMgr {
         (::windows::core::Vtable::vtable(self).GetReverseConversion)(::windows::core::Vtable::as_raw(self), langid, guidprofile, dwflag, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfReverseConversionMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfReverseConversionMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfReverseConversionMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8682,7 +8682,7 @@ impl ITfSource {
         (::windows::core::Vtable::vtable(self).UnadviseSink)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfSource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8726,7 +8726,7 @@ impl ITfSourceSingle {
         (::windows::core::Vtable::vtable(self).UnadviseSingleSink)(::windows::core::Vtable::as_raw(self), tid, riid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfSourceSingle, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfSourceSingle, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfSourceSingle {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8775,7 +8775,7 @@ impl ITfSpeechUIServer {
         (::windows::core::Vtable::vtable(self).UpdateBalloon)(::windows::core::Vtable::as_raw(self), style, ::core::mem::transmute(pch.as_ptr()), pch.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfSpeechUIServer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfSpeechUIServer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfSpeechUIServer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8820,7 +8820,7 @@ impl ITfStatusSink {
         (::windows::core::Vtable::vtable(self).OnStatusChange)(::windows::core::Vtable::as_raw(self), pic.into().abi(), dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfStatusSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfStatusSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfStatusSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8861,7 +8861,7 @@ impl ITfSystemDeviceTypeLangBarItem {
         (::windows::core::Vtable::vtable(self).GetIconMode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfSystemDeviceTypeLangBarItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfSystemDeviceTypeLangBarItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfSystemDeviceTypeLangBarItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8907,7 +8907,7 @@ impl ITfSystemLangBarItem {
         (::windows::core::Vtable::vtable(self).SetTooltipString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pchtooltip.as_ptr()), pchtooltip.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfSystemLangBarItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfSystemLangBarItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfSystemLangBarItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8954,7 +8954,7 @@ impl ITfSystemLangBarItemSink {
         (::windows::core::Vtable::vtable(self).OnMenuSelect)(::windows::core::Vtable::as_raw(self), wid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfSystemLangBarItemSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfSystemLangBarItemSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfSystemLangBarItemSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8996,7 +8996,7 @@ impl ITfSystemLangBarItemText {
         (::windows::core::Vtable::vtable(self).GetItemText)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfSystemLangBarItemText, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfSystemLangBarItemText, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfSystemLangBarItemText {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9038,7 +9038,7 @@ impl ITfTextEditSink {
         (::windows::core::Vtable::vtable(self).OnEndEdit)(::windows::core::Vtable::as_raw(self), pic.into().abi(), ecreadonly, peditrecord.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfTextEditSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfTextEditSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfTextEditSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9081,7 +9081,7 @@ impl ITfTextInputProcessor {
         (::windows::core::Vtable::vtable(self).Deactivate)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfTextInputProcessor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfTextInputProcessor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfTextInputProcessor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9131,7 +9131,7 @@ impl ITfTextInputProcessorEx {
         (::windows::core::Vtable::vtable(self).ActivateEx)(::windows::core::Vtable::as_raw(self), ptim.into().abi(), tid, dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfTextInputProcessorEx, ::windows::core::IUnknown, ITfTextInputProcessor);
+::windows::imp::interface_hierarchy!(ITfTextInputProcessorEx, ::windows::core::IUnknown, ITfTextInputProcessor);
 impl ::core::cmp::PartialEq for ITfTextInputProcessorEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9172,7 +9172,7 @@ impl ITfTextLayoutSink {
         (::windows::core::Vtable::vtable(self).OnLayoutChange)(::windows::core::Vtable::as_raw(self), pic.into().abi(), lcode, pview.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfTextLayoutSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfTextLayoutSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfTextLayoutSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9212,7 +9212,7 @@ impl ITfThreadFocusSink {
         (::windows::core::Vtable::vtable(self).OnKillThreadFocus)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfThreadFocusSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfThreadFocusSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfThreadFocusSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9300,7 +9300,7 @@ impl ITfThreadMgr {
         (::windows::core::Vtable::vtable(self).GetGlobalCompartment)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfThreadMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfThreadMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfThreadMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9406,7 +9406,7 @@ impl ITfThreadMgr2 {
         (::windows::core::Vtable::vtable(self).ResumeKeystrokeHandling)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfThreadMgr2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfThreadMgr2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfThreadMgr2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9487,7 +9487,7 @@ impl ITfThreadMgrEventSink {
         (::windows::core::Vtable::vtable(self).OnPopContext)(::windows::core::Vtable::as_raw(self), pic.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfThreadMgrEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfThreadMgrEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfThreadMgrEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9585,7 +9585,7 @@ impl ITfThreadMgrEx {
         (::windows::core::Vtable::vtable(self).GetActiveFlags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfThreadMgrEx, ::windows::core::IUnknown, ITfThreadMgr);
+::windows::imp::interface_hierarchy!(ITfThreadMgrEx, ::windows::core::IUnknown, ITfThreadMgr);
 impl ::core::cmp::PartialEq for ITfThreadMgrEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9646,7 +9646,7 @@ impl ITfToolTipUIElement {
         (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfToolTipUIElement, ::windows::core::IUnknown, ITfUIElement);
+::windows::imp::interface_hierarchy!(ITfToolTipUIElement, ::windows::core::IUnknown, ITfUIElement);
 impl ::core::cmp::PartialEq for ITfToolTipUIElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9691,7 +9691,7 @@ impl ITfTransitoryExtensionSink {
         (::windows::core::Vtable::vtable(self).OnTransitoryExtensionUpdated)(::windows::core::Vtable::as_raw(self), pic.into().abi(), ecreadonly, presultrange.into().abi(), pcompositionrange.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfTransitoryExtensionSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfTransitoryExtensionSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfTransitoryExtensionSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9754,7 +9754,7 @@ impl ITfTransitoryExtensionUIElement {
         (::windows::core::Vtable::vtable(self).GetDocumentMgr)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfTransitoryExtensionUIElement, ::windows::core::IUnknown, ITfUIElement);
+::windows::imp::interface_hierarchy!(ITfTransitoryExtensionUIElement, ::windows::core::IUnknown, ITfUIElement);
 impl ::core::cmp::PartialEq for ITfTransitoryExtensionUIElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9810,7 +9810,7 @@ impl ITfUIElement {
         (::windows::core::Vtable::vtable(self).IsShown)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfUIElement, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfUIElement, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfUIElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9875,7 +9875,7 @@ impl ITfUIElementMgr {
         (::windows::core::Vtable::vtable(self).EnumUIElements)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITfUIElementMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfUIElementMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfUIElementMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9927,7 +9927,7 @@ impl ITfUIElementSink {
         (::windows::core::Vtable::vtable(self).EndUIElement)(::windows::core::Vtable::as_raw(self), dwuielementid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITfUIElementSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITfUIElementSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITfUIElementSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9992,7 +9992,7 @@ impl IUIManagerEventSink {
         (::windows::core::Vtable::vtable(self).OnWindowClosed)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIManagerEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIManagerEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIManagerEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10062,7 +10062,7 @@ impl IVersionInfo {
         (::windows::core::Vtable::vtable(self).GetInstanceDescription)(::windows::core::Vtable::as_raw(self), ulsub, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVersionInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVersionInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVersionInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

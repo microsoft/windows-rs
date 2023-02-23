@@ -89,11 +89,11 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
             pub fn new<#fn_constraint>(invoke: F) -> Self {
                 let com = #boxed::<#generic_names F> {
                     vtable: &#boxed::<#generic_names F>::VTABLE,
-                    count: ::windows::core::RefCount::new(1),
+                    count: ::windows::imp::RefCount::new(1),
                     invoke,
                 };
                 unsafe {
-                    ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com))
+                    ::core::mem::transmute(::std::boxed::Box::new(com))
                 }
             }
             #invoke
@@ -103,7 +103,7 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
         struct #boxed<#generic_names #fn_constraint> where #constraints {
             vtable: *const #vtbl<#generic_names>,
             invoke: F,
-            count: ::windows::core::RefCount,
+            count: ::windows::imp::RefCount,
         }
         #features
         impl<#constraints #fn_constraint> #boxed<#generic_names F> {
@@ -117,7 +117,7 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
 
                 *interface = if iid == &<#ident as ::windows::core::Interface>::IID ||
                     iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID ||
-                    iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
+                    iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID {
                         &mut (*this).vtable as *mut _ as _
                     } else {
                         ::core::ptr::null_mut()
@@ -141,7 +141,7 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
                 let remaining = (*this).count.release();
 
                 if remaining == 0 {
-                    let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+                    let _ = ::std::boxed::Box::from_raw(this);
                 }
 
                 remaining

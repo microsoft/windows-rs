@@ -116,7 +116,7 @@ impl IImageScannerFormatConfiguration {
         }
     }
 }
-::windows::core::interface_hierarchy!(IImageScannerFormatConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IImageScannerFormatConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IImageScannerFormatConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -129,7 +129,7 @@ impl ::core::fmt::Debug for IImageScannerFormatConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for IImageScannerFormatConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ae275d11-dadf-4010-bf10-cca5c83dcbb0}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ae275d11-dadf-4010-bf10-cca5c83dcbb0}");
 }
 unsafe impl ::windows::core::Vtable for IImageScannerFormatConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
@@ -418,7 +418,7 @@ impl IImageScannerSourceConfiguration {
         }
     }
 }
-::windows::core::interface_hierarchy!(IImageScannerSourceConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IImageScannerSourceConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IImageScannerSourceConfiguration> for IImageScannerFormatConfiguration {
     type Error = ::windows::core::Error;
     fn try_from(value: IImageScannerSourceConfiguration) -> ::windows::core::Result<Self> {
@@ -450,7 +450,7 @@ impl ::core::fmt::Debug for IImageScannerSourceConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for IImageScannerSourceConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bfb50055-0b44-4c82-9e89-205f9c234e59}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{bfb50055-0b44-4c82-9e89-205f9c234e59}");
 }
 unsafe impl ::windows::core::Vtable for IImageScannerSourceConfiguration {
     type Vtable = IImageScannerSourceConfiguration_Vtbl;
@@ -624,7 +624,7 @@ impl ImageScanner {
     }
     #[doc(hidden)]
     pub fn IImageScannerStatics<R, F: FnOnce(&IImageScannerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ImageScanner, IImageScannerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ImageScanner, IImageScannerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -640,7 +640,7 @@ impl ::core::fmt::Debug for ImageScanner {
     }
 }
 impl ::windows::core::RuntimeType for ImageScanner {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScanner;{53a88f78-5298-48a0-8da3-8087519665e0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScanner;{53a88f78-5298-48a0-8da3-8087519665e0})");
 }
 impl ::core::clone::Clone for ImageScanner {
     fn clone(&self) -> Self {
@@ -656,7 +656,7 @@ unsafe impl ::windows::core::Interface for ImageScanner {
 impl ::windows::core::RuntimeName for ImageScanner {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScanner";
 }
-::windows::core::interface_hierarchy!(ImageScanner, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ImageScanner, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ImageScanner {}
 unsafe impl ::core::marker::Sync for ImageScanner {}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
@@ -701,7 +701,7 @@ impl ::core::fmt::Debug for ImageScannerAutoConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for ImageScannerAutoConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerAutoConfiguration;{ae275d11-dadf-4010-bf10-cca5c83dcbb0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerAutoConfiguration;{ae275d11-dadf-4010-bf10-cca5c83dcbb0})");
 }
 impl ::core::clone::Clone for ImageScannerAutoConfiguration {
     fn clone(&self) -> Self {
@@ -717,7 +717,7 @@ unsafe impl ::windows::core::Interface for ImageScannerAutoConfiguration {
 impl ::windows::core::RuntimeName for ImageScannerAutoConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerAutoConfiguration";
 }
-::windows::core::interface_hierarchy!(ImageScannerAutoConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ImageScannerAutoConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImageScannerAutoConfiguration> for IImageScannerFormatConfiguration {
     type Error = ::windows::core::Error;
     fn try_from(value: ImageScannerAutoConfiguration) -> ::windows::core::Result<Self> {
@@ -1087,7 +1087,7 @@ impl ::core::fmt::Debug for ImageScannerFeederConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for ImageScannerFeederConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerFeederConfiguration;{ae275d11-dadf-4010-bf10-cca5c83dcbb0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerFeederConfiguration;{ae275d11-dadf-4010-bf10-cca5c83dcbb0})");
 }
 impl ::core::clone::Clone for ImageScannerFeederConfiguration {
     fn clone(&self) -> Self {
@@ -1103,7 +1103,7 @@ unsafe impl ::windows::core::Interface for ImageScannerFeederConfiguration {
 impl ::windows::core::RuntimeName for ImageScannerFeederConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerFeederConfiguration";
 }
-::windows::core::interface_hierarchy!(ImageScannerFeederConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ImageScannerFeederConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImageScannerFeederConfiguration> for IImageScannerFormatConfiguration {
     type Error = ::windows::core::Error;
     fn try_from(value: ImageScannerFeederConfiguration) -> ::windows::core::Result<Self> {
@@ -1379,7 +1379,7 @@ impl ::core::fmt::Debug for ImageScannerFlatbedConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for ImageScannerFlatbedConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerFlatbedConfiguration;{ae275d11-dadf-4010-bf10-cca5c83dcbb0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerFlatbedConfiguration;{ae275d11-dadf-4010-bf10-cca5c83dcbb0})");
 }
 impl ::core::clone::Clone for ImageScannerFlatbedConfiguration {
     fn clone(&self) -> Self {
@@ -1395,7 +1395,7 @@ unsafe impl ::windows::core::Interface for ImageScannerFlatbedConfiguration {
 impl ::windows::core::RuntimeName for ImageScannerFlatbedConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerFlatbedConfiguration";
 }
-::windows::core::interface_hierarchy!(ImageScannerFlatbedConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ImageScannerFlatbedConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImageScannerFlatbedConfiguration> for IImageScannerFormatConfiguration {
     type Error = ::windows::core::Error;
     fn try_from(value: ImageScannerFlatbedConfiguration) -> ::windows::core::Result<Self> {
@@ -1467,7 +1467,7 @@ impl ::core::fmt::Debug for ImageScannerPreviewResult {
     }
 }
 impl ::windows::core::RuntimeType for ImageScannerPreviewResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerPreviewResult;{08b7fe8e-8891-441d-be9c-176fa109c8bb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerPreviewResult;{08b7fe8e-8891-441d-be9c-176fa109c8bb})");
 }
 impl ::core::clone::Clone for ImageScannerPreviewResult {
     fn clone(&self) -> Self {
@@ -1483,7 +1483,7 @@ unsafe impl ::windows::core::Interface for ImageScannerPreviewResult {
 impl ::windows::core::RuntimeName for ImageScannerPreviewResult {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerPreviewResult";
 }
-::windows::core::interface_hierarchy!(ImageScannerPreviewResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ImageScannerPreviewResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ImageScannerPreviewResult {}
 unsafe impl ::core::marker::Sync for ImageScannerPreviewResult {}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
@@ -1512,7 +1512,7 @@ impl ::core::fmt::Debug for ImageScannerScanResult {
     }
 }
 impl ::windows::core::RuntimeType for ImageScannerScanResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerScanResult;{c91624cd-9037-4e48-84c1-ac0975076bc5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerScanResult;{c91624cd-9037-4e48-84c1-ac0975076bc5})");
 }
 impl ::core::clone::Clone for ImageScannerScanResult {
     fn clone(&self) -> Self {
@@ -1528,7 +1528,7 @@ unsafe impl ::windows::core::Interface for ImageScannerScanResult {
 impl ::windows::core::RuntimeName for ImageScannerScanResult {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerScanResult";
 }
-::windows::core::interface_hierarchy!(ImageScannerScanResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ImageScannerScanResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ImageScannerScanResult {}
 unsafe impl ::core::marker::Sync for ImageScannerScanResult {}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
@@ -1560,7 +1560,7 @@ impl ::core::fmt::Debug for ImageScannerAutoCroppingMode {
     }
 }
 impl ::windows::core::RuntimeType for ImageScannerAutoCroppingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerAutoCroppingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerAutoCroppingMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
@@ -1592,7 +1592,7 @@ impl ::core::fmt::Debug for ImageScannerColorMode {
     }
 }
 impl ::windows::core::RuntimeType for ImageScannerColorMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerColorMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerColorMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
@@ -1627,7 +1627,7 @@ impl ::core::fmt::Debug for ImageScannerFormat {
     }
 }
 impl ::windows::core::RuntimeType for ImageScannerFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerFormat;i4)");
 }
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
@@ -1659,7 +1659,7 @@ impl ::core::fmt::Debug for ImageScannerScanSource {
     }
 }
 impl ::windows::core::RuntimeType for ImageScannerScanSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerScanSource;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerScanSource;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
@@ -1682,7 +1682,7 @@ impl ::windows::core::TypeKind for ImageScannerResolution {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for ImageScannerResolution {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Scanners.ImageScannerResolution;f4;f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Scanners.ImageScannerResolution;f4;f4)");
 }
 impl ::core::cmp::PartialEq for ImageScannerResolution {
     fn eq(&self, other: &Self) -> bool {

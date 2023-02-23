@@ -516,12 +516,12 @@ impl AdvertisingManager {
     }
     #[doc(hidden)]
     pub fn IAdvertisingManagerStatics<R, F: FnOnce(&IAdvertisingManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AdvertisingManager, IAdvertisingManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AdvertisingManager, IAdvertisingManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAdvertisingManagerStatics2<R, F: FnOnce(&IAdvertisingManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AdvertisingManager, IAdvertisingManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AdvertisingManager, IAdvertisingManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -559,7 +559,7 @@ impl ::core::fmt::Debug for AdvertisingManagerForUser {
     }
 }
 impl ::windows::core::RuntimeType for AdvertisingManagerForUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AdvertisingManagerForUser;{928bf3d0-cf7c-4ab0-a7dc-6dc5bcd44252})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AdvertisingManagerForUser;{928bf3d0-cf7c-4ab0-a7dc-6dc5bcd44252})");
 }
 impl ::core::clone::Clone for AdvertisingManagerForUser {
     fn clone(&self) -> Self {
@@ -575,7 +575,7 @@ unsafe impl ::windows::core::Interface for AdvertisingManagerForUser {
 impl ::windows::core::RuntimeName for AdvertisingManagerForUser {
     const NAME: &'static str = "Windows.System.UserProfile.AdvertisingManagerForUser";
 }
-::windows::core::interface_hierarchy!(AdvertisingManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdvertisingManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdvertisingManagerForUser {}
 unsafe impl ::core::marker::Sync for AdvertisingManagerForUser {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
@@ -617,7 +617,7 @@ impl AssignedAccessSettings {
     }
     #[doc(hidden)]
     pub fn IAssignedAccessSettingsStatics<R, F: FnOnce(&IAssignedAccessSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AssignedAccessSettings, IAssignedAccessSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AssignedAccessSettings, IAssignedAccessSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -633,7 +633,7 @@ impl ::core::fmt::Debug for AssignedAccessSettings {
     }
 }
 impl ::windows::core::RuntimeType for AssignedAccessSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AssignedAccessSettings;{1bc57f1c-e971-5757-b8e0-512f8b8c46d2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AssignedAccessSettings;{1bc57f1c-e971-5757-b8e0-512f8b8c46d2})");
 }
 impl ::core::clone::Clone for AssignedAccessSettings {
     fn clone(&self) -> Self {
@@ -649,7 +649,7 @@ unsafe impl ::windows::core::Interface for AssignedAccessSettings {
 impl ::windows::core::RuntimeName for AssignedAccessSettings {
     const NAME: &'static str = "Windows.System.UserProfile.AssignedAccessSettings";
 }
-::windows::core::interface_hierarchy!(AssignedAccessSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AssignedAccessSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AssignedAccessSettings {}
 unsafe impl ::core::marker::Sync for AssignedAccessSettings {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
@@ -684,7 +684,7 @@ impl DiagnosticsSettings {
     }
     #[doc(hidden)]
     pub fn IDiagnosticsSettingsStatics<R, F: FnOnce(&IDiagnosticsSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DiagnosticsSettings, IDiagnosticsSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DiagnosticsSettings, IDiagnosticsSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -700,7 +700,7 @@ impl ::core::fmt::Debug for DiagnosticsSettings {
     }
 }
 impl ::windows::core::RuntimeType for DiagnosticsSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.DiagnosticsSettings;{e5e9eccd-2711-44e0-973c-491d78048d24})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.DiagnosticsSettings;{e5e9eccd-2711-44e0-973c-491d78048d24})");
 }
 impl ::core::clone::Clone for DiagnosticsSettings {
     fn clone(&self) -> Self {
@@ -716,7 +716,7 @@ unsafe impl ::windows::core::Interface for DiagnosticsSettings {
 impl ::windows::core::RuntimeName for DiagnosticsSettings {
     const NAME: &'static str = "Windows.System.UserProfile.DiagnosticsSettings";
 }
-::windows::core::interface_hierarchy!(DiagnosticsSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DiagnosticsSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DiagnosticsSettings {}
 unsafe impl ::core::marker::Sync for DiagnosticsSettings {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
@@ -773,7 +773,7 @@ impl FirstSignInSettings {
     }
     #[doc(hidden)]
     pub fn IFirstSignInSettingsStatics<R, F: FnOnce(&IFirstSignInSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FirstSignInSettings, IFirstSignInSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FirstSignInSettings, IFirstSignInSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -789,7 +789,7 @@ impl ::core::fmt::Debug for FirstSignInSettings {
     }
 }
 impl ::windows::core::RuntimeType for FirstSignInSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.FirstSignInSettings;{3e945153-3a5e-452e-a601-f5baad2a4870})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.FirstSignInSettings;{3e945153-3a5e-452e-a601-f5baad2a4870})");
 }
 impl ::core::clone::Clone for FirstSignInSettings {
     fn clone(&self) -> Self {
@@ -821,7 +821,7 @@ impl ::core::iter::IntoIterator for &FirstSignInSettings {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(FirstSignInSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FirstSignInSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FirstSignInSettings> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -943,17 +943,17 @@ impl GlobalizationPreferences {
     }
     #[doc(hidden)]
     pub fn IGlobalizationPreferencesStatics<R, F: FnOnce(&IGlobalizationPreferencesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GlobalizationPreferences, IGlobalizationPreferencesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GlobalizationPreferences, IGlobalizationPreferencesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGlobalizationPreferencesStatics2<R, F: FnOnce(&IGlobalizationPreferencesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GlobalizationPreferences, IGlobalizationPreferencesStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GlobalizationPreferences, IGlobalizationPreferencesStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGlobalizationPreferencesStatics3<R, F: FnOnce(&IGlobalizationPreferencesStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GlobalizationPreferences, IGlobalizationPreferencesStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GlobalizationPreferences, IGlobalizationPreferencesStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1036,7 +1036,7 @@ impl ::core::fmt::Debug for GlobalizationPreferencesForUser {
     }
 }
 impl ::windows::core::RuntimeType for GlobalizationPreferencesForUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.GlobalizationPreferencesForUser;{150f0795-4f6e-40ba-a010-e27d81bda7f5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.GlobalizationPreferencesForUser;{150f0795-4f6e-40ba-a010-e27d81bda7f5})");
 }
 impl ::core::clone::Clone for GlobalizationPreferencesForUser {
     fn clone(&self) -> Self {
@@ -1052,7 +1052,7 @@ unsafe impl ::windows::core::Interface for GlobalizationPreferencesForUser {
 impl ::windows::core::RuntimeName for GlobalizationPreferencesForUser {
     const NAME: &'static str = "Windows.System.UserProfile.GlobalizationPreferencesForUser";
 }
-::windows::core::interface_hierarchy!(GlobalizationPreferencesForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GlobalizationPreferencesForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalizationPreferencesForUser {}
 unsafe impl ::core::marker::Sync for GlobalizationPreferencesForUser {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
@@ -1114,12 +1114,12 @@ impl LockScreen {
     }
     #[doc(hidden)]
     pub fn ILockScreenImageFeedStatics<R, F: FnOnce(&ILockScreenImageFeedStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LockScreen, ILockScreenImageFeedStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LockScreen, ILockScreenImageFeedStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ILockScreenStatics<R, F: FnOnce(&ILockScreenStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LockScreen, ILockScreenStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LockScreen, ILockScreenStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1275,7 +1275,7 @@ impl UserInformation {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IUserInformationStatics<R, F: FnOnce(&IUserInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserInformation, IUserInformationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserInformation, IUserInformationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1319,7 +1319,7 @@ impl UserProfilePersonalizationSettings {
     }
     #[doc(hidden)]
     pub fn IUserProfilePersonalizationSettingsStatics<R, F: FnOnce(&IUserProfilePersonalizationSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserProfilePersonalizationSettings, IUserProfilePersonalizationSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserProfilePersonalizationSettings, IUserProfilePersonalizationSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1335,7 +1335,7 @@ impl ::core::fmt::Debug for UserProfilePersonalizationSettings {
     }
 }
 impl ::windows::core::RuntimeType for UserProfilePersonalizationSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.UserProfilePersonalizationSettings;{8ceddab4-7998-46d5-8dd3-184f1c5f9ab9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.UserProfilePersonalizationSettings;{8ceddab4-7998-46d5-8dd3-184f1c5f9ab9})");
 }
 impl ::core::clone::Clone for UserProfilePersonalizationSettings {
     fn clone(&self) -> Self {
@@ -1351,7 +1351,7 @@ unsafe impl ::windows::core::Interface for UserProfilePersonalizationSettings {
 impl ::windows::core::RuntimeName for UserProfilePersonalizationSettings {
     const NAME: &'static str = "Windows.System.UserProfile.UserProfilePersonalizationSettings";
 }
-::windows::core::interface_hierarchy!(UserProfilePersonalizationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserProfilePersonalizationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserProfilePersonalizationSettings {}
 unsafe impl ::core::marker::Sync for UserProfilePersonalizationSettings {}
 #[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]
@@ -1391,7 +1391,7 @@ impl ::core::fmt::Debug for AccountPictureKind {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for AccountPictureKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.AccountPictureKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.AccountPictureKind;i4)");
 }
 #[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -1433,7 +1433,7 @@ impl ::core::fmt::Debug for SetAccountPictureResult {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for SetAccountPictureResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetAccountPictureResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetAccountPictureResult;i4)");
 }
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
 #[repr(transparent)]
@@ -1464,7 +1464,7 @@ impl ::core::fmt::Debug for SetImageFeedResult {
     }
 }
 impl ::windows::core::RuntimeType for SetImageFeedResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetImageFeedResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetImageFeedResult;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

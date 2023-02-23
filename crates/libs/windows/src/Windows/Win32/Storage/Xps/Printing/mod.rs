@@ -9,7 +9,7 @@ where
     P3: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P4: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "xpsprint.dll""system" fn StartXpsPrintJob ( printername : :: windows::core::PCWSTR , jobname : :: windows::core::PCWSTR , outputfilename : :: windows::core::PCWSTR , progressevent : super::super::super::Foundation:: HANDLE , completionevent : super::super::super::Foundation:: HANDLE , printablepageson : *const u8 , printablepagesoncount : u32 , xpsprintjob : *mut * mut::core::ffi::c_void , documentstream : *mut * mut::core::ffi::c_void , printticketstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xpsprint.dll""system" fn StartXpsPrintJob ( printername : :: windows::core::PCWSTR , jobname : :: windows::core::PCWSTR , outputfilename : :: windows::core::PCWSTR , progressevent : super::super::super::Foundation:: HANDLE , completionevent : super::super::super::Foundation:: HANDLE , printablepageson : *const u8 , printablepagesoncount : u32 , xpsprintjob : *mut * mut::core::ffi::c_void , documentstream : *mut * mut::core::ffi::c_void , printticketstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     StartXpsPrintJob(printername.into().abi(), jobname.into().abi(), outputfilename.into().abi(), progressevent.into(), completionevent.into(), ::core::mem::transmute(printablepageson.as_ptr()), printablepageson.len() as _, ::core::mem::transmute(xpsprintjob), ::core::mem::transmute(documentstream), ::core::mem::transmute(printticketstream)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_Foundation\"`*"]
@@ -23,7 +23,7 @@ where
     P3: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P4: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "xpsprint.dll""system" fn StartXpsPrintJob1 ( printername : :: windows::core::PCWSTR , jobname : :: windows::core::PCWSTR , outputfilename : :: windows::core::PCWSTR , progressevent : super::super::super::Foundation:: HANDLE , completionevent : super::super::super::Foundation:: HANDLE , xpsprintjob : *mut * mut::core::ffi::c_void , printcontentreceiver : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xpsprint.dll""system" fn StartXpsPrintJob1 ( printername : :: windows::core::PCWSTR , jobname : :: windows::core::PCWSTR , outputfilename : :: windows::core::PCWSTR , progressevent : super::super::super::Foundation:: HANDLE , completionevent : super::super::super::Foundation:: HANDLE , xpsprintjob : *mut * mut::core::ffi::c_void , printcontentreceiver : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     StartXpsPrintJob1(printername.into().abi(), jobname.into().abi(), outputfilename.into().abi(), progressevent.into(), completionevent.into(), ::core::mem::transmute(xpsprintjob), ::core::mem::transmute(printcontentreceiver)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_System_Com\"`*"]
@@ -37,7 +37,7 @@ impl IPrintDocumentPackageStatusEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPrintDocumentPackageStatusEvent, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IPrintDocumentPackageStatusEvent, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintDocumentPackageStatusEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -91,7 +91,7 @@ impl IPrintDocumentPackageTarget {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPrintDocumentPackageTarget, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPrintDocumentPackageTarget, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPrintDocumentPackageTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -139,7 +139,7 @@ impl IPrintDocumentPackageTargetFactory {
         (::windows::core::Vtable::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows::core::Vtable::as_raw(self), printername.into().abi(), jobname.into().abi(), joboutputstream.into().abi(), jobprintticketstream.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPrintDocumentPackageTargetFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPrintDocumentPackageTargetFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPrintDocumentPackageTargetFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -182,7 +182,7 @@ impl IXpsPrintJob {
         (::windows::core::Vtable::vtable(self).GetJobStatus)(::windows::core::Vtable::as_raw(self), jobstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsPrintJob, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsPrintJob, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsPrintJob {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -233,7 +233,7 @@ impl IXpsPrintJobStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXpsPrintJobStream, ::windows::core::IUnknown, super::super::super::System::Com::ISequentialStream);
+::windows::imp::interface_hierarchy!(IXpsPrintJobStream, ::windows::core::IUnknown, super::super::super::System::Com::ISequentialStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXpsPrintJobStream {
     fn eq(&self, other: &Self) -> bool {

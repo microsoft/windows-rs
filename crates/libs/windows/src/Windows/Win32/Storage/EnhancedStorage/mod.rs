@@ -24,7 +24,7 @@ impl IEnhancedStorageACT {
         (::windows::core::Vtable::vtable(self).GetSilos)(::windows::core::Vtable::as_raw(self), pppienhancedstoragesilos, pcenhancedstoragesilos).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnhancedStorageACT, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnhancedStorageACT, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnhancedStorageACT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -94,7 +94,7 @@ impl IEnhancedStorageACT2 {
         (::windows::core::Vtable::vtable(self).IsDeviceRemovable)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnhancedStorageACT2, ::windows::core::IUnknown, IEnhancedStorageACT);
+::windows::imp::interface_hierarchy!(IEnhancedStorageACT2, ::windows::core::IUnknown, IEnhancedStorageACT);
 impl ::core::cmp::PartialEq for IEnhancedStorageACT2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -178,7 +178,7 @@ impl IEnhancedStorageACT3 {
         (::windows::core::Vtable::vtable(self).GetShellExtSupport)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnhancedStorageACT3, ::windows::core::IUnknown, IEnhancedStorageACT, IEnhancedStorageACT2);
+::windows::imp::interface_hierarchy!(IEnhancedStorageACT3, ::windows::core::IUnknown, IEnhancedStorageACT, IEnhancedStorageACT2);
 impl ::core::cmp::PartialEq for IEnhancedStorageACT3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -240,7 +240,7 @@ impl IEnhancedStorageSilo {
         (::windows::core::Vtable::vtable(self).GetDevicePath)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnhancedStorageSilo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnhancedStorageSilo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnhancedStorageSilo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -292,7 +292,7 @@ impl IEnhancedStorageSiloAction {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnhancedStorageSiloAction, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnhancedStorageSiloAction, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnhancedStorageSiloAction {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -338,7 +338,7 @@ impl IEnumEnhancedStorageACT {
         (::windows::core::Vtable::vtable(self).GetMatchingACT)(::windows::core::Vtable::as_raw(self), szvolume.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumEnhancedStorageACT, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumEnhancedStorageACT, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumEnhancedStorageACT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

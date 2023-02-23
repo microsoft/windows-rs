@@ -47,7 +47,7 @@ impl ICivicAddressReport {
         (::windows::core::Vtable::vtable(self).GetDetailLevel)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICivicAddressReport, ::windows::core::IUnknown, ILocationReport);
+::windows::imp::interface_hierarchy!(ICivicAddressReport, ::windows::core::IUnknown, ILocationReport);
 impl ::core::cmp::PartialEq for ICivicAddressReport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -123,7 +123,7 @@ impl ICivicAddressReportFactory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICivicAddressReportFactory, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ILocationReportFactory);
+::windows::imp::interface_hierarchy!(ICivicAddressReportFactory, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ILocationReportFactory);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICivicAddressReportFactory {
     fn eq(&self, other: &Self) -> bool {
@@ -177,7 +177,7 @@ impl IDefaultLocation {
         (::windows::core::Vtable::vtable(self).GetReport)(::windows::core::Vtable::as_raw(self), reporttype, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDefaultLocation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDefaultLocation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDefaultLocation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -247,7 +247,7 @@ impl IDispCivicAddressReport {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDispCivicAddressReport, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDispCivicAddressReport, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDispCivicAddressReport {
     fn eq(&self, other: &Self) -> bool {
@@ -322,7 +322,7 @@ impl IDispLatLongReport {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDispLatLongReport, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDispLatLongReport, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDispLatLongReport {
     fn eq(&self, other: &Self) -> bool {
@@ -404,7 +404,7 @@ impl ILatLongReport {
         (::windows::core::Vtable::vtable(self).GetAltitudeError)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ILatLongReport, ::windows::core::IUnknown, ILocationReport);
+::windows::imp::interface_hierarchy!(ILatLongReport, ::windows::core::IUnknown, ILocationReport);
 impl ::core::cmp::PartialEq for ILatLongReport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -478,7 +478,7 @@ impl ILatLongReportFactory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ILatLongReportFactory, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ILocationReportFactory);
+::windows::imp::interface_hierarchy!(ILatLongReportFactory, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ILocationReportFactory);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ILatLongReportFactory {
     fn eq(&self, other: &Self) -> bool {
@@ -566,7 +566,7 @@ impl ILocation {
         (::windows::core::Vtable::vtable(self).RequestPermissions)(::windows::core::Vtable::as_raw(self), hparent.into(), ::core::mem::transmute(preporttypes.as_ptr()), preporttypes.len() as _, fmodal.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ILocation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILocation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILocation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -626,7 +626,7 @@ impl ILocationEvents {
         (::windows::core::Vtable::vtable(self).OnStatusChanged)(::windows::core::Vtable::as_raw(self), reporttype, newstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(ILocationEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILocationEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILocationEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -667,7 +667,7 @@ impl ILocationPower {
         (::windows::core::Vtable::vtable(self).Disconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ILocationPower, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILocationPower, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILocationPower {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -718,7 +718,7 @@ impl ILocationReport {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), pkey, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ILocationReport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILocationReport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILocationReport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -790,7 +790,7 @@ impl ILocationReportFactory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ILocationReportFactory, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ILocationReportFactory, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ILocationReportFactory {
     fn eq(&self, other: &Self) -> bool {
@@ -840,7 +840,7 @@ pub struct _ICivicAddressReportFactoryEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ICivicAddressReportFactoryEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_ICivicAddressReportFactoryEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_ICivicAddressReportFactoryEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _ICivicAddressReportFactoryEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -882,7 +882,7 @@ pub struct _ILatLongReportFactoryEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ILatLongReportFactoryEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_ILatLongReportFactoryEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_ILatLongReportFactoryEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _ILatLongReportFactoryEvents {
     fn eq(&self, other: &Self) -> bool {

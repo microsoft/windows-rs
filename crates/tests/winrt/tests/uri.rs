@@ -1,6 +1,7 @@
 use core::convert::TryInto;
-use windows::core::{IAgileObject, Interface, RuntimeName};
+use windows::core::{Interface, RuntimeName};
 use windows::Foundation::{IStringable, IUriRuntimeClass, Uri};
+use windows::Win32::System::Com::IAgileObject;
 
 #[test]
 fn uri() -> windows::core::Result<()> {

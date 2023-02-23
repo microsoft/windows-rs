@@ -123,7 +123,7 @@ impl IPropertyAnimation {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPropertyAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPropertyAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPropertyAnimation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -136,7 +136,7 @@ impl ::core::fmt::Debug for IPropertyAnimation {
     }
 }
 impl ::windows::core::RuntimeType for IPropertyAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3a01b4da-4d8c-411e-b615-1ade683a9903}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{3a01b4da-4d8c-411e-b615-1ade683a9903}");
 }
 unsafe impl ::windows::core::Vtable for IPropertyAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
@@ -257,7 +257,7 @@ impl AnimationDescription {
     }
     #[doc(hidden)]
     pub fn IAnimationDescriptionFactory<R, F: FnOnce(&IAnimationDescriptionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AnimationDescription, IAnimationDescriptionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AnimationDescription, IAnimationDescriptionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -273,7 +273,7 @@ impl ::core::fmt::Debug for AnimationDescription {
     }
 }
 impl ::windows::core::RuntimeType for AnimationDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.AnimationDescription;{7d11a549-be3d-41de-b081-05c149962f9b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.AnimationDescription;{7d11a549-be3d-41de-b081-05c149962f9b})");
 }
 impl ::core::clone::Clone for AnimationDescription {
     fn clone(&self) -> Self {
@@ -289,7 +289,7 @@ unsafe impl ::windows::core::Interface for AnimationDescription {
 impl ::windows::core::RuntimeName for AnimationDescription {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
 }
-::windows::core::interface_hierarchy!(AnimationDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AnimationDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AnimationDescription {}
 unsafe impl ::core::marker::Sync for AnimationDescription {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
@@ -368,7 +368,7 @@ impl ::core::fmt::Debug for OpacityAnimation {
     }
 }
 impl ::windows::core::RuntimeType for OpacityAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.OpacityAnimation;{803aabe5-ee7e-455f-84e9-2506afb8d2b4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.OpacityAnimation;{803aabe5-ee7e-455f-84e9-2506afb8d2b4})");
 }
 impl ::core::clone::Clone for OpacityAnimation {
     fn clone(&self) -> Self {
@@ -384,7 +384,7 @@ unsafe impl ::windows::core::Interface for OpacityAnimation {
 impl ::windows::core::RuntimeName for OpacityAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.OpacityAnimation";
 }
-::windows::core::interface_hierarchy!(OpacityAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OpacityAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<OpacityAnimation> for IPropertyAnimation {
     type Error = ::windows::core::Error;
     fn try_from(value: OpacityAnimation) -> ::windows::core::Result<Self> {
@@ -466,7 +466,7 @@ impl ::core::fmt::Debug for PropertyAnimation {
     }
 }
 impl ::windows::core::RuntimeType for PropertyAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.PropertyAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.PropertyAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
 }
 impl ::core::clone::Clone for PropertyAnimation {
     fn clone(&self) -> Self {
@@ -482,7 +482,7 @@ unsafe impl ::windows::core::Interface for PropertyAnimation {
 impl ::windows::core::RuntimeName for PropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.PropertyAnimation";
 }
-::windows::core::interface_hierarchy!(PropertyAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PropertyAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PropertyAnimation> for IPropertyAnimation {
     type Error = ::windows::core::Error;
     fn try_from(value: PropertyAnimation) -> ::windows::core::Result<Self> {
@@ -605,7 +605,7 @@ impl ::core::fmt::Debug for ScaleAnimation {
     }
 }
 impl ::windows::core::RuntimeType for ScaleAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.ScaleAnimation;{023552c7-71ab-428c-9c9f-d31780964995})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.ScaleAnimation;{023552c7-71ab-428c-9c9f-d31780964995})");
 }
 impl ::core::clone::Clone for ScaleAnimation {
     fn clone(&self) -> Self {
@@ -621,7 +621,7 @@ unsafe impl ::windows::core::Interface for ScaleAnimation {
 impl ::windows::core::RuntimeName for ScaleAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.ScaleAnimation";
 }
-::windows::core::interface_hierarchy!(ScaleAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ScaleAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ScaleAnimation> for IPropertyAnimation {
     type Error = ::windows::core::Error;
     fn try_from(value: ScaleAnimation) -> ::windows::core::Result<Self> {
@@ -703,7 +703,7 @@ impl ::core::fmt::Debug for TranslationAnimation {
     }
 }
 impl ::windows::core::RuntimeType for TranslationAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.TranslationAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.TranslationAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
 }
 impl ::core::clone::Clone for TranslationAnimation {
     fn clone(&self) -> Self {
@@ -719,7 +719,7 @@ unsafe impl ::windows::core::Interface for TranslationAnimation {
 impl ::windows::core::RuntimeName for TranslationAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.TranslationAnimation";
 }
-::windows::core::interface_hierarchy!(TranslationAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TranslationAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<TranslationAnimation> for IPropertyAnimation {
     type Error = ::windows::core::Error;
     fn try_from(value: TranslationAnimation) -> ::windows::core::Result<Self> {
@@ -803,7 +803,7 @@ impl ::core::fmt::Debug for AnimationEffect {
     }
 }
 impl ::windows::core::RuntimeType for AnimationEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)");
 }
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
@@ -851,7 +851,7 @@ impl ::core::fmt::Debug for AnimationEffectTarget {
     }
 }
 impl ::windows::core::RuntimeType for AnimationEffectTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
 }
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
@@ -882,7 +882,7 @@ impl ::core::fmt::Debug for PropertyAnimationType {
     }
 }
 impl ::windows::core::RuntimeType for PropertyAnimationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.PropertyAnimationType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.PropertyAnimationType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

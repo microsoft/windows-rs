@@ -172,7 +172,7 @@ impl ::core::fmt::Debug for AddAppointmentOperation {
     }
 }
 impl ::windows::core::RuntimeType for AddAppointmentOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation;{ec4a9af3-620d-4c69-add7-9794e918081f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation;{ec4a9af3-620d-4c69-add7-9794e918081f})");
 }
 impl ::core::clone::Clone for AddAppointmentOperation {
     fn clone(&self) -> Self {
@@ -188,7 +188,7 @@ unsafe impl ::windows::core::Interface for AddAppointmentOperation {
 impl ::windows::core::RuntimeName for AddAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation";
 }
-::windows::core::interface_hierarchy!(AddAppointmentOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AddAppointmentOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AddAppointmentOperation {}
 unsafe impl ::core::marker::Sync for AddAppointmentOperation {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
@@ -226,12 +226,12 @@ impl AppointmentsProviderLaunchActionVerbs {
     }
     #[doc(hidden)]
     pub fn IAppointmentsProviderLaunchActionVerbsStatics<R, F: FnOnce(&IAppointmentsProviderLaunchActionVerbsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppointmentsProviderLaunchActionVerbs, IAppointmentsProviderLaunchActionVerbsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppointmentsProviderLaunchActionVerbs, IAppointmentsProviderLaunchActionVerbsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAppointmentsProviderLaunchActionVerbsStatics2<R, F: FnOnce(&IAppointmentsProviderLaunchActionVerbsStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppointmentsProviderLaunchActionVerbs, IAppointmentsProviderLaunchActionVerbsStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppointmentsProviderLaunchActionVerbs, IAppointmentsProviderLaunchActionVerbsStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -294,7 +294,7 @@ impl ::core::fmt::Debug for RemoveAppointmentOperation {
     }
 }
 impl ::windows::core::RuntimeType for RemoveAppointmentOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation;{08b66aba-fe33-46cd-a50c-a8ffb3260537})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation;{08b66aba-fe33-46cd-a50c-a8ffb3260537})");
 }
 impl ::core::clone::Clone for RemoveAppointmentOperation {
     fn clone(&self) -> Self {
@@ -310,7 +310,7 @@ unsafe impl ::windows::core::Interface for RemoveAppointmentOperation {
 impl ::windows::core::RuntimeName for RemoveAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation";
 }
-::windows::core::interface_hierarchy!(RemoveAppointmentOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoveAppointmentOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoveAppointmentOperation {}
 unsafe impl ::core::marker::Sync for RemoveAppointmentOperation {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
@@ -376,7 +376,7 @@ impl ::core::fmt::Debug for ReplaceAppointmentOperation {
     }
 }
 impl ::windows::core::RuntimeType for ReplaceAppointmentOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation;{f4903d9b-9e61-4de2-a732-2687c07d1de8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation;{f4903d9b-9e61-4de2-a732-2687c07d1de8})");
 }
 impl ::core::clone::Clone for ReplaceAppointmentOperation {
     fn clone(&self) -> Self {
@@ -392,7 +392,7 @@ unsafe impl ::windows::core::Interface for ReplaceAppointmentOperation {
 impl ::windows::core::RuntimeName for ReplaceAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation";
 }
-::windows::core::interface_hierarchy!(ReplaceAppointmentOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ReplaceAppointmentOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ReplaceAppointmentOperation {}
 unsafe impl ::core::marker::Sync for ReplaceAppointmentOperation {}
 #[cfg(feature = "implement")]

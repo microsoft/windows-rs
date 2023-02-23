@@ -614,7 +614,7 @@ impl ::core::fmt::Debug for CoreTextCompositionCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextCompositionCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs;{1f34ebb6-b79f-4121-a5e7-fda9b8616e30})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs;{1f34ebb6-b79f-4121-a5e7-fda9b8616e30})");
 }
 impl ::core::clone::Clone for CoreTextCompositionCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -630,7 +630,7 @@ unsafe impl ::windows::core::Interface for CoreTextCompositionCompletedEventArgs
 impl ::windows::core::RuntimeName for CoreTextCompositionCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreTextCompositionCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextCompositionCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextCompositionCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionCompletedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -664,7 +664,7 @@ impl ::core::fmt::Debug for CoreTextCompositionSegment {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextCompositionSegment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionSegment;{776c6bd9-4ead-4da7-8f47-3a88b523cc34})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionSegment;{776c6bd9-4ead-4da7-8f47-3a88b523cc34})");
 }
 impl ::core::clone::Clone for CoreTextCompositionSegment {
     fn clone(&self) -> Self {
@@ -680,7 +680,7 @@ unsafe impl ::windows::core::Interface for CoreTextCompositionSegment {
 impl ::windows::core::RuntimeName for CoreTextCompositionSegment {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionSegment";
 }
-::windows::core::interface_hierarchy!(CoreTextCompositionSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextCompositionSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextCompositionSegment {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionSegment {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -716,7 +716,7 @@ impl ::core::fmt::Debug for CoreTextCompositionStartedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextCompositionStartedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs;{276b16a9-64e7-4ab0-bc4b-a02d73835bfb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs;{276b16a9-64e7-4ab0-bc4b-a02d73835bfb})");
 }
 impl ::core::clone::Clone for CoreTextCompositionStartedEventArgs {
     fn clone(&self) -> Self {
@@ -732,7 +732,7 @@ unsafe impl ::windows::core::Interface for CoreTextCompositionStartedEventArgs {
 impl ::windows::core::RuntimeName for CoreTextCompositionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreTextCompositionStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextCompositionStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextCompositionStartedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionStartedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -966,7 +966,7 @@ impl ::core::fmt::Debug for CoreTextEditContext {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextEditContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextEditContext;{bf6608af-4041-47c3-b263-a918eb5eaef2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextEditContext;{bf6608af-4041-47c3-b263-a918eb5eaef2})");
 }
 impl ::core::clone::Clone for CoreTextEditContext {
     fn clone(&self) -> Self {
@@ -982,7 +982,7 @@ unsafe impl ::windows::core::Interface for CoreTextEditContext {
 impl ::windows::core::RuntimeName for CoreTextEditContext {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextEditContext";
 }
-::windows::core::interface_hierarchy!(CoreTextEditContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextEditContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextEditContext {}
 unsafe impl ::core::marker::Sync for CoreTextEditContext {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1079,7 +1079,7 @@ impl ::core::fmt::Debug for CoreTextFormatUpdatingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextFormatUpdatingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs;{7310bd33-b4a8-43b1-b37b-0724d4aca7ab})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs;{7310bd33-b4a8-43b1-b37b-0724d4aca7ab})");
 }
 impl ::core::clone::Clone for CoreTextFormatUpdatingEventArgs {
     fn clone(&self) -> Self {
@@ -1095,7 +1095,7 @@ unsafe impl ::windows::core::Interface for CoreTextFormatUpdatingEventArgs {
 impl ::windows::core::RuntimeName for CoreTextFormatUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreTextFormatUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextFormatUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextFormatUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextFormatUpdatingEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1145,7 +1145,7 @@ impl ::core::fmt::Debug for CoreTextLayoutBounds {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextLayoutBounds {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutBounds;{e972c974-4436-4917-80d0-a525e4ca6780})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutBounds;{e972c974-4436-4917-80d0-a525e4ca6780})");
 }
 impl ::core::clone::Clone for CoreTextLayoutBounds {
     fn clone(&self) -> Self {
@@ -1161,7 +1161,7 @@ unsafe impl ::windows::core::Interface for CoreTextLayoutBounds {
 impl ::windows::core::RuntimeName for CoreTextLayoutBounds {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutBounds";
 }
-::windows::core::interface_hierarchy!(CoreTextLayoutBounds, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextLayoutBounds, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextLayoutBounds {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutBounds {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1218,7 +1218,7 @@ impl ::core::fmt::Debug for CoreTextLayoutRequest {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextLayoutRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequest;{2555a8cc-51fd-4f03-98bf-ac78174d68e0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequest;{2555a8cc-51fd-4f03-98bf-ac78174d68e0})");
 }
 impl ::core::clone::Clone for CoreTextLayoutRequest {
     fn clone(&self) -> Self {
@@ -1234,7 +1234,7 @@ unsafe impl ::windows::core::Interface for CoreTextLayoutRequest {
 impl ::windows::core::RuntimeName for CoreTextLayoutRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequest";
 }
-::windows::core::interface_hierarchy!(CoreTextLayoutRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextLayoutRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextLayoutRequest {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutRequest {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1261,7 +1261,7 @@ impl ::core::fmt::Debug for CoreTextLayoutRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextLayoutRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs;{b1dc6ae0-9a7b-4e9e-a566-4a6b5f8ad676})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs;{b1dc6ae0-9a7b-4e9e-a566-4a6b5f8ad676})");
 }
 impl ::core::clone::Clone for CoreTextLayoutRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1277,7 +1277,7 @@ unsafe impl ::windows::core::Interface for CoreTextLayoutRequestedEventArgs {
 impl ::windows::core::RuntimeName for CoreTextLayoutRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreTextLayoutRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextLayoutRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextLayoutRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1324,7 +1324,7 @@ impl ::core::fmt::Debug for CoreTextSelectionRequest {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextSelectionRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequest;{f0a70403-208b-4301-883c-74ca7485fd8d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequest;{f0a70403-208b-4301-883c-74ca7485fd8d})");
 }
 impl ::core::clone::Clone for CoreTextSelectionRequest {
     fn clone(&self) -> Self {
@@ -1340,7 +1340,7 @@ unsafe impl ::windows::core::Interface for CoreTextSelectionRequest {
 impl ::windows::core::RuntimeName for CoreTextSelectionRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequest";
 }
-::windows::core::interface_hierarchy!(CoreTextSelectionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextSelectionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextSelectionRequest {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionRequest {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1367,7 +1367,7 @@ impl ::core::fmt::Debug for CoreTextSelectionRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextSelectionRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs;{13c6682b-f614-421a-8f4b-9ec8a5a37fcd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs;{13c6682b-f614-421a-8f4b-9ec8a5a37fcd})");
 }
 impl ::core::clone::Clone for CoreTextSelectionRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1383,7 +1383,7 @@ unsafe impl ::windows::core::Interface for CoreTextSelectionRequestedEventArgs {
 impl ::windows::core::RuntimeName for CoreTextSelectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreTextSelectionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextSelectionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextSelectionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1437,7 +1437,7 @@ impl ::core::fmt::Debug for CoreTextSelectionUpdatingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs;{d445839f-fe7f-4bd5-8a26-0922c1b3e639})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs;{d445839f-fe7f-4bd5-8a26-0922c1b3e639})");
 }
 impl ::core::clone::Clone for CoreTextSelectionUpdatingEventArgs {
     fn clone(&self) -> Self {
@@ -1453,7 +1453,7 @@ unsafe impl ::windows::core::Interface for CoreTextSelectionUpdatingEventArgs {
 impl ::windows::core::RuntimeName for CoreTextSelectionUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreTextSelectionUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextSelectionUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextSelectionUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionUpdatingEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1467,7 +1467,7 @@ impl CoreTextServicesConstants {
     }
     #[doc(hidden)]
     pub fn ICoreTextServicesStatics<R, F: FnOnce(&ICoreTextServicesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreTextServicesConstants, ICoreTextServicesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreTextServicesConstants, ICoreTextServicesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1517,7 +1517,7 @@ impl CoreTextServicesManager {
     }
     #[doc(hidden)]
     pub fn ICoreTextServicesManagerStatics<R, F: FnOnce(&ICoreTextServicesManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreTextServicesManager, ICoreTextServicesManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreTextServicesManager, ICoreTextServicesManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1533,7 +1533,7 @@ impl ::core::fmt::Debug for CoreTextServicesManager {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextServicesManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextServicesManager;{c2507d83-6e0a-4a8a-bdf8-1948874854ba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextServicesManager;{c2507d83-6e0a-4a8a-bdf8-1948874854ba})");
 }
 impl ::core::clone::Clone for CoreTextServicesManager {
     fn clone(&self) -> Self {
@@ -1549,7 +1549,7 @@ unsafe impl ::windows::core::Interface for CoreTextServicesManager {
 impl ::windows::core::RuntimeName for CoreTextServicesManager {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextServicesManager";
 }
-::windows::core::interface_hierarchy!(CoreTextServicesManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextServicesManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextServicesManager {}
 unsafe impl ::core::marker::Sync for CoreTextServicesManager {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1603,7 +1603,7 @@ impl ::core::fmt::Debug for CoreTextTextRequest {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextTextRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequest;{50d950a9-f51e-4cc1-8ca1-e6346d1a61be})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequest;{50d950a9-f51e-4cc1-8ca1-e6346d1a61be})");
 }
 impl ::core::clone::Clone for CoreTextTextRequest {
     fn clone(&self) -> Self {
@@ -1619,7 +1619,7 @@ unsafe impl ::windows::core::Interface for CoreTextTextRequest {
 impl ::windows::core::RuntimeName for CoreTextTextRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequest";
 }
-::windows::core::interface_hierarchy!(CoreTextTextRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextTextRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextTextRequest {}
 unsafe impl ::core::marker::Sync for CoreTextTextRequest {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1646,7 +1646,7 @@ impl ::core::fmt::Debug for CoreTextTextRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextTextRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequestedEventArgs;{f096a2d0-41c6-4c02-8b1a-d953b00cabb3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequestedEventArgs;{f096a2d0-41c6-4c02-8b1a-d953b00cabb3})");
 }
 impl ::core::clone::Clone for CoreTextTextRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1662,7 +1662,7 @@ unsafe impl ::windows::core::Interface for CoreTextTextRequestedEventArgs {
 impl ::windows::core::RuntimeName for CoreTextTextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreTextTextRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextTextRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextTextRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1739,7 +1739,7 @@ impl ::core::fmt::Debug for CoreTextTextUpdatingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextTextUpdatingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs;{eea7918d-cc2b-4f03-8ff6-02fd217db450})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs;{eea7918d-cc2b-4f03-8ff6-02fd217db450})");
 }
 impl ::core::clone::Clone for CoreTextTextUpdatingEventArgs {
     fn clone(&self) -> Self {
@@ -1755,7 +1755,7 @@ unsafe impl ::windows::core::Interface for CoreTextTextUpdatingEventArgs {
 impl ::windows::core::RuntimeName for CoreTextTextUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreTextTextUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreTextTextUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextTextUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextUpdatingEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1789,7 +1789,7 @@ impl ::core::fmt::Debug for CoreTextFormatUpdatingReason {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextFormatUpdatingReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingReason;i4)");
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
@@ -1819,7 +1819,7 @@ impl ::core::fmt::Debug for CoreTextFormatUpdatingResult {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextFormatUpdatingResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingResult;i4)");
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
@@ -1849,7 +1849,7 @@ impl ::core::fmt::Debug for CoreTextInputPaneDisplayPolicy {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextInputPaneDisplayPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputPaneDisplayPolicy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputPaneDisplayPolicy;i4)");
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
@@ -1944,7 +1944,7 @@ impl ::core::fmt::Debug for CoreTextInputScope {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextInputScope {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputScope;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputScope;i4)");
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
@@ -1974,7 +1974,7 @@ impl ::core::fmt::Debug for CoreTextSelectionUpdatingResult {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextSelectionUpdatingResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextSelectionUpdatingResult;i4)");
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
@@ -2004,7 +2004,7 @@ impl ::core::fmt::Debug for CoreTextTextUpdatingResult {
     }
 }
 impl ::windows::core::RuntimeType for CoreTextTextUpdatingResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -2027,7 +2027,7 @@ impl ::windows::core::TypeKind for CoreTextRange {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for CoreTextRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Text.Core.CoreTextRange;i4;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Text.Core.CoreTextRange;i4;i4)");
 }
 impl ::core::cmp::PartialEq for CoreTextRange {
     fn eq(&self, other: &Self) -> bool {

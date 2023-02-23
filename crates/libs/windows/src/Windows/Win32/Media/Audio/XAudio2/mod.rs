@@ -1,34 +1,34 @@
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateAudioReverb() -> ::windows::core::Result<::windows::core::IUnknown> {
-    ::windows::core::link ! ( "xaudio2_8.dll""system" fn CreateAudioReverb ( ppapo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xaudio2_8.dll""system" fn CreateAudioReverb ( ppapo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CreateAudioReverb(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateAudioVolumeMeter() -> ::windows::core::Result<::windows::core::IUnknown> {
-    ::windows::core::link ! ( "xaudio2_8.dll""system" fn CreateAudioVolumeMeter ( ppapo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xaudio2_8.dll""system" fn CreateAudioVolumeMeter ( ppapo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CreateAudioVolumeMeter(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateFX(clsid: *const ::windows::core::GUID, peffect: *mut ::core::option::Option<::windows::core::IUnknown>, pinitdat: ::core::option::Option<*const ::core::ffi::c_void>, initdatabytesize: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "xaudio2_8.dll""cdecl" fn CreateFX ( clsid : *const :: windows::core::GUID , peffect : *mut * mut::core::ffi::c_void , pinitdat : *const ::core::ffi::c_void , initdatabytesize : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xaudio2_8.dll""cdecl" fn CreateFX ( clsid : *const :: windows::core::GUID , peffect : *mut * mut::core::ffi::c_void , pinitdat : *const ::core::ffi::c_void , initdatabytesize : u32 ) -> :: windows::core::HRESULT );
     CreateFX(clsid, ::core::mem::transmute(peffect), ::core::mem::transmute(pinitdat.unwrap_or(::std::ptr::null())), initdatabytesize).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> ::windows::core::Result<IXAPO> {
-    ::windows::core::link ! ( "hrtfapo.dll""system" fn CreateHrtfApo ( init : *const HrtfApoInit , xapo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hrtfapo.dll""system" fn CreateHrtfApo ( init : *const HrtfApoInit , xapo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IXAPO>();
     CreateHrtfApo(init, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut ::core::option::Option<IXAudio2>, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "xaudio2_8.dll""system" fn XAudio2CreateWithVersionInfo ( ppxaudio2 : *mut * mut::core::ffi::c_void , flags : u32 , xaudio2processor : u32 , ntddiversion : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xaudio2_8.dll""system" fn XAudio2CreateWithVersionInfo ( ppxaudio2 : *mut * mut::core::ffi::c_void , flags : u32 , xaudio2processor : u32 , ntddiversion : u32 ) -> :: windows::core::HRESULT );
     XAudio2CreateWithVersionInfo(::core::mem::transmute(ppxaudio2), flags, xaudio2processor, ntddiversion).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -72,7 +72,7 @@ impl IXAPO {
         (::windows::core::Vtable::vtable(self).CalcOutputFrames)(::windows::core::Vtable::as_raw(self), inputframecount)
     }
 }
-::windows::core::interface_hierarchy!(IXAPO, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXAPO, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXAPO {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -130,7 +130,7 @@ impl IXAPOHrtfParameters {
         (::windows::core::Vtable::vtable(self).SetEnvironment)(::windows::core::Vtable::as_raw(self), environment).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXAPOHrtfParameters, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXAPOHrtfParameters, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXAPOHrtfParameters {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -173,7 +173,7 @@ impl IXAPOParameters {
         (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), pparameters, parameterbytesize)
     }
 }
-::windows::core::interface_hierarchy!(IXAPOParameters, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXAPOParameters, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXAPOParameters {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -258,7 +258,7 @@ impl IXAudio2 {
         (::windows::core::Vtable::vtable(self).SetDebugConfiguration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdebugconfiguration.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
     }
 }
-::windows::core::interface_hierarchy!(IXAudio2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXAudio2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXAudio2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -359,7 +359,7 @@ impl IXAudio2Extension {
         (::windows::core::Vtable::vtable(self).GetProcessor)(::windows::core::Vtable::as_raw(self), processor)
     }
 }
-::windows::core::interface_hierarchy!(IXAudio2Extension, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXAudio2Extension, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXAudio2Extension {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -483,7 +483,7 @@ impl IXAudio2MasteringVoice {
         (::windows::core::Vtable::vtable(self).GetChannelMask)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXAudio2MasteringVoice, IXAudio2Voice);
+::windows::imp::interface_hierarchy!(IXAudio2MasteringVoice, IXAudio2Voice);
 impl ::core::cmp::PartialEq for IXAudio2MasteringVoice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -631,7 +631,7 @@ impl IXAudio2SourceVoice {
         (::windows::core::Vtable::vtable(self).SetSourceSampleRate)(::windows::core::Vtable::as_raw(self), newsourcesamplerate).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXAudio2SourceVoice, IXAudio2Voice);
+::windows::imp::interface_hierarchy!(IXAudio2SourceVoice, IXAudio2Voice);
 impl ::core::cmp::PartialEq for IXAudio2SourceVoice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -756,7 +756,7 @@ impl IXAudio2SubmixVoice {
         (::windows::core::Vtable::vtable(self).base__.DestroyVoice)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IXAudio2SubmixVoice, IXAudio2Voice);
+::windows::imp::interface_hierarchy!(IXAudio2SubmixVoice, IXAudio2Voice);
 impl ::core::cmp::PartialEq for IXAudio2SubmixVoice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

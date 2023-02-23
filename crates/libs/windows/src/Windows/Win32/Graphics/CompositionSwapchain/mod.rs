@@ -4,7 +4,7 @@ pub unsafe fn CreatePresentationFactory<P0>(d3ddevice: P0, riid: *const ::window
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "dcomp.dll""system" fn CreatePresentationFactory ( d3ddevice : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , presentationfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn CreatePresentationFactory ( d3ddevice : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , presentationfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CreatePresentationFactory(d3ddevice.into().abi(), riid, presentationfactory).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
@@ -29,7 +29,7 @@ impl ICompositionFramePresentStatistics {
         (::windows::core::Vtable::vtable(self).GetDisplayInstanceArray)(::windows::core::Vtable::as_raw(self), displayinstancearraycount, displayinstancearray)
     }
 }
-::windows::core::interface_hierarchy!(ICompositionFramePresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
+::windows::imp::interface_hierarchy!(ICompositionFramePresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
 impl ::core::cmp::PartialEq for ICompositionFramePresentStatistics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -97,7 +97,7 @@ impl IIndependentFlipFramePresentStatistics {
         result__
     }
 }
-::windows::core::interface_hierarchy!(IIndependentFlipFramePresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
+::windows::imp::interface_hierarchy!(IIndependentFlipFramePresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
 impl ::core::cmp::PartialEq for IIndependentFlipFramePresentStatistics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -144,7 +144,7 @@ impl IPresentStatistics {
         (::windows::core::Vtable::vtable(self).GetKind)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IPresentStatistics, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPresentStatistics, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPresentStatistics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -191,7 +191,7 @@ impl IPresentStatusPresentStatistics {
         (::windows::core::Vtable::vtable(self).GetPresentStatus)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IPresentStatusPresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
+::windows::imp::interface_hierarchy!(IPresentStatusPresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
 impl ::core::cmp::PartialEq for IPresentStatusPresentStatistics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -236,7 +236,7 @@ impl IPresentationBuffer {
         (::windows::core::Vtable::vtable(self).IsAvailable)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPresentationBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPresentationBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPresentationBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -277,7 +277,7 @@ impl IPresentationContent {
         (::windows::core::Vtable::vtable(self).SetTag)(::windows::core::Vtable::as_raw(self), tag)
     }
 }
-::windows::core::interface_hierarchy!(IPresentationContent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPresentationContent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPresentationContent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -321,7 +321,7 @@ impl IPresentationFactory {
         (::windows::core::Vtable::vtable(self).CreatePresentationManager)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPresentationFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPresentationFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPresentationFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -414,7 +414,7 @@ impl IPresentationManager {
         (::windows::core::Vtable::vtable(self).GetNextPresentStatistics)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPresentationManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPresentationManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPresentationManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -508,7 +508,7 @@ impl IPresentationSurface {
         (::windows::core::Vtable::vtable(self).SetLetterboxingMargins)(::windows::core::Vtable::as_raw(self), leftletterboxsize, topletterboxsize, rightletterboxsize, bottomletterboxsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPresentationSurface, ::windows::core::IUnknown, IPresentationContent);
+::windows::imp::interface_hierarchy!(IPresentationSurface, ::windows::core::IUnknown, IPresentationContent);
 impl ::core::cmp::PartialEq for IPresentationSurface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

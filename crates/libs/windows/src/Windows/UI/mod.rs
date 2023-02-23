@@ -321,12 +321,12 @@ impl ColorHelper {
     }
     #[doc(hidden)]
     pub fn IColorHelperStatics<R, F: FnOnce(&IColorHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ColorHelper, IColorHelperStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ColorHelper, IColorHelperStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IColorHelperStatics2<R, F: FnOnce(&IColorHelperStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ColorHelper, IColorHelperStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ColorHelper, IColorHelperStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -342,7 +342,7 @@ impl ::core::fmt::Debug for ColorHelper {
     }
 }
 impl ::windows::core::RuntimeType for ColorHelper {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ColorHelper;{193cfbe7-65c7-4540-ad08-6283ba76879a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ColorHelper;{193cfbe7-65c7-4540-ad08-6283ba76879a})");
 }
 impl ::core::clone::Clone for ColorHelper {
     fn clone(&self) -> Self {
@@ -358,7 +358,7 @@ unsafe impl ::windows::core::Interface for ColorHelper {
 impl ::windows::core::RuntimeName for ColorHelper {
     const NAME: &'static str = "Windows.UI.ColorHelper";
 }
-::windows::core::interface_hierarchy!(ColorHelper, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ColorHelper, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ColorHelper {}
 unsafe impl ::core::marker::Sync for ColorHelper {}
 #[doc = "*Required features: `\"UI\"`*"]
@@ -1213,7 +1213,7 @@ impl Colors {
     }
     #[doc(hidden)]
     pub fn IColorsStatics<R, F: FnOnce(&IColorsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Colors, IColorsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Colors, IColorsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1229,7 +1229,7 @@ impl ::core::fmt::Debug for Colors {
     }
 }
 impl ::windows::core::RuntimeType for Colors {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Colors;{9b8c9326-4ca6-4ce5-8994-9eff65cabdcc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Colors;{9b8c9326-4ca6-4ce5-8994-9eff65cabdcc})");
 }
 impl ::core::clone::Clone for Colors {
     fn clone(&self) -> Self {
@@ -1245,7 +1245,7 @@ unsafe impl ::windows::core::Interface for Colors {
 impl ::windows::core::RuntimeName for Colors {
     const NAME: &'static str = "Windows.UI.Colors";
 }
-::windows::core::interface_hierarchy!(Colors, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Colors, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Colors {}
 unsafe impl ::core::marker::Sync for Colors {}
 #[doc = "*Required features: `\"UI\"`*"]
@@ -1272,7 +1272,7 @@ impl ::core::fmt::Debug for UIContentRoot {
     }
 }
 impl ::windows::core::RuntimeType for UIContentRoot {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIContentRoot;{1dfcbac6-b36b-5cb9-9bc5-2b7a0eddc378})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIContentRoot;{1dfcbac6-b36b-5cb9-9bc5-2b7a0eddc378})");
 }
 impl ::core::clone::Clone for UIContentRoot {
     fn clone(&self) -> Self {
@@ -1288,7 +1288,7 @@ unsafe impl ::windows::core::Interface for UIContentRoot {
 impl ::windows::core::RuntimeName for UIContentRoot {
     const NAME: &'static str = "Windows.UI.UIContentRoot";
 }
-::windows::core::interface_hierarchy!(UIContentRoot, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UIContentRoot, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UIContentRoot {}
 unsafe impl ::core::marker::Sync for UIContentRoot {}
 #[doc = "*Required features: `\"UI\"`*"]
@@ -1307,7 +1307,7 @@ impl ::core::fmt::Debug for UIContext {
     }
 }
 impl ::windows::core::RuntimeType for UIContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIContext;{bb5cfacd-5bd8-59d0-a59e-1c17a4d6d243})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIContext;{bb5cfacd-5bd8-59d0-a59e-1c17a4d6d243})");
 }
 impl ::core::clone::Clone for UIContext {
     fn clone(&self) -> Self {
@@ -1323,7 +1323,7 @@ unsafe impl ::windows::core::Interface for UIContext {
 impl ::windows::core::RuntimeName for UIContext {
     const NAME: &'static str = "Windows.UI.UIContext";
 }
-::windows::core::interface_hierarchy!(UIContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UIContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UIContext {}
 unsafe impl ::core::marker::Sync for UIContext {}
 #[repr(C)]
@@ -1349,7 +1349,7 @@ impl ::windows::core::TypeKind for Color {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for Color {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Color;u1;u1;u1;u1)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Color;u1;u1;u1;u1)");
 }
 impl ::core::cmp::PartialEq for Color {
     fn eq(&self, other: &Self) -> bool {
@@ -1382,7 +1382,7 @@ impl ::windows::core::TypeKind for WindowId {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for WindowId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.WindowId;u8)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.WindowId;u8)");
 }
 impl ::core::cmp::PartialEq for WindowId {
     fn eq(&self, other: &Self) -> bool {

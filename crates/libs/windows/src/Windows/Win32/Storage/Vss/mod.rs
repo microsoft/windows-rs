@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[inline]
 pub unsafe fn CreateVssExpressWriterInternal() -> ::windows::core::Result<IVssExpressWriter> {
-    ::windows::core::link ! ( "vssapi.dll""system" fn CreateVssExpressWriterInternal ( ppwriter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "vssapi.dll""system" fn CreateVssExpressWriterInternal ( ppwriter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IVssExpressWriter>();
     CreateVssExpressWriterInternal(&mut result__).from_abi(result__)
 }
@@ -23,7 +23,7 @@ impl IVssAdmin {
         (::windows::core::Vtable::vtable(self).AbortAllSnapshotsInProgress)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssAdmin, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssAdmin, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssAdmin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -84,7 +84,7 @@ impl IVssAdminEx {
         (::windows::core::Vtable::vtable(self).SetProviderContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(providerid), lcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssAdminEx, ::windows::core::IUnknown, IVssAdmin);
+::windows::imp::interface_hierarchy!(IVssAdminEx, ::windows::core::IUnknown, IVssAdmin);
 impl ::core::cmp::PartialEq for IVssAdminEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -129,7 +129,7 @@ impl IVssAsync {
         (::windows::core::Vtable::vtable(self).QueryStatus)(::windows::core::Vtable::as_raw(self), phrresult, preserved).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssAsync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -326,7 +326,7 @@ impl IVssComponent {
         (::windows::core::Vtable::vtable(self).GetDifferencedFile)(::windows::core::Vtable::as_raw(self), idifferencedfile, ::core::mem::transmute(pbstrpath), ::core::mem::transmute(pbstrfilespec), pbrecursive, ::core::mem::transmute(pbstrlsnstring), pftlastmodifytime).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssComponent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssComponent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssComponent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -598,7 +598,7 @@ impl IVssComponentEx {
         (::windows::core::Vtable::vtable(self).GetRestoreName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVssComponentEx, ::windows::core::IUnknown, IVssComponent);
+::windows::imp::interface_hierarchy!(IVssComponentEx, ::windows::core::IUnknown, IVssComponent);
 impl ::core::cmp::PartialEq for IVssComponentEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -839,7 +839,7 @@ impl IVssComponentEx2 {
         (::windows::core::Vtable::vtable(self).GetFailure)(::windows::core::Vtable::as_raw(self), phr, phrapplication, ::core::mem::transmute(pbstrapplicationmessage), pdwreserved).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssComponentEx2, ::windows::core::IUnknown, IVssComponent, IVssComponentEx);
+::windows::imp::interface_hierarchy!(IVssComponentEx2, ::windows::core::IUnknown, IVssComponent, IVssComponentEx);
 impl ::core::cmp::PartialEq for IVssComponentEx2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -922,7 +922,7 @@ impl IVssCreateExpressWriterMetadata {
         (::windows::core::Vtable::vtable(self).SaveAsXML)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVssCreateExpressWriterMetadata, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssCreateExpressWriterMetadata, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssCreateExpressWriterMetadata {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1114,7 +1114,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt {
         (::windows::core::Vtable::vtable(self).QueryDiffAreasForSnapshot)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssDifferentialSoftwareSnapshotMgmt {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1193,7 +1193,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2 {
         (::windows::core::Vtable::vtable(self).SetSnapshotPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(idsnapshot), priority).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt2, ::windows::core::IUnknown, IVssDifferentialSoftwareSnapshotMgmt);
+::windows::imp::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt2, ::windows::core::IUnknown, IVssDifferentialSoftwareSnapshotMgmt);
 impl ::core::cmp::PartialEq for IVssDifferentialSoftwareSnapshotMgmt2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1290,7 +1290,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3 {
         (::windows::core::Vtable::vtable(self).QuerySnapshotDeltaBitmap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(idsnapshotolder), ::core::mem::transmute(idsnapshotyounger), pcblocksizeperbit, pcbitmaplength, ppbbitmap).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt3, ::windows::core::IUnknown, IVssDifferentialSoftwareSnapshotMgmt, IVssDifferentialSoftwareSnapshotMgmt2);
+::windows::imp::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt3, ::windows::core::IUnknown, IVssDifferentialSoftwareSnapshotMgmt, IVssDifferentialSoftwareSnapshotMgmt2);
 impl ::core::cmp::PartialEq for IVssDifferentialSoftwareSnapshotMgmt3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1343,7 +1343,7 @@ impl IVssEnumMgmtObject {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenum)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssEnumMgmtObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssEnumMgmtObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssEnumMgmtObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1392,7 +1392,7 @@ impl IVssEnumObject {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenum)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssEnumObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssEnumObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssEnumObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1448,7 +1448,7 @@ impl IVssExpressWriter {
         (::windows::core::Vtable::vtable(self).Unregister)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(writerid)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssExpressWriter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssExpressWriter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssExpressWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1522,7 +1522,7 @@ impl IVssFileShareSnapshotProvider {
         (::windows::core::Vtable::vtable(self).SetSnapshotProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid), esnapshotpropertyid, ::core::mem::transmute(vproperty)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssFileShareSnapshotProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssFileShareSnapshotProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssFileShareSnapshotProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1605,7 +1605,7 @@ impl IVssHardwareSnapshotProvider {
         (::windows::core::Vtable::vtable(self).OnLunEmpty)(::windows::core::Vtable::as_raw(self), wszdevicename, pinformation).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssHardwareSnapshotProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssHardwareSnapshotProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssHardwareSnapshotProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1712,7 +1712,7 @@ impl IVssHardwareSnapshotProviderEx {
         (::windows::core::Vtable::vtable(self).OnReuseLuns)(::windows::core::Vtable::as_raw(self), psnapshotluns, poriginalluns, dwcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssHardwareSnapshotProviderEx, ::windows::core::IUnknown, IVssHardwareSnapshotProvider);
+::windows::imp::interface_hierarchy!(IVssHardwareSnapshotProviderEx, ::windows::core::IUnknown, IVssHardwareSnapshotProvider);
 impl ::core::cmp::PartialEq for IVssHardwareSnapshotProviderEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1779,7 +1779,7 @@ impl IVssProviderCreateSnapshotSet {
         (::windows::core::Vtable::vtable(self).AbortSnapshots)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotsetid)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssProviderCreateSnapshotSet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssProviderCreateSnapshotSet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssProviderCreateSnapshotSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1833,7 +1833,7 @@ impl IVssProviderNotifications {
         (::windows::core::Vtable::vtable(self).OnUnload)(::windows::core::Vtable::as_raw(self), bforceunload.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssProviderNotifications, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssProviderNotifications, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssProviderNotifications {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1883,7 +1883,7 @@ impl IVssSnapshotMgmt {
         (::windows::core::Vtable::vtable(self).QuerySnapshotsByVolume)(::windows::core::Vtable::as_raw(self), pwszvolumename, ::core::mem::transmute(providerid), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVssSnapshotMgmt, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssSnapshotMgmt, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssSnapshotMgmt {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1923,7 +1923,7 @@ impl IVssSnapshotMgmt2 {
         (::windows::core::Vtable::vtable(self).GetMinDiffAreaSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVssSnapshotMgmt2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssSnapshotMgmt2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssSnapshotMgmt2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2001,7 +2001,7 @@ impl IVssSoftwareSnapshotProvider {
         (::windows::core::Vtable::vtable(self).QueryRevertStatus)(::windows::core::Vtable::as_raw(self), pwszvolume, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVssSoftwareSnapshotProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssSoftwareSnapshotProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssSoftwareSnapshotProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2065,7 +2065,7 @@ impl IVssWMDependency {
         (::windows::core::Vtable::vtable(self).GetComponentName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrcomponentname)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVssWMDependency, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssWMDependency, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssWMDependency {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2121,7 +2121,7 @@ impl IVssWMFiledesc {
         (::windows::core::Vtable::vtable(self).GetBackupTypeMask)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVssWMFiledesc, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssWMFiledesc, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssWMFiledesc {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2283,7 +2283,7 @@ impl IVssWriterImpl {
         (::windows::core::Vtable::vtable(self).IsWriterShuttingDown)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IVssWriterImpl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVssWriterImpl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVssWriterImpl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

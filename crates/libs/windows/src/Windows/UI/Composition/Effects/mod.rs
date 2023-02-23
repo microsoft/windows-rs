@@ -61,8 +61,8 @@ impl SceneLightingEffect {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SceneLightingEffect, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SceneLightingEffect, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Graphics_Effects\"`*"]
@@ -167,7 +167,7 @@ impl ::core::fmt::Debug for SceneLightingEffect {
     }
 }
 impl ::windows::core::RuntimeType for SceneLightingEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Effects.SceneLightingEffect;{91bb5e52-95d1-4f8b-9a5a-6408b24b8c6a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Effects.SceneLightingEffect;{91bb5e52-95d1-4f8b-9a5a-6408b24b8c6a})");
 }
 impl ::core::clone::Clone for SceneLightingEffect {
     fn clone(&self) -> Self {
@@ -183,7 +183,7 @@ unsafe impl ::windows::core::Interface for SceneLightingEffect {
 impl ::windows::core::RuntimeName for SceneLightingEffect {
     const NAME: &'static str = "Windows.UI.Composition.Effects.SceneLightingEffect";
 }
-::windows::core::interface_hierarchy!(SceneLightingEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SceneLightingEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Graphics_Effects")]
 impl ::core::convert::TryFrom<SceneLightingEffect> for super::super::super::Graphics::Effects::IGraphicsEffect {
     type Error = ::windows::core::Error;
@@ -258,7 +258,7 @@ impl ::core::fmt::Debug for SceneLightingEffectReflectanceModel {
     }
 }
 impl ::windows::core::RuntimeType for SceneLightingEffectReflectanceModel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

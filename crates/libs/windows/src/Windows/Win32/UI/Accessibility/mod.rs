@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn AccNotifyTouchInteraction ( hwndapp : super::super::Foundation:: HWND , hwndtarget : super::super::Foundation:: HWND , pttarget : super::super::Foundation:: POINT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn AccNotifyTouchInteraction ( hwndapp : super::super::Foundation:: HWND , hwndtarget : super::super::Foundation:: HWND , pttarget : super::super::Foundation:: POINT ) -> :: windows::core::HRESULT );
     AccNotifyTouchInteraction(hwndapp.into(), hwndtarget.into(), ::core::mem::transmute(pttarget)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -16,7 +16,7 @@ pub unsafe fn AccSetRunningUtilityState<P0>(hwndapp: P0, dwutilitystatemask: u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn AccSetRunningUtilityState ( hwndapp : super::super::Foundation:: HWND , dwutilitystatemask : u32 , dwutilitystate : ACC_UTILITY_STATE_FLAGS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn AccSetRunningUtilityState ( hwndapp : super::super::Foundation:: HWND , dwutilitystatemask : u32 , dwutilitystate : ACC_UTILITY_STATE_FLAGS ) -> :: windows::core::HRESULT );
     AccSetRunningUtilityState(hwndapp.into(), dwutilitystatemask, dwutilitystate).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -26,7 +26,7 @@ pub unsafe fn AccessibleChildren<P0>(pacccontainer: P0, ichildstart: i32, rgvarc
 where
     P0: ::std::convert::Into<::windows::core::InParam<IAccessible>>,
 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn AccessibleChildren ( pacccontainer : * mut::core::ffi::c_void , ichildstart : i32 , cchildren : i32 , rgvarchildren : *mut super::super::System::Com:: VARIANT , pcobtained : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn AccessibleChildren ( pacccontainer : * mut::core::ffi::c_void , ichildstart : i32 , cchildren : i32 , rgvarchildren : *mut super::super::System::Com:: VARIANT , pcobtained : *mut i32 ) -> :: windows::core::HRESULT );
     AccessibleChildren(pacccontainer.into().abi(), ichildstart, rgvarchildren.len() as _, ::core::mem::transmute(rgvarchildren.as_ptr()), pcobtained).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -36,14 +36,14 @@ pub unsafe fn AccessibleObjectFromEvent<P0>(hwnd: P0, dwid: u32, dwchildid: u32,
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn AccessibleObjectFromEvent ( hwnd : super::super::Foundation:: HWND , dwid : u32 , dwchildid : u32 , ppacc : *mut * mut::core::ffi::c_void , pvarchild : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn AccessibleObjectFromEvent ( hwnd : super::super::Foundation:: HWND , dwid : u32 , dwchildid : u32 , ppacc : *mut * mut::core::ffi::c_void , pvarchild : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
     AccessibleObjectFromEvent(hwnd.into(), dwid, dwchildid, ::core::mem::transmute(ppacc), pvarchild).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "oleacc.dll""system" fn AccessibleObjectFromPoint ( ptscreen : super::super::Foundation:: POINT , ppacc : *mut * mut::core::ffi::c_void , pvarchild : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn AccessibleObjectFromPoint ( ptscreen : super::super::Foundation:: POINT , ppacc : *mut * mut::core::ffi::c_void , pvarchild : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
     AccessibleObjectFromPoint(::core::mem::transmute(ptscreen), ::core::mem::transmute(ppacc), pvarchild).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -53,7 +53,7 @@ pub unsafe fn AccessibleObjectFromWindow<P0>(hwnd: P0, dwid: u32, riid: *const :
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn AccessibleObjectFromWindow ( hwnd : super::super::Foundation:: HWND , dwid : u32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn AccessibleObjectFromWindow ( hwnd : super::super::Foundation:: HWND , dwid : u32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     AccessibleObjectFromWindow(hwnd.into(), dwid, riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -63,7 +63,7 @@ pub unsafe fn CreateStdAccessibleObject<P0>(hwnd: P0, idobject: i32, riid: *cons
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn CreateStdAccessibleObject ( hwnd : super::super::Foundation:: HWND , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn CreateStdAccessibleObject ( hwnd : super::super::Foundation:: HWND , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CreateStdAccessibleObject(hwnd.into(), idobject, riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -74,7 +74,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn CreateStdAccessibleProxyA ( hwnd : super::super::Foundation:: HWND , pclassname : :: windows::core::PCSTR , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn CreateStdAccessibleProxyA ( hwnd : super::super::Foundation:: HWND , pclassname : :: windows::core::PCSTR , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CreateStdAccessibleProxyA(hwnd.into(), pclassname.into().abi(), idobject, riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -85,7 +85,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn CreateStdAccessibleProxyW ( hwnd : super::super::Foundation:: HWND , pclassname : :: windows::core::PCWSTR , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn CreateStdAccessibleProxyW ( hwnd : super::super::Foundation:: HWND , pclassname : :: windows::core::PCWSTR , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CreateStdAccessibleProxyW(hwnd.into(), pclassname.into().abi(), idobject, riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -94,7 +94,7 @@ pub unsafe fn DockPattern_SetDockPosition<P0>(hobj: P0, dockposition: DockPositi
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn DockPattern_SetDockPosition ( hobj : HUIAPATTERNOBJECT , dockposition : DockPosition ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn DockPattern_SetDockPosition ( hobj : HUIAPATTERNOBJECT , dockposition : DockPosition ) -> :: windows::core::HRESULT );
     DockPattern_SetDockPosition(hobj.into(), dockposition).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -103,7 +103,7 @@ pub unsafe fn ExpandCollapsePattern_Collapse<P0>(hobj: P0) -> ::windows::core::R
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn ExpandCollapsePattern_Collapse ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn ExpandCollapsePattern_Collapse ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     ExpandCollapsePattern_Collapse(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -112,37 +112,37 @@ pub unsafe fn ExpandCollapsePattern_Expand<P0>(hobj: P0) -> ::windows::core::Res
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn ExpandCollapsePattern_Expand ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn ExpandCollapsePattern_Expand ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     ExpandCollapsePattern_Expand(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
-    ::windows::core::link ! ( "oleacc.dll""system" fn GetOleaccVersionInfo ( pver : *mut u32 , pbuild : *mut u32 ) -> ( ) );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn GetOleaccVersionInfo ( pver : *mut u32 , pbuild : *mut u32 ) -> ( ) );
     GetOleaccVersionInfo(pver, pbuild)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetRoleTextA(lrole: u32, lpszrole: ::core::option::Option<&mut [u8]>) -> u32 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn GetRoleTextA ( lrole : u32 , lpszrole : :: windows::core::PSTR , cchrolemax : u32 ) -> u32 );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn GetRoleTextA ( lrole : u32 , lpszrole : :: windows::core::PSTR , cchrolemax : u32 ) -> u32 );
     GetRoleTextA(lrole, ::core::mem::transmute(lpszrole.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszrole.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetRoleTextW(lrole: u32, lpszrole: ::core::option::Option<&mut [u16]>) -> u32 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn GetRoleTextW ( lrole : u32 , lpszrole : :: windows::core::PWSTR , cchrolemax : u32 ) -> u32 );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn GetRoleTextW ( lrole : u32 , lpszrole : :: windows::core::PWSTR , cchrolemax : u32 ) -> u32 );
     GetRoleTextW(lrole, ::core::mem::transmute(lpszrole.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszrole.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetStateTextA(lstatebit: u32, lpszstate: ::core::option::Option<&mut [u8]>) -> u32 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn GetStateTextA ( lstatebit : u32 , lpszstate : :: windows::core::PSTR , cchstate : u32 ) -> u32 );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn GetStateTextA ( lstatebit : u32 , lpszstate : :: windows::core::PSTR , cchstate : u32 ) -> u32 );
     GetStateTextA(lstatebit, ::core::mem::transmute(lpszstate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszstate.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: ::core::option::Option<&mut [u16]>) -> u32 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn GetStateTextW ( lstatebit : u32 , lpszstate : :: windows::core::PWSTR , cchstate : u32 ) -> u32 );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn GetStateTextW ( lstatebit : u32 , lpszstate : :: windows::core::PWSTR , cchstate : u32 ) -> u32 );
     GetStateTextW(lstatebit, ::core::mem::transmute(lpszstate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszstate.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -151,7 +151,7 @@ pub unsafe fn GridPattern_GetItem<P0>(hobj: P0, row: i32, column: i32, presult: 
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn GridPattern_GetItem ( hobj : HUIAPATTERNOBJECT , row : i32 , column : i32 , presult : *mut HUIANODE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn GridPattern_GetItem ( hobj : HUIAPATTERNOBJECT , row : i32 , column : i32 , presult : *mut HUIANODE ) -> :: windows::core::HRESULT );
     GridPattern_GetItem(hobj.into(), row, column, presult).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -160,14 +160,14 @@ pub unsafe fn InvokePattern_Invoke<P0>(hobj: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn InvokePattern_Invoke ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn InvokePattern_Invoke ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     InvokePattern_Invoke(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "user32.dll""system" fn IsWinEventHookInstalled ( event : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn IsWinEventHookInstalled ( event : u32 ) -> super::super::Foundation:: BOOL );
     IsWinEventHookInstalled(event)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -178,7 +178,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
     P1: ::std::convert::Into<HUIANODE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn ItemContainerPattern_FindItemByProperty ( hobj : HUIAPATTERNOBJECT , hnodestartafter : HUIANODE , propertyid : i32 , value : super::super::System::Com:: VARIANT , pfound : *mut HUIANODE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn ItemContainerPattern_FindItemByProperty ( hobj : HUIAPATTERNOBJECT , hnodestartafter : HUIANODE , propertyid : i32 , value : super::super::System::Com:: VARIANT , pfound : *mut HUIANODE ) -> :: windows::core::HRESULT );
     ItemContainerPattern_FindItemByProperty(hobj.into(), hnodestartafter.into(), propertyid, ::core::mem::transmute(value), pfound).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -187,7 +187,7 @@ pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<P0>(hobj: P0) -> ::window
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn LegacyIAccessiblePattern_DoDefaultAction ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn LegacyIAccessiblePattern_DoDefaultAction ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     LegacyIAccessiblePattern_DoDefaultAction(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -197,7 +197,7 @@ pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<P0>(hobj: P0) -> ::windows
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn LegacyIAccessiblePattern_GetIAccessible ( hobj : HUIAPATTERNOBJECT , paccessible : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn LegacyIAccessiblePattern_GetIAccessible ( hobj : HUIAPATTERNOBJECT , paccessible : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAccessible>();
     LegacyIAccessiblePattern_GetIAccessible(hobj.into(), &mut result__).from_abi(result__)
 }
@@ -207,7 +207,7 @@ pub unsafe fn LegacyIAccessiblePattern_Select<P0>(hobj: P0, flagsselect: i32) ->
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn LegacyIAccessiblePattern_Select ( hobj : HUIAPATTERNOBJECT , flagsselect : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn LegacyIAccessiblePattern_Select ( hobj : HUIAPATTERNOBJECT , flagsselect : i32 ) -> :: windows::core::HRESULT );
     LegacyIAccessiblePattern_Select(hobj.into(), flagsselect).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -217,7 +217,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn LegacyIAccessiblePattern_SetValue ( hobj : HUIAPATTERNOBJECT , szvalue : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn LegacyIAccessiblePattern_SetValue ( hobj : HUIAPATTERNOBJECT , szvalue : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     LegacyIAccessiblePattern_SetValue(hobj.into(), szvalue.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -228,7 +228,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn LresultFromObject ( riid : *const :: windows::core::GUID , wparam : super::super::Foundation:: WPARAM , punk : * mut::core::ffi::c_void ) -> super::super::Foundation:: LRESULT );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn LresultFromObject ( riid : *const :: windows::core::GUID , wparam : super::super::Foundation:: WPARAM , punk : * mut::core::ffi::c_void ) -> super::super::Foundation:: LRESULT );
     LresultFromObject(riid, wparam.into(), punk.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -237,7 +237,7 @@ pub unsafe fn MultipleViewPattern_GetViewName<P0>(hobj: P0, viewid: i32, ppstr: 
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn MultipleViewPattern_GetViewName ( hobj : HUIAPATTERNOBJECT , viewid : i32 , ppstr : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn MultipleViewPattern_GetViewName ( hobj : HUIAPATTERNOBJECT , viewid : i32 , ppstr : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     MultipleViewPattern_GetViewName(hobj.into(), viewid, ::core::mem::transmute(ppstr)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -246,7 +246,7 @@ pub unsafe fn MultipleViewPattern_SetCurrentView<P0>(hobj: P0, viewid: i32) -> :
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn MultipleViewPattern_SetCurrentView ( hobj : HUIAPATTERNOBJECT , viewid : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn MultipleViewPattern_SetCurrentView ( hobj : HUIAPATTERNOBJECT , viewid : i32 ) -> :: windows::core::HRESULT );
     MultipleViewPattern_SetCurrentView(hobj.into(), viewid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -256,7 +256,7 @@ pub unsafe fn NotifyWinEvent<P0>(event: u32, hwnd: P0, idobject: i32, idchild: i
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn NotifyWinEvent ( event : u32 , hwnd : super::super::Foundation:: HWND , idobject : i32 , idchild : i32 ) -> ( ) );
+    ::windows::imp::link ! ( "user32.dll""system" fn NotifyWinEvent ( event : u32 , hwnd : super::super::Foundation:: HWND , idobject : i32 , idchild : i32 ) -> ( ) );
     NotifyWinEvent(event, hwnd.into(), idobject, idchild)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -267,7 +267,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::LRESULT>,
     P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn ObjectFromLresult ( lresult : super::super::Foundation:: LRESULT , riid : *const :: windows::core::GUID , wparam : super::super::Foundation:: WPARAM , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn ObjectFromLresult ( lresult : super::super::Foundation:: LRESULT , riid : *const :: windows::core::GUID , wparam : super::super::Foundation:: WPARAM , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     ObjectFromLresult(lresult.into(), riid, wparam.into(), ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -276,7 +276,7 @@ pub unsafe fn RangeValuePattern_SetValue<P0>(hobj: P0, val: f64) -> ::windows::c
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn RangeValuePattern_SetValue ( hobj : HUIAPATTERNOBJECT , val : f64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn RangeValuePattern_SetValue ( hobj : HUIAPATTERNOBJECT , val : f64 ) -> :: windows::core::HRESULT );
     RangeValuePattern_SetValue(hobj.into(), val).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -286,7 +286,7 @@ pub unsafe fn RegisterPointerInputTarget<P0>(hwnd: P0, pointertype: super::Windo
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn RegisterPointerInputTarget ( hwnd : super::super::Foundation:: HWND , pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn RegisterPointerInputTarget ( hwnd : super::super::Foundation:: HWND , pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE ) -> super::super::Foundation:: BOOL );
     RegisterPointerInputTarget(hwnd.into(), pointertype)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -297,7 +297,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn RegisterPointerInputTargetEx ( hwnd : super::super::Foundation:: HWND , pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE , fobserve : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn RegisterPointerInputTargetEx ( hwnd : super::super::Foundation:: HWND , pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE , fobserve : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     RegisterPointerInputTargetEx(hwnd.into(), pointertype, fobserve.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -306,7 +306,7 @@ pub unsafe fn ScrollItemPattern_ScrollIntoView<P0>(hobj: P0) -> ::windows::core:
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn ScrollItemPattern_ScrollIntoView ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn ScrollItemPattern_ScrollIntoView ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     ScrollItemPattern_ScrollIntoView(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -315,7 +315,7 @@ pub unsafe fn ScrollPattern_Scroll<P0>(hobj: P0, horizontalamount: ScrollAmount,
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn ScrollPattern_Scroll ( hobj : HUIAPATTERNOBJECT , horizontalamount : ScrollAmount , verticalamount : ScrollAmount ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn ScrollPattern_Scroll ( hobj : HUIAPATTERNOBJECT , horizontalamount : ScrollAmount , verticalamount : ScrollAmount ) -> :: windows::core::HRESULT );
     ScrollPattern_Scroll(hobj.into(), horizontalamount, verticalamount).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -324,7 +324,7 @@ pub unsafe fn ScrollPattern_SetScrollPercent<P0>(hobj: P0, horizontalpercent: f6
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn ScrollPattern_SetScrollPercent ( hobj : HUIAPATTERNOBJECT , horizontalpercent : f64 , verticalpercent : f64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn ScrollPattern_SetScrollPercent ( hobj : HUIAPATTERNOBJECT , horizontalpercent : f64 , verticalpercent : f64 ) -> :: windows::core::HRESULT );
     ScrollPattern_SetScrollPercent(hobj.into(), horizontalpercent, verticalpercent).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -333,7 +333,7 @@ pub unsafe fn SelectionItemPattern_AddToSelection<P0>(hobj: P0) -> ::windows::co
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn SelectionItemPattern_AddToSelection ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn SelectionItemPattern_AddToSelection ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     SelectionItemPattern_AddToSelection(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -342,7 +342,7 @@ pub unsafe fn SelectionItemPattern_RemoveFromSelection<P0>(hobj: P0) -> ::window
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn SelectionItemPattern_RemoveFromSelection ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn SelectionItemPattern_RemoveFromSelection ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     SelectionItemPattern_RemoveFromSelection(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -351,7 +351,7 @@ pub unsafe fn SelectionItemPattern_Select<P0>(hobj: P0) -> ::windows::core::Resu
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn SelectionItemPattern_Select ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn SelectionItemPattern_Select ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     SelectionItemPattern_Select(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -361,7 +361,7 @@ pub unsafe fn SetWinEventHook<P0>(eventmin: u32, eventmax: u32, hmodwineventproc
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn SetWinEventHook ( eventmin : u32 , eventmax : u32 , hmodwineventproc : super::super::Foundation:: HINSTANCE , pfnwineventproc : WINEVENTPROC , idprocess : u32 , idthread : u32 , dwflags : u32 ) -> HWINEVENTHOOK );
+    ::windows::imp::link ! ( "user32.dll""system" fn SetWinEventHook ( eventmin : u32 , eventmax : u32 , hmodwineventproc : super::super::Foundation:: HINSTANCE , pfnwineventproc : WINEVENTPROC , idprocess : u32 , idthread : u32 , dwflags : u32 ) -> HWINEVENTHOOK );
     SetWinEventHook(eventmin, eventmax, hmodwineventproc.into(), pfnwineventproc, idprocess, idthread, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -370,7 +370,7 @@ pub unsafe fn SynchronizedInputPattern_Cancel<P0>(hobj: P0) -> ::windows::core::
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn SynchronizedInputPattern_Cancel ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn SynchronizedInputPattern_Cancel ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     SynchronizedInputPattern_Cancel(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -379,7 +379,7 @@ pub unsafe fn SynchronizedInputPattern_StartListening<P0>(hobj: P0, inputtype: S
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn SynchronizedInputPattern_StartListening ( hobj : HUIAPATTERNOBJECT , inputtype : SynchronizedInputType ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn SynchronizedInputPattern_StartListening ( hobj : HUIAPATTERNOBJECT , inputtype : SynchronizedInputType ) -> :: windows::core::HRESULT );
     SynchronizedInputPattern_StartListening(hobj.into(), inputtype).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -389,7 +389,7 @@ pub unsafe fn TextPattern_GetSelection<P0>(hobj: P0, pretval: *mut *mut super::s
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextPattern_GetSelection ( hobj : HUIAPATTERNOBJECT , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextPattern_GetSelection ( hobj : HUIAPATTERNOBJECT , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     TextPattern_GetSelection(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -399,7 +399,7 @@ pub unsafe fn TextPattern_GetVisibleRanges<P0>(hobj: P0, pretval: *mut *mut supe
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextPattern_GetVisibleRanges ( hobj : HUIAPATTERNOBJECT , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextPattern_GetVisibleRanges ( hobj : HUIAPATTERNOBJECT , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     TextPattern_GetVisibleRanges(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -409,7 +409,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
     P1: ::std::convert::Into<HUIANODE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextPattern_RangeFromChild ( hobj : HUIAPATTERNOBJECT , hnodechild : HUIANODE , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextPattern_RangeFromChild ( hobj : HUIAPATTERNOBJECT , hnodechild : HUIANODE , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextPattern_RangeFromChild(hobj.into(), hnodechild.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -418,7 +418,7 @@ pub unsafe fn TextPattern_RangeFromPoint<P0>(hobj: P0, point: UiaPoint, pretval:
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextPattern_RangeFromPoint ( hobj : HUIAPATTERNOBJECT , point : UiaPoint , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextPattern_RangeFromPoint ( hobj : HUIAPATTERNOBJECT , point : UiaPoint , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextPattern_RangeFromPoint(hobj.into(), ::core::mem::transmute(point), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -427,7 +427,7 @@ pub unsafe fn TextPattern_get_DocumentRange<P0>(hobj: P0, pretval: *mut HUIATEXT
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextPattern_get_DocumentRange ( hobj : HUIAPATTERNOBJECT , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextPattern_get_DocumentRange ( hobj : HUIAPATTERNOBJECT , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextPattern_get_DocumentRange(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -436,7 +436,7 @@ pub unsafe fn TextPattern_get_SupportedTextSelection<P0>(hobj: P0, pretval: *mut
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextPattern_get_SupportedTextSelection ( hobj : HUIAPATTERNOBJECT , pretval : *mut SupportedTextSelection ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextPattern_get_SupportedTextSelection ( hobj : HUIAPATTERNOBJECT , pretval : *mut SupportedTextSelection ) -> :: windows::core::HRESULT );
     TextPattern_get_SupportedTextSelection(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -445,7 +445,7 @@ pub unsafe fn TextRange_AddToSelection<P0>(hobj: P0) -> ::windows::core::Result<
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_AddToSelection ( hobj : HUIATEXTRANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_AddToSelection ( hobj : HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextRange_AddToSelection(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -454,7 +454,7 @@ pub unsafe fn TextRange_Clone<P0>(hobj: P0, pretval: *mut HUIATEXTRANGE) -> ::wi
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_Clone ( hobj : HUIATEXTRANGE , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_Clone ( hobj : HUIATEXTRANGE , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextRange_Clone(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -465,7 +465,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
     P1: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_Compare ( hobj : HUIATEXTRANGE , range : HUIATEXTRANGE , pretval : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_Compare ( hobj : HUIATEXTRANGE , range : HUIATEXTRANGE , pretval : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     TextRange_Compare(hobj.into(), range.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -475,7 +475,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
     P1: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_CompareEndpoints ( hobj : HUIATEXTRANGE , endpoint : TextPatternRangeEndpoint , targetrange : HUIATEXTRANGE , targetendpoint : TextPatternRangeEndpoint , pretval : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_CompareEndpoints ( hobj : HUIATEXTRANGE , endpoint : TextPatternRangeEndpoint , targetrange : HUIATEXTRANGE , targetendpoint : TextPatternRangeEndpoint , pretval : *mut i32 ) -> :: windows::core::HRESULT );
     TextRange_CompareEndpoints(hobj.into(), endpoint, targetrange.into(), targetendpoint, pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -484,7 +484,7 @@ pub unsafe fn TextRange_ExpandToEnclosingUnit<P0>(hobj: P0, unit: TextUnit) -> :
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_ExpandToEnclosingUnit ( hobj : HUIATEXTRANGE , unit : TextUnit ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_ExpandToEnclosingUnit ( hobj : HUIATEXTRANGE , unit : TextUnit ) -> :: windows::core::HRESULT );
     TextRange_ExpandToEnclosingUnit(hobj.into(), unit).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -495,7 +495,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_FindAttribute ( hobj : HUIATEXTRANGE , attributeid : i32 , val : super::super::System::Com:: VARIANT , backward : super::super::Foundation:: BOOL , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_FindAttribute ( hobj : HUIATEXTRANGE , attributeid : i32 , val : super::super::System::Com:: VARIANT , backward : super::super::Foundation:: BOOL , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextRange_FindAttribute(hobj.into(), attributeid, ::core::mem::transmute(val), backward.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -507,7 +507,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_FindText ( hobj : HUIATEXTRANGE , text : ::std::mem::MaybeUninit <::windows::core::BSTR > , backward : super::super::Foundation:: BOOL , ignorecase : super::super::Foundation:: BOOL , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_FindText ( hobj : HUIATEXTRANGE , text : ::std::mem::MaybeUninit <::windows::core::BSTR > , backward : super::super::Foundation:: BOOL , ignorecase : super::super::Foundation:: BOOL , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextRange_FindText(hobj.into(), ::core::mem::transmute_copy(text), backward.into(), ignorecase.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -517,7 +517,7 @@ pub unsafe fn TextRange_GetAttributeValue<P0>(hobj: P0, attributeid: i32, pretva
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_GetAttributeValue ( hobj : HUIATEXTRANGE , attributeid : i32 , pretval : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_GetAttributeValue ( hobj : HUIATEXTRANGE , attributeid : i32 , pretval : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
     TextRange_GetAttributeValue(hobj.into(), attributeid, pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -527,7 +527,7 @@ pub unsafe fn TextRange_GetBoundingRectangles<P0>(hobj: P0, pretval: *mut *mut s
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_GetBoundingRectangles ( hobj : HUIATEXTRANGE , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_GetBoundingRectangles ( hobj : HUIATEXTRANGE , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     TextRange_GetBoundingRectangles(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -537,7 +537,7 @@ pub unsafe fn TextRange_GetChildren<P0>(hobj: P0, pretval: *mut *mut super::supe
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_GetChildren ( hobj : HUIATEXTRANGE , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_GetChildren ( hobj : HUIATEXTRANGE , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     TextRange_GetChildren(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -546,7 +546,7 @@ pub unsafe fn TextRange_GetEnclosingElement<P0>(hobj: P0, pretval: *mut HUIANODE
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_GetEnclosingElement ( hobj : HUIATEXTRANGE , pretval : *mut HUIANODE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_GetEnclosingElement ( hobj : HUIATEXTRANGE , pretval : *mut HUIANODE ) -> :: windows::core::HRESULT );
     TextRange_GetEnclosingElement(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -555,7 +555,7 @@ pub unsafe fn TextRange_GetText<P0>(hobj: P0, maxlength: i32, pretval: *mut ::wi
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_GetText ( hobj : HUIATEXTRANGE , maxlength : i32 , pretval : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_GetText ( hobj : HUIATEXTRANGE , maxlength : i32 , pretval : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     TextRange_GetText(hobj.into(), maxlength, ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -564,7 +564,7 @@ pub unsafe fn TextRange_Move<P0>(hobj: P0, unit: TextUnit, count: i32, pretval: 
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_Move ( hobj : HUIATEXTRANGE , unit : TextUnit , count : i32 , pretval : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_Move ( hobj : HUIATEXTRANGE , unit : TextUnit , count : i32 , pretval : *mut i32 ) -> :: windows::core::HRESULT );
     TextRange_Move(hobj.into(), unit, count, pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -574,7 +574,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
     P1: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_MoveEndpointByRange ( hobj : HUIATEXTRANGE , endpoint : TextPatternRangeEndpoint , targetrange : HUIATEXTRANGE , targetendpoint : TextPatternRangeEndpoint ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_MoveEndpointByRange ( hobj : HUIATEXTRANGE , endpoint : TextPatternRangeEndpoint , targetrange : HUIATEXTRANGE , targetendpoint : TextPatternRangeEndpoint ) -> :: windows::core::HRESULT );
     TextRange_MoveEndpointByRange(hobj.into(), endpoint, targetrange.into(), targetendpoint).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -583,7 +583,7 @@ pub unsafe fn TextRange_MoveEndpointByUnit<P0>(hobj: P0, endpoint: TextPatternRa
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_MoveEndpointByUnit ( hobj : HUIATEXTRANGE , endpoint : TextPatternRangeEndpoint , unit : TextUnit , count : i32 , pretval : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_MoveEndpointByUnit ( hobj : HUIATEXTRANGE , endpoint : TextPatternRangeEndpoint , unit : TextUnit , count : i32 , pretval : *mut i32 ) -> :: windows::core::HRESULT );
     TextRange_MoveEndpointByUnit(hobj.into(), endpoint, unit, count, pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -592,7 +592,7 @@ pub unsafe fn TextRange_RemoveFromSelection<P0>(hobj: P0) -> ::windows::core::Re
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_RemoveFromSelection ( hobj : HUIATEXTRANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_RemoveFromSelection ( hobj : HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextRange_RemoveFromSelection(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -603,7 +603,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_ScrollIntoView ( hobj : HUIATEXTRANGE , aligntotop : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_ScrollIntoView ( hobj : HUIATEXTRANGE , aligntotop : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     TextRange_ScrollIntoView(hobj.into(), aligntotop.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -612,7 +612,7 @@ pub unsafe fn TextRange_Select<P0>(hobj: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_Select ( hobj : HUIATEXTRANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_Select ( hobj : HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextRange_Select(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -621,7 +621,7 @@ pub unsafe fn TogglePattern_Toggle<P0>(hobj: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TogglePattern_Toggle ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TogglePattern_Toggle ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     TogglePattern_Toggle(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -630,7 +630,7 @@ pub unsafe fn TransformPattern_Move<P0>(hobj: P0, x: f64, y: f64) -> ::windows::
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TransformPattern_Move ( hobj : HUIAPATTERNOBJECT , x : f64 , y : f64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TransformPattern_Move ( hobj : HUIAPATTERNOBJECT , x : f64 , y : f64 ) -> :: windows::core::HRESULT );
     TransformPattern_Move(hobj.into(), x, y).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -639,7 +639,7 @@ pub unsafe fn TransformPattern_Resize<P0>(hobj: P0, width: f64, height: f64) -> 
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TransformPattern_Resize ( hobj : HUIAPATTERNOBJECT , width : f64 , height : f64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TransformPattern_Resize ( hobj : HUIAPATTERNOBJECT , width : f64 , height : f64 ) -> :: windows::core::HRESULT );
     TransformPattern_Resize(hobj.into(), width, height).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -648,7 +648,7 @@ pub unsafe fn TransformPattern_Rotate<P0>(hobj: P0, degrees: f64) -> ::windows::
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn TransformPattern_Rotate ( hobj : HUIAPATTERNOBJECT , degrees : f64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TransformPattern_Rotate ( hobj : HUIAPATTERNOBJECT , degrees : f64 ) -> :: windows::core::HRESULT );
     TransformPattern_Rotate(hobj.into(), degrees).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -658,20 +658,20 @@ pub unsafe fn UiaAddEvent<P0>(hnode: P0, eventid: i32, pcallback: *mut UiaEventC
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaAddEvent ( hnode : HUIANODE , eventid : i32 , pcallback : *mut UiaEventCallback , scope : TreeScope , pproperties : *mut i32 , cproperties : i32 , prequest : *mut UiaCacheRequest , phevent : *mut HUIAEVENT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaAddEvent ( hnode : HUIANODE , eventid : i32 , pcallback : *mut UiaEventCallback , scope : TreeScope , pproperties : *mut i32 , cproperties : i32 , prequest : *mut UiaCacheRequest , phevent : *mut HUIAEVENT ) -> :: windows::core::HRESULT );
     UiaAddEvent(hnode.into(), eventid, pcallback, scope, pproperties, cproperties, prequest, phevent).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaClientsAreListening() -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaClientsAreListening ( ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaClientsAreListening ( ) -> super::super::Foundation:: BOOL );
     UiaClientsAreListening()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaDisconnectAllProviders() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaDisconnectAllProviders ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaDisconnectAllProviders ( ) -> :: windows::core::HRESULT );
     UiaDisconnectAllProviders().ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -680,7 +680,7 @@ pub unsafe fn UiaDisconnectProvider<P0>(pprovider: P0) -> ::windows::core::Resul
 where
     P0: ::std::convert::Into<::windows::core::InParam<IRawElementProviderSimple>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaDisconnectProvider ( pprovider : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaDisconnectProvider ( pprovider : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     UiaDisconnectProvider(pprovider.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -691,7 +691,7 @@ where
     P0: ::std::convert::Into<HUIAEVENT>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaEventAddWindow ( hevent : HUIAEVENT , hwnd : super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaEventAddWindow ( hevent : HUIAEVENT , hwnd : super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
     UiaEventAddWindow(hevent.into(), hwnd.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -702,7 +702,7 @@ where
     P0: ::std::convert::Into<HUIAEVENT>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaEventRemoveWindow ( hevent : HUIAEVENT , hwnd : super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaEventRemoveWindow ( hevent : HUIAEVENT , hwnd : super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
     UiaEventRemoveWindow(hevent.into(), hwnd.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -712,14 +712,14 @@ pub unsafe fn UiaFind<P0>(hnode: P0, pparams: *mut UiaFindParams, prequest: *mut
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaFind ( hnode : HUIANODE , pparams : *mut UiaFindParams , prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , ppoffsets : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructures : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaFind ( hnode : HUIANODE , pparams : *mut UiaFindParams , prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , ppoffsets : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructures : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     UiaFind(hnode.into(), pparams, prequest, pprequesteddata, ppoffsets, pptreestructures).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaGetErrorDescription(pdescription: *mut ::windows::core::BSTR) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaGetErrorDescription ( pdescription : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaGetErrorDescription ( pdescription : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> super::super::Foundation:: BOOL );
     UiaGetErrorDescription(::core::mem::transmute(pdescription))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -728,7 +728,7 @@ pub unsafe fn UiaGetPatternProvider<P0>(hnode: P0, patternid: i32, phobj: *mut H
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaGetPatternProvider ( hnode : HUIANODE , patternid : i32 , phobj : *mut HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaGetPatternProvider ( hnode : HUIANODE , patternid : i32 , phobj : *mut HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     UiaGetPatternProvider(hnode.into(), patternid, phobj).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -738,27 +738,27 @@ pub unsafe fn UiaGetPropertyValue<P0>(hnode: P0, propertyid: i32, pvalue: *mut s
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaGetPropertyValue ( hnode : HUIANODE , propertyid : i32 , pvalue : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaGetPropertyValue ( hnode : HUIANODE , propertyid : i32 , pvalue : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
     UiaGetPropertyValue(hnode.into(), propertyid, pvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetReservedMixedAttributeValue() -> ::windows::core::Result<::windows::core::IUnknown> {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaGetReservedMixedAttributeValue ( punkmixedattributevalue : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaGetReservedMixedAttributeValue ( punkmixedattributevalue : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     UiaGetReservedMixedAttributeValue(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetReservedNotSupportedValue() -> ::windows::core::Result<::windows::core::IUnknown> {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaGetReservedNotSupportedValue ( punknotsupportedvalue : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaGetReservedNotSupportedValue ( punknotsupportedvalue : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     UiaGetReservedNotSupportedValue(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaGetRootNode ( phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaGetRootNode ( phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
     UiaGetRootNode(phnode).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -768,7 +768,7 @@ pub unsafe fn UiaGetRuntimeId<P0>(hnode: P0, pruntimeid: *mut *mut super::super:
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaGetRuntimeId ( hnode : HUIANODE , pruntimeid : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaGetRuntimeId ( hnode : HUIANODE , pruntimeid : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     UiaGetRuntimeId(hnode.into(), pruntimeid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -778,28 +778,28 @@ pub unsafe fn UiaGetUpdatedCache<P0>(hnode: P0, prequest: *mut UiaCacheRequest, 
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaGetUpdatedCache ( hnode : HUIANODE , prequest : *mut UiaCacheRequest , normalizestate : NormalizeState , pnormalizecondition : *mut UiaCondition , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaGetUpdatedCache ( hnode : HUIANODE , prequest : *mut UiaCacheRequest , normalizestate : NormalizeState , pnormalizecondition : *mut UiaCondition , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     UiaGetUpdatedCache(hnode.into(), prequest, normalizestate, pnormalizecondition, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaHPatternObjectFromVariant ( pvar : *mut super::super::System::Com:: VARIANT , phobj : *mut HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaHPatternObjectFromVariant ( pvar : *mut super::super::System::Com:: VARIANT , phobj : *mut HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     UiaHPatternObjectFromVariant(pvar, phobj).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaHTextRangeFromVariant ( pvar : *mut super::super::System::Com:: VARIANT , phtextrange : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaHTextRangeFromVariant ( pvar : *mut super::super::System::Com:: VARIANT , phtextrange : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     UiaHTextRangeFromVariant(pvar, phtextrange).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaHUiaNodeFromVariant ( pvar : *mut super::super::System::Com:: VARIANT , phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaHUiaNodeFromVariant ( pvar : *mut super::super::System::Com:: VARIANT , phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
     UiaHUiaNodeFromVariant(pvar, phnode).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -809,7 +809,7 @@ pub unsafe fn UiaHasServerSideProvider<P0>(hwnd: P0) -> super::super::Foundation
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaHasServerSideProvider ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaHasServerSideProvider ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
     UiaHasServerSideProvider(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -819,7 +819,7 @@ pub unsafe fn UiaHostProviderFromHwnd<P0>(hwnd: P0) -> ::windows::core::Result<I
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaHostProviderFromHwnd ( hwnd : super::super::Foundation:: HWND , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaHostProviderFromHwnd ( hwnd : super::super::Foundation:: HWND , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IRawElementProviderSimple>();
     UiaHostProviderFromHwnd(hwnd.into(), &mut result__).from_abi(result__)
 }
@@ -830,13 +830,13 @@ pub unsafe fn UiaIAccessibleFromProvider<P0>(pprovider: P0, dwflags: u32, ppacce
 where
     P0: ::std::convert::Into<::windows::core::InParam<IRawElementProviderSimple>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaIAccessibleFromProvider ( pprovider : * mut::core::ffi::c_void , dwflags : u32 , ppaccessible : *mut * mut::core::ffi::c_void , pvarchild : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaIAccessibleFromProvider ( pprovider : * mut::core::ffi::c_void , dwflags : u32 , ppaccessible : *mut * mut::core::ffi::c_void , pvarchild : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
     UiaIAccessibleFromProvider(pprovider.into().abi(), dwflags, ::core::mem::transmute(ppaccessible), pvarchild).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows::core::GUID) -> i32 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaLookupId ( r#type : AutomationIdentifierType , pguid : *const :: windows::core::GUID ) -> i32 );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaLookupId ( r#type : AutomationIdentifierType , pguid : *const :: windows::core::GUID ) -> i32 );
     UiaLookupId(r#type, pguid)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -846,14 +846,14 @@ pub unsafe fn UiaNavigate<P0>(hnode: P0, direction: NavigateDirection, pconditio
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaNavigate ( hnode : HUIANODE , direction : NavigateDirection , pcondition : *mut UiaCondition , prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaNavigate ( hnode : HUIANODE , direction : NavigateDirection , pcondition : *mut UiaCondition , prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     UiaNavigate(hnode.into(), direction, pcondition, prequest, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaNodeFromFocus ( prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaNodeFromFocus ( prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     UiaNodeFromFocus(prequest, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -863,14 +863,14 @@ pub unsafe fn UiaNodeFromHandle<P0>(hwnd: P0, phnode: *mut HUIANODE) -> ::window
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaNodeFromHandle ( hwnd : super::super::Foundation:: HWND , phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaNodeFromHandle ( hwnd : super::super::Foundation:: HWND , phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
     UiaNodeFromHandle(hwnd.into(), phnode).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaNodeFromPoint ( x : f64 , y : f64 , prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaNodeFromPoint ( x : f64 , y : f64 , prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     UiaNodeFromPoint(x, y, prequest, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -879,7 +879,7 @@ pub unsafe fn UiaNodeFromProvider<P0>(pprovider: P0, phnode: *mut HUIANODE) -> :
 where
     P0: ::std::convert::Into<::windows::core::InParam<IRawElementProviderSimple>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaNodeFromProvider ( pprovider : * mut::core::ffi::c_void , phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaNodeFromProvider ( pprovider : * mut::core::ffi::c_void , phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
     UiaNodeFromProvider(pprovider.into().abi(), phnode).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -889,7 +889,7 @@ pub unsafe fn UiaNodeRelease<P0>(hnode: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaNodeRelease ( hnode : HUIANODE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaNodeRelease ( hnode : HUIANODE ) -> super::super::Foundation:: BOOL );
     UiaNodeRelease(hnode.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -899,7 +899,7 @@ pub unsafe fn UiaPatternRelease<P0>(hobj: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaPatternRelease ( hobj : HUIAPATTERNOBJECT ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaPatternRelease ( hobj : HUIAPATTERNOBJECT ) -> super::super::Foundation:: BOOL );
     UiaPatternRelease(hobj.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -909,7 +909,7 @@ pub unsafe fn UiaProviderForNonClient<P0>(hwnd: P0, idobject: i32, idchild: i32)
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaProviderForNonClient ( hwnd : super::super::Foundation:: HWND , idobject : i32 , idchild : i32 , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaProviderForNonClient ( hwnd : super::super::Foundation:: HWND , idobject : i32 , idchild : i32 , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IRawElementProviderSimple>();
     UiaProviderForNonClient(hwnd.into(), idobject, idchild, &mut result__).from_abi(result__)
 }
@@ -920,7 +920,7 @@ pub unsafe fn UiaProviderFromIAccessible<P0>(paccessible: P0, idchild: i32, dwfl
 where
     P0: ::std::convert::Into<::windows::core::InParam<IAccessible>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaProviderFromIAccessible ( paccessible : * mut::core::ffi::c_void , idchild : i32 , dwflags : u32 , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaProviderFromIAccessible ( paccessible : * mut::core::ffi::c_void , idchild : i32 , dwflags : u32 , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IRawElementProviderSimple>();
     UiaProviderFromIAccessible(paccessible.into().abi(), idchild, dwflags, &mut result__).from_abi(result__)
 }
@@ -931,7 +931,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IRawElementProviderSimple>>,
     P1: ::std::convert::Into<::windows::core::InParam<ITextRangeProvider>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRaiseActiveTextPositionChangedEvent ( provider : * mut::core::ffi::c_void , textrange : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaRaiseActiveTextPositionChangedEvent ( provider : * mut::core::ffi::c_void , textrange : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     UiaRaiseActiveTextPositionChangedEvent(provider.into().abi(), textrange.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -940,7 +940,7 @@ pub unsafe fn UiaRaiseAsyncContentLoadedEvent<P0>(pprovider: P0, asynccontentloa
 where
     P0: ::std::convert::Into<::windows::core::InParam<IRawElementProviderSimple>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRaiseAsyncContentLoadedEvent ( pprovider : * mut::core::ffi::c_void , asynccontentloadedstate : AsyncContentLoadedState , percentcomplete : f64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaRaiseAsyncContentLoadedEvent ( pprovider : * mut::core::ffi::c_void , asynccontentloadedstate : AsyncContentLoadedState , percentcomplete : f64 ) -> :: windows::core::HRESULT );
     UiaRaiseAsyncContentLoadedEvent(pprovider.into().abi(), asynccontentloadedstate, percentcomplete).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -949,7 +949,7 @@ pub unsafe fn UiaRaiseAutomationEvent<P0>(pprovider: P0, id: UIA_EVENT_ID) -> ::
 where
     P0: ::std::convert::Into<::windows::core::InParam<IRawElementProviderSimple>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRaiseAutomationEvent ( pprovider : * mut::core::ffi::c_void , id : UIA_EVENT_ID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaRaiseAutomationEvent ( pprovider : * mut::core::ffi::c_void , id : UIA_EVENT_ID ) -> :: windows::core::HRESULT );
     UiaRaiseAutomationEvent(pprovider.into().abi(), id).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -959,7 +959,7 @@ pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<P0>(pprovider: P0, id: UIA_
 where
     P0: ::std::convert::Into<::windows::core::InParam<IRawElementProviderSimple>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRaiseAutomationPropertyChangedEvent ( pprovider : * mut::core::ffi::c_void , id : UIA_PROPERTY_ID , oldvalue : super::super::System::Com:: VARIANT , newvalue : super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaRaiseAutomationPropertyChangedEvent ( pprovider : * mut::core::ffi::c_void , id : UIA_PROPERTY_ID , oldvalue : super::super::System::Com:: VARIANT , newvalue : super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
     UiaRaiseAutomationPropertyChangedEvent(pprovider.into().abi(), id, ::core::mem::transmute(oldvalue), ::core::mem::transmute(newvalue)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -969,7 +969,7 @@ pub unsafe fn UiaRaiseChangesEvent<P0>(pprovider: P0, eventidcount: i32, puiacha
 where
     P0: ::std::convert::Into<::windows::core::InParam<IRawElementProviderSimple>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRaiseChangesEvent ( pprovider : * mut::core::ffi::c_void , eventidcount : i32 , puiachanges : *mut UiaChangeInfo ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaRaiseChangesEvent ( pprovider : * mut::core::ffi::c_void , eventidcount : i32 , puiachanges : *mut UiaChangeInfo ) -> :: windows::core::HRESULT );
     UiaRaiseChangesEvent(pprovider.into().abi(), eventidcount, puiachanges).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -978,7 +978,7 @@ pub unsafe fn UiaRaiseNotificationEvent<P0>(provider: P0, notificationkind: Noti
 where
     P0: ::std::convert::Into<::windows::core::InParam<IRawElementProviderSimple>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRaiseNotificationEvent ( provider : * mut::core::ffi::c_void , notificationkind : NotificationKind , notificationprocessing : NotificationProcessing , displaystring : ::std::mem::MaybeUninit <::windows::core::BSTR > , activityid : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaRaiseNotificationEvent ( provider : * mut::core::ffi::c_void , notificationkind : NotificationKind , notificationprocessing : NotificationProcessing , displaystring : ::std::mem::MaybeUninit <::windows::core::BSTR > , activityid : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     UiaRaiseNotificationEvent(provider.into().abi(), notificationkind, notificationprocessing, ::core::mem::transmute_copy(displaystring), ::core::mem::transmute_copy(activityid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -987,7 +987,7 @@ pub unsafe fn UiaRaiseStructureChangedEvent<P0>(pprovider: P0, structurechangety
 where
     P0: ::std::convert::Into<::windows::core::InParam<IRawElementProviderSimple>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRaiseStructureChangedEvent ( pprovider : * mut::core::ffi::c_void , structurechangetype : StructureChangeType , pruntimeid : *mut i32 , cruntimeidlen : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaRaiseStructureChangedEvent ( pprovider : * mut::core::ffi::c_void , structurechangetype : StructureChangeType , pruntimeid : *mut i32 , cruntimeidlen : i32 ) -> :: windows::core::HRESULT );
     UiaRaiseStructureChangedEvent(pprovider.into().abi(), structurechangetype, pruntimeid, cruntimeidlen).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -997,14 +997,14 @@ pub unsafe fn UiaRaiseTextEditTextChangedEvent<P0>(pprovider: P0, texteditchange
 where
     P0: ::std::convert::Into<::windows::core::InParam<IRawElementProviderSimple>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRaiseTextEditTextChangedEvent ( pprovider : * mut::core::ffi::c_void , texteditchangetype : TextEditChangeType , pchangeddata : *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaRaiseTextEditTextChangedEvent ( pprovider : * mut::core::ffi::c_void , texteditchangetype : TextEditChangeType , pchangeddata : *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     UiaRaiseTextEditTextChangedEvent(pprovider.into().abi(), texteditchangetype, pchangeddata).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRegisterProviderCallback ( pcallback : *mut UiaProviderCallback ) -> ( ) );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaRegisterProviderCallback ( pcallback : *mut UiaProviderCallback ) -> ( ) );
     UiaRegisterProviderCallback(pcallback)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1013,7 +1013,7 @@ pub unsafe fn UiaRemoveEvent<P0>(hevent: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HUIAEVENT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRemoveEvent ( hevent : HUIAEVENT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaRemoveEvent ( hevent : HUIAEVENT ) -> :: windows::core::HRESULT );
     UiaRemoveEvent(hevent.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1026,7 +1026,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     P3: ::std::convert::Into<::windows::core::InParam<IRawElementProviderSimple>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaReturnRawElementProvider ( hwnd : super::super::Foundation:: HWND , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , el : * mut::core::ffi::c_void ) -> super::super::Foundation:: LRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaReturnRawElementProvider ( hwnd : super::super::Foundation:: HWND , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , el : * mut::core::ffi::c_void ) -> super::super::Foundation:: LRESULT );
     UiaReturnRawElementProvider(hwnd.into(), wparam.into(), lparam.into(), el.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1035,7 +1035,7 @@ pub unsafe fn UiaSetFocus<P0>(hnode: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaSetFocus ( hnode : HUIANODE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaSetFocus ( hnode : HUIANODE ) -> :: windows::core::HRESULT );
     UiaSetFocus(hnode.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1045,7 +1045,7 @@ pub unsafe fn UiaTextRangeRelease<P0>(hobj: P0) -> super::super::Foundation::BOO
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaTextRangeRelease ( hobj : HUIATEXTRANGE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaTextRangeRelease ( hobj : HUIATEXTRANGE ) -> super::super::Foundation:: BOOL );
     UiaTextRangeRelease(hobj.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1055,7 +1055,7 @@ pub unsafe fn UnhookWinEvent<P0>(hwineventhook: P0) -> super::super::Foundation:
 where
     P0: ::std::convert::Into<HWINEVENTHOOK>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn UnhookWinEvent ( hwineventhook : HWINEVENTHOOK ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn UnhookWinEvent ( hwineventhook : HWINEVENTHOOK ) -> super::super::Foundation:: BOOL );
     UnhookWinEvent(hwineventhook.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -1065,7 +1065,7 @@ pub unsafe fn UnregisterPointerInputTarget<P0>(hwnd: P0, pointertype: super::Win
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn UnregisterPointerInputTarget ( hwnd : super::super::Foundation:: HWND , pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn UnregisterPointerInputTarget ( hwnd : super::super::Foundation:: HWND , pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE ) -> super::super::Foundation:: BOOL );
     UnregisterPointerInputTarget(hwnd.into(), pointertype)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -1075,7 +1075,7 @@ pub unsafe fn UnregisterPointerInputTargetEx<P0>(hwnd: P0, pointertype: super::W
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn UnregisterPointerInputTargetEx ( hwnd : super::super::Foundation:: HWND , pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn UnregisterPointerInputTargetEx ( hwnd : super::super::Foundation:: HWND , pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE ) -> super::super::Foundation:: BOOL );
     UnregisterPointerInputTargetEx(hwnd.into(), pointertype)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1085,7 +1085,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn ValuePattern_SetValue ( hobj : HUIAPATTERNOBJECT , pval : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn ValuePattern_SetValue ( hobj : HUIAPATTERNOBJECT , pval : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     ValuePattern_SetValue(hobj.into(), pval.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1094,7 +1094,7 @@ pub unsafe fn VirtualizedItemPattern_Realize<P0>(hobj: P0) -> ::windows::core::R
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn VirtualizedItemPattern_Realize ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn VirtualizedItemPattern_Realize ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     VirtualizedItemPattern_Realize(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1104,7 +1104,7 @@ pub unsafe fn WindowFromAccessibleObject<P0>(param0: P0, phwnd: ::core::option::
 where
     P0: ::std::convert::Into<::windows::core::InParam<IAccessible>>,
 {
-    ::windows::core::link ! ( "oleacc.dll""system" fn WindowFromAccessibleObject ( param0 : * mut::core::ffi::c_void , phwnd : *mut super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleacc.dll""system" fn WindowFromAccessibleObject ( param0 : * mut::core::ffi::c_void , phwnd : *mut super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
     WindowFromAccessibleObject(param0.into().abi(), ::core::mem::transmute(phwnd.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1113,7 +1113,7 @@ pub unsafe fn WindowPattern_Close<P0>(hobj: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn WindowPattern_Close ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn WindowPattern_Close ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     WindowPattern_Close(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1122,7 +1122,7 @@ pub unsafe fn WindowPattern_SetWindowVisualState<P0>(hobj: P0, state: WindowVisu
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn WindowPattern_SetWindowVisualState ( hobj : HUIAPATTERNOBJECT , state : WindowVisualState ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn WindowPattern_SetWindowVisualState ( hobj : HUIAPATTERNOBJECT , state : WindowVisualState ) -> :: windows::core::HRESULT );
     WindowPattern_SetWindowVisualState(hobj.into(), state).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1132,7 +1132,7 @@ pub unsafe fn WindowPattern_WaitForInputIdle<P0>(hobj: P0, milliseconds: i32, pr
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn WindowPattern_WaitForInputIdle ( hobj : HUIAPATTERNOBJECT , milliseconds : i32 , presult : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "uiautomationcore.dll""system" fn WindowPattern_WaitForInputIdle ( hobj : HUIAPATTERNOBJECT , milliseconds : i32 , presult : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     WindowPattern_WaitForInputIdle(hobj.into(), milliseconds, presult).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1143,7 +1143,7 @@ impl IAccIdentity {
         (::windows::core::Vtable::vtable(self).GetIdentityString)(::windows::core::Vtable::as_raw(self), dwidchild, ppidstring, pdwidstringlen).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAccIdentity, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccIdentity, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccIdentity {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1182,7 +1182,7 @@ impl IAccPropServer {
         (::windows::core::Vtable::vtable(self).GetPropValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, ::core::mem::transmute(idprop), pvarvalue, pfhasprop).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAccPropServer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccPropServer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccPropServer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1327,7 +1327,7 @@ impl IAccPropServices {
         (::windows::core::Vtable::vtable(self).DecomposeHmenuIdentityString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, phmenu, pidchild).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAccPropServices, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccPropServices, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccPropServices {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1535,7 +1535,7 @@ impl IAccessible {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IAccessible, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IAccessible, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAccessible {
     fn eq(&self, other: &Self) -> bool {
@@ -1678,7 +1678,7 @@ impl IAccessibleEx {
         (::windows::core::Vtable::vtable(self).ConvertReturnedElement)(::windows::core::Vtable::as_raw(self), pin.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAccessibleEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccessibleEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccessibleEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1727,7 +1727,7 @@ impl IAccessibleHandler {
         (::windows::core::Vtable::vtable(self).AccessibleObjectFromID)(::windows::core::Vtable::as_raw(self), hwnd, lobjectid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAccessibleHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccessibleHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccessibleHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1777,7 +1777,7 @@ impl IAccessibleHostingElementProviders {
         (::windows::core::Vtable::vtable(self).GetObjectIdForProvider)(::windows::core::Vtable::as_raw(self), pprovider.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAccessibleHostingElementProviders, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccessibleHostingElementProviders, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccessibleHostingElementProviders {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1843,7 +1843,7 @@ impl IAccessibleWindowlessSite {
         (::windows::core::Vtable::vtable(self).GetParentAccessible)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAccessibleWindowlessSite, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccessibleWindowlessSite, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccessibleWindowlessSite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1906,7 +1906,7 @@ impl IAnnotationProvider {
         (::windows::core::Vtable::vtable(self).Target)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAnnotationProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAnnotationProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAnnotationProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1948,7 +1948,7 @@ impl ICustomNavigationProvider {
         (::windows::core::Vtable::vtable(self).Navigate)(::windows::core::Vtable::as_raw(self), direction, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICustomNavigationProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICustomNavigationProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICustomNavigationProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1989,7 +1989,7 @@ impl IDockProvider {
         (::windows::core::Vtable::vtable(self).DockPosition)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDockProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDockProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDockProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2046,7 +2046,7 @@ impl IDragProvider {
         (::windows::core::Vtable::vtable(self).GetGrabbedItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDragProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDragProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDragProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2102,7 +2102,7 @@ impl IDropTargetProvider {
         (::windows::core::Vtable::vtable(self).DropTargetEffects)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDropTargetProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDropTargetProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDropTargetProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2150,7 +2150,7 @@ impl IExpandCollapseProvider {
         (::windows::core::Vtable::vtable(self).ExpandCollapseState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IExpandCollapseProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExpandCollapseProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExpandCollapseProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2206,7 +2206,7 @@ impl IGridItemProvider {
         (::windows::core::Vtable::vtable(self).ContainingGrid)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IGridItemProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IGridItemProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGridItemProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2256,7 +2256,7 @@ impl IGridProvider {
         (::windows::core::Vtable::vtable(self).ColumnCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IGridProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IGridProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGridProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2295,7 +2295,7 @@ impl IInvokeProvider {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInvokeProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInvokeProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInvokeProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2338,7 +2338,7 @@ impl IItemContainerProvider {
         (::windows::core::Vtable::vtable(self).FindItemByProperty)(::windows::core::Vtable::as_raw(self), pstartafter.into().abi(), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IItemContainerProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IItemContainerProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IItemContainerProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2435,7 +2435,7 @@ impl ILegacyIAccessibleProvider {
         (::windows::core::Vtable::vtable(self).DefaultAction)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ILegacyIAccessibleProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILegacyIAccessibleProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILegacyIAccessibleProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2505,7 +2505,7 @@ impl IMultipleViewProvider {
         (::windows::core::Vtable::vtable(self).GetSupportedViews)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMultipleViewProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMultipleViewProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMultipleViewProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2549,7 +2549,7 @@ impl IObjectModelProvider {
         (::windows::core::Vtable::vtable(self).GetUnderlyingObjectModel)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IObjectModelProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectModelProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectModelProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2592,7 +2592,7 @@ impl IProxyProviderWinEventHandler {
         (::windows::core::Vtable::vtable(self).RespondToWinEvent)(::windows::core::Vtable::as_raw(self), idwinevent, hwnd.into(), idobject, idchild, psink.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IProxyProviderWinEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProxyProviderWinEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProxyProviderWinEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2651,7 +2651,7 @@ impl IProxyProviderWinEventSink {
         (::windows::core::Vtable::vtable(self).AddStructureChangedEvent)(::windows::core::Vtable::as_raw(self), pprovider.into().abi(), structurechangetype, runtimeid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IProxyProviderWinEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProxyProviderWinEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProxyProviderWinEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2722,7 +2722,7 @@ impl IRangeValueProvider {
         (::windows::core::Vtable::vtable(self).SmallChange)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRangeValueProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRangeValueProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRangeValueProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2775,7 +2775,7 @@ impl IRawElementProviderAdviseEvents {
         (::windows::core::Vtable::vtable(self).AdviseEventRemoved)(::windows::core::Vtable::as_raw(self), eventid, propertyids).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRawElementProviderAdviseEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRawElementProviderAdviseEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRawElementProviderAdviseEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2843,7 +2843,7 @@ impl IRawElementProviderFragment {
         (::windows::core::Vtable::vtable(self).FragmentRoot)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRawElementProviderFragment, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRawElementProviderFragment, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRawElementProviderFragment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2896,7 +2896,7 @@ impl IRawElementProviderFragmentRoot {
         (::windows::core::Vtable::vtable(self).GetFocus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRawElementProviderFragmentRoot, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRawElementProviderFragmentRoot, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRawElementProviderFragmentRoot {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2937,7 +2937,7 @@ impl IRawElementProviderHostingAccessibles {
         (::windows::core::Vtable::vtable(self).GetEmbeddedAccessibles)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRawElementProviderHostingAccessibles, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRawElementProviderHostingAccessibles, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRawElementProviderHostingAccessibles {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2983,7 +2983,7 @@ impl IRawElementProviderHwndOverride {
         (::windows::core::Vtable::vtable(self).GetOverrideProviderForHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRawElementProviderHwndOverride, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRawElementProviderHwndOverride, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRawElementProviderHwndOverride {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3038,7 +3038,7 @@ impl IRawElementProviderSimple {
         (::windows::core::Vtable::vtable(self).HostRawElementProvider)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRawElementProviderSimple, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRawElementProviderSimple, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRawElementProviderSimple {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3099,7 +3099,7 @@ impl IRawElementProviderSimple2 {
         (::windows::core::Vtable::vtable(self).ShowContextMenu)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRawElementProviderSimple2, ::windows::core::IUnknown, IRawElementProviderSimple);
+::windows::imp::interface_hierarchy!(IRawElementProviderSimple2, ::windows::core::IUnknown, IRawElementProviderSimple);
 impl ::core::cmp::PartialEq for IRawElementProviderSimple2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3160,7 +3160,7 @@ impl IRawElementProviderSimple3 {
         (::windows::core::Vtable::vtable(self).GetMetadataValue)(::windows::core::Vtable::as_raw(self), targetid, metadataid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRawElementProviderSimple3, ::windows::core::IUnknown, IRawElementProviderSimple, IRawElementProviderSimple2);
+::windows::imp::interface_hierarchy!(IRawElementProviderSimple3, ::windows::core::IUnknown, IRawElementProviderSimple, IRawElementProviderSimple2);
 impl ::core::cmp::PartialEq for IRawElementProviderSimple3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3207,7 +3207,7 @@ impl IRawElementProviderWindowlessSite {
         (::windows::core::Vtable::vtable(self).GetRuntimeIdPrefix)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRawElementProviderWindowlessSite, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRawElementProviderWindowlessSite, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRawElementProviderWindowlessSite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3251,7 +3251,7 @@ impl IRichEditUiaInformation {
         (::windows::core::Vtable::vtable(self).IsVisible)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRichEditUiaInformation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRichEditUiaInformation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRichEditUiaInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3293,7 +3293,7 @@ impl IRicheditWindowlessAccessibility {
         (::windows::core::Vtable::vtable(self).CreateProvider)(::windows::core::Vtable::as_raw(self), psite.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRicheditWindowlessAccessibility, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRicheditWindowlessAccessibility, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRicheditWindowlessAccessibility {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3330,7 +3330,7 @@ impl IScrollItemProvider {
         (::windows::core::Vtable::vtable(self).ScrollIntoView)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IScrollItemProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IScrollItemProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IScrollItemProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3398,7 +3398,7 @@ impl IScrollProvider {
         (::windows::core::Vtable::vtable(self).VerticallyScrollable)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IScrollProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IScrollProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IScrollProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3464,7 +3464,7 @@ impl ISelectionItemProvider {
         (::windows::core::Vtable::vtable(self).SelectionContainer)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISelectionItemProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISelectionItemProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISelectionItemProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3523,7 +3523,7 @@ impl ISelectionProvider {
         (::windows::core::Vtable::vtable(self).IsSelectionRequired)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISelectionProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISelectionProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISelectionProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3602,7 +3602,7 @@ impl ISelectionProvider2 {
         (::windows::core::Vtable::vtable(self).ItemCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISelectionProvider2, ::windows::core::IUnknown, ISelectionProvider);
+::windows::imp::interface_hierarchy!(ISelectionProvider2, ::windows::core::IUnknown, ISelectionProvider);
 impl ::core::cmp::PartialEq for ISelectionProvider2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3655,7 +3655,7 @@ impl ISpreadsheetItemProvider {
         (::windows::core::Vtable::vtable(self).GetAnnotationTypes)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISpreadsheetItemProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpreadsheetItemProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpreadsheetItemProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3704,7 +3704,7 @@ impl ISpreadsheetProvider {
         (::windows::core::Vtable::vtable(self).GetItemByName)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISpreadsheetProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpreadsheetProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpreadsheetProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3766,7 +3766,7 @@ impl IStylesProvider {
         (::windows::core::Vtable::vtable(self).ExtendedProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStylesProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStylesProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStylesProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3812,7 +3812,7 @@ impl ISynchronizedInputProvider {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISynchronizedInputProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISynchronizedInputProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISynchronizedInputProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3859,7 +3859,7 @@ impl ITableItemProvider {
         (::windows::core::Vtable::vtable(self).GetColumnHeaderItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITableItemProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITableItemProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITableItemProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3916,7 +3916,7 @@ impl ITableProvider {
         (::windows::core::Vtable::vtable(self).RowOrColumnMajor)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITableProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITableProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITableProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3966,7 +3966,7 @@ impl ITextChildProvider {
         (::windows::core::Vtable::vtable(self).TextRange)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITextChildProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextChildProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextChildProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4040,7 +4040,7 @@ impl ITextEditProvider {
         (::windows::core::Vtable::vtable(self).GetConversionTarget)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITextEditProvider, ::windows::core::IUnknown, ITextProvider);
+::windows::imp::interface_hierarchy!(ITextEditProvider, ::windows::core::IUnknown, ITextProvider);
 impl ::core::cmp::PartialEq for ITextEditProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4106,7 +4106,7 @@ impl ITextProvider {
         (::windows::core::Vtable::vtable(self).SupportedTextSelection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITextProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4194,7 +4194,7 @@ impl ITextProvider2 {
         (::windows::core::Vtable::vtable(self).GetCaretRange)(::windows::core::Vtable::as_raw(self), isactive, ::core::mem::transmute(pretval)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextProvider2, ::windows::core::IUnknown, ITextProvider);
+::windows::imp::interface_hierarchy!(ITextProvider2, ::windows::core::IUnknown, ITextProvider);
 impl ::core::cmp::PartialEq for ITextProvider2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4331,7 +4331,7 @@ impl ITextRangeProvider {
         (::windows::core::Vtable::vtable(self).GetChildren)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITextRangeProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextRangeProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextRangeProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4505,7 +4505,7 @@ impl ITextRangeProvider2 {
         (::windows::core::Vtable::vtable(self).ShowContextMenu)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextRangeProvider2, ::windows::core::IUnknown, ITextRangeProvider);
+::windows::imp::interface_hierarchy!(ITextRangeProvider2, ::windows::core::IUnknown, ITextRangeProvider);
 impl ::core::cmp::PartialEq for ITextRangeProvider2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4546,7 +4546,7 @@ impl IToggleProvider {
         (::windows::core::Vtable::vtable(self).ToggleState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IToggleProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IToggleProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IToggleProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4608,7 +4608,7 @@ impl ITransformProvider {
         (::windows::core::Vtable::vtable(self).CanRotate)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransformProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransformProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransformProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4707,7 +4707,7 @@ impl ITransformProvider2 {
         (::windows::core::Vtable::vtable(self).ZoomByUnit)(::windows::core::Vtable::as_raw(self), zoomunit).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransformProvider2, ::windows::core::IUnknown, ITransformProvider);
+::windows::imp::interface_hierarchy!(ITransformProvider2, ::windows::core::IUnknown, ITransformProvider);
 impl ::core::cmp::PartialEq for ITransformProvider2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5086,7 +5086,7 @@ impl IUIAutomation {
         (::windows::core::Vtable::vtable(self).ElementFromIAccessibleBuildCache)(::windows::core::Vtable::as_raw(self), accessible.into().abi(), childid, cacherequest.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5602,7 +5602,7 @@ impl IUIAutomation2 {
         (::windows::core::Vtable::vtable(self).SetTransactionTimeout)(::windows::core::Vtable::as_raw(self), timeout).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomation2, ::windows::core::IUnknown, IUIAutomation);
+::windows::imp::interface_hierarchy!(IUIAutomation2, ::windows::core::IUnknown, IUIAutomation);
 impl ::core::cmp::PartialEq for IUIAutomation2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6027,7 +6027,7 @@ impl IUIAutomation3 {
         (::windows::core::Vtable::vtable(self).RemoveTextEditTextChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), handler.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomation3, ::windows::core::IUnknown, IUIAutomation, IUIAutomation2);
+::windows::imp::interface_hierarchy!(IUIAutomation3, ::windows::core::IUnknown, IUIAutomation, IUIAutomation2);
 impl ::core::cmp::PartialEq for IUIAutomation3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6457,7 +6457,7 @@ impl IUIAutomation4 {
         (::windows::core::Vtable::vtable(self).RemoveChangesEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), handler.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomation4, ::windows::core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3);
+::windows::imp::interface_hierarchy!(IUIAutomation4, ::windows::core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3);
 impl ::core::cmp::PartialEq for IUIAutomation4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6902,7 +6902,7 @@ impl IUIAutomation5 {
         (::windows::core::Vtable::vtable(self).RemoveNotificationEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), handler.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomation5, ::windows::core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3, IUIAutomation4);
+::windows::imp::interface_hierarchy!(IUIAutomation5, ::windows::core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3, IUIAutomation4);
 impl ::core::cmp::PartialEq for IUIAutomation5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7394,7 +7394,7 @@ impl IUIAutomation6 {
         (::windows::core::Vtable::vtable(self).RemoveActiveTextPositionChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), handler.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomation6, ::windows::core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3, IUIAutomation4, IUIAutomation5);
+::windows::imp::interface_hierarchy!(IUIAutomation6, ::windows::core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3, IUIAutomation4, IUIAutomation5);
 impl ::core::cmp::PartialEq for IUIAutomation6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7443,7 +7443,7 @@ impl IUIAutomationActiveTextPositionChangedEventHandler {
         (::windows::core::Vtable::vtable(self).HandleActiveTextPositionChangedEvent)(::windows::core::Vtable::as_raw(self), sender.into().abi(), range.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationActiveTextPositionChangedEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationActiveTextPositionChangedEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationActiveTextPositionChangedEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7490,7 +7490,7 @@ impl IUIAutomationAndCondition {
         (::windows::core::Vtable::vtable(self).GetChildren)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationAndCondition, ::windows::core::IUnknown, IUIAutomationCondition);
+::windows::imp::interface_hierarchy!(IUIAutomationAndCondition, ::windows::core::IUnknown, IUIAutomationCondition);
 impl ::core::cmp::PartialEq for IUIAutomationAndCondition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7569,7 +7569,7 @@ impl IUIAutomationAnnotationPattern {
         (::windows::core::Vtable::vtable(self).CachedTarget)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationAnnotationPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationAnnotationPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationAnnotationPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7618,7 +7618,7 @@ impl IUIAutomationBoolCondition {
         (::windows::core::Vtable::vtable(self).BooleanValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationBoolCondition, ::windows::core::IUnknown, IUIAutomationCondition);
+::windows::imp::interface_hierarchy!(IUIAutomationBoolCondition, ::windows::core::IUnknown, IUIAutomationCondition);
 impl ::core::cmp::PartialEq for IUIAutomationBoolCondition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7689,7 +7689,7 @@ impl IUIAutomationCacheRequest {
         (::windows::core::Vtable::vtable(self).SetAutomationElementMode)(::windows::core::Vtable::as_raw(self), mode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationCacheRequest, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationCacheRequest, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationCacheRequest {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7739,7 +7739,7 @@ impl IUIAutomationChangesEventHandler {
         (::windows::core::Vtable::vtable(self).HandleChangesEvent)(::windows::core::Vtable::as_raw(self), sender.into().abi(), ::core::mem::transmute(uiachanges.as_ptr()), uiachanges.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationChangesEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationChangesEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationChangesEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7775,7 +7775,7 @@ pub struct IUIAutomationChangesEventHandler_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationCondition(::windows::core::IUnknown);
 impl IUIAutomationCondition {}
-::windows::core::interface_hierarchy!(IUIAutomationCondition, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationCondition, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationCondition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7812,7 +7812,7 @@ impl IUIAutomationCustomNavigationPattern {
         (::windows::core::Vtable::vtable(self).Navigate)(::windows::core::Vtable::as_raw(self), direction, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationCustomNavigationPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationCustomNavigationPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationCustomNavigationPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7857,7 +7857,7 @@ impl IUIAutomationDockPattern {
         (::windows::core::Vtable::vtable(self).CachedDockPosition)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationDockPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationDockPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationDockPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7933,7 +7933,7 @@ impl IUIAutomationDragPattern {
         (::windows::core::Vtable::vtable(self).GetCachedGrabbedItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationDragPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationDragPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationDragPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8006,7 +8006,7 @@ impl IUIAutomationDropTargetPattern {
         (::windows::core::Vtable::vtable(self).CachedDropTargetEffects)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationDropTargetPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationDropTargetPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationDropTargetPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8460,7 +8460,7 @@ impl IUIAutomationElement {
         (::windows::core::Vtable::vtable(self).GetClickablePoint)(::windows::core::Vtable::as_raw(self), clickable, gotclickable).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationElement, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationElement, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9098,7 +9098,7 @@ impl IUIAutomationElement2 {
         (::windows::core::Vtable::vtable(self).CachedFlowsFrom)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationElement2, ::windows::core::IUnknown, IUIAutomationElement);
+::windows::imp::interface_hierarchy!(IUIAutomationElement2, ::windows::core::IUnknown, IUIAutomationElement);
 impl ::core::cmp::PartialEq for IUIAutomationElement2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9597,7 +9597,7 @@ impl IUIAutomationElement3 {
         (::windows::core::Vtable::vtable(self).CachedIsPeripheral)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationElement3, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2);
+::windows::imp::interface_hierarchy!(IUIAutomationElement3, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2);
 impl ::core::cmp::PartialEq for IUIAutomationElement3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10137,7 +10137,7 @@ impl IUIAutomationElement4 {
         (::windows::core::Vtable::vtable(self).CachedAnnotationObjects)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationElement4, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3);
+::windows::imp::interface_hierarchy!(IUIAutomationElement4, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3);
 impl ::core::cmp::PartialEq for IUIAutomationElement4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10700,7 +10700,7 @@ impl IUIAutomationElement5 {
         (::windows::core::Vtable::vtable(self).CachedLocalizedLandmarkType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationElement5, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4);
+::windows::imp::interface_hierarchy!(IUIAutomationElement5, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4);
 impl ::core::cmp::PartialEq for IUIAutomationElement5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11259,7 +11259,7 @@ impl IUIAutomationElement6 {
         (::windows::core::Vtable::vtable(self).CachedFullDescription)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationElement6, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5);
+::windows::imp::interface_hierarchy!(IUIAutomationElement6, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5);
 impl ::core::cmp::PartialEq for IUIAutomationElement6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11856,7 +11856,7 @@ impl IUIAutomationElement7 {
         (::windows::core::Vtable::vtable(self).GetCurrentMetadataValue)(::windows::core::Vtable::as_raw(self), targetid, metadataid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationElement7, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6);
+::windows::imp::interface_hierarchy!(IUIAutomationElement7, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6);
 impl ::core::cmp::PartialEq for IUIAutomationElement7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12467,7 +12467,7 @@ impl IUIAutomationElement8 {
         (::windows::core::Vtable::vtable(self).CachedHeadingLevel)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationElement8, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6, IUIAutomationElement7);
+::windows::imp::interface_hierarchy!(IUIAutomationElement8, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6, IUIAutomationElement7);
 impl ::core::cmp::PartialEq for IUIAutomationElement8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13084,7 +13084,7 @@ impl IUIAutomationElement9 {
         (::windows::core::Vtable::vtable(self).CachedIsDialog)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationElement9, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6, IUIAutomationElement7, IUIAutomationElement8);
+::windows::imp::interface_hierarchy!(IUIAutomationElement9, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6, IUIAutomationElement7, IUIAutomationElement8);
 impl ::core::cmp::PartialEq for IUIAutomationElement9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13133,7 +13133,7 @@ impl IUIAutomationElementArray {
         (::windows::core::Vtable::vtable(self).GetElement)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationElementArray, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationElementArray, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationElementArray {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13174,7 +13174,7 @@ impl IUIAutomationEventHandler {
         (::windows::core::Vtable::vtable(self).HandleAutomationEvent)(::windows::core::Vtable::as_raw(self), sender.into().abi(), eventid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13257,7 +13257,7 @@ impl IUIAutomationEventHandlerGroup {
         (::windows::core::Vtable::vtable(self).AddTextEditTextChangedEventHandler)(::windows::core::Vtable::as_raw(self), scope, texteditchangetype, cacherequest.into().abi(), handler.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationEventHandlerGroup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationEventHandlerGroup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationEventHandlerGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13311,7 +13311,7 @@ impl IUIAutomationExpandCollapsePattern {
         (::windows::core::Vtable::vtable(self).CachedExpandCollapseState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationExpandCollapsePattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationExpandCollapsePattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationExpandCollapsePattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13354,7 +13354,7 @@ impl IUIAutomationFocusChangedEventHandler {
         (::windows::core::Vtable::vtable(self).HandleFocusChangedEvent)(::windows::core::Vtable::as_raw(self), sender.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationFocusChangedEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationFocusChangedEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationFocusChangedEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13428,7 +13428,7 @@ impl IUIAutomationGridItemPattern {
         (::windows::core::Vtable::vtable(self).CachedColumnSpan)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationGridItemPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationGridItemPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationGridItemPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13491,7 +13491,7 @@ impl IUIAutomationGridPattern {
         (::windows::core::Vtable::vtable(self).CachedColumnCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationGridPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationGridPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationGridPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13532,7 +13532,7 @@ impl IUIAutomationInvokePattern {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationInvokePattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationInvokePattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationInvokePattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13575,7 +13575,7 @@ impl IUIAutomationItemContainerPattern {
         (::windows::core::Vtable::vtable(self).FindItemByProperty)(::windows::core::Vtable::as_raw(self), pstartafter.into().abi(), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationItemContainerPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationItemContainerPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationItemContainerPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13710,7 +13710,7 @@ impl IUIAutomationLegacyIAccessiblePattern {
         (::windows::core::Vtable::vtable(self).GetIAccessible)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationLegacyIAccessiblePattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationLegacyIAccessiblePattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationLegacyIAccessiblePattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13797,7 +13797,7 @@ impl IUIAutomationMultipleViewPattern {
         (::windows::core::Vtable::vtable(self).GetCachedSupportedViews)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationMultipleViewPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationMultipleViewPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationMultipleViewPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13846,7 +13846,7 @@ impl IUIAutomationNotCondition {
         (::windows::core::Vtable::vtable(self).GetChild)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationNotCondition, ::windows::core::IUnknown, IUIAutomationCondition);
+::windows::imp::interface_hierarchy!(IUIAutomationNotCondition, ::windows::core::IUnknown, IUIAutomationCondition);
 impl ::core::cmp::PartialEq for IUIAutomationNotCondition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13886,7 +13886,7 @@ impl IUIAutomationNotificationEventHandler {
         (::windows::core::Vtable::vtable(self).HandleNotificationEvent)(::windows::core::Vtable::as_raw(self), sender.into().abi(), notificationkind, notificationprocessing, ::core::mem::transmute_copy(displaystring), ::core::mem::transmute_copy(activityid)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationNotificationEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationNotificationEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationNotificationEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13924,7 +13924,7 @@ impl IUIAutomationObjectModelPattern {
         (::windows::core::Vtable::vtable(self).GetUnderlyingObjectModel)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationObjectModelPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationObjectModelPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationObjectModelPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13971,7 +13971,7 @@ impl IUIAutomationOrCondition {
         (::windows::core::Vtable::vtable(self).GetChildren)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationOrCondition, ::windows::core::IUnknown, IUIAutomationCondition);
+::windows::imp::interface_hierarchy!(IUIAutomationOrCondition, ::windows::core::IUnknown, IUIAutomationCondition);
 impl ::core::cmp::PartialEq for IUIAutomationOrCondition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14023,7 +14023,7 @@ impl IUIAutomationPatternHandler {
         (::windows::core::Vtable::vtable(self).Dispatch)(::windows::core::Vtable::as_raw(self), ptarget.into().abi(), index, pparams, cparams).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationPatternHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationPatternHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationPatternHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14069,7 +14069,7 @@ impl IUIAutomationPatternInstance {
         (::windows::core::Vtable::vtable(self).CallMethod)(::windows::core::Vtable::as_raw(self), index, pparams, cparams).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationPatternInstance, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationPatternInstance, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationPatternInstance {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14115,7 +14115,7 @@ impl IUIAutomationPropertyChangedEventHandler {
         (::windows::core::Vtable::vtable(self).HandlePropertyChangedEvent)(::windows::core::Vtable::as_raw(self), sender.into().abi(), propertyid, ::core::mem::transmute(newvalue)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationPropertyChangedEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationPropertyChangedEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationPropertyChangedEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14166,7 +14166,7 @@ impl IUIAutomationPropertyCondition {
         (::windows::core::Vtable::vtable(self).PropertyConditionFlags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationPropertyCondition, ::windows::core::IUnknown, IUIAutomationCondition);
+::windows::imp::interface_hierarchy!(IUIAutomationPropertyCondition, ::windows::core::IUnknown, IUIAutomationCondition);
 impl ::core::cmp::PartialEq for IUIAutomationPropertyCondition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14218,7 +14218,7 @@ impl IUIAutomationProxyFactory {
         (::windows::core::Vtable::vtable(self).ProxyFactoryId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationProxyFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationProxyFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationProxyFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14333,7 +14333,7 @@ impl IUIAutomationProxyFactoryEntry {
         (::windows::core::Vtable::vtable(self).GetWinEventsForAutomationEvent)(::windows::core::Vtable::as_raw(self), eventid, propertyid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationProxyFactoryEntry, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationProxyFactoryEntry, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationProxyFactoryEntry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14442,7 +14442,7 @@ impl IUIAutomationProxyFactoryMapping {
         (::windows::core::Vtable::vtable(self).RestoreDefaultTable)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationProxyFactoryMapping, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationProxyFactoryMapping, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationProxyFactoryMapping {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14548,7 +14548,7 @@ impl IUIAutomationRangeValuePattern {
         (::windows::core::Vtable::vtable(self).CachedSmallChange)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationRangeValuePattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationRangeValuePattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationRangeValuePattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14613,7 +14613,7 @@ impl IUIAutomationRegistrar {
         (::windows::core::Vtable::vtable(self).RegisterPattern)(::windows::core::Vtable::as_raw(self), pattern, ppatternid, ppatternavailablepropertyid, ppropertyids.len() as _, ::core::mem::transmute(ppropertyids.as_ptr()), peventids.len() as _, ::core::mem::transmute(peventids.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationRegistrar, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationRegistrar, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationRegistrar {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14655,7 +14655,7 @@ impl IUIAutomationScrollItemPattern {
         (::windows::core::Vtable::vtable(self).ScrollIntoView)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationScrollItemPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationScrollItemPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationScrollItemPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14751,7 +14751,7 @@ impl IUIAutomationScrollPattern {
         (::windows::core::Vtable::vtable(self).CachedVerticallyScrollable)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationScrollPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationScrollPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationScrollPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14839,7 +14839,7 @@ impl IUIAutomationSelectionItemPattern {
         (::windows::core::Vtable::vtable(self).CachedSelectionContainer)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationSelectionItemPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationSelectionItemPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationSelectionItemPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14917,7 +14917,7 @@ impl IUIAutomationSelectionPattern {
         (::windows::core::Vtable::vtable(self).CachedIsSelectionRequired)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationSelectionPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationSelectionPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationSelectionPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15032,7 +15032,7 @@ impl IUIAutomationSelectionPattern2 {
         (::windows::core::Vtable::vtable(self).CachedItemCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationSelectionPattern2, ::windows::core::IUnknown, IUIAutomationSelectionPattern);
+::windows::imp::interface_hierarchy!(IUIAutomationSelectionPattern2, ::windows::core::IUnknown, IUIAutomationSelectionPattern);
 impl ::core::cmp::PartialEq for IUIAutomationSelectionPattern2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15101,7 +15101,7 @@ impl IUIAutomationSpreadsheetItemPattern {
         (::windows::core::Vtable::vtable(self).GetCachedAnnotationTypes)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationSpreadsheetItemPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationSpreadsheetItemPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationSpreadsheetItemPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15150,7 +15150,7 @@ impl IUIAutomationSpreadsheetPattern {
         (::windows::core::Vtable::vtable(self).GetItemByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationSpreadsheetPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationSpreadsheetPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationSpreadsheetPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15192,7 +15192,7 @@ impl IUIAutomationStructureChangedEventHandler {
         (::windows::core::Vtable::vtable(self).HandleStructureChangedEvent)(::windows::core::Vtable::as_raw(self), sender.into().abi(), changetype, runtimeid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationStructureChangedEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationStructureChangedEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationStructureChangedEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15291,7 +15291,7 @@ impl IUIAutomationStylesPattern {
         (::windows::core::Vtable::vtable(self).GetCachedExtendedPropertiesAsArray)(::windows::core::Vtable::as_raw(self), propertyarray, propertycount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationStylesPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationStylesPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationStylesPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15346,7 +15346,7 @@ impl IUIAutomationSynchronizedInputPattern {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationSynchronizedInputPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationSynchronizedInputPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationSynchronizedInputPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15397,7 +15397,7 @@ impl IUIAutomationTableItemPattern {
         (::windows::core::Vtable::vtable(self).GetCachedColumnHeaderItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTableItemPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationTableItemPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationTableItemPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15458,7 +15458,7 @@ impl IUIAutomationTablePattern {
         (::windows::core::Vtable::vtable(self).CachedRowOrColumnMajor)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTablePattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationTablePattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationTablePattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15505,7 +15505,7 @@ impl IUIAutomationTextChildPattern {
         (::windows::core::Vtable::vtable(self).TextRange)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTextChildPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationTextChildPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationTextChildPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15577,7 +15577,7 @@ impl IUIAutomationTextEditPattern {
         (::windows::core::Vtable::vtable(self).GetConversionTarget)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTextEditPattern, ::windows::core::IUnknown, IUIAutomationTextPattern);
+::windows::imp::interface_hierarchy!(IUIAutomationTextEditPattern, ::windows::core::IUnknown, IUIAutomationTextPattern);
 impl ::core::cmp::PartialEq for IUIAutomationTextEditPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15620,7 +15620,7 @@ impl IUIAutomationTextEditTextChangedEventHandler {
         (::windows::core::Vtable::vtable(self).HandleTextEditTextChangedEvent)(::windows::core::Vtable::as_raw(self), sender.into().abi(), texteditchangetype, eventstrings).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTextEditTextChangedEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationTextEditTextChangedEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationTextEditTextChangedEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15686,7 +15686,7 @@ impl IUIAutomationTextPattern {
         (::windows::core::Vtable::vtable(self).SupportedTextSelection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTextPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationTextPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationTextPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15769,7 +15769,7 @@ impl IUIAutomationTextPattern2 {
         (::windows::core::Vtable::vtable(self).GetCaretRange)(::windows::core::Vtable::as_raw(self), isactive, ::core::mem::transmute(range)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTextPattern2, ::windows::core::IUnknown, IUIAutomationTextPattern);
+::windows::imp::interface_hierarchy!(IUIAutomationTextPattern2, ::windows::core::IUnknown, IUIAutomationTextPattern);
 impl ::core::cmp::PartialEq for IUIAutomationTextPattern2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15904,7 +15904,7 @@ impl IUIAutomationTextRange {
         (::windows::core::Vtable::vtable(self).GetChildren)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTextRange, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationTextRange, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationTextRange {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16073,7 +16073,7 @@ impl IUIAutomationTextRange2 {
         (::windows::core::Vtable::vtable(self).ShowContextMenu)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTextRange2, ::windows::core::IUnknown, IUIAutomationTextRange);
+::windows::imp::interface_hierarchy!(IUIAutomationTextRange2, ::windows::core::IUnknown, IUIAutomationTextRange);
 impl ::core::cmp::PartialEq for IUIAutomationTextRange2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16227,7 +16227,7 @@ impl IUIAutomationTextRange3 {
         (::windows::core::Vtable::vtable(self).GetAttributeValues)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(attributeids.as_ptr()), attributeids.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTextRange3, ::windows::core::IUnknown, IUIAutomationTextRange, IUIAutomationTextRange2);
+::windows::imp::interface_hierarchy!(IUIAutomationTextRange3, ::windows::core::IUnknown, IUIAutomationTextRange, IUIAutomationTextRange2);
 impl ::core::cmp::PartialEq for IUIAutomationTextRange3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16274,7 +16274,7 @@ impl IUIAutomationTextRangeArray {
         (::windows::core::Vtable::vtable(self).GetElement)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTextRangeArray, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationTextRangeArray, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationTextRangeArray {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16320,7 +16320,7 @@ impl IUIAutomationTogglePattern {
         (::windows::core::Vtable::vtable(self).CachedToggleState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTogglePattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationTogglePattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationTogglePattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16401,7 +16401,7 @@ impl IUIAutomationTransformPattern {
         (::windows::core::Vtable::vtable(self).CachedCanRotate)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTransformPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationTransformPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationTransformPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16548,7 +16548,7 @@ impl IUIAutomationTransformPattern2 {
         (::windows::core::Vtable::vtable(self).CachedZoomMaximum)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTransformPattern2, ::windows::core::IUnknown, IUIAutomationTransformPattern);
+::windows::imp::interface_hierarchy!(IUIAutomationTransformPattern2, ::windows::core::IUnknown, IUIAutomationTransformPattern);
 impl ::core::cmp::PartialEq for IUIAutomationTransformPattern2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16691,7 +16691,7 @@ impl IUIAutomationTreeWalker {
         (::windows::core::Vtable::vtable(self).Condition)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationTreeWalker, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationTreeWalker, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationTreeWalker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16760,7 +16760,7 @@ impl IUIAutomationValuePattern {
         (::windows::core::Vtable::vtable(self).CachedIsReadOnly)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationValuePattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationValuePattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationValuePattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16807,7 +16807,7 @@ impl IUIAutomationVirtualizedItemPattern {
         (::windows::core::Vtable::vtable(self).Realize)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationVirtualizedItemPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationVirtualizedItemPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationVirtualizedItemPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16917,7 +16917,7 @@ impl IUIAutomationWindowPattern {
         (::windows::core::Vtable::vtable(self).CachedWindowInteractionState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAutomationWindowPattern, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAutomationWindowPattern, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAutomationWindowPattern {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17008,7 +17008,7 @@ impl IValueProvider {
         (::windows::core::Vtable::vtable(self).IsReadOnly)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IValueProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IValueProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IValueProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17050,7 +17050,7 @@ impl IVirtualizedItemProvider {
         (::windows::core::Vtable::vtable(self).Realize)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVirtualizedItemProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVirtualizedItemProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVirtualizedItemProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17128,7 +17128,7 @@ impl IWindowProvider {
         (::windows::core::Vtable::vtable(self).IsTopmost)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWindowProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWindowProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWindowProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

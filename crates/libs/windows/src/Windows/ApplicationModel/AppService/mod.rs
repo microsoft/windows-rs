@@ -356,7 +356,7 @@ impl AppServiceCatalog {
     }
     #[doc(hidden)]
     pub fn IAppServiceCatalogStatics<R, F: FnOnce(&IAppServiceCatalogStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppServiceCatalog, IAppServiceCatalogStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppServiceCatalog, IAppServiceCatalogStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -387,7 +387,7 @@ impl ::core::fmt::Debug for AppServiceClosedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppServiceClosedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceClosedEventArgs;{de6016f6-cb03-4d35-ac8d-cc6303239731})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceClosedEventArgs;{de6016f6-cb03-4d35-ac8d-cc6303239731})");
 }
 impl ::core::clone::Clone for AppServiceClosedEventArgs {
     fn clone(&self) -> Self {
@@ -403,7 +403,7 @@ unsafe impl ::windows::core::Interface for AppServiceClosedEventArgs {
 impl ::windows::core::RuntimeName for AppServiceClosedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceClosedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppServiceClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppServiceClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppServiceClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppServiceClosedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -413,8 +413,8 @@ impl AppServiceConnection {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppServiceConnection, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AppServiceConnection, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn AppServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -527,7 +527,7 @@ impl AppServiceConnection {
     }
     #[doc(hidden)]
     pub fn IAppServiceConnectionStatics<R, F: FnOnce(&IAppServiceConnectionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppServiceConnection, IAppServiceConnectionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppServiceConnection, IAppServiceConnectionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -543,7 +543,7 @@ impl ::core::fmt::Debug for AppServiceConnection {
     }
 }
 impl ::windows::core::RuntimeType for AppServiceConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceConnection;{9dd474a2-871f-4d52-89a9-9e090531bd27})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceConnection;{9dd474a2-871f-4d52-89a9-9e090531bd27})");
 }
 impl ::core::clone::Clone for AppServiceConnection {
     fn clone(&self) -> Self {
@@ -559,7 +559,7 @@ unsafe impl ::windows::core::Interface for AppServiceConnection {
 impl ::windows::core::RuntimeName for AppServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceConnection";
 }
-::windows::core::interface_hierarchy!(AppServiceConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppServiceConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AppServiceConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -605,7 +605,7 @@ impl ::core::fmt::Debug for AppServiceDeferral {
     }
 }
 impl ::windows::core::RuntimeType for AppServiceDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceDeferral;{7e1b5322-eab0-4248-ae04-fdf93838e472})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceDeferral;{7e1b5322-eab0-4248-ae04-fdf93838e472})");
 }
 impl ::core::clone::Clone for AppServiceDeferral {
     fn clone(&self) -> Self {
@@ -621,7 +621,7 @@ unsafe impl ::windows::core::Interface for AppServiceDeferral {
 impl ::windows::core::RuntimeName for AppServiceDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceDeferral";
 }
-::windows::core::interface_hierarchy!(AppServiceDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppServiceDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppServiceDeferral {}
 unsafe impl ::core::marker::Sync for AppServiceDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -659,7 +659,7 @@ impl ::core::fmt::Debug for AppServiceRequest {
     }
 }
 impl ::windows::core::RuntimeType for AppServiceRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceRequest;{20e58d9d-18de-4b01-80ba-90a76204e3c8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceRequest;{20e58d9d-18de-4b01-80ba-90a76204e3c8})");
 }
 impl ::core::clone::Clone for AppServiceRequest {
     fn clone(&self) -> Self {
@@ -675,7 +675,7 @@ unsafe impl ::windows::core::Interface for AppServiceRequest {
 impl ::windows::core::RuntimeName for AppServiceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequest";
 }
-::windows::core::interface_hierarchy!(AppServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppServiceRequest {}
 unsafe impl ::core::marker::Sync for AppServiceRequest {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -709,7 +709,7 @@ impl ::core::fmt::Debug for AppServiceRequestReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppServiceRequestReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs;{6e122360-ff65-44ae-9e45-857fe4180681})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs;{6e122360-ff65-44ae-9e45-857fe4180681})");
 }
 impl ::core::clone::Clone for AppServiceRequestReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -725,7 +725,7 @@ unsafe impl ::windows::core::Interface for AppServiceRequestReceivedEventArgs {
 impl ::windows::core::RuntimeName for AppServiceRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppServiceRequestReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppServiceRequestReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppServiceRequestReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for AppServiceRequestReceivedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -761,7 +761,7 @@ impl ::core::fmt::Debug for AppServiceResponse {
     }
 }
 impl ::windows::core::RuntimeType for AppServiceResponse {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceResponse;{8d503cec-9aa3-4e68-9559-9de63e372ce4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceResponse;{8d503cec-9aa3-4e68-9559-9de63e372ce4})");
 }
 impl ::core::clone::Clone for AppServiceResponse {
     fn clone(&self) -> Self {
@@ -777,7 +777,7 @@ unsafe impl ::windows::core::Interface for AppServiceResponse {
 impl ::windows::core::RuntimeName for AppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceResponse";
 }
-::windows::core::interface_hierarchy!(AppServiceResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppServiceResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppServiceResponse {}
 unsafe impl ::core::marker::Sync for AppServiceResponse {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -841,7 +841,7 @@ impl ::core::fmt::Debug for AppServiceTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for AppServiceTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceTriggerDetails;{88a2dcac-ad28-41b8-80bb-bdf1b2169e19})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceTriggerDetails;{88a2dcac-ad28-41b8-80bb-bdf1b2169e19})");
 }
 impl ::core::clone::Clone for AppServiceTriggerDetails {
     fn clone(&self) -> Self {
@@ -857,7 +857,7 @@ unsafe impl ::windows::core::Interface for AppServiceTriggerDetails {
 impl ::windows::core::RuntimeName for AppServiceTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceTriggerDetails";
 }
-::windows::core::interface_hierarchy!(AppServiceTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppServiceTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppServiceTriggerDetails {}
 unsafe impl ::core::marker::Sync for AppServiceTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -893,7 +893,7 @@ impl ::core::fmt::Debug for StatelessAppServiceResponse {
     }
 }
 impl ::windows::core::RuntimeType for StatelessAppServiceResponse {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.StatelessAppServiceResponse;{43754af7-a9ec-52fe-82e7-939b68dc9388})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.StatelessAppServiceResponse;{43754af7-a9ec-52fe-82e7-939b68dc9388})");
 }
 impl ::core::clone::Clone for StatelessAppServiceResponse {
     fn clone(&self) -> Self {
@@ -909,7 +909,7 @@ unsafe impl ::windows::core::Interface for StatelessAppServiceResponse {
 impl ::windows::core::RuntimeName for StatelessAppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.StatelessAppServiceResponse";
 }
-::windows::core::interface_hierarchy!(StatelessAppServiceResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StatelessAppServiceResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StatelessAppServiceResponse {}
 unsafe impl ::core::marker::Sync for StatelessAppServiceResponse {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -942,7 +942,7 @@ impl ::core::fmt::Debug for AppServiceClosedStatus {
     }
 }
 impl ::windows::core::RuntimeType for AppServiceClosedStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
@@ -982,7 +982,7 @@ impl ::core::fmt::Debug for AppServiceConnectionStatus {
     }
 }
 impl ::windows::core::RuntimeType for AppServiceConnectionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
@@ -1021,7 +1021,7 @@ impl ::core::fmt::Debug for AppServiceResponseStatus {
     }
 }
 impl ::windows::core::RuntimeType for AppServiceResponseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
@@ -1064,7 +1064,7 @@ impl ::core::fmt::Debug for StatelessAppServiceResponseStatus {
     }
 }
 impl ::windows::core::RuntimeType for StatelessAppServiceResponseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

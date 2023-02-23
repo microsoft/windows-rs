@@ -338,7 +338,7 @@ impl IStorageProviderItemPropertySource {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageProviderItemPropertySource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageProviderItemPropertySource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageProviderItemPropertySource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -351,7 +351,7 @@ impl ::core::fmt::Debug for IStorageProviderItemPropertySource {
     }
 }
 impl ::windows::core::RuntimeType for IStorageProviderItemPropertySource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8f6f9c3e-f632-4a9b-8d99-d2d7a11df56a}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{8f6f9c3e-f632-4a9b-8d99-d2d7a11df56a}");
 }
 unsafe impl ::windows::core::Vtable for IStorageProviderItemPropertySource {
     type Vtable = IStorageProviderItemPropertySource_Vtbl;
@@ -408,7 +408,7 @@ impl IStorageProviderPropertyCapabilities {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageProviderPropertyCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageProviderPropertyCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageProviderPropertyCapabilities {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -421,7 +421,7 @@ impl ::core::fmt::Debug for IStorageProviderPropertyCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for IStorageProviderPropertyCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{658d2f0e-63b7-4567-acf9-51abe301dda5}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{658d2f0e-63b7-4567-acf9-51abe301dda5}");
 }
 unsafe impl ::windows::core::Vtable for IStorageProviderPropertyCapabilities {
     type Vtable = IStorageProviderPropertyCapabilities_Vtbl;
@@ -547,7 +547,7 @@ impl IStorageProviderStatusUISource {
         unsafe { (::windows::core::Vtable::vtable(this).RemoveStatusUIChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IStorageProviderStatusUISource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageProviderStatusUISource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageProviderStatusUISource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -560,7 +560,7 @@ impl ::core::fmt::Debug for IStorageProviderStatusUISource {
     }
 }
 impl ::windows::core::RuntimeType for IStorageProviderStatusUISource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a306c249-3d66-5e70-9007-e43df96051ff}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a306c249-3d66-5e70-9007-e43df96051ff}");
 }
 unsafe impl ::windows::core::Vtable for IStorageProviderStatusUISource {
     type Vtable = IStorageProviderStatusUISource_Vtbl;
@@ -599,7 +599,7 @@ impl IStorageProviderStatusUISourceFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageProviderStatusUISourceFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageProviderStatusUISourceFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageProviderStatusUISourceFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -612,7 +612,7 @@ impl ::core::fmt::Debug for IStorageProviderStatusUISourceFactory {
     }
 }
 impl ::windows::core::RuntimeType for IStorageProviderStatusUISourceFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{12e46b74-4e5a-58d1-a62f-0376e8ee7dd8}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{12e46b74-4e5a-58d1-a62f-0376e8ee7dd8}");
 }
 unsafe impl ::windows::core::Vtable for IStorageProviderStatusUISourceFactory {
     type Vtable = IStorageProviderStatusUISourceFactory_Vtbl;
@@ -826,7 +826,7 @@ impl IStorageProviderUICommand {
         unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IStorageProviderUICommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageProviderUICommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageProviderUICommand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -839,7 +839,7 @@ impl ::core::fmt::Debug for IStorageProviderUICommand {
     }
 }
 impl ::windows::core::RuntimeType for IStorageProviderUICommand {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0c3e0760-d846-568f-9484-105cc57b502b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{0c3e0760-d846-568f-9484-105cc57b502b}");
 }
 unsafe impl ::windows::core::Vtable for IStorageProviderUICommand {
     type Vtable = IStorageProviderUICommand_Vtbl;
@@ -878,7 +878,7 @@ impl IStorageProviderUriSource {
         unsafe { (::windows::core::Vtable::vtable(this).GetContentInfoForPath)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(path), ::core::mem::transmute_copy(result)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IStorageProviderUriSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageProviderUriSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageProviderUriSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -891,7 +891,7 @@ impl ::core::fmt::Debug for IStorageProviderUriSource {
     }
 }
 impl ::windows::core::RuntimeType for IStorageProviderUriSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b29806d1-8be0-4962-8bb6-0d4c2e14d47a}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b29806d1-8be0-4962-8bb6-0d4c2e14d47a}");
 }
 unsafe impl ::windows::core::Vtable for IStorageProviderUriSource {
     type Vtable = IStorageProviderUriSource_Vtbl;
@@ -923,7 +923,7 @@ impl CachedFileUpdater {
     }
     #[doc(hidden)]
     pub fn ICachedFileUpdaterStatics<R, F: FnOnce(&ICachedFileUpdaterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CachedFileUpdater, ICachedFileUpdaterStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CachedFileUpdater, ICachedFileUpdaterStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1016,7 +1016,7 @@ impl ::core::fmt::Debug for CachedFileUpdaterUI {
     }
 }
 impl ::windows::core::RuntimeType for CachedFileUpdaterUI {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.CachedFileUpdaterUI;{9e6f41e6-baf2-4a97-b600-9333f5df80fd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.CachedFileUpdaterUI;{9e6f41e6-baf2-4a97-b600-9333f5df80fd})");
 }
 impl ::core::clone::Clone for CachedFileUpdaterUI {
     fn clone(&self) -> Self {
@@ -1032,7 +1032,7 @@ unsafe impl ::windows::core::Interface for CachedFileUpdaterUI {
 impl ::windows::core::RuntimeName for CachedFileUpdaterUI {
     const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdaterUI";
 }
-::windows::core::interface_hierarchy!(CachedFileUpdaterUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CachedFileUpdaterUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct FileUpdateRequest(::windows::core::IUnknown);
@@ -1101,7 +1101,7 @@ impl ::core::fmt::Debug for FileUpdateRequest {
     }
 }
 impl ::windows::core::RuntimeType for FileUpdateRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequest;{40c82536-c1fe-4d93-a792-1e736bc70837})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequest;{40c82536-c1fe-4d93-a792-1e736bc70837})");
 }
 impl ::core::clone::Clone for FileUpdateRequest {
     fn clone(&self) -> Self {
@@ -1117,7 +1117,7 @@ unsafe impl ::windows::core::Interface for FileUpdateRequest {
 impl ::windows::core::RuntimeName for FileUpdateRequest {
     const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequest";
 }
-::windows::core::interface_hierarchy!(FileUpdateRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileUpdateRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct FileUpdateRequestDeferral(::windows::core::IUnknown);
@@ -1139,7 +1139,7 @@ impl ::core::fmt::Debug for FileUpdateRequestDeferral {
     }
 }
 impl ::windows::core::RuntimeType for FileUpdateRequestDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestDeferral;{ffcedb2b-8ade-44a5-bb00-164c4e72f13a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestDeferral;{ffcedb2b-8ade-44a5-bb00-164c4e72f13a})");
 }
 impl ::core::clone::Clone for FileUpdateRequestDeferral {
     fn clone(&self) -> Self {
@@ -1155,7 +1155,7 @@ unsafe impl ::windows::core::Interface for FileUpdateRequestDeferral {
 impl ::windows::core::RuntimeName for FileUpdateRequestDeferral {
     const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequestDeferral";
 }
-::windows::core::interface_hierarchy!(FileUpdateRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileUpdateRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct FileUpdateRequestedEventArgs(::windows::core::IUnknown);
@@ -1180,7 +1180,7 @@ impl ::core::fmt::Debug for FileUpdateRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for FileUpdateRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestedEventArgs;{7b0a9342-3905-438d-aaef-78ae265f8dd2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestedEventArgs;{7b0a9342-3905-438d-aaef-78ae265f8dd2})");
 }
 impl ::core::clone::Clone for FileUpdateRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1196,7 +1196,7 @@ unsafe impl ::windows::core::Interface for FileUpdateRequestedEventArgs {
 impl ::windows::core::RuntimeName for FileUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(FileUpdateRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileUpdateRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct StorageProviderFileTypeInfo(::windows::core::IUnknown);
@@ -1223,7 +1223,7 @@ impl StorageProviderFileTypeInfo {
     }
     #[doc(hidden)]
     pub fn IStorageProviderFileTypeInfoFactory<R, F: FnOnce(&IStorageProviderFileTypeInfoFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageProviderFileTypeInfo, IStorageProviderFileTypeInfoFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageProviderFileTypeInfo, IStorageProviderFileTypeInfoFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1239,7 +1239,7 @@ impl ::core::fmt::Debug for StorageProviderFileTypeInfo {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderFileTypeInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderFileTypeInfo;{1955b9c1-0184-5a88-87df-4544f464365d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderFileTypeInfo;{1955b9c1-0184-5a88-87df-4544f464365d})");
 }
 impl ::core::clone::Clone for StorageProviderFileTypeInfo {
     fn clone(&self) -> Self {
@@ -1255,7 +1255,7 @@ unsafe impl ::windows::core::Interface for StorageProviderFileTypeInfo {
 impl ::windows::core::RuntimeName for StorageProviderFileTypeInfo {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderFileTypeInfo";
 }
-::windows::core::interface_hierarchy!(StorageProviderFileTypeInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageProviderFileTypeInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderFileTypeInfo {}
 unsafe impl ::core::marker::Sync for StorageProviderFileTypeInfo {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1265,8 +1265,8 @@ impl StorageProviderGetContentInfoForPathResult {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageProviderGetContentInfoForPathResult, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StorageProviderGetContentInfoForPathResult, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Status(&self) -> ::windows::core::Result<StorageProviderUriSourceStatus> {
@@ -1315,7 +1315,7 @@ impl ::core::fmt::Debug for StorageProviderGetContentInfoForPathResult {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderGetContentInfoForPathResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderGetContentInfoForPathResult;{2564711d-aa89-4d12-82e3-f72a92e33966})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderGetContentInfoForPathResult;{2564711d-aa89-4d12-82e3-f72a92e33966})");
 }
 impl ::core::clone::Clone for StorageProviderGetContentInfoForPathResult {
     fn clone(&self) -> Self {
@@ -1331,7 +1331,7 @@ unsafe impl ::windows::core::Interface for StorageProviderGetContentInfoForPathR
 impl ::windows::core::RuntimeName for StorageProviderGetContentInfoForPathResult {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderGetContentInfoForPathResult";
 }
-::windows::core::interface_hierarchy!(StorageProviderGetContentInfoForPathResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageProviderGetContentInfoForPathResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderGetContentInfoForPathResult {}
 unsafe impl ::core::marker::Sync for StorageProviderGetContentInfoForPathResult {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1341,8 +1341,8 @@ impl StorageProviderGetPathForContentUriResult {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageProviderGetPathForContentUriResult, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StorageProviderGetPathForContentUriResult, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Status(&self) -> ::windows::core::Result<StorageProviderUriSourceStatus> {
@@ -1380,7 +1380,7 @@ impl ::core::fmt::Debug for StorageProviderGetPathForContentUriResult {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderGetPathForContentUriResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderGetPathForContentUriResult;{63711a9d-4118-45a6-acb6-22c49d019f40})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderGetPathForContentUriResult;{63711a9d-4118-45a6-acb6-22c49d019f40})");
 }
 impl ::core::clone::Clone for StorageProviderGetPathForContentUriResult {
     fn clone(&self) -> Self {
@@ -1396,7 +1396,7 @@ unsafe impl ::windows::core::Interface for StorageProviderGetPathForContentUriRe
 impl ::windows::core::RuntimeName for StorageProviderGetPathForContentUriResult {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderGetPathForContentUriResult";
 }
-::windows::core::interface_hierarchy!(StorageProviderGetPathForContentUriResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageProviderGetPathForContentUriResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderGetPathForContentUriResult {}
 unsafe impl ::core::marker::Sync for StorageProviderGetPathForContentUriResult {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1418,7 +1418,7 @@ impl StorageProviderItemProperties {
     }
     #[doc(hidden)]
     pub fn IStorageProviderItemPropertiesStatics<R, F: FnOnce(&IStorageProviderItemPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageProviderItemProperties, IStorageProviderItemPropertiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageProviderItemProperties, IStorageProviderItemPropertiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1432,8 +1432,8 @@ impl StorageProviderItemProperty {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageProviderItemProperty, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StorageProviderItemProperty, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetId(&self, value: i32) -> ::windows::core::Result<()> {
@@ -1482,7 +1482,7 @@ impl ::core::fmt::Debug for StorageProviderItemProperty {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderItemProperty {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderItemProperty;{476cb558-730b-4188-b7b5-63b716ed476d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderItemProperty;{476cb558-730b-4188-b7b5-63b716ed476d})");
 }
 impl ::core::clone::Clone for StorageProviderItemProperty {
     fn clone(&self) -> Self {
@@ -1498,7 +1498,7 @@ unsafe impl ::windows::core::Interface for StorageProviderItemProperty {
 impl ::windows::core::RuntimeName for StorageProviderItemProperty {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemProperty";
 }
-::windows::core::interface_hierarchy!(StorageProviderItemProperty, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageProviderItemProperty, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderItemProperty {}
 unsafe impl ::core::marker::Sync for StorageProviderItemProperty {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1508,8 +1508,8 @@ impl StorageProviderItemPropertyDefinition {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageProviderItemPropertyDefinition, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StorageProviderItemPropertyDefinition, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Id(&self) -> ::windows::core::Result<i32> {
@@ -1547,7 +1547,7 @@ impl ::core::fmt::Debug for StorageProviderItemPropertyDefinition {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderItemPropertyDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderItemPropertyDefinition;{c5b383bb-ff1f-4298-831e-ff1c08089690})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderItemPropertyDefinition;{c5b383bb-ff1f-4298-831e-ff1c08089690})");
 }
 impl ::core::clone::Clone for StorageProviderItemPropertyDefinition {
     fn clone(&self) -> Self {
@@ -1563,7 +1563,7 @@ unsafe impl ::windows::core::Interface for StorageProviderItemPropertyDefinition
 impl ::windows::core::RuntimeName for StorageProviderItemPropertyDefinition {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemPropertyDefinition";
 }
-::windows::core::interface_hierarchy!(StorageProviderItemPropertyDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageProviderItemPropertyDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderItemPropertyDefinition {}
 unsafe impl ::core::marker::Sync for StorageProviderItemPropertyDefinition {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1573,8 +1573,8 @@ impl StorageProviderMoreInfoUI {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageProviderMoreInfoUI, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StorageProviderMoreInfoUI, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1616,7 +1616,7 @@ impl ::core::fmt::Debug for StorageProviderMoreInfoUI {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderMoreInfoUI {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderMoreInfoUI;{ef38e591-a7cb-5e7d-9b5e-22749842697c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderMoreInfoUI;{ef38e591-a7cb-5e7d-9b5e-22749842697c})");
 }
 impl ::core::clone::Clone for StorageProviderMoreInfoUI {
     fn clone(&self) -> Self {
@@ -1632,7 +1632,7 @@ unsafe impl ::windows::core::Interface for StorageProviderMoreInfoUI {
 impl ::windows::core::RuntimeName for StorageProviderMoreInfoUI {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderMoreInfoUI";
 }
-::windows::core::interface_hierarchy!(StorageProviderMoreInfoUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageProviderMoreInfoUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderMoreInfoUI {}
 unsafe impl ::core::marker::Sync for StorageProviderMoreInfoUI {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1642,8 +1642,8 @@ impl StorageProviderQuotaUI {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageProviderQuotaUI, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StorageProviderQuotaUI, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn QuotaTotalInBytes(&self) -> ::windows::core::Result<u64> {
@@ -1711,7 +1711,7 @@ impl ::core::fmt::Debug for StorageProviderQuotaUI {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderQuotaUI {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderQuotaUI;{ba6295c3-312e-544f-9fd5-1f81b21f3649})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderQuotaUI;{ba6295c3-312e-544f-9fd5-1f81b21f3649})");
 }
 impl ::core::clone::Clone for StorageProviderQuotaUI {
     fn clone(&self) -> Self {
@@ -1727,7 +1727,7 @@ unsafe impl ::windows::core::Interface for StorageProviderQuotaUI {
 impl ::windows::core::RuntimeName for StorageProviderQuotaUI {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderQuotaUI";
 }
-::windows::core::interface_hierarchy!(StorageProviderQuotaUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageProviderQuotaUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderQuotaUI {}
 unsafe impl ::core::marker::Sync for StorageProviderQuotaUI {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1737,8 +1737,8 @@ impl StorageProviderStatusUI {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageProviderStatusUI, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StorageProviderStatusUI, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ProviderState(&self) -> ::windows::core::Result<StorageProviderState> {
@@ -1862,7 +1862,7 @@ impl ::core::fmt::Debug for StorageProviderStatusUI {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderStatusUI {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderStatusUI;{d6b6a758-198d-5b80-977f-5ff73da33118})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderStatusUI;{d6b6a758-198d-5b80-977f-5ff73da33118})");
 }
 impl ::core::clone::Clone for StorageProviderStatusUI {
     fn clone(&self) -> Self {
@@ -1878,7 +1878,7 @@ unsafe impl ::windows::core::Interface for StorageProviderStatusUI {
 impl ::windows::core::RuntimeName for StorageProviderStatusUI {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderStatusUI";
 }
-::windows::core::interface_hierarchy!(StorageProviderStatusUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageProviderStatusUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderStatusUI {}
 unsafe impl ::core::marker::Sync for StorageProviderStatusUI {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1888,8 +1888,8 @@ impl StorageProviderSyncRootInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageProviderSyncRootInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StorageProviderSyncRootInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2115,7 +2115,7 @@ impl ::core::fmt::Debug for StorageProviderSyncRootInfo {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderSyncRootInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderSyncRootInfo;{7c1305c4-99f9-41ac-8904-ab055d654926})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderSyncRootInfo;{7c1305c4-99f9-41ac-8904-ab055d654926})");
 }
 impl ::core::clone::Clone for StorageProviderSyncRootInfo {
     fn clone(&self) -> Self {
@@ -2131,7 +2131,7 @@ unsafe impl ::windows::core::Interface for StorageProviderSyncRootInfo {
 impl ::windows::core::RuntimeName for StorageProviderSyncRootInfo {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderSyncRootInfo";
 }
-::windows::core::interface_hierarchy!(StorageProviderSyncRootInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageProviderSyncRootInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderSyncRootInfo {}
 unsafe impl ::core::marker::Sync for StorageProviderSyncRootInfo {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -2175,12 +2175,12 @@ impl StorageProviderSyncRootManager {
     }
     #[doc(hidden)]
     pub fn IStorageProviderSyncRootManagerStatics<R, F: FnOnce(&IStorageProviderSyncRootManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageProviderSyncRootManager, IStorageProviderSyncRootManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageProviderSyncRootManager, IStorageProviderSyncRootManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStorageProviderSyncRootManagerStatics2<R, F: FnOnce(&IStorageProviderSyncRootManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageProviderSyncRootManager, IStorageProviderSyncRootManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageProviderSyncRootManager, IStorageProviderSyncRootManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2250,7 +2250,7 @@ impl ::core::ops::Not for CachedFileOptions {
     }
 }
 impl ::windows::core::RuntimeType for CachedFileOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileOptions;u4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2280,7 +2280,7 @@ impl ::core::fmt::Debug for CachedFileTarget {
     }
 }
 impl ::windows::core::RuntimeType for CachedFileTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileTarget;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileTarget;i4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2314,7 +2314,7 @@ impl ::core::fmt::Debug for FileUpdateStatus {
     }
 }
 impl ::windows::core::RuntimeType for FileUpdateStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.FileUpdateStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.FileUpdateStatus;i4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2344,7 +2344,7 @@ impl ::core::fmt::Debug for ReadActivationMode {
     }
 }
 impl ::windows::core::RuntimeType for ReadActivationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.ReadActivationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.ReadActivationMode;i4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2407,7 +2407,7 @@ impl ::core::ops::Not for StorageProviderHardlinkPolicy {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderHardlinkPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHardlinkPolicy;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHardlinkPolicy;u4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2439,7 +2439,7 @@ impl ::core::fmt::Debug for StorageProviderHydrationPolicy {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderHydrationPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicy;i4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2505,7 +2505,7 @@ impl ::core::ops::Not for StorageProviderHydrationPolicyModifier {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderHydrationPolicyModifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicyModifier;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicyModifier;u4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2578,7 +2578,7 @@ impl ::core::ops::Not for StorageProviderInSyncPolicy {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderInSyncPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderInSyncPolicy;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderInSyncPolicy;u4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2608,7 +2608,7 @@ impl ::core::fmt::Debug for StorageProviderPopulationPolicy {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderPopulationPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderPopulationPolicy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderPopulationPolicy;i4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2638,7 +2638,7 @@ impl ::core::fmt::Debug for StorageProviderProtectionMode {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderProtectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2672,7 +2672,7 @@ impl ::core::fmt::Debug for StorageProviderState {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderState;i4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2703,7 +2703,7 @@ impl ::core::fmt::Debug for StorageProviderUICommandState {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderUICommandState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUICommandState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUICommandState;i4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2734,7 +2734,7 @@ impl ::core::fmt::Debug for StorageProviderUriSourceStatus {
     }
 }
 impl ::windows::core::RuntimeType for StorageProviderUriSourceStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUriSourceStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUriSourceStatus;i4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2766,7 +2766,7 @@ impl ::core::fmt::Debug for UIStatus {
     }
 }
 impl ::windows::core::RuntimeType for UIStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.UIStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.UIStatus;i4)");
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
@@ -2797,7 +2797,7 @@ impl ::core::fmt::Debug for WriteActivationMode {
     }
 }
 impl ::windows::core::RuntimeType for WriteActivationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.WriteActivationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.WriteActivationMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

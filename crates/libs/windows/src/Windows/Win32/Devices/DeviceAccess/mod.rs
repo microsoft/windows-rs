@@ -4,7 +4,7 @@ pub unsafe fn CreateDeviceAccessInstance<P0>(deviceinterfacepath: P0, desiredacc
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "deviceaccess.dll""system" fn CreateDeviceAccessInstance ( deviceinterfacepath : :: windows::core::PCWSTR , desiredaccess : u32 , createasync : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "deviceaccess.dll""system" fn CreateDeviceAccessInstance ( deviceinterfacepath : :: windows::core::PCWSTR , desiredaccess : u32 , createasync : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ICreateDeviceAccessAsync>();
     CreateDeviceAccessInstance(deviceinterfacepath.into().abi(), desiredaccess, &mut result__).from_abi(result__)
 }
@@ -29,7 +29,7 @@ impl ICreateDeviceAccessAsync {
         (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICreateDeviceAccessAsync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICreateDeviceAccessAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICreateDeviceAccessAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -88,7 +88,7 @@ impl IDeviceIoControl {
         (::windows::core::Vtable::vtable(self).CancelOperation)(::windows::core::Vtable::as_raw(self), cancelcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDeviceIoControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDeviceIoControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDeviceIoControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -127,7 +127,7 @@ impl IDeviceRequestCompletionCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), requestresult, bytesreturned).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDeviceRequestCompletionCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDeviceRequestCompletionCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDeviceRequestCompletionCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

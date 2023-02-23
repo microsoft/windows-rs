@@ -107,7 +107,7 @@ impl RadialControllerIndependentInputSource {
     }
     #[doc(hidden)]
     pub fn IRadialControllerIndependentInputSourceStatics<R, F: FnOnce(&IRadialControllerIndependentInputSourceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RadialControllerIndependentInputSource, IRadialControllerIndependentInputSourceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RadialControllerIndependentInputSource, IRadialControllerIndependentInputSourceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -123,7 +123,7 @@ impl ::core::fmt::Debug for RadialControllerIndependentInputSource {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerIndependentInputSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Core.RadialControllerIndependentInputSource;{3d577ef6-4cee-11e6-b535-001bdc06ab3b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Core.RadialControllerIndependentInputSource;{3d577ef6-4cee-11e6-b535-001bdc06ab3b})");
 }
 impl ::core::clone::Clone for RadialControllerIndependentInputSource {
     fn clone(&self) -> Self {
@@ -139,7 +139,7 @@ unsafe impl ::windows::core::Interface for RadialControllerIndependentInputSourc
 impl ::windows::core::RuntimeName for RadialControllerIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Core.RadialControllerIndependentInputSource";
 }
-::windows::core::interface_hierarchy!(RadialControllerIndependentInputSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerIndependentInputSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerIndependentInputSource {}
 unsafe impl ::core::marker::Sync for RadialControllerIndependentInputSource {}
 #[cfg(feature = "implement")]

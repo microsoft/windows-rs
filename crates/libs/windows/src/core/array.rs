@@ -1,5 +1,5 @@
 use super::*;
-use bindings::*;
+use imp::*;
 
 /// A WinRT array stores elements contiguously in a heap-allocated buffer.
 pub struct Array<T: Type<T>> {

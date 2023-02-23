@@ -30,7 +30,7 @@ impl ICustomGameControllerFactory {
         unsafe { (::windows::core::Vtable::vtable(this).OnGameControllerRemoved)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ICustomGameControllerFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICustomGameControllerFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICustomGameControllerFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -43,7 +43,7 @@ impl ::core::fmt::Debug for ICustomGameControllerFactory {
     }
 }
 impl ::windows::core::RuntimeType for ICustomGameControllerFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{69a0ae5e-758e-4cbe-ace6-62155fe9126f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{69a0ae5e-758e-4cbe-ace6-62155fe9126f}");
 }
 unsafe impl ::windows::core::Vtable for ICustomGameControllerFactory {
     type Vtable = ICustomGameControllerFactory_Vtbl;
@@ -119,7 +119,7 @@ impl IGameControllerInputSink {
         unsafe { (::windows::core::Vtable::vtable(this).OnInputSuspended)(::windows::core::Vtable::as_raw(this), timestamp).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IGameControllerInputSink, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IGameControllerInputSink, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IGameControllerInputSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -132,7 +132,7 @@ impl ::core::fmt::Debug for IGameControllerInputSink {
     }
 }
 impl ::windows::core::RuntimeType for IGameControllerInputSink {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1ff6f922-c640-4c78-a820-9a715c558bcb}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1ff6f922-c640-4c78-a820-9a715c558bcb}");
 }
 unsafe impl ::windows::core::Vtable for IGameControllerInputSink {
     type Vtable = IGameControllerInputSink_Vtbl;
@@ -192,7 +192,7 @@ impl IGameControllerProvider {
         }
     }
 }
-::windows::core::interface_hierarchy!(IGameControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IGameControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IGameControllerProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -205,7 +205,7 @@ impl ::core::fmt::Debug for IGameControllerProvider {
     }
 }
 impl ::windows::core::RuntimeType for IGameControllerProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e6d73982-2996-4559-b16c-3e57d46e58d6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e6d73982-2996-4559-b16c-3e57d46e58d6}");
 }
 unsafe impl ::windows::core::Vtable for IGameControllerProvider {
     type Vtable = IGameControllerProvider_Vtbl;
@@ -271,7 +271,7 @@ impl IGipGameControllerInputSink {
         unsafe { (::windows::core::Vtable::vtable(this).OnInputSuspended)(::windows::core::Vtable::as_raw(this), timestamp).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IGipGameControllerInputSink, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IGipGameControllerInputSink, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IGipGameControllerInputSink> for IGameControllerInputSink {
     type Error = ::windows::core::Error;
     fn try_from(value: IGipGameControllerInputSink) -> ::windows::core::Result<Self> {
@@ -303,7 +303,7 @@ impl ::core::fmt::Debug for IGipGameControllerInputSink {
     }
 }
 impl ::windows::core::RuntimeType for IGipGameControllerInputSink {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a2108abf-09f1-43bc-a140-80f899ec36fb}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a2108abf-09f1-43bc-a140-80f899ec36fb}");
 }
 unsafe impl ::windows::core::Vtable for IGipGameControllerInputSink {
     type Vtable = IGipGameControllerInputSink_Vtbl;
@@ -365,7 +365,7 @@ impl IHidGameControllerInputSink {
         unsafe { (::windows::core::Vtable::vtable(this).OnInputSuspended)(::windows::core::Vtable::as_raw(this), timestamp).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IHidGameControllerInputSink, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IHidGameControllerInputSink, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IHidGameControllerInputSink> for IGameControllerInputSink {
     type Error = ::windows::core::Error;
     fn try_from(value: IHidGameControllerInputSink) -> ::windows::core::Result<Self> {
@@ -397,7 +397,7 @@ impl ::core::fmt::Debug for IHidGameControllerInputSink {
     }
 }
 impl ::windows::core::RuntimeType for IHidGameControllerInputSink {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f754c322-182d-40e4-a126-fcee4ffa1e31}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{f754c322-182d-40e4-a126-fcee4ffa1e31}");
 }
 unsafe impl ::windows::core::Vtable for IHidGameControllerInputSink {
     type Vtable = IHidGameControllerInputSink_Vtbl;
@@ -457,7 +457,7 @@ impl IXusbGameControllerInputSink {
         unsafe { (::windows::core::Vtable::vtable(this).OnInputSuspended)(::windows::core::Vtable::as_raw(this), timestamp).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IXusbGameControllerInputSink, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IXusbGameControllerInputSink, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IXusbGameControllerInputSink> for IGameControllerInputSink {
     type Error = ::windows::core::Error;
     fn try_from(value: IXusbGameControllerInputSink) -> ::windows::core::Result<Self> {
@@ -489,7 +489,7 @@ impl ::core::fmt::Debug for IXusbGameControllerInputSink {
     }
 }
 impl ::windows::core::RuntimeType for IXusbGameControllerInputSink {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b2ac1d95-6ecb-42b3-8aab-025401ca4712}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b2ac1d95-6ecb-42b3-8aab-025401ca4712}");
 }
 unsafe impl ::windows::core::Vtable for IXusbGameControllerInputSink {
     type Vtable = IXusbGameControllerInputSink_Vtbl;
@@ -566,12 +566,12 @@ impl GameControllerFactoryManager {
     }
     #[doc(hidden)]
     pub fn IGameControllerFactoryManagerStatics<R, F: FnOnce(&IGameControllerFactoryManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GameControllerFactoryManager, IGameControllerFactoryManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GameControllerFactoryManager, IGameControllerFactoryManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGameControllerFactoryManagerStatics2<R, F: FnOnce(&IGameControllerFactoryManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GameControllerFactoryManager, IGameControllerFactoryManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GameControllerFactoryManager, IGameControllerFactoryManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -616,7 +616,7 @@ impl ::core::fmt::Debug for GipFirmwareUpdateResult {
     }
 }
 impl ::windows::core::RuntimeType for GipFirmwareUpdateResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.GipFirmwareUpdateResult;{6b794d32-8553-4292-8e03-e16651a2f8bc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.GipFirmwareUpdateResult;{6b794d32-8553-4292-8e03-e16651a2f8bc})");
 }
 impl ::core::clone::Clone for GipFirmwareUpdateResult {
     fn clone(&self) -> Self {
@@ -632,7 +632,7 @@ unsafe impl ::windows::core::Interface for GipFirmwareUpdateResult {
 impl ::windows::core::RuntimeName for GipFirmwareUpdateResult {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GipFirmwareUpdateResult";
 }
-::windows::core::interface_hierarchy!(GipFirmwareUpdateResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GipFirmwareUpdateResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GipFirmwareUpdateResult {}
 unsafe impl ::core::marker::Sync for GipFirmwareUpdateResult {}
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
@@ -708,7 +708,7 @@ impl ::core::fmt::Debug for GipGameControllerProvider {
     }
 }
 impl ::windows::core::RuntimeType for GipGameControllerProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.GipGameControllerProvider;{dbcf1e19-1af5-45a8-bf02-a0ee50c823fc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.GipGameControllerProvider;{dbcf1e19-1af5-45a8-bf02-a0ee50c823fc})");
 }
 impl ::core::clone::Clone for GipGameControllerProvider {
     fn clone(&self) -> Self {
@@ -724,7 +724,7 @@ unsafe impl ::windows::core::Interface for GipGameControllerProvider {
 impl ::windows::core::RuntimeName for GipGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GipGameControllerProvider";
 }
-::windows::core::interface_hierarchy!(GipGameControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GipGameControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<GipGameControllerProvider> for IGameControllerProvider {
     type Error = ::windows::core::Error;
     fn try_from(value: GipGameControllerProvider) -> ::windows::core::Result<Self> {
@@ -824,7 +824,7 @@ impl ::core::fmt::Debug for HidGameControllerProvider {
     }
 }
 impl ::windows::core::RuntimeType for HidGameControllerProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.HidGameControllerProvider;{95ce3af4-abf0-4b68-a081-3b7de73ff0e7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.HidGameControllerProvider;{95ce3af4-abf0-4b68-a081-3b7de73ff0e7})");
 }
 impl ::core::clone::Clone for HidGameControllerProvider {
     fn clone(&self) -> Self {
@@ -840,7 +840,7 @@ unsafe impl ::windows::core::Interface for HidGameControllerProvider {
 impl ::windows::core::RuntimeName for HidGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.HidGameControllerProvider";
 }
-::windows::core::interface_hierarchy!(HidGameControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HidGameControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<HidGameControllerProvider> for IGameControllerProvider {
     type Error = ::windows::core::Error;
     fn try_from(value: HidGameControllerProvider) -> ::windows::core::Result<Self> {
@@ -918,7 +918,7 @@ impl ::core::fmt::Debug for XusbGameControllerProvider {
     }
 }
 impl ::windows::core::RuntimeType for XusbGameControllerProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.XusbGameControllerProvider;{6e2971eb-0efb-48b4-808b-837643b2f216})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.XusbGameControllerProvider;{6e2971eb-0efb-48b4-808b-837643b2f216})");
 }
 impl ::core::clone::Clone for XusbGameControllerProvider {
     fn clone(&self) -> Self {
@@ -934,7 +934,7 @@ unsafe impl ::windows::core::Interface for XusbGameControllerProvider {
 impl ::windows::core::RuntimeName for XusbGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.XusbGameControllerProvider";
 }
-::windows::core::interface_hierarchy!(XusbGameControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XusbGameControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XusbGameControllerProvider> for IGameControllerProvider {
     type Error = ::windows::core::Error;
     fn try_from(value: XusbGameControllerProvider) -> ::windows::core::Result<Self> {
@@ -985,7 +985,7 @@ impl ::core::fmt::Debug for GipFirmwareUpdateStatus {
     }
 }
 impl ::windows::core::RuntimeType for GipFirmwareUpdateStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus;i4)");
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
@@ -1016,7 +1016,7 @@ impl ::core::fmt::Debug for GipMessageClass {
     }
 }
 impl ::windows::core::RuntimeType for GipMessageClass {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipMessageClass;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipMessageClass;i4)");
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
@@ -1055,7 +1055,7 @@ impl ::core::fmt::Debug for XusbDeviceSubtype {
     }
 }
 impl ::windows::core::RuntimeType for XusbDeviceSubtype {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceSubtype;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceSubtype;i4)");
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
@@ -1085,7 +1085,7 @@ impl ::core::fmt::Debug for XusbDeviceType {
     }
 }
 impl ::windows::core::RuntimeType for XusbDeviceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceType;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
@@ -1110,7 +1110,7 @@ impl ::windows::core::TypeKind for GameControllerVersionInfo {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for GameControllerVersionInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GameControllerVersionInfo;u2;u2;u2;u2)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GameControllerVersionInfo;u2;u2;u2;u2)");
 }
 impl ::core::cmp::PartialEq for GameControllerVersionInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -1144,7 +1144,7 @@ impl ::windows::core::TypeKind for GipFirmwareUpdateProgress {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for GipFirmwareUpdateProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GipFirmwareUpdateProgress;f8;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GipFirmwareUpdateProgress;f8;u4)");
 }
 impl ::core::cmp::PartialEq for GipFirmwareUpdateProgress {
     fn eq(&self, other: &Self) -> bool {

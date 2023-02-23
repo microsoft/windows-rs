@@ -2,7 +2,7 @@
 #[repr(transparent)]
 pub struct IApoAcousticEchoCancellation(::windows::core::IUnknown);
 impl IApoAcousticEchoCancellation {}
-::windows::core::interface_hierarchy!(IApoAcousticEchoCancellation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IApoAcousticEchoCancellation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IApoAcousticEchoCancellation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -48,7 +48,7 @@ impl IApoAuxiliaryInputConfiguration {
         (::windows::core::Vtable::vtable(self).IsInputFormatSupported)(::windows::core::Vtable::as_raw(self), prequestedinputformat.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IApoAuxiliaryInputConfiguration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IApoAuxiliaryInputConfiguration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IApoAuxiliaryInputConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -87,7 +87,7 @@ impl IApoAuxiliaryInputRT {
         (::windows::core::Vtable::vtable(self).AcceptInput)(::windows::core::Vtable::as_raw(self), dwinputid, pinputconnection)
     }
 }
-::windows::core::interface_hierarchy!(IApoAuxiliaryInputRT, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IApoAuxiliaryInputRT, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IApoAuxiliaryInputRT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -127,7 +127,7 @@ impl IAudioDeviceModulesClient {
         (::windows::core::Vtable::vtable(self).SetAudioDeviceModulesManager)(::windows::core::Vtable::as_raw(self), paudiodevicemodulesmanager.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioDeviceModulesClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioDeviceModulesClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioDeviceModulesClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -180,7 +180,7 @@ impl IAudioMediaType {
         (::windows::core::Vtable::vtable(self).GetUncompressedAudioFormat)(::windows::core::Vtable::as_raw(self), puncompressedaudioformat).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioMediaType, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioMediaType, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioMediaType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -254,7 +254,7 @@ impl IAudioProcessingObject {
         (::windows::core::Vtable::vtable(self).GetInputChannelCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAudioProcessingObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioProcessingObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioProcessingObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -300,7 +300,7 @@ impl IAudioProcessingObjectConfiguration {
         (::windows::core::Vtable::vtable(self).UnlockForProcess)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioProcessingObjectConfiguration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioProcessingObjectConfiguration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioProcessingObjectConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -341,7 +341,7 @@ impl IAudioProcessingObjectLoggingService {
         (::windows::core::Vtable::vtable(self).ApoLog)(::windows::core::Vtable::as_raw(self), level, format.into().abi())
     }
 }
-::windows::core::interface_hierarchy!(IAudioProcessingObjectLoggingService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioProcessingObjectLoggingService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioProcessingObjectLoggingService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -383,7 +383,7 @@ impl IAudioProcessingObjectNotifications {
         (::windows::core::Vtable::vtable(self).HandleNotification)(::windows::core::Vtable::as_raw(self), aponotification)
     }
 }
-::windows::core::interface_hierarchy!(IAudioProcessingObjectNotifications, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioProcessingObjectNotifications, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioProcessingObjectNotifications {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -430,7 +430,7 @@ impl IAudioProcessingObjectRT {
         (::windows::core::Vtable::vtable(self).CalcOutputFrames)(::windows::core::Vtable::as_raw(self), u32inputframecount)
     }
 }
-::windows::core::interface_hierarchy!(IAudioProcessingObjectRT, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioProcessingObjectRT, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioProcessingObjectRT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -470,7 +470,7 @@ impl IAudioProcessingObjectRTQueueService {
         (::windows::core::Vtable::vtable(self).GetRealTimeWorkQueue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAudioProcessingObjectRTQueueService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioProcessingObjectRTQueueService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioProcessingObjectRTQueueService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -512,7 +512,7 @@ impl IAudioProcessingObjectVBR {
         (::windows::core::Vtable::vtable(self).CalcMaxOutputFrames)(::windows::core::Vtable::as_raw(self), u32maxinputframecount, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAudioProcessingObjectVBR, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioProcessingObjectVBR, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioProcessingObjectVBR {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -546,7 +546,7 @@ pub struct IAudioProcessingObjectVBR_Vtbl {
 #[repr(transparent)]
 pub struct IAudioSystemEffects(::windows::core::IUnknown);
 impl IAudioSystemEffects {}
-::windows::core::interface_hierarchy!(IAudioSystemEffects, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioSystemEffects, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioSystemEffects {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -587,7 +587,7 @@ impl IAudioSystemEffects2 {
         (::windows::core::Vtable::vtable(self).GetEffectsList)(::windows::core::Vtable::as_raw(self), ppeffectsids, pceffects, event.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioSystemEffects2, ::windows::core::IUnknown, IAudioSystemEffects);
+::windows::imp::interface_hierarchy!(IAudioSystemEffects2, ::windows::core::IUnknown, IAudioSystemEffects);
 impl ::core::cmp::PartialEq for IAudioSystemEffects2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -643,7 +643,7 @@ impl IAudioSystemEffects3 {
         (::windows::core::Vtable::vtable(self).SetAudioSystemEffectState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(effectid), state).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioSystemEffects3, ::windows::core::IUnknown, IAudioSystemEffects, IAudioSystemEffects2);
+::windows::imp::interface_hierarchy!(IAudioSystemEffects3, ::windows::core::IUnknown, IAudioSystemEffects, IAudioSystemEffects2);
 impl ::core::cmp::PartialEq for IAudioSystemEffects3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -693,7 +693,7 @@ impl IAudioSystemEffectsCustomFormats {
         (::windows::core::Vtable::vtable(self).GetFormatRepresentation)(::windows::core::Vtable::as_raw(self), nformat, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAudioSystemEffectsCustomFormats, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioSystemEffectsCustomFormats, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioSystemEffectsCustomFormats {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

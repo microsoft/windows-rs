@@ -168,7 +168,7 @@ impl IStorageItemInformation {
         unsafe { (::windows::core::Vtable::vtable(this).RemovePropertiesUpdated)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IStorageItemInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageItemInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageItemInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -181,7 +181,7 @@ impl ::core::fmt::Debug for IStorageItemInformation {
     }
 }
 impl ::windows::core::RuntimeType for IStorageItemInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{87a5cb8b-8972-4f40-8de0-d86fb179d8fa}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{87a5cb8b-8972-4f40-8de0-d86fb179d8fa}");
 }
 unsafe impl ::windows::core::Vtable for IStorageItemInformation {
     type Vtable = IStorageItemInformation_Vtbl;
@@ -685,7 +685,7 @@ impl ::core::fmt::Debug for FileInformation {
     }
 }
 impl ::windows::core::RuntimeType for FileInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FileInformation;{87a5cb8b-8972-4f40-8de0-d86fb179d8fa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FileInformation;{87a5cb8b-8972-4f40-8de0-d86fb179d8fa})");
 }
 impl ::core::clone::Clone for FileInformation {
     fn clone(&self) -> Self {
@@ -701,7 +701,7 @@ unsafe impl ::windows::core::Interface for FileInformation {
 impl ::windows::core::RuntimeName for FileInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FileInformation";
 }
-::windows::core::interface_hierarchy!(FileInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<FileInformation> for super::Streams::IInputStreamReference {
     type Error = ::windows::core::Error;
@@ -1027,7 +1027,7 @@ impl FileInformationFactory {
     }
     #[doc(hidden)]
     pub fn IFileInformationFactoryFactory<R, F: FnOnce(&IFileInformationFactoryFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileInformationFactory, IFileInformationFactoryFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FileInformationFactory, IFileInformationFactoryFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1043,7 +1043,7 @@ impl ::core::fmt::Debug for FileInformationFactory {
     }
 }
 impl ::windows::core::RuntimeType for FileInformationFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FileInformationFactory;{401d88be-960f-4d6d-a7d0-1a3861e76c83})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FileInformationFactory;{401d88be-960f-4d6d-a7d0-1a3861e76c83})");
 }
 impl ::core::clone::Clone for FileInformationFactory {
     fn clone(&self) -> Self {
@@ -1059,7 +1059,7 @@ unsafe impl ::windows::core::Interface for FileInformationFactory {
 impl ::windows::core::RuntimeName for FileInformationFactory {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FileInformationFactory";
 }
-::windows::core::interface_hierarchy!(FileInformationFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileInformationFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FileInformationFactory {}
 unsafe impl ::core::marker::Sync for FileInformationFactory {}
 #[doc = "*Required features: `\"Storage_BulkAccess\"`*"]
@@ -1581,7 +1581,7 @@ impl ::core::fmt::Debug for FolderInformation {
     }
 }
 impl ::windows::core::RuntimeType for FolderInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FolderInformation;{87a5cb8b-8972-4f40-8de0-d86fb179d8fa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FolderInformation;{87a5cb8b-8972-4f40-8de0-d86fb179d8fa})");
 }
 impl ::core::clone::Clone for FolderInformation {
     fn clone(&self) -> Self {
@@ -1597,7 +1597,7 @@ unsafe impl ::windows::core::Interface for FolderInformation {
 impl ::windows::core::RuntimeName for FolderInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FolderInformation";
 }
-::windows::core::interface_hierarchy!(FolderInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FolderInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<FolderInformation> for super::IStorageFolder {
     type Error = ::windows::core::Error;
     fn try_from(value: FolderInformation) -> ::windows::core::Result<Self> {

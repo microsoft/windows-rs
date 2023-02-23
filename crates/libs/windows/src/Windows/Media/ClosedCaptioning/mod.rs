@@ -121,7 +121,7 @@ impl ClosedCaptionProperties {
     }
     #[doc(hidden)]
     pub fn IClosedCaptionPropertiesStatics<R, F: FnOnce(&IClosedCaptionPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ClosedCaptionProperties, IClosedCaptionPropertiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ClosedCaptionProperties, IClosedCaptionPropertiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -163,7 +163,7 @@ impl ::core::fmt::Debug for ClosedCaptionColor {
     }
 }
 impl ::windows::core::RuntimeType for ClosedCaptionColor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionColor;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionColor;i4)");
 }
 #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
@@ -197,7 +197,7 @@ impl ::core::fmt::Debug for ClosedCaptionEdgeEffect {
     }
 }
 impl ::windows::core::RuntimeType for ClosedCaptionEdgeEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;i4)");
 }
 #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
@@ -230,7 +230,7 @@ impl ::core::fmt::Debug for ClosedCaptionOpacity {
     }
 }
 impl ::windows::core::RuntimeType for ClosedCaptionOpacity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;i4)");
 }
 #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
@@ -263,7 +263,7 @@ impl ::core::fmt::Debug for ClosedCaptionSize {
     }
 }
 impl ::windows::core::RuntimeType for ClosedCaptionSize {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionSize;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionSize;i4)");
 }
 #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
@@ -299,7 +299,7 @@ impl ::core::fmt::Debug for ClosedCaptionStyle {
     }
 }
 impl ::windows::core::RuntimeType for ClosedCaptionStyle {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionStyle;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionStyle;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

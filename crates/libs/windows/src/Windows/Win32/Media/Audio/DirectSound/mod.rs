@@ -4,7 +4,7 @@ pub unsafe fn DirectSoundCaptureCreate<P0>(pcguiddevice: ::core::option::Option<
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundCaptureCreate ( pcguiddevice : *const :: windows::core::GUID , ppdsc : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCaptureCreate ( pcguiddevice : *const :: windows::core::GUID , ppdsc : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectSoundCaptureCreate(::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppdsc), punkouter.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
@@ -13,21 +13,21 @@ pub unsafe fn DirectSoundCaptureCreate8<P0>(pcguiddevice: ::core::option::Option
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundCaptureCreate8 ( pcguiddevice : *const :: windows::core::GUID , ppdsc8 : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCaptureCreate8 ( pcguiddevice : *const :: windows::core::GUID , ppdsc8 : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectSoundCaptureCreate8(::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppdsc8), punkouter.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundCaptureEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCaptureEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectSoundCaptureEnumerateA(pdsenumcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundCaptureEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCaptureEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectSoundCaptureEnumerateW(pdsenumcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
@@ -36,7 +36,7 @@ pub unsafe fn DirectSoundCreate<P0>(pcguiddevice: ::core::option::Option<*const 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundCreate ( pcguiddevice : *const :: windows::core::GUID , ppds : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCreate ( pcguiddevice : *const :: windows::core::GUID , ppds : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectSoundCreate(::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppds), punkouter.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
@@ -45,21 +45,21 @@ pub unsafe fn DirectSoundCreate8<P0>(pcguiddevice: ::core::option::Option<*const
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundCreate8 ( pcguiddevice : *const :: windows::core::GUID , ppds8 : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundCreate8 ( pcguiddevice : *const :: windows::core::GUID , ppds8 : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectSoundCreate8(::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppds8), punkouter.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectSoundEnumerateA(pdsenumcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectSoundEnumerateW(pdsenumcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
@@ -70,13 +70,13 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundFullDuplexCreate ( pcguidcapturedevice : *const :: windows::core::GUID , pcguidrenderdevice : *const :: windows::core::GUID , pcdscbufferdesc : *const DSCBUFFERDESC , pcdsbufferdesc : *const DSBUFFERDESC , hwnd : super::super::super::Foundation:: HWND , dwlevel : u32 , ppdsfd : *mut * mut::core::ffi::c_void , ppdscbuffer8 : *mut * mut::core::ffi::c_void , ppdsbuffer8 : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn DirectSoundFullDuplexCreate ( pcguidcapturedevice : *const :: windows::core::GUID , pcguidrenderdevice : *const :: windows::core::GUID , pcdscbufferdesc : *const DSCBUFFERDESC , pcdsbufferdesc : *const DSBUFFERDESC , hwnd : super::super::super::Foundation:: HWND , dwlevel : u32 , ppdsfd : *mut * mut::core::ffi::c_void , ppdscbuffer8 : *mut * mut::core::ffi::c_void , ppdsbuffer8 : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectSoundFullDuplexCreate(::core::mem::transmute(pcguidcapturedevice.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pcguidrenderdevice.unwrap_or(::std::ptr::null())), pcdscbufferdesc, pcdsbufferdesc, hwnd.into(), dwlevel, ::core::mem::transmute(ppdsfd), ::core::mem::transmute(ppdscbuffer8), ::core::mem::transmute(ppdsbuffer8), punkouter.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[inline]
 pub unsafe fn GetDeviceID(pguidsrc: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows::core::link ! ( "dsound.dll""system" fn GetDeviceID ( pguidsrc : *const :: windows::core::GUID , pguiddest : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsound.dll""system" fn GetDeviceID ( pguidsrc : *const :: windows::core::GUID , pguiddest : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     GetDeviceID(::core::mem::transmute(pguidsrc.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -122,7 +122,7 @@ impl IDirectSound {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSound, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSound, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSound {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -237,7 +237,7 @@ impl IDirectSound3DBuffer {
         (::windows::core::Vtable::vtable(self).SetVelocity)(::windows::core::Vtable::as_raw(self), x, y, z, dwapply).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSound3DBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSound3DBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSound3DBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -363,7 +363,7 @@ impl IDirectSound3DListener {
         (::windows::core::Vtable::vtable(self).CommitDeferredSettings)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSound3DListener, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSound3DListener, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSound3DListener {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -467,7 +467,7 @@ impl IDirectSound8 {
         (::windows::core::Vtable::vtable(self).VerifyCertification)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirectSound8, ::windows::core::IUnknown, IDirectSound);
+::windows::imp::interface_hierarchy!(IDirectSound8, ::windows::core::IUnknown, IDirectSound);
 impl ::core::cmp::PartialEq for IDirectSound8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -562,7 +562,7 @@ impl IDirectSoundBuffer {
         (::windows::core::Vtable::vtable(self).Restore)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -683,7 +683,7 @@ impl IDirectSoundBuffer8 {
         (::windows::core::Vtable::vtable(self).GetObjectInPath)(::windows::core::Vtable::as_raw(self), rguidobject, dwindex, rguidinterface, ppobject).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundBuffer8, ::windows::core::IUnknown, IDirectSoundBuffer);
+::windows::imp::interface_hierarchy!(IDirectSoundBuffer8, ::windows::core::IUnknown, IDirectSoundBuffer);
 impl ::core::cmp::PartialEq for IDirectSoundBuffer8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -732,7 +732,7 @@ impl IDirectSoundCapture {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundCapture, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundCapture, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundCapture {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -800,7 +800,7 @@ impl IDirectSoundCaptureBuffer {
         (::windows::core::Vtable::vtable(self).Unlock)(::windows::core::Vtable::as_raw(self), pvaudioptr1, dwaudiobytes1, ::core::mem::transmute(pvaudioptr2.unwrap_or(::std::ptr::null())), dwaudiobytes2).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundCaptureBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundCaptureBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundCaptureBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -880,7 +880,7 @@ impl IDirectSoundCaptureBuffer8 {
         (::windows::core::Vtable::vtable(self).GetFXStatus)(::windows::core::Vtable::as_raw(self), pdwfxstatus.len() as _, ::core::mem::transmute(pdwfxstatus.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundCaptureBuffer8, ::windows::core::IUnknown, IDirectSoundCaptureBuffer);
+::windows::imp::interface_hierarchy!(IDirectSoundCaptureBuffer8, ::windows::core::IUnknown, IDirectSoundCaptureBuffer);
 impl ::core::cmp::PartialEq for IDirectSoundCaptureBuffer8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -933,7 +933,7 @@ impl IDirectSoundCaptureFXAec {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundCaptureFXAec, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundCaptureFXAec, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundCaptureFXAec {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -990,7 +990,7 @@ impl IDirectSoundCaptureFXNoiseSuppress {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundCaptureFXNoiseSuppress, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundCaptureFXNoiseSuppress, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundCaptureFXNoiseSuppress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1038,7 +1038,7 @@ impl IDirectSoundFXChorus {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), pdsfxchorus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundFXChorus, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundFXChorus, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundFXChorus {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1079,7 +1079,7 @@ impl IDirectSoundFXCompressor {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), pdsfxcompressor).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundFXCompressor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundFXCompressor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundFXCompressor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1120,7 +1120,7 @@ impl IDirectSoundFXDistortion {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), pdsfxdistortion).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundFXDistortion, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundFXDistortion, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundFXDistortion {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1161,7 +1161,7 @@ impl IDirectSoundFXEcho {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), pdsfxecho).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundFXEcho, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundFXEcho, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundFXEcho {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1202,7 +1202,7 @@ impl IDirectSoundFXFlanger {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), pdsfxflanger).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundFXFlanger, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundFXFlanger, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundFXFlanger {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1244,7 +1244,7 @@ impl IDirectSoundFXGargle {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundFXGargle, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundFXGargle, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundFXGargle {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1299,7 +1299,7 @@ impl IDirectSoundFXI3DL2Reverb {
         (::windows::core::Vtable::vtable(self).GetQuality)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundFXI3DL2Reverb, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundFXI3DL2Reverb, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundFXI3DL2Reverb {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1345,7 +1345,7 @@ impl IDirectSoundFXParamEq {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundFXParamEq, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundFXParamEq, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundFXParamEq {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1387,7 +1387,7 @@ impl IDirectSoundFXWavesReverb {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundFXWavesReverb, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundFXWavesReverb, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundFXWavesReverb {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1430,7 +1430,7 @@ impl IDirectSoundFullDuplex {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pcaptureguid, prenderguid, lpdscbufferdesc, lpdsbufferdesc, hwnd.into(), dwlevel, ::core::mem::transmute(lplpdirectsoundcapturebuffer8), ::core::mem::transmute(lplpdirectsoundbuffer8)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundFullDuplex, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundFullDuplex, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundFullDuplex {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1472,7 +1472,7 @@ impl IDirectSoundNotify {
         (::windows::core::Vtable::vtable(self).SetNotificationPositions)(::windows::core::Vtable::as_raw(self), pcpositionnotifies.len() as _, ::core::mem::transmute(pcpositionnotifies.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectSoundNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectSoundNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectSoundNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

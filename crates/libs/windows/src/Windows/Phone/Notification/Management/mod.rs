@@ -191,7 +191,7 @@ impl IAccessoryNotificationTriggerDetails {
         unsafe { (::windows::core::Vtable::vtable(this).SetStartedProcessing)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IAccessoryNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAccessoryNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IAccessoryNotificationTriggerDetails {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -204,7 +204,7 @@ impl ::core::fmt::Debug for IAccessoryNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for IAccessoryNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6968a7d4-e3ca-49cb-8c87-2c11cdff9646}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{6968a7d4-e3ca-49cb-8c87-2c11cdff9646}");
 }
 unsafe impl ::windows::core::Vtable for IAccessoryNotificationTriggerDetails {
     type Vtable = IAccessoryNotificationTriggerDetails_Vtbl;
@@ -1094,17 +1094,17 @@ impl AccessoryManager {
     }
     #[doc(hidden)]
     pub fn IAccessoryManager<R, F: FnOnce(&IAccessoryManager) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AccessoryManager, IAccessoryManager> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AccessoryManager, IAccessoryManager> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAccessoryManager2<R, F: FnOnce(&IAccessoryManager2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AccessoryManager, IAccessoryManager2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AccessoryManager, IAccessoryManager2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAccessoryManager3<R, F: FnOnce(&IAccessoryManager3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AccessoryManager, IAccessoryManager3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AccessoryManager, IAccessoryManager3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1206,7 +1206,7 @@ impl ::core::fmt::Debug for AlarmNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for AlarmNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.AlarmNotificationTriggerDetails;{38f5fa30-c738-4da2-908c-775d83c36abb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.AlarmNotificationTriggerDetails;{38f5fa30-c738-4da2-908c-775d83c36abb})");
 }
 impl ::core::clone::Clone for AlarmNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -1222,7 +1222,7 @@ unsafe impl ::windows::core::Interface for AlarmNotificationTriggerDetails {
 impl ::windows::core::RuntimeName for AlarmNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AlarmNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(AlarmNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AlarmNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AlarmNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: AlarmNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -1273,7 +1273,7 @@ impl ::core::fmt::Debug for AppNotificationInfo {
     }
 }
 impl ::windows::core::RuntimeType for AppNotificationInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.AppNotificationInfo;{2157bea5-e286-45d3-9bea-f790fc216e0e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.AppNotificationInfo;{2157bea5-e286-45d3-9bea-f790fc216e0e})");
 }
 impl ::core::clone::Clone for AppNotificationInfo {
     fn clone(&self) -> Self {
@@ -1289,7 +1289,7 @@ unsafe impl ::windows::core::Interface for AppNotificationInfo {
 impl ::windows::core::RuntimeName for AppNotificationInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AppNotificationInfo";
 }
-::windows::core::interface_hierarchy!(AppNotificationInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppNotificationInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct BinaryId(::windows::core::IUnknown);
@@ -1321,7 +1321,7 @@ impl ::core::fmt::Debug for BinaryId {
     }
 }
 impl ::windows::core::RuntimeType for BinaryId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.BinaryId;{4f0da531-5595-44b4-9181-ce4efa3fc168})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.BinaryId;{4f0da531-5595-44b4-9181-ce4efa3fc168})");
 }
 impl ::core::clone::Clone for BinaryId {
     fn clone(&self) -> Self {
@@ -1337,7 +1337,7 @@ unsafe impl ::windows::core::Interface for BinaryId {
 impl ::windows::core::RuntimeName for BinaryId {
     const NAME: &'static str = "Windows.Phone.Notification.Management.BinaryId";
 }
-::windows::core::interface_hierarchy!(BinaryId, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BinaryId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct CalendarChangedNotificationTriggerDetails(::windows::core::IUnknown);
@@ -1410,7 +1410,7 @@ impl ::core::fmt::Debug for CalendarChangedNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for CalendarChangedNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.CalendarChangedNotificationTriggerDetails;{4b8a3bfc-279d-42ab-9c68-3e87977bf216})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.CalendarChangedNotificationTriggerDetails;{4b8a3bfc-279d-42ab-9c68-3e87977bf216})");
 }
 impl ::core::clone::Clone for CalendarChangedNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -1426,7 +1426,7 @@ unsafe impl ::windows::core::Interface for CalendarChangedNotificationTriggerDet
 impl ::windows::core::RuntimeName for CalendarChangedNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.CalendarChangedNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(CalendarChangedNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CalendarChangedNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CalendarChangedNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: CalendarChangedNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -1574,7 +1574,7 @@ impl ::core::fmt::Debug for CortanaTileNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for CortanaTileNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.CortanaTileNotificationTriggerDetails;{dc0f01d5-1489-46bb-b73b-7f90067ecf27})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.CortanaTileNotificationTriggerDetails;{dc0f01d5-1489-46bb-b73b-7f90067ecf27})");
 }
 impl ::core::clone::Clone for CortanaTileNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -1590,7 +1590,7 @@ unsafe impl ::windows::core::Interface for CortanaTileNotificationTriggerDetails
 impl ::windows::core::RuntimeName for CortanaTileNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.CortanaTileNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(CortanaTileNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CortanaTileNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CortanaTileNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: CortanaTileNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -1641,7 +1641,7 @@ impl ::core::fmt::Debug for EmailAccountInfo {
     }
 }
 impl ::windows::core::RuntimeType for EmailAccountInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailAccountInfo;{dfbc02ab-bda0-4568-927e-b2ede35818a1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailAccountInfo;{dfbc02ab-bda0-4568-927e-b2ede35818a1})");
 }
 impl ::core::clone::Clone for EmailAccountInfo {
     fn clone(&self) -> Self {
@@ -1657,7 +1657,7 @@ unsafe impl ::windows::core::Interface for EmailAccountInfo {
 impl ::windows::core::RuntimeName for EmailAccountInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailAccountInfo";
 }
-::windows::core::interface_hierarchy!(EmailAccountInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailAccountInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct EmailFolderInfo(::windows::core::IUnknown);
@@ -1689,7 +1689,7 @@ impl ::core::fmt::Debug for EmailFolderInfo {
     }
 }
 impl ::windows::core::RuntimeType for EmailFolderInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailFolderInfo;{c207150e-e237-46d6-90e6-4f529eeac1e2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailFolderInfo;{c207150e-e237-46d6-90e6-4f529eeac1e2})");
 }
 impl ::core::clone::Clone for EmailFolderInfo {
     fn clone(&self) -> Self {
@@ -1705,7 +1705,7 @@ unsafe impl ::windows::core::Interface for EmailFolderInfo {
 impl ::windows::core::RuntimeName for EmailFolderInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailFolderInfo";
 }
-::windows::core::interface_hierarchy!(EmailFolderInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailFolderInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct EmailNotificationTriggerDetails(::windows::core::IUnknown);
@@ -1817,7 +1817,7 @@ impl ::core::fmt::Debug for EmailNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for EmailNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailNotificationTriggerDetails;{f3b82612-46cf-4e70-8e0d-7b2e04ab492b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailNotificationTriggerDetails;{f3b82612-46cf-4e70-8e0d-7b2e04ab492b})");
 }
 impl ::core::clone::Clone for EmailNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -1833,7 +1833,7 @@ unsafe impl ::windows::core::Interface for EmailNotificationTriggerDetails {
 impl ::windows::core::RuntimeName for EmailNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(EmailNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<EmailNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: EmailNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -1939,7 +1939,7 @@ impl ::core::fmt::Debug for EmailReadNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for EmailReadNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailReadNotificationTriggerDetails;{f5b7a087-06f3-4e3e-8c42-325e67010413})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailReadNotificationTriggerDetails;{f5b7a087-06f3-4e3e-8c42-325e67010413})");
 }
 impl ::core::clone::Clone for EmailReadNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -1955,7 +1955,7 @@ unsafe impl ::windows::core::Interface for EmailReadNotificationTriggerDetails {
 impl ::windows::core::RuntimeName for EmailReadNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailReadNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(EmailReadNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailReadNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<EmailReadNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: EmailReadNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -2047,7 +2047,7 @@ impl ::core::fmt::Debug for MediaControlsTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for MediaControlsTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.MediaControlsTriggerDetails;{fab4648b-ae45-4548-91ca-4ab0548e33b5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.MediaControlsTriggerDetails;{fab4648b-ae45-4548-91ca-4ab0548e33b5})");
 }
 impl ::core::clone::Clone for MediaControlsTriggerDetails {
     fn clone(&self) -> Self {
@@ -2063,7 +2063,7 @@ unsafe impl ::windows::core::Interface for MediaControlsTriggerDetails {
 impl ::windows::core::RuntimeName for MediaControlsTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.MediaControlsTriggerDetails";
 }
-::windows::core::interface_hierarchy!(MediaControlsTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaControlsTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MediaControlsTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: MediaControlsTriggerDetails) -> ::windows::core::Result<Self> {
@@ -2153,7 +2153,7 @@ impl ::core::fmt::Debug for MediaMetadata {
     }
 }
 impl ::windows::core::RuntimeType for MediaMetadata {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.MediaMetadata;{9b50ddf7-bb6c-4330-b3cd-0704a54cdb80})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.MediaMetadata;{9b50ddf7-bb6c-4330-b3cd-0704a54cdb80})");
 }
 impl ::core::clone::Clone for MediaMetadata {
     fn clone(&self) -> Self {
@@ -2169,7 +2169,7 @@ unsafe impl ::windows::core::Interface for MediaMetadata {
 impl ::windows::core::RuntimeName for MediaMetadata {
     const NAME: &'static str = "Windows.Phone.Notification.Management.MediaMetadata";
 }
-::windows::core::interface_hierarchy!(MediaMetadata, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaMetadata, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallDetails(::windows::core::IUnknown);
@@ -2277,7 +2277,7 @@ impl ::core::fmt::Debug for PhoneCallDetails {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneCallDetails;{0c1b6f53-f071-483e-bf33-ebd44b724447})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneCallDetails;{0c1b6f53-f071-483e-bf33-ebd44b724447})");
 }
 impl ::core::clone::Clone for PhoneCallDetails {
     fn clone(&self) -> Self {
@@ -2293,7 +2293,7 @@ unsafe impl ::windows::core::Interface for PhoneCallDetails {
 impl ::windows::core::RuntimeName for PhoneCallDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneCallDetails";
 }
-::windows::core::interface_hierarchy!(PhoneCallDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct PhoneLineDetails(::windows::core::IUnknown);
@@ -2360,7 +2360,7 @@ impl ::core::fmt::Debug for PhoneLineDetails {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneLineDetails;{47eb32dc-33ed-49b9-995c-a296bac82b77})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneLineDetails;{47eb32dc-33ed-49b9-995c-a296bac82b77})");
 }
 impl ::core::clone::Clone for PhoneLineDetails {
     fn clone(&self) -> Self {
@@ -2376,7 +2376,7 @@ unsafe impl ::windows::core::Interface for PhoneLineDetails {
 impl ::windows::core::RuntimeName for PhoneLineDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneLineDetails";
 }
-::windows::core::interface_hierarchy!(PhoneLineDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneLineDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct PhoneNotificationTriggerDetails(::windows::core::IUnknown);
@@ -2456,7 +2456,7 @@ impl ::core::fmt::Debug for PhoneNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for PhoneNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneNotificationTriggerDetails;{ccc2fdf7-09c3-4118-91bc-ca6323a8d383})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneNotificationTriggerDetails;{ccc2fdf7-09c3-4118-91bc-ca6323a8d383})");
 }
 impl ::core::clone::Clone for PhoneNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -2472,7 +2472,7 @@ unsafe impl ::windows::core::Interface for PhoneNotificationTriggerDetails {
 impl ::windows::core::RuntimeName for PhoneNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(PhoneNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PhoneNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PhoneNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -2610,7 +2610,7 @@ impl ::core::fmt::Debug for ReminderNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for ReminderNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.ReminderNotificationTriggerDetails;{5bddaa5d-9f61-4bf0-9feb-10502bc0b0c2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.ReminderNotificationTriggerDetails;{5bddaa5d-9f61-4bf0-9feb-10502bc0b0c2})");
 }
 impl ::core::clone::Clone for ReminderNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -2626,7 +2626,7 @@ unsafe impl ::windows::core::Interface for ReminderNotificationTriggerDetails {
 impl ::windows::core::RuntimeName for ReminderNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.ReminderNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(ReminderNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ReminderNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ReminderNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: ReminderNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -2684,7 +2684,7 @@ impl ::core::fmt::Debug for SpeedDialEntry {
     }
 }
 impl ::windows::core::RuntimeType for SpeedDialEntry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.SpeedDialEntry;{9240b6db-872c-46dc-b62a-be4541b166f8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.SpeedDialEntry;{9240b6db-872c-46dc-b62a-be4541b166f8})");
 }
 impl ::core::clone::Clone for SpeedDialEntry {
     fn clone(&self) -> Self {
@@ -2700,7 +2700,7 @@ unsafe impl ::windows::core::Interface for SpeedDialEntry {
 impl ::windows::core::RuntimeName for SpeedDialEntry {
     const NAME: &'static str = "Windows.Phone.Notification.Management.SpeedDialEntry";
 }
-::windows::core::interface_hierarchy!(SpeedDialEntry, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeedDialEntry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct TextResponse(::windows::core::IUnknown);
@@ -2732,7 +2732,7 @@ impl ::core::fmt::Debug for TextResponse {
     }
 }
 impl ::windows::core::RuntimeType for TextResponse {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.TextResponse;{e9cb74c3-2457-4cdb-8110-72f5e8e883e8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.TextResponse;{e9cb74c3-2457-4cdb-8110-72f5e8e883e8})");
 }
 impl ::core::clone::Clone for TextResponse {
     fn clone(&self) -> Self {
@@ -2748,7 +2748,7 @@ unsafe impl ::windows::core::Interface for TextResponse {
 impl ::windows::core::RuntimeName for TextResponse {
     const NAME: &'static str = "Windows.Phone.Notification.Management.TextResponse";
 }
-::windows::core::interface_hierarchy!(TextResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TextResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct ToastNotificationTriggerDetails(::windows::core::IUnknown);
@@ -2849,7 +2849,7 @@ impl ::core::fmt::Debug for ToastNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for ToastNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.ToastNotificationTriggerDetails;{c9314895-4e6d-4e9d-afec-9e921b875ae8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.ToastNotificationTriggerDetails;{c9314895-4e6d-4e9d-afec-9e921b875ae8})");
 }
 impl ::core::clone::Clone for ToastNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -2865,7 +2865,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationTriggerDetails {
 impl ::windows::core::RuntimeName for ToastNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.ToastNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(ToastNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ToastNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: ToastNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -2937,7 +2937,7 @@ impl ::core::fmt::Debug for VolumeInfo {
     }
 }
 impl ::windows::core::RuntimeType for VolumeInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.VolumeInfo;{944dd118-7704-4481-b92e-d3ed3ece6322})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.VolumeInfo;{944dd118-7704-4481-b92e-d3ed3ece6322})");
 }
 impl ::core::clone::Clone for VolumeInfo {
     fn clone(&self) -> Self {
@@ -2953,7 +2953,7 @@ unsafe impl ::windows::core::Interface for VolumeInfo {
 impl ::windows::core::RuntimeName for VolumeInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.VolumeInfo";
 }
-::windows::core::interface_hierarchy!(VolumeInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VolumeInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3029,7 +3029,7 @@ impl ::core::ops::Not for AccessoryNotificationType {
     }
 }
 impl ::windows::core::RuntimeType for AccessoryNotificationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.AccessoryNotificationType;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.AccessoryNotificationType;u4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3064,7 +3064,7 @@ impl ::core::fmt::Debug for CalendarChangedEvent {
     }
 }
 impl ::windows::core::RuntimeType for CalendarChangedEvent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.CalendarChangedEvent;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.CalendarChangedEvent;i4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3095,7 +3095,7 @@ impl ::core::fmt::Debug for PhoneCallAudioEndpoint {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallAudioEndpoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallAudioEndpoint;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallAudioEndpoint;i4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3125,7 +3125,7 @@ impl ::core::fmt::Debug for PhoneCallDirection {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallDirection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallDirection;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallDirection;i4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3158,7 +3158,7 @@ impl ::core::fmt::Debug for PhoneCallState {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallState;i4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3188,7 +3188,7 @@ impl ::core::fmt::Debug for PhoneCallTransport {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallTransport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallTransport;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallTransport;i4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3219,7 +3219,7 @@ impl ::core::fmt::Debug for PhoneLineRegistrationState {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineRegistrationState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneLineRegistrationState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneLineRegistrationState;i4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3249,7 +3249,7 @@ impl ::core::fmt::Debug for PhoneMediaType {
     }
 }
 impl ::windows::core::RuntimeType for PhoneMediaType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneMediaType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneMediaType;i4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3282,7 +3282,7 @@ impl ::core::fmt::Debug for PhoneNotificationType {
     }
 }
 impl ::windows::core::RuntimeType for PhoneNotificationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneNotificationType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneNotificationType;i4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3354,7 +3354,7 @@ impl ::core::ops::Not for PlaybackCapability {
     }
 }
 impl ::windows::core::RuntimeType for PlaybackCapability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackCapability;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackCapability;u4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3392,7 +3392,7 @@ impl ::core::fmt::Debug for PlaybackCommand {
     }
 }
 impl ::windows::core::RuntimeType for PlaybackCommand {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackCommand;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackCommand;i4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3425,7 +3425,7 @@ impl ::core::fmt::Debug for PlaybackStatus {
     }
 }
 impl ::windows::core::RuntimeType for PlaybackStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackStatus;i4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3456,7 +3456,7 @@ impl ::core::fmt::Debug for ReminderState {
     }
 }
 impl ::windows::core::RuntimeType for ReminderState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.ReminderState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.ReminderState;i4)");
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
@@ -3488,7 +3488,7 @@ impl ::core::fmt::Debug for VibrateState {
     }
 }
 impl ::windows::core::RuntimeType for VibrateState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.VibrateState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.VibrateState;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

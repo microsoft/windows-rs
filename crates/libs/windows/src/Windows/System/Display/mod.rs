@@ -26,8 +26,8 @@ impl DisplayRequest {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayRequest, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DisplayRequest, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn RequestActive(&self) -> ::windows::core::Result<()> {
@@ -51,7 +51,7 @@ impl ::core::fmt::Debug for DisplayRequest {
     }
 }
 impl ::windows::core::RuntimeType for DisplayRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Display.DisplayRequest;{e5732044-f49f-4b60-8dd4-5e7e3a632ac0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Display.DisplayRequest;{e5732044-f49f-4b60-8dd4-5e7e3a632ac0})");
 }
 impl ::core::clone::Clone for DisplayRequest {
     fn clone(&self) -> Self {
@@ -67,6 +67,6 @@ unsafe impl ::windows::core::Interface for DisplayRequest {
 impl ::windows::core::RuntimeName for DisplayRequest {
     const NAME: &'static str = "Windows.System.Display.DisplayRequest";
 }
-::windows::core::interface_hierarchy!(DisplayRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

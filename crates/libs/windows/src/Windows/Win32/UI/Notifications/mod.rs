@@ -10,7 +10,7 @@ impl INotificationActivationCallback {
         (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), appusermodelid.into().abi(), invokedargs.into().abi(), ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(INotificationActivationCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INotificationActivationCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INotificationActivationCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

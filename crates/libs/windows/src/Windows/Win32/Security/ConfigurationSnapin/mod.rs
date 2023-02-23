@@ -18,7 +18,7 @@ impl ISceSvcAttachmentData {
         (::windows::core::Vtable::vtable(self).CloseHandle)(::windows::core::Vtable::as_raw(self), scesvchandle).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISceSvcAttachmentData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISceSvcAttachmentData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISceSvcAttachmentData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -66,7 +66,7 @@ impl ISceSvcAttachmentPersistInfo {
         (::windows::core::Vtable::vtable(self).FreeBuffer)(::windows::core::Vtable::as_raw(self), pvdata).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISceSvcAttachmentPersistInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISceSvcAttachmentPersistInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISceSvcAttachmentPersistInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

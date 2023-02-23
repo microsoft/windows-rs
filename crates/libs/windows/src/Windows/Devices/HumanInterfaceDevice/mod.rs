@@ -429,7 +429,7 @@ impl ::core::fmt::Debug for HidBooleanControl {
     }
 }
 impl ::windows::core::RuntimeType for HidBooleanControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidBooleanControl;{524df48a-3695-408c-bba2-e2eb5abfbc20})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidBooleanControl;{524df48a-3695-408c-bba2-e2eb5abfbc20})");
 }
 impl ::core::clone::Clone for HidBooleanControl {
     fn clone(&self) -> Self {
@@ -445,7 +445,7 @@ unsafe impl ::windows::core::Interface for HidBooleanControl {
 impl ::windows::core::RuntimeName for HidBooleanControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControl";
 }
-::windows::core::interface_hierarchy!(HidBooleanControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HidBooleanControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidBooleanControl {}
 unsafe impl ::core::marker::Sync for HidBooleanControl {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -516,7 +516,7 @@ impl ::core::fmt::Debug for HidBooleanControlDescription {
     }
 }
 impl ::windows::core::RuntimeType for HidBooleanControlDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription;{6196e543-29d8-4a2a-8683-849e207bbe31})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription;{6196e543-29d8-4a2a-8683-849e207bbe31})");
 }
 impl ::core::clone::Clone for HidBooleanControlDescription {
     fn clone(&self) -> Self {
@@ -532,7 +532,7 @@ unsafe impl ::windows::core::Interface for HidBooleanControlDescription {
 impl ::windows::core::RuntimeName for HidBooleanControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription";
 }
-::windows::core::interface_hierarchy!(HidBooleanControlDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HidBooleanControlDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidBooleanControlDescription {}
 unsafe impl ::core::marker::Sync for HidBooleanControlDescription {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -580,7 +580,7 @@ impl ::core::fmt::Debug for HidCollection {
     }
 }
 impl ::windows::core::RuntimeType for HidCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidCollection;{7189f5a3-32f1-46e3-befd-44d2663b7e6a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidCollection;{7189f5a3-32f1-46e3-befd-44d2663b7e6a})");
 }
 impl ::core::clone::Clone for HidCollection {
     fn clone(&self) -> Self {
@@ -596,7 +596,7 @@ unsafe impl ::windows::core::Interface for HidCollection {
 impl ::windows::core::RuntimeName for HidCollection {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidCollection";
 }
-::windows::core::interface_hierarchy!(HidCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HidCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidCollection {}
 unsafe impl ::core::marker::Sync for HidCollection {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -781,7 +781,7 @@ impl HidDevice {
     }
     #[doc(hidden)]
     pub fn IHidDeviceStatics<R, F: FnOnce(&IHidDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HidDevice, IHidDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HidDevice, IHidDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -797,7 +797,7 @@ impl ::core::fmt::Debug for HidDevice {
     }
 }
 impl ::windows::core::RuntimeType for HidDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidDevice;{5f8a14e7-2200-432e-95da-d09b87d574a8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidDevice;{5f8a14e7-2200-432e-95da-d09b87d574a8})");
 }
 impl ::core::clone::Clone for HidDevice {
     fn clone(&self) -> Self {
@@ -813,7 +813,7 @@ unsafe impl ::windows::core::Interface for HidDevice {
 impl ::windows::core::RuntimeName for HidDevice {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidDevice";
 }
-::windows::core::interface_hierarchy!(HidDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HidDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HidDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -909,7 +909,7 @@ impl ::core::fmt::Debug for HidFeatureReport {
     }
 }
 impl ::windows::core::RuntimeType for HidFeatureReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidFeatureReport;{841d9b79-5ae5-46e3-82ef-1fec5c8942f4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidFeatureReport;{841d9b79-5ae5-46e3-82ef-1fec5c8942f4})");
 }
 impl ::core::clone::Clone for HidFeatureReport {
     fn clone(&self) -> Self {
@@ -925,7 +925,7 @@ unsafe impl ::windows::core::Interface for HidFeatureReport {
 impl ::windows::core::RuntimeName for HidFeatureReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidFeatureReport";
 }
-::windows::core::interface_hierarchy!(HidFeatureReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HidFeatureReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidFeatureReport {}
 unsafe impl ::core::marker::Sync for HidFeatureReport {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1007,7 +1007,7 @@ impl ::core::fmt::Debug for HidInputReport {
     }
 }
 impl ::windows::core::RuntimeType for HidInputReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidInputReport;{c35d0e50-f7e7-4e8d-b23e-cabbe56b90e9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidInputReport;{c35d0e50-f7e7-4e8d-b23e-cabbe56b90e9})");
 }
 impl ::core::clone::Clone for HidInputReport {
     fn clone(&self) -> Self {
@@ -1023,7 +1023,7 @@ unsafe impl ::windows::core::Interface for HidInputReport {
 impl ::windows::core::RuntimeName for HidInputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReport";
 }
-::windows::core::interface_hierarchy!(HidInputReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HidInputReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidInputReport {}
 unsafe impl ::core::marker::Sync for HidInputReport {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1050,7 +1050,7 @@ impl ::core::fmt::Debug for HidInputReportReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for HidInputReportReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs;{7059c5cb-59b2-4dc2-985c-0adc6136fa2d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs;{7059c5cb-59b2-4dc2-985c-0adc6136fa2d})");
 }
 impl ::core::clone::Clone for HidInputReportReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -1066,7 +1066,7 @@ unsafe impl ::windows::core::Interface for HidInputReportReceivedEventArgs {
 impl ::windows::core::RuntimeName for HidInputReportReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(HidInputReportReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HidInputReportReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidInputReportReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for HidInputReportReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1143,7 +1143,7 @@ impl ::core::fmt::Debug for HidNumericControl {
     }
 }
 impl ::windows::core::RuntimeType for HidNumericControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidNumericControl;{e38a12a5-35a7-4b75-89c8-fb1f28b10823})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidNumericControl;{e38a12a5-35a7-4b75-89c8-fb1f28b10823})");
 }
 impl ::core::clone::Clone for HidNumericControl {
     fn clone(&self) -> Self {
@@ -1159,7 +1159,7 @@ unsafe impl ::windows::core::Interface for HidNumericControl {
 impl ::windows::core::RuntimeName for HidNumericControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControl";
 }
-::windows::core::interface_hierarchy!(HidNumericControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HidNumericControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidNumericControl {}
 unsafe impl ::core::marker::Sync for HidNumericControl {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1293,7 +1293,7 @@ impl ::core::fmt::Debug for HidNumericControlDescription {
     }
 }
 impl ::windows::core::RuntimeType for HidNumericControlDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription;{638d5e86-1d97-4c75-927f-5ff58ba05e32})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription;{638d5e86-1d97-4c75-927f-5ff58ba05e32})");
 }
 impl ::core::clone::Clone for HidNumericControlDescription {
     fn clone(&self) -> Self {
@@ -1309,7 +1309,7 @@ unsafe impl ::windows::core::Interface for HidNumericControlDescription {
 impl ::windows::core::RuntimeName for HidNumericControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription";
 }
-::windows::core::interface_hierarchy!(HidNumericControlDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HidNumericControlDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidNumericControlDescription {}
 unsafe impl ::core::marker::Sync for HidNumericControlDescription {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1383,7 +1383,7 @@ impl ::core::fmt::Debug for HidOutputReport {
     }
 }
 impl ::windows::core::RuntimeType for HidOutputReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidOutputReport;{62cb2544-c896-4463-93c1-df9db053c450})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidOutputReport;{62cb2544-c896-4463-93c1-df9db053c450})");
 }
 impl ::core::clone::Clone for HidOutputReport {
     fn clone(&self) -> Self {
@@ -1399,7 +1399,7 @@ unsafe impl ::windows::core::Interface for HidOutputReport {
 impl ::windows::core::RuntimeName for HidOutputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidOutputReport";
 }
-::windows::core::interface_hierarchy!(HidOutputReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HidOutputReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidOutputReport {}
 unsafe impl ::core::marker::Sync for HidOutputReport {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1436,7 +1436,7 @@ impl ::core::fmt::Debug for HidCollectionType {
     }
 }
 impl ::windows::core::RuntimeType for HidCollectionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidCollectionType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidCollectionType;i4)");
 }
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
@@ -1467,7 +1467,7 @@ impl ::core::fmt::Debug for HidReportType {
     }
 }
 impl ::windows::core::RuntimeType for HidReportType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidReportType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidReportType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

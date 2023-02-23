@@ -13,7 +13,7 @@ impl IDirect3DDevice {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IDirect3DDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IDirect3DDevice> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -48,7 +48,7 @@ impl ::core::fmt::Debug for IDirect3DDevice {
     }
 }
 impl ::windows::core::RuntimeType for IDirect3DDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
 }
 unsafe impl ::windows::core::Vtable for IDirect3DDevice {
     type Vtable = IDirect3DDevice_Vtbl;
@@ -85,7 +85,7 @@ impl IDirect3DSurface {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IDirect3DSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IDirect3DSurface> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -120,7 +120,7 @@ impl ::core::fmt::Debug for IDirect3DSurface {
     }
 }
 impl ::windows::core::RuntimeType for IDirect3DSurface {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
 }
 unsafe impl ::windows::core::Vtable for IDirect3DSurface {
     type Vtable = IDirect3DSurface_Vtbl;
@@ -208,7 +208,7 @@ impl ::core::ops::Not for Direct3DBindings {
     }
 }
 impl ::windows::core::RuntimeType for Direct3DBindings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DBindings;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DBindings;u4)");
 }
 #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
@@ -240,7 +240,7 @@ impl ::core::fmt::Debug for Direct3DUsage {
     }
 }
 impl ::windows::core::RuntimeType for Direct3DUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -263,7 +263,7 @@ impl ::windows::core::TypeKind for Direct3DMultisampleDescription {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for Direct3DMultisampleDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4)");
 }
 impl ::core::cmp::PartialEq for Direct3DMultisampleDescription {
     fn eq(&self, other: &Self) -> bool {
@@ -299,7 +299,7 @@ impl ::windows::core::TypeKind for Direct3DSurfaceDescription {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for Direct3DSurfaceDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription;i4;i4;enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4);struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription;i4;i4;enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4);struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4))");
 }
 impl ::core::cmp::PartialEq for Direct3DSurfaceDescription {
     fn eq(&self, other: &Self) -> bool {

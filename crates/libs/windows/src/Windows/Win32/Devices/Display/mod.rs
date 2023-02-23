@@ -2,32 +2,32 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BRUSHOBJ_hGetColorTransform(pbo: *mut BRUSHOBJ) -> super::super::Foundation::HANDLE {
-    ::windows::core::link ! ( "gdi32.dll""system" fn BRUSHOBJ_hGetColorTransform ( pbo : *mut BRUSHOBJ ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn BRUSHOBJ_hGetColorTransform ( pbo : *mut BRUSHOBJ ) -> super::super::Foundation:: HANDLE );
     BRUSHOBJ_hGetColorTransform(pbo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "gdi32.dll""system" fn BRUSHOBJ_pvAllocRbrush ( pbo : *mut BRUSHOBJ , cj : u32 ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn BRUSHOBJ_pvAllocRbrush ( pbo : *mut BRUSHOBJ , cj : u32 ) -> *mut ::core::ffi::c_void );
     BRUSHOBJ_pvAllocRbrush(pbo, cj)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn BRUSHOBJ_pvGetRbrush(pbo: *mut BRUSHOBJ) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "gdi32.dll""system" fn BRUSHOBJ_pvGetRbrush ( pbo : *mut BRUSHOBJ ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn BRUSHOBJ_pvGetRbrush ( pbo : *mut BRUSHOBJ ) -> *mut ::core::ffi::c_void );
     BRUSHOBJ_pvGetRbrush(pbo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn BRUSHOBJ_ulGetBrushColor(pbo: *mut BRUSHOBJ) -> u32 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn BRUSHOBJ_ulGetBrushColor ( pbo : *mut BRUSHOBJ ) -> u32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn BRUSHOBJ_ulGetBrushColor ( pbo : *mut BRUSHOBJ ) -> u32 );
     BRUSHOBJ_ulGetBrushColor(pbo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CLIPOBJ_bEnum(pco: *mut CLIPOBJ, cj: u32, pul: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn CLIPOBJ_bEnum ( pco : *mut CLIPOBJ , cj : u32 , pul : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn CLIPOBJ_bEnum ( pco : *mut CLIPOBJ , cj : u32 , pul : *mut u32 ) -> super::super::Foundation:: BOOL );
     CLIPOBJ_bEnum(pco, cj, pul)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -37,14 +37,14 @@ pub unsafe fn CLIPOBJ_cEnumStart<P0>(pco: *mut CLIPOBJ, ball: P0, itype: u32, id
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn CLIPOBJ_cEnumStart ( pco : *mut CLIPOBJ , ball : super::super::Foundation:: BOOL , itype : u32 , idirection : u32 , climit : u32 ) -> u32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn CLIPOBJ_cEnumStart ( pco : *mut CLIPOBJ , ball : super::super::Foundation:: BOOL , itype : u32 , idirection : u32 , climit : u32 ) -> u32 );
     CLIPOBJ_cEnumStart(pco, ball.into(), itype, idirection, climit)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CLIPOBJ_ppoGetPath(pco: *mut CLIPOBJ) -> *mut PATHOBJ {
-    ::windows::core::link ! ( "gdi32.dll""system" fn CLIPOBJ_ppoGetPath ( pco : *mut CLIPOBJ ) -> *mut PATHOBJ );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn CLIPOBJ_ppoGetPath ( pco : *mut CLIPOBJ ) -> *mut PATHOBJ );
     CLIPOBJ_ppoGetPath(pco)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -54,7 +54,7 @@ pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<P0>(hmonitor: P0, pszascii
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn CapabilitiesRequestAndCapabilitiesReply ( hmonitor : super::super::Foundation:: HANDLE , pszasciicapabilitiesstring : :: windows::core::PSTR , dwcapabilitiesstringlengthincharacters : u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn CapabilitiesRequestAndCapabilitiesReply ( hmonitor : super::super::Foundation:: HANDLE , pszasciicapabilitiesstring : :: windows::core::PSTR , dwcapabilitiesstringlengthincharacters : u32 ) -> i32 );
     CapabilitiesRequestAndCapabilitiesReply(hmonitor.into(), ::core::mem::transmute(pszasciicapabilitiesstring.as_ptr()), pszasciicapabilitiesstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -64,7 +64,7 @@ pub unsafe fn DegaussMonitor<P0>(hmonitor: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn DegaussMonitor ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn DegaussMonitor ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
     DegaussMonitor(hmonitor.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -74,28 +74,28 @@ pub unsafe fn DestroyPhysicalMonitor<P0>(hmonitor: P0) -> super::super::Foundati
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn DestroyPhysicalMonitor ( hmonitor : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn DestroyPhysicalMonitor ( hmonitor : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     DestroyPhysicalMonitor(hmonitor.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DestroyPhysicalMonitors(pphysicalmonitorarray: &[PHYSICAL_MONITOR]) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "dxva2.dll""system" fn DestroyPhysicalMonitors ( dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *const PHYSICAL_MONITOR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn DestroyPhysicalMonitors ( dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *const PHYSICAL_MONITOR ) -> super::super::Foundation:: BOOL );
     DestroyPhysicalMonitors(pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DisplayConfigGetDeviceInfo(requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32 {
-    ::windows::core::link ! ( "user32.dll""system" fn DisplayConfigGetDeviceInfo ( requestpacket : *mut DISPLAYCONFIG_DEVICE_INFO_HEADER ) -> i32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn DisplayConfigGetDeviceInfo ( requestpacket : *mut DISPLAYCONFIG_DEVICE_INFO_HEADER ) -> i32 );
     DisplayConfigGetDeviceInfo(requestpacket)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DisplayConfigSetDeviceInfo(setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32 {
-    ::windows::core::link ! ( "user32.dll""system" fn DisplayConfigSetDeviceInfo ( setpacket : *const DISPLAYCONFIG_DEVICE_INFO_HEADER ) -> i32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn DisplayConfigSetDeviceInfo ( setpacket : *const DISPLAYCONFIG_DEVICE_INFO_HEADER ) -> i32 );
     DisplayConfigSetDeviceInfo(setpacket)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -104,14 +104,14 @@ pub unsafe fn EngAcquireSemaphore<P0>(hsem: P0)
 where
     P0: ::std::convert::Into<HSEMAPHORE>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngAcquireSemaphore ( hsem : HSEMAPHORE ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngAcquireSemaphore ( hsem : HSEMAPHORE ) -> ( ) );
     EngAcquireSemaphore(hsem.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn EngAlphaBlend(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pblendobj: *mut BLENDOBJ) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngAlphaBlend ( psodest : *mut SURFOBJ , psosrc : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , prcldest : *mut super::super::Foundation:: RECTL , prclsrc : *mut super::super::Foundation:: RECTL , pblendobj : *mut BLENDOBJ ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngAlphaBlend ( psodest : *mut SURFOBJ , psosrc : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , prcldest : *mut super::super::Foundation:: RECTL , prclsrc : *mut super::super::Foundation:: RECTL , pblendobj : *mut BLENDOBJ ) -> super::super::Foundation:: BOOL );
     EngAlphaBlend(psodest, psosrc, pco, pxlo, prcldest, prclsrc, pblendobj)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -122,48 +122,48 @@ where
     P0: ::std::convert::Into<HSURF>,
     P1: ::std::convert::Into<HDEV>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngAssociateSurface ( hsurf : HSURF , hdev : HDEV , flhooks : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngAssociateSurface ( hsurf : HSURF , hdev : HDEV , flhooks : u32 ) -> super::super::Foundation:: BOOL );
     EngAssociateSurface(hsurf.into(), hdev.into(), flhooks)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngBitBlt(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcltrg: *const super::super::Foundation::RECTL, pptlsrc: *const super::super::Foundation::POINTL, pptlmask: *const super::super::Foundation::POINTL, pbo: *const BRUSHOBJ, pptlbrush: *const super::super::Foundation::POINTL, rop4: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngBitBlt ( psotrg : *const SURFOBJ , psosrc : *const SURFOBJ , psomask : *const SURFOBJ , pco : *const CLIPOBJ , pxlo : *const XLATEOBJ , prcltrg : *const super::super::Foundation:: RECTL , pptlsrc : *const super::super::Foundation:: POINTL , pptlmask : *const super::super::Foundation:: POINTL , pbo : *const BRUSHOBJ , pptlbrush : *const super::super::Foundation:: POINTL , rop4 : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngBitBlt ( psotrg : *const SURFOBJ , psosrc : *const SURFOBJ , psomask : *const SURFOBJ , pco : *const CLIPOBJ , pxlo : *const XLATEOBJ , prcltrg : *const super::super::Foundation:: RECTL , pptlsrc : *const super::super::Foundation:: POINTL , pptlmask : *const super::super::Foundation:: POINTL , pbo : *const BRUSHOBJ , pptlbrush : *const super::super::Foundation:: POINTL , rop4 : u32 ) -> super::super::Foundation:: BOOL );
     EngBitBlt(psotrg, psosrc, psomask, pco, pxlo, prcltrg, pptlsrc, pptlmask, pbo, pptlbrush, rop4)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngCheckAbort(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngCheckAbort ( pso : *mut SURFOBJ ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngCheckAbort ( pso : *mut SURFOBJ ) -> super::super::Foundation:: BOOL );
     EngCheckAbort(pso)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32) -> *mut FD_GLYPHSET {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngComputeGlyphSet ( ncodepage : i32 , nfirstchar : i32 , cchars : i32 ) -> *mut FD_GLYPHSET );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngComputeGlyphSet ( ncodepage : i32 , nfirstchar : i32 , cchars : i32 ) -> *mut FD_GLYPHSET );
     EngComputeGlyphSet(ncodepage, nfirstchar, cchars)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngCopyBits(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, pptlsrc: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngCopyBits ( psodest : *mut SURFOBJ , psosrc : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , prcldest : *mut super::super::Foundation:: RECTL , pptlsrc : *mut super::super::Foundation:: POINTL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngCopyBits ( psodest : *mut SURFOBJ , psosrc : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , prcldest : *mut super::super::Foundation:: RECTL , pptlsrc : *mut super::super::Foundation:: POINTL ) -> super::super::Foundation:: BOOL );
     EngCopyBits(psodest, psosrc, pco, pxlo, prcldest, pptlsrc)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn EngCreateBitmap(sizl: super::super::Foundation::SIZE, lwidth: i32, iformat: u32, fl: u32, pvbits: *mut ::core::ffi::c_void) -> super::super::Graphics::Gdi::HBITMAP {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngCreateBitmap ( sizl : super::super::Foundation:: SIZE , lwidth : i32 , iformat : u32 , fl : u32 , pvbits : *mut ::core::ffi::c_void ) -> super::super::Graphics::Gdi:: HBITMAP );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngCreateBitmap ( sizl : super::super::Foundation:: SIZE , lwidth : i32 , iformat : u32 , fl : u32 , pvbits : *mut ::core::ffi::c_void ) -> super::super::Graphics::Gdi:: HBITMAP );
     EngCreateBitmap(::core::mem::transmute(sizl), lwidth, iformat, fl, pvbits)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngCreateClip() -> *mut CLIPOBJ {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngCreateClip ( ) -> *mut CLIPOBJ );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngCreateClip ( ) -> *mut CLIPOBJ );
     EngCreateClip()
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -173,7 +173,7 @@ pub unsafe fn EngCreateDeviceBitmap<P0>(dhsurf: P0, sizl: super::super::Foundati
 where
     P0: ::std::convert::Into<DHSURF>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngCreateDeviceBitmap ( dhsurf : DHSURF , sizl : super::super::Foundation:: SIZE , iformatcompat : u32 ) -> super::super::Graphics::Gdi:: HBITMAP );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngCreateDeviceBitmap ( dhsurf : DHSURF , sizl : super::super::Foundation:: SIZE , iformatcompat : u32 ) -> super::super::Graphics::Gdi:: HBITMAP );
     EngCreateDeviceBitmap(dhsurf.into(), ::core::mem::transmute(sizl), iformatcompat)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -183,27 +183,27 @@ pub unsafe fn EngCreateDeviceSurface<P0>(dhsurf: P0, sizl: super::super::Foundat
 where
     P0: ::std::convert::Into<DHSURF>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngCreateDeviceSurface ( dhsurf : DHSURF , sizl : super::super::Foundation:: SIZE , iformatcompat : u32 ) -> HSURF );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngCreateDeviceSurface ( dhsurf : DHSURF , sizl : super::super::Foundation:: SIZE , iformatcompat : u32 ) -> HSURF );
     EngCreateDeviceSurface(dhsurf.into(), ::core::mem::transmute(sizl), iformatcompat)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn EngCreatePalette(imode: u32, ccolors: u32, pulcolors: *mut u32, flred: u32, flgreen: u32, flblue: u32) -> super::super::Graphics::Gdi::HPALETTE {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngCreatePalette ( imode : u32 , ccolors : u32 , pulcolors : *mut u32 , flred : u32 , flgreen : u32 , flblue : u32 ) -> super::super::Graphics::Gdi:: HPALETTE );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngCreatePalette ( imode : u32 , ccolors : u32 , pulcolors : *mut u32 , flred : u32 , flgreen : u32 , flblue : u32 ) -> super::super::Graphics::Gdi:: HPALETTE );
     EngCreatePalette(imode, ccolors, pulcolors, flred, flgreen, flblue)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn EngCreateSemaphore() -> HSEMAPHORE {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngCreateSemaphore ( ) -> HSEMAPHORE );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngCreateSemaphore ( ) -> HSEMAPHORE );
     EngCreateSemaphore()
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngDeleteClip(pco: ::core::option::Option<*const CLIPOBJ>) {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngDeleteClip ( pco : *const CLIPOBJ ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngDeleteClip ( pco : *const CLIPOBJ ) -> ( ) );
     EngDeleteClip(::core::mem::transmute(pco.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -213,13 +213,13 @@ pub unsafe fn EngDeletePalette<P0>(hpal: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HPALETTE>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngDeletePalette ( hpal : super::super::Graphics::Gdi:: HPALETTE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngDeletePalette ( hpal : super::super::Graphics::Gdi:: HPALETTE ) -> super::super::Foundation:: BOOL );
     EngDeletePalette(hpal.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn EngDeletePath(ppo: *mut PATHOBJ) {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngDeletePath ( ppo : *mut PATHOBJ ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngDeletePath ( ppo : *mut PATHOBJ ) -> ( ) );
     EngDeletePath(ppo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -228,7 +228,7 @@ pub unsafe fn EngDeleteSemaphore<P0>(hsem: P0)
 where
     P0: ::std::convert::Into<HSEMAPHORE>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngDeleteSemaphore ( hsem : HSEMAPHORE ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngDeleteSemaphore ( hsem : HSEMAPHORE ) -> ( ) );
     EngDeleteSemaphore(hsem.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -238,21 +238,21 @@ pub unsafe fn EngDeleteSurface<P0>(hsurf: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HSURF>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngDeleteSurface ( hsurf : HSURF ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngDeleteSurface ( hsurf : HSURF ) -> super::super::Foundation:: BOOL );
     EngDeleteSurface(hsurf.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngEraseSurface(pso: *mut SURFOBJ, prcl: *mut super::super::Foundation::RECTL, icolor: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngEraseSurface ( pso : *mut SURFOBJ , prcl : *mut super::super::Foundation:: RECTL , icolor : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngEraseSurface ( pso : *mut SURFOBJ , prcl : *mut super::super::Foundation:: RECTL , icolor : u32 ) -> super::super::Foundation:: BOOL );
     EngEraseSurface(pso, prcl, icolor)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32, floptions: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngFillPath ( pso : *mut SURFOBJ , ppo : *mut PATHOBJ , pco : *mut CLIPOBJ , pbo : *mut BRUSHOBJ , pptlbrushorg : *mut super::super::Foundation:: POINTL , mix : u32 , floptions : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngFillPath ( pso : *mut SURFOBJ , ppo : *mut PATHOBJ , pco : *mut CLIPOBJ , pbo : *mut BRUSHOBJ , pptlbrushorg : *mut super::super::Foundation:: POINTL , mix : u32 , floptions : u32 ) -> super::super::Foundation:: BOOL );
     EngFillPath(pso, ppo, pco, pbo, pptlbrushorg, mix, floptions)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -262,7 +262,7 @@ pub unsafe fn EngFindResource<P0>(h: P0, iname: i32, itype: i32, pulsize: *mut u
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngFindResource ( h : super::super::Foundation:: HANDLE , iname : i32 , itype : i32 , pulsize : *mut u32 ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngFindResource ( h : super::super::Foundation:: HANDLE , iname : i32 , itype : i32 , pulsize : *mut u32 ) -> *mut ::core::ffi::c_void );
     EngFindResource(h.into(), iname, itype, pulsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -272,13 +272,13 @@ pub unsafe fn EngFreeModule<P0>(h: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngFreeModule ( h : super::super::Foundation:: HANDLE ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngFreeModule ( h : super::super::Foundation:: HANDLE ) -> ( ) );
     EngFreeModule(h.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u16) {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngGetCurrentCodePage ( oemcodepage : *mut u16 , ansicodepage : *mut u16 ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngGetCurrentCodePage ( oemcodepage : *mut u16 , ansicodepage : *mut u16 ) -> ( ) );
     EngGetCurrentCodePage(oemcodepage, ansicodepage)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -287,7 +287,7 @@ pub unsafe fn EngGetDriverName<P0>(hdev: P0) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<HDEV>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngGetDriverName ( hdev : HDEV ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngGetDriverName ( hdev : HDEV ) -> :: windows::core::PWSTR );
     EngGetDriverName(hdev.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -296,21 +296,21 @@ pub unsafe fn EngGetPrinterDataFileName<P0>(hdev: P0) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<HDEV>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngGetPrinterDataFileName ( hdev : HDEV ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngGetPrinterDataFileName ( hdev : HDEV ) -> :: windows::core::PWSTR );
     EngGetPrinterDataFileName(hdev.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn EngGradientFill(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pvertex: *mut super::super::Graphics::Gdi::TRIVERTEX, nvertex: u32, pmesh: *mut ::core::ffi::c_void, nmesh: u32, prclextents: *mut super::super::Foundation::RECTL, pptlditherorg: *mut super::super::Foundation::POINTL, ulmode: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngGradientFill ( psodest : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , pvertex : *mut super::super::Graphics::Gdi:: TRIVERTEX , nvertex : u32 , pmesh : *mut ::core::ffi::c_void , nmesh : u32 , prclextents : *mut super::super::Foundation:: RECTL , pptlditherorg : *mut super::super::Foundation:: POINTL , ulmode : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngGradientFill ( psodest : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , pvertex : *mut super::super::Graphics::Gdi:: TRIVERTEX , nvertex : u32 , pmesh : *mut ::core::ffi::c_void , nmesh : u32 , prclextents : *mut super::super::Foundation:: RECTL , pptlditherorg : *mut super::super::Foundation:: POINTL , ulmode : u32 ) -> super::super::Foundation:: BOOL );
     EngGradientFill(psodest, pco, pxlo, pvertex, nvertex, pmesh, nmesh, prclextents, pptlditherorg, ulmode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngLineTo(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, x1: i32, y1: i32, x2: i32, y2: i32, prclbounds: *mut super::super::Foundation::RECTL, mix: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngLineTo ( pso : *mut SURFOBJ , pco : *mut CLIPOBJ , pbo : *mut BRUSHOBJ , x1 : i32 , y1 : i32 , x2 : i32 , y2 : i32 , prclbounds : *mut super::super::Foundation:: RECTL , mix : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngLineTo ( pso : *mut SURFOBJ , pco : *mut CLIPOBJ , pbo : *mut BRUSHOBJ , x1 : i32 , y1 : i32 , x2 : i32 , y2 : i32 , prclbounds : *mut super::super::Foundation:: RECTL , mix : u32 ) -> super::super::Foundation:: BOOL );
     EngLineTo(pso, pco, pbo, x1, y1, x2, y2, prclbounds, mix)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -320,7 +320,7 @@ pub unsafe fn EngLoadModule<P0>(pwsz: P0) -> super::super::Foundation::HANDLE
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngLoadModule ( pwsz : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngLoadModule ( pwsz : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     EngLoadModule(pwsz.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -330,7 +330,7 @@ pub unsafe fn EngLockSurface<P0>(hsurf: P0) -> *mut SURFOBJ
 where
     P0: ::std::convert::Into<HSURF>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngLockSurface ( hsurf : HSURF ) -> *mut SURFOBJ );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngLockSurface ( hsurf : HSURF ) -> *mut SURFOBJ );
     EngLockSurface(hsurf.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -340,33 +340,33 @@ pub unsafe fn EngMarkBandingSurface<P0>(hsurf: P0) -> super::super::Foundation::
 where
     P0: ::std::convert::Into<HSURF>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngMarkBandingSurface ( hsurf : HSURF ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngMarkBandingSurface ( hsurf : HSURF ) -> super::super::Foundation:: BOOL );
     EngMarkBandingSurface(hsurf.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn EngMultiByteToUnicodeN(unicodestring: ::windows::core::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: ::core::option::Option<*mut u32>, multibytestring: &[u8]) {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngMultiByteToUnicodeN ( unicodestring : :: windows::core::PWSTR , maxbytesinunicodestring : u32 , bytesinunicodestring : *mut u32 , multibytestring : :: windows::core::PCSTR , bytesinmultibytestring : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngMultiByteToUnicodeN ( unicodestring : :: windows::core::PWSTR , maxbytesinunicodestring : u32 , bytesinunicodestring : *mut u32 , multibytestring : :: windows::core::PCSTR , bytesinmultibytestring : u32 ) -> ( ) );
     EngMultiByteToUnicodeN(::core::mem::transmute(unicodestring), maxbytesinunicodestring, ::core::mem::transmute(bytesinunicodestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn EngMultiByteToWideChar(codepage: u32, widecharstring: ::windows::core::PWSTR, bytesinwidecharstring: i32, multibytestring: ::core::option::Option<&[u8]>) -> i32 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngMultiByteToWideChar ( codepage : u32 , widecharstring : :: windows::core::PWSTR , bytesinwidecharstring : i32 , multibytestring : :: windows::core::PCSTR , bytesinmultibytestring : i32 ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngMultiByteToWideChar ( codepage : u32 , widecharstring : :: windows::core::PWSTR , bytesinwidecharstring : i32 , multibytestring : :: windows::core::PCSTR , bytesinmultibytestring : i32 ) -> i32 );
     EngMultiByteToWideChar(codepage, ::core::mem::transmute(widecharstring), bytesinwidecharstring, ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngPaint(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngPaint ( pso : *mut SURFOBJ , pco : *mut CLIPOBJ , pbo : *mut BRUSHOBJ , pptlbrushorg : *mut super::super::Foundation:: POINTL , mix : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngPaint ( pso : *mut SURFOBJ , pco : *mut CLIPOBJ , pbo : *mut BRUSHOBJ , pptlbrushorg : *mut super::super::Foundation:: POINTL , mix : u32 ) -> super::super::Foundation:: BOOL );
     EngPaint(pso, pco, pbo, pptlbrushorg, mix)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlbrushorg: *mut super::super::Foundation::POINTL, pptfx: *mut POINTFIX, prcl: *mut super::super::Foundation::RECTL, pptl: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngPlgBlt ( psotrg : *mut SURFOBJ , psosrc : *mut SURFOBJ , psomsk : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , pca : *mut super::super::Graphics::Gdi:: COLORADJUSTMENT , pptlbrushorg : *mut super::super::Foundation:: POINTL , pptfx : *mut POINTFIX , prcl : *mut super::super::Foundation:: RECTL , pptl : *mut super::super::Foundation:: POINTL , imode : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngPlgBlt ( psotrg : *mut SURFOBJ , psosrc : *mut SURFOBJ , psomsk : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , pca : *mut super::super::Graphics::Gdi:: COLORADJUSTMENT , pptlbrushorg : *mut super::super::Foundation:: POINTL , pptfx : *mut POINTFIX , prcl : *mut super::super::Foundation:: RECTL , pptl : *mut super::super::Foundation:: POINTL , imode : u32 ) -> super::super::Foundation:: BOOL );
     EngPlgBlt(psotrg, psosrc, psomsk, pco, pxlo, pca, pptlbrushorg, pptfx, prcl, pptl, imode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -376,13 +376,13 @@ pub unsafe fn EngQueryEMFInfo<P0>(hdev: P0, pemfinfo: *mut EMFINFO) -> super::su
 where
     P0: ::std::convert::Into<HDEV>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngQueryEMFInfo ( hdev : HDEV , pemfinfo : *mut EMFINFO ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngQueryEMFInfo ( hdev : HDEV , pemfinfo : *mut EMFINFO ) -> super::super::Foundation:: BOOL );
     EngQueryEMFInfo(hdev.into(), pemfinfo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn EngQueryLocalTime() -> ENG_TIME_FIELDS {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngQueryLocalTime ( param0 : *mut ENG_TIME_FIELDS ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngQueryLocalTime ( param0 : *mut ENG_TIME_FIELDS ) -> ( ) );
     let mut result__ = ::windows::core::zeroed::<ENG_TIME_FIELDS>();
     EngQueryLocalTime(&mut result__);
     ::std::mem::transmute(result__)
@@ -393,49 +393,49 @@ pub unsafe fn EngReleaseSemaphore<P0>(hsem: P0)
 where
     P0: ::std::convert::Into<HSEMAPHORE>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngReleaseSemaphore ( hsem : HSEMAPHORE ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngReleaseSemaphore ( hsem : HSEMAPHORE ) -> ( ) );
     EngReleaseSemaphore(hsem.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn EngStretchBlt(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngStretchBlt ( psodest : *mut SURFOBJ , psosrc : *mut SURFOBJ , psomask : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , pca : *mut super::super::Graphics::Gdi:: COLORADJUSTMENT , pptlhtorg : *mut super::super::Foundation:: POINTL , prcldest : *mut super::super::Foundation:: RECTL , prclsrc : *mut super::super::Foundation:: RECTL , pptlmask : *mut super::super::Foundation:: POINTL , imode : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngStretchBlt ( psodest : *mut SURFOBJ , psosrc : *mut SURFOBJ , psomask : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , pca : *mut super::super::Graphics::Gdi:: COLORADJUSTMENT , pptlhtorg : *mut super::super::Foundation:: POINTL , prcldest : *mut super::super::Foundation:: RECTL , prclsrc : *mut super::super::Foundation:: RECTL , pptlmask : *mut super::super::Foundation:: POINTL , imode : u32 ) -> super::super::Foundation:: BOOL );
     EngStretchBlt(psodest, psosrc, psomask, pco, pxlo, pca, pptlhtorg, prcldest, prclsrc, pptlmask, imode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn EngStretchBltROP(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32, pbo: *mut BRUSHOBJ, rop4: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngStretchBltROP ( psodest : *mut SURFOBJ , psosrc : *mut SURFOBJ , psomask : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , pca : *mut super::super::Graphics::Gdi:: COLORADJUSTMENT , pptlhtorg : *mut super::super::Foundation:: POINTL , prcldest : *mut super::super::Foundation:: RECTL , prclsrc : *mut super::super::Foundation:: RECTL , pptlmask : *mut super::super::Foundation:: POINTL , imode : u32 , pbo : *mut BRUSHOBJ , rop4 : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngStretchBltROP ( psodest : *mut SURFOBJ , psosrc : *mut SURFOBJ , psomask : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , pca : *mut super::super::Graphics::Gdi:: COLORADJUSTMENT , pptlhtorg : *mut super::super::Foundation:: POINTL , prcldest : *mut super::super::Foundation:: RECTL , prclsrc : *mut super::super::Foundation:: RECTL , pptlmask : *mut super::super::Foundation:: POINTL , imode : u32 , pbo : *mut BRUSHOBJ , rop4 : u32 ) -> super::super::Foundation:: BOOL );
     EngStretchBltROP(psodest, psosrc, psomask, pco, pxlo, pca, pptlhtorg, prcldest, prclsrc, pptlmask, imode, pbo, rop4)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngStrokeAndFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut XFORMOBJ, pbostroke: *mut BRUSHOBJ, plineattrs: *mut LINEATTRS, pbofill: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mixfill: u32, floptions: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngStrokeAndFillPath ( pso : *mut SURFOBJ , ppo : *mut PATHOBJ , pco : *mut CLIPOBJ , pxo : *mut XFORMOBJ , pbostroke : *mut BRUSHOBJ , plineattrs : *mut LINEATTRS , pbofill : *mut BRUSHOBJ , pptlbrushorg : *mut super::super::Foundation:: POINTL , mixfill : u32 , floptions : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngStrokeAndFillPath ( pso : *mut SURFOBJ , ppo : *mut PATHOBJ , pco : *mut CLIPOBJ , pxo : *mut XFORMOBJ , pbostroke : *mut BRUSHOBJ , plineattrs : *mut LINEATTRS , pbofill : *mut BRUSHOBJ , pptlbrushorg : *mut super::super::Foundation:: POINTL , mixfill : u32 , floptions : u32 ) -> super::super::Foundation:: BOOL );
     EngStrokeAndFillPath(pso, ppo, pco, pxo, pbostroke, plineattrs, pbofill, pptlbrushorg, mixfill, floptions)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngStrokePath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut XFORMOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, plineattrs: *mut LINEATTRS, mix: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngStrokePath ( pso : *mut SURFOBJ , ppo : *mut PATHOBJ , pco : *mut CLIPOBJ , pxo : *mut XFORMOBJ , pbo : *mut BRUSHOBJ , pptlbrushorg : *mut super::super::Foundation:: POINTL , plineattrs : *mut LINEATTRS , mix : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngStrokePath ( pso : *mut SURFOBJ , ppo : *mut PATHOBJ , pco : *mut CLIPOBJ , pxo : *mut XFORMOBJ , pbo : *mut BRUSHOBJ , pptlbrushorg : *mut super::super::Foundation:: POINTL , plineattrs : *mut LINEATTRS , mix : u32 ) -> super::super::Foundation:: BOOL );
     EngStrokePath(pso, ppo, pco, pxo, pbo, pptlbrushorg, plineattrs, mix)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngTextOut(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOBJ, pco: *mut CLIPOBJ, prclextra: *mut super::super::Foundation::RECTL, prclopaque: *mut super::super::Foundation::RECTL, pbofore: *mut BRUSHOBJ, pboopaque: *mut BRUSHOBJ, pptlorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngTextOut ( pso : *mut SURFOBJ , pstro : *mut STROBJ , pfo : *mut FONTOBJ , pco : *mut CLIPOBJ , prclextra : *mut super::super::Foundation:: RECTL , prclopaque : *mut super::super::Foundation:: RECTL , pbofore : *mut BRUSHOBJ , pboopaque : *mut BRUSHOBJ , pptlorg : *mut super::super::Foundation:: POINTL , mix : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngTextOut ( pso : *mut SURFOBJ , pstro : *mut STROBJ , pfo : *mut FONTOBJ , pco : *mut CLIPOBJ , prclextra : *mut super::super::Foundation:: RECTL , prclopaque : *mut super::super::Foundation:: RECTL , pbofore : *mut BRUSHOBJ , pboopaque : *mut BRUSHOBJ , pptlorg : *mut super::super::Foundation:: POINTL , mix : u32 ) -> super::super::Foundation:: BOOL );
     EngTextOut(pso, pstro, pfo, pco, prclextra, prclopaque, pbofore, pboopaque, pptlorg, mix)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, pco: ::core::option::Option<*const CLIPOBJ>, pxlo: ::core::option::Option<*const XLATEOBJ>, prcldst: *const super::super::Foundation::RECTL, prclsrc: *const super::super::Foundation::RECTL, transcolor: u32, bcalledfrombitblt: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngTransparentBlt ( psodst : *const SURFOBJ , psosrc : *const SURFOBJ , pco : *const CLIPOBJ , pxlo : *const XLATEOBJ , prcldst : *const super::super::Foundation:: RECTL , prclsrc : *const super::super::Foundation:: RECTL , transcolor : u32 , bcalledfrombitblt : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngTransparentBlt ( psodst : *const SURFOBJ , psosrc : *const SURFOBJ , pco : *const CLIPOBJ , pxlo : *const XLATEOBJ , prcldst : *const super::super::Foundation:: RECTL , prclsrc : *const super::super::Foundation:: RECTL , transcolor : u32 , bcalledfrombitblt : u32 ) -> super::super::Foundation:: BOOL );
     EngTransparentBlt(psodst, psosrc, ::core::mem::transmute(pco.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pxlo.unwrap_or(::std::ptr::null())), prcldst, prclsrc, transcolor, bcalledfrombitblt)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -444,14 +444,14 @@ pub unsafe fn EngUnicodeToMultiByteN<P0>(multibytestring: &mut [u8], bytesinmult
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngUnicodeToMultiByteN ( multibytestring : :: windows::core::PSTR , maxbytesinmultibytestring : u32 , bytesinmultibytestring : *mut u32 , unicodestring : :: windows::core::PCWSTR , bytesinunicodestring : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngUnicodeToMultiByteN ( multibytestring : :: windows::core::PSTR , maxbytesinmultibytestring : u32 , bytesinmultibytestring : *mut u32 , unicodestring : :: windows::core::PCWSTR , bytesinunicodestring : u32 ) -> ( ) );
     EngUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _, ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), unicodestring.into().abi(), bytesinunicodestring)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngUnlockSurface ( pso : *mut SURFOBJ ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngUnlockSurface ( pso : *mut SURFOBJ ) -> ( ) );
     EngUnlockSurface(pso)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -460,70 +460,70 @@ pub unsafe fn EngWideCharToMultiByte<P0>(codepage: u32, widecharstring: P0, byte
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EngWideCharToMultiByte ( codepage : u32 , widecharstring : :: windows::core::PCWSTR , bytesinwidecharstring : i32 , multibytestring : :: windows::core::PSTR , bytesinmultibytestring : i32 ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EngWideCharToMultiByte ( codepage : u32 , widecharstring : :: windows::core::PCWSTR , bytesinwidecharstring : i32 , multibytestring : :: windows::core::PSTR , bytesinmultibytestring : i32 ) -> i32 );
     EngWideCharToMultiByte(codepage, widecharstring.into().abi(), bytesinwidecharstring, ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u32 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn FONTOBJ_cGetAllGlyphHandles ( pfo : *mut FONTOBJ , phg : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn FONTOBJ_cGetAllGlyphHandles ( pfo : *mut FONTOBJ , phg : *mut u32 ) -> u32 );
     FONTOBJ_cGetAllGlyphHandles(pfo, phg)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FONTOBJ_cGetGlyphs(pfo: *mut FONTOBJ, imode: u32, cglyph: u32, phg: *mut u32, ppvglyph: *mut *mut ::core::ffi::c_void) -> u32 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn FONTOBJ_cGetGlyphs ( pfo : *mut FONTOBJ , imode : u32 , cglyph : u32 , phg : *mut u32 , ppvglyph : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn FONTOBJ_cGetGlyphs ( pfo : *mut FONTOBJ , imode : u32 , cglyph : u32 , phg : *mut u32 , ppvglyph : *mut *mut ::core::ffi::c_void ) -> u32 );
     FONTOBJ_cGetGlyphs(pfo, imode, cglyph, phg, ppvglyph)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD_GLYPHATTR {
-    ::windows::core::link ! ( "gdi32.dll""system" fn FONTOBJ_pQueryGlyphAttrs ( pfo : *mut FONTOBJ , imode : u32 ) -> *mut FD_GLYPHATTR );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn FONTOBJ_pQueryGlyphAttrs ( pfo : *mut FONTOBJ , imode : u32 ) -> *mut FD_GLYPHATTR );
     FONTOBJ_pQueryGlyphAttrs(pfo, imode)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FONTOBJ_pfdg(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET {
-    ::windows::core::link ! ( "gdi32.dll""system" fn FONTOBJ_pfdg ( pfo : *mut FONTOBJ ) -> *mut FD_GLYPHSET );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn FONTOBJ_pfdg ( pfo : *mut FONTOBJ ) -> *mut FD_GLYPHSET );
     FONTOBJ_pfdg(pfo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn FONTOBJ_pifi(pfo: *const FONTOBJ) -> *mut IFIMETRICS {
-    ::windows::core::link ! ( "gdi32.dll""system" fn FONTOBJ_pifi ( pfo : *const FONTOBJ ) -> *mut IFIMETRICS );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn FONTOBJ_pifi ( pfo : *const FONTOBJ ) -> *mut IFIMETRICS );
     FONTOBJ_pifi(pfo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FONTOBJ_pvTrueTypeFontFile(pfo: *mut FONTOBJ, pcjfile: *mut u32) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "gdi32.dll""system" fn FONTOBJ_pvTrueTypeFontFile ( pfo : *mut FONTOBJ , pcjfile : *mut u32 ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn FONTOBJ_pvTrueTypeFontFile ( pfo : *mut FONTOBJ , pcjfile : *mut u32 ) -> *mut ::core::ffi::c_void );
     FONTOBJ_pvTrueTypeFontFile(pfo, pcjfile)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FONTOBJ_pxoGetXform(pfo: *const FONTOBJ) -> *mut XFORMOBJ {
-    ::windows::core::link ! ( "gdi32.dll""system" fn FONTOBJ_pxoGetXform ( pfo : *const FONTOBJ ) -> *mut XFORMOBJ );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn FONTOBJ_pxoGetXform ( pfo : *const FONTOBJ ) -> *mut XFORMOBJ );
     FONTOBJ_pxoGetXform(pfo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINFO) {
-    ::windows::core::link ! ( "gdi32.dll""system" fn FONTOBJ_vGetInfo ( pfo : *mut FONTOBJ , cjsize : u32 , pfi : *mut FONTINFO ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn FONTOBJ_vGetInfo ( pfo : *mut FONTOBJ , cjsize : u32 , pfi : *mut FONTINFO ) -> ( ) );
     FONTOBJ_vGetInfo(pfo, cjsize, pfi)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "user32.dll""system" fn GetAutoRotationState ( pstate : *mut AR_STATE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn GetAutoRotationState ( pstate : *mut AR_STATE ) -> super::super::Foundation:: BOOL );
     GetAutoRotationState(pstate)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -533,21 +533,21 @@ pub unsafe fn GetCapabilitiesStringLength<P0>(hmonitor: P0, pdwcapabilitiesstrin
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetCapabilitiesStringLength ( hmonitor : super::super::Foundation:: HANDLE , pdwcapabilitiesstringlengthincharacters : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetCapabilitiesStringLength ( hmonitor : super::super::Foundation:: HANDLE , pdwcapabilitiesstringlengthincharacters : *mut u32 ) -> i32 );
     GetCapabilitiesStringLength(hmonitor.into(), pdwcapabilitiesstringlengthincharacters)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDisplayAutoRotationPreferences(porientation: *mut ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "user32.dll""system" fn GetDisplayAutoRotationPreferences ( porientation : *mut ORIENTATION_PREFERENCE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn GetDisplayAutoRotationPreferences ( porientation : *mut ORIENTATION_PREFERENCE ) -> super::super::Foundation:: BOOL );
     GetDisplayAutoRotationPreferences(porientation)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDisplayConfigBufferSizes(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "user32.dll""system" fn GetDisplayConfigBufferSizes ( flags : QUERY_DISPLAY_CONFIG_FLAGS , numpatharrayelements : *mut u32 , nummodeinfoarrayelements : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "user32.dll""system" fn GetDisplayConfigBufferSizes ( flags : QUERY_DISPLAY_CONFIG_FLAGS , numpatharrayelements : *mut u32 , nummodeinfoarrayelements : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     GetDisplayConfigBufferSizes(flags, numpatharrayelements, nummodeinfoarrayelements)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -557,7 +557,7 @@ pub unsafe fn GetMonitorBrightness<P0>(hmonitor: P0, pdwminimumbrightness: *mut 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetMonitorBrightness ( hmonitor : super::super::Foundation:: HANDLE , pdwminimumbrightness : *mut u32 , pdwcurrentbrightness : *mut u32 , pdwmaximumbrightness : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorBrightness ( hmonitor : super::super::Foundation:: HANDLE , pdwminimumbrightness : *mut u32 , pdwcurrentbrightness : *mut u32 , pdwmaximumbrightness : *mut u32 ) -> i32 );
     GetMonitorBrightness(hmonitor.into(), pdwminimumbrightness, pdwcurrentbrightness, pdwmaximumbrightness)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -567,7 +567,7 @@ pub unsafe fn GetMonitorCapabilities<P0>(hmonitor: P0, pdwmonitorcapabilities: *
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetMonitorCapabilities ( hmonitor : super::super::Foundation:: HANDLE , pdwmonitorcapabilities : *mut u32 , pdwsupportedcolortemperatures : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorCapabilities ( hmonitor : super::super::Foundation:: HANDLE , pdwmonitorcapabilities : *mut u32 , pdwsupportedcolortemperatures : *mut u32 ) -> i32 );
     GetMonitorCapabilities(hmonitor.into(), pdwmonitorcapabilities, pdwsupportedcolortemperatures)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -577,7 +577,7 @@ pub unsafe fn GetMonitorColorTemperature<P0>(hmonitor: P0, pctcurrentcolortemper
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetMonitorColorTemperature ( hmonitor : super::super::Foundation:: HANDLE , pctcurrentcolortemperature : *mut MC_COLOR_TEMPERATURE ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorColorTemperature ( hmonitor : super::super::Foundation:: HANDLE , pctcurrentcolortemperature : *mut MC_COLOR_TEMPERATURE ) -> i32 );
     GetMonitorColorTemperature(hmonitor.into(), pctcurrentcolortemperature)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -587,7 +587,7 @@ pub unsafe fn GetMonitorContrast<P0>(hmonitor: P0, pdwminimumcontrast: *mut u32,
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetMonitorContrast ( hmonitor : super::super::Foundation:: HANDLE , pdwminimumcontrast : *mut u32 , pdwcurrentcontrast : *mut u32 , pdwmaximumcontrast : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorContrast ( hmonitor : super::super::Foundation:: HANDLE , pdwminimumcontrast : *mut u32 , pdwcurrentcontrast : *mut u32 , pdwmaximumcontrast : *mut u32 ) -> i32 );
     GetMonitorContrast(hmonitor.into(), pdwminimumcontrast, pdwcurrentcontrast, pdwmaximumcontrast)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -597,7 +597,7 @@ pub unsafe fn GetMonitorDisplayAreaPosition<P0>(hmonitor: P0, ptpositiontype: MC
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetMonitorDisplayAreaPosition ( hmonitor : super::super::Foundation:: HANDLE , ptpositiontype : MC_POSITION_TYPE , pdwminimumposition : *mut u32 , pdwcurrentposition : *mut u32 , pdwmaximumposition : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorDisplayAreaPosition ( hmonitor : super::super::Foundation:: HANDLE , ptpositiontype : MC_POSITION_TYPE , pdwminimumposition : *mut u32 , pdwcurrentposition : *mut u32 , pdwmaximumposition : *mut u32 ) -> i32 );
     GetMonitorDisplayAreaPosition(hmonitor.into(), ptpositiontype, pdwminimumposition, pdwcurrentposition, pdwmaximumposition)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -607,7 +607,7 @@ pub unsafe fn GetMonitorDisplayAreaSize<P0>(hmonitor: P0, stsizetype: MC_SIZE_TY
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetMonitorDisplayAreaSize ( hmonitor : super::super::Foundation:: HANDLE , stsizetype : MC_SIZE_TYPE , pdwminimumwidthorheight : *mut u32 , pdwcurrentwidthorheight : *mut u32 , pdwmaximumwidthorheight : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorDisplayAreaSize ( hmonitor : super::super::Foundation:: HANDLE , stsizetype : MC_SIZE_TYPE , pdwminimumwidthorheight : *mut u32 , pdwcurrentwidthorheight : *mut u32 , pdwmaximumwidthorheight : *mut u32 ) -> i32 );
     GetMonitorDisplayAreaSize(hmonitor.into(), stsizetype, pdwminimumwidthorheight, pdwcurrentwidthorheight, pdwmaximumwidthorheight)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -617,7 +617,7 @@ pub unsafe fn GetMonitorRedGreenOrBlueDrive<P0>(hmonitor: P0, dtdrivetype: MC_DR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetMonitorRedGreenOrBlueDrive ( hmonitor : super::super::Foundation:: HANDLE , dtdrivetype : MC_DRIVE_TYPE , pdwminimumdrive : *mut u32 , pdwcurrentdrive : *mut u32 , pdwmaximumdrive : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorRedGreenOrBlueDrive ( hmonitor : super::super::Foundation:: HANDLE , dtdrivetype : MC_DRIVE_TYPE , pdwminimumdrive : *mut u32 , pdwcurrentdrive : *mut u32 , pdwmaximumdrive : *mut u32 ) -> i32 );
     GetMonitorRedGreenOrBlueDrive(hmonitor.into(), dtdrivetype, pdwminimumdrive, pdwcurrentdrive, pdwmaximumdrive)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -627,7 +627,7 @@ pub unsafe fn GetMonitorRedGreenOrBlueGain<P0>(hmonitor: P0, gtgaintype: MC_GAIN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetMonitorRedGreenOrBlueGain ( hmonitor : super::super::Foundation:: HANDLE , gtgaintype : MC_GAIN_TYPE , pdwminimumgain : *mut u32 , pdwcurrentgain : *mut u32 , pdwmaximumgain : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorRedGreenOrBlueGain ( hmonitor : super::super::Foundation:: HANDLE , gtgaintype : MC_GAIN_TYPE , pdwminimumgain : *mut u32 , pdwcurrentgain : *mut u32 , pdwmaximumgain : *mut u32 ) -> i32 );
     GetMonitorRedGreenOrBlueGain(hmonitor.into(), gtgaintype, pdwminimumgain, pdwcurrentgain, pdwmaximumgain)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -637,7 +637,7 @@ pub unsafe fn GetMonitorTechnologyType<P0>(hmonitor: P0, pdtydisplaytechnologyty
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetMonitorTechnologyType ( hmonitor : super::super::Foundation:: HANDLE , pdtydisplaytechnologytype : *mut MC_DISPLAY_TECHNOLOGY_TYPE ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorTechnologyType ( hmonitor : super::super::Foundation:: HANDLE , pdtydisplaytechnologytype : *mut MC_DISPLAY_TECHNOLOGY_TYPE ) -> i32 );
     GetMonitorTechnologyType(hmonitor.into(), pdtydisplaytechnologytype)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -647,7 +647,7 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<P0>(hmonitor: P0, pdwnumbe
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HMONITOR>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetNumberOfPhysicalMonitorsFromHMONITOR ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , pdwnumberofphysicalmonitors : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetNumberOfPhysicalMonitorsFromHMONITOR ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , pdwnumberofphysicalmonitors : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor.into(), pdwnumberofphysicalmonitors)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Graphics_Direct3D9\"`*"]
@@ -657,7 +657,7 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<P0>(pdirect3ddevic
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D9::IDirect3DDevice9>>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : * mut::core::ffi::c_void , pdwnumberofphysicalmonitors : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : * mut::core::ffi::c_void , pdwnumberofphysicalmonitors : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into().abi(), &mut result__).from_abi(result__)
 }
@@ -668,7 +668,7 @@ pub unsafe fn GetPhysicalMonitorsFromHMONITOR<P0>(hmonitor: P0, pphysicalmonitor
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HMONITOR>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetPhysicalMonitorsFromHMONITOR ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *mut PHYSICAL_MONITOR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetPhysicalMonitorsFromHMONITOR ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *mut PHYSICAL_MONITOR ) -> super::super::Foundation:: BOOL );
     GetPhysicalMonitorsFromHMONITOR(hmonitor.into(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
@@ -678,7 +678,7 @@ pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<P0>(pdirect3ddevice9: P0, 
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D9::IDirect3DDevice9>>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : * mut::core::ffi::c_void , dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *mut PHYSICAL_MONITOR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : * mut::core::ffi::c_void , dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *mut PHYSICAL_MONITOR ) -> :: windows::core::HRESULT );
     GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into().abi(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -688,7 +688,7 @@ pub unsafe fn GetTimingReport<P0>(hmonitor: P0, pmtrmonitortimingreport: *mut MC
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetTimingReport ( hmonitor : super::super::Foundation:: HANDLE , pmtrmonitortimingreport : *mut MC_TIMING_REPORT ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetTimingReport ( hmonitor : super::super::Foundation:: HANDLE , pmtrmonitortimingreport : *mut MC_TIMING_REPORT ) -> i32 );
     GetTimingReport(hmonitor.into(), pmtrmonitortimingreport)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -698,14 +698,14 @@ pub unsafe fn GetVCPFeatureAndVCPFeatureReply<P0>(hmonitor: P0, bvcpcode: u8, pv
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn GetVCPFeatureAndVCPFeatureReply ( hmonitor : super::super::Foundation:: HANDLE , bvcpcode : u8 , pvct : *mut MC_VCP_CODE_TYPE , pdwcurrentvalue : *mut u32 , pdwmaximumvalue : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn GetVCPFeatureAndVCPFeatureReply ( hmonitor : super::super::Foundation:: HANDLE , bvcpcode : u8 , pvct : *mut MC_VCP_CODE_TYPE , pdwcurrentvalue : *mut u32 , pdwmaximumvalue : *mut u32 ) -> i32 );
     GetVCPFeatureAndVCPFeatureReply(hmonitor.into(), bvcpcode, ::core::mem::transmute(pvct.unwrap_or(::std::ptr::null_mut())), pdwcurrentvalue, ::core::mem::transmute(pdwmaximumvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HT_Get8BPPFormatPalette(ppaletteentry: ::core::option::Option<*mut super::super::Graphics::Gdi::PALETTEENTRY>, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn HT_Get8BPPFormatPalette ( ppaletteentry : *mut super::super::Graphics::Gdi:: PALETTEENTRY , redgamma : u16 , greengamma : u16 , bluegamma : u16 ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn HT_Get8BPPFormatPalette ( ppaletteentry : *mut super::super::Graphics::Gdi:: PALETTEENTRY , redgamma : u16 , greengamma : u16 , bluegamma : u16 ) -> i32 );
     HT_Get8BPPFormatPalette(::core::mem::transmute(ppaletteentry.unwrap_or(::std::ptr::null_mut())), redgamma, greengamma, bluegamma)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -715,47 +715,47 @@ pub unsafe fn HT_Get8BPPMaskPalette<P0>(ppaletteentry: ::core::option::Option<*m
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn HT_Get8BPPMaskPalette ( ppaletteentry : *mut super::super::Graphics::Gdi:: PALETTEENTRY , use8bppmaskpal : super::super::Foundation:: BOOL , cmymask : u8 , redgamma : u16 , greengamma : u16 , bluegamma : u16 ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn HT_Get8BPPMaskPalette ( ppaletteentry : *mut super::super::Graphics::Gdi:: PALETTEENTRY , use8bppmaskpal : super::super::Foundation:: BOOL , cmymask : u8 , redgamma : u16 , greengamma : u16 , bluegamma : u16 ) -> i32 );
     HT_Get8BPPMaskPalette(::core::mem::transmute(ppaletteentry.unwrap_or(::std::ptr::null_mut())), use8bppmaskpal.into(), cmymask, redgamma, greengamma, bluegamma)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PATHOBJ_bEnum(ppo: *mut PATHOBJ, ppd: *mut PATHDATA) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn PATHOBJ_bEnum ( ppo : *mut PATHOBJ , ppd : *mut PATHDATA ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn PATHOBJ_bEnum ( ppo : *mut PATHOBJ , ppd : *mut PATHDATA ) -> super::super::Foundation:: BOOL );
     PATHOBJ_bEnum(ppo, ppd)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PATHOBJ_bEnumClipLines(ppo: *mut PATHOBJ, cb: u32, pcl: *mut CLIPLINE) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn PATHOBJ_bEnumClipLines ( ppo : *mut PATHOBJ , cb : u32 , pcl : *mut CLIPLINE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn PATHOBJ_bEnumClipLines ( ppo : *mut PATHOBJ , cb : u32 , pcl : *mut CLIPLINE ) -> super::super::Foundation:: BOOL );
     PATHOBJ_bEnumClipLines(ppo, cb, pcl)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ) {
-    ::windows::core::link ! ( "gdi32.dll""system" fn PATHOBJ_vEnumStart ( ppo : *mut PATHOBJ ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn PATHOBJ_vEnumStart ( ppo : *mut PATHOBJ ) -> ( ) );
     PATHOBJ_vEnumStart(ppo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PATHOBJ_vEnumStartClipLines(ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pso: *mut SURFOBJ, pla: *mut LINEATTRS) {
-    ::windows::core::link ! ( "gdi32.dll""system" fn PATHOBJ_vEnumStartClipLines ( ppo : *mut PATHOBJ , pco : *mut CLIPOBJ , pso : *mut SURFOBJ , pla : *mut LINEATTRS ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn PATHOBJ_vEnumStartClipLines ( ppo : *mut PATHOBJ , pco : *mut CLIPOBJ , pso : *mut SURFOBJ , pla : *mut LINEATTRS ) -> ( ) );
     PATHOBJ_vEnumStartClipLines(ppo, pco, pso, pla)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn PATHOBJ_vGetBounds(ppo: *mut PATHOBJ, prectfx: *mut RECTFX) {
-    ::windows::core::link ! ( "gdi32.dll""system" fn PATHOBJ_vGetBounds ( ppo : *mut PATHOBJ , prectfx : *mut RECTFX ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn PATHOBJ_vGetBounds ( ppo : *mut PATHOBJ , prectfx : *mut RECTFX ) -> ( ) );
     PATHOBJ_vGetBounds(ppo, prectfx)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryDisplayConfig(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: ::core::option::Option<*mut DISPLAYCONFIG_TOPOLOGY_ID>) -> super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "user32.dll""system" fn QueryDisplayConfig ( flags : QUERY_DISPLAY_CONFIG_FLAGS , numpatharrayelements : *mut u32 , patharray : *mut DISPLAYCONFIG_PATH_INFO , nummodeinfoarrayelements : *mut u32 , modeinfoarray : *mut DISPLAYCONFIG_MODE_INFO , currenttopologyid : *mut DISPLAYCONFIG_TOPOLOGY_ID ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "user32.dll""system" fn QueryDisplayConfig ( flags : QUERY_DISPLAY_CONFIG_FLAGS , numpatharrayelements : *mut u32 , patharray : *mut DISPLAYCONFIG_PATH_INFO , nummodeinfoarrayelements : *mut u32 , modeinfoarray : *mut DISPLAYCONFIG_MODE_INFO , currenttopologyid : *mut DISPLAYCONFIG_TOPOLOGY_ID ) -> super::super::Foundation:: WIN32_ERROR );
     QueryDisplayConfig(flags, numpatharrayelements, patharray, nummodeinfoarrayelements, modeinfoarray, ::core::mem::transmute(currenttopologyid.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -765,7 +765,7 @@ pub unsafe fn RestoreMonitorFactoryColorDefaults<P0>(hmonitor: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn RestoreMonitorFactoryColorDefaults ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn RestoreMonitorFactoryColorDefaults ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
     RestoreMonitorFactoryColorDefaults(hmonitor.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -775,42 +775,42 @@ pub unsafe fn RestoreMonitorFactoryDefaults<P0>(hmonitor: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn RestoreMonitorFactoryDefaults ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn RestoreMonitorFactoryDefaults ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
     RestoreMonitorFactoryDefaults(hmonitor.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn STROBJ_bEnum(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn STROBJ_bEnum ( pstro : *mut STROBJ , pc : *mut u32 , ppgpos : *mut *mut GLYPHPOS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn STROBJ_bEnum ( pstro : *mut STROBJ , pc : *mut u32 , ppgpos : *mut *mut GLYPHPOS ) -> super::super::Foundation:: BOOL );
     STROBJ_bEnum(pstro, pc, ppgpos)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn STROBJ_bEnumPositionsOnly(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn STROBJ_bEnumPositionsOnly ( pstro : *mut STROBJ , pc : *mut u32 , ppgpos : *mut *mut GLYPHPOS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn STROBJ_bEnumPositionsOnly ( pstro : *mut STROBJ , pc : *mut u32 , ppgpos : *mut *mut GLYPHPOS ) -> super::super::Foundation:: BOOL );
     STROBJ_bEnumPositionsOnly(pstro, pc, ppgpos)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn STROBJ_bGetAdvanceWidths(pso: *mut STROBJ, ifirst: u32, c: u32, pptqd: *mut POINTQF) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn STROBJ_bGetAdvanceWidths ( pso : *mut STROBJ , ifirst : u32 , c : u32 , pptqd : *mut POINTQF ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn STROBJ_bGetAdvanceWidths ( pso : *mut STROBJ , ifirst : u32 , c : u32 , pptqd : *mut POINTQF ) -> super::super::Foundation:: BOOL );
     STROBJ_bGetAdvanceWidths(pso, ifirst, c, pptqd)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn STROBJ_dwGetCodePage(pstro: *mut STROBJ) -> u32 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn STROBJ_dwGetCodePage ( pstro : *mut STROBJ ) -> u32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn STROBJ_dwGetCodePage ( pstro : *mut STROBJ ) -> u32 );
     STROBJ_dwGetCodePage(pstro)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn STROBJ_vEnumStart(pstro: *mut STROBJ) {
-    ::windows::core::link ! ( "gdi32.dll""system" fn STROBJ_vEnumStart ( pstro : *mut STROBJ ) -> ( ) );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn STROBJ_vEnumStart ( pstro : *mut STROBJ ) -> ( ) );
     STROBJ_vEnumStart(pstro)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -820,7 +820,7 @@ pub unsafe fn SaveCurrentMonitorSettings<P0>(hmonitor: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn SaveCurrentMonitorSettings ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn SaveCurrentMonitorSettings ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
     SaveCurrentMonitorSettings(hmonitor.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -830,21 +830,21 @@ pub unsafe fn SaveCurrentSettings<P0>(hmonitor: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn SaveCurrentSettings ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn SaveCurrentSettings ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
     SaveCurrentSettings(hmonitor.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "user32.dll""system" fn SetDisplayAutoRotationPreferences ( orientation : ORIENTATION_PREFERENCE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn SetDisplayAutoRotationPreferences ( orientation : ORIENTATION_PREFERENCE ) -> super::super::Foundation:: BOOL );
     SetDisplayAutoRotationPreferences(orientation)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDisplayConfig(patharray: ::core::option::Option<&[DISPLAYCONFIG_PATH_INFO]>, modeinfoarray: ::core::option::Option<&[DISPLAYCONFIG_MODE_INFO]>, flags: SET_DISPLAY_CONFIG_FLAGS) -> i32 {
-    ::windows::core::link ! ( "user32.dll""system" fn SetDisplayConfig ( numpatharrayelements : u32 , patharray : *const DISPLAYCONFIG_PATH_INFO , nummodeinfoarrayelements : u32 , modeinfoarray : *const DISPLAYCONFIG_MODE_INFO , flags : SET_DISPLAY_CONFIG_FLAGS ) -> i32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn SetDisplayConfig ( numpatharrayelements : u32 , patharray : *const DISPLAYCONFIG_PATH_INFO , nummodeinfoarrayelements : u32 , modeinfoarray : *const DISPLAYCONFIG_MODE_INFO , flags : SET_DISPLAY_CONFIG_FLAGS ) -> i32 );
     SetDisplayConfig(patharray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(patharray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), modeinfoarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(modeinfoarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -854,7 +854,7 @@ pub unsafe fn SetMonitorBrightness<P0>(hmonitor: P0, dwnewbrightness: u32) -> i3
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn SetMonitorBrightness ( hmonitor : super::super::Foundation:: HANDLE , dwnewbrightness : u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorBrightness ( hmonitor : super::super::Foundation:: HANDLE , dwnewbrightness : u32 ) -> i32 );
     SetMonitorBrightness(hmonitor.into(), dwnewbrightness)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -864,7 +864,7 @@ pub unsafe fn SetMonitorColorTemperature<P0>(hmonitor: P0, ctcurrentcolortempera
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn SetMonitorColorTemperature ( hmonitor : super::super::Foundation:: HANDLE , ctcurrentcolortemperature : MC_COLOR_TEMPERATURE ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorColorTemperature ( hmonitor : super::super::Foundation:: HANDLE , ctcurrentcolortemperature : MC_COLOR_TEMPERATURE ) -> i32 );
     SetMonitorColorTemperature(hmonitor.into(), ctcurrentcolortemperature)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -874,7 +874,7 @@ pub unsafe fn SetMonitorContrast<P0>(hmonitor: P0, dwnewcontrast: u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn SetMonitorContrast ( hmonitor : super::super::Foundation:: HANDLE , dwnewcontrast : u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorContrast ( hmonitor : super::super::Foundation:: HANDLE , dwnewcontrast : u32 ) -> i32 );
     SetMonitorContrast(hmonitor.into(), dwnewcontrast)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -884,7 +884,7 @@ pub unsafe fn SetMonitorDisplayAreaPosition<P0>(hmonitor: P0, ptpositiontype: MC
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn SetMonitorDisplayAreaPosition ( hmonitor : super::super::Foundation:: HANDLE , ptpositiontype : MC_POSITION_TYPE , dwnewposition : u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorDisplayAreaPosition ( hmonitor : super::super::Foundation:: HANDLE , ptpositiontype : MC_POSITION_TYPE , dwnewposition : u32 ) -> i32 );
     SetMonitorDisplayAreaPosition(hmonitor.into(), ptpositiontype, dwnewposition)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -894,7 +894,7 @@ pub unsafe fn SetMonitorDisplayAreaSize<P0>(hmonitor: P0, stsizetype: MC_SIZE_TY
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn SetMonitorDisplayAreaSize ( hmonitor : super::super::Foundation:: HANDLE , stsizetype : MC_SIZE_TYPE , dwnewdisplayareawidthorheight : u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorDisplayAreaSize ( hmonitor : super::super::Foundation:: HANDLE , stsizetype : MC_SIZE_TYPE , dwnewdisplayareawidthorheight : u32 ) -> i32 );
     SetMonitorDisplayAreaSize(hmonitor.into(), stsizetype, dwnewdisplayareawidthorheight)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -904,7 +904,7 @@ pub unsafe fn SetMonitorRedGreenOrBlueDrive<P0>(hmonitor: P0, dtdrivetype: MC_DR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn SetMonitorRedGreenOrBlueDrive ( hmonitor : super::super::Foundation:: HANDLE , dtdrivetype : MC_DRIVE_TYPE , dwnewdrive : u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorRedGreenOrBlueDrive ( hmonitor : super::super::Foundation:: HANDLE , dtdrivetype : MC_DRIVE_TYPE , dwnewdrive : u32 ) -> i32 );
     SetMonitorRedGreenOrBlueDrive(hmonitor.into(), dtdrivetype, dwnewdrive)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -914,7 +914,7 @@ pub unsafe fn SetMonitorRedGreenOrBlueGain<P0>(hmonitor: P0, gtgaintype: MC_GAIN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn SetMonitorRedGreenOrBlueGain ( hmonitor : super::super::Foundation:: HANDLE , gtgaintype : MC_GAIN_TYPE , dwnewgain : u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorRedGreenOrBlueGain ( hmonitor : super::super::Foundation:: HANDLE , gtgaintype : MC_GAIN_TYPE , dwnewgain : u32 ) -> i32 );
     SetMonitorRedGreenOrBlueGain(hmonitor.into(), gtgaintype, dwnewgain)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -924,45 +924,45 @@ pub unsafe fn SetVCPFeature<P0>(hmonitor: P0, bvcpcode: u8, dwnewvalue: u32) -> 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn SetVCPFeature ( hmonitor : super::super::Foundation:: HANDLE , bvcpcode : u8 , dwnewvalue : u32 ) -> i32 );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn SetVCPFeature ( hmonitor : super::super::Foundation:: HANDLE , bvcpcode : u8 , dwnewvalue : u32 ) -> i32 );
     SetVCPFeature(hmonitor.into(), bvcpcode, dwnewvalue)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn XFORMOBJ_bApplyXform(pxo: *mut XFORMOBJ, imode: u32, cpoints: u32, pvin: *mut ::core::ffi::c_void, pvout: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "gdi32.dll""system" fn XFORMOBJ_bApplyXform ( pxo : *mut XFORMOBJ , imode : u32 , cpoints : u32 , pvin : *mut ::core::ffi::c_void , pvout : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn XFORMOBJ_bApplyXform ( pxo : *mut XFORMOBJ , imode : u32 , cpoints : u32 , pvin : *mut ::core::ffi::c_void , pvout : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     XFORMOBJ_bApplyXform(pxo, imode, cpoints, pvin, pvout)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn XFORMOBJ_iGetXform(pxo: *const XFORMOBJ, pxform: ::core::option::Option<*mut XFORML>) -> u32 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn XFORMOBJ_iGetXform ( pxo : *const XFORMOBJ , pxform : *mut XFORML ) -> u32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn XFORMOBJ_iGetXform ( pxo : *const XFORMOBJ , pxform : *mut XFORML ) -> u32 );
     XFORMOBJ_iGetXform(pxo, ::core::mem::transmute(pxform.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn XLATEOBJ_cGetPalette(pxlo: *mut XLATEOBJ, ipal: u32, cpal: u32, ppal: *mut u32) -> u32 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn XLATEOBJ_cGetPalette ( pxlo : *mut XLATEOBJ , ipal : u32 , cpal : u32 , ppal : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn XLATEOBJ_cGetPalette ( pxlo : *mut XLATEOBJ , ipal : u32 , cpal : u32 , ppal : *mut u32 ) -> u32 );
     XLATEOBJ_cGetPalette(pxlo, ipal, cpal, ppal)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ) -> super::super::Foundation::HANDLE {
-    ::windows::core::link ! ( "gdi32.dll""system" fn XLATEOBJ_hGetColorTransform ( pxlo : *mut XLATEOBJ ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn XLATEOBJ_hGetColorTransform ( pxlo : *mut XLATEOBJ ) -> super::super::Foundation:: HANDLE );
     XLATEOBJ_hGetColorTransform(pxlo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn XLATEOBJ_iXlate ( pxlo : *mut XLATEOBJ , icolor : u32 ) -> u32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn XLATEOBJ_iXlate ( pxlo : *mut XLATEOBJ , icolor : u32 ) -> u32 );
     XLATEOBJ_iXlate(pxlo, icolor)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn XLATEOBJ_piVector ( pxlo : *mut XLATEOBJ ) -> *mut u32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn XLATEOBJ_piVector ( pxlo : *mut XLATEOBJ ) -> *mut u32 );
     XLATEOBJ_piVector(pxlo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -996,7 +996,7 @@ impl ICloneViewHelper {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self), ffinalcall.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICloneViewHelper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICloneViewHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICloneViewHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1069,7 +1069,7 @@ impl IViewHelper {
         (::windows::core::Vtable::vtable(self).GetProceedOnNewConfiguration)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IViewHelper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IViewHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IViewHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

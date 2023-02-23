@@ -189,7 +189,7 @@ impl ::core::fmt::Debug for WalletItemSystemStore {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletItemSystemStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.System.WalletItemSystemStore;{522e2bff-96a2-4a17-8d19-fe1d9f837561})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.System.WalletItemSystemStore;{522e2bff-96a2-4a17-8d19-fe1d9f837561})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for WalletItemSystemStore {
@@ -210,7 +210,7 @@ impl ::windows::core::RuntimeName for WalletItemSystemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.WalletItemSystemStore";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(WalletItemSystemStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WalletItemSystemStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for WalletItemSystemStore {}
 #[cfg(feature = "deprecated")]
@@ -231,7 +231,7 @@ impl WalletManagerSystem {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IWalletManagerSystemStatics<R, F: FnOnce(&IWalletManagerSystemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WalletManagerSystem, IWalletManagerSystemStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WalletManagerSystem, IWalletManagerSystemStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -276,7 +276,7 @@ impl ::core::fmt::Debug for WalletItemAppAssociation {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletItemAppAssociation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

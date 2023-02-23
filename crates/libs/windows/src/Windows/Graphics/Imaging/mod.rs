@@ -359,7 +359,7 @@ impl IBitmapFrame {
         }
     }
 }
-::windows::core::interface_hierarchy!(IBitmapFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBitmapFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBitmapFrame {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -372,7 +372,7 @@ impl ::core::fmt::Debug for IBitmapFrame {
     }
 }
 impl ::windows::core::RuntimeType for IBitmapFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72a49a1c-8081-438d-91bc-94ecfc8185c6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{72a49a1c-8081-438d-91bc-94ecfc8185c6}");
 }
 unsafe impl ::windows::core::Vtable for IBitmapFrame {
     type Vtable = IBitmapFrame_Vtbl;
@@ -533,7 +533,7 @@ impl IBitmapFrameWithSoftwareBitmap {
         }
     }
 }
-::windows::core::interface_hierarchy!(IBitmapFrameWithSoftwareBitmap, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBitmapFrameWithSoftwareBitmap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBitmapFrameWithSoftwareBitmap> for IBitmapFrame {
     type Error = ::windows::core::Error;
     fn try_from(value: IBitmapFrameWithSoftwareBitmap) -> ::windows::core::Result<Self> {
@@ -565,7 +565,7 @@ impl ::core::fmt::Debug for IBitmapFrameWithSoftwareBitmap {
     }
 }
 impl ::windows::core::RuntimeType for IBitmapFrameWithSoftwareBitmap {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fe287c9a-420c-4963-87ad-691436e08383}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{fe287c9a-420c-4963-87ad-691436e08383}");
 }
 unsafe impl ::windows::core::Vtable for IBitmapFrameWithSoftwareBitmap {
     type Vtable = IBitmapFrameWithSoftwareBitmap_Vtbl;
@@ -636,7 +636,7 @@ impl IBitmapPropertiesView {
         }
     }
 }
-::windows::core::interface_hierarchy!(IBitmapPropertiesView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBitmapPropertiesView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBitmapPropertiesView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -649,7 +649,7 @@ impl ::core::fmt::Debug for IBitmapPropertiesView {
     }
 }
 impl ::windows::core::RuntimeType for IBitmapPropertiesView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7e0fe87a-3a70-48f8-9c55-196cf5a545f5}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{7e0fe87a-3a70-48f8-9c55-196cf5a545f5}");
 }
 unsafe impl ::windows::core::Vtable for IBitmapPropertiesView {
     type Vtable = IBitmapPropertiesView_Vtbl;
@@ -913,7 +913,7 @@ impl ::core::fmt::Debug for BitmapBuffer {
     }
 }
 impl ::windows::core::RuntimeType for BitmapBuffer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapBuffer;{a53e04c4-399c-438c-b28f-a63a6b83d1a1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapBuffer;{a53e04c4-399c-438c-b28f-a63a6b83d1a1})");
 }
 impl ::core::clone::Clone for BitmapBuffer {
     fn clone(&self) -> Self {
@@ -929,7 +929,7 @@ unsafe impl ::windows::core::Interface for BitmapBuffer {
 impl ::windows::core::RuntimeName for BitmapBuffer {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapBuffer";
 }
-::windows::core::interface_hierarchy!(BitmapBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BitmapBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BitmapBuffer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1025,7 +1025,7 @@ impl ::core::fmt::Debug for BitmapCodecInformation {
     }
 }
 impl ::windows::core::RuntimeType for BitmapCodecInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapCodecInformation;{400caaf2-c4b0-4392-a3b0-6f6f9ba95cb4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapCodecInformation;{400caaf2-c4b0-4392-a3b0-6f6f9ba95cb4})");
 }
 impl ::core::clone::Clone for BitmapCodecInformation {
     fn clone(&self) -> Self {
@@ -1041,7 +1041,7 @@ unsafe impl ::windows::core::Interface for BitmapCodecInformation {
 impl ::windows::core::RuntimeName for BitmapCodecInformation {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapCodecInformation";
 }
-::windows::core::interface_hierarchy!(BitmapCodecInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BitmapCodecInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BitmapCodecInformation {}
 unsafe impl ::core::marker::Sync for BitmapCodecInformation {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -1292,12 +1292,12 @@ impl BitmapDecoder {
     }
     #[doc(hidden)]
     pub fn IBitmapDecoderStatics<R, F: FnOnce(&IBitmapDecoderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BitmapDecoder, IBitmapDecoderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BitmapDecoder, IBitmapDecoderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBitmapDecoderStatics2<R, F: FnOnce(&IBitmapDecoderStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BitmapDecoder, IBitmapDecoderStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BitmapDecoder, IBitmapDecoderStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1313,7 +1313,7 @@ impl ::core::fmt::Debug for BitmapDecoder {
     }
 }
 impl ::windows::core::RuntimeType for BitmapDecoder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapDecoder;{acef22ba-1d74-4c91-9dfc-9620745233e6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapDecoder;{acef22ba-1d74-4c91-9dfc-9620745233e6})");
 }
 impl ::core::clone::Clone for BitmapDecoder {
     fn clone(&self) -> Self {
@@ -1329,7 +1329,7 @@ unsafe impl ::windows::core::Interface for BitmapDecoder {
 impl ::windows::core::RuntimeName for BitmapDecoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapDecoder";
 }
-::windows::core::interface_hierarchy!(BitmapDecoder, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BitmapDecoder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BitmapDecoder> for IBitmapFrame {
     type Error = ::windows::core::Error;
     fn try_from(value: BitmapDecoder) -> ::windows::core::Result<Self> {
@@ -1572,12 +1572,12 @@ impl BitmapEncoder {
     }
     #[doc(hidden)]
     pub fn IBitmapEncoderStatics<R, F: FnOnce(&IBitmapEncoderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BitmapEncoder, IBitmapEncoderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BitmapEncoder, IBitmapEncoderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBitmapEncoderStatics2<R, F: FnOnce(&IBitmapEncoderStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BitmapEncoder, IBitmapEncoderStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BitmapEncoder, IBitmapEncoderStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1593,7 +1593,7 @@ impl ::core::fmt::Debug for BitmapEncoder {
     }
 }
 impl ::windows::core::RuntimeType for BitmapEncoder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapEncoder;{2bc468e3-e1f8-4b54-95e8-32919551ce62})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapEncoder;{2bc468e3-e1f8-4b54-95e8-32919551ce62})");
 }
 impl ::core::clone::Clone for BitmapEncoder {
     fn clone(&self) -> Self {
@@ -1609,7 +1609,7 @@ unsafe impl ::windows::core::Interface for BitmapEncoder {
 impl ::windows::core::RuntimeName for BitmapEncoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapEncoder";
 }
-::windows::core::interface_hierarchy!(BitmapEncoder, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BitmapEncoder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BitmapEncoder {}
 unsafe impl ::core::marker::Sync for BitmapEncoder {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -1746,7 +1746,7 @@ impl ::core::fmt::Debug for BitmapFrame {
     }
 }
 impl ::windows::core::RuntimeType for BitmapFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapFrame;{72a49a1c-8081-438d-91bc-94ecfc8185c6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapFrame;{72a49a1c-8081-438d-91bc-94ecfc8185c6})");
 }
 impl ::core::clone::Clone for BitmapFrame {
     fn clone(&self) -> Self {
@@ -1762,7 +1762,7 @@ unsafe impl ::windows::core::Interface for BitmapFrame {
 impl ::windows::core::RuntimeName for BitmapFrame {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapFrame";
 }
-::windows::core::interface_hierarchy!(BitmapFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BitmapFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BitmapFrame> for IBitmapFrame {
     type Error = ::windows::core::Error;
     fn try_from(value: BitmapFrame) -> ::windows::core::Result<Self> {
@@ -1846,7 +1846,7 @@ impl ::core::fmt::Debug for BitmapProperties {
     }
 }
 impl ::windows::core::RuntimeType for BitmapProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapProperties;{ea9f4f1b-b505-4450-a4d1-e8ca94529d8d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapProperties;{ea9f4f1b-b505-4450-a4d1-e8ca94529d8d})");
 }
 impl ::core::clone::Clone for BitmapProperties {
     fn clone(&self) -> Self {
@@ -1862,7 +1862,7 @@ unsafe impl ::windows::core::Interface for BitmapProperties {
 impl ::windows::core::RuntimeName for BitmapProperties {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapProperties";
 }
-::windows::core::interface_hierarchy!(BitmapProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BitmapProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BitmapProperties> for IBitmapPropertiesView {
     type Error = ::windows::core::Error;
     fn try_from(value: BitmapProperties) -> ::windows::core::Result<Self> {
@@ -1914,7 +1914,7 @@ impl ::core::fmt::Debug for BitmapPropertiesView {
     }
 }
 impl ::windows::core::RuntimeType for BitmapPropertiesView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapPropertiesView;{7e0fe87a-3a70-48f8-9c55-196cf5a545f5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapPropertiesView;{7e0fe87a-3a70-48f8-9c55-196cf5a545f5})");
 }
 impl ::core::clone::Clone for BitmapPropertiesView {
     fn clone(&self) -> Self {
@@ -1930,7 +1930,7 @@ unsafe impl ::windows::core::Interface for BitmapPropertiesView {
 impl ::windows::core::RuntimeName for BitmapPropertiesView {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapPropertiesView";
 }
-::windows::core::interface_hierarchy!(BitmapPropertiesView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BitmapPropertiesView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BitmapPropertiesView> for IBitmapPropertiesView {
     type Error = ::windows::core::Error;
     fn try_from(value: BitmapPropertiesView) -> ::windows::core::Result<Self> {
@@ -1961,8 +1961,8 @@ impl BitmapPropertySet {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BitmapPropertySet, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BitmapPropertySet, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2048,7 +2048,7 @@ impl ::core::fmt::Debug for BitmapPropertySet {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for BitmapPropertySet {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapPropertySet;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;rc(Windows.Graphics.Imaging.BitmapTypedValue;{cd8044a9-2443-4000-b0cd-79316c56f589})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapPropertySet;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;rc(Windows.Graphics.Imaging.BitmapTypedValue;{cd8044a9-2443-4000-b0cd-79316c56f589})))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for BitmapPropertySet {
@@ -2085,7 +2085,7 @@ impl ::core::iter::IntoIterator for &BitmapPropertySet {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(BitmapPropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BitmapPropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<BitmapPropertySet> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>> {
     type Error = ::windows::core::Error;
@@ -2141,8 +2141,8 @@ impl BitmapTransform {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BitmapTransform, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BitmapTransform, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ScaledWidth(&self) -> ::windows::core::Result<u32> {
@@ -2224,7 +2224,7 @@ impl ::core::fmt::Debug for BitmapTransform {
     }
 }
 impl ::windows::core::RuntimeType for BitmapTransform {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapTransform;{ae755344-e268-4d35-adcf-e995d31a8d34})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapTransform;{ae755344-e268-4d35-adcf-e995d31a8d34})");
 }
 impl ::core::clone::Clone for BitmapTransform {
     fn clone(&self) -> Self {
@@ -2240,7 +2240,7 @@ unsafe impl ::windows::core::Interface for BitmapTransform {
 impl ::windows::core::RuntimeName for BitmapTransform {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapTransform";
 }
-::windows::core::interface_hierarchy!(BitmapTransform, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BitmapTransform, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BitmapTransform {}
 unsafe impl ::core::marker::Sync for BitmapTransform {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -2276,7 +2276,7 @@ impl BitmapTypedValue {
     }
     #[doc(hidden)]
     pub fn IBitmapTypedValueFactory<R, F: FnOnce(&IBitmapTypedValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BitmapTypedValue, IBitmapTypedValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BitmapTypedValue, IBitmapTypedValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2292,7 +2292,7 @@ impl ::core::fmt::Debug for BitmapTypedValue {
     }
 }
 impl ::windows::core::RuntimeType for BitmapTypedValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapTypedValue;{cd8044a9-2443-4000-b0cd-79316c56f589})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapTypedValue;{cd8044a9-2443-4000-b0cd-79316c56f589})");
 }
 impl ::core::clone::Clone for BitmapTypedValue {
     fn clone(&self) -> Self {
@@ -2308,7 +2308,7 @@ unsafe impl ::windows::core::Interface for BitmapTypedValue {
 impl ::windows::core::RuntimeName for BitmapTypedValue {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapTypedValue";
 }
-::windows::core::interface_hierarchy!(BitmapTypedValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BitmapTypedValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BitmapTypedValue {}
 unsafe impl ::core::marker::Sync for BitmapTypedValue {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
@@ -2459,7 +2459,7 @@ impl ::core::fmt::Debug for ImageStream {
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::core::RuntimeType for ImageStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.ImageStream;{cc254827-4b3d-438f-9232-10c76bc7e038})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.ImageStream;{cc254827-4b3d-438f-9232-10c76bc7e038})");
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::core::clone::Clone for ImageStream {
@@ -2480,7 +2480,7 @@ impl ::windows::core::RuntimeName for ImageStream {
     const NAME: &'static str = "Windows.Graphics.Imaging.ImageStream";
 }
 #[cfg(feature = "Storage_Streams")]
-::windows::core::interface_hierarchy!(ImageStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ImageStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<ImageStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2641,7 +2641,7 @@ impl ::core::fmt::Debug for PixelDataProvider {
     }
 }
 impl ::windows::core::RuntimeType for PixelDataProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.PixelDataProvider;{dd831f25-185c-4595-9fb9-ccbe6ec18a6f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.PixelDataProvider;{dd831f25-185c-4595-9fb9-ccbe6ec18a6f})");
 }
 impl ::core::clone::Clone for PixelDataProvider {
     fn clone(&self) -> Self {
@@ -2657,7 +2657,7 @@ unsafe impl ::windows::core::Interface for PixelDataProvider {
 impl ::windows::core::RuntimeName for PixelDataProvider {
     const NAME: &'static str = "Windows.Graphics.Imaging.PixelDataProvider";
 }
-::windows::core::interface_hierarchy!(PixelDataProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PixelDataProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PixelDataProvider {}
 unsafe impl ::core::marker::Sync for PixelDataProvider {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -2845,12 +2845,12 @@ impl SoftwareBitmap {
     }
     #[doc(hidden)]
     pub fn ISoftwareBitmapFactory<R, F: FnOnce(&ISoftwareBitmapFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SoftwareBitmap, ISoftwareBitmapFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SoftwareBitmap, ISoftwareBitmapFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISoftwareBitmapStatics<R, F: FnOnce(&ISoftwareBitmapStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SoftwareBitmap, ISoftwareBitmapStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SoftwareBitmap, ISoftwareBitmapStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2866,7 +2866,7 @@ impl ::core::fmt::Debug for SoftwareBitmap {
     }
 }
 impl ::windows::core::RuntimeType for SoftwareBitmap {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.SoftwareBitmap;{689e0708-7eef-483f-963f-da938818e073})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.SoftwareBitmap;{689e0708-7eef-483f-963f-da938818e073})");
 }
 impl ::core::clone::Clone for SoftwareBitmap {
     fn clone(&self) -> Self {
@@ -2882,7 +2882,7 @@ unsafe impl ::windows::core::Interface for SoftwareBitmap {
 impl ::windows::core::RuntimeName for SoftwareBitmap {
     const NAME: &'static str = "Windows.Graphics.Imaging.SoftwareBitmap";
 }
-::windows::core::interface_hierarchy!(SoftwareBitmap, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SoftwareBitmap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SoftwareBitmap> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2936,7 +2936,7 @@ impl ::core::fmt::Debug for BitmapAlphaMode {
     }
 }
 impl ::windows::core::RuntimeType for BitmapAlphaMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapAlphaMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapAlphaMode;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -2967,7 +2967,7 @@ impl ::core::fmt::Debug for BitmapBufferAccessMode {
     }
 }
 impl ::windows::core::RuntimeType for BitmapBufferAccessMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapBufferAccessMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapBufferAccessMode;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -2998,7 +2998,7 @@ impl ::core::fmt::Debug for BitmapFlip {
     }
 }
 impl ::windows::core::RuntimeType for BitmapFlip {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapFlip;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapFlip;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -3030,7 +3030,7 @@ impl ::core::fmt::Debug for BitmapInterpolationMode {
     }
 }
 impl ::windows::core::RuntimeType for BitmapInterpolationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapInterpolationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapInterpolationMode;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -3067,7 +3067,7 @@ impl ::core::fmt::Debug for BitmapPixelFormat {
     }
 }
 impl ::windows::core::RuntimeType for BitmapPixelFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapPixelFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapPixelFormat;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -3099,7 +3099,7 @@ impl ::core::fmt::Debug for BitmapRotation {
     }
 }
 impl ::windows::core::RuntimeType for BitmapRotation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapRotation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapRotation;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -3129,7 +3129,7 @@ impl ::core::fmt::Debug for ColorManagementMode {
     }
 }
 impl ::windows::core::RuntimeType for ColorManagementMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ColorManagementMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ColorManagementMode;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -3159,7 +3159,7 @@ impl ::core::fmt::Debug for ExifOrientationMode {
     }
 }
 impl ::windows::core::RuntimeType for ExifOrientationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ExifOrientationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ExifOrientationMode;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -3191,7 +3191,7 @@ impl ::core::fmt::Debug for JpegSubsamplingMode {
     }
 }
 impl ::windows::core::RuntimeType for JpegSubsamplingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.JpegSubsamplingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.JpegSubsamplingMode;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -3226,7 +3226,7 @@ impl ::core::fmt::Debug for PngFilterMode {
     }
 }
 impl ::windows::core::RuntimeType for PngFilterMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.PngFilterMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.PngFilterMode;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -3262,7 +3262,7 @@ impl ::core::fmt::Debug for TiffCompressionMode {
     }
 }
 impl ::windows::core::RuntimeType for TiffCompressionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.TiffCompressionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.TiffCompressionMode;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -3287,7 +3287,7 @@ impl ::windows::core::TypeKind for BitmapBounds {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for BitmapBounds {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapBounds;u4;u4;u4;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapBounds;u4;u4;u4;u4)");
 }
 impl ::core::cmp::PartialEq for BitmapBounds {
     fn eq(&self, other: &Self) -> bool {
@@ -3323,7 +3323,7 @@ impl ::windows::core::TypeKind for BitmapPlaneDescription {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for BitmapPlaneDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapPlaneDescription;i4;i4;i4;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapPlaneDescription;i4;i4;i4;i4)");
 }
 impl ::core::cmp::PartialEq for BitmapPlaneDescription {
     fn eq(&self, other: &Self) -> bool {
@@ -3357,7 +3357,7 @@ impl ::windows::core::TypeKind for BitmapSize {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for BitmapSize {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapSize;u4;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapSize;u4;u4)");
 }
 impl ::core::cmp::PartialEq for BitmapSize {
     fn eq(&self, other: &Self) -> bool {

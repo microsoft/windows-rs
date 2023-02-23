@@ -385,7 +385,7 @@ impl ::core::fmt::Debug for GazeDevicePreview {
     }
 }
 impl ::windows::core::RuntimeType for GazeDevicePreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDevicePreview;{e79e7ee9-b389-11e7-b201-c8d3ffb75721})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDevicePreview;{e79e7ee9-b389-11e7-b201-c8d3ffb75721})");
 }
 impl ::core::clone::Clone for GazeDevicePreview {
     fn clone(&self) -> Self {
@@ -401,7 +401,7 @@ unsafe impl ::windows::core::Interface for GazeDevicePreview {
 impl ::windows::core::RuntimeName for GazeDevicePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDevicePreview";
 }
-::windows::core::interface_hierarchy!(GazeDevicePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GazeDevicePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeDevicePreview {}
 unsafe impl ::core::marker::Sync for GazeDevicePreview {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -428,7 +428,7 @@ impl ::core::fmt::Debug for GazeDeviceWatcherAddedPreviewEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GazeDeviceWatcherAddedPreviewEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDeviceWatcherAddedPreviewEventArgs;{e79e7eed-b389-11e7-b201-c8d3ffb75721})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDeviceWatcherAddedPreviewEventArgs;{e79e7eed-b389-11e7-b201-c8d3ffb75721})");
 }
 impl ::core::clone::Clone for GazeDeviceWatcherAddedPreviewEventArgs {
     fn clone(&self) -> Self {
@@ -444,7 +444,7 @@ unsafe impl ::windows::core::Interface for GazeDeviceWatcherAddedPreviewEventArg
 impl ::windows::core::RuntimeName for GazeDeviceWatcherAddedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherAddedPreviewEventArgs";
 }
-::windows::core::interface_hierarchy!(GazeDeviceWatcherAddedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GazeDeviceWatcherAddedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeDeviceWatcherAddedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherAddedPreviewEventArgs {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -532,7 +532,7 @@ impl ::core::fmt::Debug for GazeDeviceWatcherPreview {
     }
 }
 impl ::windows::core::RuntimeType for GazeDeviceWatcherPreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDeviceWatcherPreview;{e79e7ee7-b389-11e7-b201-c8d3ffb75721})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDeviceWatcherPreview;{e79e7ee7-b389-11e7-b201-c8d3ffb75721})");
 }
 impl ::core::clone::Clone for GazeDeviceWatcherPreview {
     fn clone(&self) -> Self {
@@ -548,7 +548,7 @@ unsafe impl ::windows::core::Interface for GazeDeviceWatcherPreview {
 impl ::windows::core::RuntimeName for GazeDeviceWatcherPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherPreview";
 }
-::windows::core::interface_hierarchy!(GazeDeviceWatcherPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GazeDeviceWatcherPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeDeviceWatcherPreview {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherPreview {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -575,7 +575,7 @@ impl ::core::fmt::Debug for GazeDeviceWatcherRemovedPreviewEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GazeDeviceWatcherRemovedPreviewEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDeviceWatcherRemovedPreviewEventArgs;{f2631f08-0e3f-431f-a606-50b35af94a1c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDeviceWatcherRemovedPreviewEventArgs;{f2631f08-0e3f-431f-a606-50b35af94a1c})");
 }
 impl ::core::clone::Clone for GazeDeviceWatcherRemovedPreviewEventArgs {
     fn clone(&self) -> Self {
@@ -591,7 +591,7 @@ unsafe impl ::windows::core::Interface for GazeDeviceWatcherRemovedPreviewEventA
 impl ::windows::core::RuntimeName for GazeDeviceWatcherRemovedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherRemovedPreviewEventArgs";
 }
-::windows::core::interface_hierarchy!(GazeDeviceWatcherRemovedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GazeDeviceWatcherRemovedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeDeviceWatcherRemovedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherRemovedPreviewEventArgs {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -618,7 +618,7 @@ impl ::core::fmt::Debug for GazeDeviceWatcherUpdatedPreviewEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GazeDeviceWatcherUpdatedPreviewEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDeviceWatcherUpdatedPreviewEventArgs;{7fe830ef-7f08-4737-88e1-4a83ae4e4885})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeDeviceWatcherUpdatedPreviewEventArgs;{7fe830ef-7f08-4737-88e1-4a83ae4e4885})");
 }
 impl ::core::clone::Clone for GazeDeviceWatcherUpdatedPreviewEventArgs {
     fn clone(&self) -> Self {
@@ -634,7 +634,7 @@ unsafe impl ::windows::core::Interface for GazeDeviceWatcherUpdatedPreviewEventA
 impl ::windows::core::RuntimeName for GazeDeviceWatcherUpdatedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherUpdatedPreviewEventArgs";
 }
-::windows::core::interface_hierarchy!(GazeDeviceWatcherUpdatedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GazeDeviceWatcherUpdatedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -672,7 +672,7 @@ impl ::core::fmt::Debug for GazeEnteredPreviewEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GazeEnteredPreviewEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeEnteredPreviewEventArgs;{2567bf43-1225-489f-9dd1-daa7c50fbf4b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeEnteredPreviewEventArgs;{2567bf43-1225-489f-9dd1-daa7c50fbf4b})");
 }
 impl ::core::clone::Clone for GazeEnteredPreviewEventArgs {
     fn clone(&self) -> Self {
@@ -688,7 +688,7 @@ unsafe impl ::windows::core::Interface for GazeEnteredPreviewEventArgs {
 impl ::windows::core::RuntimeName for GazeEnteredPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeEnteredPreviewEventArgs";
 }
-::windows::core::interface_hierarchy!(GazeEnteredPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GazeEnteredPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeEnteredPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeEnteredPreviewEventArgs {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -726,7 +726,7 @@ impl ::core::fmt::Debug for GazeExitedPreviewEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GazeExitedPreviewEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeExitedPreviewEventArgs;{5d0af07e-7d83-40ef-9f0a-fbc1bbdcc5ac})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeExitedPreviewEventArgs;{5d0af07e-7d83-40ef-9f0a-fbc1bbdcc5ac})");
 }
 impl ::core::clone::Clone for GazeExitedPreviewEventArgs {
     fn clone(&self) -> Self {
@@ -742,7 +742,7 @@ unsafe impl ::windows::core::Interface for GazeExitedPreviewEventArgs {
 impl ::windows::core::RuntimeName for GazeExitedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeExitedPreviewEventArgs";
 }
-::windows::core::interface_hierarchy!(GazeExitedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GazeExitedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeExitedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeExitedPreviewEventArgs {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -808,7 +808,7 @@ impl GazeInputSourcePreview {
     }
     #[doc(hidden)]
     pub fn IGazeInputSourcePreviewStatics<R, F: FnOnce(&IGazeInputSourcePreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GazeInputSourcePreview, IGazeInputSourcePreviewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GazeInputSourcePreview, IGazeInputSourcePreviewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -824,7 +824,7 @@ impl ::core::fmt::Debug for GazeInputSourcePreview {
     }
 }
 impl ::windows::core::RuntimeType for GazeInputSourcePreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeInputSourcePreview;{e79e7ee8-b389-11e7-b201-c8d3ffb75721})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeInputSourcePreview;{e79e7ee8-b389-11e7-b201-c8d3ffb75721})");
 }
 impl ::core::clone::Clone for GazeInputSourcePreview {
     fn clone(&self) -> Self {
@@ -840,7 +840,7 @@ unsafe impl ::windows::core::Interface for GazeInputSourcePreview {
 impl ::windows::core::RuntimeName for GazeInputSourcePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeInputSourcePreview";
 }
-::windows::core::interface_hierarchy!(GazeInputSourcePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GazeInputSourcePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeInputSourcePreview {}
 unsafe impl ::core::marker::Sync for GazeInputSourcePreview {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -887,7 +887,7 @@ impl ::core::fmt::Debug for GazeMovedPreviewEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GazeMovedPreviewEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeMovedPreviewEventArgs;{e79e7eeb-b389-11e7-b201-c8d3ffb75721})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazeMovedPreviewEventArgs;{e79e7eeb-b389-11e7-b201-c8d3ffb75721})");
 }
 impl ::core::clone::Clone for GazeMovedPreviewEventArgs {
     fn clone(&self) -> Self {
@@ -903,7 +903,7 @@ unsafe impl ::windows::core::Interface for GazeMovedPreviewEventArgs {
 impl ::windows::core::RuntimeName for GazeMovedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeMovedPreviewEventArgs";
 }
-::windows::core::interface_hierarchy!(GazeMovedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GazeMovedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeMovedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeMovedPreviewEventArgs {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -964,7 +964,7 @@ impl ::core::fmt::Debug for GazePointPreview {
     }
 }
 impl ::windows::core::RuntimeType for GazePointPreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazePointPreview;{e79e7eea-b389-11e7-b201-c8d3ffb75721})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.Preview.GazePointPreview;{e79e7eea-b389-11e7-b201-c8d3ffb75721})");
 }
 impl ::core::clone::Clone for GazePointPreview {
     fn clone(&self) -> Self {
@@ -980,7 +980,7 @@ unsafe impl ::windows::core::Interface for GazePointPreview {
 impl ::windows::core::RuntimeName for GazePointPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazePointPreview";
 }
-::windows::core::interface_hierarchy!(GazePointPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GazePointPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazePointPreview {}
 unsafe impl ::core::marker::Sync for GazePointPreview {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -1014,7 +1014,7 @@ impl ::core::fmt::Debug for GazeDeviceConfigurationStatePreview {
     }
 }
 impl ::windows::core::RuntimeType for GazeDeviceConfigurationStatePreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.Preview.GazeDeviceConfigurationStatePreview;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.Preview.GazeDeviceConfigurationStatePreview;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -187,7 +187,7 @@ impl EndpointPair {
     }
     #[doc(hidden)]
     pub fn IEndpointPairFactory<R, F: FnOnce(&IEndpointPairFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EndpointPair, IEndpointPairFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EndpointPair, IEndpointPairFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -203,7 +203,7 @@ impl ::core::fmt::Debug for EndpointPair {
     }
 }
 impl ::windows::core::RuntimeType for EndpointPair {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.EndpointPair;{33a0aa36-f8fa-4b30-b856-76517c3bd06d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.EndpointPair;{33a0aa36-f8fa-4b30-b856-76517c3bd06d})");
 }
 impl ::core::clone::Clone for EndpointPair {
     fn clone(&self) -> Self {
@@ -219,7 +219,7 @@ unsafe impl ::windows::core::Interface for EndpointPair {
 impl ::windows::core::RuntimeName for EndpointPair {
     const NAME: &'static str = "Windows.Networking.EndpointPair";
 }
-::windows::core::interface_hierarchy!(EndpointPair, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EndpointPair, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EndpointPair {}
 unsafe impl ::core::marker::Sync for EndpointPair {}
 #[doc = "*Required features: `\"Networking\"`*"]
@@ -293,12 +293,12 @@ impl HostName {
     }
     #[doc(hidden)]
     pub fn IHostNameFactory<R, F: FnOnce(&IHostNameFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HostName, IHostNameFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HostName, IHostNameFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHostNameStatics<R, F: FnOnce(&IHostNameStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HostName, IHostNameStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HostName, IHostNameStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -314,7 +314,7 @@ impl ::core::fmt::Debug for HostName {
     }
 }
 impl ::windows::core::RuntimeType for HostName {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.HostName;{bf8ecaad-ed96-49a7-9084-d416cae88dcb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.HostName;{bf8ecaad-ed96-49a7-9084-d416cae88dcb})");
 }
 impl ::core::clone::Clone for HostName {
     fn clone(&self) -> Self {
@@ -330,7 +330,7 @@ unsafe impl ::windows::core::Interface for HostName {
 impl ::windows::core::RuntimeName for HostName {
     const NAME: &'static str = "Windows.Networking.HostName";
 }
-::windows::core::interface_hierarchy!(HostName, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HostName, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HostName> for super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -383,7 +383,7 @@ impl ::core::fmt::Debug for DomainNameType {
     }
 }
 impl ::windows::core::RuntimeType for DomainNameType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
 }
 #[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
@@ -446,7 +446,7 @@ impl ::core::ops::Not for HostNameSortOptions {
     }
 }
 impl ::windows::core::RuntimeType for HostNameSortOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameSortOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameSortOptions;u4)");
 }
 #[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
@@ -478,7 +478,7 @@ impl ::core::fmt::Debug for HostNameType {
     }
 }
 impl ::windows::core::RuntimeType for HostNameType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

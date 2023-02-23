@@ -31,7 +31,7 @@ impl AsyncIBackgroundCopyCallback {
         (::windows::core::Vtable::vtable(self).Finish_JobModification)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIBackgroundCopyCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIBackgroundCopyCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIBackgroundCopyCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -87,7 +87,7 @@ impl IBITSExtensionSetup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IBITSExtensionSetup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IBITSExtensionSetup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IBITSExtensionSetup {
     fn eq(&self, other: &Self) -> bool {
@@ -140,7 +140,7 @@ impl IBITSExtensionSetupFactory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IBITSExtensionSetupFactory, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IBITSExtensionSetupFactory, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IBITSExtensionSetupFactory {
     fn eq(&self, other: &Self) -> bool {
@@ -203,7 +203,7 @@ impl IBackgroundCopyCallback {
         (::windows::core::Vtable::vtable(self).JobModification)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), dwreserved).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBackgroundCopyCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBackgroundCopyCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -260,7 +260,7 @@ impl IBackgroundCopyCallback1 {
         (::windows::core::Vtable::vtable(self).OnProgressEx)(::windows::core::Vtable::as_raw(self), progresstype, pgroup.into().abi(), pjob.into().abi(), dwfileindex, dwprogressvalue, pbyte.len() as _, ::core::mem::transmute(pbyte.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyCallback1, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBackgroundCopyCallback1, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBackgroundCopyCallback1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -322,7 +322,7 @@ impl IBackgroundCopyCallback2 {
         (::windows::core::Vtable::vtable(self).FileTransferred)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), pfile.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyCallback2, ::windows::core::IUnknown, IBackgroundCopyCallback);
+::windows::imp::interface_hierarchy!(IBackgroundCopyCallback2, ::windows::core::IUnknown, IBackgroundCopyCallback);
 impl ::core::cmp::PartialEq for IBackgroundCopyCallback2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -389,7 +389,7 @@ impl IBackgroundCopyCallback3 {
         (::windows::core::Vtable::vtable(self).FileRangesTransferred)(::windows::core::Vtable::as_raw(self), job.into().abi(), file.into().abi(), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyCallback3, ::windows::core::IUnknown, IBackgroundCopyCallback, IBackgroundCopyCallback2);
+::windows::imp::interface_hierarchy!(IBackgroundCopyCallback3, ::windows::core::IUnknown, IBackgroundCopyCallback, IBackgroundCopyCallback2);
 impl ::core::cmp::PartialEq for IBackgroundCopyCallback3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -442,7 +442,7 @@ impl IBackgroundCopyError {
         (::windows::core::Vtable::vtable(self).GetProtocol)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyError, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBackgroundCopyError, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBackgroundCopyError {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -493,7 +493,7 @@ impl IBackgroundCopyFile {
         (::windows::core::Vtable::vtable(self).GetProgress)(::windows::core::Vtable::as_raw(self), pval).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyFile, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBackgroundCopyFile, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBackgroundCopyFile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -554,7 +554,7 @@ impl IBackgroundCopyFile2 {
         (::windows::core::Vtable::vtable(self).SetRemoteName)(::windows::core::Vtable::as_raw(self), val.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyFile2, ::windows::core::IUnknown, IBackgroundCopyFile);
+::windows::imp::interface_hierarchy!(IBackgroundCopyFile2, ::windows::core::IUnknown, IBackgroundCopyFile);
 impl ::core::cmp::PartialEq for IBackgroundCopyFile2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -635,7 +635,7 @@ impl IBackgroundCopyFile3 {
         (::windows::core::Vtable::vtable(self).IsDownloadedFromPeer)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyFile3, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2);
+::windows::imp::interface_hierarchy!(IBackgroundCopyFile3, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2);
 impl ::core::cmp::PartialEq for IBackgroundCopyFile3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -730,7 +730,7 @@ impl IBackgroundCopyFile4 {
         (::windows::core::Vtable::vtable(self).GetPeerDownloadStats)(::windows::core::Vtable::as_raw(self), pfromorigin, pfrompeers).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyFile4, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3);
+::windows::imp::interface_hierarchy!(IBackgroundCopyFile4, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3);
 impl ::core::cmp::PartialEq for IBackgroundCopyFile4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -820,7 +820,7 @@ impl IBackgroundCopyFile5 {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyFile5, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4);
+::windows::imp::interface_hierarchy!(IBackgroundCopyFile5, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4);
 impl ::core::cmp::PartialEq for IBackgroundCopyFile5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -920,7 +920,7 @@ impl IBackgroundCopyFile6 {
         (::windows::core::Vtable::vtable(self).GetFilledFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyFile6, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4, IBackgroundCopyFile5);
+::windows::imp::interface_hierarchy!(IBackgroundCopyFile6, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4, IBackgroundCopyFile5);
 impl ::core::cmp::PartialEq for IBackgroundCopyFile6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1016,7 +1016,7 @@ impl IBackgroundCopyGroup {
         (::windows::core::Vtable::vtable(self).SetNotificationPointer)(::windows::core::Vtable::as_raw(self), iid, punk.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyGroup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBackgroundCopyGroup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBackgroundCopyGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1199,7 +1199,7 @@ impl IBackgroundCopyJob {
         (::windows::core::Vtable::vtable(self).TakeOwnership)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyJob, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBackgroundCopyJob, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBackgroundCopyJob {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1295,7 +1295,7 @@ impl IBackgroundCopyJob1 {
         (::windows::core::Vtable::vtable(self).JobID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyJob1, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBackgroundCopyJob1, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBackgroundCopyJob1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1497,7 +1497,7 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Vtable::vtable(self).RemoveCredentials)(::windows::core::Vtable::as_raw(self), target, scheme).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyJob2, ::windows::core::IUnknown, IBackgroundCopyJob);
+::windows::imp::interface_hierarchy!(IBackgroundCopyJob2, ::windows::core::IUnknown, IBackgroundCopyJob);
 impl ::core::cmp::PartialEq for IBackgroundCopyJob2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1720,7 +1720,7 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Vtable::vtable(self).GetFileACLFlags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyJob3, ::windows::core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2);
+::windows::imp::interface_hierarchy!(IBackgroundCopyJob3, ::windows::core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2);
 impl ::core::cmp::PartialEq for IBackgroundCopyJob3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1963,7 +1963,7 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Vtable::vtable(self).GetMaximumDownloadTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyJob4, ::windows::core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3);
+::windows::imp::interface_hierarchy!(IBackgroundCopyJob4, ::windows::core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3);
 impl ::core::cmp::PartialEq for IBackgroundCopyJob4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2222,7 +2222,7 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyJob5, ::windows::core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3, IBackgroundCopyJob4);
+::windows::imp::interface_hierarchy!(IBackgroundCopyJob5, ::windows::core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3, IBackgroundCopyJob4);
 impl ::core::cmp::PartialEq for IBackgroundCopyJob5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2299,7 +2299,7 @@ impl IBackgroundCopyJobHttpOptions {
         (::windows::core::Vtable::vtable(self).GetSecurityFlags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyJobHttpOptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBackgroundCopyJobHttpOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2386,7 +2386,7 @@ impl IBackgroundCopyJobHttpOptions2 {
         (::windows::core::Vtable::vtable(self).GetHttpMethod)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyJobHttpOptions2, ::windows::core::IUnknown, IBackgroundCopyJobHttpOptions);
+::windows::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions2, ::windows::core::IUnknown, IBackgroundCopyJobHttpOptions);
 impl ::core::cmp::PartialEq for IBackgroundCopyJobHttpOptions2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2476,7 +2476,7 @@ impl IBackgroundCopyJobHttpOptions3 {
         (::windows::core::Vtable::vtable(self).MakeCustomHeadersWriteOnly)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyJobHttpOptions3, ::windows::core::IUnknown, IBackgroundCopyJobHttpOptions, IBackgroundCopyJobHttpOptions2);
+::windows::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions3, ::windows::core::IUnknown, IBackgroundCopyJobHttpOptions, IBackgroundCopyJobHttpOptions2);
 impl ::core::cmp::PartialEq for IBackgroundCopyJobHttpOptions3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2529,7 +2529,7 @@ impl IBackgroundCopyManager {
         (::windows::core::Vtable::vtable(self).GetErrorDescription)(::windows::core::Vtable::as_raw(self), hresult, languageid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBackgroundCopyManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBackgroundCopyManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2578,7 +2578,7 @@ impl IBackgroundCopyQMgr {
         (::windows::core::Vtable::vtable(self).EnumGroups)(::windows::core::Vtable::as_raw(self), dwflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyQMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBackgroundCopyQMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBackgroundCopyQMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2621,7 +2621,7 @@ impl IBackgroundCopyServerCertificateValidationCallback {
         (::windows::core::Vtable::vtable(self).ValidateServerCertificate)(::windows::core::Vtable::as_raw(self), job.into().abi(), file.into().abi(), certdata.len() as _, ::core::mem::transmute(certdata.as_ptr()), certencodingtype, certstoredata.len() as _, ::core::mem::transmute(certstoredata.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundCopyServerCertificateValidationCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBackgroundCopyServerCertificateValidationCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBackgroundCopyServerCertificateValidationCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2671,7 +2671,7 @@ impl IBitsPeer {
         (::windows::core::Vtable::vtable(self).IsAvailable)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBitsPeer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBitsPeer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBitsPeer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2764,7 +2764,7 @@ impl IBitsPeerCacheAdministration {
         (::windows::core::Vtable::vtable(self).DiscoverPeers)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBitsPeerCacheAdministration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBitsPeerCacheAdministration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBitsPeerCacheAdministration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2841,7 +2841,7 @@ impl IBitsPeerCacheRecord {
         (::windows::core::Vtable::vtable(self).GetFileRanges)(::windows::core::Vtable::as_raw(self), prangecount, ppranges).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBitsPeerCacheRecord, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBitsPeerCacheRecord, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBitsPeerCacheRecord {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2904,7 +2904,7 @@ impl IBitsTokenOptions {
         (::windows::core::Vtable::vtable(self).GetHelperTokenSid)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBitsTokenOptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBitsTokenOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBitsTokenOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2959,7 +2959,7 @@ impl IEnumBackgroundCopyFiles {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumBackgroundCopyFiles, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumBackgroundCopyFiles, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumBackgroundCopyFiles {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3014,7 +3014,7 @@ impl IEnumBackgroundCopyGroups {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumBackgroundCopyGroups, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumBackgroundCopyGroups, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumBackgroundCopyGroups {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3069,7 +3069,7 @@ impl IEnumBackgroundCopyJobs {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumBackgroundCopyJobs, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumBackgroundCopyJobs, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumBackgroundCopyJobs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3124,7 +3124,7 @@ impl IEnumBackgroundCopyJobs1 {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumBackgroundCopyJobs1, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumBackgroundCopyJobs1, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumBackgroundCopyJobs1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3179,7 +3179,7 @@ impl IEnumBitsPeerCacheRecords {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumBitsPeerCacheRecords, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumBitsPeerCacheRecords, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumBitsPeerCacheRecords {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3234,7 +3234,7 @@ impl IEnumBitsPeers {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumBitsPeers, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumBitsPeers, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumBitsPeers {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

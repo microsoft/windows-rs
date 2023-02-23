@@ -552,7 +552,7 @@ impl CoreFrameworkInputView {
     }
     #[doc(hidden)]
     pub fn ICoreFrameworkInputViewStatics<R, F: FnOnce(&ICoreFrameworkInputViewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreFrameworkInputView, ICoreFrameworkInputViewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreFrameworkInputView, ICoreFrameworkInputViewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -568,7 +568,7 @@ impl ::core::fmt::Debug for CoreFrameworkInputView {
     }
 }
 impl ::windows::core::RuntimeType for CoreFrameworkInputView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputView;{d77c94ae-46b8-5d4a-9489-8ddec3d639a6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputView;{d77c94ae-46b8-5d4a-9489-8ddec3d639a6})");
 }
 impl ::core::clone::Clone for CoreFrameworkInputView {
     fn clone(&self) -> Self {
@@ -584,7 +584,7 @@ unsafe impl ::windows::core::Interface for CoreFrameworkInputView {
 impl ::windows::core::RuntimeName for CoreFrameworkInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputView";
 }
-::windows::core::interface_hierarchy!(CoreFrameworkInputView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreFrameworkInputView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreFrameworkInputView {}
 unsafe impl ::core::marker::Sync for CoreFrameworkInputView {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -629,7 +629,7 @@ impl ::core::fmt::Debug for CoreFrameworkInputViewAnimationStartingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreFrameworkInputViewAnimationStartingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs;{c0ec901c-bba4-501b-ae8b-65c9e756a719})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs;{c0ec901c-bba4-501b-ae8b-65c9e756a719})");
 }
 impl ::core::clone::Clone for CoreFrameworkInputViewAnimationStartingEventArgs {
     fn clone(&self) -> Self {
@@ -645,7 +645,7 @@ unsafe impl ::windows::core::Interface for CoreFrameworkInputViewAnimationStarti
 impl ::windows::core::RuntimeName for CoreFrameworkInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreFrameworkInputViewAnimationStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreFrameworkInputViewAnimationStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreFrameworkInputViewAnimationStartingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreFrameworkInputViewAnimationStartingEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -681,7 +681,7 @@ impl ::core::fmt::Debug for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreFrameworkInputViewOcclusionsChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputViewOcclusionsChangedEventArgs;{f36f4949-c82c-53d1-a75d-2b2baf0d9b0d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputViewOcclusionsChangedEventArgs;{f36f4949-c82c-53d1-a75d-2b2baf0d9b0d})");
 }
 impl ::core::clone::Clone for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     fn clone(&self) -> Self {
@@ -697,7 +697,7 @@ unsafe impl ::windows::core::Interface for CoreFrameworkInputViewOcclusionsChang
 impl ::windows::core::RuntimeName for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewOcclusionsChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreFrameworkInputViewOcclusionsChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreFrameworkInputViewOcclusionsChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -883,12 +883,12 @@ impl CoreInputView {
     }
     #[doc(hidden)]
     pub fn ICoreInputViewStatics<R, F: FnOnce(&ICoreInputViewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreInputView, ICoreInputViewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreInputView, ICoreInputViewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICoreInputViewStatics2<R, F: FnOnce(&ICoreInputViewStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreInputView, ICoreInputViewStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreInputView, ICoreInputViewStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -904,7 +904,7 @@ impl ::core::fmt::Debug for CoreInputView {
     }
 }
 impl ::windows::core::RuntimeType for CoreInputView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputView;{c770cd7a-7001-4c32-bf94-25c1f554cbf1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputView;{c770cd7a-7001-4c32-bf94-25c1f554cbf1})");
 }
 impl ::core::clone::Clone for CoreInputView {
     fn clone(&self) -> Self {
@@ -920,7 +920,7 @@ unsafe impl ::windows::core::Interface for CoreInputView {
 impl ::windows::core::RuntimeName for CoreInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputView";
 }
-::windows::core::interface_hierarchy!(CoreInputView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreInputView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputView {}
 unsafe impl ::core::marker::Sync for CoreInputView {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -969,7 +969,7 @@ impl ::core::fmt::Debug for CoreInputViewAnimationStartingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreInputViewAnimationStartingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs;{a9144af2-b55c-5ea1-b8ab-5340f3e94897})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs;{a9144af2-b55c-5ea1-b8ab-5340f3e94897})");
 }
 impl ::core::clone::Clone for CoreInputViewAnimationStartingEventArgs {
     fn clone(&self) -> Self {
@@ -985,7 +985,7 @@ unsafe impl ::windows::core::Interface for CoreInputViewAnimationStartingEventAr
 impl ::windows::core::RuntimeName for CoreInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreInputViewAnimationStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreInputViewAnimationStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputViewAnimationStartingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewAnimationStartingEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1012,7 +1012,7 @@ impl ::core::fmt::Debug for CoreInputViewHidingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreInputViewHidingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewHidingEventArgs;{eada47bd-bac5-5336-848d-41083584daad})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewHidingEventArgs;{eada47bd-bac5-5336-848d-41083584daad})");
 }
 impl ::core::clone::Clone for CoreInputViewHidingEventArgs {
     fn clone(&self) -> Self {
@@ -1028,7 +1028,7 @@ unsafe impl ::windows::core::Interface for CoreInputViewHidingEventArgs {
 impl ::windows::core::RuntimeName for CoreInputViewHidingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewHidingEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreInputViewHidingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreInputViewHidingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputViewHidingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewHidingEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1064,7 +1064,7 @@ impl ::core::fmt::Debug for CoreInputViewOcclusion {
     }
 }
 impl ::windows::core::RuntimeType for CoreInputViewOcclusion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewOcclusion;{cc36ce06-3865-4177-b5f5-8b65e0b9ce84})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewOcclusion;{cc36ce06-3865-4177-b5f5-8b65e0b9ce84})");
 }
 impl ::core::clone::Clone for CoreInputViewOcclusion {
     fn clone(&self) -> Self {
@@ -1080,7 +1080,7 @@ unsafe impl ::windows::core::Interface for CoreInputViewOcclusion {
 impl ::windows::core::RuntimeName for CoreInputViewOcclusion {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewOcclusion";
 }
-::windows::core::interface_hierarchy!(CoreInputViewOcclusion, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreInputViewOcclusion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputViewOcclusion {}
 unsafe impl ::core::marker::Sync for CoreInputViewOcclusion {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1120,7 +1120,7 @@ impl ::core::fmt::Debug for CoreInputViewOcclusionsChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreInputViewOcclusionsChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs;{be1027e8-b3ee-4df7-9554-89cdc66082c2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs;{be1027e8-b3ee-4df7-9554-89cdc66082c2})");
 }
 impl ::core::clone::Clone for CoreInputViewOcclusionsChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1136,7 +1136,7 @@ unsafe impl ::windows::core::Interface for CoreInputViewOcclusionsChangedEventAr
 impl ::windows::core::RuntimeName for CoreInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreInputViewOcclusionsChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreInputViewOcclusionsChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputViewOcclusionsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewOcclusionsChangedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1163,7 +1163,7 @@ impl ::core::fmt::Debug for CoreInputViewShowingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreInputViewShowingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewShowingEventArgs;{ca52261b-fb9e-5daf-a98c-262b8b76af50})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewShowingEventArgs;{ca52261b-fb9e-5daf-a98c-262b8b76af50})");
 }
 impl ::core::clone::Clone for CoreInputViewShowingEventArgs {
     fn clone(&self) -> Self {
@@ -1179,7 +1179,7 @@ unsafe impl ::windows::core::Interface for CoreInputViewShowingEventArgs {
 impl ::windows::core::RuntimeName for CoreInputViewShowingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewShowingEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreInputViewShowingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreInputViewShowingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputViewShowingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewShowingEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1237,7 +1237,7 @@ impl ::core::fmt::Debug for CoreInputViewTransferringXYFocusEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreInputViewTransferringXYFocusEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs;{04de169f-ba02-4850-8b55-d82d03ba6d7f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs;{04de169f-ba02-4850-8b55-d82d03ba6d7f})");
 }
 impl ::core::clone::Clone for CoreInputViewTransferringXYFocusEventArgs {
     fn clone(&self) -> Self {
@@ -1253,7 +1253,7 @@ unsafe impl ::windows::core::Interface for CoreInputViewTransferringXYFocusEvent
 impl ::windows::core::RuntimeName for CoreInputViewTransferringXYFocusEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreInputViewTransferringXYFocusEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreInputViewTransferringXYFocusEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputViewTransferringXYFocusEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewTransferringXYFocusEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1290,7 +1290,7 @@ impl UISettingsController {
     }
     #[doc(hidden)]
     pub fn IUISettingsControllerStatics<R, F: FnOnce(&IUISettingsControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UISettingsController, IUISettingsControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UISettingsController, IUISettingsControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1306,7 +1306,7 @@ impl ::core::fmt::Debug for UISettingsController {
     }
 }
 impl ::windows::core::RuntimeType for UISettingsController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.UISettingsController;{78a51ac4-15c0-5a1b-a75b-acbf9cb8bb9e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.UISettingsController;{78a51ac4-15c0-5a1b-a75b-acbf9cb8bb9e})");
 }
 impl ::core::clone::Clone for UISettingsController {
     fn clone(&self) -> Self {
@@ -1322,7 +1322,7 @@ unsafe impl ::windows::core::Interface for UISettingsController {
 impl ::windows::core::RuntimeName for UISettingsController {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.UISettingsController";
 }
-::windows::core::interface_hierarchy!(UISettingsController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UISettingsController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UISettingsController {}
 unsafe impl ::core::marker::Sync for UISettingsController {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1358,7 +1358,7 @@ impl ::core::fmt::Debug for CoreInputViewKind {
     }
 }
 impl ::windows::core::RuntimeType for CoreInputViewKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewKind;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
 #[repr(transparent)]
@@ -1389,7 +1389,7 @@ impl ::core::fmt::Debug for CoreInputViewOcclusionKind {
     }
 }
 impl ::windows::core::RuntimeType for CoreInputViewOcclusionKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionKind;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
 #[repr(transparent)]
@@ -1421,7 +1421,7 @@ impl ::core::fmt::Debug for CoreInputViewXYFocusTransferDirection {
     }
 }
 impl ::windows::core::RuntimeType for CoreInputViewXYFocusTransferDirection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewXYFocusTransferDirection;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewXYFocusTransferDirection;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

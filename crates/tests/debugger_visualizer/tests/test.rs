@@ -151,7 +151,7 @@ empty            : "" [Type: windows::core::strings::hstring::HSTRING]
 hstring          : "This is an HSTRING" [Type: windows::core::strings::hstring::HSTRING]
     [<Raw View>]     [Type: windows::core::strings::hstring::HSTRING]
     [len]            : 0x12 [Type: unsigned int]
-    [ref_count]      : 1 [Type: windows::core::ref_count::RefCount]
+    [ref_count]      : 1 [Type: windows::imp::ref_count::RefCount]
     [flags]          : 0x0 [Type: unsigned int]
     [chars]
         [0]              : 0x54 'T' [Type: char16_t]
@@ -175,11 +175,11 @@ hstring          : "This is an HSTRING" [Type: windows::core::strings::hstring::
 
 out_of_memory_error : 0x8007000e (Not enough memory resources are available to complete this operation.) [Type: windows::core::error::Error]
     [<Raw View>]     [Type: windows::core::error::Error]
-    [info]           : Some [Type: enum2$<core::option::Option<windows::core::bindings::IRestrictedErrorInfo> >]
+    [info]           : Some [Type: enum2$<core::option::Option<windows::imp::bindings::IRestrictedErrorInfo> >]
 
 invalid_argument_error : 0x80070057 (The parameter is incorrect.) [Type: windows::core::error::Error]
     [<Raw View>]     [Type: windows::core::error::Error]
-    [info]           : Some [Type: enum2$<core::option::Option<windows::core::bindings::IRestrictedErrorInfo> >]
+    [info]           : Some [Type: enum2$<core::option::Option<windows::imp::bindings::IRestrictedErrorInfo> >]
     "#
 )]
 fn test_debugger_visualizer() {

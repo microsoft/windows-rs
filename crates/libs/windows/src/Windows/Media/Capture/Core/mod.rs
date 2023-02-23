@@ -146,7 +146,7 @@ impl ::core::fmt::Debug for VariablePhotoCapturedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for VariablePhotoCapturedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs;{d1eb4c5c-1b53-4e4a-8b5c-db7887ac949b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs;{d1eb4c5c-1b53-4e4a-8b5c-db7887ac949b})");
 }
 impl ::core::clone::Clone for VariablePhotoCapturedEventArgs {
     fn clone(&self) -> Self {
@@ -162,7 +162,7 @@ unsafe impl ::windows::core::Interface for VariablePhotoCapturedEventArgs {
 impl ::windows::core::RuntimeName for VariablePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs";
 }
-::windows::core::interface_hierarchy!(VariablePhotoCapturedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VariablePhotoCapturedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VariablePhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for VariablePhotoCapturedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture_Core\"`*"]
@@ -248,7 +248,7 @@ impl ::core::fmt::Debug for VariablePhotoSequenceCapture {
     }
 }
 impl ::windows::core::RuntimeType for VariablePhotoSequenceCapture {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Core.VariablePhotoSequenceCapture;{d0112d1d-031e-4041-a6d6-bd742476a8ee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Core.VariablePhotoSequenceCapture;{d0112d1d-031e-4041-a6d6-bd742476a8ee})");
 }
 impl ::core::clone::Clone for VariablePhotoSequenceCapture {
     fn clone(&self) -> Self {
@@ -264,6 +264,6 @@ unsafe impl ::windows::core::Interface for VariablePhotoSequenceCapture {
 impl ::windows::core::RuntimeName for VariablePhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoSequenceCapture";
 }
-::windows::core::interface_hierarchy!(VariablePhotoSequenceCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VariablePhotoSequenceCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

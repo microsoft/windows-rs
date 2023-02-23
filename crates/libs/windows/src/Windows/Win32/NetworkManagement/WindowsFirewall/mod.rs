@@ -4,42 +4,42 @@ pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<P0>(wszservername
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationDiagnoseConnectFailureAndGetInfo ( wszservername : :: windows::core::PCWSTR , netisoerror : *mut NETISO_ERROR_TYPE ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationDiagnoseConnectFailureAndGetInfo ( wszservername : :: windows::core::PCWSTR , netisoerror : *mut NETISO_ERROR_TYPE ) -> u32 );
     NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.into().abi(), netisoerror)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32 {
-    ::windows::core::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationEnumAppContainers ( flags : u32 , pdwnumpublicappcs : *mut u32 , pppublicappcs : *mut *mut INET_FIREWALL_APP_CONTAINER ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationEnumAppContainers ( flags : u32 , pdwnumpublicappcs : *mut u32 , pppublicappcs : *mut *mut INET_FIREWALL_APP_CONTAINER ) -> u32 );
     NetworkIsolationEnumAppContainers(flags, pdwnumpublicappcs, pppublicappcs)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32 {
-    ::windows::core::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationFreeAppContainers ( ppublicappcs : *const INET_FIREWALL_APP_CONTAINER ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationFreeAppContainers ( ppublicappcs : *const INET_FIREWALL_APP_CONTAINER ) -> u32 );
     NetworkIsolationFreeAppContainers(ppublicappcs)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
-    ::windows::core::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationGetAppContainerConfig ( pdwnumpublicappcs : *mut u32 , appcontainersids : *mut *mut super::super::Security:: SID_AND_ATTRIBUTES ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationGetAppContainerConfig ( pdwnumpublicappcs : *mut u32 , appcontainersids : *mut *mut super::super::Security:: SID_AND_ATTRIBUTES ) -> u32 );
     NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs, appcontainersids)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: ::core::option::Option<*const ::core::ffi::c_void>, registrationobject: *mut super::super::Foundation::HANDLE) -> u32 {
-    ::windows::core::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationRegisterForAppContainerChanges ( flags : u32 , callback : PAC_CHANGES_CALLBACK_FN , context : *const ::core::ffi::c_void , registrationobject : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationRegisterForAppContainerChanges ( flags : u32 , callback : PAC_CHANGES_CALLBACK_FN , context : *const ::core::ffi::c_void , registrationobject : *mut super::super::Foundation:: HANDLE ) -> u32 );
     NetworkIsolationRegisterForAppContainerChanges(flags, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), registrationobject)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::super::Security::SID_AND_ATTRIBUTES]) -> u32 {
-    ::windows::core::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationSetAppContainerConfig ( dwnumpublicappcs : u32 , appcontainersids : *const super::super::Security:: SID_AND_ATTRIBUTES ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationSetAppContainerConfig ( dwnumpublicappcs : u32 , appcontainersids : *const super::super::Security:: SID_AND_ATTRIBUTES ) -> u32 );
     NetworkIsolationSetAppContainerConfig(appcontainersids.len() as _, ::core::mem::transmute(appcontainersids.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
@@ -53,7 +53,7 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P4: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationSetupAppContainerBinaries ( applicationcontainersid : super::super::Foundation:: PSID , packagefullname : :: windows::core::PCWSTR , packagefolder : :: windows::core::PCWSTR , displayname : :: windows::core::PCWSTR , bbinariesfullycomputed : super::super::Foundation:: BOOL , binaries : *const :: windows::core::PCWSTR , binariescount : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationSetupAppContainerBinaries ( applicationcontainersid : super::super::Foundation:: PSID , packagefullname : :: windows::core::PCWSTR , packagefolder : :: windows::core::PCWSTR , displayname : :: windows::core::PCWSTR , bbinariesfullycomputed : super::super::Foundation:: BOOL , binaries : *const :: windows::core::PCWSTR , binariescount : u32 ) -> :: windows::core::HRESULT );
     NetworkIsolationSetupAppContainerBinaries(applicationcontainersid.into(), packagefullname.into().abi(), packagefolder.into().abi(), displayname.into().abi(), bbinariesfullycomputed.into(), ::core::mem::transmute(binaries.as_ptr()), binaries.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
@@ -63,7 +63,7 @@ pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<P0>(registrationo
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationUnregisterForAppContainerChanges ( registrationobject : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationUnregisterForAppContainerChanges ( registrationobject : super::super::Foundation:: HANDLE ) -> u32 );
     NetworkIsolationUnregisterForAppContainerChanges(registrationobject.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
@@ -133,7 +133,7 @@ impl IDynamicPortMapping {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDynamicPortMapping, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDynamicPortMapping, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDynamicPortMapping {
     fn eq(&self, other: &Self) -> bool {
@@ -222,7 +222,7 @@ impl IDynamicPortMappingCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDynamicPortMappingCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDynamicPortMappingCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDynamicPortMappingCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -286,7 +286,7 @@ impl IEnumNetConnection {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumNetConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumNetConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumNetConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -338,7 +338,7 @@ impl IEnumNetSharingEveryConnection {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumNetSharingEveryConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumNetSharingEveryConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumNetSharingEveryConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -393,7 +393,7 @@ impl IEnumNetSharingPortMapping {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumNetSharingPortMapping, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumNetSharingPortMapping, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumNetSharingPortMapping {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -448,7 +448,7 @@ impl IEnumNetSharingPrivateConnection {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumNetSharingPrivateConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumNetSharingPrivateConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumNetSharingPrivateConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -503,7 +503,7 @@ impl IEnumNetSharingPublicConnection {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumNetSharingPublicConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumNetSharingPublicConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumNetSharingPublicConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -558,7 +558,7 @@ impl INATEventManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INATEventManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INATEventManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INATEventManager {
     fn eq(&self, other: &Self) -> bool {
@@ -603,7 +603,7 @@ impl INATExternalIPAddressCallback {
         (::windows::core::Vtable::vtable(self).NewExternalIPAddress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrnewexternalipaddress)).ok()
     }
 }
-::windows::core::interface_hierarchy!(INATExternalIPAddressCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INATExternalIPAddressCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INATExternalIPAddressCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -640,7 +640,7 @@ impl INATNumberOfEntriesCallback {
         (::windows::core::Vtable::vtable(self).NewNumberOfEntries)(::windows::core::Vtable::as_raw(self), lnewnumberofentries).ok()
     }
 }
-::windows::core::interface_hierarchy!(INATNumberOfEntriesCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INATNumberOfEntriesCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INATNumberOfEntriesCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -704,7 +704,7 @@ impl INetConnection {
         (::windows::core::Vtable::vtable(self).Rename)(::windows::core::Vtable::as_raw(self), pszwnewname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(INetConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INetConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INetConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -766,7 +766,7 @@ impl INetConnectionConnectUi {
         (::windows::core::Vtable::vtable(self).Disconnect)(::windows::core::Vtable::as_raw(self), hwndparent.into(), dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(INetConnectionConnectUi, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INetConnectionConnectUi, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INetConnectionConnectUi {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -812,7 +812,7 @@ impl INetConnectionManager {
         (::windows::core::Vtable::vtable(self).EnumConnections)(::windows::core::Vtable::as_raw(self), flags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(INetConnectionManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INetConnectionManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INetConnectionManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -873,7 +873,7 @@ impl INetConnectionProps {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetConnectionProps, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetConnectionProps, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetConnectionProps {
     fn eq(&self, other: &Self) -> bool {
@@ -971,7 +971,7 @@ impl INetFwAuthorizedApplication {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwAuthorizedApplication, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwAuthorizedApplication, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwAuthorizedApplication {
     fn eq(&self, other: &Self) -> bool {
@@ -1057,7 +1057,7 @@ impl INetFwAuthorizedApplications {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwAuthorizedApplications, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwAuthorizedApplications, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwAuthorizedApplications {
     fn eq(&self, other: &Self) -> bool {
@@ -1251,7 +1251,7 @@ impl INetFwIcmpSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwIcmpSettings, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwIcmpSettings, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwIcmpSettings {
     fn eq(&self, other: &Self) -> bool {
@@ -1397,7 +1397,7 @@ impl INetFwMgr {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwMgr, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwMgr, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwMgr {
     fn eq(&self, other: &Self) -> bool {
@@ -1516,7 +1516,7 @@ impl INetFwOpenPort {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwOpenPort, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwOpenPort, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwOpenPort {
     fn eq(&self, other: &Self) -> bool {
@@ -1608,7 +1608,7 @@ impl INetFwOpenPorts {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwOpenPorts, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwOpenPorts, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwOpenPorts {
     fn eq(&self, other: &Self) -> bool {
@@ -1674,7 +1674,7 @@ impl INetFwPolicy {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwPolicy, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwPolicy, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwPolicy {
     fn eq(&self, other: &Self) -> bool {
@@ -1849,7 +1849,7 @@ impl INetFwPolicy2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwPolicy2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwPolicy2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwPolicy2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1981,7 +1981,7 @@ impl INetFwProduct {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwProduct, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwProduct, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwProduct {
     fn eq(&self, other: &Self) -> bool {
@@ -2058,7 +2058,7 @@ impl INetFwProducts {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwProducts, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwProducts, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwProducts {
     fn eq(&self, other: &Self) -> bool {
@@ -2201,7 +2201,7 @@ impl INetFwProfile {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwProfile, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwProfile, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwProfile {
     fn eq(&self, other: &Self) -> bool {
@@ -2332,7 +2332,7 @@ impl INetFwRemoteAdminSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwRemoteAdminSettings, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwRemoteAdminSettings, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwRemoteAdminSettings {
     fn eq(&self, other: &Self) -> bool {
@@ -2533,7 +2533,7 @@ impl INetFwRule {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwRule {
     fn eq(&self, other: &Self) -> bool {
@@ -2781,7 +2781,7 @@ impl INetFwRule2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwRule2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, INetFwRule);
+::windows::imp::interface_hierarchy!(INetFwRule2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, INetFwRule);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwRule2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3019,7 +3019,7 @@ impl INetFwRule3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwRule3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, INetFwRule, INetFwRule2);
+::windows::imp::interface_hierarchy!(INetFwRule3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, INetFwRule, INetFwRule2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwRule3 {
     fn eq(&self, other: &Self) -> bool {
@@ -3099,7 +3099,7 @@ impl INetFwRules {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwRules, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwRules, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwRules {
     fn eq(&self, other: &Self) -> bool {
@@ -3208,7 +3208,7 @@ impl INetFwService {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwService, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwService, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwService {
     fn eq(&self, other: &Self) -> bool {
@@ -3296,7 +3296,7 @@ impl INetFwServiceRestriction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwServiceRestriction, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwServiceRestriction, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwServiceRestriction {
     fn eq(&self, other: &Self) -> bool {
@@ -3365,7 +3365,7 @@ impl INetFwServices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetFwServices, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetFwServices, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetFwServices {
     fn eq(&self, other: &Self) -> bool {
@@ -3462,7 +3462,7 @@ impl INetSharingConfiguration {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetSharingConfiguration, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetSharingConfiguration, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetSharingConfiguration {
     fn eq(&self, other: &Self) -> bool {
@@ -3538,7 +3538,7 @@ impl INetSharingEveryConnectionCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetSharingEveryConnectionCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetSharingEveryConnectionCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetSharingEveryConnectionCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -3625,7 +3625,7 @@ impl INetSharingManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetSharingManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetSharingManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetSharingManager {
     fn eq(&self, other: &Self) -> bool {
@@ -3707,7 +3707,7 @@ impl INetSharingPortMapping {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetSharingPortMapping, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetSharingPortMapping, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetSharingPortMapping {
     fn eq(&self, other: &Self) -> bool {
@@ -3765,7 +3765,7 @@ impl INetSharingPortMappingCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetSharingPortMappingCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetSharingPortMappingCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetSharingPortMappingCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -3844,7 +3844,7 @@ impl INetSharingPortMappingProps {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetSharingPortMappingProps, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetSharingPortMappingProps, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetSharingPortMappingProps {
     fn eq(&self, other: &Self) -> bool {
@@ -3906,7 +3906,7 @@ impl INetSharingPrivateConnectionCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetSharingPrivateConnectionCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetSharingPrivateConnectionCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetSharingPrivateConnectionCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -3959,7 +3959,7 @@ impl INetSharingPublicConnectionCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetSharingPublicConnectionCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetSharingPublicConnectionCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetSharingPublicConnectionCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -4051,7 +4051,7 @@ impl IStaticPortMapping {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IStaticPortMapping, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IStaticPortMapping, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IStaticPortMapping {
     fn eq(&self, other: &Self) -> bool {
@@ -4137,7 +4137,7 @@ impl IStaticPortMappingCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IStaticPortMappingCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IStaticPortMappingCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IStaticPortMappingCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -4209,7 +4209,7 @@ impl IUPnPNAT {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IUPnPNAT, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IUPnPNAT, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IUPnPNAT {
     fn eq(&self, other: &Self) -> bool {

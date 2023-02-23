@@ -566,7 +566,7 @@ impl ::core::fmt::Debug for GuidanceAudioNotificationRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceAudioNotificationRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceAudioNotificationRequestedEventArgs;{ca2aa24a-c7c2-4d4c-9d7c-499576bceddb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceAudioNotificationRequestedEventArgs;{ca2aa24a-c7c2-4d4c-9d7c-499576bceddb})");
 }
 impl ::core::clone::Clone for GuidanceAudioNotificationRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -582,7 +582,7 @@ unsafe impl ::windows::core::Interface for GuidanceAudioNotificationRequestedEve
 impl ::windows::core::RuntimeName for GuidanceAudioNotificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceAudioNotificationRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(GuidanceAudioNotificationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GuidanceAudioNotificationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceAudioNotificationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceAudioNotificationRequestedEventArgs {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -616,7 +616,7 @@ impl ::core::fmt::Debug for GuidanceLaneInfo {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceLaneInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceLaneInfo;{8404d114-6581-43b7-ac15-c9079bf90df1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceLaneInfo;{8404d114-6581-43b7-ac15-c9079bf90df1})");
 }
 impl ::core::clone::Clone for GuidanceLaneInfo {
     fn clone(&self) -> Self {
@@ -632,7 +632,7 @@ unsafe impl ::windows::core::Interface for GuidanceLaneInfo {
 impl ::windows::core::RuntimeName for GuidanceLaneInfo {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceLaneInfo";
 }
-::windows::core::interface_hierarchy!(GuidanceLaneInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GuidanceLaneInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceLaneInfo {}
 unsafe impl ::core::marker::Sync for GuidanceLaneInfo {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -738,7 +738,7 @@ impl ::core::fmt::Debug for GuidanceManeuver {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceManeuver {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceManeuver;{fc09326c-ecc9-4928-a2a1-7232b99b94a1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceManeuver;{fc09326c-ecc9-4928-a2a1-7232b99b94a1})");
 }
 impl ::core::clone::Clone for GuidanceManeuver {
     fn clone(&self) -> Self {
@@ -754,7 +754,7 @@ unsafe impl ::windows::core::Interface for GuidanceManeuver {
 impl ::windows::core::RuntimeName for GuidanceManeuver {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceManeuver";
 }
-::windows::core::interface_hierarchy!(GuidanceManeuver, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GuidanceManeuver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceManeuver {}
 unsafe impl ::core::marker::Sync for GuidanceManeuver {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -811,7 +811,7 @@ impl ::core::fmt::Debug for GuidanceMapMatchedCoordinate {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceMapMatchedCoordinate {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceMapMatchedCoordinate;{b7acb168-2912-4a99-aff1-798609b981fe})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceMapMatchedCoordinate;{b7acb168-2912-4a99-aff1-798609b981fe})");
 }
 impl ::core::clone::Clone for GuidanceMapMatchedCoordinate {
     fn clone(&self) -> Self {
@@ -827,7 +827,7 @@ unsafe impl ::windows::core::Interface for GuidanceMapMatchedCoordinate {
 impl ::windows::core::RuntimeName for GuidanceMapMatchedCoordinate {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceMapMatchedCoordinate";
 }
-::windows::core::interface_hierarchy!(GuidanceMapMatchedCoordinate, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GuidanceMapMatchedCoordinate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceMapMatchedCoordinate {}
 unsafe impl ::core::marker::Sync for GuidanceMapMatchedCoordinate {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1045,12 +1045,12 @@ impl GuidanceNavigator {
     }
     #[doc(hidden)]
     pub fn IGuidanceNavigatorStatics<R, F: FnOnce(&IGuidanceNavigatorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GuidanceNavigator, IGuidanceNavigatorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GuidanceNavigator, IGuidanceNavigatorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGuidanceNavigatorStatics2<R, F: FnOnce(&IGuidanceNavigatorStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GuidanceNavigator, IGuidanceNavigatorStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GuidanceNavigator, IGuidanceNavigatorStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1066,7 +1066,7 @@ impl ::core::fmt::Debug for GuidanceNavigator {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceNavigator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceNavigator;{08f17ef7-8e3f-4d9a-be8a-108f9a012c67})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceNavigator;{08f17ef7-8e3f-4d9a-be8a-108f9a012c67})");
 }
 impl ::core::clone::Clone for GuidanceNavigator {
     fn clone(&self) -> Self {
@@ -1082,7 +1082,7 @@ unsafe impl ::windows::core::Interface for GuidanceNavigator {
 impl ::windows::core::RuntimeName for GuidanceNavigator {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceNavigator";
 }
-::windows::core::interface_hierarchy!(GuidanceNavigator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GuidanceNavigator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceNavigator {}
 unsafe impl ::core::marker::Sync for GuidanceNavigator {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1109,7 +1109,7 @@ impl ::core::fmt::Debug for GuidanceReroutedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceReroutedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceReroutedEventArgs;{115d4008-d528-454e-bb94-a50341d2c9f1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceReroutedEventArgs;{115d4008-d528-454e-bb94-a50341d2c9f1})");
 }
 impl ::core::clone::Clone for GuidanceReroutedEventArgs {
     fn clone(&self) -> Self {
@@ -1125,7 +1125,7 @@ unsafe impl ::windows::core::Interface for GuidanceReroutedEventArgs {
 impl ::windows::core::RuntimeName for GuidanceReroutedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceReroutedEventArgs";
 }
-::windows::core::interface_hierarchy!(GuidanceReroutedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GuidanceReroutedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceReroutedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceReroutedEventArgs {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1219,7 +1219,7 @@ impl ::core::fmt::Debug for GuidanceRoadSegment {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceRoadSegment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceRoadSegment;{b32758a6-be78-4c63-afe7-6c2957479b3e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceRoadSegment;{b32758a6-be78-4c63-afe7-6c2957479b3e})");
 }
 impl ::core::clone::Clone for GuidanceRoadSegment {
     fn clone(&self) -> Self {
@@ -1235,7 +1235,7 @@ unsafe impl ::windows::core::Interface for GuidanceRoadSegment {
 impl ::windows::core::RuntimeName for GuidanceRoadSegment {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSegment";
 }
-::windows::core::interface_hierarchy!(GuidanceRoadSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GuidanceRoadSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceRoadSegment {}
 unsafe impl ::core::marker::Sync for GuidanceRoadSegment {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1296,7 +1296,7 @@ impl ::core::fmt::Debug for GuidanceRoadSignpost {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceRoadSignpost {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceRoadSignpost;{f1a728b6-f77a-4742-8312-53300f9845f0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceRoadSignpost;{f1a728b6-f77a-4742-8312-53300f9845f0})");
 }
 impl ::core::clone::Clone for GuidanceRoadSignpost {
     fn clone(&self) -> Self {
@@ -1312,7 +1312,7 @@ unsafe impl ::windows::core::Interface for GuidanceRoadSignpost {
 impl ::windows::core::RuntimeName for GuidanceRoadSignpost {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSignpost";
 }
-::windows::core::interface_hierarchy!(GuidanceRoadSignpost, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GuidanceRoadSignpost, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceRoadSignpost {}
 unsafe impl ::core::marker::Sync for GuidanceRoadSignpost {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1392,7 +1392,7 @@ impl GuidanceRoute {
     }
     #[doc(hidden)]
     pub fn IGuidanceRouteStatics<R, F: FnOnce(&IGuidanceRouteStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GuidanceRoute, IGuidanceRouteStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GuidanceRoute, IGuidanceRouteStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1408,7 +1408,7 @@ impl ::core::fmt::Debug for GuidanceRoute {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceRoute {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceRoute;{3a14545d-801a-40bd-a286-afb2010cce6c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceRoute;{3a14545d-801a-40bd-a286-afb2010cce6c})");
 }
 impl ::core::clone::Clone for GuidanceRoute {
     fn clone(&self) -> Self {
@@ -1424,7 +1424,7 @@ unsafe impl ::windows::core::Interface for GuidanceRoute {
 impl ::windows::core::RuntimeName for GuidanceRoute {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoute";
 }
-::windows::core::interface_hierarchy!(GuidanceRoute, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GuidanceRoute, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceRoute {}
 unsafe impl ::core::marker::Sync for GuidanceRoute {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1476,7 +1476,7 @@ impl GuidanceTelemetryCollector {
     }
     #[doc(hidden)]
     pub fn IGuidanceTelemetryCollectorStatics<R, F: FnOnce(&IGuidanceTelemetryCollectorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GuidanceTelemetryCollector, IGuidanceTelemetryCollectorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GuidanceTelemetryCollector, IGuidanceTelemetryCollectorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1492,7 +1492,7 @@ impl ::core::fmt::Debug for GuidanceTelemetryCollector {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceTelemetryCollector {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceTelemetryCollector;{db1f8da5-b878-4d92-98dd-347d23d38262})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceTelemetryCollector;{db1f8da5-b878-4d92-98dd-347d23d38262})");
 }
 impl ::core::clone::Clone for GuidanceTelemetryCollector {
     fn clone(&self) -> Self {
@@ -1508,7 +1508,7 @@ unsafe impl ::windows::core::Interface for GuidanceTelemetryCollector {
 impl ::windows::core::RuntimeName for GuidanceTelemetryCollector {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceTelemetryCollector";
 }
-::windows::core::interface_hierarchy!(GuidanceTelemetryCollector, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GuidanceTelemetryCollector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceTelemetryCollector {}
 unsafe impl ::core::marker::Sync for GuidanceTelemetryCollector {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1632,7 +1632,7 @@ impl ::core::fmt::Debug for GuidanceUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceUpdatedEventArgs;{fdac160b-9e8d-4de3-a9fa-b06321d18db9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceUpdatedEventArgs;{fdac160b-9e8d-4de3-a9fa-b06321d18db9})");
 }
 impl ::core::clone::Clone for GuidanceUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -1648,7 +1648,7 @@ unsafe impl ::windows::core::Interface for GuidanceUpdatedEventArgs {
 impl ::windows::core::RuntimeName for GuidanceUpdatedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(GuidanceUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GuidanceUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceUpdatedEventArgs {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1680,7 +1680,7 @@ impl ::core::fmt::Debug for GuidanceAudioMeasurementSystem {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceAudioMeasurementSystem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioMeasurementSystem;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioMeasurementSystem;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
@@ -1714,7 +1714,7 @@ impl ::core::fmt::Debug for GuidanceAudioNotificationKind {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceAudioNotificationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotificationKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotificationKind;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
@@ -1782,7 +1782,7 @@ impl ::core::ops::Not for GuidanceAudioNotifications {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceAudioNotifications {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotifications;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotifications;u4)");
 }
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
@@ -1854,7 +1854,7 @@ impl ::core::ops::Not for GuidanceLaneMarkers {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceLaneMarkers {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceLaneMarkers;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceLaneMarkers;u4)");
 }
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
@@ -1930,7 +1930,7 @@ impl ::core::fmt::Debug for GuidanceManeuverKind {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceManeuverKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceManeuverKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceManeuverKind;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
@@ -1962,7 +1962,7 @@ impl ::core::fmt::Debug for GuidanceMode {
     }
 }
 impl ::windows::core::RuntimeType for GuidanceMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

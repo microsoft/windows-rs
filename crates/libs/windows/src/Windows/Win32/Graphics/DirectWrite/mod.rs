@@ -4,7 +4,7 @@ pub unsafe fn DWriteCreateFactory<T>(factorytype: DWRITE_FACTORY_TYPE) -> ::wind
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dwrite.dll""system" fn DWriteCreateFactory ( factorytype : DWRITE_FACTORY_TYPE , iid : *const :: windows::core::GUID , factory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dwrite.dll""system" fn DWriteCreateFactory ( factorytype : DWRITE_FACTORY_TYPE , iid : *const :: windows::core::GUID , factory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DWriteCreateFactory(factorytype, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -21,7 +21,7 @@ impl IDWriteAsyncResult {
         (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteAsyncResult, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteAsyncResult, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteAsyncResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -96,7 +96,7 @@ impl IDWriteBitmapRenderTarget {
         (::windows::core::Vtable::vtable(self).Resize)(::windows::core::Vtable::as_raw(self), width, height).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteBitmapRenderTarget, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteBitmapRenderTarget, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteBitmapRenderTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -189,7 +189,7 @@ impl IDWriteBitmapRenderTarget1 {
         (::windows::core::Vtable::vtable(self).SetTextAntialiasMode)(::windows::core::Vtable::as_raw(self), antialiasmode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteBitmapRenderTarget1, ::windows::core::IUnknown, IDWriteBitmapRenderTarget);
+::windows::imp::interface_hierarchy!(IDWriteBitmapRenderTarget1, ::windows::core::IUnknown, IDWriteBitmapRenderTarget);
 impl ::core::cmp::PartialEq for IDWriteBitmapRenderTarget1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -238,7 +238,7 @@ impl IDWriteColorGlyphRunEnumerator {
         (::windows::core::Vtable::vtable(self).GetCurrentRun)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteColorGlyphRunEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteColorGlyphRunEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteColorGlyphRunEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -299,7 +299,7 @@ impl IDWriteColorGlyphRunEnumerator1 {
         (::windows::core::Vtable::vtable(self).GetCurrentRun2)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteColorGlyphRunEnumerator1, ::windows::core::IUnknown, IDWriteColorGlyphRunEnumerator);
+::windows::imp::interface_hierarchy!(IDWriteColorGlyphRunEnumerator1, ::windows::core::IUnknown, IDWriteColorGlyphRunEnumerator);
 impl ::core::cmp::PartialEq for IDWriteColorGlyphRunEnumerator1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -475,7 +475,7 @@ impl IDWriteFactory {
         (::windows::core::Vtable::vtable(self).CreateGlyphRunAnalysis)(::windows::core::Vtable::as_raw(self), glyphrun, pixelsperdip, ::core::mem::transmute(transform.unwrap_or(::std::ptr::null())), renderingmode, measuringmode, baselineoriginx, baselineoriginy, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -698,7 +698,7 @@ impl IDWriteFactory1 {
         (::windows::core::Vtable::vtable(self).CreateCustomRenderingParams2)(::windows::core::Vtable::as_raw(self), gamma, enhancedcontrast, enhancedcontrastgrayscale, cleartypelevel, pixelgeometry, renderingmode, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFactory1, ::windows::core::IUnknown, IDWriteFactory);
+::windows::imp::interface_hierarchy!(IDWriteFactory1, ::windows::core::IUnknown, IDWriteFactory);
 impl ::core::cmp::PartialEq for IDWriteFactory1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -911,7 +911,7 @@ impl IDWriteFactory2 {
         (::windows::core::Vtable::vtable(self).CreateGlyphRunAnalysis2)(::windows::core::Vtable::as_raw(self), glyphrun, ::core::mem::transmute(transform.unwrap_or(::std::ptr::null())), renderingmode, measuringmode, gridfitmode, antialiasmode, baselineoriginx, baselineoriginy, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFactory2, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1);
+::windows::imp::interface_hierarchy!(IDWriteFactory2, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1);
 impl ::core::cmp::PartialEq for IDWriteFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1184,7 +1184,7 @@ impl IDWriteFactory3 {
         (::windows::core::Vtable::vtable(self).GetFontDownloadQueue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFactory3, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2);
+::windows::imp::interface_hierarchy!(IDWriteFactory3, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2);
 impl ::core::cmp::PartialEq for IDWriteFactory3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1482,7 +1482,7 @@ impl IDWriteFactory4 {
         (::windows::core::Vtable::vtable(self).ComputeGlyphOrigins2)(::windows::core::Vtable::as_raw(self), glyphrun, measuringmode, ::core::mem::transmute(baselineorigin), ::core::mem::transmute(worldanddpitransform.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFactory4, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3);
+::windows::imp::interface_hierarchy!(IDWriteFactory4, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3);
 impl ::core::cmp::PartialEq for IDWriteFactory4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1797,7 +1797,7 @@ impl IDWriteFactory5 {
         (::windows::core::Vtable::vtable(self).UnpackFontFile)(::windows::core::Vtable::as_raw(self), containertype, filedata, filedatasize, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFactory5, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4);
+::windows::imp::interface_hierarchy!(IDWriteFactory5, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4);
 impl ::core::cmp::PartialEq for IDWriteFactory5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2157,7 +2157,7 @@ impl IDWriteFactory6 {
         (::windows::core::Vtable::vtable(self).CreateTextFormat2)(::windows::core::Vtable::as_raw(self), fontfamilyname.into().abi(), fontcollection.into().abi(), ::core::mem::transmute(fontaxisvalues.as_ptr()), fontaxisvalues.len() as _, fontsize, localename.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFactory6, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5);
+::windows::imp::interface_hierarchy!(IDWriteFactory6, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5);
 impl ::core::cmp::PartialEq for IDWriteFactory6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2543,7 +2543,7 @@ impl IDWriteFactory7 {
         (::windows::core::Vtable::vtable(self).GetSystemFontCollection4)(::windows::core::Vtable::as_raw(self), includedownloadablefonts.into(), fontfamilymodel, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFactory7, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5, IDWriteFactory6);
+::windows::imp::interface_hierarchy!(IDWriteFactory7, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5, IDWriteFactory6);
 impl ::core::cmp::PartialEq for IDWriteFactory7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2629,7 +2629,7 @@ impl IDWriteFont {
         (::windows::core::Vtable::vtable(self).CreateFontFace)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFont, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFont, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFont {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2745,7 +2745,7 @@ impl IDWriteFont1 {
         (::windows::core::Vtable::vtable(self).IsMonospacedFont)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFont1, ::windows::core::IUnknown, IDWriteFont);
+::windows::imp::interface_hierarchy!(IDWriteFont1, ::windows::core::IUnknown, IDWriteFont);
 impl ::core::cmp::PartialEq for IDWriteFont1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2856,7 +2856,7 @@ impl IDWriteFont2 {
         (::windows::core::Vtable::vtable(self).IsColorFont)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFont2, ::windows::core::IUnknown, IDWriteFont, IDWriteFont1);
+::windows::imp::interface_hierarchy!(IDWriteFont2, ::windows::core::IUnknown, IDWriteFont, IDWriteFont1);
 impl ::core::cmp::PartialEq for IDWriteFont2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2985,7 +2985,7 @@ impl IDWriteFont3 {
         (::windows::core::Vtable::vtable(self).GetLocality)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFont3, ::windows::core::IUnknown, IDWriteFont, IDWriteFont1, IDWriteFont2);
+::windows::imp::interface_hierarchy!(IDWriteFont3, ::windows::core::IUnknown, IDWriteFont, IDWriteFont1, IDWriteFont2);
 impl ::core::cmp::PartialEq for IDWriteFont3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3053,7 +3053,7 @@ impl IDWriteFontCollection {
         (::windows::core::Vtable::vtable(self).GetFontFromFontFace)(::windows::core::Vtable::as_raw(self), fontface.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3125,7 +3125,7 @@ impl IDWriteFontCollection1 {
         (::windows::core::Vtable::vtable(self).GetFontFamily2)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontCollection1, ::windows::core::IUnknown, IDWriteFontCollection);
+::windows::imp::interface_hierarchy!(IDWriteFontCollection1, ::windows::core::IUnknown, IDWriteFontCollection);
 impl ::core::cmp::PartialEq for IDWriteFontCollection1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3210,7 +3210,7 @@ impl IDWriteFontCollection2 {
         (::windows::core::Vtable::vtable(self).GetFontSet2)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontCollection2, ::windows::core::IUnknown, IDWriteFontCollection, IDWriteFontCollection1);
+::windows::imp::interface_hierarchy!(IDWriteFontCollection2, ::windows::core::IUnknown, IDWriteFontCollection, IDWriteFontCollection1);
 impl ::core::cmp::PartialEq for IDWriteFontCollection2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3302,7 +3302,7 @@ impl IDWriteFontCollection3 {
         (::windows::core::Vtable::vtable(self).GetExpirationEvent)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontCollection3, ::windows::core::IUnknown, IDWriteFontCollection, IDWriteFontCollection1, IDWriteFontCollection2);
+::windows::imp::interface_hierarchy!(IDWriteFontCollection3, ::windows::core::IUnknown, IDWriteFontCollection, IDWriteFontCollection1, IDWriteFontCollection2);
 impl ::core::cmp::PartialEq for IDWriteFontCollection3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3348,7 +3348,7 @@ impl IDWriteFontCollectionLoader {
         (::windows::core::Vtable::vtable(self).CreateEnumeratorFromKey)(::windows::core::Vtable::as_raw(self), factory.into().abi(), collectionkey, collectionkeysize, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontCollectionLoader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontCollectionLoader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontCollectionLoader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3391,7 +3391,7 @@ impl IDWriteFontDownloadListener {
         (::windows::core::Vtable::vtable(self).DownloadCompleted)(::windows::core::Vtable::as_raw(self), downloadqueue.into().abi(), context.into().abi(), downloadresult)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontDownloadListener, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontDownloadListener, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontDownloadListener {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3454,7 +3454,7 @@ impl IDWriteFontDownloadQueue {
         (::windows::core::Vtable::vtable(self).GetGenerationCount)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontDownloadQueue, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontDownloadQueue, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontDownloadQueue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3569,7 +3569,7 @@ impl IDWriteFontFace {
         (::windows::core::Vtable::vtable(self).GetGdiCompatibleGlyphMetrics)(::windows::core::Vtable::as_raw(self), emsize, pixelsperdip, ::core::mem::transmute(transform.unwrap_or(::std::ptr::null())), usegdinatural.into(), glyphindices, glyphcount, glyphmetrics, issideways.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFace, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontFace, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontFace {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3770,7 +3770,7 @@ impl IDWriteFontFace1 {
         (::windows::core::Vtable::vtable(self).HasVerticalGlyphVariants)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFace1, ::windows::core::IUnknown, IDWriteFontFace);
+::windows::imp::interface_hierarchy!(IDWriteFontFace1, ::windows::core::IUnknown, IDWriteFontFace);
 impl ::core::cmp::PartialEq for IDWriteFontFace1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4000,7 +4000,7 @@ impl IDWriteFontFace2 {
         (::windows::core::Vtable::vtable(self).GetRecommendedRenderingMode3)(::windows::core::Vtable::as_raw(self), fontemsize, dpix, dpiy, ::core::mem::transmute(transform.unwrap_or(::std::ptr::null())), issideways.into(), outlinethreshold, measuringmode, renderingparams.into().abi(), renderingmode, gridfitmode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFace2, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1);
+::windows::imp::interface_hierarchy!(IDWriteFontFace2, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1);
 impl ::core::cmp::PartialEq for IDWriteFontFace2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4278,7 +4278,7 @@ impl IDWriteFontFace3 {
         (::windows::core::Vtable::vtable(self).AreGlyphsLocal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(glyphindices.as_ptr()), glyphindices.len() as _, enqueueifnotlocal.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFace3, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2);
+::windows::imp::interface_hierarchy!(IDWriteFontFace3, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2);
 impl ::core::cmp::PartialEq for IDWriteFontFace3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4595,7 +4595,7 @@ impl IDWriteFontFace4 {
         (::windows::core::Vtable::vtable(self).ReleaseGlyphImageData)(::windows::core::Vtable::as_raw(self), glyphdatacontext)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFace4, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3);
+::windows::imp::interface_hierarchy!(IDWriteFontFace4, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3);
 impl ::core::cmp::PartialEq for IDWriteFontFace4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4907,7 +4907,7 @@ impl IDWriteFontFace5 {
         (::windows::core::Vtable::vtable(self).Equals)(::windows::core::Vtable::as_raw(self), fontface.into().abi())
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFace5, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3, IDWriteFontFace4);
+::windows::imp::interface_hierarchy!(IDWriteFontFace5, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3, IDWriteFontFace4);
 impl ::core::cmp::PartialEq for IDWriteFontFace5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5231,7 +5231,7 @@ impl IDWriteFontFace6 {
         (::windows::core::Vtable::vtable(self).GetFaceNames2)(::windows::core::Vtable::as_raw(self), fontfamilymodel, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFace6, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3, IDWriteFontFace4, IDWriteFontFace5);
+::windows::imp::interface_hierarchy!(IDWriteFontFace6, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3, IDWriteFontFace4, IDWriteFontFace5);
 impl ::core::cmp::PartialEq for IDWriteFontFace6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5321,7 +5321,7 @@ impl IDWriteFontFaceReference {
         (::windows::core::Vtable::vtable(self).EnqueueFileFragmentDownloadRequest)(::windows::core::Vtable::as_raw(self), fileoffset, fragmentsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFaceReference, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontFaceReference, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontFaceReference {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5439,7 +5439,7 @@ impl IDWriteFontFaceReference1 {
         (::windows::core::Vtable::vtable(self).GetFontAxisValues)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(fontaxisvalues.as_ptr()), fontaxisvalues.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFaceReference1, ::windows::core::IUnknown, IDWriteFontFaceReference);
+::windows::imp::interface_hierarchy!(IDWriteFontFaceReference1, ::windows::core::IUnknown, IDWriteFontFaceReference);
 impl ::core::cmp::PartialEq for IDWriteFontFaceReference1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5485,7 +5485,7 @@ impl IDWriteFontFallback {
         (::windows::core::Vtable::vtable(self).MapCharacters)(::windows::core::Vtable::as_raw(self), analysissource.into().abi(), textposition, textlength, basefontcollection.into().abi(), basefamilyname.into().abi(), baseweight, basestyle, basestretch, mappedlength, ::core::mem::transmute(mappedfont), scale).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontFallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontFallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5537,7 +5537,7 @@ impl IDWriteFontFallback1 {
         (::windows::core::Vtable::vtable(self).MapCharacters2)(::windows::core::Vtable::as_raw(self), analysissource.into().abi(), textposition, textlength, basefontcollection.into().abi(), basefamilyname.into().abi(), ::core::mem::transmute(fontaxisvalues.as_ptr()), fontaxisvalues.len() as _, mappedlength, scale, ::core::mem::transmute(mappedfontface)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFallback1, ::windows::core::IUnknown, IDWriteFontFallback);
+::windows::imp::interface_hierarchy!(IDWriteFontFallback1, ::windows::core::IUnknown, IDWriteFontFallback);
 impl ::core::cmp::PartialEq for IDWriteFontFallback1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5591,7 +5591,7 @@ impl IDWriteFontFallbackBuilder {
         (::windows::core::Vtable::vtable(self).CreateFontFallback)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFallbackBuilder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontFallbackBuilder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontFallbackBuilder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5652,7 +5652,7 @@ impl IDWriteFontFamily {
         (::windows::core::Vtable::vtable(self).GetMatchingFonts)(::windows::core::Vtable::as_raw(self), weight, stretch, style, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFamily, ::windows::core::IUnknown, IDWriteFontList);
+::windows::imp::interface_hierarchy!(IDWriteFontFamily, ::windows::core::IUnknown, IDWriteFontList);
 impl ::core::cmp::PartialEq for IDWriteFontFamily {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5724,7 +5724,7 @@ impl IDWriteFontFamily1 {
         (::windows::core::Vtable::vtable(self).GetFontFaceReference)(::windows::core::Vtable::as_raw(self), listindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFamily1, ::windows::core::IUnknown, IDWriteFontList, IDWriteFontFamily);
+::windows::imp::interface_hierarchy!(IDWriteFontFamily1, ::windows::core::IUnknown, IDWriteFontList, IDWriteFontFamily);
 impl ::core::cmp::PartialEq for IDWriteFontFamily1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5804,7 +5804,7 @@ impl IDWriteFontFamily2 {
         (::windows::core::Vtable::vtable(self).GetFontSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFamily2, ::windows::core::IUnknown, IDWriteFontList, IDWriteFontFamily, IDWriteFontFamily1);
+::windows::imp::interface_hierarchy!(IDWriteFontFamily2, ::windows::core::IUnknown, IDWriteFontList, IDWriteFontFamily, IDWriteFontFamily1);
 impl ::core::cmp::PartialEq for IDWriteFontFamily2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5853,7 +5853,7 @@ impl IDWriteFontFile {
         (::windows::core::Vtable::vtable(self).Analyze)(::windows::core::Vtable::as_raw(self), issupportedfonttype, fontfiletype, ::core::mem::transmute(fontfacetype.unwrap_or(::std::ptr::null_mut())), numberoffaces).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFile, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontFile, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontFile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5904,7 +5904,7 @@ impl IDWriteFontFileEnumerator {
         (::windows::core::Vtable::vtable(self).GetCurrentFontFile)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFileEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontFileEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontFileEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5948,7 +5948,7 @@ impl IDWriteFontFileLoader {
         (::windows::core::Vtable::vtable(self).CreateStreamFromKey)(::windows::core::Vtable::as_raw(self), fontfilereferencekey, fontfilereferencekeysize, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFileLoader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontFileLoader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontFileLoader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5998,7 +5998,7 @@ impl IDWriteFontFileStream {
         (::windows::core::Vtable::vtable(self).GetLastWriteTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontFileStream, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontFileStream, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontFileStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6048,7 +6048,7 @@ impl IDWriteFontList {
         (::windows::core::Vtable::vtable(self).GetFont)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6108,7 +6108,7 @@ impl IDWriteFontList1 {
         (::windows::core::Vtable::vtable(self).GetFontFaceReference)(::windows::core::Vtable::as_raw(self), listindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontList1, ::windows::core::IUnknown, IDWriteFontList);
+::windows::imp::interface_hierarchy!(IDWriteFontList1, ::windows::core::IUnknown, IDWriteFontList);
 impl ::core::cmp::PartialEq for IDWriteFontList1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6172,7 +6172,7 @@ impl IDWriteFontList2 {
         (::windows::core::Vtable::vtable(self).GetFontSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontList2, ::windows::core::IUnknown, IDWriteFontList, IDWriteFontList1);
+::windows::imp::interface_hierarchy!(IDWriteFontList2, ::windows::core::IUnknown, IDWriteFontList, IDWriteFontList1);
 impl ::core::cmp::PartialEq for IDWriteFontList2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6250,7 +6250,7 @@ impl IDWriteFontResource {
         (::windows::core::Vtable::vtable(self).CreateFontFaceReference)(::windows::core::Vtable::as_raw(self), fontsimulations, ::core::mem::transmute(fontaxisvalues.as_ptr()), fontaxisvalues.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontResource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontResource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6354,7 +6354,7 @@ impl IDWriteFontSet {
         (::windows::core::Vtable::vtable(self).GetMatchingFonts2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(properties.as_ptr()), properties.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontSet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontSet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6529,7 +6529,7 @@ impl IDWriteFontSet1 {
         (::windows::core::Vtable::vtable(self).GetFontLocality)(::windows::core::Vtable::as_raw(self), listindex)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontSet1, ::windows::core::IUnknown, IDWriteFontSet);
+::windows::imp::interface_hierarchy!(IDWriteFontSet1, ::windows::core::IUnknown, IDWriteFontSet);
 impl ::core::cmp::PartialEq for IDWriteFontSet1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6715,7 +6715,7 @@ impl IDWriteFontSet2 {
         (::windows::core::Vtable::vtable(self).GetExpirationEvent)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontSet2, ::windows::core::IUnknown, IDWriteFontSet, IDWriteFontSet1);
+::windows::imp::interface_hierarchy!(IDWriteFontSet2, ::windows::core::IUnknown, IDWriteFontSet, IDWriteFontSet1);
 impl ::core::cmp::PartialEq for IDWriteFontSet2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6889,7 +6889,7 @@ impl IDWriteFontSet3 {
         (::windows::core::Vtable::vtable(self).GetFontSourceName)(::windows::core::Vtable::as_raw(self), listindex, ::core::mem::transmute(stringbuffer.as_ptr()), stringbuffer.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontSet3, ::windows::core::IUnknown, IDWriteFontSet, IDWriteFontSet1, IDWriteFontSet2);
+::windows::imp::interface_hierarchy!(IDWriteFontSet3, ::windows::core::IUnknown, IDWriteFontSet, IDWriteFontSet1, IDWriteFontSet2);
 impl ::core::cmp::PartialEq for IDWriteFontSet3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6949,7 +6949,7 @@ impl IDWriteFontSetBuilder {
         (::windows::core::Vtable::vtable(self).CreateFontSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontSetBuilder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteFontSetBuilder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteFontSetBuilder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7016,7 +7016,7 @@ impl IDWriteFontSetBuilder1 {
         (::windows::core::Vtable::vtable(self).AddFontFile)(::windows::core::Vtable::as_raw(self), fontfile.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontSetBuilder1, ::windows::core::IUnknown, IDWriteFontSetBuilder);
+::windows::imp::interface_hierarchy!(IDWriteFontSetBuilder1, ::windows::core::IUnknown, IDWriteFontSetBuilder);
 impl ::core::cmp::PartialEq for IDWriteFontSetBuilder1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7092,7 +7092,7 @@ impl IDWriteFontSetBuilder2 {
         (::windows::core::Vtable::vtable(self).AddFontFile2)(::windows::core::Vtable::as_raw(self), filepath.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteFontSetBuilder2, ::windows::core::IUnknown, IDWriteFontSetBuilder, IDWriteFontSetBuilder1);
+::windows::imp::interface_hierarchy!(IDWriteFontSetBuilder2, ::windows::core::IUnknown, IDWriteFontSetBuilder, IDWriteFontSetBuilder1);
 impl ::core::cmp::PartialEq for IDWriteFontSetBuilder2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7169,7 +7169,7 @@ impl IDWriteGdiInterop {
         (::windows::core::Vtable::vtable(self).CreateBitmapRenderTarget)(::windows::core::Vtable::as_raw(self), hdc.into(), width, height, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteGdiInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteGdiInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteGdiInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7298,7 +7298,7 @@ impl IDWriteGdiInterop1 {
         (::windows::core::Vtable::vtable(self).GetMatchingFontsByLOGFONT)(::windows::core::Vtable::as_raw(self), logfont, fontset.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteGdiInterop1, ::windows::core::IUnknown, IDWriteGdiInterop);
+::windows::imp::interface_hierarchy!(IDWriteGdiInterop1, ::windows::core::IUnknown, IDWriteGdiInterop);
 impl ::core::cmp::PartialEq for IDWriteGdiInterop1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7366,7 +7366,7 @@ impl IDWriteGlyphRunAnalysis {
         (::windows::core::Vtable::vtable(self).GetAlphaBlendParams)(::windows::core::Vtable::as_raw(self), renderingparams.into().abi(), blendgamma, blendenhancedcontrast, blendcleartypelevel).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteGlyphRunAnalysis, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteGlyphRunAnalysis, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteGlyphRunAnalysis {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7425,7 +7425,7 @@ impl IDWriteInMemoryFontFileLoader {
         (::windows::core::Vtable::vtable(self).GetFileCount)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDWriteInMemoryFontFileLoader, ::windows::core::IUnknown, IDWriteFontFileLoader);
+::windows::imp::interface_hierarchy!(IDWriteInMemoryFontFileLoader, ::windows::core::IUnknown, IDWriteFontFileLoader);
 impl ::core::cmp::PartialEq for IDWriteInMemoryFontFileLoader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7486,7 +7486,7 @@ impl IDWriteInlineObject {
         (::windows::core::Vtable::vtable(self).GetBreakConditions)(::windows::core::Vtable::as_raw(self), breakconditionbefore, breakconditionafter).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteInlineObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteInlineObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteInlineObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7548,7 +7548,7 @@ impl IDWriteLocalFontFileLoader {
         (::windows::core::Vtable::vtable(self).GetLastWriteTimeFromKey)(::windows::core::Vtable::as_raw(self), fontfilereferencekey, fontfilereferencekeysize, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteLocalFontFileLoader, ::windows::core::IUnknown, IDWriteFontFileLoader);
+::windows::imp::interface_hierarchy!(IDWriteLocalFontFileLoader, ::windows::core::IUnknown, IDWriteFontFileLoader);
 impl ::core::cmp::PartialEq for IDWriteLocalFontFileLoader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7614,7 +7614,7 @@ impl IDWriteLocalizedStrings {
         (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(stringbuffer.as_ptr()), stringbuffer.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteLocalizedStrings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteLocalizedStrings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteLocalizedStrings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7657,7 +7657,7 @@ pub struct IDWriteLocalizedStrings_Vtbl {
 #[repr(transparent)]
 pub struct IDWriteNumberSubstitution(::windows::core::IUnknown);
 impl IDWriteNumberSubstitution {}
-::windows::core::interface_hierarchy!(IDWriteNumberSubstitution, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteNumberSubstitution, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteNumberSubstitution {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7705,7 +7705,7 @@ impl IDWritePixelSnapping {
         (::windows::core::Vtable::vtable(self).GetPixelsPerDip)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clientdrawingcontext.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWritePixelSnapping, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWritePixelSnapping, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWritePixelSnapping {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7767,7 +7767,7 @@ impl IDWriteRemoteFontFileLoader {
         (::windows::core::Vtable::vtable(self).CreateFontFileReferenceFromUrl)(::windows::core::Vtable::as_raw(self), factory.into().abi(), baseurl.into().abi(), fontfileurl.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteRemoteFontFileLoader, ::windows::core::IUnknown, IDWriteFontFileLoader);
+::windows::imp::interface_hierarchy!(IDWriteRemoteFontFileLoader, ::windows::core::IUnknown, IDWriteFontFileLoader);
 impl ::core::cmp::PartialEq for IDWriteRemoteFontFileLoader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7835,7 +7835,7 @@ impl IDWriteRemoteFontFileStream {
         (::windows::core::Vtable::vtable(self).BeginDownload)(::windows::core::Vtable::as_raw(self), downloadoperationid, ::core::mem::transmute(filefragments.as_ptr()), filefragments.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteRemoteFontFileStream, ::windows::core::IUnknown, IDWriteFontFileStream);
+::windows::imp::interface_hierarchy!(IDWriteRemoteFontFileStream, ::windows::core::IUnknown, IDWriteFontFileStream);
 impl ::core::cmp::PartialEq for IDWriteRemoteFontFileStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7892,7 +7892,7 @@ impl IDWriteRenderingParams {
         (::windows::core::Vtable::vtable(self).GetRenderingMode)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDWriteRenderingParams, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteRenderingParams, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteRenderingParams {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7950,7 +7950,7 @@ impl IDWriteRenderingParams1 {
         (::windows::core::Vtable::vtable(self).GetGrayscaleEnhancedContrast)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDWriteRenderingParams1, ::windows::core::IUnknown, IDWriteRenderingParams);
+::windows::imp::interface_hierarchy!(IDWriteRenderingParams1, ::windows::core::IUnknown, IDWriteRenderingParams);
 impl ::core::cmp::PartialEq for IDWriteRenderingParams1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8007,7 +8007,7 @@ impl IDWriteRenderingParams2 {
         (::windows::core::Vtable::vtable(self).GetGridFitMode)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDWriteRenderingParams2, ::windows::core::IUnknown, IDWriteRenderingParams, IDWriteRenderingParams1);
+::windows::imp::interface_hierarchy!(IDWriteRenderingParams2, ::windows::core::IUnknown, IDWriteRenderingParams, IDWriteRenderingParams1);
 impl ::core::cmp::PartialEq for IDWriteRenderingParams2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8067,7 +8067,7 @@ impl IDWriteRenderingParams3 {
         (::windows::core::Vtable::vtable(self).GetRenderingMode1)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDWriteRenderingParams3, ::windows::core::IUnknown, IDWriteRenderingParams, IDWriteRenderingParams1, IDWriteRenderingParams2);
+::windows::imp::interface_hierarchy!(IDWriteRenderingParams3, ::windows::core::IUnknown, IDWriteRenderingParams, IDWriteRenderingParams1, IDWriteRenderingParams2);
 impl ::core::cmp::PartialEq for IDWriteRenderingParams3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8120,7 +8120,7 @@ impl IDWriteStringList {
         (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), listindex, ::core::mem::transmute(stringbuffer.as_ptr()), stringbuffer.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteStringList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteStringList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteStringList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8175,7 +8175,7 @@ impl IDWriteTextAnalysisSink {
         (::windows::core::Vtable::vtable(self).SetNumberSubstitution)(::windows::core::Vtable::as_raw(self), textposition, textlength, numbersubstitution.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextAnalysisSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteTextAnalysisSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteTextAnalysisSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8238,7 +8238,7 @@ impl IDWriteTextAnalysisSink1 {
         (::windows::core::Vtable::vtable(self).SetGlyphOrientation)(::windows::core::Vtable::as_raw(self), textposition, textlength, glyphorientationangle, adjustedbidilevel, issideways.into(), isrighttoleft.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextAnalysisSink1, ::windows::core::IUnknown, IDWriteTextAnalysisSink);
+::windows::imp::interface_hierarchy!(IDWriteTextAnalysisSink1, ::windows::core::IUnknown, IDWriteTextAnalysisSink);
 impl ::core::cmp::PartialEq for IDWriteTextAnalysisSink1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8292,7 +8292,7 @@ impl IDWriteTextAnalysisSource {
         (::windows::core::Vtable::vtable(self).GetNumberSubstitution)(::windows::core::Vtable::as_raw(self), textposition, textlength, ::core::mem::transmute(numbersubstitution)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextAnalysisSource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteTextAnalysisSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteTextAnalysisSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8350,7 +8350,7 @@ impl IDWriteTextAnalysisSource1 {
         (::windows::core::Vtable::vtable(self).GetVerticalGlyphOrientation)(::windows::core::Vtable::as_raw(self), textposition, textlength, glyphorientation, bidilevel).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextAnalysisSource1, ::windows::core::IUnknown, IDWriteTextAnalysisSource);
+::windows::imp::interface_hierarchy!(IDWriteTextAnalysisSource1, ::windows::core::IUnknown, IDWriteTextAnalysisSource);
 impl ::core::cmp::PartialEq for IDWriteTextAnalysisSource1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8476,7 +8476,7 @@ impl IDWriteTextAnalyzer {
         .ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextAnalyzer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteTextAnalyzer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteTextAnalyzer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8697,7 +8697,7 @@ impl IDWriteTextAnalyzer1 {
         (::windows::core::Vtable::vtable(self).GetJustifiedGlyphs)(::windows::core::Vtable::as_raw(self), fontface.into().abi(), fontemsize, ::core::mem::transmute(scriptanalysis), textlength, glyphcount, maxglyphcount, ::core::mem::transmute(clustermap.unwrap_or(::std::ptr::null())), glyphindices, glyphadvances, justifiedglyphadvances, justifiedglyphoffsets, glyphproperties, actualglyphcount, ::core::mem::transmute(modifiedclustermap.unwrap_or(::std::ptr::null_mut())), modifiedglyphindices, modifiedglyphadvances, modifiedglyphoffsets).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextAnalyzer1, ::windows::core::IUnknown, IDWriteTextAnalyzer);
+::windows::imp::interface_hierarchy!(IDWriteTextAnalyzer1, ::windows::core::IUnknown, IDWriteTextAnalyzer);
 impl ::core::cmp::PartialEq for IDWriteTextAnalyzer1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8919,7 +8919,7 @@ impl IDWriteTextAnalyzer2 {
         (::windows::core::Vtable::vtable(self).CheckTypographicFeature)(::windows::core::Vtable::as_raw(self), fontface.into().abi(), ::core::mem::transmute(scriptanalysis), localename.into().abi(), featuretag, glyphcount, glyphindices, featureapplies).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextAnalyzer2, ::windows::core::IUnknown, IDWriteTextAnalyzer, IDWriteTextAnalyzer1);
+::windows::imp::interface_hierarchy!(IDWriteTextAnalyzer2, ::windows::core::IUnknown, IDWriteTextAnalyzer, IDWriteTextAnalyzer1);
 impl ::core::cmp::PartialEq for IDWriteTextAnalyzer2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9039,7 +9039,7 @@ impl IDWriteTextFormat {
         (::windows::core::Vtable::vtable(self).GetLocaleName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(localename.as_ptr()), localename.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextFormat, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteTextFormat, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteTextFormat {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9213,7 +9213,7 @@ impl IDWriteTextFormat1 {
         (::windows::core::Vtable::vtable(self).GetFontFallback)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextFormat1, ::windows::core::IUnknown, IDWriteTextFormat);
+::windows::imp::interface_hierarchy!(IDWriteTextFormat1, ::windows::core::IUnknown, IDWriteTextFormat);
 impl ::core::cmp::PartialEq for IDWriteTextFormat1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9382,7 +9382,7 @@ impl IDWriteTextFormat2 {
         (::windows::core::Vtable::vtable(self).GetLineSpacing2)(::windows::core::Vtable::as_raw(self), linespacingoptions).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextFormat2, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextFormat1);
+::windows::imp::interface_hierarchy!(IDWriteTextFormat2, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextFormat1);
 impl ::core::cmp::PartialEq for IDWriteTextFormat2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9554,7 +9554,7 @@ impl IDWriteTextFormat3 {
         (::windows::core::Vtable::vtable(self).SetAutomaticFontAxes)(::windows::core::Vtable::as_raw(self), automaticfontaxes).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextFormat3, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextFormat1, IDWriteTextFormat2);
+::windows::imp::interface_hierarchy!(IDWriteTextFormat3, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextFormat1, IDWriteTextFormat2);
 impl ::core::cmp::PartialEq for IDWriteTextFormat3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9838,7 +9838,7 @@ impl IDWriteTextLayout {
         (::windows::core::Vtable::vtable(self).HitTestTextRange)(::windows::core::Vtable::as_raw(self), textposition, textlength, originx, originy, ::core::mem::transmute(hittestmetrics.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), hittestmetrics.as_deref().map_or(0, |slice| slice.len() as _), actualhittestmetricscount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextLayout, ::windows::core::IUnknown, IDWriteTextFormat);
+::windows::imp::interface_hierarchy!(IDWriteTextLayout, ::windows::core::IUnknown, IDWriteTextFormat);
 impl ::core::cmp::PartialEq for IDWriteTextLayout {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10199,7 +10199,7 @@ impl IDWriteTextLayout1 {
         (::windows::core::Vtable::vtable(self).GetCharacterSpacing)(::windows::core::Vtable::as_raw(self), currentposition, leadingspacing, trailingspacing, minimumadvancewidth, ::core::mem::transmute(textrange.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextLayout1, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextLayout);
+::windows::imp::interface_hierarchy!(IDWriteTextLayout1, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextLayout);
 impl ::core::cmp::PartialEq for IDWriteTextLayout1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10545,7 +10545,7 @@ impl IDWriteTextLayout2 {
         (::windows::core::Vtable::vtable(self).GetFontFallback)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextLayout2, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1);
+::windows::imp::interface_hierarchy!(IDWriteTextLayout2, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1);
 impl ::core::cmp::PartialEq for IDWriteTextLayout2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10910,7 +10910,7 @@ impl IDWriteTextLayout3 {
         (::windows::core::Vtable::vtable(self).GetLineMetrics2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(linemetrics.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), linemetrics.as_deref().map_or(0, |slice| slice.len() as _), actuallinecount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextLayout3, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1, IDWriteTextLayout2);
+::windows::imp::interface_hierarchy!(IDWriteTextLayout3, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1, IDWriteTextLayout2);
 impl ::core::cmp::PartialEq for IDWriteTextLayout3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11282,7 +11282,7 @@ impl IDWriteTextLayout4 {
         (::windows::core::Vtable::vtable(self).SetAutomaticFontAxes)(::windows::core::Vtable::as_raw(self), automaticfontaxes).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextLayout4, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1, IDWriteTextLayout2, IDWriteTextLayout3);
+::windows::imp::interface_hierarchy!(IDWriteTextLayout4, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1, IDWriteTextLayout2, IDWriteTextLayout3);
 impl ::core::cmp::PartialEq for IDWriteTextLayout4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11366,7 +11366,7 @@ impl IDWriteTextRenderer {
         (::windows::core::Vtable::vtable(self).DrawInlineObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clientdrawingcontext.unwrap_or(::std::ptr::null())), originx, originy, inlineobject.into().abi(), issideways.into(), isrighttoleft.into(), clientdrawingeffect.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextRenderer, ::windows::core::IUnknown, IDWritePixelSnapping);
+::windows::imp::interface_hierarchy!(IDWriteTextRenderer, ::windows::core::IUnknown, IDWritePixelSnapping);
 impl ::core::cmp::PartialEq for IDWriteTextRenderer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11486,7 +11486,7 @@ impl IDWriteTextRenderer1 {
         (::windows::core::Vtable::vtable(self).DrawInlineObject2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clientdrawingcontext.unwrap_or(::std::ptr::null())), originx, originy, orientationangle, inlineobject.into().abi(), issideways.into(), isrighttoleft.into(), clientdrawingeffect.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTextRenderer1, ::windows::core::IUnknown, IDWritePixelSnapping, IDWriteTextRenderer);
+::windows::imp::interface_hierarchy!(IDWriteTextRenderer1, ::windows::core::IUnknown, IDWritePixelSnapping, IDWriteTextRenderer);
 impl ::core::cmp::PartialEq for IDWriteTextRenderer1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11541,7 +11541,7 @@ impl IDWriteTypography {
         (::windows::core::Vtable::vtable(self).GetFontFeature)(::windows::core::Vtable::as_raw(self), fontfeatureindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDWriteTypography, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDWriteTypography, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDWriteTypography {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

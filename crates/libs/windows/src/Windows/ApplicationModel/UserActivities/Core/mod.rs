@@ -41,7 +41,7 @@ impl CoreUserActivityManager {
     }
     #[doc(hidden)]
     pub fn ICoreUserActivityManagerStatics<R, F: FnOnce(&ICoreUserActivityManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreUserActivityManager, ICoreUserActivityManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreUserActivityManager, ICoreUserActivityManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

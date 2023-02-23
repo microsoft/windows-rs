@@ -508,7 +508,7 @@ impl ::core::fmt::Debug for AlternateWordForm {
     }
 }
 impl ::windows::core::RuntimeType for AlternateWordForm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.AlternateWordForm;{47396c1e-51b9-4207-9146-248e636a1d1d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.AlternateWordForm;{47396c1e-51b9-4207-9146-248e636a1d1d})");
 }
 impl ::core::clone::Clone for AlternateWordForm {
     fn clone(&self) -> Self {
@@ -524,7 +524,7 @@ unsafe impl ::windows::core::Interface for AlternateWordForm {
 impl ::windows::core::RuntimeName for AlternateWordForm {
     const NAME: &'static str = "Windows.Data.Text.AlternateWordForm";
 }
-::windows::core::interface_hierarchy!(AlternateWordForm, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AlternateWordForm, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AlternateWordForm {}
 unsafe impl ::core::marker::Sync for AlternateWordForm {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -558,7 +558,7 @@ impl ::core::fmt::Debug for SelectableWordSegment {
     }
 }
 impl ::windows::core::RuntimeType for SelectableWordSegment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.SelectableWordSegment;{916a4cb7-8aa7-4c78-b374-5dedb752e60b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.SelectableWordSegment;{916a4cb7-8aa7-4c78-b374-5dedb752e60b})");
 }
 impl ::core::clone::Clone for SelectableWordSegment {
     fn clone(&self) -> Self {
@@ -574,7 +574,7 @@ unsafe impl ::windows::core::Interface for SelectableWordSegment {
 impl ::windows::core::RuntimeName for SelectableWordSegment {
     const NAME: &'static str = "Windows.Data.Text.SelectableWordSegment";
 }
-::windows::core::interface_hierarchy!(SelectableWordSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SelectableWordSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SelectableWordSegment {}
 unsafe impl ::core::marker::Sync for SelectableWordSegment {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -618,7 +618,7 @@ impl SelectableWordsSegmenter {
     }
     #[doc(hidden)]
     pub fn ISelectableWordsSegmenterFactory<R, F: FnOnce(&ISelectableWordsSegmenterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SelectableWordsSegmenter, ISelectableWordsSegmenterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SelectableWordsSegmenter, ISelectableWordsSegmenterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -634,7 +634,7 @@ impl ::core::fmt::Debug for SelectableWordsSegmenter {
     }
 }
 impl ::windows::core::RuntimeType for SelectableWordsSegmenter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.SelectableWordsSegmenter;{f6dc31e7-4b13-45c5-8897-7d71269e085d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.SelectableWordsSegmenter;{f6dc31e7-4b13-45c5-8897-7d71269e085d})");
 }
 impl ::core::clone::Clone for SelectableWordsSegmenter {
     fn clone(&self) -> Self {
@@ -650,7 +650,7 @@ unsafe impl ::windows::core::Interface for SelectableWordsSegmenter {
 impl ::windows::core::RuntimeName for SelectableWordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.SelectableWordsSegmenter";
 }
-::windows::core::interface_hierarchy!(SelectableWordsSegmenter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SelectableWordsSegmenter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SelectableWordsSegmenter {}
 unsafe impl ::core::marker::Sync for SelectableWordsSegmenter {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -689,7 +689,7 @@ impl SemanticTextQuery {
     }
     #[doc(hidden)]
     pub fn ISemanticTextQueryFactory<R, F: FnOnce(&ISemanticTextQueryFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SemanticTextQuery, ISemanticTextQueryFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SemanticTextQuery, ISemanticTextQueryFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -705,7 +705,7 @@ impl ::core::fmt::Debug for SemanticTextQuery {
     }
 }
 impl ::windows::core::RuntimeType for SemanticTextQuery {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.SemanticTextQuery;{6a1cab51-1fb2-4909-80b8-35731a2b3e7f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.SemanticTextQuery;{6a1cab51-1fb2-4909-80b8-35731a2b3e7f})");
 }
 impl ::core::clone::Clone for SemanticTextQuery {
     fn clone(&self) -> Self {
@@ -721,7 +721,7 @@ unsafe impl ::windows::core::Interface for SemanticTextQuery {
 impl ::windows::core::RuntimeName for SemanticTextQuery {
     const NAME: &'static str = "Windows.Data.Text.SemanticTextQuery";
 }
-::windows::core::interface_hierarchy!(SemanticTextQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SemanticTextQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SemanticTextQuery {}
 unsafe impl ::core::marker::Sync for SemanticTextQuery {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -768,7 +768,7 @@ impl TextConversionGenerator {
     }
     #[doc(hidden)]
     pub fn ITextConversionGeneratorFactory<R, F: FnOnce(&ITextConversionGeneratorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TextConversionGenerator, ITextConversionGeneratorFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TextConversionGenerator, ITextConversionGeneratorFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -784,7 +784,7 @@ impl ::core::fmt::Debug for TextConversionGenerator {
     }
 }
 impl ::windows::core::RuntimeType for TextConversionGenerator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextConversionGenerator;{03606a5e-2aa9-4ab6-af8b-a562b63a8992})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextConversionGenerator;{03606a5e-2aa9-4ab6-af8b-a562b63a8992})");
 }
 impl ::core::clone::Clone for TextConversionGenerator {
     fn clone(&self) -> Self {
@@ -800,7 +800,7 @@ unsafe impl ::windows::core::Interface for TextConversionGenerator {
 impl ::windows::core::RuntimeName for TextConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextConversionGenerator";
 }
-::windows::core::interface_hierarchy!(TextConversionGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TextConversionGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TextConversionGenerator {}
 unsafe impl ::core::marker::Sync for TextConversionGenerator {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -834,7 +834,7 @@ impl ::core::fmt::Debug for TextPhoneme {
     }
 }
 impl ::windows::core::RuntimeType for TextPhoneme {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextPhoneme;{9362a40a-9b7a-4569-94cf-d84f2f38cf9b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextPhoneme;{9362a40a-9b7a-4569-94cf-d84f2f38cf9b})");
 }
 impl ::core::clone::Clone for TextPhoneme {
     fn clone(&self) -> Self {
@@ -850,7 +850,7 @@ unsafe impl ::windows::core::Interface for TextPhoneme {
 impl ::windows::core::RuntimeName for TextPhoneme {
     const NAME: &'static str = "Windows.Data.Text.TextPhoneme";
 }
-::windows::core::interface_hierarchy!(TextPhoneme, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TextPhoneme, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TextPhoneme {}
 unsafe impl ::core::marker::Sync for TextPhoneme {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -938,7 +938,7 @@ impl TextPredictionGenerator {
     }
     #[doc(hidden)]
     pub fn ITextPredictionGeneratorFactory<R, F: FnOnce(&ITextPredictionGeneratorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TextPredictionGenerator, ITextPredictionGeneratorFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TextPredictionGenerator, ITextPredictionGeneratorFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -954,7 +954,7 @@ impl ::core::fmt::Debug for TextPredictionGenerator {
     }
 }
 impl ::windows::core::RuntimeType for TextPredictionGenerator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextPredictionGenerator;{5eacab07-abf1-4cb6-9d9e-326f2b468756})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextPredictionGenerator;{5eacab07-abf1-4cb6-9d9e-326f2b468756})");
 }
 impl ::core::clone::Clone for TextPredictionGenerator {
     fn clone(&self) -> Self {
@@ -970,7 +970,7 @@ unsafe impl ::windows::core::Interface for TextPredictionGenerator {
 impl ::windows::core::RuntimeName for TextPredictionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextPredictionGenerator";
 }
-::windows::core::interface_hierarchy!(TextPredictionGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TextPredictionGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TextPredictionGenerator {}
 unsafe impl ::core::marker::Sync for TextPredictionGenerator {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1017,7 +1017,7 @@ impl TextReverseConversionGenerator {
     }
     #[doc(hidden)]
     pub fn ITextReverseConversionGeneratorFactory<R, F: FnOnce(&ITextReverseConversionGeneratorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TextReverseConversionGenerator, ITextReverseConversionGeneratorFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TextReverseConversionGenerator, ITextReverseConversionGeneratorFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1033,7 +1033,7 @@ impl ::core::fmt::Debug for TextReverseConversionGenerator {
     }
 }
 impl ::windows::core::RuntimeType for TextReverseConversionGenerator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextReverseConversionGenerator;{51e7f514-9c51-4d86-ae1b-b498fbad8313})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextReverseConversionGenerator;{51e7f514-9c51-4d86-ae1b-b498fbad8313})");
 }
 impl ::core::clone::Clone for TextReverseConversionGenerator {
     fn clone(&self) -> Self {
@@ -1049,7 +1049,7 @@ unsafe impl ::windows::core::Interface for TextReverseConversionGenerator {
 impl ::windows::core::RuntimeName for TextReverseConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextReverseConversionGenerator";
 }
-::windows::core::interface_hierarchy!(TextReverseConversionGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TextReverseConversionGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TextReverseConversionGenerator {}
 unsafe impl ::core::marker::Sync for TextReverseConversionGenerator {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1156,7 +1156,7 @@ impl UnicodeCharacters {
     }
     #[doc(hidden)]
     pub fn IUnicodeCharactersStatics<R, F: FnOnce(&IUnicodeCharactersStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UnicodeCharacters, IUnicodeCharactersStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UnicodeCharacters, IUnicodeCharactersStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1203,7 +1203,7 @@ impl ::core::fmt::Debug for WordSegment {
     }
 }
 impl ::windows::core::RuntimeType for WordSegment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.WordSegment;{d2d4ba6d-987c-4cc0-b6bd-d49a11b38f9a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.WordSegment;{d2d4ba6d-987c-4cc0-b6bd-d49a11b38f9a})");
 }
 impl ::core::clone::Clone for WordSegment {
     fn clone(&self) -> Self {
@@ -1219,7 +1219,7 @@ unsafe impl ::windows::core::Interface for WordSegment {
 impl ::windows::core::RuntimeName for WordSegment {
     const NAME: &'static str = "Windows.Data.Text.WordSegment";
 }
-::windows::core::interface_hierarchy!(WordSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WordSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WordSegment {}
 unsafe impl ::core::marker::Sync for WordSegment {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1263,7 +1263,7 @@ impl WordsSegmenter {
     }
     #[doc(hidden)]
     pub fn IWordsSegmenterFactory<R, F: FnOnce(&IWordsSegmenterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WordsSegmenter, IWordsSegmenterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WordsSegmenter, IWordsSegmenterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1279,7 +1279,7 @@ impl ::core::fmt::Debug for WordsSegmenter {
     }
 }
 impl ::windows::core::RuntimeType for WordsSegmenter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.WordsSegmenter;{86b4d4d1-b2fe-4e34-a81d-66640300454f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.WordsSegmenter;{86b4d4d1-b2fe-4e34-a81d-66640300454f})");
 }
 impl ::core::clone::Clone for WordsSegmenter {
     fn clone(&self) -> Self {
@@ -1295,7 +1295,7 @@ unsafe impl ::windows::core::Interface for WordsSegmenter {
 impl ::windows::core::RuntimeName for WordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.WordsSegmenter";
 }
-::windows::core::interface_hierarchy!(WordsSegmenter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WordsSegmenter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WordsSegmenter {}
 unsafe impl ::core::marker::Sync for WordsSegmenter {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1329,7 +1329,7 @@ impl ::core::fmt::Debug for AlternateNormalizationFormat {
     }
 }
 impl ::windows::core::RuntimeType for AlternateNormalizationFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.AlternateNormalizationFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.AlternateNormalizationFormat;i4)");
 }
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
@@ -1393,7 +1393,7 @@ impl ::core::ops::Not for TextPredictionOptions {
     }
 }
 impl ::windows::core::RuntimeType for TextPredictionOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.TextPredictionOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.TextPredictionOptions;u4)");
 }
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
@@ -1451,7 +1451,7 @@ impl ::core::fmt::Debug for UnicodeGeneralCategory {
     }
 }
 impl ::windows::core::RuntimeType for UnicodeGeneralCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeGeneralCategory;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeGeneralCategory;i4)");
 }
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
@@ -1483,7 +1483,7 @@ impl ::core::fmt::Debug for UnicodeNumericType {
     }
 }
 impl ::windows::core::RuntimeType for UnicodeNumericType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeNumericType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeNumericType;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1506,7 +1506,7 @@ impl ::windows::core::TypeKind for TextSegment {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for TextSegment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Data.Text.TextSegment;u4;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Data.Text.TextSegment;u4;u4)");
 }
 impl ::core::cmp::PartialEq for TextSegment {
     fn eq(&self, other: &Self) -> bool {
@@ -1526,8 +1526,8 @@ pub struct SelectableWordSegmentsTokenizingHandler(pub ::windows::core::IUnknown
 #[cfg(feature = "Foundation_Collections")]
 impl SelectableWordSegmentsTokenizingHandler {
     pub fn new<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, ::core::option::Option<&super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = SelectableWordSegmentsTokenizingHandlerBox::<F> { vtable: &SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = SelectableWordSegmentsTokenizingHandlerBox::<F> { vtable: &SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1547,7 +1547,7 @@ impl SelectableWordSegmentsTokenizingHandler {
 struct SelectableWordSegmentsTokenizingHandlerBox<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, ::core::option::Option<&super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const SelectableWordSegmentsTokenizingHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, ::core::option::Option<&super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SelectableWordSegmentsTokenizingHandlerBox<F> {
@@ -1557,7 +1557,7 @@ impl<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIt
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<SelectableWordSegmentsTokenizingHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<SelectableWordSegmentsTokenizingHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -1573,7 +1573,7 @@ impl<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIt
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1612,7 +1612,7 @@ unsafe impl ::windows::core::Interface for SelectableWordSegmentsTokenizingHandl
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for SelectableWordSegmentsTokenizingHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3a3dfc9c-aede-4dc7-9e6c-41c044bd3592}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{3a3dfc9c-aede-4dc7-9e6c-41c044bd3592}");
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
@@ -1631,8 +1631,8 @@ pub struct WordSegmentsTokenizingHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl WordSegmentsTokenizingHandler {
     pub fn new<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIterable<WordSegment>>, ::core::option::Option<&super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = WordSegmentsTokenizingHandlerBox::<F> { vtable: &WordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = WordSegmentsTokenizingHandlerBox::<F> { vtable: &WordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1652,7 +1652,7 @@ impl WordSegmentsTokenizingHandler {
 struct WordSegmentsTokenizingHandlerBox<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIterable<WordSegment>>, ::core::option::Option<&super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const WordSegmentsTokenizingHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIterable<WordSegment>>, ::core::option::Option<&super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> WordSegmentsTokenizingHandlerBox<F> {
@@ -1662,7 +1662,7 @@ impl<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIt
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<WordSegmentsTokenizingHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<WordSegmentsTokenizingHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -1678,7 +1678,7 @@ impl<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIt
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1717,7 +1717,7 @@ unsafe impl ::windows::core::Interface for WordSegmentsTokenizingHandler {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for WordSegmentsTokenizingHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a5dd6357-bf2a-4c4f-a31f-29e71c6f8b35}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a5dd6357-bf2a-4c4f-a31f-29e71c6f8b35}");
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]

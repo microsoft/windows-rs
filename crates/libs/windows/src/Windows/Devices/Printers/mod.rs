@@ -669,7 +669,7 @@ impl ::core::fmt::Debug for IppAttributeError {
     }
 }
 impl ::windows::core::RuntimeType for IppAttributeError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeError;{750feda1-9eef-5c39-93e4-46149bbcef27})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeError;{750feda1-9eef-5c39-93e4-46149bbcef27})");
 }
 impl ::core::clone::Clone for IppAttributeError {
     fn clone(&self) -> Self {
@@ -685,7 +685,7 @@ unsafe impl ::windows::core::Interface for IppAttributeError {
 impl ::windows::core::RuntimeName for IppAttributeError {
     const NAME: &'static str = "Windows.Devices.Printers.IppAttributeError";
 }
-::windows::core::interface_hierarchy!(IppAttributeError, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IppAttributeError, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppAttributeError {}
 unsafe impl ::core::marker::Sync for IppAttributeError {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1221,7 +1221,7 @@ impl IppAttributeValue {
     }
     #[doc(hidden)]
     pub fn IIppAttributeValueStatics<R, F: FnOnce(&IIppAttributeValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<IppAttributeValue, IIppAttributeValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<IppAttributeValue, IIppAttributeValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1237,7 +1237,7 @@ impl ::core::fmt::Debug for IppAttributeValue {
     }
 }
 impl ::windows::core::RuntimeType for IppAttributeValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeValue;{99407fed-e2bb-59a3-988b-28a974052a26})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeValue;{99407fed-e2bb-59a3-988b-28a974052a26})");
 }
 impl ::core::clone::Clone for IppAttributeValue {
     fn clone(&self) -> Self {
@@ -1253,7 +1253,7 @@ unsafe impl ::windows::core::Interface for IppAttributeValue {
 impl ::windows::core::RuntimeName for IppAttributeValue {
     const NAME: &'static str = "Windows.Devices.Printers.IppAttributeValue";
 }
-::windows::core::interface_hierarchy!(IppAttributeValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IppAttributeValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppAttributeValue {}
 unsafe impl ::core::marker::Sync for IppAttributeValue {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1282,7 +1282,7 @@ impl IppIntegerRange {
     }
     #[doc(hidden)]
     pub fn IIppIntegerRangeFactory<R, F: FnOnce(&IIppIntegerRangeFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<IppIntegerRange, IIppIntegerRangeFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<IppIntegerRange, IIppIntegerRangeFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1298,7 +1298,7 @@ impl ::core::fmt::Debug for IppIntegerRange {
     }
 }
 impl ::windows::core::RuntimeType for IppIntegerRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppIntegerRange;{92907346-c3ea-5ed6-bdb1-3752c62c6f7f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppIntegerRange;{92907346-c3ea-5ed6-bdb1-3752c62c6f7f})");
 }
 impl ::core::clone::Clone for IppIntegerRange {
     fn clone(&self) -> Self {
@@ -1314,7 +1314,7 @@ unsafe impl ::windows::core::Interface for IppIntegerRange {
 impl ::windows::core::RuntimeName for IppIntegerRange {
     const NAME: &'static str = "Windows.Devices.Printers.IppIntegerRange";
 }
-::windows::core::interface_hierarchy!(IppIntegerRange, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IppIntegerRange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppIntegerRange {}
 unsafe impl ::core::marker::Sync for IppIntegerRange {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1443,7 +1443,7 @@ impl IppPrintDevice {
     }
     #[doc(hidden)]
     pub fn IIppPrintDeviceStatics<R, F: FnOnce(&IIppPrintDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<IppPrintDevice, IIppPrintDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<IppPrintDevice, IIppPrintDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1459,7 +1459,7 @@ impl ::core::fmt::Debug for IppPrintDevice {
     }
 }
 impl ::windows::core::RuntimeType for IppPrintDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppPrintDevice;{d748ac56-76f3-5dc6-afd4-c2a8686b9359})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppPrintDevice;{d748ac56-76f3-5dc6-afd4-c2a8686b9359})");
 }
 impl ::core::clone::Clone for IppPrintDevice {
     fn clone(&self) -> Self {
@@ -1475,7 +1475,7 @@ unsafe impl ::windows::core::Interface for IppPrintDevice {
 impl ::windows::core::RuntimeName for IppPrintDevice {
     const NAME: &'static str = "Windows.Devices.Printers.IppPrintDevice";
 }
-::windows::core::interface_hierarchy!(IppPrintDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IppPrintDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppPrintDevice {}
 unsafe impl ::core::marker::Sync for IppPrintDevice {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1511,7 +1511,7 @@ impl IppResolution {
     }
     #[doc(hidden)]
     pub fn IIppResolutionFactory<R, F: FnOnce(&IIppResolutionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<IppResolution, IIppResolutionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<IppResolution, IIppResolutionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1527,7 +1527,7 @@ impl ::core::fmt::Debug for IppResolution {
     }
 }
 impl ::windows::core::RuntimeType for IppResolution {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppResolution;{cb493f86-6bf3-56f5-86ce-263d08aead63})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppResolution;{cb493f86-6bf3-56f5-86ce-263d08aead63})");
 }
 impl ::core::clone::Clone for IppResolution {
     fn clone(&self) -> Self {
@@ -1543,7 +1543,7 @@ unsafe impl ::windows::core::Interface for IppResolution {
 impl ::windows::core::RuntimeName for IppResolution {
     const NAME: &'static str = "Windows.Devices.Printers.IppResolution";
 }
-::windows::core::interface_hierarchy!(IppResolution, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IppResolution, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppResolution {}
 unsafe impl ::core::marker::Sync for IppResolution {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1579,7 +1579,7 @@ impl ::core::fmt::Debug for IppSetAttributesResult {
     }
 }
 impl ::windows::core::RuntimeType for IppSetAttributesResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppSetAttributesResult;{7d1c7f55-aa9d-58a3-90e9-17bdc5281f07})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppSetAttributesResult;{7d1c7f55-aa9d-58a3-90e9-17bdc5281f07})");
 }
 impl ::core::clone::Clone for IppSetAttributesResult {
     fn clone(&self) -> Self {
@@ -1595,7 +1595,7 @@ unsafe impl ::windows::core::Interface for IppSetAttributesResult {
 impl ::windows::core::RuntimeName for IppSetAttributesResult {
     const NAME: &'static str = "Windows.Devices.Printers.IppSetAttributesResult";
 }
-::windows::core::interface_hierarchy!(IppSetAttributesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IppSetAttributesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppSetAttributesResult {}
 unsafe impl ::core::marker::Sync for IppSetAttributesResult {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1624,7 +1624,7 @@ impl IppTextWithLanguage {
     }
     #[doc(hidden)]
     pub fn IIppTextWithLanguageFactory<R, F: FnOnce(&IIppTextWithLanguageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<IppTextWithLanguage, IIppTextWithLanguageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<IppTextWithLanguage, IIppTextWithLanguageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1640,7 +1640,7 @@ impl ::core::fmt::Debug for IppTextWithLanguage {
     }
 }
 impl ::windows::core::RuntimeType for IppTextWithLanguage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppTextWithLanguage;{326447a6-5149-5936-90e8-0c736036bf77})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppTextWithLanguage;{326447a6-5149-5936-90e8-0c736036bf77})");
 }
 impl ::core::clone::Clone for IppTextWithLanguage {
     fn clone(&self) -> Self {
@@ -1656,7 +1656,7 @@ unsafe impl ::windows::core::Interface for IppTextWithLanguage {
 impl ::windows::core::RuntimeName for IppTextWithLanguage {
     const NAME: &'static str = "Windows.Devices.Printers.IppTextWithLanguage";
 }
-::windows::core::interface_hierarchy!(IppTextWithLanguage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IppTextWithLanguage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppTextWithLanguage {}
 unsafe impl ::core::marker::Sync for IppTextWithLanguage {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1666,8 +1666,8 @@ impl PageConfigurationSettings {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PageConfigurationSettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PageConfigurationSettings, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn OrientationSource(&self) -> ::windows::core::Result<PageConfigurationSource> {
@@ -1705,7 +1705,7 @@ impl ::core::fmt::Debug for PageConfigurationSettings {
     }
 }
 impl ::windows::core::RuntimeType for PageConfigurationSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PageConfigurationSettings;{b6fc1e02-5331-54ff-95a0-1fcb76bb97a9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PageConfigurationSettings;{b6fc1e02-5331-54ff-95a0-1fcb76bb97a9})");
 }
 impl ::core::clone::Clone for PageConfigurationSettings {
     fn clone(&self) -> Self {
@@ -1721,7 +1721,7 @@ unsafe impl ::windows::core::Interface for PageConfigurationSettings {
 impl ::windows::core::RuntimeName for PageConfigurationSettings {
     const NAME: &'static str = "Windows.Devices.Printers.PageConfigurationSettings";
 }
-::windows::core::interface_hierarchy!(PageConfigurationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PageConfigurationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PageConfigurationSettings {}
 unsafe impl ::core::marker::Sync for PageConfigurationSettings {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1772,7 +1772,7 @@ impl ::core::fmt::Debug for PdlPassthroughProvider {
     }
 }
 impl ::windows::core::RuntimeType for PdlPassthroughProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PdlPassthroughProvider;{23c71dd2-6117-553f-9378-180af5849a49})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PdlPassthroughProvider;{23c71dd2-6117-553f-9378-180af5849a49})");
 }
 impl ::core::clone::Clone for PdlPassthroughProvider {
     fn clone(&self) -> Self {
@@ -1788,7 +1788,7 @@ unsafe impl ::windows::core::Interface for PdlPassthroughProvider {
 impl ::windows::core::RuntimeName for PdlPassthroughProvider {
     const NAME: &'static str = "Windows.Devices.Printers.PdlPassthroughProvider";
 }
-::windows::core::interface_hierarchy!(PdlPassthroughProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PdlPassthroughProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PdlPassthroughProvider {}
 unsafe impl ::core::marker::Sync for PdlPassthroughProvider {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1834,7 +1834,7 @@ impl ::core::fmt::Debug for PdlPassthroughTarget {
     }
 }
 impl ::windows::core::RuntimeType for PdlPassthroughTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PdlPassthroughTarget;{9840be79-67f8-5385-a5b9-e8c96e0fca76})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PdlPassthroughTarget;{9840be79-67f8-5385-a5b9-e8c96e0fca76})");
 }
 impl ::core::clone::Clone for PdlPassthroughTarget {
     fn clone(&self) -> Self {
@@ -1850,7 +1850,7 @@ unsafe impl ::windows::core::Interface for PdlPassthroughTarget {
 impl ::windows::core::RuntimeName for PdlPassthroughTarget {
     const NAME: &'static str = "Windows.Devices.Printers.PdlPassthroughTarget";
 }
-::windows::core::interface_hierarchy!(PdlPassthroughTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PdlPassthroughTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<PdlPassthroughTarget> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1902,7 +1902,7 @@ impl Print3DDevice {
     }
     #[doc(hidden)]
     pub fn IPrint3DDeviceStatics<R, F: FnOnce(&IPrint3DDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Print3DDevice, IPrint3DDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Print3DDevice, IPrint3DDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1918,7 +1918,7 @@ impl ::core::fmt::Debug for Print3DDevice {
     }
 }
 impl ::windows::core::RuntimeType for Print3DDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Print3DDevice;{041c3d19-9713-42a2-9813-7dc3337428d3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Print3DDevice;{041c3d19-9713-42a2-9813-7dc3337428d3})");
 }
 impl ::core::clone::Clone for Print3DDevice {
     fn clone(&self) -> Self {
@@ -1934,7 +1934,7 @@ unsafe impl ::windows::core::Interface for Print3DDevice {
 impl ::windows::core::RuntimeName for Print3DDevice {
     const NAME: &'static str = "Windows.Devices.Printers.Print3DDevice";
 }
-::windows::core::interface_hierarchy!(Print3DDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Print3DDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DDevice {}
 unsafe impl ::core::marker::Sync for Print3DDevice {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1989,7 +1989,7 @@ impl ::core::fmt::Debug for PrintSchema {
     }
 }
 impl ::windows::core::RuntimeType for PrintSchema {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PrintSchema;{c2b98316-26b8-4bfb-8138-9f962c22a35b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PrintSchema;{c2b98316-26b8-4bfb-8138-9f962c22a35b})");
 }
 impl ::core::clone::Clone for PrintSchema {
     fn clone(&self) -> Self {
@@ -2005,7 +2005,7 @@ unsafe impl ::windows::core::Interface for PrintSchema {
 impl ::windows::core::RuntimeName for PrintSchema {
     const NAME: &'static str = "Windows.Devices.Printers.PrintSchema";
 }
-::windows::core::interface_hierarchy!(PrintSchema, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintSchema, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSchema {}
 unsafe impl ::core::marker::Sync for PrintSchema {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -2039,7 +2039,7 @@ impl ::core::fmt::Debug for IppAttributeErrorReason {
     }
 }
 impl ::windows::core::RuntimeType for IppAttributeErrorReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
 }
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
@@ -2088,7 +2088,7 @@ impl ::core::fmt::Debug for IppAttributeValueKind {
     }
 }
 impl ::windows::core::RuntimeType for IppAttributeValueKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
@@ -2118,7 +2118,7 @@ impl ::core::fmt::Debug for IppResolutionUnit {
     }
 }
 impl ::windows::core::RuntimeType for IppResolutionUnit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
 }
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
@@ -2148,7 +2148,7 @@ impl ::core::fmt::Debug for PageConfigurationSource {
     }
 }
 impl ::windows::core::RuntimeType for PageConfigurationSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.PageConfigurationSource;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.PageConfigurationSource;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

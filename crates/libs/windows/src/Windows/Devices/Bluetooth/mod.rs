@@ -1122,7 +1122,7 @@ impl BluetoothAdapter {
     }
     #[doc(hidden)]
     pub fn IBluetoothAdapterStatics<R, F: FnOnce(&IBluetoothAdapterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothAdapter, IBluetoothAdapterStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothAdapter, IBluetoothAdapterStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1138,7 +1138,7 @@ impl ::core::fmt::Debug for BluetoothAdapter {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothAdapter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothAdapter;{7974f04c-5f7a-4a34-9225-a855f84b1a8b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothAdapter;{7974f04c-5f7a-4a34-9225-a855f84b1a8b})");
 }
 impl ::core::clone::Clone for BluetoothAdapter {
     fn clone(&self) -> Self {
@@ -1154,7 +1154,7 @@ unsafe impl ::windows::core::Interface for BluetoothAdapter {
 impl ::windows::core::RuntimeName for BluetoothAdapter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothAdapter";
 }
-::windows::core::interface_hierarchy!(BluetoothAdapter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothAdapter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothAdapter {}
 unsafe impl ::core::marker::Sync for BluetoothAdapter {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -1203,7 +1203,7 @@ impl BluetoothClassOfDevice {
     }
     #[doc(hidden)]
     pub fn IBluetoothClassOfDeviceStatics<R, F: FnOnce(&IBluetoothClassOfDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothClassOfDevice, IBluetoothClassOfDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothClassOfDevice, IBluetoothClassOfDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1219,7 +1219,7 @@ impl ::core::fmt::Debug for BluetoothClassOfDevice {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothClassOfDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothClassOfDevice;{d640227e-d7d7-4661-9454-65039ca17a2b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothClassOfDevice;{d640227e-d7d7-4661-9454-65039ca17a2b})");
 }
 impl ::core::clone::Clone for BluetoothClassOfDevice {
     fn clone(&self) -> Self {
@@ -1235,7 +1235,7 @@ unsafe impl ::windows::core::Interface for BluetoothClassOfDevice {
 impl ::windows::core::RuntimeName for BluetoothClassOfDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothClassOfDevice";
 }
-::windows::core::interface_hierarchy!(BluetoothClassOfDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothClassOfDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothClassOfDevice {}
 unsafe impl ::core::marker::Sync for BluetoothClassOfDevice {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -1494,12 +1494,12 @@ impl BluetoothDevice {
     }
     #[doc(hidden)]
     pub fn IBluetoothDeviceStatics<R, F: FnOnce(&IBluetoothDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothDevice, IBluetoothDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothDevice, IBluetoothDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBluetoothDeviceStatics2<R, F: FnOnce(&IBluetoothDeviceStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothDevice, IBluetoothDeviceStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothDevice, IBluetoothDeviceStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1515,7 +1515,7 @@ impl ::core::fmt::Debug for BluetoothDevice {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothDevice;{2335b156-90d2-4a04-aef5-0e20b9e6b707})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothDevice;{2335b156-90d2-4a04-aef5-0e20b9e6b707})");
 }
 impl ::core::clone::Clone for BluetoothDevice {
     fn clone(&self) -> Self {
@@ -1531,7 +1531,7 @@ unsafe impl ::windows::core::Interface for BluetoothDevice {
 impl ::windows::core::RuntimeName for BluetoothDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDevice";
 }
-::windows::core::interface_hierarchy!(BluetoothDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BluetoothDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1589,7 +1589,7 @@ impl BluetoothDeviceId {
     }
     #[doc(hidden)]
     pub fn IBluetoothDeviceIdStatics<R, F: FnOnce(&IBluetoothDeviceIdStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothDeviceId, IBluetoothDeviceIdStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothDeviceId, IBluetoothDeviceIdStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1605,7 +1605,7 @@ impl ::core::fmt::Debug for BluetoothDeviceId {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothDeviceId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothDeviceId;{c17949af-57c1-4642-bcce-e6c06b20ae76})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothDeviceId;{c17949af-57c1-4642-bcce-e6c06b20ae76})");
 }
 impl ::core::clone::Clone for BluetoothDeviceId {
     fn clone(&self) -> Self {
@@ -1621,7 +1621,7 @@ unsafe impl ::windows::core::Interface for BluetoothDeviceId {
 impl ::windows::core::RuntimeName for BluetoothDeviceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDeviceId";
 }
-::windows::core::interface_hierarchy!(BluetoothDeviceId, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothDeviceId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothDeviceId {}
 unsafe impl ::core::marker::Sync for BluetoothDeviceId {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -1663,7 +1663,7 @@ impl BluetoothLEAppearance {
     }
     #[doc(hidden)]
     pub fn IBluetoothLEAppearanceStatics<R, F: FnOnce(&IBluetoothLEAppearanceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAppearance, IBluetoothLEAppearanceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAppearance, IBluetoothLEAppearanceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1679,7 +1679,7 @@ impl ::core::fmt::Debug for BluetoothLEAppearance {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAppearance {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEAppearance;{5d2079f2-66a8-4258-985e-02b4d9509f18})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEAppearance;{5d2079f2-66a8-4258-985e-02b4d9509f18})");
 }
 impl ::core::clone::Clone for BluetoothLEAppearance {
     fn clone(&self) -> Self {
@@ -1695,7 +1695,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAppearance {
 impl ::windows::core::RuntimeName for BluetoothLEAppearance {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEAppearance";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAppearance, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAppearance, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAppearance {}
 unsafe impl ::core::marker::Sync for BluetoothLEAppearance {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -1835,7 +1835,7 @@ impl BluetoothLEAppearanceCategories {
     }
     #[doc(hidden)]
     pub fn IBluetoothLEAppearanceCategoriesStatics<R, F: FnOnce(&IBluetoothLEAppearanceCategoriesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAppearanceCategories, IBluetoothLEAppearanceCategoriesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAppearanceCategories, IBluetoothLEAppearanceCategoriesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2015,7 +2015,7 @@ impl BluetoothLEAppearanceSubcategories {
     }
     #[doc(hidden)]
     pub fn IBluetoothLEAppearanceSubcategoriesStatics<R, F: FnOnce(&IBluetoothLEAppearanceSubcategoriesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAppearanceSubcategories, IBluetoothLEAppearanceSubcategoriesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAppearanceSubcategories, IBluetoothLEAppearanceSubcategoriesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2060,7 +2060,7 @@ impl ::core::fmt::Debug for BluetoothLEConnectionParameters {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEConnectionParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionParameters;{33cb0771-8da9-508f-a366-1ca388c929ab})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionParameters;{33cb0771-8da9-508f-a366-1ca388c929ab})");
 }
 impl ::core::clone::Clone for BluetoothLEConnectionParameters {
     fn clone(&self) -> Self {
@@ -2076,7 +2076,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEConnectionParameters {
 impl ::windows::core::RuntimeName for BluetoothLEConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionParameters";
 }
-::windows::core::interface_hierarchy!(BluetoothLEConnectionParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEConnectionParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEConnectionParameters {}
 unsafe impl ::core::marker::Sync for BluetoothLEConnectionParameters {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -2110,7 +2110,7 @@ impl ::core::fmt::Debug for BluetoothLEConnectionPhy {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEConnectionPhy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionPhy;{781e5e48-621e-5a7e-8be6-1b9561ff63c9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionPhy;{781e5e48-621e-5a7e-8be6-1b9561ff63c9})");
 }
 impl ::core::clone::Clone for BluetoothLEConnectionPhy {
     fn clone(&self) -> Self {
@@ -2126,7 +2126,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEConnectionPhy {
 impl ::windows::core::RuntimeName for BluetoothLEConnectionPhy {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhy";
 }
-::windows::core::interface_hierarchy!(BluetoothLEConnectionPhy, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEConnectionPhy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEConnectionPhy {}
 unsafe impl ::core::marker::Sync for BluetoothLEConnectionPhy {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -2167,7 +2167,7 @@ impl ::core::fmt::Debug for BluetoothLEConnectionPhyInfo {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEConnectionPhyInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo;{9a100bdd-602e-5c27-a1ae-b230015a6394})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo;{9a100bdd-602e-5c27-a1ae-b230015a6394})");
 }
 impl ::core::clone::Clone for BluetoothLEConnectionPhyInfo {
     fn clone(&self) -> Self {
@@ -2183,7 +2183,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEConnectionPhyInfo {
 impl ::windows::core::RuntimeName for BluetoothLEConnectionPhyInfo {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo";
 }
-::windows::core::interface_hierarchy!(BluetoothLEConnectionPhyInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEConnectionPhyInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEConnectionPhyInfo {}
 unsafe impl ::core::marker::Sync for BluetoothLEConnectionPhyInfo {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -2497,12 +2497,12 @@ impl BluetoothLEDevice {
     }
     #[doc(hidden)]
     pub fn IBluetoothLEDeviceStatics<R, F: FnOnce(&IBluetoothLEDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEDevice, IBluetoothLEDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEDevice, IBluetoothLEDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBluetoothLEDeviceStatics2<R, F: FnOnce(&IBluetoothLEDeviceStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEDevice, IBluetoothLEDeviceStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEDevice, IBluetoothLEDeviceStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2518,7 +2518,7 @@ impl ::core::fmt::Debug for BluetoothLEDevice {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEDevice;{b5ee2f7b-4ad8-4642-ac48-80a0b500e887})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEDevice;{b5ee2f7b-4ad8-4642-ac48-80a0b500e887})");
 }
 impl ::core::clone::Clone for BluetoothLEDevice {
     fn clone(&self) -> Self {
@@ -2534,7 +2534,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEDevice {
 impl ::windows::core::RuntimeName for BluetoothLEDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEDevice";
 }
-::windows::core::interface_hierarchy!(BluetoothLEDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BluetoothLEDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2611,7 +2611,7 @@ impl BluetoothLEPreferredConnectionParameters {
     }
     #[doc(hidden)]
     pub fn IBluetoothLEPreferredConnectionParametersStatics<R, F: FnOnce(&IBluetoothLEPreferredConnectionParametersStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEPreferredConnectionParameters, IBluetoothLEPreferredConnectionParametersStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEPreferredConnectionParameters, IBluetoothLEPreferredConnectionParametersStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2627,7 +2627,7 @@ impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParameters {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters;{f2f44344-7372-5f7b-9b34-29c944f5a715})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters;{f2f44344-7372-5f7b-9b34-29c944f5a715})");
 }
 impl ::core::clone::Clone for BluetoothLEPreferredConnectionParameters {
     fn clone(&self) -> Self {
@@ -2643,7 +2643,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEPreferredConnectionParamet
 impl ::windows::core::RuntimeName for BluetoothLEPreferredConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters";
 }
-::windows::core::interface_hierarchy!(BluetoothLEPreferredConnectionParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEPreferredConnectionParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEPreferredConnectionParameters {}
 unsafe impl ::core::marker::Sync for BluetoothLEPreferredConnectionParameters {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -2676,7 +2676,7 @@ impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParametersRequest {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParametersRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest;{8a375276-a528-5266-b661-cce6a5ff9739})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest;{8a375276-a528-5266-b661-cce6a5ff9739})");
 }
 impl ::core::clone::Clone for BluetoothLEPreferredConnectionParametersRequest {
     fn clone(&self) -> Self {
@@ -2692,7 +2692,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEPreferredConnectionParamet
 impl ::windows::core::RuntimeName for BluetoothLEPreferredConnectionParametersRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest";
 }
-::windows::core::interface_hierarchy!(BluetoothLEPreferredConnectionParametersRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEPreferredConnectionParametersRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BluetoothLEPreferredConnectionParametersRequest> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2724,8 +2724,8 @@ impl BluetoothSignalStrengthFilter {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothSignalStrengthFilter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BluetoothSignalStrengthFilter, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2817,7 +2817,7 @@ impl ::core::fmt::Debug for BluetoothSignalStrengthFilter {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothSignalStrengthFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter;{df7b7391-6bb5-4cfe-90b1-5d7324edcf7f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter;{df7b7391-6bb5-4cfe-90b1-5d7324edcf7f})");
 }
 impl ::core::clone::Clone for BluetoothSignalStrengthFilter {
     fn clone(&self) -> Self {
@@ -2833,7 +2833,7 @@ unsafe impl ::windows::core::Interface for BluetoothSignalStrengthFilter {
 impl ::windows::core::RuntimeName for BluetoothSignalStrengthFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter";
 }
-::windows::core::interface_hierarchy!(BluetoothSignalStrengthFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothSignalStrengthFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothSignalStrengthFilter {}
 unsafe impl ::core::marker::Sync for BluetoothSignalStrengthFilter {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -2855,7 +2855,7 @@ impl BluetoothUuidHelper {
     }
     #[doc(hidden)]
     pub fn IBluetoothUuidHelperStatics<R, F: FnOnce(&IBluetoothUuidHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothUuidHelper, IBluetoothUuidHelperStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothUuidHelper, IBluetoothUuidHelperStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2891,7 +2891,7 @@ impl ::core::fmt::Debug for BluetoothAddressType {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothAddressType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothAddressType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothAddressType;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
@@ -2921,7 +2921,7 @@ impl ::core::fmt::Debug for BluetoothCacheMode {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothCacheMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothCacheMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothCacheMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
@@ -2951,7 +2951,7 @@ impl ::core::fmt::Debug for BluetoothConnectionStatus {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothConnectionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothConnectionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothConnectionStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
@@ -2989,7 +2989,7 @@ impl ::core::fmt::Debug for BluetoothError {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothError;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothError;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
@@ -3021,7 +3021,7 @@ impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParametersRequestStatu
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParametersRequestStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequestStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequestStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
@@ -3059,7 +3059,7 @@ impl ::core::fmt::Debug for BluetoothMajorClass {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothMajorClass {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMajorClass;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMajorClass;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
@@ -3158,7 +3158,7 @@ impl ::core::fmt::Debug for BluetoothMinorClass {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothMinorClass {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMinorClass;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMinorClass;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
@@ -3229,7 +3229,7 @@ impl ::core::ops::Not for BluetoothServiceCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothServiceCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothServiceCapabilities;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothServiceCapabilities;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

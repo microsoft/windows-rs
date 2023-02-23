@@ -415,12 +415,12 @@ impl RfcommDeviceService {
     }
     #[doc(hidden)]
     pub fn IRfcommDeviceServiceStatics<R, F: FnOnce(&IRfcommDeviceServiceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RfcommDeviceService, IRfcommDeviceServiceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RfcommDeviceService, IRfcommDeviceServiceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IRfcommDeviceServiceStatics2<R, F: FnOnce(&IRfcommDeviceServiceStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RfcommDeviceService, IRfcommDeviceServiceStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RfcommDeviceService, IRfcommDeviceServiceStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -436,7 +436,7 @@ impl ::core::fmt::Debug for RfcommDeviceService {
     }
 }
 impl ::windows::core::RuntimeType for RfcommDeviceService {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService;{ae81ff1f-c5a1-4c40-8c28-f3efd69062f3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService;{ae81ff1f-c5a1-4c40-8c28-f3efd69062f3})");
 }
 impl ::core::clone::Clone for RfcommDeviceService {
     fn clone(&self) -> Self {
@@ -452,7 +452,7 @@ unsafe impl ::windows::core::Interface for RfcommDeviceService {
 impl ::windows::core::RuntimeName for RfcommDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService";
 }
-::windows::core::interface_hierarchy!(RfcommDeviceService, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RfcommDeviceService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<RfcommDeviceService> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -510,7 +510,7 @@ impl ::core::fmt::Debug for RfcommDeviceServicesResult {
     }
 }
 impl ::windows::core::RuntimeType for RfcommDeviceServicesResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult;{3b48388c-7ccf-488e-9625-d259a5732d55})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult;{3b48388c-7ccf-488e-9625-d259a5732d55})");
 }
 impl ::core::clone::Clone for RfcommDeviceServicesResult {
     fn clone(&self) -> Self {
@@ -526,7 +526,7 @@ unsafe impl ::windows::core::Interface for RfcommDeviceServicesResult {
 impl ::windows::core::RuntimeName for RfcommDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult";
 }
-::windows::core::interface_hierarchy!(RfcommDeviceServicesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RfcommDeviceServicesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommDeviceServicesResult {}
 unsafe impl ::core::marker::Sync for RfcommDeviceServicesResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
@@ -604,7 +604,7 @@ impl RfcommServiceId {
     }
     #[doc(hidden)]
     pub fn IRfcommServiceIdStatics<R, F: FnOnce(&IRfcommServiceIdStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RfcommServiceId, IRfcommServiceIdStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RfcommServiceId, IRfcommServiceIdStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -620,7 +620,7 @@ impl ::core::fmt::Debug for RfcommServiceId {
     }
 }
 impl ::windows::core::RuntimeType for RfcommServiceId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId;{22629204-7e02-4017-8136-da1b6a1b9bbf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId;{22629204-7e02-4017-8136-da1b6a1b9bbf})");
 }
 impl ::core::clone::Clone for RfcommServiceId {
     fn clone(&self) -> Self {
@@ -636,7 +636,7 @@ unsafe impl ::windows::core::Interface for RfcommServiceId {
 impl ::windows::core::RuntimeName for RfcommServiceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId";
 }
-::windows::core::interface_hierarchy!(RfcommServiceId, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RfcommServiceId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommServiceId {}
 unsafe impl ::core::marker::Sync for RfcommServiceId {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
@@ -685,7 +685,7 @@ impl RfcommServiceProvider {
     }
     #[doc(hidden)]
     pub fn IRfcommServiceProviderStatics<R, F: FnOnce(&IRfcommServiceProviderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RfcommServiceProvider, IRfcommServiceProviderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RfcommServiceProvider, IRfcommServiceProviderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -701,7 +701,7 @@ impl ::core::fmt::Debug for RfcommServiceProvider {
     }
 }
 impl ::windows::core::RuntimeType for RfcommServiceProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider;{eadbfdc4-b1f6-44ff-9f7c-e7a82ab86821})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider;{eadbfdc4-b1f6-44ff-9f7c-e7a82ab86821})");
 }
 impl ::core::clone::Clone for RfcommServiceProvider {
     fn clone(&self) -> Self {
@@ -717,7 +717,7 @@ unsafe impl ::windows::core::Interface for RfcommServiceProvider {
 impl ::windows::core::RuntimeName for RfcommServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider";
 }
-::windows::core::interface_hierarchy!(RfcommServiceProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RfcommServiceProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommServiceProvider {}
 unsafe impl ::core::marker::Sync for RfcommServiceProvider {}
 #[cfg(feature = "implement")]

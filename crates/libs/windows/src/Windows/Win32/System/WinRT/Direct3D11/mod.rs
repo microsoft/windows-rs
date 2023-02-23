@@ -5,7 +5,7 @@ pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<P0>(dxgidevice: P0) -> ::wind
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Dxgi::IDXGIDevice>>,
 {
-    ::windows::core::link ! ( "d3d11.dll""system" fn CreateDirect3D11DeviceFromDXGIDevice ( dxgidevice : * mut::core::ffi::c_void , graphicsdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d11.dll""system" fn CreateDirect3D11DeviceFromDXGIDevice ( dxgidevice : * mut::core::ffi::c_void , graphicsdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IInspectable>();
     CreateDirect3D11DeviceFromDXGIDevice(dxgidevice.into().abi(), &mut result__).from_abi(result__)
 }
@@ -16,7 +16,7 @@ pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<P0>(dgxisurface: P0) -> ::w
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Dxgi::IDXGISurface>>,
 {
-    ::windows::core::link ! ( "d3d11.dll""system" fn CreateDirect3D11SurfaceFromDXGISurface ( dgxisurface : * mut::core::ffi::c_void , graphicssurface : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d11.dll""system" fn CreateDirect3D11SurfaceFromDXGISurface ( dgxisurface : * mut::core::ffi::c_void , graphicssurface : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IInspectable>();
     CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.into().abi(), &mut result__).from_abi(result__)
 }
@@ -32,7 +32,7 @@ impl IDirect3DDxgiInterfaceAccess {
         (::windows::core::Vtable::vtable(self).GetInterface)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DDxgiInterfaceAccess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DDxgiInterfaceAccess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DDxgiInterfaceAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

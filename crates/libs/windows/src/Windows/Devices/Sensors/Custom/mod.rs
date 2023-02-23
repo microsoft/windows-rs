@@ -231,7 +231,7 @@ impl CustomSensor {
     }
     #[doc(hidden)]
     pub fn ICustomSensorStatics<R, F: FnOnce(&ICustomSensorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CustomSensor, ICustomSensorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CustomSensor, ICustomSensorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -247,7 +247,7 @@ impl ::core::fmt::Debug for CustomSensor {
     }
 }
 impl ::windows::core::RuntimeType for CustomSensor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensor;{a136f9ad-4034-4b4d-99dd-531aac649c09})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensor;{a136f9ad-4034-4b4d-99dd-531aac649c09})");
 }
 impl ::core::clone::Clone for CustomSensor {
     fn clone(&self) -> Self {
@@ -263,7 +263,7 @@ unsafe impl ::windows::core::Interface for CustomSensor {
 impl ::windows::core::RuntimeName for CustomSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensor";
 }
-::windows::core::interface_hierarchy!(CustomSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CustomSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CustomSensor {}
 unsafe impl ::core::marker::Sync for CustomSensor {}
 #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
@@ -310,7 +310,7 @@ impl ::core::fmt::Debug for CustomSensorReading {
     }
 }
 impl ::windows::core::RuntimeType for CustomSensorReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReading;{64004f4d-446a-4366-a87a-5f963268ec53})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReading;{64004f4d-446a-4366-a87a-5f963268ec53})");
 }
 impl ::core::clone::Clone for CustomSensorReading {
     fn clone(&self) -> Self {
@@ -326,7 +326,7 @@ unsafe impl ::windows::core::Interface for CustomSensorReading {
 impl ::windows::core::RuntimeName for CustomSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensorReading";
 }
-::windows::core::interface_hierarchy!(CustomSensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CustomSensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CustomSensorReading {}
 unsafe impl ::core::marker::Sync for CustomSensorReading {}
 #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
@@ -353,7 +353,7 @@ impl ::core::fmt::Debug for CustomSensorReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CustomSensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs;{6b202023-cffd-4cc1-8ff0-e21823d76fcc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs;{6b202023-cffd-4cc1-8ff0-e21823d76fcc})");
 }
 impl ::core::clone::Clone for CustomSensorReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -369,7 +369,7 @@ unsafe impl ::windows::core::Interface for CustomSensorReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for CustomSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(CustomSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CustomSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CustomSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CustomSensorReadingChangedEventArgs {}
 #[cfg(feature = "implement")]

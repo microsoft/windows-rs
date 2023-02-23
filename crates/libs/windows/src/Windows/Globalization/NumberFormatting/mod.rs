@@ -140,7 +140,7 @@ impl INumberFormatter {
         }
     }
 }
-::windows::core::interface_hierarchy!(INumberFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INumberFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for INumberFormatter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -153,7 +153,7 @@ impl ::core::fmt::Debug for INumberFormatter {
     }
 }
 impl ::windows::core::RuntimeType for INumberFormatter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a5007c49-7676-4db7-8631-1b6ff265caa9}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a5007c49-7676-4db7-8631-1b6ff265caa9}");
 }
 unsafe impl ::windows::core::Vtable for INumberFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -200,7 +200,7 @@ impl INumberFormatter2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(INumberFormatter2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INumberFormatter2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for INumberFormatter2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -213,7 +213,7 @@ impl ::core::fmt::Debug for INumberFormatter2 {
     }
 }
 impl ::windows::core::RuntimeType for INumberFormatter2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d4a8c1f0-80d0-4b0d-a89e-882c1e8f8310}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{d4a8c1f0-80d0-4b0d-a89e-882c1e8f8310}");
 }
 unsafe impl ::windows::core::Vtable for INumberFormatter2 {
     type Vtable = INumberFormatter2_Vtbl;
@@ -324,7 +324,7 @@ impl INumberFormatterOptions {
         }
     }
 }
-::windows::core::interface_hierarchy!(INumberFormatterOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INumberFormatterOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for INumberFormatterOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -337,7 +337,7 @@ impl ::core::fmt::Debug for INumberFormatterOptions {
     }
 }
 impl ::windows::core::RuntimeType for INumberFormatterOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{80332d21-aee1-4a39-baa2-07ed8c96daf6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{80332d21-aee1-4a39-baa2-07ed8c96daf6}");
 }
 unsafe impl ::windows::core::Vtable for INumberFormatterOptions {
     type Vtable = INumberFormatterOptions_Vtbl;
@@ -404,7 +404,7 @@ impl INumberParser {
         }
     }
 }
-::windows::core::interface_hierarchy!(INumberParser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INumberParser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for INumberParser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -417,7 +417,7 @@ impl ::core::fmt::Debug for INumberParser {
     }
 }
 impl ::windows::core::RuntimeType for INumberParser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e6659412-4a13-4a53-83a1-392fbe4cff9f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e6659412-4a13-4a53-83a1-392fbe4cff9f}");
 }
 unsafe impl ::windows::core::Vtable for INumberParser {
     type Vtable = INumberParser_Vtbl;
@@ -494,7 +494,7 @@ impl INumberRounder {
         }
     }
 }
-::windows::core::interface_hierarchy!(INumberRounder, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INumberRounder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for INumberRounder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -507,7 +507,7 @@ impl ::core::fmt::Debug for INumberRounder {
     }
 }
 impl ::windows::core::RuntimeType for INumberRounder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5473c375-38ed-4631-b80c-ef34fc48b7f5}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{5473c375-38ed-4631-b80c-ef34fc48b7f5}");
 }
 unsafe impl ::windows::core::Vtable for INumberRounder {
     type Vtable = INumberRounder_Vtbl;
@@ -551,7 +551,7 @@ impl INumberRounderOption {
         unsafe { (::windows::core::Vtable::vtable(this).SetNumberRounder)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-::windows::core::interface_hierarchy!(INumberRounderOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INumberRounderOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for INumberRounderOption {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -564,7 +564,7 @@ impl ::core::fmt::Debug for INumberRounderOption {
     }
 }
 impl ::windows::core::RuntimeType for INumberRounderOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3b088433-646f-4efe-8d48-66eb2e49e736}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{3b088433-646f-4efe-8d48-66eb2e49e736}");
 }
 unsafe impl ::windows::core::Vtable for INumberRounderOption {
     type Vtable = INumberRounderOption_Vtbl;
@@ -696,7 +696,7 @@ impl ISignedZeroOption {
         unsafe { (::windows::core::Vtable::vtable(this).SetIsZeroSigned)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ISignedZeroOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISignedZeroOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISignedZeroOption {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -709,7 +709,7 @@ impl ::core::fmt::Debug for ISignedZeroOption {
     }
 }
 impl ::windows::core::RuntimeType for ISignedZeroOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fd1cdd31-0a3c-49c4-a642-96a1564f4f30}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{fd1cdd31-0a3c-49c4-a642-96a1564f4f30}");
 }
 unsafe impl ::windows::core::Vtable for ISignedZeroOption {
     type Vtable = ISignedZeroOption_Vtbl;
@@ -768,7 +768,7 @@ impl ISignificantDigitsOption {
         unsafe { (::windows::core::Vtable::vtable(this).SetSignificantDigits)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ISignificantDigitsOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISignificantDigitsOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISignificantDigitsOption {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -781,7 +781,7 @@ impl ::core::fmt::Debug for ISignificantDigitsOption {
     }
 }
 impl ::windows::core::RuntimeType for ISignificantDigitsOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1d4dfcdd-2d43-4ee8-bbf1-c1b26a711a58}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1d4dfcdd-2d43-4ee8-bbf1-c1b26a711a58}");
 }
 unsafe impl ::windows::core::Vtable for ISignificantDigitsOption {
     type Vtable = ISignificantDigitsOption_Vtbl;
@@ -1044,7 +1044,7 @@ impl CurrencyFormatter {
     }
     #[doc(hidden)]
     pub fn ICurrencyFormatterFactory<R, F: FnOnce(&ICurrencyFormatterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CurrencyFormatter, ICurrencyFormatterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CurrencyFormatter, ICurrencyFormatterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1060,7 +1060,7 @@ impl ::core::fmt::Debug for CurrencyFormatter {
     }
 }
 impl ::windows::core::RuntimeType for CurrencyFormatter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.CurrencyFormatter;{11730ca5-4b00-41b2-b332-73b12a497d54})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.CurrencyFormatter;{11730ca5-4b00-41b2-b332-73b12a497d54})");
 }
 impl ::core::clone::Clone for CurrencyFormatter {
     fn clone(&self) -> Self {
@@ -1076,7 +1076,7 @@ unsafe impl ::windows::core::Interface for CurrencyFormatter {
 impl ::windows::core::RuntimeName for CurrencyFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.CurrencyFormatter";
 }
-::windows::core::interface_hierarchy!(CurrencyFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CurrencyFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CurrencyFormatter> for INumberFormatter {
     type Error = ::windows::core::Error;
     fn try_from(value: CurrencyFormatter) -> ::windows::core::Result<Self> {
@@ -1219,8 +1219,8 @@ impl DecimalFormatter {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DecimalFormatter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DecimalFormatter, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1428,7 +1428,7 @@ impl DecimalFormatter {
     }
     #[doc(hidden)]
     pub fn IDecimalFormatterFactory<R, F: FnOnce(&IDecimalFormatterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DecimalFormatter, IDecimalFormatterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DecimalFormatter, IDecimalFormatterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1444,7 +1444,7 @@ impl ::core::fmt::Debug for DecimalFormatter {
     }
 }
 impl ::windows::core::RuntimeType for DecimalFormatter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.DecimalFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.DecimalFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
 }
 impl ::core::clone::Clone for DecimalFormatter {
     fn clone(&self) -> Self {
@@ -1460,7 +1460,7 @@ unsafe impl ::windows::core::Interface for DecimalFormatter {
 impl ::windows::core::RuntimeName for DecimalFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.DecimalFormatter";
 }
-::windows::core::interface_hierarchy!(DecimalFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DecimalFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DecimalFormatter> for INumberFormatter {
     type Error = ::windows::core::Error;
     fn try_from(value: DecimalFormatter) -> ::windows::core::Result<Self> {
@@ -1603,8 +1603,8 @@ impl IncrementNumberRounder {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<IncrementNumberRounder, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<IncrementNumberRounder, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn RoundingAlgorithm(&self) -> ::windows::core::Result<RoundingAlgorithm> {
@@ -1684,7 +1684,7 @@ impl ::core::fmt::Debug for IncrementNumberRounder {
     }
 }
 impl ::windows::core::RuntimeType for IncrementNumberRounder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.IncrementNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.IncrementNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
 }
 impl ::core::clone::Clone for IncrementNumberRounder {
     fn clone(&self) -> Self {
@@ -1700,7 +1700,7 @@ unsafe impl ::windows::core::Interface for IncrementNumberRounder {
 impl ::windows::core::RuntimeName for IncrementNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IncrementNumberRounder";
 }
-::windows::core::interface_hierarchy!(IncrementNumberRounder, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IncrementNumberRounder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IncrementNumberRounder> for INumberRounder {
     type Error = ::windows::core::Error;
     fn try_from(value: IncrementNumberRounder) -> ::windows::core::Result<Self> {
@@ -1729,8 +1729,8 @@ impl NumeralSystemTranslator {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NumeralSystemTranslator, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<NumeralSystemTranslator, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1781,7 +1781,7 @@ impl NumeralSystemTranslator {
     }
     #[doc(hidden)]
     pub fn INumeralSystemTranslatorFactory<R, F: FnOnce(&INumeralSystemTranslatorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NumeralSystemTranslator, INumeralSystemTranslatorFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NumeralSystemTranslator, INumeralSystemTranslatorFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1797,7 +1797,7 @@ impl ::core::fmt::Debug for NumeralSystemTranslator {
     }
 }
 impl ::windows::core::RuntimeType for NumeralSystemTranslator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.NumeralSystemTranslator;{28f5bc2c-8c23-4234-ad2e-fa5a3a426e9b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.NumeralSystemTranslator;{28f5bc2c-8c23-4234-ad2e-fa5a3a426e9b})");
 }
 impl ::core::clone::Clone for NumeralSystemTranslator {
     fn clone(&self) -> Self {
@@ -1813,7 +1813,7 @@ unsafe impl ::windows::core::Interface for NumeralSystemTranslator {
 impl ::windows::core::RuntimeName for NumeralSystemTranslator {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.NumeralSystemTranslator";
 }
-::windows::core::interface_hierarchy!(NumeralSystemTranslator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NumeralSystemTranslator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NumeralSystemTranslator {}
 unsafe impl ::core::marker::Sync for NumeralSystemTranslator {}
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
@@ -1823,8 +1823,8 @@ impl PercentFormatter {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PercentFormatter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PercentFormatter, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn FormatInt(&self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2032,7 +2032,7 @@ impl PercentFormatter {
     }
     #[doc(hidden)]
     pub fn IPercentFormatterFactory<R, F: FnOnce(&IPercentFormatterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PercentFormatter, IPercentFormatterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PercentFormatter, IPercentFormatterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2048,7 +2048,7 @@ impl ::core::fmt::Debug for PercentFormatter {
     }
 }
 impl ::windows::core::RuntimeType for PercentFormatter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PercentFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PercentFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
 }
 impl ::core::clone::Clone for PercentFormatter {
     fn clone(&self) -> Self {
@@ -2064,7 +2064,7 @@ unsafe impl ::windows::core::Interface for PercentFormatter {
 impl ::windows::core::RuntimeName for PercentFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PercentFormatter";
 }
-::windows::core::interface_hierarchy!(PercentFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PercentFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PercentFormatter> for INumberFormatter {
     type Error = ::windows::core::Error;
     fn try_from(value: PercentFormatter) -> ::windows::core::Result<Self> {
@@ -2207,8 +2207,8 @@ impl PermilleFormatter {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PermilleFormatter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PermilleFormatter, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn FormatInt(&self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2416,7 +2416,7 @@ impl PermilleFormatter {
     }
     #[doc(hidden)]
     pub fn IPermilleFormatterFactory<R, F: FnOnce(&IPermilleFormatterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PermilleFormatter, IPermilleFormatterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PermilleFormatter, IPermilleFormatterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2432,7 +2432,7 @@ impl ::core::fmt::Debug for PermilleFormatter {
     }
 }
 impl ::windows::core::RuntimeType for PermilleFormatter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PermilleFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PermilleFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
 }
 impl ::core::clone::Clone for PermilleFormatter {
     fn clone(&self) -> Self {
@@ -2448,7 +2448,7 @@ unsafe impl ::windows::core::Interface for PermilleFormatter {
 impl ::windows::core::RuntimeName for PermilleFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PermilleFormatter";
 }
-::windows::core::interface_hierarchy!(PermilleFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PermilleFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PermilleFormatter> for INumberFormatter {
     type Error = ::windows::core::Error;
     fn try_from(value: PermilleFormatter) -> ::windows::core::Result<Self> {
@@ -2591,8 +2591,8 @@ impl SignificantDigitsNumberRounder {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SignificantDigitsNumberRounder, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SignificantDigitsNumberRounder, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn RoundInt32(&self, value: i32) -> ::windows::core::Result<i32> {
@@ -2672,7 +2672,7 @@ impl ::core::fmt::Debug for SignificantDigitsNumberRounder {
     }
 }
 impl ::windows::core::RuntimeType for SignificantDigitsNumberRounder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
 }
 impl ::core::clone::Clone for SignificantDigitsNumberRounder {
     fn clone(&self) -> Self {
@@ -2688,7 +2688,7 @@ unsafe impl ::windows::core::Interface for SignificantDigitsNumberRounder {
 impl ::windows::core::RuntimeName for SignificantDigitsNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder";
 }
-::windows::core::interface_hierarchy!(SignificantDigitsNumberRounder, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SignificantDigitsNumberRounder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SignificantDigitsNumberRounder> for INumberRounder {
     type Error = ::windows::core::Error;
     fn try_from(value: SignificantDigitsNumberRounder) -> ::windows::core::Result<Self> {
@@ -2738,7 +2738,7 @@ impl ::core::fmt::Debug for CurrencyFormatterMode {
     }
 }
 impl ::windows::core::RuntimeType for CurrencyFormatterMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.NumberFormatting.CurrencyFormatterMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.NumberFormatting.CurrencyFormatterMode;i4)");
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
@@ -2777,7 +2777,7 @@ impl ::core::fmt::Debug for RoundingAlgorithm {
     }
 }
 impl ::windows::core::RuntimeType for RoundingAlgorithm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.NumberFormatting.RoundingAlgorithm;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.NumberFormatting.RoundingAlgorithm;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

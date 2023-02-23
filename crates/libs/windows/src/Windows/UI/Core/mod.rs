@@ -165,7 +165,7 @@ impl ICoreAcceleratorKeys {
         unsafe { (::windows::core::Vtable::vtable(this).RemoveAcceleratorKeyActivated)(::windows::core::Vtable::as_raw(this), cookie).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ICoreAcceleratorKeys, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICoreAcceleratorKeys, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICoreAcceleratorKeys {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -178,7 +178,7 @@ impl ::core::fmt::Debug for ICoreAcceleratorKeys {
     }
 }
 impl ::windows::core::RuntimeType for ICoreAcceleratorKeys {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9ffdf7f5-b8c9-4ef0-b7d2-1de626561fc8}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{9ffdf7f5-b8c9-4ef0-b7d2-1de626561fc8}");
 }
 unsafe impl ::windows::core::Vtable for ICoreAcceleratorKeys {
     type Vtable = ICoreAcceleratorKeys_Vtbl;
@@ -479,7 +479,7 @@ impl ICoreInputSourceBase {
         unsafe { (::windows::core::Vtable::vtable(this).RemoveInputEnabled)(::windows::core::Vtable::as_raw(this), cookie).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ICoreInputSourceBase, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICoreInputSourceBase, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICoreInputSourceBase {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -492,7 +492,7 @@ impl ::core::fmt::Debug for ICoreInputSourceBase {
     }
 }
 impl ::windows::core::RuntimeType for ICoreInputSourceBase {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9f488807-4580-4be8-be68-92a9311713bb}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{9f488807-4580-4be8-be68-92a9311713bb}");
 }
 unsafe impl ::windows::core::Vtable for ICoreInputSourceBase {
     type Vtable = ICoreInputSourceBase_Vtbl;
@@ -733,7 +733,7 @@ impl ICorePointerInputSource {
         unsafe { (::windows::core::Vtable::vtable(this).RemovePointerWheelChanged)(::windows::core::Vtable::as_raw(this), cookie).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ICorePointerInputSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICorePointerInputSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICorePointerInputSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -746,7 +746,7 @@ impl ::core::fmt::Debug for ICorePointerInputSource {
     }
 }
 impl ::windows::core::RuntimeType for ICorePointerInputSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bbf1bb18-e47a-48eb-8807-f8f8d3ea4551}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{bbf1bb18-e47a-48eb-8807-f8f8d3ea4551}");
 }
 unsafe impl ::windows::core::Vtable for ICorePointerInputSource {
     type Vtable = ICorePointerInputSource_Vtbl;
@@ -983,7 +983,7 @@ impl ICorePointerInputSource2 {
         unsafe { (::windows::core::Vtable::vtable(this).RemovePointerWheelChanged)(::windows::core::Vtable::as_raw(this), cookie).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ICorePointerInputSource2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICorePointerInputSource2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ICorePointerInputSource2> for ICorePointerInputSource {
     type Error = ::windows::core::Error;
     fn try_from(value: ICorePointerInputSource2) -> ::windows::core::Result<Self> {
@@ -1015,7 +1015,7 @@ impl ::core::fmt::Debug for ICorePointerInputSource2 {
     }
 }
 impl ::windows::core::RuntimeType for ICorePointerInputSource2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d703708a-4516-4786-b1e5-2751d563f997}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{d703708a-4516-4786-b1e5-2751d563f997}");
 }
 unsafe impl ::windows::core::Vtable for ICorePointerInputSource2 {
     type Vtable = ICorePointerInputSource2_Vtbl;
@@ -1087,7 +1087,7 @@ impl ICorePointerRedirector {
         unsafe { (::windows::core::Vtable::vtable(this).RemovePointerRoutedReleased)(::windows::core::Vtable::as_raw(this), cookie).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ICorePointerRedirector, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICorePointerRedirector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICorePointerRedirector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1100,7 +1100,7 @@ impl ::core::fmt::Debug for ICorePointerRedirector {
     }
 }
 impl ::windows::core::RuntimeType for ICorePointerRedirector {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8f9d0c94-5688-4b0c-a9f1-f931f7fa3dc3}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{8f9d0c94-5688-4b0c-a9f1-f931f7fa3dc3}");
 }
 unsafe impl ::windows::core::Vtable for ICorePointerRedirector {
     type Vtable = ICorePointerRedirector_Vtbl;
@@ -1544,7 +1544,7 @@ impl ICoreWindow {
         unsafe { (::windows::core::Vtable::vtable(this).RemoveVisibilityChanged)(::windows::core::Vtable::as_raw(this), cookie).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ICoreWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICoreWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICoreWindow {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1557,7 +1557,7 @@ impl ::core::fmt::Debug for ICoreWindow {
     }
 }
 impl ::windows::core::RuntimeType for ICoreWindow {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79b9d5f2-879e-4b89-b798-79e47598030c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{79b9d5f2-879e-4b89-b798-79e47598030c}");
 }
 unsafe impl ::windows::core::Vtable for ICoreWindow {
     type Vtable = ICoreWindow_Vtbl;
@@ -1949,7 +1949,7 @@ impl ICoreWindowEventArgs {
         unsafe { (::windows::core::Vtable::vtable(this).SetHandled)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ICoreWindowEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICoreWindowEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICoreWindowEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1962,7 +1962,7 @@ impl ::core::fmt::Debug for ICoreWindowEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ICoreWindowEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{272b1ef3-c633-4da5-a26c-c6d0f56b29da}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{272b1ef3-c633-4da5-a26c-c6d0f56b29da}");
 }
 unsafe impl ::windows::core::Vtable for ICoreWindowEventArgs {
     type Vtable = ICoreWindowEventArgs_Vtbl;
@@ -2219,7 +2219,7 @@ impl IInitializeWithCoreWindow {
         unsafe { (::windows::core::Vtable::vtable(this).Initialize)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(window)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IInitializeWithCoreWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IInitializeWithCoreWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IInitializeWithCoreWindow {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2232,7 +2232,7 @@ impl ::core::fmt::Debug for IInitializeWithCoreWindow {
     }
 }
 impl ::windows::core::RuntimeType for IInitializeWithCoreWindow {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{188f20d6-9873-464a-ace5-57e010f465e6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{188f20d6-9873-464a-ace5-57e010f465e6}");
 }
 unsafe impl ::windows::core::Vtable for IInitializeWithCoreWindow {
     type Vtable = IInitializeWithCoreWindow_Vtbl;
@@ -2578,7 +2578,7 @@ impl ::core::fmt::Debug for AcceleratorKeyEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AcceleratorKeyEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AcceleratorKeyEventArgs;{ff1c4c4a-9287-470b-836e-9086e3126ade})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AcceleratorKeyEventArgs;{ff1c4c4a-9287-470b-836e-9086e3126ade})");
 }
 impl ::core::clone::Clone for AcceleratorKeyEventArgs {
     fn clone(&self) -> Self {
@@ -2594,7 +2594,7 @@ unsafe impl ::windows::core::Interface for AcceleratorKeyEventArgs {
 impl ::windows::core::RuntimeName for AcceleratorKeyEventArgs {
     const NAME: &'static str = "Windows.UI.Core.AcceleratorKeyEventArgs";
 }
-::windows::core::interface_hierarchy!(AcceleratorKeyEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AcceleratorKeyEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AcceleratorKeyEventArgs> for ICoreWindowEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: AcceleratorKeyEventArgs) -> ::windows::core::Result<Self> {
@@ -2658,7 +2658,7 @@ impl ::core::fmt::Debug for AutomationProviderRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AutomationProviderRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AutomationProviderRequestedEventArgs;{961ff258-21bf-4b42-a298-fa479d4c52e2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AutomationProviderRequestedEventArgs;{961ff258-21bf-4b42-a298-fa479d4c52e2})");
 }
 impl ::core::clone::Clone for AutomationProviderRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -2674,7 +2674,7 @@ unsafe impl ::windows::core::Interface for AutomationProviderRequestedEventArgs 
 impl ::windows::core::RuntimeName for AutomationProviderRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.AutomationProviderRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(AutomationProviderRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AutomationProviderRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AutomationProviderRequestedEventArgs> for ICoreWindowEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: AutomationProviderRequestedEventArgs) -> ::windows::core::Result<Self> {
@@ -2722,7 +2722,7 @@ impl ::core::fmt::Debug for BackRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BackRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.BackRequestedEventArgs;{d603d28a-e411-4a4e-ba41-6a327a8675bc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.BackRequestedEventArgs;{d603d28a-e411-4a4e-ba41-6a327a8675bc})");
 }
 impl ::core::clone::Clone for BackRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -2738,7 +2738,7 @@ unsafe impl ::windows::core::Interface for BackRequestedEventArgs {
 impl ::windows::core::RuntimeName for BackRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.BackRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(BackRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for BackRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -2783,7 +2783,7 @@ impl ::core::fmt::Debug for CharacterReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CharacterReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CharacterReceivedEventArgs;{c584659f-99b2-4bcc-bd33-04e63f42902e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CharacterReceivedEventArgs;{c584659f-99b2-4bcc-bd33-04e63f42902e})");
 }
 impl ::core::clone::Clone for CharacterReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -2799,7 +2799,7 @@ unsafe impl ::windows::core::Interface for CharacterReceivedEventArgs {
 impl ::windows::core::RuntimeName for CharacterReceivedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.CharacterReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(CharacterReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CharacterReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CharacterReceivedEventArgs> for ICoreWindowEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: CharacterReceivedEventArgs) -> ::windows::core::Result<Self> {
@@ -2869,7 +2869,7 @@ impl ::core::fmt::Debug for ClosestInteractiveBoundsRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ClosestInteractiveBoundsRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.ClosestInteractiveBoundsRequestedEventArgs;{347c11d7-f6f8-40e3-b29f-ae50d3e86486})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.ClosestInteractiveBoundsRequestedEventArgs;{347c11d7-f6f8-40e3-b29f-ae50d3e86486})");
 }
 impl ::core::clone::Clone for ClosestInteractiveBoundsRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -2885,7 +2885,7 @@ unsafe impl ::windows::core::Interface for ClosestInteractiveBoundsRequestedEven
 impl ::windows::core::RuntimeName for ClosestInteractiveBoundsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.ClosestInteractiveBoundsRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(ClosestInteractiveBoundsRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClosestInteractiveBoundsRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreAcceleratorKeys(::windows::core::IUnknown);
@@ -2918,7 +2918,7 @@ impl ::core::fmt::Debug for CoreAcceleratorKeys {
     }
 }
 impl ::windows::core::RuntimeType for CoreAcceleratorKeys {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreAcceleratorKeys;{9ffdf7f5-b8c9-4ef0-b7d2-1de626561fc8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreAcceleratorKeys;{9ffdf7f5-b8c9-4ef0-b7d2-1de626561fc8})");
 }
 impl ::core::clone::Clone for CoreAcceleratorKeys {
     fn clone(&self) -> Self {
@@ -2934,7 +2934,7 @@ unsafe impl ::windows::core::Interface for CoreAcceleratorKeys {
 impl ::windows::core::RuntimeName for CoreAcceleratorKeys {
     const NAME: &'static str = "Windows.UI.Core.CoreAcceleratorKeys";
 }
-::windows::core::interface_hierarchy!(CoreAcceleratorKeys, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreAcceleratorKeys, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CoreAcceleratorKeys> for ICoreAcceleratorKeys {
     type Error = ::windows::core::Error;
     fn try_from(value: CoreAcceleratorKeys) -> ::windows::core::Result<Self> {
@@ -3283,7 +3283,7 @@ impl ::core::fmt::Debug for CoreComponentInputSource {
     }
 }
 impl ::windows::core::RuntimeType for CoreComponentInputSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreComponentInputSource;{9f488807-4580-4be8-be68-92a9311713bb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreComponentInputSource;{9f488807-4580-4be8-be68-92a9311713bb})");
 }
 impl ::core::clone::Clone for CoreComponentInputSource {
     fn clone(&self) -> Self {
@@ -3299,7 +3299,7 @@ unsafe impl ::windows::core::Interface for CoreComponentInputSource {
 impl ::windows::core::RuntimeName for CoreComponentInputSource {
     const NAME: &'static str = "Windows.UI.Core.CoreComponentInputSource";
 }
-::windows::core::interface_hierarchy!(CoreComponentInputSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreComponentInputSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CoreComponentInputSource> for ICoreInputSourceBase {
     type Error = ::windows::core::Error;
     fn try_from(value: CoreComponentInputSource) -> ::windows::core::Result<Self> {
@@ -3385,7 +3385,7 @@ impl CoreCursor {
     }
     #[doc(hidden)]
     pub fn ICoreCursorFactory<R, F: FnOnce(&ICoreCursorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreCursor, ICoreCursorFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreCursor, ICoreCursorFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3401,7 +3401,7 @@ impl ::core::fmt::Debug for CoreCursor {
     }
 }
 impl ::windows::core::RuntimeType for CoreCursor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreCursor;{96893acf-111d-442c-8a77-b87992f8e2d6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreCursor;{96893acf-111d-442c-8a77-b87992f8e2d6})");
 }
 impl ::core::clone::Clone for CoreCursor {
     fn clone(&self) -> Self {
@@ -3417,7 +3417,7 @@ unsafe impl ::windows::core::Interface for CoreCursor {
 impl ::windows::core::RuntimeName for CoreCursor {
     const NAME: &'static str = "Windows.UI.Core.CoreCursor";
 }
-::windows::core::interface_hierarchy!(CoreCursor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreCursor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreCursor {}
 unsafe impl ::core::marker::Sync for CoreCursor {}
 #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -3528,7 +3528,7 @@ impl ::core::fmt::Debug for CoreDispatcher {
     }
 }
 impl ::windows::core::RuntimeType for CoreDispatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreDispatcher;{60db2fa8-b705-4fde-a7d6-ebbb1891d39e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreDispatcher;{60db2fa8-b705-4fde-a7d6-ebbb1891d39e})");
 }
 impl ::core::clone::Clone for CoreDispatcher {
     fn clone(&self) -> Self {
@@ -3544,7 +3544,7 @@ unsafe impl ::windows::core::Interface for CoreDispatcher {
 impl ::windows::core::RuntimeName for CoreDispatcher {
     const NAME: &'static str = "Windows.UI.Core.CoreDispatcher";
 }
-::windows::core::interface_hierarchy!(CoreDispatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreDispatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CoreDispatcher> for ICoreAcceleratorKeys {
     type Error = ::windows::core::Error;
     fn try_from(value: CoreDispatcher) -> ::windows::core::Result<Self> {
@@ -3810,7 +3810,7 @@ impl ::core::fmt::Debug for CoreIndependentInputSource {
     }
 }
 impl ::windows::core::RuntimeType for CoreIndependentInputSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreIndependentInputSource;{9f488807-4580-4be8-be68-92a9311713bb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreIndependentInputSource;{9f488807-4580-4be8-be68-92a9311713bb})");
 }
 impl ::core::clone::Clone for CoreIndependentInputSource {
     fn clone(&self) -> Self {
@@ -3826,7 +3826,7 @@ unsafe impl ::windows::core::Interface for CoreIndependentInputSource {
 impl ::windows::core::RuntimeName for CoreIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Core.CoreIndependentInputSource";
 }
-::windows::core::interface_hierarchy!(CoreIndependentInputSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreIndependentInputSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CoreIndependentInputSource> for ICoreInputSourceBase {
     type Error = ::windows::core::Error;
     fn try_from(value: CoreIndependentInputSource) -> ::windows::core::Result<Self> {
@@ -3977,7 +3977,7 @@ impl CoreIndependentInputSourceController {
     }
     #[doc(hidden)]
     pub fn ICoreIndependentInputSourceControllerStatics<R, F: FnOnce(&ICoreIndependentInputSourceControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreIndependentInputSourceController, ICoreIndependentInputSourceControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreIndependentInputSourceController, ICoreIndependentInputSourceControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3993,7 +3993,7 @@ impl ::core::fmt::Debug for CoreIndependentInputSourceController {
     }
 }
 impl ::windows::core::RuntimeType for CoreIndependentInputSourceController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreIndependentInputSourceController;{0963261c-84fe-578a-83ca-6425309ccde4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreIndependentInputSourceController;{0963261c-84fe-578a-83ca-6425309ccde4})");
 }
 impl ::core::clone::Clone for CoreIndependentInputSourceController {
     fn clone(&self) -> Self {
@@ -4009,7 +4009,7 @@ unsafe impl ::windows::core::Interface for CoreIndependentInputSourceController 
 impl ::windows::core::RuntimeName for CoreIndependentInputSourceController {
     const NAME: &'static str = "Windows.UI.Core.CoreIndependentInputSourceController";
 }
-::windows::core::interface_hierarchy!(CoreIndependentInputSourceController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreIndependentInputSourceController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<CoreIndependentInputSourceController> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4542,7 +4542,7 @@ impl CoreWindow {
     }
     #[doc(hidden)]
     pub fn ICoreWindowStatic<R, F: FnOnce(&ICoreWindowStatic) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreWindow, ICoreWindowStatic> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreWindow, ICoreWindowStatic> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4558,7 +4558,7 @@ impl ::core::fmt::Debug for CoreWindow {
     }
 }
 impl ::windows::core::RuntimeType for CoreWindow {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindow;{79b9d5f2-879e-4b89-b798-79e47598030c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindow;{79b9d5f2-879e-4b89-b798-79e47598030c})");
 }
 impl ::core::clone::Clone for CoreWindow {
     fn clone(&self) -> Self {
@@ -4574,7 +4574,7 @@ unsafe impl ::windows::core::Interface for CoreWindow {
 impl ::windows::core::RuntimeName for CoreWindow {
     const NAME: &'static str = "Windows.UI.Core.CoreWindow";
 }
-::windows::core::interface_hierarchy!(CoreWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CoreWindow> for ICorePointerRedirector {
     type Error = ::windows::core::Error;
     fn try_from(value: CoreWindow) -> ::windows::core::Result<Self> {
@@ -4620,8 +4620,8 @@ impl CoreWindowDialog {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreWindowDialog, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CoreWindowDialog, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4742,7 +4742,7 @@ impl CoreWindowDialog {
     }
     #[doc(hidden)]
     pub fn ICoreWindowDialogFactory<R, F: FnOnce(&ICoreWindowDialogFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreWindowDialog, ICoreWindowDialogFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreWindowDialog, ICoreWindowDialogFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4758,7 +4758,7 @@ impl ::core::fmt::Debug for CoreWindowDialog {
     }
 }
 impl ::windows::core::RuntimeType for CoreWindowDialog {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowDialog;{e7392ce0-c78d-427e-8b2c-01ff420c69d5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowDialog;{e7392ce0-c78d-427e-8b2c-01ff420c69d5})");
 }
 impl ::core::clone::Clone for CoreWindowDialog {
     fn clone(&self) -> Self {
@@ -4774,7 +4774,7 @@ unsafe impl ::windows::core::Interface for CoreWindowDialog {
 impl ::windows::core::RuntimeName for CoreWindowDialog {
     const NAME: &'static str = "Windows.UI.Core.CoreWindowDialog";
 }
-::windows::core::interface_hierarchy!(CoreWindowDialog, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreWindowDialog, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreWindowEventArgs(::windows::core::IUnknown);
@@ -4803,7 +4803,7 @@ impl ::core::fmt::Debug for CoreWindowEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreWindowEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowEventArgs;{272b1ef3-c633-4da5-a26c-c6d0f56b29da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowEventArgs;{272b1ef3-c633-4da5-a26c-c6d0f56b29da})");
 }
 impl ::core::clone::Clone for CoreWindowEventArgs {
     fn clone(&self) -> Self {
@@ -4819,7 +4819,7 @@ unsafe impl ::windows::core::Interface for CoreWindowEventArgs {
 impl ::windows::core::RuntimeName for CoreWindowEventArgs {
     const NAME: &'static str = "Windows.UI.Core.CoreWindowEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreWindowEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreWindowEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CoreWindowEventArgs> for ICoreWindowEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: CoreWindowEventArgs) -> ::windows::core::Result<Self> {
@@ -4960,7 +4960,7 @@ impl CoreWindowFlyout {
     }
     #[doc(hidden)]
     pub fn ICoreWindowFlyoutFactory<R, F: FnOnce(&ICoreWindowFlyoutFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreWindowFlyout, ICoreWindowFlyoutFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreWindowFlyout, ICoreWindowFlyoutFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4976,7 +4976,7 @@ impl ::core::fmt::Debug for CoreWindowFlyout {
     }
 }
 impl ::windows::core::RuntimeType for CoreWindowFlyout {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowFlyout;{e89d854d-2050-40bb-b344-f6f355eeb314})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowFlyout;{e89d854d-2050-40bb-b344-f6f355eeb314})");
 }
 impl ::core::clone::Clone for CoreWindowFlyout {
     fn clone(&self) -> Self {
@@ -4992,7 +4992,7 @@ unsafe impl ::windows::core::Interface for CoreWindowFlyout {
 impl ::windows::core::RuntimeName for CoreWindowFlyout {
     const NAME: &'static str = "Windows.UI.Core.CoreWindowFlyout";
 }
-::windows::core::interface_hierarchy!(CoreWindowFlyout, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreWindowFlyout, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreWindowPopupShowingEventArgs(::windows::core::IUnknown);
@@ -5016,7 +5016,7 @@ impl ::core::fmt::Debug for CoreWindowPopupShowingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreWindowPopupShowingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowPopupShowingEventArgs;{26155fa2-5ba5-4ea4-a3b4-2dc7d63c8e26})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowPopupShowingEventArgs;{26155fa2-5ba5-4ea4-a3b4-2dc7d63c8e26})");
 }
 impl ::core::clone::Clone for CoreWindowPopupShowingEventArgs {
     fn clone(&self) -> Self {
@@ -5032,7 +5032,7 @@ unsafe impl ::windows::core::Interface for CoreWindowPopupShowingEventArgs {
 impl ::windows::core::RuntimeName for CoreWindowPopupShowingEventArgs {
     const NAME: &'static str = "Windows.UI.Core.CoreWindowPopupShowingEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreWindowPopupShowingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreWindowPopupShowingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreWindowResizeManager(::windows::core::IUnknown);
@@ -5060,7 +5060,7 @@ impl CoreWindowResizeManager {
     }
     #[doc(hidden)]
     pub fn ICoreWindowResizeManagerStatics<R, F: FnOnce(&ICoreWindowResizeManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreWindowResizeManager, ICoreWindowResizeManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreWindowResizeManager, ICoreWindowResizeManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5076,7 +5076,7 @@ impl ::core::fmt::Debug for CoreWindowResizeManager {
     }
 }
 impl ::windows::core::RuntimeType for CoreWindowResizeManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowResizeManager;{b8f0b925-b350-48b3-a198-5c1a84700243})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowResizeManager;{b8f0b925-b350-48b3-a198-5c1a84700243})");
 }
 impl ::core::clone::Clone for CoreWindowResizeManager {
     fn clone(&self) -> Self {
@@ -5092,7 +5092,7 @@ unsafe impl ::windows::core::Interface for CoreWindowResizeManager {
 impl ::windows::core::RuntimeName for CoreWindowResizeManager {
     const NAME: &'static str = "Windows.UI.Core.CoreWindowResizeManager";
 }
-::windows::core::interface_hierarchy!(CoreWindowResizeManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreWindowResizeManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreWindowResizeManager {}
 unsafe impl ::core::marker::Sync for CoreWindowResizeManager {}
 #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -5119,7 +5119,7 @@ impl ::core::fmt::Debug for IdleDispatchedHandlerArgs {
     }
 }
 impl ::windows::core::RuntimeType for IdleDispatchedHandlerArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.IdleDispatchedHandlerArgs;{98bb6a24-dc1c-43cb-b4ed-d1c0eb2391f3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.IdleDispatchedHandlerArgs;{98bb6a24-dc1c-43cb-b4ed-d1c0eb2391f3})");
 }
 impl ::core::clone::Clone for IdleDispatchedHandlerArgs {
     fn clone(&self) -> Self {
@@ -5135,7 +5135,7 @@ unsafe impl ::windows::core::Interface for IdleDispatchedHandlerArgs {
 impl ::windows::core::RuntimeName for IdleDispatchedHandlerArgs {
     const NAME: &'static str = "Windows.UI.Core.IdleDispatchedHandlerArgs";
 }
-::windows::core::interface_hierarchy!(IdleDispatchedHandlerArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IdleDispatchedHandlerArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
 pub struct InputEnabledEventArgs(::windows::core::IUnknown);
@@ -5171,7 +5171,7 @@ impl ::core::fmt::Debug for InputEnabledEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for InputEnabledEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.InputEnabledEventArgs;{80371d4f-2fd8-4c24-aa86-3163a87b4e5a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.InputEnabledEventArgs;{80371d4f-2fd8-4c24-aa86-3163a87b4e5a})");
 }
 impl ::core::clone::Clone for InputEnabledEventArgs {
     fn clone(&self) -> Self {
@@ -5187,7 +5187,7 @@ unsafe impl ::windows::core::Interface for InputEnabledEventArgs {
 impl ::windows::core::RuntimeName for InputEnabledEventArgs {
     const NAME: &'static str = "Windows.UI.Core.InputEnabledEventArgs";
 }
-::windows::core::interface_hierarchy!(InputEnabledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InputEnabledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InputEnabledEventArgs> for ICoreWindowEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: InputEnabledEventArgs) -> ::windows::core::Result<Self> {
@@ -5258,7 +5258,7 @@ impl ::core::fmt::Debug for KeyEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for KeyEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.KeyEventArgs;{5ff5e930-2544-4a17-bd78-1f2fdebb106b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.KeyEventArgs;{5ff5e930-2544-4a17-bd78-1f2fdebb106b})");
 }
 impl ::core::clone::Clone for KeyEventArgs {
     fn clone(&self) -> Self {
@@ -5274,7 +5274,7 @@ unsafe impl ::windows::core::Interface for KeyEventArgs {
 impl ::windows::core::RuntimeName for KeyEventArgs {
     const NAME: &'static str = "Windows.UI.Core.KeyEventArgs";
 }
-::windows::core::interface_hierarchy!(KeyEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(KeyEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<KeyEventArgs> for ICoreWindowEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: KeyEventArgs) -> ::windows::core::Result<Self> {
@@ -5349,7 +5349,7 @@ impl ::core::fmt::Debug for PointerEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PointerEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.PointerEventArgs;{920d9cb1-a5fc-4a21-8c09-49dfe6ffe25f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.PointerEventArgs;{920d9cb1-a5fc-4a21-8c09-49dfe6ffe25f})");
 }
 impl ::core::clone::Clone for PointerEventArgs {
     fn clone(&self) -> Self {
@@ -5365,7 +5365,7 @@ unsafe impl ::windows::core::Interface for PointerEventArgs {
 impl ::windows::core::RuntimeName for PointerEventArgs {
     const NAME: &'static str = "Windows.UI.Core.PointerEventArgs";
 }
-::windows::core::interface_hierarchy!(PointerEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PointerEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PointerEventArgs> for ICoreWindowEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: PointerEventArgs) -> ::windows::core::Result<Self> {
@@ -5423,7 +5423,7 @@ impl SystemNavigationManager {
     }
     #[doc(hidden)]
     pub fn ISystemNavigationManagerStatics<R, F: FnOnce(&ISystemNavigationManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemNavigationManager, ISystemNavigationManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemNavigationManager, ISystemNavigationManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5439,7 +5439,7 @@ impl ::core::fmt::Debug for SystemNavigationManager {
     }
 }
 impl ::windows::core::RuntimeType for SystemNavigationManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.SystemNavigationManager;{93023118-cf50-42a6-9706-69107fa122e1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.SystemNavigationManager;{93023118-cf50-42a6-9706-69107fa122e1})");
 }
 impl ::core::clone::Clone for SystemNavigationManager {
     fn clone(&self) -> Self {
@@ -5455,7 +5455,7 @@ unsafe impl ::windows::core::Interface for SystemNavigationManager {
 impl ::windows::core::RuntimeName for SystemNavigationManager {
     const NAME: &'static str = "Windows.UI.Core.SystemNavigationManager";
 }
-::windows::core::interface_hierarchy!(SystemNavigationManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemNavigationManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemNavigationManager {}
 unsafe impl ::core::marker::Sync for SystemNavigationManager {}
 #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -5537,7 +5537,7 @@ impl ::core::fmt::Debug for TouchHitTestingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for TouchHitTestingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.TouchHitTestingEventArgs;{22f3b823-0b7c-424e-9df7-33d4f962931b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.TouchHitTestingEventArgs;{22f3b823-0b7c-424e-9df7-33d4f962931b})");
 }
 impl ::core::clone::Clone for TouchHitTestingEventArgs {
     fn clone(&self) -> Self {
@@ -5553,7 +5553,7 @@ unsafe impl ::windows::core::Interface for TouchHitTestingEventArgs {
 impl ::windows::core::RuntimeName for TouchHitTestingEventArgs {
     const NAME: &'static str = "Windows.UI.Core.TouchHitTestingEventArgs";
 }
-::windows::core::interface_hierarchy!(TouchHitTestingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TouchHitTestingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<TouchHitTestingEventArgs> for ICoreWindowEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: TouchHitTestingEventArgs) -> ::windows::core::Result<Self> {
@@ -5608,7 +5608,7 @@ impl ::core::fmt::Debug for VisibilityChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for VisibilityChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.VisibilityChangedEventArgs;{bf9918ea-d801-4564-a495-b1e84f8ad085})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.VisibilityChangedEventArgs;{bf9918ea-d801-4564-a495-b1e84f8ad085})");
 }
 impl ::core::clone::Clone for VisibilityChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5624,7 +5624,7 @@ unsafe impl ::windows::core::Interface for VisibilityChangedEventArgs {
 impl ::windows::core::RuntimeName for VisibilityChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.VisibilityChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(VisibilityChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VisibilityChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VisibilityChangedEventArgs> for ICoreWindowEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: VisibilityChangedEventArgs) -> ::windows::core::Result<Self> {
@@ -5679,7 +5679,7 @@ impl ::core::fmt::Debug for WindowActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WindowActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.WindowActivatedEventArgs;{179d65e7-4658-4cb6-aa13-41d094ea255e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.WindowActivatedEventArgs;{179d65e7-4658-4cb6-aa13-41d094ea255e})");
 }
 impl ::core::clone::Clone for WindowActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -5695,7 +5695,7 @@ unsafe impl ::windows::core::Interface for WindowActivatedEventArgs {
 impl ::windows::core::RuntimeName for WindowActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.WindowActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(WindowActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WindowActivatedEventArgs> for ICoreWindowEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: WindowActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5752,7 +5752,7 @@ impl ::core::fmt::Debug for WindowSizeChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WindowSizeChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.WindowSizeChangedEventArgs;{5a200ec7-0426-47dc-b86c-6f475915e451})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.WindowSizeChangedEventArgs;{5a200ec7-0426-47dc-b86c-6f475915e451})");
 }
 impl ::core::clone::Clone for WindowSizeChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5768,7 +5768,7 @@ unsafe impl ::windows::core::Interface for WindowSizeChangedEventArgs {
 impl ::windows::core::RuntimeName for WindowSizeChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.WindowSizeChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(WindowSizeChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowSizeChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WindowSizeChangedEventArgs> for ICoreWindowEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: WindowSizeChangedEventArgs) -> ::windows::core::Result<Self> {
@@ -5817,7 +5817,7 @@ impl ::core::fmt::Debug for AppViewBackButtonVisibility {
     }
 }
 impl ::windows::core::RuntimeType for AppViewBackButtonVisibility {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AppViewBackButtonVisibility;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AppViewBackButtonVisibility;i4)");
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
@@ -5854,7 +5854,7 @@ impl ::core::fmt::Debug for CoreAcceleratorKeyEventType {
     }
 }
 impl ::windows::core::RuntimeType for CoreAcceleratorKeyEventType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreAcceleratorKeyEventType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreAcceleratorKeyEventType;i4)");
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
@@ -5898,7 +5898,7 @@ impl ::core::fmt::Debug for CoreCursorType {
     }
 }
 impl ::windows::core::RuntimeType for CoreCursorType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreCursorType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreCursorType;i4)");
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
@@ -5930,7 +5930,7 @@ impl ::core::fmt::Debug for CoreDispatcherPriority {
     }
 }
 impl ::windows::core::RuntimeType for CoreDispatcherPriority {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreDispatcherPriority;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreDispatcherPriority;i4)");
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
@@ -5997,7 +5997,7 @@ impl ::core::ops::Not for CoreIndependentInputFilters {
     }
 }
 impl ::windows::core::RuntimeType for CoreIndependentInputFilters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreIndependentInputFilters;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreIndependentInputFilters;u4)");
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
@@ -6062,7 +6062,7 @@ impl ::core::ops::Not for CoreInputDeviceTypes {
     }
 }
 impl ::windows::core::RuntimeType for CoreInputDeviceTypes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreInputDeviceTypes;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreInputDeviceTypes;u4)");
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
@@ -6094,7 +6094,7 @@ impl ::core::fmt::Debug for CoreProcessEventsOption {
     }
 }
 impl ::windows::core::RuntimeType for CoreProcessEventsOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProcessEventsOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProcessEventsOption;i4)");
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
@@ -6124,7 +6124,7 @@ impl ::core::fmt::Debug for CoreProximityEvaluationScore {
     }
 }
 impl ::windows::core::RuntimeType for CoreProximityEvaluationScore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProximityEvaluationScore;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProximityEvaluationScore;i4)");
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
@@ -6188,7 +6188,7 @@ impl ::core::ops::Not for CoreVirtualKeyStates {
     }
 }
 impl ::windows::core::RuntimeType for CoreVirtualKeyStates {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreVirtualKeyStates;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreVirtualKeyStates;u4)");
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
@@ -6220,7 +6220,7 @@ impl ::core::fmt::Debug for CoreWindowActivationMode {
     }
 }
 impl ::windows::core::RuntimeType for CoreWindowActivationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
@@ -6251,7 +6251,7 @@ impl ::core::fmt::Debug for CoreWindowActivationState {
     }
 }
 impl ::windows::core::RuntimeType for CoreWindowActivationState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationState;i4)");
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
@@ -6281,7 +6281,7 @@ impl ::core::fmt::Debug for CoreWindowFlowDirection {
     }
 }
 impl ::windows::core::RuntimeType for CoreWindowFlowDirection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowFlowDirection;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowFlowDirection;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -6308,7 +6308,7 @@ impl ::windows::core::TypeKind for CorePhysicalKeyStatus {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for CorePhysicalKeyStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CorePhysicalKeyStatus;u4;u4;b1;b1;b1;b1)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CorePhysicalKeyStatus;u4;u4;b1;b1;b1;b1)");
 }
 impl ::core::cmp::PartialEq for CorePhysicalKeyStatus {
     fn eq(&self, other: &Self) -> bool {
@@ -6348,7 +6348,7 @@ impl ::windows::core::TypeKind for CoreProximityEvaluation {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for CoreProximityEvaluation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CoreProximityEvaluation;i4;struct(Windows.Foundation.Point;f4;f4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CoreProximityEvaluation;i4;struct(Windows.Foundation.Point;f4;f4))");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for CoreProximityEvaluation {
@@ -6369,8 +6369,8 @@ impl ::core::default::Default for CoreProximityEvaluation {
 pub struct DispatchedHandler(pub ::windows::core::IUnknown);
 impl DispatchedHandler {
     pub fn new<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = DispatchedHandlerBox::<F> { vtable: &DispatchedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = DispatchedHandlerBox::<F> { vtable: &DispatchedHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -6381,7 +6381,7 @@ impl DispatchedHandler {
 struct DispatchedHandlerBox<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const DispatchedHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DispatchedHandlerBox<F> {
     const VTABLE: DispatchedHandler_Vtbl = DispatchedHandler_Vtbl {
@@ -6390,7 +6390,7 @@ impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<DispatchedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<DispatchedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -6406,7 +6406,7 @@ impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -6438,7 +6438,7 @@ unsafe impl ::windows::core::Interface for DispatchedHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1f276c4_98d8_4636_bf49_eb79507548e9);
 }
 impl ::windows::core::RuntimeType for DispatchedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d1f276c4-98d8-4636-bf49-eb79507548e9}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{d1f276c4-98d8-4636-bf49-eb79507548e9}");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6451,8 +6451,8 @@ pub struct DispatchedHandler_Vtbl {
 pub struct IdleDispatchedHandler(pub ::windows::core::IUnknown);
 impl IdleDispatchedHandler {
     pub fn new<F: FnMut(::core::option::Option<&IdleDispatchedHandlerArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = IdleDispatchedHandlerBox::<F> { vtable: &IdleDispatchedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = IdleDispatchedHandlerBox::<F> { vtable: &IdleDispatchedHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, e: &IdleDispatchedHandlerArgs) -> ::windows::core::Result<()> {
         let this = self;
@@ -6463,7 +6463,7 @@ impl IdleDispatchedHandler {
 struct IdleDispatchedHandlerBox<F: FnMut(::core::option::Option<&IdleDispatchedHandlerArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const IdleDispatchedHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&IdleDispatchedHandlerArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> IdleDispatchedHandlerBox<F> {
     const VTABLE: IdleDispatchedHandler_Vtbl = IdleDispatchedHandler_Vtbl {
@@ -6472,7 +6472,7 @@ impl<F: FnMut(::core::option::Option<&IdleDispatchedHandlerArgs>) -> ::windows::
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<IdleDispatchedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<IdleDispatchedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -6488,7 +6488,7 @@ impl<F: FnMut(::core::option::Option<&IdleDispatchedHandlerArgs>) -> ::windows::
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -6520,7 +6520,7 @@ unsafe impl ::windows::core::Interface for IdleDispatchedHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa42b0c24_7f21_4abc_99c1_8f01007f0880);
 }
 impl ::windows::core::RuntimeType for IdleDispatchedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a42b0c24-7f21-4abc-99c1-8f01007f0880}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a42b0c24-7f21-4abc-99c1-8f01007f0880}");
 }
 #[repr(C)]
 #[doc(hidden)]

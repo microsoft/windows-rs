@@ -124,7 +124,7 @@ impl UserNotificationListener {
     }
     #[doc(hidden)]
     pub fn IUserNotificationListenerStatics<R, F: FnOnce(&IUserNotificationListenerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserNotificationListener, IUserNotificationListenerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserNotificationListener, IUserNotificationListenerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -140,7 +140,7 @@ impl ::core::fmt::Debug for UserNotificationListener {
     }
 }
 impl ::windows::core::RuntimeType for UserNotificationListener {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Management.UserNotificationListener;{62553e41-8a06-4cef-8215-6033a5be4b03})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Management.UserNotificationListener;{62553e41-8a06-4cef-8215-6033a5be4b03})");
 }
 impl ::core::clone::Clone for UserNotificationListener {
     fn clone(&self) -> Self {
@@ -156,7 +156,7 @@ unsafe impl ::windows::core::Interface for UserNotificationListener {
 impl ::windows::core::RuntimeName for UserNotificationListener {
     const NAME: &'static str = "Windows.UI.Notifications.Management.UserNotificationListener";
 }
-::windows::core::interface_hierarchy!(UserNotificationListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserNotificationListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserNotificationListener {}
 unsafe impl ::core::marker::Sync for UserNotificationListener {}
 #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
@@ -188,7 +188,7 @@ impl ::core::fmt::Debug for UserNotificationListenerAccessStatus {
     }
 }
 impl ::windows::core::RuntimeType for UserNotificationListenerAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

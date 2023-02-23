@@ -6,7 +6,7 @@ impl IOplockBreakingHandler {
         (::windows::core::Vtable::vtable(self).OplockBreaking)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOplockBreakingHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOplockBreakingHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOplockBreakingHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -44,7 +44,7 @@ impl IRandomAccessStreamFileAccessMode {
         (::windows::core::Vtable::vtable(self).GetMode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRandomAccessStreamFileAccessMode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRandomAccessStreamFileAccessMode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRandomAccessStreamFileAccessMode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -88,7 +88,7 @@ impl IStorageFolderHandleAccess {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), filename.into().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStorageFolderHandleAccess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStorageFolderHandleAccess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStorageFolderHandleAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -134,7 +134,7 @@ impl IStorageItemHandleAccess {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStorageItemHandleAccess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStorageItemHandleAccess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStorageItemHandleAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -174,7 +174,7 @@ impl IUnbufferedFileHandleOplockCallback {
         (::windows::core::Vtable::vtable(self).OnBrokenCallback)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUnbufferedFileHandleOplockCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUnbufferedFileHandleOplockCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUnbufferedFileHandleOplockCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -218,7 +218,7 @@ impl IUnbufferedFileHandleProvider {
         (::windows::core::Vtable::vtable(self).CloseUnbufferedFileHandle)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUnbufferedFileHandleProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUnbufferedFileHandleProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUnbufferedFileHandleProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

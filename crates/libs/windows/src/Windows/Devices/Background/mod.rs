@@ -84,7 +84,7 @@ impl ::core::fmt::Debug for DeviceServicingDetails {
     }
 }
 impl ::windows::core::RuntimeType for DeviceServicingDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceServicingDetails;{4aabee29-2344-4ac4-8527-4a8ef6905645})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceServicingDetails;{4aabee29-2344-4ac4-8527-4a8ef6905645})");
 }
 impl ::core::clone::Clone for DeviceServicingDetails {
     fn clone(&self) -> Self {
@@ -100,7 +100,7 @@ unsafe impl ::windows::core::Interface for DeviceServicingDetails {
 impl ::windows::core::RuntimeName for DeviceServicingDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceServicingDetails";
 }
-::windows::core::interface_hierarchy!(DeviceServicingDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceServicingDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceServicingDetails {}
 unsafe impl ::core::marker::Sync for DeviceServicingDetails {}
 #[doc = "*Required features: `\"Devices_Background\"`*"]
@@ -134,7 +134,7 @@ impl ::core::fmt::Debug for DeviceUseDetails {
     }
 }
 impl ::windows::core::RuntimeType for DeviceUseDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceUseDetails;{7d565141-557e-4154-b994-e4f7a11fb323})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceUseDetails;{7d565141-557e-4154-b994-e4f7a11fb323})");
 }
 impl ::core::clone::Clone for DeviceUseDetails {
     fn clone(&self) -> Self {
@@ -150,7 +150,7 @@ unsafe impl ::windows::core::Interface for DeviceUseDetails {
 impl ::windows::core::RuntimeName for DeviceUseDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceUseDetails";
 }
-::windows::core::interface_hierarchy!(DeviceUseDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceUseDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceUseDetails {}
 unsafe impl ::core::marker::Sync for DeviceUseDetails {}
 #[cfg(feature = "implement")]

@@ -1055,7 +1055,7 @@ impl ::core::fmt::Debug for AttributedNetworkUsage {
     }
 }
 impl ::windows::core::RuntimeType for AttributedNetworkUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.AttributedNetworkUsage;{f769b039-eca2-45eb-ade1-b0368b756c49})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.AttributedNetworkUsage;{f769b039-eca2-45eb-ade1-b0368b756c49})");
 }
 impl ::core::clone::Clone for AttributedNetworkUsage {
     fn clone(&self) -> Self {
@@ -1071,7 +1071,7 @@ unsafe impl ::windows::core::Interface for AttributedNetworkUsage {
 impl ::windows::core::RuntimeName for AttributedNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.AttributedNetworkUsage";
 }
-::windows::core::interface_hierarchy!(AttributedNetworkUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AttributedNetworkUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AttributedNetworkUsage {}
 unsafe impl ::core::marker::Sync for AttributedNetworkUsage {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1081,8 +1081,8 @@ impl CellularApnContext {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CellularApnContext, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CellularApnContext, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1175,7 +1175,7 @@ impl ::core::fmt::Debug for CellularApnContext {
     }
 }
 impl ::windows::core::RuntimeType for CellularApnContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.CellularApnContext;{6fa529f4-effd-4542-9ab2-705bbf94943a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.CellularApnContext;{6fa529f4-effd-4542-9ab2-705bbf94943a})");
 }
 impl ::core::clone::Clone for CellularApnContext {
     fn clone(&self) -> Self {
@@ -1191,7 +1191,7 @@ unsafe impl ::windows::core::Interface for CellularApnContext {
 impl ::windows::core::RuntimeName for CellularApnContext {
     const NAME: &'static str = "Windows.Networking.Connectivity.CellularApnContext";
 }
-::windows::core::interface_hierarchy!(CellularApnContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CellularApnContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CellularApnContext {}
 unsafe impl ::core::marker::Sync for CellularApnContext {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1246,7 +1246,7 @@ impl ::core::fmt::Debug for ConnectionCost {
     }
 }
 impl ::windows::core::RuntimeType for ConnectionCost {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionCost;{bad7d829-3416-4b10-a202-bac0b075bdae})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionCost;{bad7d829-3416-4b10-a202-bac0b075bdae})");
 }
 impl ::core::clone::Clone for ConnectionCost {
     fn clone(&self) -> Self {
@@ -1262,7 +1262,7 @@ unsafe impl ::windows::core::Interface for ConnectionCost {
 impl ::windows::core::RuntimeName for ConnectionCost {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionCost";
 }
-::windows::core::interface_hierarchy!(ConnectionCost, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConnectionCost, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConnectionCost {}
 unsafe impl ::core::marker::Sync for ConnectionCost {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1463,7 +1463,7 @@ impl ::core::fmt::Debug for ConnectionProfile {
     }
 }
 impl ::windows::core::RuntimeType for ConnectionProfile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfile;{71ba143c-598e-49d0-84eb-8febaedcc195})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfile;{71ba143c-598e-49d0-84eb-8febaedcc195})");
 }
 impl ::core::clone::Clone for ConnectionProfile {
     fn clone(&self) -> Self {
@@ -1479,7 +1479,7 @@ unsafe impl ::windows::core::Interface for ConnectionProfile {
 impl ::windows::core::RuntimeName for ConnectionProfile {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionProfile";
 }
-::windows::core::interface_hierarchy!(ConnectionProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConnectionProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConnectionProfile {}
 unsafe impl ::core::marker::Sync for ConnectionProfile {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1489,8 +1489,8 @@ impl ConnectionProfileFilter {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ConnectionProfileFilter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ConnectionProfileFilter, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetIsConnected(&self, value: bool) -> ::windows::core::Result<()> {
@@ -1654,7 +1654,7 @@ impl ::core::fmt::Debug for ConnectionProfileFilter {
     }
 }
 impl ::windows::core::RuntimeType for ConnectionProfileFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfileFilter;{204c7cc8-bd2d-4e8d-a4b3-455ec337388a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfileFilter;{204c7cc8-bd2d-4e8d-a4b3-455ec337388a})");
 }
 impl ::core::clone::Clone for ConnectionProfileFilter {
     fn clone(&self) -> Self {
@@ -1670,7 +1670,7 @@ unsafe impl ::windows::core::Interface for ConnectionProfileFilter {
 impl ::windows::core::RuntimeName for ConnectionProfileFilter {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionProfileFilter";
 }
-::windows::core::interface_hierarchy!(ConnectionProfileFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConnectionProfileFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConnectionProfileFilter {}
 unsafe impl ::core::marker::Sync for ConnectionProfileFilter {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1703,7 +1703,7 @@ impl ::core::fmt::Debug for ConnectionSession {
     }
 }
 impl ::windows::core::RuntimeType for ConnectionSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionSession;{ff905d4c-f83b-41b0-8a0c-1462d9c56b73})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionSession;{ff905d4c-f83b-41b0-8a0c-1462d9c56b73})");
 }
 impl ::core::clone::Clone for ConnectionSession {
     fn clone(&self) -> Self {
@@ -1719,7 +1719,7 @@ unsafe impl ::windows::core::Interface for ConnectionSession {
 impl ::windows::core::RuntimeName for ConnectionSession {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionSession";
 }
-::windows::core::interface_hierarchy!(ConnectionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConnectionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ConnectionSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1779,7 +1779,7 @@ impl ::core::fmt::Debug for ConnectivityInterval {
     }
 }
 impl ::windows::core::RuntimeType for ConnectivityInterval {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectivityInterval;{4faa3fff-6746-4824-a964-eed8e87f8709})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectivityInterval;{4faa3fff-6746-4824-a964-eed8e87f8709})");
 }
 impl ::core::clone::Clone for ConnectivityInterval {
     fn clone(&self) -> Self {
@@ -1795,7 +1795,7 @@ unsafe impl ::windows::core::Interface for ConnectivityInterval {
 impl ::windows::core::RuntimeName for ConnectivityInterval {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectivityInterval";
 }
-::windows::core::interface_hierarchy!(ConnectivityInterval, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConnectivityInterval, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConnectivityInterval {}
 unsafe impl ::core::marker::Sync for ConnectivityInterval {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1817,7 +1817,7 @@ impl ConnectivityManager {
     }
     #[doc(hidden)]
     pub fn IConnectivityManagerStatics<R, F: FnOnce(&IConnectivityManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ConnectivityManager, IConnectivityManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ConnectivityManager, IConnectivityManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1893,7 +1893,7 @@ impl ::core::fmt::Debug for DataPlanStatus {
     }
 }
 impl ::windows::core::RuntimeType for DataPlanStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanStatus;{977a8b8c-3885-40f3-8851-42cd2bd568bb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanStatus;{977a8b8c-3885-40f3-8851-42cd2bd568bb})");
 }
 impl ::core::clone::Clone for DataPlanStatus {
     fn clone(&self) -> Self {
@@ -1909,7 +1909,7 @@ unsafe impl ::windows::core::Interface for DataPlanStatus {
 impl ::windows::core::RuntimeName for DataPlanStatus {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataPlanStatus";
 }
-::windows::core::interface_hierarchy!(DataPlanStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataPlanStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataPlanStatus {}
 unsafe impl ::core::marker::Sync for DataPlanStatus {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1945,7 +1945,7 @@ impl ::core::fmt::Debug for DataPlanUsage {
     }
 }
 impl ::windows::core::RuntimeType for DataPlanUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanUsage;{b921492d-3b44-47ff-b361-be59e69ed1b0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanUsage;{b921492d-3b44-47ff-b361-be59e69ed1b0})");
 }
 impl ::core::clone::Clone for DataPlanUsage {
     fn clone(&self) -> Self {
@@ -1961,7 +1961,7 @@ unsafe impl ::windows::core::Interface for DataPlanUsage {
 impl ::windows::core::RuntimeName for DataPlanUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataPlanUsage";
 }
-::windows::core::interface_hierarchy!(DataPlanUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataPlanUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataPlanUsage {}
 unsafe impl ::core::marker::Sync for DataPlanUsage {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"deprecated\"`*"]
@@ -2005,7 +2005,7 @@ impl ::core::fmt::Debug for DataUsage {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for DataUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataUsage;{c1431dd3-b146-4d39-b959-0c69b096c512})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataUsage;{c1431dd3-b146-4d39-b959-0c69b096c512})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for DataUsage {
@@ -2026,7 +2026,7 @@ impl ::windows::core::RuntimeName for DataUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataUsage";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(DataUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for DataUsage {}
 #[cfg(feature = "deprecated")]
@@ -2064,7 +2064,7 @@ impl ::core::fmt::Debug for IPInformation {
     }
 }
 impl ::windows::core::RuntimeType for IPInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.IPInformation;{d85145e0-138f-47d7-9b3a-36bb488cef33})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.IPInformation;{d85145e0-138f-47d7-9b3a-36bb488cef33})");
 }
 impl ::core::clone::Clone for IPInformation {
     fn clone(&self) -> Self {
@@ -2080,7 +2080,7 @@ unsafe impl ::windows::core::Interface for IPInformation {
 impl ::windows::core::RuntimeName for IPInformation {
     const NAME: &'static str = "Windows.Networking.Connectivity.IPInformation";
 }
-::windows::core::interface_hierarchy!(IPInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IPInformation {}
 unsafe impl ::core::marker::Sync for IPInformation {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2121,7 +2121,7 @@ impl ::core::fmt::Debug for LanIdentifier {
     }
 }
 impl ::windows::core::RuntimeType for LanIdentifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifier;{48aa53aa-1108-4546-a6cb-9a74da4b7ba0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifier;{48aa53aa-1108-4546-a6cb-9a74da4b7ba0})");
 }
 impl ::core::clone::Clone for LanIdentifier {
     fn clone(&self) -> Self {
@@ -2137,7 +2137,7 @@ unsafe impl ::windows::core::Interface for LanIdentifier {
 impl ::windows::core::RuntimeName for LanIdentifier {
     const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifier";
 }
-::windows::core::interface_hierarchy!(LanIdentifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LanIdentifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LanIdentifier {}
 unsafe impl ::core::marker::Sync for LanIdentifier {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2173,7 +2173,7 @@ impl ::core::fmt::Debug for LanIdentifierData {
     }
 }
 impl ::windows::core::RuntimeType for LanIdentifierData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifierData;{a74e83c3-d639-45be-a36a-c4e4aeaf6d9b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifierData;{a74e83c3-d639-45be-a36a-c4e4aeaf6d9b})");
 }
 impl ::core::clone::Clone for LanIdentifierData {
     fn clone(&self) -> Self {
@@ -2189,7 +2189,7 @@ unsafe impl ::windows::core::Interface for LanIdentifierData {
 impl ::windows::core::RuntimeName for LanIdentifierData {
     const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifierData";
 }
-::windows::core::interface_hierarchy!(LanIdentifierData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LanIdentifierData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LanIdentifierData {}
 unsafe impl ::core::marker::Sync for LanIdentifierData {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2253,7 +2253,7 @@ impl ::core::fmt::Debug for NetworkAdapter {
     }
 }
 impl ::windows::core::RuntimeType for NetworkAdapter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkAdapter;{3b542e03-5388-496c-a8a3-affd39aec2e6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkAdapter;{3b542e03-5388-496c-a8a3-affd39aec2e6})");
 }
 impl ::core::clone::Clone for NetworkAdapter {
     fn clone(&self) -> Self {
@@ -2269,7 +2269,7 @@ unsafe impl ::windows::core::Interface for NetworkAdapter {
 impl ::windows::core::RuntimeName for NetworkAdapter {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkAdapter";
 }
-::windows::core::interface_hierarchy!(NetworkAdapter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkAdapter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkAdapter {}
 unsafe impl ::core::marker::Sync for NetworkAdapter {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2348,12 +2348,12 @@ impl NetworkInformation {
     }
     #[doc(hidden)]
     pub fn INetworkInformationStatics<R, F: FnOnce(&INetworkInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NetworkInformation, INetworkInformationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NetworkInformation, INetworkInformationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn INetworkInformationStatics2<R, F: FnOnce(&INetworkInformationStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NetworkInformation, INetworkInformationStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NetworkInformation, INetworkInformationStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2391,7 +2391,7 @@ impl ::core::fmt::Debug for NetworkItem {
     }
 }
 impl ::windows::core::RuntimeType for NetworkItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkItem;{01bc4d39-f5e0-4567-a28c-42080c831b2b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkItem;{01bc4d39-f5e0-4567-a28c-42080c831b2b})");
 }
 impl ::core::clone::Clone for NetworkItem {
     fn clone(&self) -> Self {
@@ -2407,7 +2407,7 @@ unsafe impl ::windows::core::Interface for NetworkItem {
 impl ::windows::core::RuntimeName for NetworkItem {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkItem";
 }
-::windows::core::interface_hierarchy!(NetworkItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkItem {}
 unsafe impl ::core::marker::Sync for NetworkItem {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2441,7 +2441,7 @@ impl ::core::fmt::Debug for NetworkSecuritySettings {
     }
 }
 impl ::windows::core::RuntimeType for NetworkSecuritySettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkSecuritySettings;{7ca07e8d-917b-4b5f-b84d-28f7a5ac5402})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkSecuritySettings;{7ca07e8d-917b-4b5f-b84d-28f7a5ac5402})");
 }
 impl ::core::clone::Clone for NetworkSecuritySettings {
     fn clone(&self) -> Self {
@@ -2457,7 +2457,7 @@ unsafe impl ::windows::core::Interface for NetworkSecuritySettings {
 impl ::windows::core::RuntimeName for NetworkSecuritySettings {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkSecuritySettings";
 }
-::windows::core::interface_hierarchy!(NetworkSecuritySettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkSecuritySettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkSecuritySettings {}
 unsafe impl ::core::marker::Sync for NetworkSecuritySettings {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2533,7 +2533,7 @@ impl ::core::fmt::Debug for NetworkStateChangeEventDetails {
     }
 }
 impl ::windows::core::RuntimeType for NetworkStateChangeEventDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkStateChangeEventDetails;{1f0cf333-d7a6-44dd-a4e9-687c476b903d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkStateChangeEventDetails;{1f0cf333-d7a6-44dd-a4e9-687c476b903d})");
 }
 impl ::core::clone::Clone for NetworkStateChangeEventDetails {
     fn clone(&self) -> Self {
@@ -2549,7 +2549,7 @@ unsafe impl ::windows::core::Interface for NetworkStateChangeEventDetails {
 impl ::windows::core::RuntimeName for NetworkStateChangeEventDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkStateChangeEventDetails";
 }
-::windows::core::interface_hierarchy!(NetworkStateChangeEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkStateChangeEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkStateChangeEventDetails {}
 unsafe impl ::core::marker::Sync for NetworkStateChangeEventDetails {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2592,7 +2592,7 @@ impl ::core::fmt::Debug for NetworkUsage {
     }
 }
 impl ::windows::core::RuntimeType for NetworkUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkUsage;{49da8fce-9985-4927-bf5b-072b5c65f8d9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkUsage;{49da8fce-9985-4927-bf5b-072b5c65f8d9})");
 }
 impl ::core::clone::Clone for NetworkUsage {
     fn clone(&self) -> Self {
@@ -2608,7 +2608,7 @@ unsafe impl ::windows::core::Interface for NetworkUsage {
 impl ::windows::core::RuntimeName for NetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkUsage";
 }
-::windows::core::interface_hierarchy!(NetworkUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkUsage {}
 unsafe impl ::core::marker::Sync for NetworkUsage {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2649,7 +2649,7 @@ impl ::core::fmt::Debug for ProviderNetworkUsage {
     }
 }
 impl ::windows::core::RuntimeType for ProviderNetworkUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProviderNetworkUsage;{5ec69e04-7931-48c8-b8f3-46300fa42728})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProviderNetworkUsage;{5ec69e04-7931-48c8-b8f3-46300fa42728})");
 }
 impl ::core::clone::Clone for ProviderNetworkUsage {
     fn clone(&self) -> Self {
@@ -2665,7 +2665,7 @@ unsafe impl ::windows::core::Interface for ProviderNetworkUsage {
 impl ::windows::core::RuntimeName for ProviderNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.ProviderNetworkUsage";
 }
-::windows::core::interface_hierarchy!(ProviderNetworkUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProviderNetworkUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProviderNetworkUsage {}
 unsafe impl ::core::marker::Sync for ProviderNetworkUsage {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2701,7 +2701,7 @@ impl ::core::fmt::Debug for ProxyConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for ProxyConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProxyConfiguration;{ef3a60b4-9004-4dd6-b7d8-b3e502f4aad0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProxyConfiguration;{ef3a60b4-9004-4dd6-b7d8-b3e502f4aad0})");
 }
 impl ::core::clone::Clone for ProxyConfiguration {
     fn clone(&self) -> Self {
@@ -2717,7 +2717,7 @@ unsafe impl ::windows::core::Interface for ProxyConfiguration {
 impl ::windows::core::RuntimeName for ProxyConfiguration {
     const NAME: &'static str = "Windows.Networking.Connectivity.ProxyConfiguration";
 }
-::windows::core::interface_hierarchy!(ProxyConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProxyConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProxyConfiguration {}
 unsafe impl ::core::marker::Sync for ProxyConfiguration {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2753,7 +2753,7 @@ impl RoutePolicy {
     }
     #[doc(hidden)]
     pub fn IRoutePolicyFactory<R, F: FnOnce(&IRoutePolicyFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RoutePolicy, IRoutePolicyFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RoutePolicy, IRoutePolicyFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2769,7 +2769,7 @@ impl ::core::fmt::Debug for RoutePolicy {
     }
 }
 impl ::windows::core::RuntimeType for RoutePolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.RoutePolicy;{11abc4ac-0fc7-42e4-8742-569923b1ca11})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.RoutePolicy;{11abc4ac-0fc7-42e4-8742-569923b1ca11})");
 }
 impl ::core::clone::Clone for RoutePolicy {
     fn clone(&self) -> Self {
@@ -2785,7 +2785,7 @@ unsafe impl ::windows::core::Interface for RoutePolicy {
 impl ::windows::core::RuntimeName for RoutePolicy {
     const NAME: &'static str = "Windows.Networking.Connectivity.RoutePolicy";
 }
-::windows::core::interface_hierarchy!(RoutePolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RoutePolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RoutePolicy {}
 unsafe impl ::core::marker::Sync for RoutePolicy {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2812,7 +2812,7 @@ impl ::core::fmt::Debug for WlanConnectionProfileDetails {
     }
 }
 impl ::windows::core::RuntimeType for WlanConnectionProfileDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WlanConnectionProfileDetails;{562098cb-b35a-4bf1-a884-b7557e88ff86})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WlanConnectionProfileDetails;{562098cb-b35a-4bf1-a884-b7557e88ff86})");
 }
 impl ::core::clone::Clone for WlanConnectionProfileDetails {
     fn clone(&self) -> Self {
@@ -2828,7 +2828,7 @@ unsafe impl ::windows::core::Interface for WlanConnectionProfileDetails {
 impl ::windows::core::RuntimeName for WlanConnectionProfileDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.WlanConnectionProfileDetails";
 }
-::windows::core::interface_hierarchy!(WlanConnectionProfileDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WlanConnectionProfileDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WlanConnectionProfileDetails {}
 unsafe impl ::core::marker::Sync for WlanConnectionProfileDetails {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2892,7 +2892,7 @@ impl ::core::fmt::Debug for WwanConnectionProfileDetails {
     }
 }
 impl ::windows::core::RuntimeType for WwanConnectionProfileDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WwanConnectionProfileDetails;{0e4da8fe-835f-4df3-82fd-df556ebc09ef})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WwanConnectionProfileDetails;{0e4da8fe-835f-4df3-82fd-df556ebc09ef})");
 }
 impl ::core::clone::Clone for WwanConnectionProfileDetails {
     fn clone(&self) -> Self {
@@ -2908,7 +2908,7 @@ unsafe impl ::windows::core::Interface for WwanConnectionProfileDetails {
 impl ::windows::core::RuntimeName for WwanConnectionProfileDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.WwanConnectionProfileDetails";
 }
-::windows::core::interface_hierarchy!(WwanConnectionProfileDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WwanConnectionProfileDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WwanConnectionProfileDetails {}
 unsafe impl ::core::marker::Sync for WwanConnectionProfileDetails {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2941,7 +2941,7 @@ impl ::core::fmt::Debug for CellularApnAuthenticationType {
     }
 }
 impl ::windows::core::RuntimeType for CellularApnAuthenticationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.CellularApnAuthenticationType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.CellularApnAuthenticationType;i4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -2973,7 +2973,7 @@ impl ::core::fmt::Debug for ConnectionProfileDeleteStatus {
     }
 }
 impl ::windows::core::RuntimeType for ConnectionProfileDeleteStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.ConnectionProfileDeleteStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.ConnectionProfileDeleteStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3005,7 +3005,7 @@ impl ::core::fmt::Debug for DataUsageGranularity {
     }
 }
 impl ::windows::core::RuntimeType for DataUsageGranularity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3036,7 +3036,7 @@ impl ::core::fmt::Debug for DomainAuthenticationKind {
     }
 }
 impl ::windows::core::RuntimeType for DomainAuthenticationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainAuthenticationKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainAuthenticationKind;i4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3067,7 +3067,7 @@ impl ::core::fmt::Debug for DomainConnectivityLevel {
     }
 }
 impl ::windows::core::RuntimeType for DomainConnectivityLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3110,7 +3110,7 @@ impl ::core::fmt::Debug for NetworkAuthenticationType {
     }
 }
 impl ::windows::core::RuntimeType for NetworkAuthenticationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkAuthenticationType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkAuthenticationType;i4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3142,7 +3142,7 @@ impl ::core::fmt::Debug for NetworkConnectivityLevel {
     }
 }
 impl ::windows::core::RuntimeType for NetworkConnectivityLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkConnectivityLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkConnectivityLevel;i4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3174,7 +3174,7 @@ impl ::core::fmt::Debug for NetworkCostType {
     }
 }
 impl ::windows::core::RuntimeType for NetworkCostType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkCostType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkCostType;i4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3214,7 +3214,7 @@ impl ::core::fmt::Debug for NetworkEncryptionType {
     }
 }
 impl ::windows::core::RuntimeType for NetworkEncryptionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkEncryptionType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkEncryptionType;i4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3278,7 +3278,7 @@ impl ::core::ops::Not for NetworkTypes {
     }
 }
 impl ::windows::core::RuntimeType for NetworkTypes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkTypes;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkTypes;u4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3342,7 +3342,7 @@ impl ::core::ops::Not for RoamingStates {
     }
 }
 impl ::windows::core::RuntimeType for RoamingStates {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.RoamingStates;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.RoamingStates;u4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3373,7 +3373,7 @@ impl ::core::fmt::Debug for TriStates {
     }
 }
 impl ::windows::core::RuntimeType for TriStates {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.TriStates;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.TriStates;i4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3449,7 +3449,7 @@ impl ::core::ops::Not for WwanDataClass {
     }
 }
 impl ::windows::core::RuntimeType for WwanDataClass {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanDataClass;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanDataClass;u4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3482,7 +3482,7 @@ impl ::core::fmt::Debug for WwanNetworkIPKind {
     }
 }
 impl ::windows::core::RuntimeType for WwanNetworkIPKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkIPKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkIPKind;i4)");
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
@@ -3517,7 +3517,7 @@ impl ::core::fmt::Debug for WwanNetworkRegistrationState {
     }
 }
 impl ::windows::core::RuntimeType for WwanNetworkRegistrationState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkRegistrationState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkRegistrationState;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -3540,7 +3540,7 @@ impl ::windows::core::TypeKind for NetworkUsageStates {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for NetworkUsageStates {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Connectivity.NetworkUsageStates;enum(Windows.Networking.Connectivity.TriStates;i4);enum(Windows.Networking.Connectivity.TriStates;i4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.Connectivity.NetworkUsageStates;enum(Windows.Networking.Connectivity.TriStates;i4);enum(Windows.Networking.Connectivity.TriStates;i4))");
 }
 impl ::core::cmp::PartialEq for NetworkUsageStates {
     fn eq(&self, other: &Self) -> bool {
@@ -3558,8 +3558,8 @@ impl ::core::default::Default for NetworkUsageStates {
 pub struct NetworkStatusChangedEventHandler(pub ::windows::core::IUnknown);
 impl NetworkStatusChangedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = NetworkStatusChangedEventHandlerBox::<F> { vtable: &NetworkStatusChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = NetworkStatusChangedEventHandlerBox::<F> { vtable: &NetworkStatusChangedEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> ::windows::core::Result<()>
     where
@@ -3573,7 +3573,7 @@ impl NetworkStatusChangedEventHandler {
 struct NetworkStatusChangedEventHandlerBox<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const NetworkStatusChangedEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> NetworkStatusChangedEventHandlerBox<F> {
     const VTABLE: NetworkStatusChangedEventHandler_Vtbl = NetworkStatusChangedEventHandler_Vtbl {
@@ -3582,7 +3582,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windo
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<NetworkStatusChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<NetworkStatusChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -3598,7 +3598,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windo
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -3630,7 +3630,7 @@ unsafe impl ::windows::core::Interface for NetworkStatusChangedEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71ba143f_598e_49d0_84eb_8febaedcc195);
 }
 impl ::windows::core::RuntimeType for NetworkStatusChangedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{71ba143f-598e-49d0-84eb-8febaedcc195}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{71ba143f-598e-49d0-84eb-8febaedcc195}");
 }
 #[repr(C)]
 #[doc(hidden)]

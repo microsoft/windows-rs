@@ -819,7 +819,7 @@ impl ::core::fmt::Debug for AudioMediaFrame {
     }
 }
 impl ::windows::core::RuntimeType for AudioMediaFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.AudioMediaFrame;{a3a9feff-8021-441b-9a46-e7f0137b7981})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.AudioMediaFrame;{a3a9feff-8021-441b-9a46-e7f0137b7981})");
 }
 impl ::core::clone::Clone for AudioMediaFrame {
     fn clone(&self) -> Self {
@@ -835,7 +835,7 @@ unsafe impl ::windows::core::Interface for AudioMediaFrame {
 impl ::windows::core::RuntimeName for AudioMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.AudioMediaFrame";
 }
-::windows::core::interface_hierarchy!(AudioMediaFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioMediaFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioMediaFrame {}
 unsafe impl ::core::marker::Sync for AudioMediaFrame {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -871,7 +871,7 @@ impl ::core::fmt::Debug for BufferMediaFrame {
     }
 }
 impl ::windows::core::RuntimeType for BufferMediaFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.BufferMediaFrame;{b5b153c7-9b84-4062-b79c-a365b2596854})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.BufferMediaFrame;{b5b153c7-9b84-4062-b79c-a365b2596854})");
 }
 impl ::core::clone::Clone for BufferMediaFrame {
     fn clone(&self) -> Self {
@@ -887,7 +887,7 @@ unsafe impl ::windows::core::Interface for BufferMediaFrame {
 impl ::windows::core::RuntimeName for BufferMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.BufferMediaFrame";
 }
-::windows::core::interface_hierarchy!(BufferMediaFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BufferMediaFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BufferMediaFrame {}
 unsafe impl ::core::marker::Sync for BufferMediaFrame {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -951,7 +951,7 @@ impl ::core::fmt::Debug for DepthMediaFrame {
     }
 }
 impl ::windows::core::RuntimeType for DepthMediaFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrame;{47135e4f-8549-45c0-925b-80d35efdb10a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrame;{47135e4f-8549-45c0-925b-80d35efdb10a})");
 }
 impl ::core::clone::Clone for DepthMediaFrame {
     fn clone(&self) -> Self {
@@ -967,7 +967,7 @@ unsafe impl ::windows::core::Interface for DepthMediaFrame {
 impl ::windows::core::RuntimeName for DepthMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrame";
 }
-::windows::core::interface_hierarchy!(DepthMediaFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DepthMediaFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DepthMediaFrame {}
 unsafe impl ::core::marker::Sync for DepthMediaFrame {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -1001,7 +1001,7 @@ impl ::core::fmt::Debug for DepthMediaFrameFormat {
     }
 }
 impl ::windows::core::RuntimeType for DepthMediaFrameFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrameFormat;{c312cf40-d729-453e-8780-2e04f140d28e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrameFormat;{c312cf40-d729-453e-8780-2e04f140d28e})");
 }
 impl ::core::clone::Clone for DepthMediaFrameFormat {
     fn clone(&self) -> Self {
@@ -1017,7 +1017,7 @@ unsafe impl ::windows::core::Interface for DepthMediaFrameFormat {
 impl ::windows::core::RuntimeName for DepthMediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrameFormat";
 }
-::windows::core::interface_hierarchy!(DepthMediaFrameFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DepthMediaFrameFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DepthMediaFrameFormat {}
 unsafe impl ::core::marker::Sync for DepthMediaFrameFormat {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -1058,7 +1058,7 @@ impl ::core::fmt::Debug for InfraredMediaFrame {
     }
 }
 impl ::windows::core::RuntimeType for InfraredMediaFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.InfraredMediaFrame;{3fd13503-004b-4f0e-91ac-465299b41658})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.InfraredMediaFrame;{3fd13503-004b-4f0e-91ac-465299b41658})");
 }
 impl ::core::clone::Clone for InfraredMediaFrame {
     fn clone(&self) -> Self {
@@ -1074,7 +1074,7 @@ unsafe impl ::windows::core::Interface for InfraredMediaFrame {
 impl ::windows::core::RuntimeName for InfraredMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.InfraredMediaFrame";
 }
-::windows::core::interface_hierarchy!(InfraredMediaFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InfraredMediaFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InfraredMediaFrame {}
 unsafe impl ::core::marker::Sync for InfraredMediaFrame {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -1093,7 +1093,7 @@ impl ::core::fmt::Debug for MediaFrameArrivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameArrivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs;{0b430add-a490-4435-ada1-9affd55239f7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs;{0b430add-a490-4435-ada1-9affd55239f7})");
 }
 impl ::core::clone::Clone for MediaFrameArrivedEventArgs {
     fn clone(&self) -> Self {
@@ -1109,7 +1109,7 @@ unsafe impl ::windows::core::Interface for MediaFrameArrivedEventArgs {
 impl ::windows::core::RuntimeName for MediaFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaFrameArrivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaFrameArrivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaFrameArrivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaFrameArrivedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -1177,7 +1177,7 @@ impl ::core::fmt::Debug for MediaFrameFormat {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameFormat;{71902b4e-b279-4a97-a9db-bd5a2fb78f39})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameFormat;{71902b4e-b279-4a97-a9db-bd5a2fb78f39})");
 }
 impl ::core::clone::Clone for MediaFrameFormat {
     fn clone(&self) -> Self {
@@ -1193,7 +1193,7 @@ unsafe impl ::windows::core::Interface for MediaFrameFormat {
 impl ::windows::core::RuntimeName for MediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameFormat";
 }
-::windows::core::interface_hierarchy!(MediaFrameFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaFrameFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaFrameFormat {}
 unsafe impl ::core::marker::Sync for MediaFrameFormat {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -1270,7 +1270,7 @@ impl ::core::fmt::Debug for MediaFrameReader {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameReader;{e4c94395-2028-48ed-90b0-d1c1b162e24c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameReader;{e4c94395-2028-48ed-90b0-d1c1b162e24c})");
 }
 impl ::core::clone::Clone for MediaFrameReader {
     fn clone(&self) -> Self {
@@ -1286,7 +1286,7 @@ unsafe impl ::windows::core::Interface for MediaFrameReader {
 impl ::windows::core::RuntimeName for MediaFrameReader {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameReader";
 }
-::windows::core::interface_hierarchy!(MediaFrameReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaFrameReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaFrameReader> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1405,7 +1405,7 @@ impl ::core::fmt::Debug for MediaFrameReference {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameReference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameReference;{f6b88641-f0dc-4044-8dc9-961cedd05bad})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameReference;{f6b88641-f0dc-4044-8dc9-961cedd05bad})");
 }
 impl ::core::clone::Clone for MediaFrameReference {
     fn clone(&self) -> Self {
@@ -1421,7 +1421,7 @@ unsafe impl ::windows::core::Interface for MediaFrameReference {
 impl ::windows::core::RuntimeName for MediaFrameReference {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameReference";
 }
-::windows::core::interface_hierarchy!(MediaFrameReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaFrameReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaFrameReference> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1526,7 +1526,7 @@ impl ::core::fmt::Debug for MediaFrameSource {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSource;{d6782953-90db-46a8-8add-2aa884a8d253})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSource;{d6782953-90db-46a8-8add-2aa884a8d253})");
 }
 impl ::core::clone::Clone for MediaFrameSource {
     fn clone(&self) -> Self {
@@ -1542,7 +1542,7 @@ unsafe impl ::windows::core::Interface for MediaFrameSource {
 impl ::windows::core::RuntimeName for MediaFrameSource {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSource";
 }
-::windows::core::interface_hierarchy!(MediaFrameSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaFrameSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaFrameSource {}
 unsafe impl ::core::marker::Sync for MediaFrameSource {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -1623,7 +1623,7 @@ impl ::core::fmt::Debug for MediaFrameSourceController {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameSourceController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceController;{6d076635-316d-4b8f-b7b6-eeb04a8c6525})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceController;{6d076635-316d-4b8f-b7b6-eeb04a8c6525})");
 }
 impl ::core::clone::Clone for MediaFrameSourceController {
     fn clone(&self) -> Self {
@@ -1639,7 +1639,7 @@ unsafe impl ::windows::core::Interface for MediaFrameSourceController {
 impl ::windows::core::RuntimeName for MediaFrameSourceController {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceController";
 }
-::windows::core::interface_hierarchy!(MediaFrameSourceController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaFrameSourceController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaFrameSourceController {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceController {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -1673,7 +1673,7 @@ impl ::core::fmt::Debug for MediaFrameSourceGetPropertyResult {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameSourceGetPropertyResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyResult;{088616c2-3a64-4bd5-bd2b-e7c898d2f37a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyResult;{088616c2-3a64-4bd5-bd2b-e7c898d2f37a})");
 }
 impl ::core::clone::Clone for MediaFrameSourceGetPropertyResult {
     fn clone(&self) -> Self {
@@ -1689,7 +1689,7 @@ unsafe impl ::windows::core::Interface for MediaFrameSourceGetPropertyResult {
 impl ::windows::core::RuntimeName for MediaFrameSourceGetPropertyResult {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyResult";
 }
-::windows::core::interface_hierarchy!(MediaFrameSourceGetPropertyResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaFrameSourceGetPropertyResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaFrameSourceGetPropertyResult {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceGetPropertyResult {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -1743,7 +1743,7 @@ impl MediaFrameSourceGroup {
     }
     #[doc(hidden)]
     pub fn IMediaFrameSourceGroupStatics<R, F: FnOnce(&IMediaFrameSourceGroupStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaFrameSourceGroup, IMediaFrameSourceGroupStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaFrameSourceGroup, IMediaFrameSourceGroupStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1759,7 +1759,7 @@ impl ::core::fmt::Debug for MediaFrameSourceGroup {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameSourceGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceGroup;{7f605b87-4832-4b5f-ae3d-412faab37d34})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceGroup;{7f605b87-4832-4b5f-ae3d-412faab37d34})");
 }
 impl ::core::clone::Clone for MediaFrameSourceGroup {
     fn clone(&self) -> Self {
@@ -1775,7 +1775,7 @@ unsafe impl ::windows::core::Interface for MediaFrameSourceGroup {
 impl ::windows::core::RuntimeName for MediaFrameSourceGroup {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceGroup";
 }
-::windows::core::interface_hierarchy!(MediaFrameSourceGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaFrameSourceGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaFrameSourceGroup {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceGroup {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -1882,7 +1882,7 @@ impl ::core::fmt::Debug for MediaFrameSourceInfo {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameSourceInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceInfo;{87bdc9cd-4601-408f-91cf-038318cd0af3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceInfo;{87bdc9cd-4601-408f-91cf-038318cd0af3})");
 }
 impl ::core::clone::Clone for MediaFrameSourceInfo {
     fn clone(&self) -> Self {
@@ -1898,7 +1898,7 @@ unsafe impl ::windows::core::Interface for MediaFrameSourceInfo {
 impl ::windows::core::RuntimeName for MediaFrameSourceInfo {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceInfo";
 }
-::windows::core::interface_hierarchy!(MediaFrameSourceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaFrameSourceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaFrameSourceInfo {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceInfo {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -1917,7 +1917,7 @@ impl ::core::fmt::Debug for MultiSourceMediaFrameArrivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MultiSourceMediaFrameArrivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameArrivedEventArgs;{63115e01-cf51-48fd-aab0-6d693eb48127})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameArrivedEventArgs;{63115e01-cf51-48fd-aab0-6d693eb48127})");
 }
 impl ::core::clone::Clone for MultiSourceMediaFrameArrivedEventArgs {
     fn clone(&self) -> Self {
@@ -1933,7 +1933,7 @@ unsafe impl ::windows::core::Interface for MultiSourceMediaFrameArrivedEventArgs
 impl ::windows::core::RuntimeName for MultiSourceMediaFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameArrivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MultiSourceMediaFrameArrivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MultiSourceMediaFrameArrivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MultiSourceMediaFrameArrivedEventArgs {}
 unsafe impl ::core::marker::Sync for MultiSourceMediaFrameArrivedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -2010,7 +2010,7 @@ impl ::core::fmt::Debug for MultiSourceMediaFrameReader {
     }
 }
 impl ::windows::core::RuntimeType for MultiSourceMediaFrameReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameReader;{8d144402-f763-488d-98f2-b437bcf075e7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameReader;{8d144402-f763-488d-98f2-b437bcf075e7})");
 }
 impl ::core::clone::Clone for MultiSourceMediaFrameReader {
     fn clone(&self) -> Self {
@@ -2026,7 +2026,7 @@ unsafe impl ::windows::core::Interface for MultiSourceMediaFrameReader {
 impl ::windows::core::RuntimeName for MultiSourceMediaFrameReader {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameReader";
 }
-::windows::core::interface_hierarchy!(MultiSourceMediaFrameReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MultiSourceMediaFrameReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MultiSourceMediaFrameReader> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2081,7 +2081,7 @@ impl ::core::fmt::Debug for MultiSourceMediaFrameReference {
     }
 }
 impl ::windows::core::RuntimeType for MultiSourceMediaFrameReference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameReference;{21964b1a-7fe2-44d6-92e5-298e6d2810e9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameReference;{21964b1a-7fe2-44d6-92e5-298e6d2810e9})");
 }
 impl ::core::clone::Clone for MultiSourceMediaFrameReference {
     fn clone(&self) -> Self {
@@ -2097,7 +2097,7 @@ unsafe impl ::windows::core::Interface for MultiSourceMediaFrameReference {
 impl ::windows::core::RuntimeName for MultiSourceMediaFrameReference {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameReference";
 }
-::windows::core::interface_hierarchy!(MultiSourceMediaFrameReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MultiSourceMediaFrameReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MultiSourceMediaFrameReference> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2201,7 +2201,7 @@ impl ::core::fmt::Debug for VideoMediaFrame {
     }
 }
 impl ::windows::core::RuntimeType for VideoMediaFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.VideoMediaFrame;{00dd4ccb-32bd-4fe1-a013-7cc13cf5dbcf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.VideoMediaFrame;{00dd4ccb-32bd-4fe1-a013-7cc13cf5dbcf})");
 }
 impl ::core::clone::Clone for VideoMediaFrame {
     fn clone(&self) -> Self {
@@ -2217,7 +2217,7 @@ unsafe impl ::windows::core::Interface for VideoMediaFrame {
 impl ::windows::core::RuntimeName for VideoMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.VideoMediaFrame";
 }
-::windows::core::interface_hierarchy!(VideoMediaFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VideoMediaFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VideoMediaFrame {}
 unsafe impl ::core::marker::Sync for VideoMediaFrame {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -2265,7 +2265,7 @@ impl ::core::fmt::Debug for VideoMediaFrameFormat {
     }
 }
 impl ::windows::core::RuntimeType for VideoMediaFrameFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.VideoMediaFrameFormat;{46027fc0-d71b-45c7-8f14-6d9a0ae604e4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.VideoMediaFrameFormat;{46027fc0-d71b-45c7-8f14-6d9a0ae604e4})");
 }
 impl ::core::clone::Clone for VideoMediaFrameFormat {
     fn clone(&self) -> Self {
@@ -2281,7 +2281,7 @@ unsafe impl ::windows::core::Interface for VideoMediaFrameFormat {
 impl ::windows::core::RuntimeName for VideoMediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.VideoMediaFrameFormat";
 }
-::windows::core::interface_hierarchy!(VideoMediaFrameFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VideoMediaFrameFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VideoMediaFrameFormat {}
 unsafe impl ::core::marker::Sync for VideoMediaFrameFormat {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
@@ -2312,7 +2312,7 @@ impl ::core::fmt::Debug for MediaFrameReaderAcquisitionMode {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameReaderAcquisitionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderAcquisitionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderAcquisitionMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
@@ -2345,7 +2345,7 @@ impl ::core::fmt::Debug for MediaFrameReaderStartStatus {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameReaderStartStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderStartStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderStartStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
@@ -2379,7 +2379,7 @@ impl ::core::fmt::Debug for MediaFrameSourceGetPropertyStatus {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameSourceGetPropertyStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
@@ -2414,7 +2414,7 @@ impl ::core::fmt::Debug for MediaFrameSourceKind {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameSourceKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceKind;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
@@ -2448,7 +2448,7 @@ impl ::core::fmt::Debug for MediaFrameSourceSetPropertyStatus {
     }
 }
 impl ::windows::core::RuntimeType for MediaFrameSourceSetPropertyStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceSetPropertyStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceSetPropertyStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
@@ -2481,7 +2481,7 @@ impl ::core::fmt::Debug for MultiSourceMediaFrameReaderStartStatus {
     }
 }
 impl ::windows::core::RuntimeType for MultiSourceMediaFrameReaderStartStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MultiSourceMediaFrameReaderStartStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MultiSourceMediaFrameReaderStartStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

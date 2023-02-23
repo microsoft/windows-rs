@@ -109,7 +109,7 @@ impl HolographicApplicationPreview {
     }
     #[doc(hidden)]
     pub fn IHolographicApplicationPreviewStatics<R, F: FnOnce(&IHolographicApplicationPreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HolographicApplicationPreview, IHolographicApplicationPreviewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HolographicApplicationPreview, IHolographicApplicationPreviewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -151,7 +151,7 @@ impl HolographicKeyboardPlacementOverridePreview {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IHolographicKeyboardPlacementOverridePreviewStatics<R, F: FnOnce(&IHolographicKeyboardPlacementOverridePreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HolographicKeyboardPlacementOverridePreview, IHolographicKeyboardPlacementOverridePreviewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HolographicKeyboardPlacementOverridePreview, IHolographicKeyboardPlacementOverridePreviewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -171,7 +171,7 @@ impl ::core::fmt::Debug for HolographicKeyboardPlacementOverridePreview {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for HolographicKeyboardPlacementOverridePreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview;{c8a8ce3a-dfde-5a14-8d5f-182c526dd9c4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview;{c8a8ce3a-dfde-5a14-8d5f-182c526dd9c4})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for HolographicKeyboardPlacementOverridePreview {
@@ -192,7 +192,7 @@ impl ::windows::core::RuntimeName for HolographicKeyboardPlacementOverridePrevie
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(HolographicKeyboardPlacementOverridePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicKeyboardPlacementOverridePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for HolographicKeyboardPlacementOverridePreview {}
 #[cfg(feature = "deprecated")]

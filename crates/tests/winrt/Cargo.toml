@@ -20,6 +20,7 @@ features = [
     "ApplicationModel_Activation",
     "ApplicationModel_Appointments",
     "Win32_System_WinRT",
+    "Win32_System_Com",
 ]
 
 [dev-dependencies]

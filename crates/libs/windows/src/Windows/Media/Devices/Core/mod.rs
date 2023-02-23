@@ -674,7 +674,7 @@ impl CameraIntrinsics {
     }
     #[doc(hidden)]
     pub fn ICameraIntrinsicsFactory<R, F: FnOnce(&ICameraIntrinsicsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CameraIntrinsics, ICameraIntrinsicsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CameraIntrinsics, ICameraIntrinsicsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -690,7 +690,7 @@ impl ::core::fmt::Debug for CameraIntrinsics {
     }
 }
 impl ::windows::core::RuntimeType for CameraIntrinsics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.CameraIntrinsics;{0aa6ed32-6589-49da-afde-594270ca0aac})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.CameraIntrinsics;{0aa6ed32-6589-49da-afde-594270ca0aac})");
 }
 impl ::core::clone::Clone for CameraIntrinsics {
     fn clone(&self) -> Self {
@@ -706,7 +706,7 @@ unsafe impl ::windows::core::Interface for CameraIntrinsics {
 impl ::windows::core::RuntimeName for CameraIntrinsics {
     const NAME: &'static str = "Windows.Media.Devices.Core.CameraIntrinsics";
 }
-::windows::core::interface_hierarchy!(CameraIntrinsics, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CameraIntrinsics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CameraIntrinsics {}
 unsafe impl ::core::marker::Sync for CameraIntrinsics {}
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -762,7 +762,7 @@ impl ::core::fmt::Debug for DepthCorrelatedCoordinateMapper {
     }
 }
 impl ::windows::core::RuntimeType for DepthCorrelatedCoordinateMapper {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper;{f95d89fb-8af0-4cb0-926d-696866e5046a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper;{f95d89fb-8af0-4cb0-926d-696866e5046a})");
 }
 impl ::core::clone::Clone for DepthCorrelatedCoordinateMapper {
     fn clone(&self) -> Self {
@@ -778,7 +778,7 @@ unsafe impl ::windows::core::Interface for DepthCorrelatedCoordinateMapper {
 impl ::windows::core::RuntimeName for DepthCorrelatedCoordinateMapper {
     const NAME: &'static str = "Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper";
 }
-::windows::core::interface_hierarchy!(DepthCorrelatedCoordinateMapper, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DepthCorrelatedCoordinateMapper, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DepthCorrelatedCoordinateMapper> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -862,7 +862,7 @@ impl ::core::fmt::Debug for FrameControlCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for FrameControlCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameControlCapabilities;{a8ffae60-4e9e-4377-a789-e24c4ae7e544})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameControlCapabilities;{a8ffae60-4e9e-4377-a789-e24c4ae7e544})");
 }
 impl ::core::clone::Clone for FrameControlCapabilities {
     fn clone(&self) -> Self {
@@ -878,7 +878,7 @@ unsafe impl ::windows::core::Interface for FrameControlCapabilities {
 impl ::windows::core::RuntimeName for FrameControlCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameControlCapabilities";
 }
-::windows::core::interface_hierarchy!(FrameControlCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameControlCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameController(::windows::core::IUnknown);
@@ -886,8 +886,8 @@ impl FrameController {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FrameController, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<FrameController, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ExposureControl(&self) -> ::windows::core::Result<FrameExposureControl> {
@@ -957,7 +957,7 @@ impl ::core::fmt::Debug for FrameController {
     }
 }
 impl ::windows::core::RuntimeType for FrameController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameController;{c16459d9-baef-4052-9177-48aff2af7522})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameController;{c16459d9-baef-4052-9177-48aff2af7522})");
 }
 impl ::core::clone::Clone for FrameController {
     fn clone(&self) -> Self {
@@ -973,7 +973,7 @@ unsafe impl ::windows::core::Interface for FrameController {
 impl ::windows::core::RuntimeName for FrameController {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameController";
 }
-::windows::core::interface_hierarchy!(FrameController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FrameController {}
 unsafe impl ::core::marker::Sync for FrameController {}
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -1027,7 +1027,7 @@ impl ::core::fmt::Debug for FrameExposureCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for FrameExposureCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCapabilities;{bdbe9ce3-3985-4e72-97c2-0590d61307a1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCapabilities;{bdbe9ce3-3985-4e72-97c2-0590d61307a1})");
 }
 impl ::core::clone::Clone for FrameExposureCapabilities {
     fn clone(&self) -> Self {
@@ -1043,7 +1043,7 @@ unsafe impl ::windows::core::Interface for FrameExposureCapabilities {
 impl ::windows::core::RuntimeName for FrameExposureCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCapabilities";
 }
-::windows::core::interface_hierarchy!(FrameExposureCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameExposureCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameExposureCompensationCapabilities(::windows::core::IUnknown);
@@ -1089,7 +1089,7 @@ impl ::core::fmt::Debug for FrameExposureCompensationCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for FrameExposureCompensationCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCompensationCapabilities;{b988a823-8065-41ee-b04f-722265954500})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCompensationCapabilities;{b988a823-8065-41ee-b04f-722265954500})");
 }
 impl ::core::clone::Clone for FrameExposureCompensationCapabilities {
     fn clone(&self) -> Self {
@@ -1105,7 +1105,7 @@ unsafe impl ::windows::core::Interface for FrameExposureCompensationCapabilities
 impl ::windows::core::RuntimeName for FrameExposureCompensationCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCompensationCapabilities";
 }
-::windows::core::interface_hierarchy!(FrameExposureCompensationCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameExposureCompensationCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameExposureCompensationControl(::windows::core::IUnknown);
@@ -1142,7 +1142,7 @@ impl ::core::fmt::Debug for FrameExposureCompensationControl {
     }
 }
 impl ::windows::core::RuntimeType for FrameExposureCompensationControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCompensationControl;{e95896c9-f7f9-48ca-8591-a26531cb1578})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCompensationControl;{e95896c9-f7f9-48ca-8591-a26531cb1578})");
 }
 impl ::core::clone::Clone for FrameExposureCompensationControl {
     fn clone(&self) -> Self {
@@ -1158,7 +1158,7 @@ unsafe impl ::windows::core::Interface for FrameExposureCompensationControl {
 impl ::windows::core::RuntimeName for FrameExposureCompensationControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCompensationControl";
 }
-::windows::core::interface_hierarchy!(FrameExposureCompensationControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameExposureCompensationControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameExposureControl(::windows::core::IUnknown);
@@ -1206,7 +1206,7 @@ impl ::core::fmt::Debug for FrameExposureControl {
     }
 }
 impl ::windows::core::RuntimeType for FrameExposureControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureControl;{b1605a61-ffaf-4752-b621-f5b6f117f432})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureControl;{b1605a61-ffaf-4752-b621-f5b6f117f432})");
 }
 impl ::core::clone::Clone for FrameExposureControl {
     fn clone(&self) -> Self {
@@ -1222,7 +1222,7 @@ unsafe impl ::windows::core::Interface for FrameExposureControl {
 impl ::windows::core::RuntimeName for FrameExposureControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureControl";
 }
-::windows::core::interface_hierarchy!(FrameExposureControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameExposureControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameFlashCapabilities(::windows::core::IUnknown);
@@ -1261,7 +1261,7 @@ impl ::core::fmt::Debug for FrameFlashCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for FrameFlashCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFlashCapabilities;{bb9341a2-5ebe-4f62-8223-0e2b05bfbbd0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFlashCapabilities;{bb9341a2-5ebe-4f62-8223-0e2b05bfbbd0})");
 }
 impl ::core::clone::Clone for FrameFlashCapabilities {
     fn clone(&self) -> Self {
@@ -1277,7 +1277,7 @@ unsafe impl ::windows::core::Interface for FrameFlashCapabilities {
 impl ::windows::core::RuntimeName for FrameFlashCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFlashCapabilities";
 }
-::windows::core::interface_hierarchy!(FrameFlashCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameFlashCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameFlashControl(::windows::core::IUnknown);
@@ -1339,7 +1339,7 @@ impl ::core::fmt::Debug for FrameFlashControl {
     }
 }
 impl ::windows::core::RuntimeType for FrameFlashControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFlashControl;{75d5f6c7-bd45-4fab-9375-45ac04b332c2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFlashControl;{75d5f6c7-bd45-4fab-9375-45ac04b332c2})");
 }
 impl ::core::clone::Clone for FrameFlashControl {
     fn clone(&self) -> Self {
@@ -1355,7 +1355,7 @@ unsafe impl ::windows::core::Interface for FrameFlashControl {
 impl ::windows::core::RuntimeName for FrameFlashControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFlashControl";
 }
-::windows::core::interface_hierarchy!(FrameFlashControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameFlashControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameFocusCapabilities(::windows::core::IUnknown);
@@ -1401,7 +1401,7 @@ impl ::core::fmt::Debug for FrameFocusCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for FrameFocusCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFocusCapabilities;{7b25cd58-01c0-4065-9c40-c1a721425c1a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFocusCapabilities;{7b25cd58-01c0-4065-9c40-c1a721425c1a})");
 }
 impl ::core::clone::Clone for FrameFocusCapabilities {
     fn clone(&self) -> Self {
@@ -1417,7 +1417,7 @@ unsafe impl ::windows::core::Interface for FrameFocusCapabilities {
 impl ::windows::core::RuntimeName for FrameFocusCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFocusCapabilities";
 }
-::windows::core::interface_hierarchy!(FrameFocusCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameFocusCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameFocusControl(::windows::core::IUnknown);
@@ -1454,7 +1454,7 @@ impl ::core::fmt::Debug for FrameFocusControl {
     }
 }
 impl ::windows::core::RuntimeType for FrameFocusControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFocusControl;{272df1d0-d912-4214-a67b-e38a8d48d8c6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFocusControl;{272df1d0-d912-4214-a67b-e38a8d48d8c6})");
 }
 impl ::core::clone::Clone for FrameFocusControl {
     fn clone(&self) -> Self {
@@ -1470,7 +1470,7 @@ unsafe impl ::windows::core::Interface for FrameFocusControl {
 impl ::windows::core::RuntimeName for FrameFocusControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFocusControl";
 }
-::windows::core::interface_hierarchy!(FrameFocusControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameFocusControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameIsoSpeedCapabilities(::windows::core::IUnknown);
@@ -1516,7 +1516,7 @@ impl ::core::fmt::Debug for FrameIsoSpeedCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for FrameIsoSpeedCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameIsoSpeedCapabilities;{16bdff61-6df6-4ac9-b92a-9f6ecd1ad2fa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameIsoSpeedCapabilities;{16bdff61-6df6-4ac9-b92a-9f6ecd1ad2fa})");
 }
 impl ::core::clone::Clone for FrameIsoSpeedCapabilities {
     fn clone(&self) -> Self {
@@ -1532,7 +1532,7 @@ unsafe impl ::windows::core::Interface for FrameIsoSpeedCapabilities {
 impl ::windows::core::RuntimeName for FrameIsoSpeedCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedCapabilities";
 }
-::windows::core::interface_hierarchy!(FrameIsoSpeedCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameIsoSpeedCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameIsoSpeedControl(::windows::core::IUnknown);
@@ -1580,7 +1580,7 @@ impl ::core::fmt::Debug for FrameIsoSpeedControl {
     }
 }
 impl ::windows::core::RuntimeType for FrameIsoSpeedControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameIsoSpeedControl;{1a03efed-786a-4c75-a557-7ab9a85f588c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameIsoSpeedControl;{1a03efed-786a-4c75-a557-7ab9a85f588c})");
 }
 impl ::core::clone::Clone for FrameIsoSpeedControl {
     fn clone(&self) -> Self {
@@ -1596,7 +1596,7 @@ unsafe impl ::windows::core::Interface for FrameIsoSpeedControl {
 impl ::windows::core::RuntimeName for FrameIsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedControl";
 }
-::windows::core::interface_hierarchy!(FrameIsoSpeedControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameIsoSpeedControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct VariablePhotoSequenceController(::windows::core::IUnknown);
@@ -1677,7 +1677,7 @@ impl ::core::fmt::Debug for VariablePhotoSequenceController {
     }
 }
 impl ::windows::core::RuntimeType for VariablePhotoSequenceController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.VariablePhotoSequenceController;{7fbff880-ed8c-43fd-a7c3-b35809e4229a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.VariablePhotoSequenceController;{7fbff880-ed8c-43fd-a7c3-b35809e4229a})");
 }
 impl ::core::clone::Clone for VariablePhotoSequenceController {
     fn clone(&self) -> Self {
@@ -1693,7 +1693,7 @@ unsafe impl ::windows::core::Interface for VariablePhotoSequenceController {
 impl ::windows::core::RuntimeName for VariablePhotoSequenceController {
     const NAME: &'static str = "Windows.Media.Devices.Core.VariablePhotoSequenceController";
 }
-::windows::core::interface_hierarchy!(VariablePhotoSequenceController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VariablePhotoSequenceController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1723,7 +1723,7 @@ impl ::core::fmt::Debug for FrameFlashMode {
     }
 }
 impl ::windows::core::RuntimeType for FrameFlashMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.Core.FrameFlashMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.Core.FrameFlashMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

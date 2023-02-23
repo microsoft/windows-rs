@@ -189,7 +189,7 @@ impl IIndexableContent {
         unsafe { (::windows::core::Vtable::vtable(this).SetStreamContentType)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IIndexableContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IIndexableContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IIndexableContent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -202,7 +202,7 @@ impl ::core::fmt::Debug for IIndexableContent {
     }
 }
 impl ::windows::core::RuntimeType for IIndexableContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ccf1a05f-d4b5-483a-b06e-e0db1ec420e4}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ccf1a05f-d4b5-483a-b06e-e0db1ec420e4}");
 }
 unsafe impl ::windows::core::Vtable for IIndexableContent {
     type Vtable = IIndexableContent_Vtbl;
@@ -518,7 +518,7 @@ impl IStorageFolderQueryOperations {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageFolderQueryOperations, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageFolderQueryOperations, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageFolderQueryOperations {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -531,7 +531,7 @@ impl ::core::fmt::Debug for IStorageFolderQueryOperations {
     }
 }
 impl ::windows::core::RuntimeType for IStorageFolderQueryOperations {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb43ccc9-446b-4a4f-be97-757771be5203}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{cb43ccc9-446b-4a4f-be97-757771be5203}");
 }
 unsafe impl ::windows::core::Vtable for IStorageFolderQueryOperations {
     type Vtable = IStorageFolderQueryOperations_Vtbl;
@@ -757,7 +757,7 @@ impl IStorageQueryResultBase {
         unsafe { (::windows::core::Vtable::vtable(this).ApplyNewQueryOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(newqueryoptions)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IStorageQueryResultBase, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageQueryResultBase, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageQueryResultBase {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -770,7 +770,7 @@ impl ::core::fmt::Debug for IStorageQueryResultBase {
     }
 }
 impl ::windows::core::RuntimeType for IStorageQueryResultBase {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c297d70d-7353-47ab-ba58-8c61425dc54b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{c297d70d-7353-47ab-ba58-8c61425dc54b}");
 }
 unsafe impl ::windows::core::Vtable for IStorageQueryResultBase {
     type Vtable = IStorageQueryResultBase_Vtbl;
@@ -976,7 +976,7 @@ impl ContentIndexer {
     }
     #[doc(hidden)]
     pub fn IContentIndexerStatics<R, F: FnOnce(&IContentIndexerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContentIndexer, IContentIndexerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContentIndexer, IContentIndexerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -992,7 +992,7 @@ impl ::core::fmt::Debug for ContentIndexer {
     }
 }
 impl ::windows::core::RuntimeType for ContentIndexer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexer;{b1767f8d-f698-4982-b05f-3a6e8cab01a2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexer;{b1767f8d-f698-4982-b05f-3a6e8cab01a2})");
 }
 impl ::core::clone::Clone for ContentIndexer {
     fn clone(&self) -> Self {
@@ -1008,7 +1008,7 @@ unsafe impl ::windows::core::Interface for ContentIndexer {
 impl ::windows::core::RuntimeName for ContentIndexer {
     const NAME: &'static str = "Windows.Storage.Search.ContentIndexer";
 }
-::windows::core::interface_hierarchy!(ContentIndexer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContentIndexer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContentIndexer {}
 unsafe impl ::core::marker::Sync for ContentIndexer {}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
@@ -1080,7 +1080,7 @@ impl ::core::fmt::Debug for ContentIndexerQuery {
     }
 }
 impl ::windows::core::RuntimeType for ContentIndexerQuery {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexerQuery;{70e3b0f8-4bfc-428a-8889-cc51da9a7b9d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexerQuery;{70e3b0f8-4bfc-428a-8889-cc51da9a7b9d})");
 }
 impl ::core::clone::Clone for ContentIndexerQuery {
     fn clone(&self) -> Self {
@@ -1096,7 +1096,7 @@ unsafe impl ::windows::core::Interface for ContentIndexerQuery {
 impl ::windows::core::RuntimeName for ContentIndexerQuery {
     const NAME: &'static str = "Windows.Storage.Search.ContentIndexerQuery";
 }
-::windows::core::interface_hierarchy!(ContentIndexerQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContentIndexerQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContentIndexerQuery {}
 unsafe impl ::core::marker::Sync for ContentIndexerQuery {}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
@@ -1106,8 +1106,8 @@ impl IndexableContent {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<IndexableContent, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<IndexableContent, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1173,7 +1173,7 @@ impl ::core::fmt::Debug for IndexableContent {
     }
 }
 impl ::windows::core::RuntimeType for IndexableContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.IndexableContent;{ccf1a05f-d4b5-483a-b06e-e0db1ec420e4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.IndexableContent;{ccf1a05f-d4b5-483a-b06e-e0db1ec420e4})");
 }
 impl ::core::clone::Clone for IndexableContent {
     fn clone(&self) -> Self {
@@ -1189,7 +1189,7 @@ unsafe impl ::windows::core::Interface for IndexableContent {
 impl ::windows::core::RuntimeName for IndexableContent {
     const NAME: &'static str = "Windows.Storage.Search.IndexableContent";
 }
-::windows::core::interface_hierarchy!(IndexableContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IndexableContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IndexableContent> for IIndexableContent {
     type Error = ::windows::core::Error;
     fn try_from(value: IndexableContent) -> ::windows::core::Result<Self> {
@@ -1218,8 +1218,8 @@ impl QueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<QueryOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<QueryOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1365,7 +1365,7 @@ impl QueryOptions {
     }
     #[doc(hidden)]
     pub fn IQueryOptionsFactory<R, F: FnOnce(&IQueryOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<QueryOptions, IQueryOptionsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<QueryOptions, IQueryOptionsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1381,7 +1381,7 @@ impl ::core::fmt::Debug for QueryOptions {
     }
 }
 impl ::windows::core::RuntimeType for QueryOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.QueryOptions;{1e5e46ee-0f45-4838-a8e9-d0479d446c30})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.QueryOptions;{1e5e46ee-0f45-4838-a8e9-d0479d446c30})");
 }
 impl ::core::clone::Clone for QueryOptions {
     fn clone(&self) -> Self {
@@ -1397,7 +1397,7 @@ unsafe impl ::windows::core::Interface for QueryOptions {
 impl ::windows::core::RuntimeName for QueryOptions {
     const NAME: &'static str = "Windows.Storage.Search.QueryOptions";
 }
-::windows::core::interface_hierarchy!(QueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(QueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for QueryOptions {}
 unsafe impl ::core::marker::Sync for QueryOptions {}
 #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`*"]
@@ -1531,7 +1531,7 @@ impl ::core::fmt::Debug for SortEntryVector {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for SortEntryVector {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.SortEntryVector;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};struct(Windows.Storage.Search.SortEntry;string;b1)))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.SortEntryVector;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};struct(Windows.Storage.Search.SortEntry;string;b1)))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for SortEntryVector {
@@ -1568,7 +1568,7 @@ impl ::core::iter::IntoIterator for &SortEntryVector {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(SortEntryVector, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SortEntryVector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<SortEntryVector> for super::super::Foundation::Collections::IIterable<SortEntry> {
     type Error = ::windows::core::Error;
@@ -1726,7 +1726,7 @@ impl ::core::fmt::Debug for StorageFileQueryResult {
     }
 }
 impl ::windows::core::RuntimeType for StorageFileQueryResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageFileQueryResult;{52fda447-2baa-412c-b29f-d4b1778efa1e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageFileQueryResult;{52fda447-2baa-412c-b29f-d4b1778efa1e})");
 }
 impl ::core::clone::Clone for StorageFileQueryResult {
     fn clone(&self) -> Self {
@@ -1742,7 +1742,7 @@ unsafe impl ::windows::core::Interface for StorageFileQueryResult {
 impl ::windows::core::RuntimeName for StorageFileQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.StorageFileQueryResult";
 }
-::windows::core::interface_hierarchy!(StorageFileQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageFileQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageFileQueryResult> for IStorageQueryResultBase {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageFileQueryResult) -> ::windows::core::Result<Self> {
@@ -1866,7 +1866,7 @@ impl ::core::fmt::Debug for StorageFolderQueryResult {
     }
 }
 impl ::windows::core::RuntimeType for StorageFolderQueryResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageFolderQueryResult;{6654c911-7d66-46fa-aecf-e4a4baa93ab8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageFolderQueryResult;{6654c911-7d66-46fa-aecf-e4a4baa93ab8})");
 }
 impl ::core::clone::Clone for StorageFolderQueryResult {
     fn clone(&self) -> Self {
@@ -1882,7 +1882,7 @@ unsafe impl ::windows::core::Interface for StorageFolderQueryResult {
 impl ::windows::core::RuntimeName for StorageFolderQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.StorageFolderQueryResult";
 }
-::windows::core::interface_hierarchy!(StorageFolderQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageFolderQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageFolderQueryResult> for IStorageQueryResultBase {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageFolderQueryResult) -> ::windows::core::Result<Self> {
@@ -2006,7 +2006,7 @@ impl ::core::fmt::Debug for StorageItemQueryResult {
     }
 }
 impl ::windows::core::RuntimeType for StorageItemQueryResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageItemQueryResult;{e8948079-9d58-47b8-b2b2-41b07f4795f9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageItemQueryResult;{e8948079-9d58-47b8-b2b2-41b07f4795f9})");
 }
 impl ::core::clone::Clone for StorageItemQueryResult {
     fn clone(&self) -> Self {
@@ -2022,7 +2022,7 @@ unsafe impl ::windows::core::Interface for StorageItemQueryResult {
 impl ::windows::core::RuntimeName for StorageItemQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.StorageItemQueryResult";
 }
-::windows::core::interface_hierarchy!(StorageItemQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageItemQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageItemQueryResult> for IStorageQueryResultBase {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageItemQueryResult) -> ::windows::core::Result<Self> {
@@ -2073,7 +2073,7 @@ impl ::core::fmt::Debug for StorageLibraryChangeTrackerTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails;{1dc7a369-b7a3-4df2-9d61-eba85a0343d2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails;{1dc7a369-b7a3-4df2-9d61-eba85a0343d2})");
 }
 impl ::core::clone::Clone for StorageLibraryChangeTrackerTriggerDetails {
     fn clone(&self) -> Self {
@@ -2089,7 +2089,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryChangeTrackerTriggerDet
 impl ::windows::core::RuntimeName for StorageLibraryChangeTrackerTriggerDetails {
     const NAME: &'static str = "Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails";
 }
-::windows::core::interface_hierarchy!(StorageLibraryChangeTrackerTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageLibraryChangeTrackerTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
 pub struct StorageLibraryContentChangedTriggerDetails(::windows::core::IUnknown);
@@ -2123,7 +2123,7 @@ impl ::core::fmt::Debug for StorageLibraryContentChangedTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for StorageLibraryContentChangedTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails;{2a371977-abbf-4e1d-8aa5-6385d8884799})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails;{2a371977-abbf-4e1d-8aa5-6385d8884799})");
 }
 impl ::core::clone::Clone for StorageLibraryContentChangedTriggerDetails {
     fn clone(&self) -> Self {
@@ -2139,7 +2139,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryContentChangedTriggerDe
 impl ::windows::core::RuntimeName for StorageLibraryContentChangedTriggerDetails {
     const NAME: &'static str = "Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails";
 }
-::windows::core::interface_hierarchy!(StorageLibraryContentChangedTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageLibraryContentChangedTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
 pub struct ValueAndLanguage(::windows::core::IUnknown);
@@ -2147,8 +2147,8 @@ impl ValueAndLanguage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ValueAndLanguage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ValueAndLanguage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2189,7 +2189,7 @@ impl ::core::fmt::Debug for ValueAndLanguage {
     }
 }
 impl ::windows::core::RuntimeType for ValueAndLanguage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ValueAndLanguage;{b9914881-a1ee-4bc4-92a5-466968e30436})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ValueAndLanguage;{b9914881-a1ee-4bc4-92a5-466968e30436})");
 }
 impl ::core::clone::Clone for ValueAndLanguage {
     fn clone(&self) -> Self {
@@ -2205,7 +2205,7 @@ unsafe impl ::windows::core::Interface for ValueAndLanguage {
 impl ::windows::core::RuntimeName for ValueAndLanguage {
     const NAME: &'static str = "Windows.Storage.Search.ValueAndLanguage";
 }
-::windows::core::interface_hierarchy!(ValueAndLanguage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ValueAndLanguage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ValueAndLanguage {}
 unsafe impl ::core::marker::Sync for ValueAndLanguage {}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
@@ -2240,7 +2240,7 @@ impl ::core::fmt::Debug for CommonFileQuery {
     }
 }
 impl ::windows::core::RuntimeType for CommonFileQuery {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFileQuery;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFileQuery;i4)");
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
@@ -2281,7 +2281,7 @@ impl ::core::fmt::Debug for CommonFolderQuery {
     }
 }
 impl ::windows::core::RuntimeType for CommonFolderQuery {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFolderQuery;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFolderQuery;i4)");
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
@@ -2312,7 +2312,7 @@ impl ::core::fmt::Debug for DateStackOption {
     }
 }
 impl ::windows::core::RuntimeType for DateStackOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.DateStackOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.DateStackOption;i4)");
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
@@ -2342,7 +2342,7 @@ impl ::core::fmt::Debug for FolderDepth {
     }
 }
 impl ::windows::core::RuntimeType for FolderDepth {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.FolderDepth;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.FolderDepth;i4)");
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
@@ -2374,7 +2374,7 @@ impl ::core::fmt::Debug for IndexedState {
     }
 }
 impl ::windows::core::RuntimeType for IndexedState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexedState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexedState;i4)");
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
@@ -2406,7 +2406,7 @@ impl ::core::fmt::Debug for IndexerOption {
     }
 }
 impl ::windows::core::RuntimeType for IndexerOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexerOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexerOption;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Storage_Search\"`*"]
@@ -2428,7 +2428,7 @@ impl ::windows::core::TypeKind for SortEntry {
     type TypeKind = ::windows::core::ValueType;
 }
 impl ::windows::core::RuntimeType for SortEntry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Storage.Search.SortEntry;string;b1)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Storage.Search.SortEntry;string;b1)");
 }
 impl ::core::cmp::PartialEq for SortEntry {
     fn eq(&self, other: &Self) -> bool {

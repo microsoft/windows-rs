@@ -173,7 +173,7 @@ impl IInkAnalysisNode {
         }
     }
 }
-::windows::core::interface_hierarchy!(IInkAnalysisNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IInkAnalysisNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IInkAnalysisNode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -186,7 +186,7 @@ impl ::core::fmt::Debug for IInkAnalysisNode {
     }
 }
 impl ::windows::core::RuntimeType for IInkAnalysisNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{30831f05-5f64-4a2c-ba37-4f4887879574}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{30831f05-5f64-4a2c-ba37-4f4887879574}");
 }
 unsafe impl ::windows::core::Vtable for IInkAnalysisNode {
     type Vtable = IInkAnalysisNode_Vtbl;
@@ -357,7 +357,7 @@ impl IInkAnalyzerFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IInkAnalyzerFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IInkAnalyzerFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IInkAnalyzerFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -370,7 +370,7 @@ impl ::core::fmt::Debug for IInkAnalyzerFactory {
     }
 }
 impl ::windows::core::RuntimeType for IInkAnalyzerFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{29138686-1963-49d8-9589-e14384c769e3}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{29138686-1963-49d8-9589-e14384c769e3}");
 }
 unsafe impl ::windows::core::Vtable for IInkAnalyzerFactory {
     type Vtable = IInkAnalyzerFactory_Vtbl;
@@ -470,7 +470,7 @@ impl ::core::fmt::Debug for InkAnalysisInkBullet {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisInkBullet {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisInkBullet;{ee049368-6110-4136-95f9-ee809fc20030})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisInkBullet;{ee049368-6110-4136-95f9-ee809fc20030})");
 }
 impl ::core::clone::Clone for InkAnalysisInkBullet {
     fn clone(&self) -> Self {
@@ -486,7 +486,7 @@ unsafe impl ::windows::core::Interface for InkAnalysisInkBullet {
 impl ::windows::core::RuntimeName for InkAnalysisInkBullet {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkBullet";
 }
-::windows::core::interface_hierarchy!(InkAnalysisInkBullet, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkAnalysisInkBullet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkAnalysisInkBullet> for IInkAnalysisNode {
     type Error = ::windows::core::Error;
     fn try_from(value: InkAnalysisInkBullet) -> ::windows::core::Result<Self> {
@@ -607,7 +607,7 @@ impl ::core::fmt::Debug for InkAnalysisInkDrawing {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisInkDrawing {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisInkDrawing;{6a85ed1f-1fe4-4e15-898c-8e112377e021})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisInkDrawing;{6a85ed1f-1fe4-4e15-898c-8e112377e021})");
 }
 impl ::core::clone::Clone for InkAnalysisInkDrawing {
     fn clone(&self) -> Self {
@@ -623,7 +623,7 @@ unsafe impl ::windows::core::Interface for InkAnalysisInkDrawing {
 impl ::windows::core::RuntimeName for InkAnalysisInkDrawing {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkDrawing";
 }
-::windows::core::interface_hierarchy!(InkAnalysisInkDrawing, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkAnalysisInkDrawing, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkAnalysisInkDrawing> for IInkAnalysisNode {
     type Error = ::windows::core::Error;
     fn try_from(value: InkAnalysisInkDrawing) -> ::windows::core::Result<Self> {
@@ -735,7 +735,7 @@ impl ::core::fmt::Debug for InkAnalysisInkWord {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisInkWord {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisInkWord;{4bd228ad-83af-4034-8f3b-f8687dfff436})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisInkWord;{4bd228ad-83af-4034-8f3b-f8687dfff436})");
 }
 impl ::core::clone::Clone for InkAnalysisInkWord {
     fn clone(&self) -> Self {
@@ -751,7 +751,7 @@ unsafe impl ::windows::core::Interface for InkAnalysisInkWord {
 impl ::windows::core::RuntimeName for InkAnalysisInkWord {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkWord";
 }
-::windows::core::interface_hierarchy!(InkAnalysisInkWord, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkAnalysisInkWord, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkAnalysisInkWord> for IInkAnalysisNode {
     type Error = ::windows::core::Error;
     fn try_from(value: InkAnalysisInkWord) -> ::windows::core::Result<Self> {
@@ -861,7 +861,7 @@ impl ::core::fmt::Debug for InkAnalysisLine {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisLine {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisLine;{a06d048d-2b8d-4754-ad5a-d0871193a956})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisLine;{a06d048d-2b8d-4754-ad5a-d0871193a956})");
 }
 impl ::core::clone::Clone for InkAnalysisLine {
     fn clone(&self) -> Self {
@@ -877,7 +877,7 @@ unsafe impl ::windows::core::Interface for InkAnalysisLine {
 impl ::windows::core::RuntimeName for InkAnalysisLine {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisLine";
 }
-::windows::core::interface_hierarchy!(InkAnalysisLine, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkAnalysisLine, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkAnalysisLine> for IInkAnalysisNode {
     type Error = ::windows::core::Error;
     fn try_from(value: InkAnalysisLine) -> ::windows::core::Result<Self> {
@@ -980,7 +980,7 @@ impl ::core::fmt::Debug for InkAnalysisListItem {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisListItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisListItem;{b4e3c23f-c4c3-4c3a-a1a6-9d85547ee586})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisListItem;{b4e3c23f-c4c3-4c3a-a1a6-9d85547ee586})");
 }
 impl ::core::clone::Clone for InkAnalysisListItem {
     fn clone(&self) -> Self {
@@ -996,7 +996,7 @@ unsafe impl ::windows::core::Interface for InkAnalysisListItem {
 impl ::windows::core::RuntimeName for InkAnalysisListItem {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisListItem";
 }
-::windows::core::interface_hierarchy!(InkAnalysisListItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkAnalysisListItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkAnalysisListItem> for IInkAnalysisNode {
     type Error = ::windows::core::Error;
     fn try_from(value: InkAnalysisListItem) -> ::windows::core::Result<Self> {
@@ -1092,7 +1092,7 @@ impl ::core::fmt::Debug for InkAnalysisNode {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisNode;{30831f05-5f64-4a2c-ba37-4f4887879574})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisNode;{30831f05-5f64-4a2c-ba37-4f4887879574})");
 }
 impl ::core::clone::Clone for InkAnalysisNode {
     fn clone(&self) -> Self {
@@ -1108,7 +1108,7 @@ unsafe impl ::windows::core::Interface for InkAnalysisNode {
 impl ::windows::core::RuntimeName for InkAnalysisNode {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisNode";
 }
-::windows::core::interface_hierarchy!(InkAnalysisNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkAnalysisNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkAnalysisNode> for IInkAnalysisNode {
     type Error = ::windows::core::Error;
     fn try_from(value: InkAnalysisNode) -> ::windows::core::Result<Self> {
@@ -1211,7 +1211,7 @@ impl ::core::fmt::Debug for InkAnalysisParagraph {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisParagraph {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisParagraph;{d9ad045c-0cd1-4dd4-a68b-eb1f12b3d727})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisParagraph;{d9ad045c-0cd1-4dd4-a68b-eb1f12b3d727})");
 }
 impl ::core::clone::Clone for InkAnalysisParagraph {
     fn clone(&self) -> Self {
@@ -1227,7 +1227,7 @@ unsafe impl ::windows::core::Interface for InkAnalysisParagraph {
 impl ::windows::core::RuntimeName for InkAnalysisParagraph {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisParagraph";
 }
-::windows::core::interface_hierarchy!(InkAnalysisParagraph, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkAnalysisParagraph, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkAnalysisParagraph> for IInkAnalysisNode {
     type Error = ::windows::core::Error;
     fn try_from(value: InkAnalysisParagraph) -> ::windows::core::Result<Self> {
@@ -1273,7 +1273,7 @@ impl ::core::fmt::Debug for InkAnalysisResult {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisResult;{8948ba79-a243-4aa3-a294-1f98bd0ff580})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisResult;{8948ba79-a243-4aa3-a294-1f98bd0ff580})");
 }
 impl ::core::clone::Clone for InkAnalysisResult {
     fn clone(&self) -> Self {
@@ -1289,7 +1289,7 @@ unsafe impl ::windows::core::Interface for InkAnalysisResult {
 impl ::windows::core::RuntimeName for InkAnalysisResult {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisResult";
 }
-::windows::core::interface_hierarchy!(InkAnalysisResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkAnalysisResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkAnalysisResult {}
 unsafe impl ::core::marker::Sync for InkAnalysisResult {}
 #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
@@ -1382,7 +1382,7 @@ impl ::core::fmt::Debug for InkAnalysisRoot {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisRoot {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisRoot;{3fb6a3c4-2fde-4061-8502-a90f32545b84})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisRoot;{3fb6a3c4-2fde-4061-8502-a90f32545b84})");
 }
 impl ::core::clone::Clone for InkAnalysisRoot {
     fn clone(&self) -> Self {
@@ -1398,7 +1398,7 @@ unsafe impl ::windows::core::Interface for InkAnalysisRoot {
 impl ::windows::core::RuntimeName for InkAnalysisRoot {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisRoot";
 }
-::windows::core::interface_hierarchy!(InkAnalysisRoot, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkAnalysisRoot, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkAnalysisRoot> for IInkAnalysisNode {
     type Error = ::windows::core::Error;
     fn try_from(value: InkAnalysisRoot) -> ::windows::core::Result<Self> {
@@ -1501,7 +1501,7 @@ impl ::core::fmt::Debug for InkAnalysisWritingRegion {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisWritingRegion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisWritingRegion;{dd6d6231-bd16-4663-b5ae-941d3043ef5b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalysisWritingRegion;{dd6d6231-bd16-4663-b5ae-941d3043ef5b})");
 }
 impl ::core::clone::Clone for InkAnalysisWritingRegion {
     fn clone(&self) -> Self {
@@ -1517,7 +1517,7 @@ unsafe impl ::windows::core::Interface for InkAnalysisWritingRegion {
 impl ::windows::core::RuntimeName for InkAnalysisWritingRegion {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisWritingRegion";
 }
-::windows::core::interface_hierarchy!(InkAnalysisWritingRegion, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkAnalysisWritingRegion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkAnalysisWritingRegion> for IInkAnalysisNode {
     type Error = ::windows::core::Error;
     fn try_from(value: InkAnalysisWritingRegion) -> ::windows::core::Result<Self> {
@@ -1546,8 +1546,8 @@ impl InkAnalyzer {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InkAnalyzer, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<InkAnalyzer, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn AnalysisRoot(&self) -> ::windows::core::Result<InkAnalysisRoot> {
@@ -1626,7 +1626,7 @@ impl ::core::fmt::Debug for InkAnalyzer {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalyzer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalyzer;{f12b8f95-0866-4dc5-8c77-f88614dfe38c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Analysis.InkAnalyzer;{f12b8f95-0866-4dc5-8c77-f88614dfe38c})");
 }
 impl ::core::clone::Clone for InkAnalyzer {
     fn clone(&self) -> Self {
@@ -1642,7 +1642,7 @@ unsafe impl ::windows::core::Interface for InkAnalyzer {
 impl ::windows::core::RuntimeName for InkAnalyzer {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalyzer";
 }
-::windows::core::interface_hierarchy!(InkAnalyzer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkAnalyzer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkAnalyzer {}
 unsafe impl ::core::marker::Sync for InkAnalyzer {}
 #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
@@ -1686,7 +1686,7 @@ impl ::core::fmt::Debug for InkAnalysisDrawingKind {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisDrawingKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisDrawingKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisDrawingKind;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
@@ -1723,7 +1723,7 @@ impl ::core::fmt::Debug for InkAnalysisNodeKind {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisNodeKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
@@ -1753,7 +1753,7 @@ impl ::core::fmt::Debug for InkAnalysisStatus {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisStatus;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
@@ -1784,7 +1784,7 @@ impl ::core::fmt::Debug for InkAnalysisStrokeKind {
     }
 }
 impl ::windows::core::RuntimeType for InkAnalysisStrokeKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisStrokeKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisStrokeKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

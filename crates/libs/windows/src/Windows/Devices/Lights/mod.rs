@@ -335,7 +335,7 @@ impl Lamp {
     }
     #[doc(hidden)]
     pub fn ILampStatics<R, F: FnOnce(&ILampStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Lamp, ILampStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Lamp, ILampStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -351,7 +351,7 @@ impl ::core::fmt::Debug for Lamp {
     }
 }
 impl ::windows::core::RuntimeType for Lamp {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Lamp;{047d5b9a-ea45-4b2b-b1a2-14dff00bde7b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Lamp;{047d5b9a-ea45-4b2b-b1a2-14dff00bde7b})");
 }
 impl ::core::clone::Clone for Lamp {
     fn clone(&self) -> Self {
@@ -367,7 +367,7 @@ unsafe impl ::windows::core::Interface for Lamp {
 impl ::windows::core::RuntimeName for Lamp {
     const NAME: &'static str = "Windows.Devices.Lights.Lamp";
 }
-::windows::core::interface_hierarchy!(Lamp, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Lamp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<Lamp> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -595,7 +595,7 @@ impl LampArray {
     }
     #[doc(hidden)]
     pub fn ILampArrayStatics<R, F: FnOnce(&ILampArrayStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LampArray, ILampArrayStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LampArray, ILampArrayStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -611,7 +611,7 @@ impl ::core::fmt::Debug for LampArray {
     }
 }
 impl ::windows::core::RuntimeType for LampArray {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampArray;{7ace9787-c8a0-4e95-a1e0-d58676538649})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampArray;{7ace9787-c8a0-4e95-a1e0-d58676538649})");
 }
 impl ::core::clone::Clone for LampArray {
     fn clone(&self) -> Self {
@@ -627,7 +627,7 @@ unsafe impl ::windows::core::Interface for LampArray {
 impl ::windows::core::RuntimeName for LampArray {
     const NAME: &'static str = "Windows.Devices.Lights.LampArray";
 }
-::windows::core::interface_hierarchy!(LampArray, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LampArray, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LampArray {}
 unsafe impl ::core::marker::Sync for LampArray {}
 #[doc = "*Required features: `\"Devices_Lights\"`*"]
@@ -654,7 +654,7 @@ impl ::core::fmt::Debug for LampAvailabilityChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LampAvailabilityChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampAvailabilityChangedEventArgs;{4f6e3ded-07a2-499d-9260-67e304532ba4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampAvailabilityChangedEventArgs;{4f6e3ded-07a2-499d-9260-67e304532ba4})");
 }
 impl ::core::clone::Clone for LampAvailabilityChangedEventArgs {
     fn clone(&self) -> Self {
@@ -670,7 +670,7 @@ unsafe impl ::windows::core::Interface for LampAvailabilityChangedEventArgs {
 impl ::windows::core::RuntimeName for LampAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.LampAvailabilityChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(LampAvailabilityChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LampAvailabilityChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LampAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for LampAvailabilityChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Lights\"`*"]
@@ -768,7 +768,7 @@ impl ::core::fmt::Debug for LampInfo {
     }
 }
 impl ::windows::core::RuntimeType for LampInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampInfo;{30bb521c-0acf-49da-8c10-150b9cf62713})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampInfo;{30bb521c-0acf-49da-8c10-150b9cf62713})");
 }
 impl ::core::clone::Clone for LampInfo {
     fn clone(&self) -> Self {
@@ -784,7 +784,7 @@ unsafe impl ::windows::core::Interface for LampInfo {
 impl ::windows::core::RuntimeName for LampInfo {
     const NAME: &'static str = "Windows.Devices.Lights.LampInfo";
 }
-::windows::core::interface_hierarchy!(LampInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LampInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LampInfo {}
 unsafe impl ::core::marker::Sync for LampInfo {}
 #[doc = "*Required features: `\"Devices_Lights\"`*"]
@@ -824,7 +824,7 @@ impl ::core::fmt::Debug for LampArrayKind {
     }
 }
 impl ::windows::core::RuntimeType for LampArrayKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_Lights\"`*"]
 #[repr(transparent)]
@@ -892,7 +892,7 @@ impl ::core::ops::Not for LampPurposes {
     }
 }
 impl ::windows::core::RuntimeType for LampPurposes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampPurposes;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampPurposes;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

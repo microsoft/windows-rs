@@ -361,7 +361,7 @@ impl ::core::fmt::Debug for Direct3D11CaptureFrame {
     }
 }
 impl ::windows::core::RuntimeType for Direct3D11CaptureFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.Direct3D11CaptureFrame;{fa50c623-38da-4b32-acf3-fa9734ad800e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.Direct3D11CaptureFrame;{fa50c623-38da-4b32-acf3-fa9734ad800e})");
 }
 impl ::core::clone::Clone for Direct3D11CaptureFrame {
     fn clone(&self) -> Self {
@@ -377,7 +377,7 @@ unsafe impl ::windows::core::Interface for Direct3D11CaptureFrame {
 impl ::windows::core::RuntimeName for Direct3D11CaptureFrame {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFrame";
 }
-::windows::core::interface_hierarchy!(Direct3D11CaptureFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Direct3D11CaptureFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<Direct3D11CaptureFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -486,12 +486,12 @@ impl Direct3D11CaptureFramePool {
     }
     #[doc(hidden)]
     pub fn IDirect3D11CaptureFramePoolStatics<R, F: FnOnce(&IDirect3D11CaptureFramePoolStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Direct3D11CaptureFramePool, IDirect3D11CaptureFramePoolStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Direct3D11CaptureFramePool, IDirect3D11CaptureFramePoolStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IDirect3D11CaptureFramePoolStatics2<R, F: FnOnce(&IDirect3D11CaptureFramePoolStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Direct3D11CaptureFramePool, IDirect3D11CaptureFramePoolStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Direct3D11CaptureFramePool, IDirect3D11CaptureFramePoolStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -507,7 +507,7 @@ impl ::core::fmt::Debug for Direct3D11CaptureFramePool {
     }
 }
 impl ::windows::core::RuntimeType for Direct3D11CaptureFramePool {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.Direct3D11CaptureFramePool;{24eb6d22-1975-422e-82e7-780dbd8ddf24})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.Direct3D11CaptureFramePool;{24eb6d22-1975-422e-82e7-780dbd8ddf24})");
 }
 impl ::core::clone::Clone for Direct3D11CaptureFramePool {
     fn clone(&self) -> Self {
@@ -523,7 +523,7 @@ unsafe impl ::windows::core::Interface for Direct3D11CaptureFramePool {
 impl ::windows::core::RuntimeName for Direct3D11CaptureFramePool {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFramePool";
 }
-::windows::core::interface_hierarchy!(Direct3D11CaptureFramePool, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Direct3D11CaptureFramePool, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<Direct3D11CaptureFramePool> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -561,7 +561,7 @@ impl GraphicsCaptureAccess {
     }
     #[doc(hidden)]
     pub fn IGraphicsCaptureAccessStatics<R, F: FnOnce(&IGraphicsCaptureAccessStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GraphicsCaptureAccess, IGraphicsCaptureAccessStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GraphicsCaptureAccess, IGraphicsCaptureAccessStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -628,12 +628,12 @@ impl GraphicsCaptureItem {
     }
     #[doc(hidden)]
     pub fn IGraphicsCaptureItemStatics<R, F: FnOnce(&IGraphicsCaptureItemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GraphicsCaptureItem, IGraphicsCaptureItemStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GraphicsCaptureItem, IGraphicsCaptureItemStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGraphicsCaptureItemStatics2<R, F: FnOnce(&IGraphicsCaptureItemStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GraphicsCaptureItem, IGraphicsCaptureItemStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GraphicsCaptureItem, IGraphicsCaptureItemStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -649,7 +649,7 @@ impl ::core::fmt::Debug for GraphicsCaptureItem {
     }
 }
 impl ::windows::core::RuntimeType for GraphicsCaptureItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCaptureItem;{79c3f95b-31f7-4ec2-a464-632ef5d30760})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCaptureItem;{79c3f95b-31f7-4ec2-a464-632ef5d30760})");
 }
 impl ::core::clone::Clone for GraphicsCaptureItem {
     fn clone(&self) -> Self {
@@ -665,7 +665,7 @@ unsafe impl ::windows::core::Interface for GraphicsCaptureItem {
 impl ::windows::core::RuntimeName for GraphicsCaptureItem {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureItem";
 }
-::windows::core::interface_hierarchy!(GraphicsCaptureItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GraphicsCaptureItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GraphicsCaptureItem {}
 unsafe impl ::core::marker::Sync for GraphicsCaptureItem {}
 #[doc = "*Required features: `\"Graphics_Capture\"`*"]
@@ -675,8 +675,8 @@ impl GraphicsCapturePicker {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GraphicsCapturePicker, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<GraphicsCapturePicker, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -701,7 +701,7 @@ impl ::core::fmt::Debug for GraphicsCapturePicker {
     }
 }
 impl ::windows::core::RuntimeType for GraphicsCapturePicker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCapturePicker;{5a1711b3-ad79-4b4a-9336-1318fdde3539})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCapturePicker;{5a1711b3-ad79-4b4a-9336-1318fdde3539})");
 }
 impl ::core::clone::Clone for GraphicsCapturePicker {
     fn clone(&self) -> Self {
@@ -717,7 +717,7 @@ unsafe impl ::windows::core::Interface for GraphicsCapturePicker {
 impl ::windows::core::RuntimeName for GraphicsCapturePicker {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCapturePicker";
 }
-::windows::core::interface_hierarchy!(GraphicsCapturePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GraphicsCapturePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GraphicsCapturePicker {}
 unsafe impl ::core::marker::Sync for GraphicsCapturePicker {}
 #[doc = "*Required features: `\"Graphics_Capture\"`*"]
@@ -764,7 +764,7 @@ impl GraphicsCaptureSession {
     }
     #[doc(hidden)]
     pub fn IGraphicsCaptureSessionStatics<R, F: FnOnce(&IGraphicsCaptureSessionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GraphicsCaptureSession, IGraphicsCaptureSessionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GraphicsCaptureSession, IGraphicsCaptureSessionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -780,7 +780,7 @@ impl ::core::fmt::Debug for GraphicsCaptureSession {
     }
 }
 impl ::windows::core::RuntimeType for GraphicsCaptureSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCaptureSession;{814e42a9-f70f-4ad7-939b-fddcc6eb880d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCaptureSession;{814e42a9-f70f-4ad7-939b-fddcc6eb880d})");
 }
 impl ::core::clone::Clone for GraphicsCaptureSession {
     fn clone(&self) -> Self {
@@ -796,7 +796,7 @@ unsafe impl ::windows::core::Interface for GraphicsCaptureSession {
 impl ::windows::core::RuntimeName for GraphicsCaptureSession {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureSession";
 }
-::windows::core::interface_hierarchy!(GraphicsCaptureSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GraphicsCaptureSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<GraphicsCaptureSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -849,7 +849,7 @@ impl ::core::fmt::Debug for GraphicsCaptureAccessKind {
     }
 }
 impl ::windows::core::RuntimeType for GraphicsCaptureAccessKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Capture.GraphicsCaptureAccessKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Capture.GraphicsCaptureAccessKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

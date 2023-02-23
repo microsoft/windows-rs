@@ -1494,7 +1494,7 @@ impl ::core::fmt::Debug for CallAnswerEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CallAnswerEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallAnswerEventArgs;{fd789617-2dd7-4c8c-b2bd-95d17a5bb733})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallAnswerEventArgs;{fd789617-2dd7-4c8c-b2bd-95d17a5bb733})");
 }
 impl ::core::clone::Clone for CallAnswerEventArgs {
     fn clone(&self) -> Self {
@@ -1510,7 +1510,7 @@ unsafe impl ::windows::core::Interface for CallAnswerEventArgs {
 impl ::windows::core::RuntimeName for CallAnswerEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallAnswerEventArgs";
 }
-::windows::core::interface_hierarchy!(CallAnswerEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CallAnswerEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CallAnswerEventArgs {}
 unsafe impl ::core::marker::Sync for CallAnswerEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -1537,7 +1537,7 @@ impl ::core::fmt::Debug for CallRejectEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CallRejectEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallRejectEventArgs;{da47fad7-13d4-4d92-a1c2-b77811ee37ec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallRejectEventArgs;{da47fad7-13d4-4d92-a1c2-b77811ee37ec})");
 }
 impl ::core::clone::Clone for CallRejectEventArgs {
     fn clone(&self) -> Self {
@@ -1553,7 +1553,7 @@ unsafe impl ::windows::core::Interface for CallRejectEventArgs {
 impl ::windows::core::RuntimeName for CallRejectEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallRejectEventArgs";
 }
-::windows::core::interface_hierarchy!(CallRejectEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CallRejectEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CallRejectEventArgs {}
 unsafe impl ::core::marker::Sync for CallRejectEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -1580,7 +1580,7 @@ impl ::core::fmt::Debug for CallStateChangeEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CallStateChangeEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallStateChangeEventArgs;{eab2349e-66f5-47f9-9fb5-459c5198c720})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallStateChangeEventArgs;{eab2349e-66f5-47f9-9fb5-459c5198c720})");
 }
 impl ::core::clone::Clone for CallStateChangeEventArgs {
     fn clone(&self) -> Self {
@@ -1596,7 +1596,7 @@ unsafe impl ::windows::core::Interface for CallStateChangeEventArgs {
 impl ::windows::core::RuntimeName for CallStateChangeEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallStateChangeEventArgs";
 }
-::windows::core::interface_hierarchy!(CallStateChangeEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CallStateChangeEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CallStateChangeEventArgs {}
 unsafe impl ::core::marker::Sync for CallStateChangeEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -1620,7 +1620,7 @@ impl ::core::fmt::Debug for LockScreenCallEndCallDeferral {
     }
 }
 impl ::windows::core::RuntimeType for LockScreenCallEndCallDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral;{2dd7ed0d-98ed-4041-9632-50ff812b773f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral;{2dd7ed0d-98ed-4041-9632-50ff812b773f})");
 }
 impl ::core::clone::Clone for LockScreenCallEndCallDeferral {
     fn clone(&self) -> Self {
@@ -1636,7 +1636,7 @@ unsafe impl ::windows::core::Interface for LockScreenCallEndCallDeferral {
 impl ::windows::core::RuntimeName for LockScreenCallEndCallDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral";
 }
-::windows::core::interface_hierarchy!(LockScreenCallEndCallDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LockScreenCallEndCallDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockScreenCallEndCallDeferral {}
 unsafe impl ::core::marker::Sync for LockScreenCallEndCallDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -1672,7 +1672,7 @@ impl ::core::fmt::Debug for LockScreenCallEndRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LockScreenCallEndRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs;{8190a363-6f27-46e9-aeb6-c0ae83e47dc7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs;{8190a363-6f27-46e9-aeb6-c0ae83e47dc7})");
 }
 impl ::core::clone::Clone for LockScreenCallEndRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1688,7 +1688,7 @@ unsafe impl ::windows::core::Interface for LockScreenCallEndRequestedEventArgs {
 impl ::windows::core::RuntimeName for LockScreenCallEndRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(LockScreenCallEndRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LockScreenCallEndRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockScreenCallEndRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenCallEndRequestedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -1753,7 +1753,7 @@ impl ::core::fmt::Debug for LockScreenCallUI {
     }
 }
 impl ::windows::core::RuntimeType for LockScreenCallUI {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.LockScreenCallUI;{c596fd8d-73c9-4a14-b021-ec1c50a3b727})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.LockScreenCallUI;{c596fd8d-73c9-4a14-b021-ec1c50a3b727})");
 }
 impl ::core::clone::Clone for LockScreenCallUI {
     fn clone(&self) -> Self {
@@ -1769,7 +1769,7 @@ unsafe impl ::windows::core::Interface for LockScreenCallUI {
 impl ::windows::core::RuntimeName for LockScreenCallUI {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallUI";
 }
-::windows::core::interface_hierarchy!(LockScreenCallUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LockScreenCallUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockScreenCallUI {}
 unsafe impl ::core::marker::Sync for LockScreenCallUI {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -1796,7 +1796,7 @@ impl ::core::fmt::Debug for MuteChangeEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MuteChangeEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.MuteChangeEventArgs;{8585e159-0c41-432c-814d-c5f1fdf530be})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.MuteChangeEventArgs;{8585e159-0c41-432c-814d-c5f1fdf530be})");
 }
 impl ::core::clone::Clone for MuteChangeEventArgs {
     fn clone(&self) -> Self {
@@ -1812,7 +1812,7 @@ unsafe impl ::windows::core::Interface for MuteChangeEventArgs {
 impl ::windows::core::RuntimeName for MuteChangeEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.MuteChangeEventArgs";
 }
-::windows::core::interface_hierarchy!(MuteChangeEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MuteChangeEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MuteChangeEventArgs {}
 unsafe impl ::core::marker::Sync for MuteChangeEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -2060,7 +2060,7 @@ impl PhoneCall {
     }
     #[doc(hidden)]
     pub fn IPhoneCallStatics<R, F: FnOnce(&IPhoneCallStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneCall, IPhoneCallStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhoneCall, IPhoneCallStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2076,7 +2076,7 @@ impl ::core::fmt::Debug for PhoneCall {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCall {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCall;{c14ed0f8-c17d-59d2-9628-66e545b6cd21})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCall;{c14ed0f8-c17d-59d2-9628-66e545b6cd21})");
 }
 impl ::core::clone::Clone for PhoneCall {
     fn clone(&self) -> Self {
@@ -2092,7 +2092,7 @@ unsafe impl ::windows::core::Interface for PhoneCall {
 impl ::windows::core::RuntimeName for PhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCall";
 }
-::windows::core::interface_hierarchy!(PhoneCall, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCall, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCall {}
 unsafe impl ::core::marker::Sync for PhoneCall {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -2130,7 +2130,7 @@ impl PhoneCallBlocking {
     }
     #[doc(hidden)]
     pub fn IPhoneCallBlockingStatics<R, F: FnOnce(&IPhoneCallBlockingStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneCallBlocking, IPhoneCallBlockingStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhoneCallBlocking, IPhoneCallBlockingStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2144,8 +2144,8 @@ impl PhoneCallHistoryEntry {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneCallHistoryEntry, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PhoneCallHistoryEntry, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2363,7 +2363,7 @@ impl ::core::fmt::Debug for PhoneCallHistoryEntry {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallHistoryEntry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntry;{fab0e129-32a4-4b85-83d1-f90d8c23a857})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntry;{fab0e129-32a4-4b85-83d1-f90d8c23a857})");
 }
 impl ::core::clone::Clone for PhoneCallHistoryEntry {
     fn clone(&self) -> Self {
@@ -2379,7 +2379,7 @@ unsafe impl ::windows::core::Interface for PhoneCallHistoryEntry {
 impl ::windows::core::RuntimeName for PhoneCallHistoryEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntry";
 }
-::windows::core::interface_hierarchy!(PhoneCallHistoryEntry, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallHistoryEntry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntry {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntry {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -2389,8 +2389,8 @@ impl PhoneCallHistoryEntryAddress {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneCallHistoryEntryAddress, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PhoneCallHistoryEntryAddress, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ContactId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2445,7 +2445,7 @@ impl PhoneCallHistoryEntryAddress {
     }
     #[doc(hidden)]
     pub fn IPhoneCallHistoryEntryAddressFactory<R, F: FnOnce(&IPhoneCallHistoryEntryAddressFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneCallHistoryEntryAddress, IPhoneCallHistoryEntryAddressFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhoneCallHistoryEntryAddress, IPhoneCallHistoryEntryAddressFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2461,7 +2461,7 @@ impl ::core::fmt::Debug for PhoneCallHistoryEntryAddress {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallHistoryEntryAddress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress;{30f159da-3955-4042-84e6-66eebf82e67f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress;{30f159da-3955-4042-84e6-66eebf82e67f})");
 }
 impl ::core::clone::Clone for PhoneCallHistoryEntryAddress {
     fn clone(&self) -> Self {
@@ -2477,7 +2477,7 @@ unsafe impl ::windows::core::Interface for PhoneCallHistoryEntryAddress {
 impl ::windows::core::RuntimeName for PhoneCallHistoryEntryAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress";
 }
-::windows::core::interface_hierarchy!(PhoneCallHistoryEntryAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallHistoryEntryAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntryAddress {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryAddress {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -2487,8 +2487,8 @@ impl PhoneCallHistoryEntryQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneCallHistoryEntryQueryOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PhoneCallHistoryEntryQueryOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn DesiredMedia(&self) -> ::windows::core::Result<PhoneCallHistoryEntryQueryDesiredMedia> {
@@ -2524,7 +2524,7 @@ impl ::core::fmt::Debug for PhoneCallHistoryEntryQueryOptions {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallHistoryEntryQueryOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions;{9c5fe15c-8bed-40ca-b06e-c4ca8eae5c87})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions;{9c5fe15c-8bed-40ca-b06e-c4ca8eae5c87})");
 }
 impl ::core::clone::Clone for PhoneCallHistoryEntryQueryOptions {
     fn clone(&self) -> Self {
@@ -2540,7 +2540,7 @@ unsafe impl ::windows::core::Interface for PhoneCallHistoryEntryQueryOptions {
 impl ::windows::core::RuntimeName for PhoneCallHistoryEntryQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions";
 }
-::windows::core::interface_hierarchy!(PhoneCallHistoryEntryQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallHistoryEntryQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntryQueryOptions {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryQueryOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -2569,7 +2569,7 @@ impl ::core::fmt::Debug for PhoneCallHistoryEntryReader {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallHistoryEntryReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader;{61ece4be-8d86-479f-8404-a9846920fee6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader;{61ece4be-8d86-479f-8404-a9846920fee6})");
 }
 impl ::core::clone::Clone for PhoneCallHistoryEntryReader {
     fn clone(&self) -> Self {
@@ -2585,7 +2585,7 @@ unsafe impl ::windows::core::Interface for PhoneCallHistoryEntryReader {
 impl ::windows::core::RuntimeName for PhoneCallHistoryEntryReader {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader";
 }
-::windows::core::interface_hierarchy!(PhoneCallHistoryEntryReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallHistoryEntryReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntryReader {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryReader {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -2609,12 +2609,12 @@ impl PhoneCallHistoryManager {
     }
     #[doc(hidden)]
     pub fn IPhoneCallHistoryManagerStatics<R, F: FnOnce(&IPhoneCallHistoryManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneCallHistoryManager, IPhoneCallHistoryManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhoneCallHistoryManager, IPhoneCallHistoryManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPhoneCallHistoryManagerStatics2<R, F: FnOnce(&IPhoneCallHistoryManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneCallHistoryManager, IPhoneCallHistoryManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhoneCallHistoryManager, IPhoneCallHistoryManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2656,7 +2656,7 @@ impl ::core::fmt::Debug for PhoneCallHistoryManagerForUser {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallHistoryManagerForUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser;{d925c523-f55f-4353-9db4-0205a5265a55})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser;{d925c523-f55f-4353-9db4-0205a5265a55})");
 }
 impl ::core::clone::Clone for PhoneCallHistoryManagerForUser {
     fn clone(&self) -> Self {
@@ -2672,7 +2672,7 @@ unsafe impl ::windows::core::Interface for PhoneCallHistoryManagerForUser {
 impl ::windows::core::RuntimeName for PhoneCallHistoryManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser";
 }
-::windows::core::interface_hierarchy!(PhoneCallHistoryManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallHistoryManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallHistoryManagerForUser {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryManagerForUser {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -2812,7 +2812,7 @@ impl ::core::fmt::Debug for PhoneCallHistoryStore {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallHistoryStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryStore;{2f907db8-b40e-422b-8545-cb1910a61c52})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryStore;{2f907db8-b40e-422b-8545-cb1910a61c52})");
 }
 impl ::core::clone::Clone for PhoneCallHistoryStore {
     fn clone(&self) -> Self {
@@ -2828,7 +2828,7 @@ unsafe impl ::windows::core::Interface for PhoneCallHistoryStore {
 impl ::windows::core::RuntimeName for PhoneCallHistoryStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryStore";
 }
-::windows::core::interface_hierarchy!(PhoneCallHistoryStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallHistoryStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallHistoryStore {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryStore {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -2892,7 +2892,7 @@ impl ::core::fmt::Debug for PhoneCallInfo {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallInfo;{22b42577-3e4d-5dc6-89c2-469fe5ffc189})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallInfo;{22b42577-3e4d-5dc6-89c2-469fe5ffc189})");
 }
 impl ::core::clone::Clone for PhoneCallInfo {
     fn clone(&self) -> Self {
@@ -2908,7 +2908,7 @@ unsafe impl ::windows::core::Interface for PhoneCallInfo {
 impl ::windows::core::RuntimeName for PhoneCallInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallInfo";
 }
-::windows::core::interface_hierarchy!(PhoneCallInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallInfo {}
 unsafe impl ::core::marker::Sync for PhoneCallInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -2955,12 +2955,12 @@ impl PhoneCallManager {
     }
     #[doc(hidden)]
     pub fn IPhoneCallManagerStatics<R, F: FnOnce(&IPhoneCallManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneCallManager, IPhoneCallManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhoneCallManager, IPhoneCallManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPhoneCallManagerStatics2<R, F: FnOnce(&IPhoneCallManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneCallManager, IPhoneCallManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhoneCallManager, IPhoneCallManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3009,7 +3009,7 @@ impl ::core::fmt::Debug for PhoneCallStore {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallStore;{5f610748-18a6-4173-86d1-28be9dc62dba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallStore;{5f610748-18a6-4173-86d1-28be9dc62dba})");
 }
 impl ::core::clone::Clone for PhoneCallStore {
     fn clone(&self) -> Self {
@@ -3025,7 +3025,7 @@ unsafe impl ::windows::core::Interface for PhoneCallStore {
 impl ::windows::core::RuntimeName for PhoneCallStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallStore";
 }
-::windows::core::interface_hierarchy!(PhoneCallStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallStore {}
 unsafe impl ::core::marker::Sync for PhoneCallStore {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -3052,7 +3052,7 @@ impl ::core::fmt::Debug for PhoneCallVideoCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallVideoCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities;{02382786-b16a-4fdb-be3b-c4240e13ad0d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities;{02382786-b16a-4fdb-be3b-c4240e13ad0d})");
 }
 impl ::core::clone::Clone for PhoneCallVideoCapabilities {
     fn clone(&self) -> Self {
@@ -3068,7 +3068,7 @@ unsafe impl ::windows::core::Interface for PhoneCallVideoCapabilities {
 impl ::windows::core::RuntimeName for PhoneCallVideoCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities";
 }
-::windows::core::interface_hierarchy!(PhoneCallVideoCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallVideoCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallVideoCapabilities {}
 unsafe impl ::core::marker::Sync for PhoneCallVideoCapabilities {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -3084,7 +3084,7 @@ impl PhoneCallVideoCapabilitiesManager {
     }
     #[doc(hidden)]
     pub fn IPhoneCallVideoCapabilitiesManagerStatics<R, F: FnOnce(&IPhoneCallVideoCapabilitiesManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneCallVideoCapabilitiesManager, IPhoneCallVideoCapabilitiesManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhoneCallVideoCapabilitiesManager, IPhoneCallVideoCapabilitiesManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3124,7 +3124,7 @@ impl ::core::fmt::Debug for PhoneCallsResult {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallsResult;{1bfad365-57cf-57dd-986d-b057c91eac33})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallsResult;{1bfad365-57cf-57dd-986d-b057c91eac33})");
 }
 impl ::core::clone::Clone for PhoneCallsResult {
     fn clone(&self) -> Self {
@@ -3140,7 +3140,7 @@ unsafe impl ::windows::core::Interface for PhoneCallsResult {
 impl ::windows::core::RuntimeName for PhoneCallsResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallsResult";
 }
-::windows::core::interface_hierarchy!(PhoneCallsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallsResult {}
 unsafe impl ::core::marker::Sync for PhoneCallsResult {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -3150,8 +3150,8 @@ impl PhoneDialOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneDialOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PhoneDialOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Number(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3241,7 +3241,7 @@ impl ::core::fmt::Debug for PhoneDialOptions {
     }
 }
 impl ::windows::core::RuntimeType for PhoneDialOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneDialOptions;{b639c4b8-f06f-36cb-a863-823742b5f2d4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneDialOptions;{b639c4b8-f06f-36cb-a863-823742b5f2d4})");
 }
 impl ::core::clone::Clone for PhoneDialOptions {
     fn clone(&self) -> Self {
@@ -3257,7 +3257,7 @@ unsafe impl ::windows::core::Interface for PhoneDialOptions {
 impl ::windows::core::RuntimeName for PhoneDialOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneDialOptions";
 }
-::windows::core::interface_hierarchy!(PhoneDialOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneDialOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneDialOptions {}
 unsafe impl ::core::marker::Sync for PhoneDialOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -3437,7 +3437,7 @@ impl PhoneLine {
     }
     #[doc(hidden)]
     pub fn IPhoneLineStatics<R, F: FnOnce(&IPhoneLineStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneLine, IPhoneLineStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhoneLine, IPhoneLineStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3453,7 +3453,7 @@ impl ::core::fmt::Debug for PhoneLine {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLine {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLine;{27c66f30-6a69-34ca-a2ba-65302530c311})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLine;{27c66f30-6a69-34ca-a2ba-65302530c311})");
 }
 impl ::core::clone::Clone for PhoneLine {
     fn clone(&self) -> Self {
@@ -3469,7 +3469,7 @@ unsafe impl ::windows::core::Interface for PhoneLine {
 impl ::windows::core::RuntimeName for PhoneLine {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLine";
 }
-::windows::core::interface_hierarchy!(PhoneLine, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneLine, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneLine {}
 unsafe impl ::core::marker::Sync for PhoneLine {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -3524,7 +3524,7 @@ impl ::core::fmt::Debug for PhoneLineCellularDetails {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineCellularDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineCellularDetails;{192601d5-147c-4769-b673-98a5ec8426cb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineCellularDetails;{192601d5-147c-4769-b673-98a5ec8426cb})");
 }
 impl ::core::clone::Clone for PhoneLineCellularDetails {
     fn clone(&self) -> Self {
@@ -3540,7 +3540,7 @@ unsafe impl ::windows::core::Interface for PhoneLineCellularDetails {
 impl ::windows::core::RuntimeName for PhoneLineCellularDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineCellularDetails";
 }
-::windows::core::interface_hierarchy!(PhoneLineCellularDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneLineCellularDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneLineCellularDetails {}
 unsafe impl ::core::marker::Sync for PhoneLineCellularDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -3576,7 +3576,7 @@ impl ::core::fmt::Debug for PhoneLineConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineConfiguration;{fe265862-f64f-4312-b2a8-4e257721aa95})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineConfiguration;{fe265862-f64f-4312-b2a8-4e257721aa95})");
 }
 impl ::core::clone::Clone for PhoneLineConfiguration {
     fn clone(&self) -> Self {
@@ -3592,7 +3592,7 @@ unsafe impl ::windows::core::Interface for PhoneLineConfiguration {
 impl ::windows::core::RuntimeName for PhoneLineConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineConfiguration";
 }
-::windows::core::interface_hierarchy!(PhoneLineConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneLineConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneLineConfiguration {}
 unsafe impl ::core::marker::Sync for PhoneLineConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -3626,7 +3626,7 @@ impl ::core::fmt::Debug for PhoneLineDialResult {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineDialResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineDialResult;{e825a30a-5c7f-546f-b918-3ad2fe70fb34})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineDialResult;{e825a30a-5c7f-546f-b918-3ad2fe70fb34})");
 }
 impl ::core::clone::Clone for PhoneLineDialResult {
     fn clone(&self) -> Self {
@@ -3642,7 +3642,7 @@ unsafe impl ::windows::core::Interface for PhoneLineDialResult {
 impl ::windows::core::RuntimeName for PhoneLineDialResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineDialResult";
 }
-::windows::core::interface_hierarchy!(PhoneLineDialResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneLineDialResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneLineDialResult {}
 unsafe impl ::core::marker::Sync for PhoneLineDialResult {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -3779,7 +3779,7 @@ impl PhoneLineTransportDevice {
     }
     #[doc(hidden)]
     pub fn IPhoneLineTransportDeviceStatics<R, F: FnOnce(&IPhoneLineTransportDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneLineTransportDevice, IPhoneLineTransportDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhoneLineTransportDevice, IPhoneLineTransportDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3795,7 +3795,7 @@ impl ::core::fmt::Debug for PhoneLineTransportDevice {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineTransportDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineTransportDevice;{efa8f889-cffa-59f4-97e4-74705b7dc490})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineTransportDevice;{efa8f889-cffa-59f4-97e4-74705b7dc490})");
 }
 impl ::core::clone::Clone for PhoneLineTransportDevice {
     fn clone(&self) -> Self {
@@ -3811,7 +3811,7 @@ unsafe impl ::windows::core::Interface for PhoneLineTransportDevice {
 impl ::windows::core::RuntimeName for PhoneLineTransportDevice {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineTransportDevice";
 }
-::windows::core::interface_hierarchy!(PhoneLineTransportDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneLineTransportDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneLineTransportDevice {}
 unsafe impl ::core::marker::Sync for PhoneLineTransportDevice {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -3921,7 +3921,7 @@ impl ::core::fmt::Debug for PhoneLineWatcher {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineWatcher;{8a45cd0a-6323-44e0-a6f6-9f21f64dc90a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineWatcher;{8a45cd0a-6323-44e0-a6f6-9f21f64dc90a})");
 }
 impl ::core::clone::Clone for PhoneLineWatcher {
     fn clone(&self) -> Self {
@@ -3937,7 +3937,7 @@ unsafe impl ::windows::core::Interface for PhoneLineWatcher {
 impl ::windows::core::RuntimeName for PhoneLineWatcher {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcher";
 }
-::windows::core::interface_hierarchy!(PhoneLineWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneLineWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneLineWatcher {}
 unsafe impl ::core::marker::Sync for PhoneLineWatcher {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -3964,7 +3964,7 @@ impl ::core::fmt::Debug for PhoneLineWatcherEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineWatcherEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs;{d07c753e-9e12-4a37-82b7-ad535dad6a67})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs;{d07c753e-9e12-4a37-82b7-ad535dad6a67})");
 }
 impl ::core::clone::Clone for PhoneLineWatcherEventArgs {
     fn clone(&self) -> Self {
@@ -3980,7 +3980,7 @@ unsafe impl ::windows::core::Interface for PhoneLineWatcherEventArgs {
 impl ::windows::core::RuntimeName for PhoneLineWatcherEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs";
 }
-::windows::core::interface_hierarchy!(PhoneLineWatcherEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneLineWatcherEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneLineWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for PhoneLineWatcherEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -4030,7 +4030,7 @@ impl ::core::fmt::Debug for PhoneVoicemail {
     }
 }
 impl ::windows::core::RuntimeType for PhoneVoicemail {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneVoicemail;{c9ce77f6-6e9f-3a8b-b727-6e0cf6998224})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneVoicemail;{c9ce77f6-6e9f-3a8b-b727-6e0cf6998224})");
 }
 impl ::core::clone::Clone for PhoneVoicemail {
     fn clone(&self) -> Self {
@@ -4046,7 +4046,7 @@ unsafe impl ::windows::core::Interface for PhoneVoicemail {
 impl ::windows::core::RuntimeName for PhoneVoicemail {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneVoicemail";
 }
-::windows::core::interface_hierarchy!(PhoneVoicemail, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneVoicemail, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneVoicemail {}
 unsafe impl ::core::marker::Sync for PhoneVoicemail {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -4165,7 +4165,7 @@ impl VoipCallCoordinator {
     }
     #[doc(hidden)]
     pub fn IVoipCallCoordinatorStatics<R, F: FnOnce(&IVoipCallCoordinatorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VoipCallCoordinator, IVoipCallCoordinatorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VoipCallCoordinator, IVoipCallCoordinatorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4181,7 +4181,7 @@ impl ::core::fmt::Debug for VoipCallCoordinator {
     }
 }
 impl ::windows::core::RuntimeType for VoipCallCoordinator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.VoipCallCoordinator;{4f118bcf-e8ef-4434-9c5f-a8d893fafe79})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.VoipCallCoordinator;{4f118bcf-e8ef-4434-9c5f-a8d893fafe79})");
 }
 impl ::core::clone::Clone for VoipCallCoordinator {
     fn clone(&self) -> Self {
@@ -4197,7 +4197,7 @@ unsafe impl ::windows::core::Interface for VoipCallCoordinator {
 impl ::windows::core::RuntimeName for VoipCallCoordinator {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipCallCoordinator";
 }
-::windows::core::interface_hierarchy!(VoipCallCoordinator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoipCallCoordinator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoipCallCoordinator {}
 unsafe impl ::core::marker::Sync for VoipCallCoordinator {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -4353,7 +4353,7 @@ impl ::core::fmt::Debug for VoipPhoneCall {
     }
 }
 impl ::windows::core::RuntimeType for VoipPhoneCall {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.VoipPhoneCall;{6cf1f19a-7794-4a5a-8c68-ae87947a6990})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.VoipPhoneCall;{6cf1f19a-7794-4a5a-8c68-ae87947a6990})");
 }
 impl ::core::clone::Clone for VoipPhoneCall {
     fn clone(&self) -> Self {
@@ -4369,7 +4369,7 @@ unsafe impl ::windows::core::Interface for VoipPhoneCall {
 impl ::windows::core::RuntimeName for VoipPhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipPhoneCall";
 }
-::windows::core::interface_hierarchy!(VoipPhoneCall, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoipPhoneCall, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoipPhoneCall {}
 unsafe impl ::core::marker::Sync for VoipPhoneCall {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -4400,7 +4400,7 @@ impl ::core::fmt::Debug for CellularDtmfMode {
     }
 }
 impl ::windows::core::RuntimeType for CellularDtmfMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.CellularDtmfMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.CellularDtmfMode;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4440,7 +4440,7 @@ impl ::core::fmt::Debug for DtmfKey {
     }
 }
 impl ::windows::core::RuntimeType for DtmfKey {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfKey;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfKey;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4470,7 +4470,7 @@ impl ::core::fmt::Debug for DtmfToneAudioPlayback {
     }
 }
 impl ::windows::core::RuntimeType for DtmfToneAudioPlayback {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfToneAudioPlayback;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfToneAudioPlayback;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4501,7 +4501,7 @@ impl ::core::fmt::Debug for PhoneAudioRoutingEndpoint {
     }
 }
 impl ::windows::core::RuntimeType for PhoneAudioRoutingEndpoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4532,7 +4532,7 @@ impl ::core::fmt::Debug for PhoneCallAudioDevice {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallAudioDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallAudioDevice;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallAudioDevice;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4563,7 +4563,7 @@ impl ::core::fmt::Debug for PhoneCallDirection {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallDirection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallDirection;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallDirection;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4593,7 +4593,7 @@ impl ::core::fmt::Debug for PhoneCallHistoryEntryMedia {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallHistoryEntryMedia {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryMedia;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryMedia;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4623,7 +4623,7 @@ impl ::core::fmt::Debug for PhoneCallHistoryEntryOtherAppReadAccess {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallHistoryEntryOtherAppReadAccess {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryOtherAppReadAccess;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryOtherAppReadAccess;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4688,7 +4688,7 @@ impl ::core::ops::Not for PhoneCallHistoryEntryQueryDesiredMedia {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallHistoryEntryQueryDesiredMedia {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryDesiredMedia;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryDesiredMedia;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4718,7 +4718,7 @@ impl ::core::fmt::Debug for PhoneCallHistoryEntryRawAddressKind {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallHistoryEntryRawAddressKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4748,7 +4748,7 @@ impl ::core::fmt::Debug for PhoneCallHistorySourceIdKind {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallHistorySourceIdKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistorySourceIdKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistorySourceIdKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4779,7 +4779,7 @@ impl ::core::fmt::Debug for PhoneCallHistoryStoreAccessType {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallHistoryStoreAccessType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4810,7 +4810,7 @@ impl ::core::fmt::Debug for PhoneCallMedia {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallMedia {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallMedia;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallMedia;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4843,7 +4843,7 @@ impl ::core::fmt::Debug for PhoneCallOperationStatus {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallOperationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallOperationStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4877,7 +4877,7 @@ impl ::core::fmt::Debug for PhoneCallStatus {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4909,7 +4909,7 @@ impl ::core::fmt::Debug for PhoneLineNetworkOperatorDisplayTextLocation {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineNetworkOperatorDisplayTextLocation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineNetworkOperatorDisplayTextLocation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineNetworkOperatorDisplayTextLocation;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4942,7 +4942,7 @@ impl ::core::fmt::Debug for PhoneLineOperationStatus {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineOperationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineOperationStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4973,7 +4973,7 @@ impl ::core::fmt::Debug for PhoneLineTransport {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineTransport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineTransport;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineTransport;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -5005,7 +5005,7 @@ impl ::core::fmt::Debug for PhoneLineWatcherStatus {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineWatcherStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineWatcherStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -5041,7 +5041,7 @@ impl ::core::fmt::Debug for PhoneNetworkState {
     }
 }
 impl ::windows::core::RuntimeType for PhoneNetworkState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneNetworkState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneNetworkState;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -5077,7 +5077,7 @@ impl ::core::fmt::Debug for PhoneSimState {
     }
 }
 impl ::windows::core::RuntimeType for PhoneSimState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneSimState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneSimState;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -5108,7 +5108,7 @@ impl ::core::fmt::Debug for PhoneVoicemailType {
     }
 }
 impl ::windows::core::RuntimeType for PhoneVoicemailType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneVoicemailType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneVoicemailType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -5139,7 +5139,7 @@ impl ::core::fmt::Debug for TransportDeviceAudioRoutingStatus {
     }
 }
 impl ::windows::core::RuntimeType for TransportDeviceAudioRoutingStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.TransportDeviceAudioRoutingStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.TransportDeviceAudioRoutingStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -5203,7 +5203,7 @@ impl ::core::ops::Not for VoipPhoneCallMedia {
     }
 }
 impl ::windows::core::RuntimeType for VoipPhoneCallMedia {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallMedia;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallMedia;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -5236,7 +5236,7 @@ impl ::core::fmt::Debug for VoipPhoneCallRejectReason {
     }
 }
 impl ::windows::core::RuntimeType for VoipPhoneCallRejectReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallRejectReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallRejectReason;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -5266,7 +5266,7 @@ impl ::core::fmt::Debug for VoipPhoneCallResourceReservationStatus {
     }
 }
 impl ::windows::core::RuntimeType for VoipPhoneCallResourceReservationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallResourceReservationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallResourceReservationStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -5299,7 +5299,7 @@ impl ::core::fmt::Debug for VoipPhoneCallState {
     }
 }
 impl ::windows::core::RuntimeType for VoipPhoneCallState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallState;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -297,7 +297,7 @@ impl DisplayMonitor {
     }
     #[doc(hidden)]
     pub fn IDisplayMonitorStatics<R, F: FnOnce(&IDisplayMonitorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayMonitor, IDisplayMonitorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DisplayMonitor, IDisplayMonitorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -313,7 +313,7 @@ impl ::core::fmt::Debug for DisplayMonitor {
     }
 }
 impl ::windows::core::RuntimeType for DisplayMonitor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.DisplayMonitor;{1f6b15d4-1d01-4c51-87e2-6f954a772b59})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.DisplayMonitor;{1f6b15d4-1d01-4c51-87e2-6f954a772b59})");
 }
 impl ::core::clone::Clone for DisplayMonitor {
     fn clone(&self) -> Self {
@@ -329,7 +329,7 @@ unsafe impl ::windows::core::Interface for DisplayMonitor {
 impl ::windows::core::RuntimeName for DisplayMonitor {
     const NAME: &'static str = "Windows.Devices.Display.DisplayMonitor";
 }
-::windows::core::interface_hierarchy!(DisplayMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayMonitor {}
 unsafe impl ::core::marker::Sync for DisplayMonitor {}
 #[doc = "*Required features: `\"Devices_Display\"`*"]
@@ -362,7 +362,7 @@ impl ::core::fmt::Debug for DisplayMonitorConnectionKind {
     }
 }
 impl ::windows::core::RuntimeType for DisplayMonitorConnectionKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorConnectionKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorConnectionKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display\"`*"]
 #[repr(transparent)]
@@ -392,7 +392,7 @@ impl ::core::fmt::Debug for DisplayMonitorDescriptorKind {
     }
 }
 impl ::windows::core::RuntimeType for DisplayMonitorDescriptorKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorDescriptorKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorDescriptorKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display\"`*"]
 #[repr(transparent)]
@@ -428,7 +428,7 @@ impl ::core::fmt::Debug for DisplayMonitorPhysicalConnectorKind {
     }
 }
 impl ::windows::core::RuntimeType for DisplayMonitorPhysicalConnectorKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display\"`*"]
 #[repr(transparent)]
@@ -459,7 +459,7 @@ impl ::core::fmt::Debug for DisplayMonitorUsageKind {
     }
 }
 impl ::windows::core::RuntimeType for DisplayMonitorUsageKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorUsageKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorUsageKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -4,7 +4,7 @@ pub unsafe fn DXCoreCreateAdapterFactory<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dxcore.dll""system" fn DXCoreCreateAdapterFactory ( riid : *const :: windows::core::GUID , ppvfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxcore.dll""system" fn DXCoreCreateAdapterFactory ( riid : *const :: windows::core::GUID , ppvfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DXCoreCreateAdapterFactory(&<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -48,7 +48,7 @@ impl IDXCoreAdapter {
         (::windows::core::Vtable::vtable(self).GetFactory)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXCoreAdapter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXCoreAdapter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXCoreAdapter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -120,7 +120,7 @@ impl IDXCoreAdapterFactory {
         (::windows::core::Vtable::vtable(self).UnregisterEventNotification)(::windows::core::Vtable::as_raw(self), eventcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXCoreAdapterFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXCoreAdapterFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXCoreAdapterFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -187,7 +187,7 @@ impl IDXCoreAdapterList {
         (::windows::core::Vtable::vtable(self).IsAdapterPreferenceSupported)(::windows::core::Vtable::as_raw(self), preference)
     }
 }
-::windows::core::interface_hierarchy!(IDXCoreAdapterList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXCoreAdapterList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXCoreAdapterList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

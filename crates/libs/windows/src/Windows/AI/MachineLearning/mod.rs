@@ -303,7 +303,7 @@ impl ILearningModelFeatureDescriptor {
         }
     }
 }
-::windows::core::interface_hierarchy!(ILearningModelFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILearningModelFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ILearningModelFeatureDescriptor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -316,7 +316,7 @@ impl ::core::fmt::Debug for ILearningModelFeatureDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for ILearningModelFeatureDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bc08cf7c-6ed0-4004-97ba-b9a2eecd2b4f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{bc08cf7c-6ed0-4004-97ba-b9a2eecd2b4f}");
 }
 unsafe impl ::windows::core::Vtable for ILearningModelFeatureDescriptor {
     type Vtable = ILearningModelFeatureDescriptor_Vtbl;
@@ -350,7 +350,7 @@ impl ILearningModelFeatureValue {
         }
     }
 }
-::windows::core::interface_hierarchy!(ILearningModelFeatureValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILearningModelFeatureValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ILearningModelFeatureValue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -363,7 +363,7 @@ impl ::core::fmt::Debug for ILearningModelFeatureValue {
     }
 }
 impl ::windows::core::RuntimeType for ILearningModelFeatureValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f51005db-4085-4dfe-9fed-95eb0c0cf75c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{f51005db-4085-4dfe-9fed-95eb0c0cf75c}");
 }
 unsafe impl ::windows::core::Vtable for ILearningModelFeatureValue {
     type Vtable = ILearningModelFeatureValue_Vtbl;
@@ -386,7 +386,7 @@ pub struct ILearningModelFeatureValue_Vtbl {
 #[repr(transparent)]
 pub struct ILearningModelOperatorProvider(::windows::core::IUnknown);
 impl ILearningModelOperatorProvider {}
-::windows::core::interface_hierarchy!(ILearningModelOperatorProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILearningModelOperatorProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ILearningModelOperatorProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -399,7 +399,7 @@ impl ::core::fmt::Debug for ILearningModelOperatorProvider {
     }
 }
 impl ::windows::core::RuntimeType for ILearningModelOperatorProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2a222e5d-afb1-47ed-bfad-b5b3a459ec04}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2a222e5d-afb1-47ed-bfad-b5b3a459ec04}");
 }
 unsafe impl ::windows::core::Vtable for ILearningModelOperatorProvider {
     type Vtable = ILearningModelOperatorProvider_Vtbl;
@@ -672,7 +672,7 @@ impl ITensor {
         }
     }
 }
-::windows::core::interface_hierarchy!(ITensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ITensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ITensor> for ILearningModelFeatureValue {
     type Error = ::windows::core::Error;
     fn try_from(value: ITensor) -> ::windows::core::Result<Self> {
@@ -704,7 +704,7 @@ impl ::core::fmt::Debug for ITensor {
     }
 }
 impl ::windows::core::RuntimeType for ITensor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{05489593-a305-4a25-ad09-440119b4b7f6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{05489593-a305-4a25-ad09-440119b4b7f6}");
 }
 unsafe impl ::windows::core::Vtable for ITensor {
     type Vtable = ITensor_Vtbl;
@@ -1858,7 +1858,7 @@ impl ::core::fmt::Debug for ImageFeatureDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for ImageFeatureDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureDescriptor;{365585a5-171a-4a2a-985f-265159d3895a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureDescriptor;{365585a5-171a-4a2a-985f-265159d3895a})");
 }
 impl ::core::clone::Clone for ImageFeatureDescriptor {
     fn clone(&self) -> Self {
@@ -1874,7 +1874,7 @@ unsafe impl ::windows::core::Interface for ImageFeatureDescriptor {
 impl ::windows::core::RuntimeName for ImageFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ImageFeatureDescriptor";
 }
-::windows::core::interface_hierarchy!(ImageFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ImageFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImageFeatureDescriptor> for ILearningModelFeatureDescriptor {
     type Error = ::windows::core::Error;
     fn try_from(value: ImageFeatureDescriptor) -> ::windows::core::Result<Self> {
@@ -1926,7 +1926,7 @@ impl ImageFeatureValue {
     }
     #[doc(hidden)]
     pub fn IImageFeatureValueStatics<R, F: FnOnce(&IImageFeatureValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ImageFeatureValue, IImageFeatureValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ImageFeatureValue, IImageFeatureValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1942,7 +1942,7 @@ impl ::core::fmt::Debug for ImageFeatureValue {
     }
 }
 impl ::windows::core::RuntimeType for ImageFeatureValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureValue;{f0414fd9-c9aa-4405-b7fb-94f87c8a3037})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureValue;{f0414fd9-c9aa-4405-b7fb-94f87c8a3037})");
 }
 impl ::core::clone::Clone for ImageFeatureValue {
     fn clone(&self) -> Self {
@@ -1958,7 +1958,7 @@ unsafe impl ::windows::core::Interface for ImageFeatureValue {
 impl ::windows::core::RuntimeName for ImageFeatureValue {
     const NAME: &'static str = "Windows.AI.MachineLearning.ImageFeatureValue";
 }
-::windows::core::interface_hierarchy!(ImageFeatureValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ImageFeatureValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImageFeatureValue> for ILearningModelFeatureValue {
     type Error = ::windows::core::Error;
     fn try_from(value: ImageFeatureValue) -> ::windows::core::Result<Self> {
@@ -2148,7 +2148,7 @@ impl LearningModel {
     }
     #[doc(hidden)]
     pub fn ILearningModelStatics<R, F: FnOnce(&ILearningModelStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LearningModel, ILearningModelStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LearningModel, ILearningModelStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2164,7 +2164,7 @@ impl ::core::fmt::Debug for LearningModel {
     }
 }
 impl ::windows::core::RuntimeType for LearningModel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModel;{5b8e4920-489f-4e86-9128-265a327b78fa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModel;{5b8e4920-489f-4e86-9128-265a327b78fa})");
 }
 impl ::core::clone::Clone for LearningModel {
     fn clone(&self) -> Self {
@@ -2180,7 +2180,7 @@ unsafe impl ::windows::core::Interface for LearningModel {
 impl ::windows::core::RuntimeName for LearningModel {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModel";
 }
-::windows::core::interface_hierarchy!(LearningModel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LearningModel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<LearningModel> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2281,7 +2281,7 @@ impl LearningModelBinding {
     }
     #[doc(hidden)]
     pub fn ILearningModelBindingFactory<R, F: FnOnce(&ILearningModelBindingFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LearningModelBinding, ILearningModelBindingFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LearningModelBinding, ILearningModelBindingFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2297,7 +2297,7 @@ impl ::core::fmt::Debug for LearningModelBinding {
     }
 }
 impl ::windows::core::RuntimeType for LearningModelBinding {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelBinding;{ea312f20-168f-4f8c-94fe-2e7ac31b4aa8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelBinding;{ea312f20-168f-4f8c-94fe-2e7ac31b4aa8})");
 }
 impl ::core::clone::Clone for LearningModelBinding {
     fn clone(&self) -> Self {
@@ -2329,7 +2329,7 @@ impl ::core::iter::IntoIterator for &LearningModelBinding {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(LearningModelBinding, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LearningModelBinding, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<LearningModelBinding> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -2418,12 +2418,12 @@ impl LearningModelDevice {
     }
     #[doc(hidden)]
     pub fn ILearningModelDeviceFactory<R, F: FnOnce(&ILearningModelDeviceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LearningModelDevice, ILearningModelDeviceFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LearningModelDevice, ILearningModelDeviceFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ILearningModelDeviceStatics<R, F: FnOnce(&ILearningModelDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LearningModelDevice, ILearningModelDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LearningModelDevice, ILearningModelDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2439,7 +2439,7 @@ impl ::core::fmt::Debug for LearningModelDevice {
     }
 }
 impl ::windows::core::RuntimeType for LearningModelDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelDevice;{f5c2c8fe-3f56-4a8c-ac5f-fdb92d8b8252})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelDevice;{f5c2c8fe-3f56-4a8c-ac5f-fdb92d8b8252})");
 }
 impl ::core::clone::Clone for LearningModelDevice {
     fn clone(&self) -> Self {
@@ -2455,7 +2455,7 @@ unsafe impl ::windows::core::Interface for LearningModelDevice {
 impl ::windows::core::RuntimeName for LearningModelDevice {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelDevice";
 }
-::windows::core::interface_hierarchy!(LearningModelDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LearningModelDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LearningModelDevice {}
 unsafe impl ::core::marker::Sync for LearningModelDevice {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -2505,7 +2505,7 @@ impl ::core::fmt::Debug for LearningModelEvaluationResult {
     }
 }
 impl ::windows::core::RuntimeType for LearningModelEvaluationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelEvaluationResult;{b2f9bfcd-960e-49c0-8593-eb190ae3eee2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelEvaluationResult;{b2f9bfcd-960e-49c0-8593-eb190ae3eee2})");
 }
 impl ::core::clone::Clone for LearningModelEvaluationResult {
     fn clone(&self) -> Self {
@@ -2521,7 +2521,7 @@ unsafe impl ::windows::core::Interface for LearningModelEvaluationResult {
 impl ::windows::core::RuntimeName for LearningModelEvaluationResult {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelEvaluationResult";
 }
-::windows::core::interface_hierarchy!(LearningModelEvaluationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LearningModelEvaluationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LearningModelEvaluationResult {}
 unsafe impl ::core::marker::Sync for LearningModelEvaluationResult {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -2619,12 +2619,12 @@ impl LearningModelSession {
     }
     #[doc(hidden)]
     pub fn ILearningModelSessionFactory<R, F: FnOnce(&ILearningModelSessionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LearningModelSession, ILearningModelSessionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LearningModelSession, ILearningModelSessionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ILearningModelSessionFactory2<R, F: FnOnce(&ILearningModelSessionFactory2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LearningModelSession, ILearningModelSessionFactory2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LearningModelSession, ILearningModelSessionFactory2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2640,7 +2640,7 @@ impl ::core::fmt::Debug for LearningModelSession {
     }
 }
 impl ::windows::core::RuntimeType for LearningModelSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSession;{8e58f8f6-b787-4c11-90f0-7129aeca74a9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSession;{8e58f8f6-b787-4c11-90f0-7129aeca74a9})");
 }
 impl ::core::clone::Clone for LearningModelSession {
     fn clone(&self) -> Self {
@@ -2656,7 +2656,7 @@ unsafe impl ::windows::core::Interface for LearningModelSession {
 impl ::windows::core::RuntimeName for LearningModelSession {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelSession";
 }
-::windows::core::interface_hierarchy!(LearningModelSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LearningModelSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<LearningModelSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2688,8 +2688,8 @@ impl LearningModelSessionOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LearningModelSessionOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<LearningModelSessionOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn BatchSizeOverride(&self) -> ::windows::core::Result<u32> {
@@ -2731,7 +2731,7 @@ impl ::core::fmt::Debug for LearningModelSessionOptions {
     }
 }
 impl ::windows::core::RuntimeType for LearningModelSessionOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSessionOptions;{b8f63fa1-134d-5133-8cff-3a5c3c263beb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSessionOptions;{b8f63fa1-134d-5133-8cff-3a5c3c263beb})");
 }
 impl ::core::clone::Clone for LearningModelSessionOptions {
     fn clone(&self) -> Self {
@@ -2747,7 +2747,7 @@ unsafe impl ::windows::core::Interface for LearningModelSessionOptions {
 impl ::windows::core::RuntimeName for LearningModelSessionOptions {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelSessionOptions";
 }
-::windows::core::interface_hierarchy!(LearningModelSessionOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LearningModelSessionOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LearningModelSessionOptions {}
 unsafe impl ::core::marker::Sync for LearningModelSessionOptions {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -2809,7 +2809,7 @@ impl ::core::fmt::Debug for MapFeatureDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for MapFeatureDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.MapFeatureDescriptor;{530424bd-a257-436d-9e60-c2981f7cc5c4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.MapFeatureDescriptor;{530424bd-a257-436d-9e60-c2981f7cc5c4})");
 }
 impl ::core::clone::Clone for MapFeatureDescriptor {
     fn clone(&self) -> Self {
@@ -2825,7 +2825,7 @@ unsafe impl ::windows::core::Interface for MapFeatureDescriptor {
 impl ::windows::core::RuntimeName for MapFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.MapFeatureDescriptor";
 }
-::windows::core::interface_hierarchy!(MapFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MapFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MapFeatureDescriptor> for ILearningModelFeatureDescriptor {
     type Error = ::windows::core::Error;
     fn try_from(value: MapFeatureDescriptor) -> ::windows::core::Result<Self> {
@@ -2899,7 +2899,7 @@ impl ::core::fmt::Debug for SequenceFeatureDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for SequenceFeatureDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.SequenceFeatureDescriptor;{84f6945a-562b-4d62-a851-739aced96668})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.SequenceFeatureDescriptor;{84f6945a-562b-4d62-a851-739aced96668})");
 }
 impl ::core::clone::Clone for SequenceFeatureDescriptor {
     fn clone(&self) -> Self {
@@ -2915,7 +2915,7 @@ unsafe impl ::windows::core::Interface for SequenceFeatureDescriptor {
 impl ::windows::core::RuntimeName for SequenceFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.SequenceFeatureDescriptor";
 }
-::windows::core::interface_hierarchy!(SequenceFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SequenceFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SequenceFeatureDescriptor> for ILearningModelFeatureDescriptor {
     type Error = ::windows::core::Error;
     fn try_from(value: SequenceFeatureDescriptor) -> ::windows::core::Result<Self> {
@@ -3052,12 +3052,12 @@ impl TensorBoolean {
     }
     #[doc(hidden)]
     pub fn ITensorBooleanStatics<R, F: FnOnce(&ITensorBooleanStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorBoolean, ITensorBooleanStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorBoolean, ITensorBooleanStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorBooleanStatics2<R, F: FnOnce(&ITensorBooleanStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorBoolean, ITensorBooleanStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorBoolean, ITensorBooleanStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3073,7 +3073,7 @@ impl ::core::fmt::Debug for TensorBoolean {
     }
 }
 impl ::windows::core::RuntimeType for TensorBoolean {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorBoolean;{50f311ed-29e9-4a5c-a44d-8fc512584eed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorBoolean;{50f311ed-29e9-4a5c-a44d-8fc512584eed})");
 }
 impl ::core::clone::Clone for TensorBoolean {
     fn clone(&self) -> Self {
@@ -3089,7 +3089,7 @@ unsafe impl ::windows::core::Interface for TensorBoolean {
 impl ::windows::core::RuntimeName for TensorBoolean {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorBoolean";
 }
-::windows::core::interface_hierarchy!(TensorBoolean, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorBoolean, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorBoolean> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3289,12 +3289,12 @@ impl TensorDouble {
     }
     #[doc(hidden)]
     pub fn ITensorDoubleStatics<R, F: FnOnce(&ITensorDoubleStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorDouble, ITensorDoubleStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorDouble, ITensorDoubleStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorDoubleStatics2<R, F: FnOnce(&ITensorDoubleStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorDouble, ITensorDoubleStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorDouble, ITensorDoubleStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3310,7 +3310,7 @@ impl ::core::fmt::Debug for TensorDouble {
     }
 }
 impl ::windows::core::RuntimeType for TensorDouble {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorDouble;{91e41252-7a8f-4f0e-a28f-9637ffc8a3d0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorDouble;{91e41252-7a8f-4f0e-a28f-9637ffc8a3d0})");
 }
 impl ::core::clone::Clone for TensorDouble {
     fn clone(&self) -> Self {
@@ -3326,7 +3326,7 @@ unsafe impl ::windows::core::Interface for TensorDouble {
 impl ::windows::core::RuntimeName for TensorDouble {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorDouble";
 }
-::windows::core::interface_hierarchy!(TensorDouble, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorDouble, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorDouble> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3472,7 +3472,7 @@ impl ::core::fmt::Debug for TensorFeatureDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for TensorFeatureDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFeatureDescriptor;{74455c80-946a-4310-a19c-ee0af028fce4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFeatureDescriptor;{74455c80-946a-4310-a19c-ee0af028fce4})");
 }
 impl ::core::clone::Clone for TensorFeatureDescriptor {
     fn clone(&self) -> Self {
@@ -3488,7 +3488,7 @@ unsafe impl ::windows::core::Interface for TensorFeatureDescriptor {
 impl ::windows::core::RuntimeName for TensorFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFeatureDescriptor";
 }
-::windows::core::interface_hierarchy!(TensorFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<TensorFeatureDescriptor> for ILearningModelFeatureDescriptor {
     type Error = ::windows::core::Error;
     fn try_from(value: TensorFeatureDescriptor) -> ::windows::core::Result<Self> {
@@ -3625,12 +3625,12 @@ impl TensorFloat {
     }
     #[doc(hidden)]
     pub fn ITensorFloatStatics<R, F: FnOnce(&ITensorFloatStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorFloat, ITensorFloatStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorFloat, ITensorFloatStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorFloatStatics2<R, F: FnOnce(&ITensorFloatStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorFloat, ITensorFloatStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorFloat, ITensorFloatStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3646,7 +3646,7 @@ impl ::core::fmt::Debug for TensorFloat {
     }
 }
 impl ::windows::core::RuntimeType for TensorFloat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat;{f2282d82-aa02-42c8-a0c8-df1efc9676e1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat;{f2282d82-aa02-42c8-a0c8-df1efc9676e1})");
 }
 impl ::core::clone::Clone for TensorFloat {
     fn clone(&self) -> Self {
@@ -3662,7 +3662,7 @@ unsafe impl ::windows::core::Interface for TensorFloat {
 impl ::windows::core::RuntimeName for TensorFloat {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFloat";
 }
-::windows::core::interface_hierarchy!(TensorFloat, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorFloat, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorFloat> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3862,12 +3862,12 @@ impl TensorFloat16Bit {
     }
     #[doc(hidden)]
     pub fn ITensorFloat16BitStatics<R, F: FnOnce(&ITensorFloat16BitStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorFloat16Bit, ITensorFloat16BitStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorFloat16Bit, ITensorFloat16BitStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorFloat16BitStatics2<R, F: FnOnce(&ITensorFloat16BitStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorFloat16Bit, ITensorFloat16BitStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorFloat16Bit, ITensorFloat16BitStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3883,7 +3883,7 @@ impl ::core::fmt::Debug for TensorFloat16Bit {
     }
 }
 impl ::windows::core::RuntimeType for TensorFloat16Bit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat16Bit;{0ab994fc-5b89-4c3c-b5e4-5282a5316c0a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat16Bit;{0ab994fc-5b89-4c3c-b5e4-5282a5316c0a})");
 }
 impl ::core::clone::Clone for TensorFloat16Bit {
     fn clone(&self) -> Self {
@@ -3899,7 +3899,7 @@ unsafe impl ::windows::core::Interface for TensorFloat16Bit {
 impl ::windows::core::RuntimeName for TensorFloat16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFloat16Bit";
 }
-::windows::core::interface_hierarchy!(TensorFloat16Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorFloat16Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorFloat16Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4099,12 +4099,12 @@ impl TensorInt16Bit {
     }
     #[doc(hidden)]
     pub fn ITensorInt16BitStatics<R, F: FnOnce(&ITensorInt16BitStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorInt16Bit, ITensorInt16BitStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorInt16Bit, ITensorInt16BitStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorInt16BitStatics2<R, F: FnOnce(&ITensorInt16BitStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorInt16Bit, ITensorInt16BitStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorInt16Bit, ITensorInt16BitStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4120,7 +4120,7 @@ impl ::core::fmt::Debug for TensorInt16Bit {
     }
 }
 impl ::windows::core::RuntimeType for TensorInt16Bit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt16Bit;{98a32d39-e6d6-44af-8afa-baebc44dc020})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt16Bit;{98a32d39-e6d6-44af-8afa-baebc44dc020})");
 }
 impl ::core::clone::Clone for TensorInt16Bit {
     fn clone(&self) -> Self {
@@ -4136,7 +4136,7 @@ unsafe impl ::windows::core::Interface for TensorInt16Bit {
 impl ::windows::core::RuntimeName for TensorInt16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt16Bit";
 }
-::windows::core::interface_hierarchy!(TensorInt16Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorInt16Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorInt16Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4336,12 +4336,12 @@ impl TensorInt32Bit {
     }
     #[doc(hidden)]
     pub fn ITensorInt32BitStatics<R, F: FnOnce(&ITensorInt32BitStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorInt32Bit, ITensorInt32BitStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorInt32Bit, ITensorInt32BitStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorInt32BitStatics2<R, F: FnOnce(&ITensorInt32BitStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorInt32Bit, ITensorInt32BitStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorInt32Bit, ITensorInt32BitStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4357,7 +4357,7 @@ impl ::core::fmt::Debug for TensorInt32Bit {
     }
 }
 impl ::windows::core::RuntimeType for TensorInt32Bit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt32Bit;{2c0c28d3-207c-4486-a7d2-884522c5e589})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt32Bit;{2c0c28d3-207c-4486-a7d2-884522c5e589})");
 }
 impl ::core::clone::Clone for TensorInt32Bit {
     fn clone(&self) -> Self {
@@ -4373,7 +4373,7 @@ unsafe impl ::windows::core::Interface for TensorInt32Bit {
 impl ::windows::core::RuntimeName for TensorInt32Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt32Bit";
 }
-::windows::core::interface_hierarchy!(TensorInt32Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorInt32Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorInt32Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4573,12 +4573,12 @@ impl TensorInt64Bit {
     }
     #[doc(hidden)]
     pub fn ITensorInt64BitStatics<R, F: FnOnce(&ITensorInt64BitStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorInt64Bit, ITensorInt64BitStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorInt64Bit, ITensorInt64BitStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorInt64BitStatics2<R, F: FnOnce(&ITensorInt64BitStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorInt64Bit, ITensorInt64BitStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorInt64Bit, ITensorInt64BitStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4594,7 +4594,7 @@ impl ::core::fmt::Debug for TensorInt64Bit {
     }
 }
 impl ::windows::core::RuntimeType for TensorInt64Bit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt64Bit;{499665ba-1fa2-45ad-af25-a0bd9bda4c87})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt64Bit;{499665ba-1fa2-45ad-af25-a0bd9bda4c87})");
 }
 impl ::core::clone::Clone for TensorInt64Bit {
     fn clone(&self) -> Self {
@@ -4610,7 +4610,7 @@ unsafe impl ::windows::core::Interface for TensorInt64Bit {
 impl ::windows::core::RuntimeName for TensorInt64Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt64Bit";
 }
-::windows::core::interface_hierarchy!(TensorInt64Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorInt64Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorInt64Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4810,12 +4810,12 @@ impl TensorInt8Bit {
     }
     #[doc(hidden)]
     pub fn ITensorInt8BitStatics<R, F: FnOnce(&ITensorInt8BitStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorInt8Bit, ITensorInt8BitStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorInt8Bit, ITensorInt8BitStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorInt8BitStatics2<R, F: FnOnce(&ITensorInt8BitStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorInt8Bit, ITensorInt8BitStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorInt8Bit, ITensorInt8BitStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4831,7 +4831,7 @@ impl ::core::fmt::Debug for TensorInt8Bit {
     }
 }
 impl ::windows::core::RuntimeType for TensorInt8Bit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt8Bit;{cddd97c5-ffd8-4fef-aefb-30e1a485b2ee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt8Bit;{cddd97c5-ffd8-4fef-aefb-30e1a485b2ee})");
 }
 impl ::core::clone::Clone for TensorInt8Bit {
     fn clone(&self) -> Self {
@@ -4847,7 +4847,7 @@ unsafe impl ::windows::core::Interface for TensorInt8Bit {
 impl ::windows::core::RuntimeName for TensorInt8Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt8Bit";
 }
-::windows::core::interface_hierarchy!(TensorInt8Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorInt8Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorInt8Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5035,12 +5035,12 @@ impl TensorString {
     }
     #[doc(hidden)]
     pub fn ITensorStringStatics<R, F: FnOnce(&ITensorStringStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorString, ITensorStringStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorString, ITensorStringStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorStringStatics2<R, F: FnOnce(&ITensorStringStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorString, ITensorStringStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorString, ITensorStringStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5056,7 +5056,7 @@ impl ::core::fmt::Debug for TensorString {
     }
 }
 impl ::windows::core::RuntimeType for TensorString {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorString;{582335c8-bdb1-4610-bc75-35e9cbf009b7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorString;{582335c8-bdb1-4610-bc75-35e9cbf009b7})");
 }
 impl ::core::clone::Clone for TensorString {
     fn clone(&self) -> Self {
@@ -5072,7 +5072,7 @@ unsafe impl ::windows::core::Interface for TensorString {
 impl ::windows::core::RuntimeName for TensorString {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorString";
 }
-::windows::core::interface_hierarchy!(TensorString, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorString, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorString> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5272,12 +5272,12 @@ impl TensorUInt16Bit {
     }
     #[doc(hidden)]
     pub fn ITensorUInt16BitStatics<R, F: FnOnce(&ITensorUInt16BitStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorUInt16Bit, ITensorUInt16BitStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorUInt16Bit, ITensorUInt16BitStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorUInt16BitStatics2<R, F: FnOnce(&ITensorUInt16BitStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorUInt16Bit, ITensorUInt16BitStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorUInt16Bit, ITensorUInt16BitStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5293,7 +5293,7 @@ impl ::core::fmt::Debug for TensorUInt16Bit {
     }
 }
 impl ::windows::core::RuntimeType for TensorUInt16Bit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt16Bit;{68140f4b-23c0-42f3-81f6-a891c011bc3f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt16Bit;{68140f4b-23c0-42f3-81f6-a891c011bc3f})");
 }
 impl ::core::clone::Clone for TensorUInt16Bit {
     fn clone(&self) -> Self {
@@ -5309,7 +5309,7 @@ unsafe impl ::windows::core::Interface for TensorUInt16Bit {
 impl ::windows::core::RuntimeName for TensorUInt16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt16Bit";
 }
-::windows::core::interface_hierarchy!(TensorUInt16Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorUInt16Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorUInt16Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5509,12 +5509,12 @@ impl TensorUInt32Bit {
     }
     #[doc(hidden)]
     pub fn ITensorUInt32BitStatics<R, F: FnOnce(&ITensorUInt32BitStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorUInt32Bit, ITensorUInt32BitStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorUInt32Bit, ITensorUInt32BitStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorUInt32BitStatics2<R, F: FnOnce(&ITensorUInt32BitStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorUInt32Bit, ITensorUInt32BitStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorUInt32Bit, ITensorUInt32BitStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5530,7 +5530,7 @@ impl ::core::fmt::Debug for TensorUInt32Bit {
     }
 }
 impl ::windows::core::RuntimeType for TensorUInt32Bit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt32Bit;{d8c9c2ff-7511-45a3-bfac-c38f370d2237})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt32Bit;{d8c9c2ff-7511-45a3-bfac-c38f370d2237})");
 }
 impl ::core::clone::Clone for TensorUInt32Bit {
     fn clone(&self) -> Self {
@@ -5546,7 +5546,7 @@ unsafe impl ::windows::core::Interface for TensorUInt32Bit {
 impl ::windows::core::RuntimeName for TensorUInt32Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt32Bit";
 }
-::windows::core::interface_hierarchy!(TensorUInt32Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorUInt32Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorUInt32Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5746,12 +5746,12 @@ impl TensorUInt64Bit {
     }
     #[doc(hidden)]
     pub fn ITensorUInt64BitStatics<R, F: FnOnce(&ITensorUInt64BitStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorUInt64Bit, ITensorUInt64BitStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorUInt64Bit, ITensorUInt64BitStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorUInt64BitStatics2<R, F: FnOnce(&ITensorUInt64BitStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorUInt64Bit, ITensorUInt64BitStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorUInt64Bit, ITensorUInt64BitStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5767,7 +5767,7 @@ impl ::core::fmt::Debug for TensorUInt64Bit {
     }
 }
 impl ::windows::core::RuntimeType for TensorUInt64Bit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt64Bit;{2e70ffad-04bf-4825-839a-82baef8c7886})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt64Bit;{2e70ffad-04bf-4825-839a-82baef8c7886})");
 }
 impl ::core::clone::Clone for TensorUInt64Bit {
     fn clone(&self) -> Self {
@@ -5783,7 +5783,7 @@ unsafe impl ::windows::core::Interface for TensorUInt64Bit {
 impl ::windows::core::RuntimeName for TensorUInt64Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt64Bit";
 }
-::windows::core::interface_hierarchy!(TensorUInt64Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorUInt64Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorUInt64Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5983,12 +5983,12 @@ impl TensorUInt8Bit {
     }
     #[doc(hidden)]
     pub fn ITensorUInt8BitStatics<R, F: FnOnce(&ITensorUInt8BitStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorUInt8Bit, ITensorUInt8BitStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorUInt8Bit, ITensorUInt8BitStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITensorUInt8BitStatics2<R, F: FnOnce(&ITensorUInt8BitStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TensorUInt8Bit, ITensorUInt8BitStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TensorUInt8Bit, ITensorUInt8BitStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6004,7 +6004,7 @@ impl ::core::fmt::Debug for TensorUInt8Bit {
     }
 }
 impl ::windows::core::RuntimeType for TensorUInt8Bit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt8Bit;{58e1ae27-622b-48e3-be22-d867aed1daac})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt8Bit;{58e1ae27-622b-48e3-be22-d867aed1daac})");
 }
 impl ::core::clone::Clone for TensorUInt8Bit {
     fn clone(&self) -> Self {
@@ -6020,7 +6020,7 @@ unsafe impl ::windows::core::Interface for TensorUInt8Bit {
 impl ::windows::core::RuntimeName for TensorUInt8Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt8Bit";
 }
-::windows::core::interface_hierarchy!(TensorUInt8Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TensorUInt8Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorUInt8Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6136,7 +6136,7 @@ impl ::core::fmt::Debug for LearningModelDeviceKind {
     }
 }
 impl ::windows::core::RuntimeType for LearningModelDeviceKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelDeviceKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelDeviceKind;i4)");
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
@@ -6168,7 +6168,7 @@ impl ::core::fmt::Debug for LearningModelFeatureKind {
     }
 }
 impl ::windows::core::RuntimeType for LearningModelFeatureKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelFeatureKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelFeatureKind;i4)");
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
@@ -6199,7 +6199,7 @@ impl ::core::fmt::Debug for LearningModelPixelRange {
     }
 }
 impl ::windows::core::RuntimeType for LearningModelPixelRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelPixelRange;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelPixelRange;i4)");
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
@@ -6243,7 +6243,7 @@ impl ::core::fmt::Debug for TensorKind {
     }
 }
 impl ::windows::core::RuntimeType for TensorKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.TensorKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.TensorKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

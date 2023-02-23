@@ -136,7 +136,7 @@ impl ::core::fmt::Debug for BackPressedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BackPressedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.UI.Input.BackPressedEventArgs;{f6f555ff-64ec-42a2-b93b-2fbc0c36a121})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.UI.Input.BackPressedEventArgs;{f6f555ff-64ec-42a2-b93b-2fbc0c36a121})");
 }
 impl ::core::clone::Clone for BackPressedEventArgs {
     fn clone(&self) -> Self {
@@ -152,7 +152,7 @@ unsafe impl ::windows::core::Interface for BackPressedEventArgs {
 impl ::windows::core::RuntimeName for BackPressedEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.BackPressedEventArgs";
 }
-::windows::core::interface_hierarchy!(BackPressedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackPressedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackPressedEventArgs {}
 unsafe impl ::core::marker::Sync for BackPressedEventArgs {}
 #[doc = "*Required features: `\"Phone_UI_Input\"`*"]
@@ -171,7 +171,7 @@ impl ::core::fmt::Debug for CameraEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CameraEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.UI.Input.CameraEventArgs;{b4063bda-201f-473d-bc69-e9e4ac57c9d0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.UI.Input.CameraEventArgs;{b4063bda-201f-473d-bc69-e9e4ac57c9d0})");
 }
 impl ::core::clone::Clone for CameraEventArgs {
     fn clone(&self) -> Self {
@@ -187,7 +187,7 @@ unsafe impl ::windows::core::Interface for CameraEventArgs {
 impl ::windows::core::RuntimeName for CameraEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.CameraEventArgs";
 }
-::windows::core::interface_hierarchy!(CameraEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CameraEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CameraEventArgs {}
 unsafe impl ::core::marker::Sync for CameraEventArgs {}
 #[doc = "*Required features: `\"Phone_UI_Input\"`*"]
@@ -247,12 +247,12 @@ impl HardwareButtons {
     }
     #[doc(hidden)]
     pub fn IHardwareButtonsStatics<R, F: FnOnce(&IHardwareButtonsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HardwareButtons, IHardwareButtonsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HardwareButtons, IHardwareButtonsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHardwareButtonsStatics2<R, F: FnOnce(&IHardwareButtonsStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HardwareButtons, IHardwareButtonsStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HardwareButtons, IHardwareButtonsStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

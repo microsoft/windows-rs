@@ -7,7 +7,7 @@ pub unsafe fn AbortDoc<P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn AbortDoc ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn AbortDoc ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
     AbortDoc(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -18,7 +18,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "winspool.drv""system" fn DeviceCapabilitiesA ( pdevice : :: windows::core::PCSTR , pport : :: windows::core::PCSTR , fwcapability : DEVICE_CAPABILITIES , poutput : :: windows::core::PSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA ) -> i32 );
+    ::windows::imp::link ! ( "winspool.drv""system" fn DeviceCapabilitiesA ( pdevice : :: windows::core::PCSTR , pport : :: windows::core::PCSTR , fwcapability : DEVICE_CAPABILITIES , poutput : :: windows::core::PSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA ) -> i32 );
     DeviceCapabilitiesA(pdevice.into().abi(), pport.into().abi(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -29,7 +29,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "winspool.drv""system" fn DeviceCapabilitiesW ( pdevice : :: windows::core::PCWSTR , pport : :: windows::core::PCWSTR , fwcapability : DEVICE_CAPABILITIES , poutput : :: windows::core::PWSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW ) -> i32 );
+    ::windows::imp::link ! ( "winspool.drv""system" fn DeviceCapabilitiesW ( pdevice : :: windows::core::PCWSTR , pport : :: windows::core::PCWSTR , fwcapability : DEVICE_CAPABILITIES , poutput : :: windows::core::PWSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW ) -> i32 );
     DeviceCapabilitiesW(pdevice.into().abi(), pport.into().abi(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -39,7 +39,7 @@ pub unsafe fn EndDoc<P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EndDoc ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EndDoc ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
     EndDoc(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -49,7 +49,7 @@ pub unsafe fn EndPage<P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn EndPage ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn EndPage ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
     EndPage(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -59,7 +59,7 @@ pub unsafe fn Escape<P0>(hdc: P0, iescape: i32, pvin: ::core::option::Option<&[u
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn Escape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjin : i32 , pvin : :: windows::core::PCSTR , pvout : *mut ::core::ffi::c_void ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn Escape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjin : i32 , pvin : :: windows::core::PCSTR , pvout : *mut ::core::ffi::c_void ) -> i32 );
     Escape(hdc.into(), iescape, pvin.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pvin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pvout.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -69,7 +69,7 @@ pub unsafe fn ExtEscape<P0>(hdc: P0, iescape: i32, lpindata: ::core::option::Opt
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn ExtEscape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjinput : i32 , lpindata : :: windows::core::PCSTR , cjoutput : i32 , lpoutdata : :: windows::core::PSTR ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn ExtEscape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjinput : i32 , lpindata : :: windows::core::PCSTR , cjoutput : i32 , lpoutdata : :: windows::core::PSTR ) -> i32 );
     ExtEscape(hdc.into(), iescape, lpindata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpindata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoutdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -80,7 +80,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn PrintWindow ( hwnd : super::super::Foundation:: HWND , hdcblt : super::super::Graphics::Gdi:: HDC , nflags : PRINT_WINDOW_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn PrintWindow ( hwnd : super::super::Foundation:: HWND , hdcblt : super::super::Graphics::Gdi:: HDC , nflags : PRINT_WINDOW_FLAGS ) -> super::super::Foundation:: BOOL );
     PrintWindow(hwnd.into(), hdcblt.into(), nflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -90,7 +90,7 @@ pub unsafe fn SetAbortProc<P0>(hdc: P0, proc: ABORTPROC) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn SetAbortProc ( hdc : super::super::Graphics::Gdi:: HDC , proc : ABORTPROC ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn SetAbortProc ( hdc : super::super::Graphics::Gdi:: HDC , proc : ABORTPROC ) -> i32 );
     SetAbortProc(hdc.into(), proc)
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -100,7 +100,7 @@ pub unsafe fn StartDocA<P0>(hdc: P0, lpdi: *const DOCINFOA) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn StartDocA ( hdc : super::super::Graphics::Gdi:: HDC , lpdi : *const DOCINFOA ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn StartDocA ( hdc : super::super::Graphics::Gdi:: HDC , lpdi : *const DOCINFOA ) -> i32 );
     StartDocA(hdc.into(), lpdi)
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -110,7 +110,7 @@ pub unsafe fn StartDocW<P0>(hdc: P0, lpdi: *const DOCINFOW) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn StartDocW ( hdc : super::super::Graphics::Gdi:: HDC , lpdi : *const DOCINFOW ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn StartDocW ( hdc : super::super::Graphics::Gdi:: HDC , lpdi : *const DOCINFOW ) -> i32 );
     StartDocW(hdc.into(), lpdi)
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -120,7 +120,7 @@ pub unsafe fn StartPage<P0>(hdc: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn StartPage ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn StartPage ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
     StartPage(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
@@ -146,7 +146,7 @@ impl IXpsDocumentPackageTarget {
         (::windows::core::Vtable::vtable(self).GetXpsType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsDocumentPackageTarget, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsDocumentPackageTarget, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsDocumentPackageTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -201,7 +201,7 @@ impl IXpsDocumentPackageTarget3D {
         (::windows::core::Vtable::vtable(self).GetXpsOMFactory)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsDocumentPackageTarget3D, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsDocumentPackageTarget3D, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsDocumentPackageTarget3D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -254,7 +254,7 @@ impl IXpsOMBrush {
         (::windows::core::Vtable::vtable(self).SetOpacity)(::windows::core::Vtable::as_raw(self), opacity).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMBrush, ::windows::core::IUnknown, IXpsOMShareable);
+::windows::imp::interface_hierarchy!(IXpsOMBrush, ::windows::core::IUnknown, IXpsOMShareable);
 impl ::core::cmp::PartialEq for IXpsOMBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -490,7 +490,7 @@ impl IXpsOMCanvas {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMCanvas, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMVisual);
+::windows::imp::interface_hierarchy!(IXpsOMCanvas, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMVisual);
 impl ::core::cmp::PartialEq for IXpsOMCanvas {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -571,7 +571,7 @@ impl IXpsOMColorProfileResource {
         (::windows::core::Vtable::vtable(self).SetContent)(::windows::core::Vtable::as_raw(self), sourcestream.into().abi(), partname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMColorProfileResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
+::windows::imp::interface_hierarchy!(IXpsOMColorProfileResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::cmp::PartialEq for IXpsOMColorProfileResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -650,7 +650,7 @@ impl IXpsOMColorProfileResourceCollection {
         (::windows::core::Vtable::vtable(self).GetByPartName)(::windows::core::Vtable::as_raw(self), partname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMColorProfileResourceCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMColorProfileResourceCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMColorProfileResourceCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -878,7 +878,7 @@ impl IXpsOMCoreProperties {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMCoreProperties, ::windows::core::IUnknown, IXpsOMPart);
+::windows::imp::interface_hierarchy!(IXpsOMCoreProperties, ::windows::core::IUnknown, IXpsOMPart);
 impl ::core::cmp::PartialEq for IXpsOMCoreProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -983,7 +983,7 @@ impl IXpsOMDashCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), dash).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMDashCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMDashCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMDashCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1076,7 +1076,7 @@ impl IXpsOMDictionary {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMDictionary, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMDictionary, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMDictionary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1169,7 +1169,7 @@ impl IXpsOMDocument {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMDocument, ::windows::core::IUnknown, IXpsOMPart);
+::windows::imp::interface_hierarchy!(IXpsOMDocument, ::windows::core::IUnknown, IXpsOMPart);
 impl ::core::cmp::PartialEq for IXpsOMDocument {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1239,7 +1239,7 @@ impl IXpsOMDocumentCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), document.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMDocumentCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMDocumentCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMDocumentCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1310,7 +1310,7 @@ impl IXpsOMDocumentSequence {
         (::windows::core::Vtable::vtable(self).SetPrintTicketResource)(::windows::core::Vtable::as_raw(self), printticketresource.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMDocumentSequence, ::windows::core::IUnknown, IXpsOMPart);
+::windows::imp::interface_hierarchy!(IXpsOMDocumentSequence, ::windows::core::IUnknown, IXpsOMPart);
 impl ::core::cmp::PartialEq for IXpsOMDocumentSequence {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1380,7 +1380,7 @@ impl IXpsOMDocumentStructureResource {
         (::windows::core::Vtable::vtable(self).SetContent)(::windows::core::Vtable::as_raw(self), sourcestream.into().abi(), partname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMDocumentStructureResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
+::windows::imp::interface_hierarchy!(IXpsOMDocumentStructureResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::cmp::PartialEq for IXpsOMDocumentStructureResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1455,7 +1455,7 @@ impl IXpsOMFontResource {
         (::windows::core::Vtable::vtable(self).GetEmbeddingOption)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMFontResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
+::windows::imp::interface_hierarchy!(IXpsOMFontResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::cmp::PartialEq for IXpsOMFontResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1535,7 +1535,7 @@ impl IXpsOMFontResourceCollection {
         (::windows::core::Vtable::vtable(self).GetByPartName)(::windows::core::Vtable::as_raw(self), partname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMFontResourceCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMFontResourceCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMFontResourceCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1625,7 +1625,7 @@ impl IXpsOMGeometry {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMGeometry, ::windows::core::IUnknown, IXpsOMShareable);
+::windows::imp::interface_hierarchy!(IXpsOMGeometry, ::windows::core::IUnknown, IXpsOMShareable);
 impl ::core::cmp::PartialEq for IXpsOMGeometry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1738,7 +1738,7 @@ impl IXpsOMGeometryFigure {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMGeometryFigure, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMGeometryFigure, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMGeometryFigure {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1833,7 +1833,7 @@ impl IXpsOMGeometryFigureCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), geometryfigure.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMGeometryFigureCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMGeometryFigureCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMGeometryFigureCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2116,7 +2116,7 @@ impl IXpsOMGlyphs {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMGlyphs, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMVisual);
+::windows::imp::interface_hierarchy!(IXpsOMGlyphs, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMVisual);
 impl ::core::cmp::PartialEq for IXpsOMGlyphs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2253,7 +2253,7 @@ impl IXpsOMGlyphsEditor {
         (::windows::core::Vtable::vtable(self).SetDeviceFontName)(::windows::core::Vtable::as_raw(self), devicefontname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMGlyphsEditor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMGlyphsEditor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMGlyphsEditor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2367,7 +2367,7 @@ impl IXpsOMGradientBrush {
         (::windows::core::Vtable::vtable(self).SetColorInterpolationMode)(::windows::core::Vtable::as_raw(self), colorinterpolationmode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMGradientBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush);
+::windows::imp::interface_hierarchy!(IXpsOMGradientBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush);
 impl ::core::cmp::PartialEq for IXpsOMGradientBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2434,7 +2434,7 @@ impl IXpsOMGradientStop {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMGradientStop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMGradientStop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMGradientStop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2502,7 +2502,7 @@ impl IXpsOMGradientStopCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), stop.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMGradientStopCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMGradientStopCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMGradientStopCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2625,7 +2625,7 @@ impl IXpsOMImageBrush {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMImageBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMTileBrush);
+::windows::imp::interface_hierarchy!(IXpsOMImageBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMTileBrush);
 impl ::core::cmp::PartialEq for IXpsOMImageBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2696,7 +2696,7 @@ impl IXpsOMImageResource {
         (::windows::core::Vtable::vtable(self).GetImageType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMImageResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
+::windows::imp::interface_hierarchy!(IXpsOMImageResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::cmp::PartialEq for IXpsOMImageResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2776,7 +2776,7 @@ impl IXpsOMImageResourceCollection {
         (::windows::core::Vtable::vtable(self).GetByPartName)(::windows::core::Vtable::as_raw(self), partname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMImageResourceCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMImageResourceCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMImageResourceCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2894,7 +2894,7 @@ impl IXpsOMLinearGradientBrush {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMLinearGradientBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMGradientBrush);
+::windows::imp::interface_hierarchy!(IXpsOMLinearGradientBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMGradientBrush);
 impl ::core::cmp::PartialEq for IXpsOMLinearGradientBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2951,7 +2951,7 @@ impl IXpsOMMatrixTransform {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMMatrixTransform, ::windows::core::IUnknown, IXpsOMShareable);
+::windows::imp::interface_hierarchy!(IXpsOMMatrixTransform, ::windows::core::IUnknown, IXpsOMShareable);
 impl ::core::cmp::PartialEq for IXpsOMMatrixTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2995,7 +2995,7 @@ impl IXpsOMNameCollection {
         (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMNameCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMNameCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMNameCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3327,7 +3327,7 @@ impl IXpsOMObjectFactory {
         (::windows::core::Vtable::vtable(self).CreateReadOnlyStreamOnFile)(::windows::core::Vtable::as_raw(self), filename.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMObjectFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMObjectFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMObjectFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3869,7 +3869,7 @@ impl IXpsOMObjectFactory1 {
         (::windows::core::Vtable::vtable(self).CreateRemoteDictionaryResourceFromStream1)(::windows::core::Vtable::as_raw(self), dictionarymarkupstream.into().abi(), parturi.into().abi(), resources.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMObjectFactory1, ::windows::core::IUnknown, IXpsOMObjectFactory);
+::windows::imp::interface_hierarchy!(IXpsOMObjectFactory1, ::windows::core::IUnknown, IXpsOMObjectFactory);
 impl ::core::cmp::PartialEq for IXpsOMObjectFactory1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4000,7 +4000,7 @@ impl IXpsOMPackage {
         (::windows::core::Vtable::vtable(self).WriteToStream)(::windows::core::Vtable::as_raw(self), stream.into().abi(), optimizemarkupsize.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPackage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMPackage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMPackage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4139,7 +4139,7 @@ impl IXpsOMPackage1 {
         (::windows::core::Vtable::vtable(self).WriteToStream1)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), optimizemarkupsize.into(), documenttype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPackage1, ::windows::core::IUnknown, IXpsOMPackage);
+::windows::imp::interface_hierarchy!(IXpsOMPackage1, ::windows::core::IUnknown, IXpsOMPackage);
 impl ::core::cmp::PartialEq for IXpsOMPackage1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4192,7 +4192,7 @@ impl IXpsOMPackageTarget {
         (::windows::core::Vtable::vtable(self).CreateXpsOMPackageWriter)(::windows::core::Vtable::as_raw(self), documentsequencepartname.into().abi(), documentsequenceprintticket.into().abi(), discardcontrolpartname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPackageTarget, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMPackageTarget, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMPackageTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4266,7 +4266,7 @@ impl IXpsOMPackageWriter {
         (::windows::core::Vtable::vtable(self).IsClosed)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPackageWriter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMPackageWriter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMPackageWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4365,7 +4365,7 @@ impl IXpsOMPackageWriter3D {
         (::windows::core::Vtable::vtable(self).SetModelPrintTicket)(::windows::core::Vtable::as_raw(self), printticketpartname.into().abi(), printticketdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPackageWriter3D, ::windows::core::IUnknown, IXpsOMPackageWriter);
+::windows::imp::interface_hierarchy!(IXpsOMPackageWriter3D, ::windows::core::IUnknown, IXpsOMPackageWriter);
 impl ::core::cmp::PartialEq for IXpsOMPackageWriter3D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4524,7 +4524,7 @@ impl IXpsOMPage {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPage, ::windows::core::IUnknown, IXpsOMPart);
+::windows::imp::interface_hierarchy!(IXpsOMPage, ::windows::core::IUnknown, IXpsOMPart);
 impl ::core::cmp::PartialEq for IXpsOMPage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4719,7 +4719,7 @@ impl IXpsOMPage1 {
         (::windows::core::Vtable::vtable(self).Write1)(::windows::core::Vtable::as_raw(self), stream.into().abi(), optimizemarkupsize.into(), documenttype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPage1, ::windows::core::IUnknown, IXpsOMPart, IXpsOMPage);
+::windows::imp::interface_hierarchy!(IXpsOMPage1, ::windows::core::IUnknown, IXpsOMPart, IXpsOMPage);
 impl ::core::cmp::PartialEq for IXpsOMPage1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4835,7 +4835,7 @@ impl IXpsOMPageReference {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPageReference, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMPageReference, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMPageReference {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4920,7 +4920,7 @@ impl IXpsOMPageReferenceCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), pagereference.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPageReferenceCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMPageReferenceCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMPageReferenceCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4973,7 +4973,7 @@ impl IXpsOMPart {
         (::windows::core::Vtable::vtable(self).SetPartName)(::windows::core::Vtable::as_raw(self), parturi.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPart, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMPart, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMPart {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5030,7 +5030,7 @@ impl IXpsOMPartResources {
         (::windows::core::Vtable::vtable(self).GetRemoteDictionaryResources)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPartResources, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMPartResources, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMPartResources {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5104,7 +5104,7 @@ impl IXpsOMPartUriCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), parturi.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPartUriCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMPartUriCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMPartUriCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5453,7 +5453,7 @@ impl IXpsOMPath {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPath, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMVisual);
+::windows::imp::interface_hierarchy!(IXpsOMPath, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMVisual);
 impl ::core::cmp::PartialEq for IXpsOMPath {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5558,7 +5558,7 @@ impl IXpsOMPrintTicketResource {
         (::windows::core::Vtable::vtable(self).SetContent)(::windows::core::Vtable::as_raw(self), sourcestream.into().abi(), partname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMPrintTicketResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
+::windows::imp::interface_hierarchy!(IXpsOMPrintTicketResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::cmp::PartialEq for IXpsOMPrintTicketResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5681,7 +5681,7 @@ impl IXpsOMRadialGradientBrush {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMRadialGradientBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMGradientBrush);
+::windows::imp::interface_hierarchy!(IXpsOMRadialGradientBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMGradientBrush);
 impl ::core::cmp::PartialEq for IXpsOMRadialGradientBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5745,7 +5745,7 @@ impl IXpsOMRemoteDictionaryResource {
         (::windows::core::Vtable::vtable(self).SetDictionary)(::windows::core::Vtable::as_raw(self), dictionary.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMRemoteDictionaryResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
+::windows::imp::interface_hierarchy!(IXpsOMRemoteDictionaryResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::cmp::PartialEq for IXpsOMRemoteDictionaryResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5816,7 +5816,7 @@ impl IXpsOMRemoteDictionaryResource1 {
         (::windows::core::Vtable::vtable(self).Write1)(::windows::core::Vtable::as_raw(self), stream.into().abi(), documenttype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMRemoteDictionaryResource1, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource, IXpsOMRemoteDictionaryResource);
+::windows::imp::interface_hierarchy!(IXpsOMRemoteDictionaryResource1, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource, IXpsOMRemoteDictionaryResource);
 impl ::core::cmp::PartialEq for IXpsOMRemoteDictionaryResource1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5892,7 +5892,7 @@ impl IXpsOMRemoteDictionaryResourceCollection {
         (::windows::core::Vtable::vtable(self).GetByPartName)(::windows::core::Vtable::as_raw(self), partname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMRemoteDictionaryResourceCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMRemoteDictionaryResourceCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMRemoteDictionaryResourceCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5949,7 +5949,7 @@ impl IXpsOMResource {
         (::windows::core::Vtable::vtable(self).base__.SetPartName)(::windows::core::Vtable::as_raw(self), parturi.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMResource, ::windows::core::IUnknown, IXpsOMPart);
+::windows::imp::interface_hierarchy!(IXpsOMResource, ::windows::core::IUnknown, IXpsOMPart);
 impl ::core::cmp::PartialEq for IXpsOMResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5990,7 +5990,7 @@ impl IXpsOMShareable {
         (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMShareable, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMShareable, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMShareable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6058,7 +6058,7 @@ impl IXpsOMSignatureBlockResource {
         (::windows::core::Vtable::vtable(self).SetContent)(::windows::core::Vtable::as_raw(self), sourcestream.into().abi(), partname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMSignatureBlockResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
+::windows::imp::interface_hierarchy!(IXpsOMSignatureBlockResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::cmp::PartialEq for IXpsOMSignatureBlockResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6138,7 +6138,7 @@ impl IXpsOMSignatureBlockResourceCollection {
         (::windows::core::Vtable::vtable(self).GetByPartName)(::windows::core::Vtable::as_raw(self), partname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMSignatureBlockResourceCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMSignatureBlockResourceCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMSignatureBlockResourceCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6209,7 +6209,7 @@ impl IXpsOMSolidColorBrush {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMSolidColorBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush);
+::windows::imp::interface_hierarchy!(IXpsOMSolidColorBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush);
 impl ::core::cmp::PartialEq for IXpsOMSolidColorBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6278,7 +6278,7 @@ impl IXpsOMStoryFragmentsResource {
         (::windows::core::Vtable::vtable(self).SetContent)(::windows::core::Vtable::as_raw(self), sourcestream.into().abi(), partname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMStoryFragmentsResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
+::windows::imp::interface_hierarchy!(IXpsOMStoryFragmentsResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::cmp::PartialEq for IXpsOMStoryFragmentsResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6330,7 +6330,7 @@ impl IXpsOMThumbnailGenerator {
         (::windows::core::Vtable::vtable(self).GenerateThumbnail)(::windows::core::Vtable::as_raw(self), page.into().abi(), thumbnailtype, thumbnailsize, imageresourcepartname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMThumbnailGenerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMThumbnailGenerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMThumbnailGenerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6427,7 +6427,7 @@ impl IXpsOMTileBrush {
         (::windows::core::Vtable::vtable(self).SetTileMode)(::windows::core::Vtable::as_raw(self), tilemode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMTileBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush);
+::windows::imp::interface_hierarchy!(IXpsOMTileBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush);
 impl ::core::cmp::PartialEq for IXpsOMTileBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6606,7 +6606,7 @@ impl IXpsOMVisual {
         (::windows::core::Vtable::vtable(self).SetLanguage)(::windows::core::Vtable::as_raw(self), language.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMVisual, ::windows::core::IUnknown, IXpsOMShareable);
+::windows::imp::interface_hierarchy!(IXpsOMVisual, ::windows::core::IUnknown, IXpsOMShareable);
 impl ::core::cmp::PartialEq for IXpsOMVisual {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6764,7 +6764,7 @@ impl IXpsOMVisualBrush {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMVisualBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMTileBrush);
+::windows::imp::interface_hierarchy!(IXpsOMVisualBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMTileBrush);
 impl ::core::cmp::PartialEq for IXpsOMVisualBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6832,7 +6832,7 @@ impl IXpsOMVisualCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), object.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsOMVisualCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsOMVisualCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsOMVisualCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6928,7 +6928,7 @@ impl IXpsSignature {
         (::windows::core::Vtable::vtable(self).SetSignatureXml)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(signaturexml.as_ptr()), signaturexml.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsSignature, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsSignature, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsSignature {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7018,7 +7018,7 @@ impl IXpsSignatureBlock {
         (::windows::core::Vtable::vtable(self).CreateRequest)(::windows::core::Vtable::as_raw(self), requestid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsSignatureBlock, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsSignatureBlock, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsSignatureBlock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7073,7 +7073,7 @@ impl IXpsSignatureBlockCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), index).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsSignatureBlockCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsSignatureBlockCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsSignatureBlockCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7120,7 +7120,7 @@ impl IXpsSignatureCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), index).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsSignatureCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsSignatureCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsSignatureCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7230,7 +7230,7 @@ impl IXpsSignatureManager {
         (::windows::core::Vtable::vtable(self).SavePackageToStream)(::windows::core::Vtable::as_raw(self), stream.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsSignatureManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsSignatureManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsSignatureManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7351,7 +7351,7 @@ impl IXpsSignatureRequest {
         (::windows::core::Vtable::vtable(self).GetSignature)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXpsSignatureRequest, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsSignatureRequest, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsSignatureRequest {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7410,7 +7410,7 @@ impl IXpsSignatureRequestCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), index).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsSignatureRequestCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsSignatureRequestCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsSignatureRequestCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7533,7 +7533,7 @@ impl IXpsSigningOptions {
         (::windows::core::Vtable::vtable(self).SetFlags)(::windows::core::Vtable::as_raw(self), flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXpsSigningOptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXpsSigningOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXpsSigningOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

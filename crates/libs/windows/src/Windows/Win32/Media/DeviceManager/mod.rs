@@ -9,7 +9,7 @@ impl IComponentAuthenticate {
         (::windows::core::Vtable::vtable(self).SACGetProtocols)(::windows::core::Vtable::as_raw(self), ppdwprotocols, pdwprotocolcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComponentAuthenticate, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComponentAuthenticate, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComponentAuthenticate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -84,7 +84,7 @@ impl IMDSPDevice {
         (::windows::core::Vtable::vtable(self).SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMDSPDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMDSPDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMDSPDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -191,7 +191,7 @@ impl IMDSPDevice2 {
         (::windows::core::Vtable::vtable(self).GetCanonicalName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMDSPDevice2, ::windows::core::IUnknown, IMDSPDevice);
+::windows::imp::interface_hierarchy!(IMDSPDevice2, ::windows::core::IUnknown, IMDSPDevice);
 impl ::core::cmp::PartialEq for IMDSPDevice2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -327,7 +327,7 @@ impl IMDSPDevice3 {
         (::windows::core::Vtable::vtable(self).FindStorage)(::windows::core::Vtable::as_raw(self), findscope, pwszuniqueid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMDSPDevice3, ::windows::core::IUnknown, IMDSPDevice, IMDSPDevice2);
+::windows::imp::interface_hierarchy!(IMDSPDevice3, ::windows::core::IUnknown, IMDSPDevice, IMDSPDevice2);
 impl ::core::cmp::PartialEq for IMDSPDevice3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -402,7 +402,7 @@ impl IMDSPDeviceControl {
         (::windows::core::Vtable::vtable(self).Seek)(::windows::core::Vtable::as_raw(self), fumode, noffset).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMDSPDeviceControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMDSPDeviceControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMDSPDeviceControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -457,7 +457,7 @@ impl IMDSPDirectTransfer {
         (::windows::core::Vtable::vtable(self).TransferToDevice)(::windows::core::Vtable::as_raw(self), pwszsourcefilepath.into().abi(), psourceoperation.into().abi(), fuflags, pwszdestinationname.into().abi(), psourcemetadata.into().abi(), ptransferprogress.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMDSPDirectTransfer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMDSPDirectTransfer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMDSPDirectTransfer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -505,7 +505,7 @@ impl IMDSPEnumDevice {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMDSPEnumDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMDSPEnumDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMDSPEnumDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -556,7 +556,7 @@ impl IMDSPEnumStorage {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMDSPEnumStorage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMDSPEnumStorage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMDSPEnumStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -628,7 +628,7 @@ impl IMDSPObject {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMDSPObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMDSPObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMDSPObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -710,7 +710,7 @@ impl IMDSPObject2 {
         (::windows::core::Vtable::vtable(self).WriteOnClearChannel)(::windows::core::Vtable::as_raw(self), pdata, pdwsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMDSPObject2, ::windows::core::IUnknown, IMDSPObject);
+::windows::imp::interface_hierarchy!(IMDSPObject2, ::windows::core::IUnknown, IMDSPObject);
 impl ::core::cmp::PartialEq for IMDSPObject2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -771,7 +771,7 @@ impl IMDSPObjectInfo {
         (::windows::core::Vtable::vtable(self).GetLongestPlayPosition)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMDSPObjectInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMDSPObjectInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMDSPObjectInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -814,7 +814,7 @@ impl IMDSPRevoked {
         (::windows::core::Vtable::vtable(self).GetRevocationURL)(::windows::core::Vtable::as_raw(self), ppwszrevocationurl, pdwbufferlen).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMDSPRevoked, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMDSPRevoked, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMDSPRevoked {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -891,7 +891,7 @@ impl IMDSPStorage {
         (::windows::core::Vtable::vtable(self).SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMDSPStorage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMDSPStorage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMDSPStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1012,7 +1012,7 @@ impl IMDSPStorage2 {
         (::windows::core::Vtable::vtable(self).GetAttributes2)(::windows::core::Vtable::as_raw(self), pdwattributes, pdwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMDSPStorage2, ::windows::core::IUnknown, IMDSPStorage);
+::windows::imp::interface_hierarchy!(IMDSPStorage2, ::windows::core::IUnknown, IMDSPStorage);
 impl ::core::cmp::PartialEq for IMDSPStorage2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1139,7 +1139,7 @@ impl IMDSPStorage3 {
         (::windows::core::Vtable::vtable(self).SetMetadata)(::windows::core::Vtable::as_raw(self), pmetadata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMDSPStorage3, ::windows::core::IUnknown, IMDSPStorage, IMDSPStorage2);
+::windows::imp::interface_hierarchy!(IMDSPStorage3, ::windows::core::IUnknown, IMDSPStorage, IMDSPStorage2);
 impl ::core::cmp::PartialEq for IMDSPStorage3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1286,7 +1286,7 @@ impl IMDSPStorage4 {
         (::windows::core::Vtable::vtable(self).GetParent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMDSPStorage4, ::windows::core::IUnknown, IMDSPStorage, IMDSPStorage2, IMDSPStorage3);
+::windows::imp::interface_hierarchy!(IMDSPStorage4, ::windows::core::IUnknown, IMDSPStorage, IMDSPStorage2, IMDSPStorage3);
 impl ::core::cmp::PartialEq for IMDSPStorage4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1359,7 +1359,7 @@ impl IMDSPStorageGlobals {
         (::windows::core::Vtable::vtable(self).GetRootStorage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMDSPStorageGlobals, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMDSPStorageGlobals, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMDSPStorageGlobals {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1409,7 +1409,7 @@ impl IMDServiceProvider {
         (::windows::core::Vtable::vtable(self).EnumDevices)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMDServiceProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMDServiceProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMDServiceProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1458,7 +1458,7 @@ impl IMDServiceProvider2 {
         (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), pwszdevicepath.into().abi(), pdwcount, pppdevicearray).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMDServiceProvider2, ::windows::core::IUnknown, IMDServiceProvider);
+::windows::imp::interface_hierarchy!(IMDServiceProvider2, ::windows::core::IUnknown, IMDServiceProvider);
 impl ::core::cmp::PartialEq for IMDServiceProvider2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1509,7 +1509,7 @@ impl IMDServiceProvider3 {
         (::windows::core::Vtable::vtable(self).SetDeviceEnumPreference)(::windows::core::Vtable::as_raw(self), dwenumpref).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMDServiceProvider3, ::windows::core::IUnknown, IMDServiceProvider, IMDServiceProvider2);
+::windows::imp::interface_hierarchy!(IMDServiceProvider3, ::windows::core::IUnknown, IMDServiceProvider, IMDServiceProvider2);
 impl ::core::cmp::PartialEq for IMDServiceProvider3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1547,7 +1547,7 @@ impl ISCPSecureAuthenticate {
         (::windows::core::Vtable::vtable(self).GetSecureQuery)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISCPSecureAuthenticate, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISCPSecureAuthenticate, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISCPSecureAuthenticate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1589,7 +1589,7 @@ impl ISCPSecureAuthenticate2 {
         (::windows::core::Vtable::vtable(self).GetSCPSession)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISCPSecureAuthenticate2, ::windows::core::IUnknown, ISCPSecureAuthenticate);
+::windows::imp::interface_hierarchy!(ISCPSecureAuthenticate2, ::windows::core::IUnknown, ISCPSecureAuthenticate);
 impl ::core::cmp::PartialEq for ISCPSecureAuthenticate2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1632,7 +1632,7 @@ impl ISCPSecureExchange {
         (::windows::core::Vtable::vtable(self).TransferComplete)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISCPSecureExchange, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISCPSecureExchange, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISCPSecureExchange {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1683,7 +1683,7 @@ impl ISCPSecureExchange2 {
         (::windows::core::Vtable::vtable(self).TransferContainerData2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, pprogresscallback.into().abi(), pfureadyflags, abmac).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISCPSecureExchange2, ::windows::core::IUnknown, ISCPSecureExchange);
+::windows::imp::interface_hierarchy!(ISCPSecureExchange2, ::windows::core::IUnknown, ISCPSecureExchange);
 impl ::core::cmp::PartialEq for ISCPSecureExchange2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1752,7 +1752,7 @@ impl ISCPSecureExchange3 {
         (::windows::core::Vtable::vtable(self).TransferCompleteForDevice)(::windows::core::Vtable::as_raw(self), pdevice.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISCPSecureExchange3, ::windows::core::IUnknown, ISCPSecureExchange, ISCPSecureExchange2);
+::windows::imp::interface_hierarchy!(ISCPSecureExchange3, ::windows::core::IUnknown, ISCPSecureExchange, ISCPSecureExchange2);
 impl ::core::cmp::PartialEq for ISCPSecureExchange3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1809,7 +1809,7 @@ impl ISCPSecureQuery {
         (::windows::core::Vtable::vtable(self).GetRights)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstgglobals.into().abi(), pprights, pnrightscount, abmac).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISCPSecureQuery, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISCPSecureQuery, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISCPSecureQuery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1895,7 +1895,7 @@ impl ISCPSecureQuery2 {
         .ok()
     }
 }
-::windows::core::interface_hierarchy!(ISCPSecureQuery2, ::windows::core::IUnknown, ISCPSecureQuery);
+::windows::imp::interface_hierarchy!(ISCPSecureQuery2, ::windows::core::IUnknown, ISCPSecureQuery);
 impl ::core::cmp::PartialEq for ISCPSecureQuery2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2014,7 +2014,7 @@ impl ISCPSecureQuery3 {
         .ok()
     }
 }
-::windows::core::interface_hierarchy!(ISCPSecureQuery3, ::windows::core::IUnknown, ISCPSecureQuery, ISCPSecureQuery2);
+::windows::imp::interface_hierarchy!(ISCPSecureQuery3, ::windows::core::IUnknown, ISCPSecureQuery, ISCPSecureQuery2);
 impl ::core::cmp::PartialEq for ISCPSecureQuery3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2062,7 +2062,7 @@ impl ISCPSession {
         (::windows::core::Vtable::vtable(self).GetSecureQuery)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISCPSession, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISCPSession, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISCPSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2138,7 +2138,7 @@ impl IWMDMDevice {
         (::windows::core::Vtable::vtable(self).SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2245,7 +2245,7 @@ impl IWMDMDevice2 {
         (::windows::core::Vtable::vtable(self).GetCanonicalName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMDevice2, ::windows::core::IUnknown, IWMDMDevice);
+::windows::imp::interface_hierarchy!(IWMDMDevice2, ::windows::core::IUnknown, IWMDMDevice);
 impl ::core::cmp::PartialEq for IWMDMDevice2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2381,7 +2381,7 @@ impl IWMDMDevice3 {
         (::windows::core::Vtable::vtable(self).FindStorage)(::windows::core::Vtable::as_raw(self), findscope, pwszuniqueid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMDMDevice3, ::windows::core::IUnknown, IWMDMDevice, IWMDMDevice2);
+::windows::imp::interface_hierarchy!(IWMDMDevice3, ::windows::core::IUnknown, IWMDMDevice, IWMDMDevice2);
 impl ::core::cmp::PartialEq for IWMDMDevice3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2456,7 +2456,7 @@ impl IWMDMDeviceControl {
         (::windows::core::Vtable::vtable(self).Seek)(::windows::core::Vtable::as_raw(self), fumode, noffset).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMDeviceControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMDeviceControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMDeviceControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2506,7 +2506,7 @@ impl IWMDMDeviceSession {
         (::windows::core::Vtable::vtable(self).EndSession)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pctx.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pctx.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMDeviceSession, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMDeviceSession, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMDeviceSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2555,7 +2555,7 @@ impl IWMDMEnumDevice {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMDMEnumDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMEnumDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMEnumDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2606,7 +2606,7 @@ impl IWMDMEnumStorage {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMDMEnumStorage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMEnumStorage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMEnumStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2689,7 +2689,7 @@ impl IWMDMLogger {
         (::windows::core::Vtable::vtable(self).SetSizeParams)(::windows::core::Vtable::as_raw(self), dwmaxsize, dwshrinktosize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMLogger, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMLogger, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMLogger {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2756,7 +2756,7 @@ impl IWMDMMetaData {
         (::windows::core::Vtable::vtable(self).GetItemCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMDMMetaData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMMetaData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMMetaData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2799,7 +2799,7 @@ impl IWMDMNotification {
         (::windows::core::Vtable::vtable(self).WMDMMessage)(::windows::core::Vtable::as_raw(self), dwmessagetype, pwszcanonicalname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMNotification, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMNotification, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2859,7 +2859,7 @@ impl IWMDMObjectInfo {
         (::windows::core::Vtable::vtable(self).GetLongestPlayPosition)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMDMObjectInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMObjectInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMObjectInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2936,7 +2936,7 @@ impl IWMDMOperation {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self), phcompletioncode, pnewobject.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMOperation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMOperation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3032,7 +3032,7 @@ impl IWMDMOperation2 {
         (::windows::core::Vtable::vtable(self).GetObjectAttributes2)(::windows::core::Vtable::as_raw(self), pdwattributes, pdwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMOperation2, ::windows::core::IUnknown, IWMDMOperation);
+::windows::imp::interface_hierarchy!(IWMDMOperation2, ::windows::core::IUnknown, IWMDMOperation);
 impl ::core::cmp::PartialEq for IWMDMOperation2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3113,7 +3113,7 @@ impl IWMDMOperation3 {
         (::windows::core::Vtable::vtable(self).TransferObjectDataOnClearChannel)(::windows::core::Vtable::as_raw(self), pdata, pdwsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMOperation3, ::windows::core::IUnknown, IWMDMOperation);
+::windows::imp::interface_hierarchy!(IWMDMOperation3, ::windows::core::IUnknown, IWMDMOperation);
 impl ::core::cmp::PartialEq for IWMDMOperation3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3156,7 +3156,7 @@ impl IWMDMProgress {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMProgress, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMProgress, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMProgress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3204,7 +3204,7 @@ impl IWMDMProgress2 {
         (::windows::core::Vtable::vtable(self).End2)(::windows::core::Vtable::as_raw(self), hrcompletioncode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMProgress2, ::windows::core::IUnknown, IWMDMProgress);
+::windows::imp::interface_hierarchy!(IWMDMProgress2, ::windows::core::IUnknown, IWMDMProgress);
 impl ::core::cmp::PartialEq for IWMDMProgress2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3259,7 +3259,7 @@ impl IWMDMProgress3 {
         (::windows::core::Vtable::vtable(self).End3)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(eventid), hrcompletioncode, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMProgress3, ::windows::core::IUnknown, IWMDMProgress, IWMDMProgress2);
+::windows::imp::interface_hierarchy!(IWMDMProgress3, ::windows::core::IUnknown, IWMDMProgress, IWMDMProgress2);
 impl ::core::cmp::PartialEq for IWMDMProgress3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3298,7 +3298,7 @@ impl IWMDMRevoked {
         (::windows::core::Vtable::vtable(self).GetRevocationURL)(::windows::core::Vtable::as_raw(self), ppwszrevocationurl, pdwbufferlen, pdwrevokedbitflag).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMRevoked, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMRevoked, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMRevoked {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3366,7 +3366,7 @@ impl IWMDMStorage {
         (::windows::core::Vtable::vtable(self).SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), pcommand).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMStorage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMStorage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3465,7 +3465,7 @@ impl IWMDMStorage2 {
         (::windows::core::Vtable::vtable(self).GetAttributes2)(::windows::core::Vtable::as_raw(self), pdwattributes, pdwattributesex, ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMStorage2, ::windows::core::IUnknown, IWMDMStorage);
+::windows::imp::interface_hierarchy!(IWMDMStorage2, ::windows::core::IUnknown, IWMDMStorage);
 impl ::core::cmp::PartialEq for IWMDMStorage2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3575,7 +3575,7 @@ impl IWMDMStorage3 {
         (::windows::core::Vtable::vtable(self).SetEnumPreference)(::windows::core::Vtable::as_raw(self), pmode, pviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMStorage3, ::windows::core::IUnknown, IWMDMStorage, IWMDMStorage2);
+::windows::imp::interface_hierarchy!(IWMDMStorage3, ::windows::core::IUnknown, IWMDMStorage, IWMDMStorage2);
 impl ::core::cmp::PartialEq for IWMDMStorage3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3707,7 +3707,7 @@ impl IWMDMStorage4 {
         (::windows::core::Vtable::vtable(self).GetParent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMDMStorage4, ::windows::core::IUnknown, IWMDMStorage, IWMDMStorage2, IWMDMStorage3);
+::windows::imp::interface_hierarchy!(IWMDMStorage4, ::windows::core::IUnknown, IWMDMStorage, IWMDMStorage2, IWMDMStorage3);
 impl ::core::cmp::PartialEq for IWMDMStorage4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3783,7 +3783,7 @@ impl IWMDMStorageControl {
         (::windows::core::Vtable::vtable(self).Move)(::windows::core::Vtable::as_raw(self), fumode, ptargetobject.into().abi(), pprogress.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMStorageControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMStorageControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMStorageControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3868,7 +3868,7 @@ impl IWMDMStorageControl2 {
         (::windows::core::Vtable::vtable(self).Insert2)(::windows::core::Vtable::as_raw(self), fumode, pwszfilesource.into().abi(), pwszfiledest.into().abi(), poperation.into().abi(), pprogress.into().abi(), punknown.into().abi(), ::core::mem::transmute(ppnewobject.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMStorageControl2, ::windows::core::IUnknown, IWMDMStorageControl);
+::windows::imp::interface_hierarchy!(IWMDMStorageControl2, ::windows::core::IUnknown, IWMDMStorageControl);
 impl ::core::cmp::PartialEq for IWMDMStorageControl2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3960,7 +3960,7 @@ impl IWMDMStorageControl3 {
         (::windows::core::Vtable::vtable(self).Insert3)(::windows::core::Vtable::as_raw(self), fumode, futype, pwszfilesource.into().abi(), pwszfiledest.into().abi(), poperation.into().abi(), pprogress.into().abi(), pmetadata.into().abi(), punknown.into().abi(), ::core::mem::transmute(ppnewobject.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMStorageControl3, ::windows::core::IUnknown, IWMDMStorageControl, IWMDMStorageControl2);
+::windows::imp::interface_hierarchy!(IWMDMStorageControl3, ::windows::core::IUnknown, IWMDMStorageControl, IWMDMStorageControl2);
 impl ::core::cmp::PartialEq for IWMDMStorageControl3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4020,7 +4020,7 @@ impl IWMDMStorageGlobals {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), fumode, pprogress.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDMStorageGlobals, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDMStorageGlobals, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDMStorageGlobals {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4072,7 +4072,7 @@ impl IWMDeviceManager {
         (::windows::core::Vtable::vtable(self).EnumDevices)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMDeviceManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDeviceManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDeviceManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4134,7 +4134,7 @@ impl IWMDeviceManager2 {
         (::windows::core::Vtable::vtable(self).Reinitialize)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDeviceManager2, ::windows::core::IUnknown, IWMDeviceManager);
+::windows::imp::interface_hierarchy!(IWMDeviceManager2, ::windows::core::IUnknown, IWMDeviceManager);
 impl ::core::cmp::PartialEq for IWMDeviceManager2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4199,7 +4199,7 @@ impl IWMDeviceManager3 {
         (::windows::core::Vtable::vtable(self).SetDeviceEnumPreference)(::windows::core::Vtable::as_raw(self), dwenumpref).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDeviceManager3, ::windows::core::IUnknown, IWMDeviceManager, IWMDeviceManager2);
+::windows::imp::interface_hierarchy!(IWMDeviceManager3, ::windows::core::IUnknown, IWMDeviceManager, IWMDeviceManager2);
 impl ::core::cmp::PartialEq for IWMDeviceManager3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

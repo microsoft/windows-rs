@@ -438,7 +438,7 @@ impl ::core::fmt::Debug for UserDataTaskDataProviderConnection {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskDataProviderConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderConnection;{9ff39d1d-a447-428b-afe9-e5402bdeb041})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderConnection;{9ff39d1d-a447-428b-afe9-e5402bdeb041})");
 }
 impl ::core::clone::Clone for UserDataTaskDataProviderConnection {
     fn clone(&self) -> Self {
@@ -454,7 +454,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskDataProviderConnection {
 impl ::windows::core::RuntimeName for UserDataTaskDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderConnection";
 }
-::windows::core::interface_hierarchy!(UserDataTaskDataProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskDataProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskDataProviderConnection {}
 unsafe impl ::core::marker::Sync for UserDataTaskDataProviderConnection {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -481,7 +481,7 @@ impl ::core::fmt::Debug for UserDataTaskDataProviderTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskDataProviderTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderTriggerDetails;{ae273202-b1c9-453e-afc5-b30af3bd217d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderTriggerDetails;{ae273202-b1c9-453e-afc5-b30af3bd217d})");
 }
 impl ::core::clone::Clone for UserDataTaskDataProviderTriggerDetails {
     fn clone(&self) -> Self {
@@ -497,7 +497,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskDataProviderTriggerDetail
 impl ::windows::core::RuntimeName for UserDataTaskDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderTriggerDetails";
 }
-::windows::core::interface_hierarchy!(UserDataTaskDataProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskDataProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for UserDataTaskDataProviderTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -549,7 +549,7 @@ impl ::core::fmt::Debug for UserDataTaskListCompleteTaskRequest {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListCompleteTaskRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequest;{f65e14a3-1a42-49da-8552-2873e52c55eb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequest;{f65e14a3-1a42-49da-8552-2873e52c55eb})");
 }
 impl ::core::clone::Clone for UserDataTaskListCompleteTaskRequest {
     fn clone(&self) -> Self {
@@ -565,7 +565,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListCompleteTaskRequest {
 impl ::windows::core::RuntimeName for UserDataTaskListCompleteTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequest";
 }
-::windows::core::interface_hierarchy!(UserDataTaskListCompleteTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskListCompleteTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListCompleteTaskRequest {}
 unsafe impl ::core::marker::Sync for UserDataTaskListCompleteTaskRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -601,7 +601,7 @@ impl ::core::fmt::Debug for UserDataTaskListCompleteTaskRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListCompleteTaskRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequestEventArgs;{d77c393d-4cf2-48ad-87fd-963f0eaa7a95})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequestEventArgs;{d77c393d-4cf2-48ad-87fd-963f0eaa7a95})");
 }
 impl ::core::clone::Clone for UserDataTaskListCompleteTaskRequestEventArgs {
     fn clone(&self) -> Self {
@@ -617,7 +617,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListCompleteTaskRequestEv
 impl ::windows::core::RuntimeName for UserDataTaskListCompleteTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(UserDataTaskListCompleteTaskRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskListCompleteTaskRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListCompleteTaskRequestEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataTaskListCompleteTaskRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -669,7 +669,7 @@ impl ::core::fmt::Debug for UserDataTaskListCreateOrUpdateTaskRequest {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListCreateOrUpdateTaskRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequest;{2133772c-55c2-4300-8279-04326e07cce4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequest;{2133772c-55c2-4300-8279-04326e07cce4})");
 }
 impl ::core::clone::Clone for UserDataTaskListCreateOrUpdateTaskRequest {
     fn clone(&self) -> Self {
@@ -685,7 +685,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListCreateOrUpdateTaskReq
 impl ::windows::core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequest";
 }
-::windows::core::interface_hierarchy!(UserDataTaskListCreateOrUpdateTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskListCreateOrUpdateTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListCreateOrUpdateTaskRequest {}
 unsafe impl ::core::marker::Sync for UserDataTaskListCreateOrUpdateTaskRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -721,7 +721,7 @@ impl ::core::fmt::Debug for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequestEventArgs;{12c55a52-e378-419b-ae38-a5e9e604476e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequestEventArgs;{12c55a52-e378-419b-ae38-a5e9e604476e})");
 }
 impl ::core::clone::Clone for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     fn clone(&self) -> Self {
@@ -737,7 +737,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListCreateOrUpdateTaskReq
 impl ::windows::core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(UserDataTaskListCreateOrUpdateTaskRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskListCreateOrUpdateTaskRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -789,7 +789,7 @@ impl ::core::fmt::Debug for UserDataTaskListDeleteTaskRequest {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListDeleteTaskRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequest;{4b863c68-7657-4f3d-b074-d47ec8df07e7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequest;{4b863c68-7657-4f3d-b074-d47ec8df07e7})");
 }
 impl ::core::clone::Clone for UserDataTaskListDeleteTaskRequest {
     fn clone(&self) -> Self {
@@ -805,7 +805,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListDeleteTaskRequest {
 impl ::windows::core::RuntimeName for UserDataTaskListDeleteTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequest";
 }
-::windows::core::interface_hierarchy!(UserDataTaskListDeleteTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskListDeleteTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListDeleteTaskRequest {}
 unsafe impl ::core::marker::Sync for UserDataTaskListDeleteTaskRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -841,7 +841,7 @@ impl ::core::fmt::Debug for UserDataTaskListDeleteTaskRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListDeleteTaskRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequestEventArgs;{6063dad9-f562-4145-8efe-d50078c92b7f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequestEventArgs;{6063dad9-f562-4145-8efe-d50078c92b7f})");
 }
 impl ::core::clone::Clone for UserDataTaskListDeleteTaskRequestEventArgs {
     fn clone(&self) -> Self {
@@ -857,7 +857,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListDeleteTaskRequestEven
 impl ::windows::core::RuntimeName for UserDataTaskListDeleteTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(UserDataTaskListDeleteTaskRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskListDeleteTaskRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListDeleteTaskRequestEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataTaskListDeleteTaskRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -909,7 +909,7 @@ impl ::core::fmt::Debug for UserDataTaskListSkipOccurrenceRequest {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListSkipOccurrenceRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequest;{ab87e34d-1cd3-431c-9f58-089aa4338d85})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequest;{ab87e34d-1cd3-431c-9f58-089aa4338d85})");
 }
 impl ::core::clone::Clone for UserDataTaskListSkipOccurrenceRequest {
     fn clone(&self) -> Self {
@@ -925,7 +925,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListSkipOccurrenceRequest
 impl ::windows::core::RuntimeName for UserDataTaskListSkipOccurrenceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequest";
 }
-::windows::core::interface_hierarchy!(UserDataTaskListSkipOccurrenceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskListSkipOccurrenceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListSkipOccurrenceRequest {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSkipOccurrenceRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -961,7 +961,7 @@ impl ::core::fmt::Debug for UserDataTaskListSkipOccurrenceRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListSkipOccurrenceRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequestEventArgs;{7a3b924a-cc2f-4e7b-aacd-a5b9d29cfa4e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequestEventArgs;{7a3b924a-cc2f-4e7b-aacd-a5b9d29cfa4e})");
 }
 impl ::core::clone::Clone for UserDataTaskListSkipOccurrenceRequestEventArgs {
     fn clone(&self) -> Self {
@@ -977,7 +977,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListSkipOccurrenceRequest
 impl ::windows::core::RuntimeName for UserDataTaskListSkipOccurrenceRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(UserDataTaskListSkipOccurrenceRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskListSkipOccurrenceRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListSkipOccurrenceRequestEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSkipOccurrenceRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -1022,7 +1022,7 @@ impl ::core::fmt::Debug for UserDataTaskListSyncManagerSyncRequest {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListSyncManagerSyncRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequest;{40a73807-7590-4149-ae19-b211431a9f48})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequest;{40a73807-7590-4149-ae19-b211431a9f48})");
 }
 impl ::core::clone::Clone for UserDataTaskListSyncManagerSyncRequest {
     fn clone(&self) -> Self {
@@ -1038,7 +1038,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListSyncManagerSyncReques
 impl ::windows::core::RuntimeName for UserDataTaskListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequest";
 }
-::windows::core::interface_hierarchy!(UserDataTaskListSyncManagerSyncRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskListSyncManagerSyncRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManagerSyncRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -1074,7 +1074,7 @@ impl ::core::fmt::Debug for UserDataTaskListSyncManagerSyncRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UserDataTaskListSyncManagerSyncRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequestEventArgs;{8ead1c12-768e-43bd-8385-5cdc351ffdea})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequestEventArgs;{8ead1c12-768e-43bd-8385-5cdc351ffdea})");
 }
 impl ::core::clone::Clone for UserDataTaskListSyncManagerSyncRequestEventArgs {
     fn clone(&self) -> Self {
@@ -1090,7 +1090,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListSyncManagerSyncReques
 impl ::windows::core::RuntimeName for UserDataTaskListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(UserDataTaskListSyncManagerSyncRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataTaskListSyncManagerSyncRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManagerSyncRequestEventArgs {}
 #[cfg(feature = "implement")]

@@ -139,7 +139,7 @@ impl ::core::fmt::Debug for LanguageFont {
     }
 }
 impl ::windows::core::RuntimeType for LanguageFont {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Fonts.LanguageFont;{b12e5c3a-b76d-459b-beeb-901151cd77d1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.Fonts.LanguageFont;{b12e5c3a-b76d-459b-beeb-901151cd77d1})");
 }
 impl ::core::clone::Clone for LanguageFont {
     fn clone(&self) -> Self {
@@ -155,7 +155,7 @@ unsafe impl ::windows::core::Interface for LanguageFont {
 impl ::windows::core::RuntimeName for LanguageFont {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFont";
 }
-::windows::core::interface_hierarchy!(LanguageFont, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LanguageFont, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LanguageFont {}
 unsafe impl ::core::marker::Sync for LanguageFont {}
 #[doc = "*Required features: `\"Globalization_Fonts\"`*"]
@@ -247,7 +247,7 @@ impl LanguageFontGroup {
     }
     #[doc(hidden)]
     pub fn ILanguageFontGroupFactory<R, F: FnOnce(&ILanguageFontGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LanguageFontGroup, ILanguageFontGroupFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LanguageFontGroup, ILanguageFontGroupFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -263,7 +263,7 @@ impl ::core::fmt::Debug for LanguageFontGroup {
     }
 }
 impl ::windows::core::RuntimeType for LanguageFontGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Fonts.LanguageFontGroup;{f33a7fc3-3a5c-4aea-b9ff-b39fb242f7f6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.Fonts.LanguageFontGroup;{f33a7fc3-3a5c-4aea-b9ff-b39fb242f7f6})");
 }
 impl ::core::clone::Clone for LanguageFontGroup {
     fn clone(&self) -> Self {
@@ -279,7 +279,7 @@ unsafe impl ::windows::core::Interface for LanguageFontGroup {
 impl ::windows::core::RuntimeName for LanguageFontGroup {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFontGroup";
 }
-::windows::core::interface_hierarchy!(LanguageFontGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LanguageFontGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LanguageFontGroup {}
 unsafe impl ::core::marker::Sync for LanguageFontGroup {}
 #[cfg(feature = "implement")]

@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[inline]
 pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: ::core::option::Option<*const u16>, extendederror: ::core::option::Option<*mut *mut MI_Instance>, application: *mut MI_Application) -> MI_Result {
-    ::windows::core::link ! ( "mi.dll""cdecl" fn MI_Application_InitializeV1 ( flags : u32 , applicationid : *const u16 , extendederror : *mut *mut MI_Instance , application : *mut MI_Application ) -> MI_Result );
+    ::windows::imp::link ! ( "mi.dll""cdecl" fn MI_Application_InitializeV1 ( flags : u32 , applicationid : *const u16 , extendederror : *mut *mut MI_Instance , application : *mut MI_Application ) -> MI_Result );
     MI_Application_InitializeV1(flags, ::core::mem::transmute(applicationid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(extendederror.unwrap_or(::std::ptr::null_mut())), application)
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -28,7 +28,7 @@ impl IEnumWbemClassObject {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ltimeout, ncount)
     }
 }
-::windows::core::interface_hierarchy!(IEnumWbemClassObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumWbemClassObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumWbemClassObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -93,7 +93,7 @@ impl IMofCompiler {
         (::windows::core::Vtable::vtable(self).CreateBMOF)(::windows::core::Vtable::as_raw(self), textfilename.into().abi(), bmoffilename.into().abi(), serverandnamespace.into().abi(), loptionflags, lclassflags, linstanceflags, pinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMofCompiler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMofCompiler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMofCompiler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -355,7 +355,7 @@ impl ISWbemDateTime {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemDateTime, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemDateTime, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemDateTime {
     fn eq(&self, other: &Self) -> bool {
@@ -516,7 +516,7 @@ impl ISWbemEventSource {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemEventSource, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemEventSource, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemEventSource {
     fn eq(&self, other: &Self) -> bool {
@@ -776,7 +776,7 @@ impl ISWbemLastError {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemLastError, ::windows::core::IUnknown, super::Com::IDispatch, ISWbemObject);
+::windows::imp::interface_hierarchy!(ISWbemLastError, ::windows::core::IUnknown, super::Com::IDispatch, ISWbemObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemLastError {
     fn eq(&self, other: &Self) -> bool {
@@ -834,7 +834,7 @@ impl ISWbemLocator {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemLocator, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemLocator, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemLocator {
     fn eq(&self, other: &Self) -> bool {
@@ -911,7 +911,7 @@ impl ISWbemMethod {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemMethod, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemMethod, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemMethod {
     fn eq(&self, other: &Self) -> bool {
@@ -982,7 +982,7 @@ impl ISWbemMethodSet {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemMethodSet, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemMethodSet, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemMethodSet {
     fn eq(&self, other: &Self) -> bool {
@@ -1046,7 +1046,7 @@ impl ISWbemNamedValue {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemNamedValue, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemNamedValue, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemNamedValue {
     fn eq(&self, other: &Self) -> bool {
@@ -1130,7 +1130,7 @@ impl ISWbemNamedValueSet {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemNamedValueSet, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemNamedValueSet, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemNamedValueSet {
     fn eq(&self, other: &Self) -> bool {
@@ -1398,7 +1398,7 @@ impl ISWbemObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemObject, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemObject, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemObject {
     fn eq(&self, other: &Self) -> bool {
@@ -1778,7 +1778,7 @@ impl ISWbemObjectEx {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemObjectEx, ::windows::core::IUnknown, super::Com::IDispatch, ISWbemObject);
+::windows::imp::interface_hierarchy!(ISWbemObjectEx, ::windows::core::IUnknown, super::Com::IDispatch, ISWbemObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemObjectEx {
     fn eq(&self, other: &Self) -> bool {
@@ -1927,7 +1927,7 @@ impl ISWbemObjectPath {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemObjectPath, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemObjectPath, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemObjectPath {
     fn eq(&self, other: &Self) -> bool {
@@ -2031,7 +2031,7 @@ impl ISWbemObjectSet {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemObjectSet, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemObjectSet, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemObjectSet {
     fn eq(&self, other: &Self) -> bool {
@@ -2114,7 +2114,7 @@ impl ISWbemPrivilege {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemPrivilege, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemPrivilege, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemPrivilege {
     fn eq(&self, other: &Self) -> bool {
@@ -2206,7 +2206,7 @@ impl ISWbemPrivilegeSet {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemPrivilegeSet, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemPrivilegeSet, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemPrivilegeSet {
     fn eq(&self, other: &Self) -> bool {
@@ -2306,7 +2306,7 @@ impl ISWbemProperty {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemProperty, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemProperty, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemProperty {
     fn eq(&self, other: &Self) -> bool {
@@ -2398,7 +2398,7 @@ impl ISWbemPropertySet {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemPropertySet, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemPropertySet, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemPropertySet {
     fn eq(&self, other: &Self) -> bool {
@@ -2521,7 +2521,7 @@ impl ISWbemQualifier {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemQualifier, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemQualifier, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemQualifier {
     fn eq(&self, other: &Self) -> bool {
@@ -2633,7 +2633,7 @@ impl ISWbemQualifierSet {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemQualifierSet, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemQualifierSet, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemQualifierSet {
     fn eq(&self, other: &Self) -> bool {
@@ -2718,7 +2718,7 @@ impl ISWbemRefreshableItem {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemRefreshableItem, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemRefreshableItem, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemRefreshableItem {
     fn eq(&self, other: &Self) -> bool {
@@ -2836,7 +2836,7 @@ impl ISWbemRefresher {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemRefresher, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemRefresher, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemRefresher {
     fn eq(&self, other: &Self) -> bool {
@@ -2924,7 +2924,7 @@ impl ISWbemSecurity {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemSecurity, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemSecurity, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemSecurity {
     fn eq(&self, other: &Self) -> bool {
@@ -3177,7 +3177,7 @@ impl ISWbemServices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemServices, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemServices, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemServices {
     fn eq(&self, other: &Self) -> bool {
@@ -3534,7 +3534,7 @@ impl ISWbemServicesEx {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemServicesEx, ::windows::core::IUnknown, super::Com::IDispatch, ISWbemServices);
+::windows::imp::interface_hierarchy!(ISWbemServicesEx, ::windows::core::IUnknown, super::Com::IDispatch, ISWbemServices);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemServicesEx {
     fn eq(&self, other: &Self) -> bool {
@@ -3588,7 +3588,7 @@ impl ISWbemSink {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemSink, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemSink, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemSink {
     fn eq(&self, other: &Self) -> bool {
@@ -3631,7 +3631,7 @@ pub struct ISWbemSinkEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemSinkEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISWbemSinkEvents, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISWbemSinkEvents, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISWbemSinkEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -3678,7 +3678,7 @@ impl IUnsecuredApartment {
         (::windows::core::Vtable::vtable(self).CreateObjectStub)(::windows::core::Vtable::as_raw(self), pobject.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUnsecuredApartment, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUnsecuredApartment, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUnsecuredApartment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3731,7 +3731,7 @@ impl IWMIExtension {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWMIExtension, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWMIExtension, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWMIExtension {
     fn eq(&self, other: &Self) -> bool {
@@ -3786,7 +3786,7 @@ impl IWbemAddressResolution {
         (::windows::core::Vtable::vtable(self).Resolve)(::windows::core::Vtable::as_raw(self), wsznamespacepath.into().abi(), ::core::mem::transmute(wszaddresstype), pdwaddresslength, pabbinaryaddress).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemAddressResolution, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemAddressResolution, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemAddressResolution {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3832,7 +3832,7 @@ impl IWbemBackupRestore {
         (::windows::core::Vtable::vtable(self).Restore)(::windows::core::Vtable::as_raw(self), strrestorefromfile.into().abi(), lflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemBackupRestore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemBackupRestore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemBackupRestore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3885,7 +3885,7 @@ impl IWbemBackupRestoreEx {
         (::windows::core::Vtable::vtable(self).Resume)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemBackupRestoreEx, ::windows::core::IUnknown, IWbemBackupRestore);
+::windows::imp::interface_hierarchy!(IWbemBackupRestoreEx, ::windows::core::IUnknown, IWbemBackupRestore);
 impl ::core::cmp::PartialEq for IWbemBackupRestoreEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3936,7 +3936,7 @@ impl IWbemCallResult {
         (::windows::core::Vtable::vtable(self).GetCallStatus)(::windows::core::Vtable::as_raw(self), ltimeout, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWbemCallResult, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemCallResult, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemCallResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4104,7 +4104,7 @@ impl IWbemClassObject {
         (::windows::core::Vtable::vtable(self).GetMethodOrigin)(::windows::core::Vtable::as_raw(self), wszmethodname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWbemClassObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemClassObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemClassObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4194,7 +4194,7 @@ impl IWbemClientConnectionTransport {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self), lflags, phandler.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemClientConnectionTransport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemClientConnectionTransport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemClientConnectionTransport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4237,7 +4237,7 @@ impl IWbemClientTransport {
         (::windows::core::Vtable::vtable(self).ConnectServer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(straddresstype), abbinaryaddress.len() as _, ::core::mem::transmute(abbinaryaddress.as_ptr()), ::core::mem::transmute_copy(strnetworkresource), ::core::mem::transmute_copy(struser), ::core::mem::transmute_copy(strpassword), ::core::mem::transmute_copy(strlocale), lsecurityflags, ::core::mem::transmute_copy(strauthority), pctx.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWbemClientTransport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemClientTransport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemClientTransport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4304,7 +4304,7 @@ impl IWbemConfigureRefresher {
         (::windows::core::Vtable::vtable(self).AddEnum)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), wszclassname.into().abi(), lflags, pcontext.into().abi(), ::core::mem::transmute(ppenum), plid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemConfigureRefresher, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemConfigureRefresher, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemConfigureRefresher {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4352,7 +4352,7 @@ impl IWbemConnectorLogin {
         (::windows::core::Vtable::vtable(self).ConnectorLogin)(::windows::core::Vtable::as_raw(self), wsznetworkresource.into().abi(), wszpreferredlocale.into().abi(), lflags, pctx.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWbemConnectorLogin, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemConnectorLogin, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemConnectorLogin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4408,7 +4408,7 @@ impl IWbemConstructClassObject {
         (::windows::core::Vtable::vtable(self).SetServerNamespace)(::windows::core::Vtable::as_raw(self), wszserver.into().abi(), wsznamespace.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemConstructClassObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemConstructClassObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemConstructClassObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4492,7 +4492,7 @@ impl IWbemContext {
         (::windows::core::Vtable::vtable(self).DeleteAll)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4574,7 +4574,7 @@ impl IWbemDecoupledBasicEventProvider {
         (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), a_flags, a_context.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWbemDecoupledBasicEventProvider, ::windows::core::IUnknown, IWbemDecoupledRegistrar);
+::windows::imp::interface_hierarchy!(IWbemDecoupledBasicEventProvider, ::windows::core::IUnknown, IWbemDecoupledRegistrar);
 impl ::core::cmp::PartialEq for IWbemDecoupledBasicEventProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4623,7 +4623,7 @@ impl IWbemDecoupledRegistrar {
         (::windows::core::Vtable::vtable(self).UnRegister)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemDecoupledRegistrar, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemDecoupledRegistrar, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemDecoupledRegistrar {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4665,7 +4665,7 @@ impl IWbemEventConsumerProvider {
         (::windows::core::Vtable::vtable(self).FindConsumer)(::windows::core::Vtable::as_raw(self), plogicalconsumer.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWbemEventConsumerProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemEventConsumerProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemEventConsumerProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4705,7 +4705,7 @@ impl IWbemEventProvider {
         (::windows::core::Vtable::vtable(self).ProvideEvents)(::windows::core::Vtable::as_raw(self), psink.into().abi(), lflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemEventProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemEventProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemEventProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4745,7 +4745,7 @@ impl IWbemEventProviderQuerySink {
         (::windows::core::Vtable::vtable(self).CancelQuery)(::windows::core::Vtable::as_raw(self), dwid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemEventProviderQuerySink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemEventProviderQuerySink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemEventProviderQuerySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4783,7 +4783,7 @@ impl IWbemEventProviderSecurity {
         (::windows::core::Vtable::vtable(self).AccessCheck)(::windows::core::Vtable::as_raw(self), wszquerylanguage, wszquery, psid.len() as _, ::core::mem::transmute(psid.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemEventProviderSecurity, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemEventProviderSecurity, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemEventProviderSecurity {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4842,7 +4842,7 @@ impl IWbemEventSink {
         (::windows::core::Vtable::vtable(self).SetBatchingParameters)(::windows::core::Vtable::as_raw(self), lflags, dwmaxbuffersize, dwmaxsendlatency).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemEventSink, ::windows::core::IUnknown, IWbemObjectSink);
+::windows::imp::interface_hierarchy!(IWbemEventSink, ::windows::core::IUnknown, IWbemObjectSink);
 impl ::core::cmp::PartialEq for IWbemEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4891,7 +4891,7 @@ impl IWbemHiPerfEnum {
         (::windows::core::Vtable::vtable(self).RemoveAll)(::windows::core::Vtable::as_raw(self), lflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemHiPerfEnum, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemHiPerfEnum, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemHiPerfEnum {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4977,7 +4977,7 @@ impl IWbemHiPerfProvider {
         (::windows::core::Vtable::vtable(self).GetObjects)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), apobj.len() as _, ::core::mem::transmute(apobj.as_ptr()), lflags, pcontext.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemHiPerfProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemHiPerfProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemHiPerfProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5048,7 +5048,7 @@ impl IWbemLevel1Login {
         (::windows::core::Vtable::vtable(self).NTLMLogin)(::windows::core::Vtable::as_raw(self), wsznetworkresource.into().abi(), wszpreferredlocale.into().abi(), lflags, pctx.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWbemLevel1Login, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemLevel1Login, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemLevel1Login {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5092,7 +5092,7 @@ impl IWbemLocator {
         (::windows::core::Vtable::vtable(self).ConnectServer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strnetworkresource), ::core::mem::transmute_copy(struser), ::core::mem::transmute_copy(strpassword), ::core::mem::transmute_copy(strlocale), lsecurityflags, ::core::mem::transmute_copy(strauthority), pctx.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWbemLocator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemLocator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemLocator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5292,7 +5292,7 @@ impl IWbemObjectAccess {
         (::windows::core::Vtable::vtable(self).Unlock)(::windows::core::Vtable::as_raw(self), lflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemObjectAccess, ::windows::core::IUnknown, IWbemClassObject);
+::windows::imp::interface_hierarchy!(IWbemObjectAccess, ::windows::core::IUnknown, IWbemClassObject);
 impl ::core::cmp::PartialEq for IWbemObjectAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5344,7 +5344,7 @@ impl IWbemObjectSink {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), lflags, hresult, ::core::mem::transmute_copy(strparam), pobjparam.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemObjectSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemObjectSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemObjectSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5410,7 +5410,7 @@ impl IWbemObjectSinkEx {
         (::windows::core::Vtable::vtable(self).WriteStreamParameter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strname), vtvalue, ultype, ulflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemObjectSinkEx, ::windows::core::IUnknown, IWbemObjectSink);
+::windows::imp::interface_hierarchy!(IWbemObjectSinkEx, ::windows::core::IUnknown, IWbemObjectSink);
 impl ::core::cmp::PartialEq for IWbemObjectSinkEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5466,7 +5466,7 @@ impl IWbemObjectTextSrc {
         (::windows::core::Vtable::vtable(self).CreateFromText)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(strtext), uobjtextformat, pctx.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWbemObjectTextSrc, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemObjectTextSrc, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemObjectTextSrc {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5626,7 +5626,7 @@ impl IWbemPath {
         (::windows::core::Vtable::vtable(self).IsSameClassName)(::windows::core::Vtable::as_raw(self), wszclass.into().abi())
     }
 }
-::windows::core::interface_hierarchy!(IWbemPath, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemPath, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemPath {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5742,7 +5742,7 @@ impl IWbemPathKeyList {
         (::windows::core::Vtable::vtable(self).GetText)(::windows::core::Vtable::as_raw(self), lflags, pubufflength, ::core::mem::transmute(psztext)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemPathKeyList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemPathKeyList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemPathKeyList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5802,7 +5802,7 @@ impl IWbemPropertyProvider {
         (::windows::core::Vtable::vtable(self).PutProperty)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(strlocale), ::core::mem::transmute_copy(strclassmapping), ::core::mem::transmute_copy(strinstmapping), ::core::mem::transmute_copy(strpropmapping), pvvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemPropertyProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemPropertyProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemPropertyProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5849,7 +5849,7 @@ impl IWbemProviderIdentity {
         (::windows::core::Vtable::vtable(self).SetRegistrationObject)(::windows::core::Vtable::as_raw(self), lflags, pprovreg.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemProviderIdentity, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemProviderIdentity, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemProviderIdentity {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5894,7 +5894,7 @@ impl IWbemProviderInit {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), wszuser.into().abi(), lflags, wsznamespace.into().abi(), wszlocale.into().abi(), pnamespace.into().abi(), pctx.into().abi(), pinitsink.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemProviderInit, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemProviderInit, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemProviderInit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5931,7 +5931,7 @@ impl IWbemProviderInitSink {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), lstatus, lflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemProviderInitSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemProviderInitSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemProviderInitSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6004,7 +6004,7 @@ impl IWbemQualifierSet {
         (::windows::core::Vtable::vtable(self).EndEnumeration)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemQualifierSet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemQualifierSet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemQualifierSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6081,7 +6081,7 @@ impl IWbemQuery {
         (::windows::core::Vtable::vtable(self).GetQueryInfo)(::windows::core::Vtable::as_raw(self), uanalysistype, uinfoid, ubufsize, pdestbuf).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemQuery, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemQuery, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemQuery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6124,7 +6124,7 @@ impl IWbemRefresher {
         (::windows::core::Vtable::vtable(self).Refresh)(::windows::core::Vtable::as_raw(self), lflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemRefresher, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemRefresher, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemRefresher {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6314,7 +6314,7 @@ impl IWbemServices {
         (::windows::core::Vtable::vtable(self).ExecMethodAsync)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strobjectpath), ::core::mem::transmute_copy(strmethodname), lflags, pctx.into().abi(), pinparams.into().abi(), presponsehandler.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemServices, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemServices, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemServices {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6376,7 +6376,7 @@ impl IWbemShutdown {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self), ureason, umaxmilliseconds, pctx.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemShutdown, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemShutdown, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemShutdown {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6418,7 +6418,7 @@ impl IWbemStatusCodeText {
         (::windows::core::Vtable::vtable(self).GetFacilityCodeText)(::windows::core::Vtable::as_raw(self), hres, localeid, lflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWbemStatusCodeText, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemStatusCodeText, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemStatusCodeText {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6456,7 +6456,7 @@ impl IWbemTransport {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemTransport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemTransport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemTransport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6496,7 +6496,7 @@ impl IWbemUnboundObjectSink {
         (::windows::core::Vtable::vtable(self).IndicateToConsumer)(::windows::core::Vtable::as_raw(self), plogicalconsumer.into().abi(), apobjects.len() as _, ::core::mem::transmute(apobjects.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWbemUnboundObjectSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWbemUnboundObjectSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWbemUnboundObjectSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6545,7 +6545,7 @@ impl IWbemUnsecuredApartment {
         (::windows::core::Vtable::vtable(self).CreateSinkStub)(::windows::core::Vtable::as_raw(self), psink.into().abi(), dwflags, wszreserved.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWbemUnsecuredApartment, ::windows::core::IUnknown, IUnsecuredApartment);
+::windows::imp::interface_hierarchy!(IWbemUnsecuredApartment, ::windows::core::IUnknown, IUnsecuredApartment);
 impl ::core::cmp::PartialEq for IWbemUnsecuredApartment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

@@ -137,12 +137,12 @@ impl LicenseManager {
     }
     #[doc(hidden)]
     pub fn ILicenseManagerStatics<R, F: FnOnce(&ILicenseManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LicenseManager, ILicenseManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LicenseManager, ILicenseManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ILicenseManagerStatics2<R, F: FnOnce(&ILicenseManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LicenseManager, ILicenseManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LicenseManager, ILicenseManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -215,7 +215,7 @@ impl ::core::fmt::Debug for LicenseSatisfactionInfo {
     }
 }
 impl ::windows::core::RuntimeType for LicenseSatisfactionInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo;{3ccbb08f-db31-48d5-8384-fa17c81474e2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo;{3ccbb08f-db31-48d5-8384-fa17c81474e2})");
 }
 impl ::core::clone::Clone for LicenseSatisfactionInfo {
     fn clone(&self) -> Self {
@@ -231,7 +231,7 @@ unsafe impl ::windows::core::Interface for LicenseSatisfactionInfo {
 impl ::windows::core::RuntimeName for LicenseSatisfactionInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo";
 }
-::windows::core::interface_hierarchy!(LicenseSatisfactionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LicenseSatisfactionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LicenseSatisfactionInfo {}
 unsafe impl ::core::marker::Sync for LicenseSatisfactionInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
@@ -267,7 +267,7 @@ impl ::core::fmt::Debug for LicenseSatisfactionResult {
     }
 }
 impl ::windows::core::RuntimeType for LicenseSatisfactionResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult;{3c674f73-3c87-4ee1-8201-f428359bd3af})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult;{3c674f73-3c87-4ee1-8201-f428359bd3af})");
 }
 impl ::core::clone::Clone for LicenseSatisfactionResult {
     fn clone(&self) -> Self {
@@ -283,7 +283,7 @@ unsafe impl ::windows::core::Interface for LicenseSatisfactionResult {
 impl ::windows::core::RuntimeName for LicenseSatisfactionResult {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult";
 }
-::windows::core::interface_hierarchy!(LicenseSatisfactionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LicenseSatisfactionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LicenseSatisfactionResult {}
 unsafe impl ::core::marker::Sync for LicenseSatisfactionResult {}
 #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
@@ -314,7 +314,7 @@ impl ::core::fmt::Debug for LicenseRefreshOption {
     }
 }
 impl ::windows::core::RuntimeType for LicenseRefreshOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

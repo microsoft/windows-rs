@@ -29,7 +29,7 @@ impl ApplicationProfile {
     }
     #[doc(hidden)]
     pub fn IApplicationProfileStatics<R, F: FnOnce(&IApplicationProfileStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationProfile, IApplicationProfileStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationProfile, IApplicationProfileStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -97,7 +97,7 @@ impl ::core::ops::Not for ApplicationProfileModes {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationProfileModes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

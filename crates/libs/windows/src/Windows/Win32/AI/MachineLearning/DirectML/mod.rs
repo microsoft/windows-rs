@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct3D12::ID3D12Device>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "directml.dll""system" fn DMLCreateDevice ( d3d12device : * mut::core::ffi::c_void , flags : DML_CREATE_DEVICE_FLAGS , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "directml.dll""system" fn DMLCreateDevice ( d3d12device : * mut::core::ffi::c_void , flags : DML_CREATE_DEVICE_FLAGS , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DMLCreateDevice(d3d12device.into().abi(), flags, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct3D12::ID3D12Device>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "directml.dll""system" fn DMLCreateDevice1 ( d3d12device : * mut::core::ffi::c_void , flags : DML_CREATE_DEVICE_FLAGS , minimumfeaturelevel : DML_FEATURE_LEVEL , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "directml.dll""system" fn DMLCreateDevice1 ( d3d12device : * mut::core::ffi::c_void , flags : DML_CREATE_DEVICE_FLAGS , minimumfeaturelevel : DML_FEATURE_LEVEL , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DMLCreateDevice1(d3d12device.into().abi(), flags, minimumfeaturelevel, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
@@ -67,7 +67,7 @@ impl IDMLBindingTable {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDMLBindingTable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
+::windows::imp::interface_hierarchy!(IDMLBindingTable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl ::core::cmp::PartialEq for IDMLBindingTable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -143,7 +143,7 @@ impl IDMLCommandRecorder {
         (::windows::core::Vtable::vtable(self).RecordDispatch)(::windows::core::Vtable::as_raw(self), commandlist.into().abi(), dispatchable.into().abi(), bindings.into().abi())
     }
 }
-::windows::core::interface_hierarchy!(IDMLCommandRecorder, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
+::windows::imp::interface_hierarchy!(IDMLCommandRecorder, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl ::core::cmp::PartialEq for IDMLCommandRecorder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -210,7 +210,7 @@ impl IDMLCompiledOperator {
         result__
     }
 }
-::windows::core::interface_hierarchy!(IDMLCompiledOperator, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
+::windows::imp::interface_hierarchy!(IDMLCompiledOperator, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
 impl ::core::cmp::PartialEq for IDMLCompiledOperator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -251,7 +251,7 @@ impl IDMLDebugDevice {
         (::windows::core::Vtable::vtable(self).SetMuteDebugOutput)(::windows::core::Vtable::as_raw(self), mute.into())
     }
 }
-::windows::core::interface_hierarchy!(IDMLDebugDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDMLDebugDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDMLDebugDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -361,7 +361,7 @@ impl IDMLDevice {
         (::windows::core::Vtable::vtable(self).GetParentDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDMLDevice, ::windows::core::IUnknown, IDMLObject);
+::windows::imp::interface_hierarchy!(IDMLDevice, ::windows::core::IUnknown, IDMLObject);
 impl ::core::cmp::PartialEq for IDMLDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -486,7 +486,7 @@ impl IDMLDevice1 {
         (::windows::core::Vtable::vtable(self).CompileGraph)(::windows::core::Vtable::as_raw(self), desc, flags, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDMLDevice1, ::windows::core::IUnknown, IDMLObject, IDMLDevice);
+::windows::imp::interface_hierarchy!(IDMLDevice1, ::windows::core::IUnknown, IDMLObject, IDMLDevice);
 impl ::core::cmp::PartialEq for IDMLDevice1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -545,7 +545,7 @@ impl IDMLDeviceChild {
         (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDMLDeviceChild, ::windows::core::IUnknown, IDMLObject);
+::windows::imp::interface_hierarchy!(IDMLDeviceChild, ::windows::core::IUnknown, IDMLObject);
 impl ::core::cmp::PartialEq for IDMLDeviceChild {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -609,7 +609,7 @@ impl IDMLDispatchable {
         result__
     }
 }
-::windows::core::interface_hierarchy!(IDMLDispatchable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable);
+::windows::imp::interface_hierarchy!(IDMLDispatchable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable);
 impl ::core::cmp::PartialEq for IDMLDispatchable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -661,7 +661,7 @@ impl IDMLObject {
         (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDMLObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDMLObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDMLObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -723,7 +723,7 @@ impl IDMLOperator {
         (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDMLOperator, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
+::windows::imp::interface_hierarchy!(IDMLOperator, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl ::core::cmp::PartialEq for IDMLOperator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -789,7 +789,7 @@ impl IDMLOperatorInitializer {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDMLOperatorInitializer, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
+::windows::imp::interface_hierarchy!(IDMLOperatorInitializer, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
 impl ::core::cmp::PartialEq for IDMLOperatorInitializer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -848,7 +848,7 @@ impl IDMLPageable {
         (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDMLPageable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
+::windows::imp::interface_hierarchy!(IDMLPageable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl ::core::cmp::PartialEq for IDMLPageable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

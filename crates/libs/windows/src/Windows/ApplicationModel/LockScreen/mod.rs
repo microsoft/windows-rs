@@ -221,7 +221,7 @@ impl LockApplicationHost {
     }
     #[doc(hidden)]
     pub fn ILockApplicationHostStatics<R, F: FnOnce(&ILockApplicationHostStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LockApplicationHost, ILockApplicationHostStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LockApplicationHost, ILockApplicationHostStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -237,7 +237,7 @@ impl ::core::fmt::Debug for LockApplicationHost {
     }
 }
 impl ::windows::core::RuntimeType for LockApplicationHost {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockApplicationHost;{38ee31ad-d94f-4e7c-81fa-4f4436506281})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockApplicationHost;{38ee31ad-d94f-4e7c-81fa-4f4436506281})");
 }
 impl ::core::clone::Clone for LockApplicationHost {
     fn clone(&self) -> Self {
@@ -253,7 +253,7 @@ unsafe impl ::windows::core::Interface for LockApplicationHost {
 impl ::windows::core::RuntimeName for LockApplicationHost {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockApplicationHost";
 }
-::windows::core::interface_hierarchy!(LockApplicationHost, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LockApplicationHost, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockApplicationHost {}
 unsafe impl ::core::marker::Sync for LockApplicationHost {}
 #[doc = "*Required features: `\"ApplicationModel_LockScreen\"`*"]
@@ -311,7 +311,7 @@ impl ::core::fmt::Debug for LockScreenBadge {
     }
 }
 impl ::windows::core::RuntimeType for LockScreenBadge {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenBadge;{e95105d9-2bff-4db0-9b4f-3824778b9c9a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenBadge;{e95105d9-2bff-4db0-9b4f-3824778b9c9a})");
 }
 impl ::core::clone::Clone for LockScreenBadge {
     fn clone(&self) -> Self {
@@ -327,7 +327,7 @@ unsafe impl ::windows::core::Interface for LockScreenBadge {
 impl ::windows::core::RuntimeName for LockScreenBadge {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenBadge";
 }
-::windows::core::interface_hierarchy!(LockScreenBadge, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LockScreenBadge, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockScreenBadge {}
 unsafe impl ::core::marker::Sync for LockScreenBadge {}
 #[doc = "*Required features: `\"ApplicationModel_LockScreen\"`*"]
@@ -443,7 +443,7 @@ impl ::core::fmt::Debug for LockScreenInfo {
     }
 }
 impl ::windows::core::RuntimeType for LockScreenInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenInfo;{f59aa65c-9711-4dc9-a630-95b6cb8cdad0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenInfo;{f59aa65c-9711-4dc9-a630-95b6cb8cdad0})");
 }
 impl ::core::clone::Clone for LockScreenInfo {
     fn clone(&self) -> Self {
@@ -459,7 +459,7 @@ unsafe impl ::windows::core::Interface for LockScreenInfo {
 impl ::windows::core::RuntimeName for LockScreenInfo {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenInfo";
 }
-::windows::core::interface_hierarchy!(LockScreenInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LockScreenInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockScreenInfo {}
 unsafe impl ::core::marker::Sync for LockScreenInfo {}
 #[doc = "*Required features: `\"ApplicationModel_LockScreen\"`*"]
@@ -483,7 +483,7 @@ impl ::core::fmt::Debug for LockScreenUnlockingDeferral {
     }
 }
 impl ::windows::core::RuntimeType for LockScreenUnlockingDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenUnlockingDeferral;{7e7d1ad6-5203-43e7-9bd6-7c3947d1e3fe})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenUnlockingDeferral;{7e7d1ad6-5203-43e7-9bd6-7c3947d1e3fe})");
 }
 impl ::core::clone::Clone for LockScreenUnlockingDeferral {
     fn clone(&self) -> Self {
@@ -499,7 +499,7 @@ unsafe impl ::windows::core::Interface for LockScreenUnlockingDeferral {
 impl ::windows::core::RuntimeName for LockScreenUnlockingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenUnlockingDeferral";
 }
-::windows::core::interface_hierarchy!(LockScreenUnlockingDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LockScreenUnlockingDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockScreenUnlockingDeferral {}
 unsafe impl ::core::marker::Sync for LockScreenUnlockingDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_LockScreen\"`*"]
@@ -535,7 +535,7 @@ impl ::core::fmt::Debug for LockScreenUnlockingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LockScreenUnlockingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenUnlockingEventArgs;{44e6c007-75fb-4abb-9f8b-824748900c71})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenUnlockingEventArgs;{44e6c007-75fb-4abb-9f8b-824748900c71})");
 }
 impl ::core::clone::Clone for LockScreenUnlockingEventArgs {
     fn clone(&self) -> Self {
@@ -551,7 +551,7 @@ unsafe impl ::windows::core::Interface for LockScreenUnlockingEventArgs {
 impl ::windows::core::RuntimeName for LockScreenUnlockingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenUnlockingEventArgs";
 }
-::windows::core::interface_hierarchy!(LockScreenUnlockingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LockScreenUnlockingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockScreenUnlockingEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenUnlockingEventArgs {}
 #[cfg(feature = "implement")]

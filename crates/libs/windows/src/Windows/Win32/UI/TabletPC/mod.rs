@@ -5,7 +5,7 @@ pub unsafe fn AddStroke<P0>(hrc: P0, ppacketdesc: *const PACKET_DESCRIPTION, cbp
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn AddStroke ( hrc : HRECOCONTEXT , ppacketdesc : *const PACKET_DESCRIPTION , cbpacket : u32 , ppacket : *const u8 , pxform : *const super::super::Graphics::Gdi:: XFORM ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn AddStroke ( hrc : HRECOCONTEXT , ppacketdesc : *const PACKET_DESCRIPTION , cbpacket : u32 , ppacket : *const u8 , pxform : *const super::super::Graphics::Gdi:: XFORM ) -> :: windows::core::HRESULT );
     AddStroke(hrc.into(), ppacketdesc, cbpacket, ppacket, pxform).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -15,7 +15,7 @@ where
     P0: ::std::convert::Into<HRECOWORDLIST>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn AddWordsToWordList ( hwl : HRECOWORDLIST , pwcwords : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn AddWordsToWordList ( hwl : HRECOWORDLIST , pwcwords : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     AddWordsToWordList(hwl.into(), pwcwords.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
@@ -26,7 +26,7 @@ where
     P0: ::std::convert::Into<HRECOCONTEXT>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn AdviseInkChange ( hrc : HRECOCONTEXT , bnewstroke : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn AdviseInkChange ( hrc : HRECOCONTEXT , bnewstroke : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     AdviseInkChange(hrc.into(), bnewstroke.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -35,13 +35,13 @@ pub unsafe fn CreateContext<P0>(hrec: P0, phrc: *mut HRECOCONTEXT) -> ::windows:
 where
     P0: ::std::convert::Into<HRECOGNIZER>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn CreateContext ( hrec : HRECOGNIZER , phrc : *mut HRECOCONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn CreateContext ( hrec : HRECOGNIZER , phrc : *mut HRECOCONTEXT ) -> :: windows::core::HRESULT );
     CreateContext(hrec.into(), phrc).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn CreateRecognizer(pclsid: *mut ::windows::core::GUID, phrec: *mut HRECOGNIZER) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn CreateRecognizer ( pclsid : *mut :: windows::core::GUID , phrec : *mut HRECOGNIZER ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn CreateRecognizer ( pclsid : *mut :: windows::core::GUID , phrec : *mut HRECOGNIZER ) -> :: windows::core::HRESULT );
     CreateRecognizer(pclsid, phrec).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -50,7 +50,7 @@ pub unsafe fn DestroyContext<P0>(hrc: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn DestroyContext ( hrc : HRECOCONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn DestroyContext ( hrc : HRECOCONTEXT ) -> :: windows::core::HRESULT );
     DestroyContext(hrc.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -59,7 +59,7 @@ pub unsafe fn DestroyRecognizer<P0>(hrec: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOGNIZER>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn DestroyRecognizer ( hrec : HRECOGNIZER ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn DestroyRecognizer ( hrec : HRECOGNIZER ) -> :: windows::core::HRESULT );
     DestroyRecognizer(hrec.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -68,7 +68,7 @@ pub unsafe fn DestroyWordList<P0>(hwl: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOWORDLIST>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn DestroyWordList ( hwl : HRECOWORDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn DestroyWordList ( hwl : HRECOWORDLIST ) -> :: windows::core::HRESULT );
     DestroyWordList(hwl.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -77,13 +77,13 @@ pub unsafe fn EndInkInput<P0>(hrc: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn EndInkInput ( hrc : HRECOCONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn EndInkInput ( hrc : HRECOCONTEXT ) -> :: windows::core::HRESULT );
     EndInkInput(hrc.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::core::GUID, count: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn GetAllRecognizers ( recognizerclsids : *mut *mut :: windows::core::GUID , count : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetAllRecognizers ( recognizerclsids : *mut *mut :: windows::core::GUID , count : *mut u32 ) -> :: windows::core::HRESULT );
     GetAllRecognizers(recognizerclsids, count).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -92,7 +92,7 @@ pub unsafe fn GetBestResultString<P0>(hrc: P0, pcsize: *mut u32, pwcbestresult: 
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn GetBestResultString ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcbestresult : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetBestResultString ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcbestresult : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     GetBestResultString(hrc.into(), pcsize, ::core::mem::transmute(pwcbestresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -101,7 +101,7 @@ pub unsafe fn GetLatticePtr<P0>(hrc: P0, pplattice: *mut *mut RECO_LATTICE) -> :
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn GetLatticePtr ( hrc : HRECOCONTEXT , pplattice : *mut *mut RECO_LATTICE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetLatticePtr ( hrc : HRECOCONTEXT , pplattice : *mut *mut RECO_LATTICE ) -> :: windows::core::HRESULT );
     GetLatticePtr(hrc.into(), pplattice).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -110,7 +110,7 @@ pub unsafe fn GetLeftSeparator<P0>(hrc: P0, pcsize: *mut u32, pwcleftseparator: 
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn GetLeftSeparator ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcleftseparator : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetLeftSeparator ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcleftseparator : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     GetLeftSeparator(hrc.into(), pcsize, ::core::mem::transmute(pwcleftseparator)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -119,7 +119,7 @@ pub unsafe fn GetRecoAttributes<P0>(hrec: P0, precoattrs: *mut RECO_ATTRS) -> ::
 where
     P0: ::std::convert::Into<HRECOGNIZER>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn GetRecoAttributes ( hrec : HRECOGNIZER , precoattrs : *mut RECO_ATTRS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetRecoAttributes ( hrec : HRECOGNIZER , precoattrs : *mut RECO_ATTRS ) -> :: windows::core::HRESULT );
     GetRecoAttributes(hrec.into(), precoattrs).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -128,7 +128,7 @@ pub unsafe fn GetResultPropertyList<P0>(hrec: P0, ppropertycount: *mut u32, ppro
 where
     P0: ::std::convert::Into<HRECOGNIZER>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn GetResultPropertyList ( hrec : HRECOGNIZER , ppropertycount : *mut u32 , ppropertyguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetResultPropertyList ( hrec : HRECOGNIZER , ppropertycount : *mut u32 , ppropertyguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     GetResultPropertyList(hrec.into(), ppropertycount, ppropertyguid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -137,7 +137,7 @@ pub unsafe fn GetRightSeparator<P0>(hrc: P0, pcsize: *mut u32, pwcrightseparator
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn GetRightSeparator ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcrightseparator : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetRightSeparator ( hrc : HRECOCONTEXT , pcsize : *mut u32 , pwcrightseparator : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     GetRightSeparator(hrc.into(), pcsize, ::core::mem::transmute(pwcrightseparator)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -146,7 +146,7 @@ pub unsafe fn GetUnicodeRanges<P0>(hrec: P0, pcranges: *mut u32, pcr: *mut CHARA
 where
     P0: ::std::convert::Into<HRECOGNIZER>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn GetUnicodeRanges ( hrec : HRECOGNIZER , pcranges : *mut u32 , pcr : *mut CHARACTER_RANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn GetUnicodeRanges ( hrec : HRECOGNIZER , pcranges : *mut u32 , pcr : *mut CHARACTER_RANGE ) -> :: windows::core::HRESULT );
     GetUnicodeRanges(hrec.into(), pcranges, pcr).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -156,13 +156,13 @@ where
     P0: ::std::convert::Into<HRECOCONTEXT>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn IsStringSupported ( hrc : HRECOCONTEXT , wcstring : u32 , pwcstring : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn IsStringSupported ( hrc : HRECOCONTEXT , wcstring : u32 , pwcstring : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     IsStringSupported(hrc.into(), wcstring, pwcstring.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn LoadCachedAttributes(clsid: ::windows::core::GUID, precoattributes: *mut RECO_ATTRS) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn LoadCachedAttributes ( clsid : :: windows::core::GUID , precoattributes : *mut RECO_ATTRS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn LoadCachedAttributes ( clsid : :: windows::core::GUID , precoattributes : *mut RECO_ATTRS ) -> :: windows::core::HRESULT );
     LoadCachedAttributes(::core::mem::transmute(clsid), precoattributes).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -172,7 +172,7 @@ where
     P0: ::std::convert::Into<HRECOGNIZER>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn MakeWordList ( hrec : HRECOGNIZER , pbuffer : :: windows::core::PCWSTR , phwl : *mut HRECOWORDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn MakeWordList ( hrec : HRECOGNIZER , pbuffer : :: windows::core::PCWSTR , phwl : *mut HRECOWORDLIST ) -> :: windows::core::HRESULT );
     MakeWordList(hrec.into(), pbuffer.into().abi(), phwl).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
@@ -182,7 +182,7 @@ pub unsafe fn Process<P0>(hrc: P0, pbpartialprocessing: *mut super::super::Found
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn Process ( hrc : HRECOCONTEXT , pbpartialprocessing : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn Process ( hrc : HRECOCONTEXT , pbpartialprocessing : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     Process(hrc.into(), pbpartialprocessing).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -191,7 +191,7 @@ pub unsafe fn SetEnabledUnicodeRanges<P0>(hrc: P0, cranges: u32, pcr: *mut CHARA
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn SetEnabledUnicodeRanges ( hrc : HRECOCONTEXT , cranges : u32 , pcr : *mut CHARACTER_RANGE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetEnabledUnicodeRanges ( hrc : HRECOCONTEXT , cranges : u32 , pcr : *mut CHARACTER_RANGE ) -> :: windows::core::HRESULT );
     SetEnabledUnicodeRanges(hrc.into(), cranges, pcr).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -201,7 +201,7 @@ where
     P0: ::std::convert::Into<HRECOCONTEXT>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn SetFactoid ( hrc : HRECOCONTEXT , cwcfactoid : u32 , pwcfactoid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetFactoid ( hrc : HRECOCONTEXT , cwcfactoid : u32 , pwcfactoid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     SetFactoid(hrc.into(), cwcfactoid, pwcfactoid.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -210,7 +210,7 @@ pub unsafe fn SetFlags<P0>(hrc: P0, dwflags: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn SetFlags ( hrc : HRECOCONTEXT , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetFlags ( hrc : HRECOCONTEXT , dwflags : u32 ) -> :: windows::core::HRESULT );
     SetFlags(hrc.into(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -219,7 +219,7 @@ pub unsafe fn SetGuide<P0>(hrc: P0, pguide: *const RECO_GUIDE, iindex: u32) -> :
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn SetGuide ( hrc : HRECOCONTEXT , pguide : *const RECO_GUIDE , iindex : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetGuide ( hrc : HRECOCONTEXT , pguide : *const RECO_GUIDE , iindex : u32 ) -> :: windows::core::HRESULT );
     SetGuide(hrc.into(), pguide, iindex).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -228,7 +228,7 @@ pub unsafe fn SetTextContext<P0>(hrc: P0, pwcbefore: &[u16], pwcafter: &[u16]) -
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn SetTextContext ( hrc : HRECOCONTEXT , cwcbefore : u32 , pwcbefore : :: windows::core::PCWSTR , cwcafter : u32 , pwcafter : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetTextContext ( hrc : HRECOCONTEXT , cwcbefore : u32 , pwcbefore : :: windows::core::PCWSTR , cwcafter : u32 , pwcafter : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     SetTextContext(hrc.into(), pwcbefore.len() as _, ::core::mem::transmute(pwcbefore.as_ptr()), pwcafter.len() as _, ::core::mem::transmute(pwcafter.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -238,7 +238,7 @@ where
     P0: ::std::convert::Into<HRECOCONTEXT>,
     P1: ::std::convert::Into<HRECOWORDLIST>,
 {
-    ::windows::core::link ! ( "inkobjcore.dll""system" fn SetWordList ( hrc : HRECOCONTEXT , hwl : HRECOWORDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "inkobjcore.dll""system" fn SetWordList ( hrc : HRECOCONTEXT , hwl : HRECOWORDLIST ) -> :: windows::core::HRESULT );
     SetWordList(hrc.into(), hwl.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -341,7 +341,7 @@ impl IDynamicRenderer {
         (::windows::core::Vtable::vtable(self).Draw)(::windows::core::Vtable::as_raw(self), hdc.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDynamicRenderer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDynamicRenderer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDynamicRenderer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -455,7 +455,7 @@ impl IGestureRecognizer {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IGestureRecognizer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IGestureRecognizer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGestureRecognizer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -517,7 +517,7 @@ impl IHandwrittenTextInsertion {
         (::windows::core::Vtable::vtable(self).InsertInkRecognitionResult)(::windows::core::Vtable::as_raw(self), piinkrecoresult.into().abi(), locale, falternatecontainsautospacinginformation.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHandwrittenTextInsertion, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHandwrittenTextInsertion, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHandwrittenTextInsertion {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -560,7 +560,7 @@ pub struct IInk(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInk {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInk, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInk, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInk {
     fn eq(&self, other: &Self) -> bool {
@@ -844,7 +844,7 @@ impl IInkCollector {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkCollector, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkCollector, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkCollector {
     fn eq(&self, other: &Self) -> bool {
@@ -1057,7 +1057,7 @@ impl IInkCursor {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkCursor, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkCursor, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkCursor {
     fn eq(&self, other: &Self) -> bool {
@@ -1134,7 +1134,7 @@ impl IInkCursorButton {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkCursorButton, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkCursorButton, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkCursorButton {
     fn eq(&self, other: &Self) -> bool {
@@ -1194,7 +1194,7 @@ impl IInkCursorButtons {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkCursorButtons, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkCursorButtons, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkCursorButtons {
     fn eq(&self, other: &Self) -> bool {
@@ -1257,7 +1257,7 @@ impl IInkCursors {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkCursors, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkCursors, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkCursors {
     fn eq(&self, other: &Self) -> bool {
@@ -1336,7 +1336,7 @@ impl IInkCustomStrokes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkCustomStrokes, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkCustomStrokes, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkCustomStrokes {
     fn eq(&self, other: &Self) -> bool {
@@ -1573,7 +1573,7 @@ impl IInkDisp {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkDisp, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkDisp, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkDisp {
     fn eq(&self, other: &Self) -> bool {
@@ -1757,7 +1757,7 @@ impl IInkDivider {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkDivider, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkDivider, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkDivider {
     fn eq(&self, other: &Self) -> bool {
@@ -1834,7 +1834,7 @@ impl IInkDivisionResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkDivisionResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkDivisionResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkDivisionResult {
     fn eq(&self, other: &Self) -> bool {
@@ -1905,7 +1905,7 @@ impl IInkDivisionUnit {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkDivisionUnit, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkDivisionUnit, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkDivisionUnit {
     fn eq(&self, other: &Self) -> bool {
@@ -1972,7 +1972,7 @@ impl IInkDivisionUnits {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkDivisionUnits, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkDivisionUnits, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkDivisionUnits {
     fn eq(&self, other: &Self) -> bool {
@@ -2117,7 +2117,7 @@ impl IInkDrawingAttributes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkDrawingAttributes, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkDrawingAttributes, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkDrawingAttributes {
     fn eq(&self, other: &Self) -> bool {
@@ -2586,7 +2586,7 @@ impl IInkEdit {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkEdit, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkEdit, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkEdit {
     fn eq(&self, other: &Self) -> bool {
@@ -2860,7 +2860,7 @@ impl IInkExtendedProperties {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkExtendedProperties, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkExtendedProperties, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkExtendedProperties {
     fn eq(&self, other: &Self) -> bool {
@@ -2937,7 +2937,7 @@ impl IInkExtendedProperty {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkExtendedProperty, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkExtendedProperty, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkExtendedProperty {
     fn eq(&self, other: &Self) -> bool {
@@ -3000,7 +3000,7 @@ impl IInkGesture {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkGesture, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkGesture, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkGesture {
     fn eq(&self, other: &Self) -> bool {
@@ -3073,7 +3073,7 @@ impl IInkLineInfo {
         (::windows::core::Vtable::vtable(self).Recognize)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInkLineInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInkLineInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInkLineInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3433,7 +3433,7 @@ impl IInkOverlay {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkOverlay, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkOverlay, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkOverlay {
     fn eq(&self, other: &Self) -> bool {
@@ -3976,7 +3976,7 @@ impl IInkPicture {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkPicture, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkPicture, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkPicture {
     fn eq(&self, other: &Self) -> bool {
@@ -4283,7 +4283,7 @@ impl IInkRecognitionAlternate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkRecognitionAlternate, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkRecognitionAlternate, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkRecognitionAlternate {
     fn eq(&self, other: &Self) -> bool {
@@ -4397,7 +4397,7 @@ impl IInkRecognitionAlternates {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkRecognitionAlternates, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkRecognitionAlternates, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkRecognitionAlternates {
     fn eq(&self, other: &Self) -> bool {
@@ -4487,7 +4487,7 @@ impl IInkRecognitionResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkRecognitionResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkRecognitionResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkRecognitionResult {
     fn eq(&self, other: &Self) -> bool {
@@ -4585,7 +4585,7 @@ impl IInkRecognizer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkRecognizer, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkRecognizer, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkRecognizer {
     fn eq(&self, other: &Self) -> bool {
@@ -4657,7 +4657,7 @@ impl IInkRecognizer2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkRecognizer2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkRecognizer2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkRecognizer2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4821,7 +4821,7 @@ impl IInkRecognizerContext {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkRecognizerContext, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkRecognizerContext, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkRecognizerContext {
     fn eq(&self, other: &Self) -> bool {
@@ -4935,7 +4935,7 @@ impl IInkRecognizerContext2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkRecognizerContext2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkRecognizerContext2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkRecognizerContext2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5045,7 +5045,7 @@ impl IInkRecognizerGuide {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkRecognizerGuide, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkRecognizerGuide, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkRecognizerGuide {
     fn eq(&self, other: &Self) -> bool {
@@ -5138,7 +5138,7 @@ impl IInkRecognizers {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkRecognizers, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkRecognizers, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkRecognizers {
     fn eq(&self, other: &Self) -> bool {
@@ -5236,7 +5236,7 @@ impl IInkRectangle {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkRectangle, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkRectangle, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkRectangle {
     fn eq(&self, other: &Self) -> bool {
@@ -5395,7 +5395,7 @@ impl IInkRenderer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkRenderer, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkRenderer, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkRenderer {
     fn eq(&self, other: &Self) -> bool {
@@ -5675,7 +5675,7 @@ impl IInkStrokeDisp {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkStrokeDisp, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkStrokeDisp, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkStrokeDisp {
     fn eq(&self, other: &Self) -> bool {
@@ -5939,7 +5939,7 @@ impl IInkStrokes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkStrokes, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkStrokes, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkStrokes {
     fn eq(&self, other: &Self) -> bool {
@@ -6065,7 +6065,7 @@ impl IInkTablet {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkTablet, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkTablet, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkTablet {
     fn eq(&self, other: &Self) -> bool {
@@ -6124,7 +6124,7 @@ impl IInkTablet2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkTablet2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkTablet2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkTablet2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6178,7 +6178,7 @@ impl IInkTablet3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkTablet3, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkTablet3, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkTablet3 {
     fn eq(&self, other: &Self) -> bool {
@@ -6252,7 +6252,7 @@ impl IInkTablets {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkTablets, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkTablets, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkTablets {
     fn eq(&self, other: &Self) -> bool {
@@ -6391,7 +6391,7 @@ impl IInkTransform {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkTransform, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkTransform, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkTransform {
     fn eq(&self, other: &Self) -> bool {
@@ -6479,7 +6479,7 @@ impl IInkWordList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkWordList, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkWordList, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkWordList {
     fn eq(&self, other: &Self) -> bool {
@@ -6531,7 +6531,7 @@ impl IInkWordList2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IInkWordList2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IInkWordList2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IInkWordList2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6586,7 +6586,7 @@ impl IInputPanelWindowHandle {
         (::windows::core::Vtable::vtable(self).SetAttachedEditWindow64)(::windows::core::Vtable::as_raw(self), attachededitwindow).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInputPanelWindowHandle, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInputPanelWindowHandle, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInputPanelWindowHandle {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6704,7 +6704,7 @@ impl IMathInputControl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMathInputControl, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMathInputControl, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMathInputControl {
     fn eq(&self, other: &Self) -> bool {
@@ -6891,7 +6891,7 @@ impl IPenInputPanel {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPenInputPanel, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IPenInputPanel, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPenInputPanel {
     fn eq(&self, other: &Self) -> bool {
@@ -7130,7 +7130,7 @@ impl IRealTimeStylus {
         (::windows::core::Vtable::vtable(self).GetPacketDescriptionData)(::windows::core::Vtable::as_raw(self), tcid, ::core::mem::transmute(pfinktodevicescalex.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfinktodevicescaley.unwrap_or(::std::ptr::null_mut())), pcpacketproperties, pppacketproperties).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRealTimeStylus, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRealTimeStylus, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRealTimeStylus {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7247,7 +7247,7 @@ impl IRealTimeStylus2 {
         (::windows::core::Vtable::vtable(self).SetFlicksEnabled)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRealTimeStylus2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRealTimeStylus2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRealTimeStylus2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7302,7 +7302,7 @@ impl IRealTimeStylus3 {
         (::windows::core::Vtable::vtable(self).SetMultiTouchEnabled)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRealTimeStylus3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRealTimeStylus3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRealTimeStylus3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7349,7 +7349,7 @@ impl IRealTimeStylusSynchronization {
         (::windows::core::Vtable::vtable(self).ReleaseLock)(::windows::core::Vtable::as_raw(self), lock).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRealTimeStylusSynchronization, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRealTimeStylusSynchronization, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRealTimeStylusSynchronization {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7386,7 +7386,7 @@ pub struct ISketchInk(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISketchInk {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISketchInk, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISketchInk, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISketchInk {
     fn eq(&self, other: &Self) -> bool {
@@ -7458,7 +7458,7 @@ impl IStrokeBuilder {
         (::windows::core::Vtable::vtable(self).putref_Ink)(::windows::core::Vtable::as_raw(self), piinkobj.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IStrokeBuilder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStrokeBuilder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStrokeBuilder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7628,7 +7628,7 @@ impl IStylusAsyncPlugin {
         (::windows::core::Vtable::vtable(self).base__.DataInterest)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStylusAsyncPlugin, ::windows::core::IUnknown, IStylusPlugin);
+::windows::imp::interface_hierarchy!(IStylusAsyncPlugin, ::windows::core::IUnknown, IStylusPlugin);
 impl ::core::cmp::PartialEq for IStylusAsyncPlugin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7777,7 +7777,7 @@ impl IStylusPlugin {
         (::windows::core::Vtable::vtable(self).DataInterest)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStylusPlugin, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStylusPlugin, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStylusPlugin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7964,7 +7964,7 @@ impl IStylusSyncPlugin {
         (::windows::core::Vtable::vtable(self).base__.DataInterest)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStylusSyncPlugin, ::windows::core::IUnknown, IStylusPlugin);
+::windows::imp::interface_hierarchy!(IStylusSyncPlugin, ::windows::core::IUnknown, IStylusPlugin);
 impl ::core::cmp::PartialEq for IStylusSyncPlugin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8119,7 +8119,7 @@ impl ITextInputPanel {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), eventsink.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextInputPanel, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextInputPanel, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextInputPanel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8257,7 +8257,7 @@ impl ITextInputPanelEventSink {
         (::windows::core::Vtable::vtable(self).TextInserted)(::windows::core::Vtable::as_raw(self), ink).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextInputPanelEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextInputPanelEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextInputPanelEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8326,7 +8326,7 @@ impl ITextInputPanelRunInfo {
         (::windows::core::Vtable::vtable(self).IsTipRunning)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITextInputPanelRunInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextInputPanelRunInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextInputPanelRunInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8398,7 +8398,7 @@ impl ITipAutoCompleteClient {
         (::windows::core::Vtable::vtable(self).RequestShowUI)(::windows::core::Vtable::as_raw(self), hwndlist.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITipAutoCompleteClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITipAutoCompleteClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITipAutoCompleteClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8459,7 +8459,7 @@ impl ITipAutoCompleteProvider {
         (::windows::core::Vtable::vtable(self).Show)(::windows::core::Vtable::as_raw(self), fshow.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITipAutoCompleteProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITipAutoCompleteProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITipAutoCompleteProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8499,7 +8499,7 @@ pub struct _IInkCollectorEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkCollectorEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_IInkCollectorEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_IInkCollectorEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _IInkCollectorEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -8541,7 +8541,7 @@ pub struct _IInkEditEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkEditEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_IInkEditEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_IInkEditEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _IInkEditEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -8583,7 +8583,7 @@ pub struct _IInkEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_IInkEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_IInkEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _IInkEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -8625,7 +8625,7 @@ pub struct _IInkOverlayEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkOverlayEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_IInkOverlayEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_IInkOverlayEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _IInkOverlayEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -8667,7 +8667,7 @@ pub struct _IInkPictureEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkPictureEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_IInkPictureEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_IInkPictureEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _IInkPictureEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -8709,7 +8709,7 @@ pub struct _IInkRecognitionEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkRecognitionEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_IInkRecognitionEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_IInkRecognitionEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _IInkRecognitionEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -8751,7 +8751,7 @@ pub struct _IInkStrokesEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkStrokesEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_IInkStrokesEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_IInkStrokesEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _IInkStrokesEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -8793,7 +8793,7 @@ pub struct _IMathInputControlEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IMathInputControlEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_IMathInputControlEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_IMathInputControlEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _IMathInputControlEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -8835,7 +8835,7 @@ pub struct _IPenInputPanelEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IPenInputPanelEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_IPenInputPanelEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_IPenInputPanelEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _IPenInputPanelEvents {
     fn eq(&self, other: &Self) -> bool {

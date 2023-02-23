@@ -75,7 +75,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
 
         if gen.namespace.starts_with("Windows.") {
             quote! {
-                ::windows::core::link!(#link #extern_abi fn #name(#(#abi_params),*) #abi_return_type);
+                ::windows::imp::link!(#link #extern_abi fn #name(#(#abi_params),*) #abi_return_type);
             }
         } else {
             let link = link.trim_end_matches(".dll");
@@ -206,7 +206,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
                         #link
                         let result__ = #name(#args);
-                        ::windows::core::then(!result__.is_invalid(), ||result__).ok_or_else(::windows::core::Error::from_win32)
+                        ::windows::imp::then(!result__.is_invalid(), ||result__).ok_or_else(::windows::core::Error::from_win32)
                     }
                 }
             } else {

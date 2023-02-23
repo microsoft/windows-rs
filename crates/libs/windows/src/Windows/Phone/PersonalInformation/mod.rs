@@ -170,7 +170,7 @@ impl IContactInformation {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IContactInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -183,7 +183,7 @@ impl ::core::fmt::Debug for IContactInformation {
     }
 }
 impl ::windows::core::RuntimeType for IContactInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e2b51ffc-e792-4ab7-b15b-f2e078664dea}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e2b51ffc-e792-4ab7-b15b-f2e078664dea}");
 }
 unsafe impl ::windows::core::Vtable for IContactInformation {
     type Vtable = IContactInformation_Vtbl;
@@ -255,7 +255,7 @@ impl IContactInformation2 {
         unsafe { (::windows::core::Vtable::vtable(this).SetDisplayPictureDate)(::windows::core::Vtable::as_raw(this), returnvalue).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IContactInformation2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactInformation2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IContactInformation2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -268,7 +268,7 @@ impl ::core::fmt::Debug for IContactInformation2 {
     }
 }
 impl ::windows::core::RuntimeType for IContactInformation2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3198b20c-621e-4668-ac38-d667b87d06d5}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{3198b20c-621e-4668-ac38-d667b87d06d5}");
 }
 unsafe impl ::windows::core::Vtable for IContactInformation2 {
     type Vtable = IContactInformation2_Vtbl;
@@ -591,8 +591,8 @@ impl ContactAddress {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactAddress, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactAddress, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Country(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -663,7 +663,7 @@ impl ::core::fmt::Debug for ContactAddress {
     }
 }
 impl ::windows::core::RuntimeType for ContactAddress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactAddress;{5f24f927-94a9-44a2-a155-2d0b37d1dccd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactAddress;{5f24f927-94a9-44a2-a155-2d0b37d1dccd})");
 }
 impl ::core::clone::Clone for ContactAddress {
     fn clone(&self) -> Self {
@@ -679,7 +679,7 @@ unsafe impl ::windows::core::Interface for ContactAddress {
 impl ::windows::core::RuntimeName for ContactAddress {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactAddress";
 }
-::windows::core::interface_hierarchy!(ContactAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactAddress {}
 unsafe impl ::core::marker::Sync for ContactAddress {}
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
@@ -727,7 +727,7 @@ impl ::core::fmt::Debug for ContactChangeRecord {
     }
 }
 impl ::windows::core::RuntimeType for ContactChangeRecord {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactChangeRecord;{b9d3f78f-513b-4742-be00-cc5c5c236b04})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactChangeRecord;{b9d3f78f-513b-4742-be00-cc5c5c236b04})");
 }
 impl ::core::clone::Clone for ContactChangeRecord {
     fn clone(&self) -> Self {
@@ -743,7 +743,7 @@ unsafe impl ::windows::core::Interface for ContactChangeRecord {
 impl ::windows::core::RuntimeName for ContactChangeRecord {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactChangeRecord";
 }
-::windows::core::interface_hierarchy!(ContactChangeRecord, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactChangeRecord, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactChangeRecord {}
 unsafe impl ::core::marker::Sync for ContactChangeRecord {}
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
@@ -753,8 +753,8 @@ impl ContactInformation {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactInformation, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactInformation, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -884,7 +884,7 @@ impl ContactInformation {
     }
     #[doc(hidden)]
     pub fn IContactInformationStatics<R, F: FnOnce(&IContactInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactInformation, IContactInformationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactInformation, IContactInformationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -900,7 +900,7 @@ impl ::core::fmt::Debug for ContactInformation {
     }
 }
 impl ::windows::core::RuntimeType for ContactInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactInformation;{e2b51ffc-e792-4ab7-b15b-f2e078664dea})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactInformation;{e2b51ffc-e792-4ab7-b15b-f2e078664dea})");
 }
 impl ::core::clone::Clone for ContactInformation {
     fn clone(&self) -> Self {
@@ -916,7 +916,7 @@ unsafe impl ::windows::core::Interface for ContactInformation {
 impl ::windows::core::RuntimeName for ContactInformation {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactInformation";
 }
-::windows::core::interface_hierarchy!(ContactInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactInformation> for IContactInformation {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactInformation) -> ::windows::core::Result<Self> {
@@ -945,8 +945,8 @@ impl ContactQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactQueryOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactQueryOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -982,7 +982,7 @@ impl ::core::fmt::Debug for ContactQueryOptions {
     }
 }
 impl ::windows::core::RuntimeType for ContactQueryOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactQueryOptions;{580cab76-3f31-46c1-9a50-424a53dacae3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactQueryOptions;{580cab76-3f31-46c1-9a50-424a53dacae3})");
 }
 impl ::core::clone::Clone for ContactQueryOptions {
     fn clone(&self) -> Self {
@@ -998,7 +998,7 @@ unsafe impl ::windows::core::Interface for ContactQueryOptions {
 impl ::windows::core::RuntimeName for ContactQueryOptions {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactQueryOptions";
 }
-::windows::core::interface_hierarchy!(ContactQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactQueryOptions {}
 unsafe impl ::core::marker::Sync for ContactQueryOptions {}
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
@@ -1052,7 +1052,7 @@ impl ::core::fmt::Debug for ContactQueryResult {
     }
 }
 impl ::windows::core::RuntimeType for ContactQueryResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactQueryResult;{c03db722-ecdb-4700-857e-3e786426b04b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactQueryResult;{c03db722-ecdb-4700-857e-3e786426b04b})");
 }
 impl ::core::clone::Clone for ContactQueryResult {
     fn clone(&self) -> Self {
@@ -1068,7 +1068,7 @@ unsafe impl ::windows::core::Interface for ContactQueryResult {
 impl ::windows::core::RuntimeName for ContactQueryResult {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactQueryResult";
 }
-::windows::core::interface_hierarchy!(ContactQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactQueryResult {}
 unsafe impl ::core::marker::Sync for ContactQueryResult {}
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
@@ -1190,7 +1190,7 @@ impl ContactStore {
     }
     #[doc(hidden)]
     pub fn IContactStoreStatics<R, F: FnOnce(&IContactStoreStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactStore, IContactStoreStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactStore, IContactStoreStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1206,7 +1206,7 @@ impl ::core::fmt::Debug for ContactStore {
     }
 }
 impl ::windows::core::RuntimeType for ContactStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactStore;{b2cd6fef-2bfd-4fad-8552-4e698097e8eb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactStore;{b2cd6fef-2bfd-4fad-8552-4e698097e8eb})");
 }
 impl ::core::clone::Clone for ContactStore {
     fn clone(&self) -> Self {
@@ -1222,7 +1222,7 @@ unsafe impl ::windows::core::Interface for ContactStore {
 impl ::windows::core::RuntimeName for ContactStore {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactStore";
 }
-::windows::core::interface_hierarchy!(ContactStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactStore {}
 unsafe impl ::core::marker::Sync for ContactStore {}
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
@@ -1440,7 +1440,7 @@ impl KnownContactProperties {
     }
     #[doc(hidden)]
     pub fn IKnownContactPropertiesStatics<R, F: FnOnce(&IKnownContactPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownContactProperties, IKnownContactPropertiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownContactProperties, IKnownContactPropertiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1645,7 +1645,7 @@ impl StoredContact {
     }
     #[doc(hidden)]
     pub fn IStoredContactFactory<R, F: FnOnce(&IStoredContactFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StoredContact, IStoredContactFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StoredContact, IStoredContactFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1661,7 +1661,7 @@ impl ::core::fmt::Debug for StoredContact {
     }
 }
 impl ::windows::core::RuntimeType for StoredContact {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.StoredContact;{b070b7b1-263d-4e71-abe7-591d2466570e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.StoredContact;{b070b7b1-263d-4e71-abe7-591d2466570e})");
 }
 impl ::core::clone::Clone for StoredContact {
     fn clone(&self) -> Self {
@@ -1677,7 +1677,7 @@ unsafe impl ::windows::core::Interface for StoredContact {
 impl ::windows::core::RuntimeName for StoredContact {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.StoredContact";
 }
-::windows::core::interface_hierarchy!(StoredContact, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoredContact, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StoredContact> for IContactInformation {
     type Error = ::windows::core::Error;
     fn try_from(value: StoredContact) -> ::windows::core::Result<Self> {
@@ -1747,7 +1747,7 @@ impl ::core::fmt::Debug for ContactChangeType {
     }
 }
 impl ::windows::core::RuntimeType for ContactChangeType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactChangeType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactChangeType;i4)");
 }
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
@@ -1778,7 +1778,7 @@ impl ::core::fmt::Debug for ContactQueryResultOrdering {
     }
 }
 impl ::windows::core::RuntimeType for ContactQueryResultOrdering {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactQueryResultOrdering;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactQueryResultOrdering;i4)");
 }
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
@@ -1808,7 +1808,7 @@ impl ::core::fmt::Debug for ContactStoreApplicationAccessMode {
     }
 }
 impl ::windows::core::RuntimeType for ContactStoreApplicationAccessMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactStoreApplicationAccessMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactStoreApplicationAccessMode;i4)");
 }
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
@@ -1838,7 +1838,7 @@ impl ::core::fmt::Debug for ContactStoreSystemAccessMode {
     }
 }
 impl ::windows::core::RuntimeType for ContactStoreSystemAccessMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactStoreSystemAccessMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactStoreSystemAccessMode;i4)");
 }
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
@@ -1868,7 +1868,7 @@ impl ::core::fmt::Debug for VCardFormat {
     }
 }
 impl ::windows::core::RuntimeType for VCardFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.VCardFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.VCardFormat;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

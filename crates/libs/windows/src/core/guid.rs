@@ -1,7 +1,7 @@
 #![allow(clippy::many_single_char_names)]
 
 use super::*;
-use bindings::*;
+use imp::*;
 
 /// A globally unique identifier ([GUID](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid))
 /// used to identify COM and WinRT interfaces.
@@ -42,8 +42,8 @@ impl GUID {
     }
 
     /// Creates a `GUID` for a "generic" WinRT type.
-    pub const fn from_signature(signature: ConstBuffer) -> Self {
-        let data = ConstBuffer::from_slice(&[0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16, 0xad, 0xee]);
+    pub const fn from_signature(signature: imp::ConstBuffer) -> Self {
+        let data = imp::ConstBuffer::from_slice(&[0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16, 0xad, 0xee]);
 
         let data = data.push_other(signature);
 
@@ -60,7 +60,7 @@ impl GUID {
 }
 
 impl RuntimeType for GUID {
-    const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"g16");
+    const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"g16");
 }
 
 impl TypeKind for GUID {

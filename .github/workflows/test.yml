@@ -121,6 +121,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_bstr &&
           cargo test --target ${{ matrix.target }} -p test_calling_convention &&
           cargo test --target ${{ matrix.target }} -p test_cfg_generic &&
+          cargo test --target ${{ matrix.target }} -p test_collections &&
           cargo test --target ${{ matrix.target }} -p test_component &&
           cargo test --target ${{ matrix.target }} -p test_component_client &&
           cargo test --target ${{ matrix.target }} -p test_const_fields &&
@@ -133,8 +134,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_enums &&
           cargo test --target ${{ matrix.target }} -p test_error &&
           cargo test --target ${{ matrix.target }} -p test_event &&
-          cargo test --target ${{ matrix.target }} -p test_extensions &&
           cargo clean &&
+          cargo test --target ${{ matrix.target }} -p test_extensions &&
           cargo test --target ${{ matrix.target }} -p test_handles &&
           cargo test --target ${{ matrix.target }} -p test_helpers &&
           cargo test --target ${{ matrix.target }} -p test_implement &&

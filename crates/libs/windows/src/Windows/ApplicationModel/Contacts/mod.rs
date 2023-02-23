@@ -768,7 +768,7 @@ impl IContactField {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactField, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactField, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IContactField {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -781,7 +781,7 @@ impl ::core::fmt::Debug for IContactField {
     }
 }
 impl ::windows::core::RuntimeType for IContactField {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b176486a-d293-492c-a058-db575b3e3c0f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b176486a-d293-492c-a058-db575b3e3c0f}");
 }
 unsafe impl ::windows::core::Vtable for IContactField {
     type Vtable = IContactField_Vtbl;
@@ -829,7 +829,7 @@ impl IContactFieldFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactFieldFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactFieldFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IContactFieldFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -842,7 +842,7 @@ impl ::core::fmt::Debug for IContactFieldFactory {
     }
 }
 impl ::windows::core::RuntimeType for IContactFieldFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{85e2913f-0e4a-4a3e-8994-406ae7ed646e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{85e2913f-0e4a-4a3e-8994-406ae7ed646e}");
 }
 unsafe impl ::windows::core::Vtable for IContactFieldFactory {
     type Vtable = IContactFieldFactory_Vtbl;
@@ -984,7 +984,7 @@ impl IContactInstantMessageFieldFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactInstantMessageFieldFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactInstantMessageFieldFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IContactInstantMessageFieldFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -997,7 +997,7 @@ impl ::core::fmt::Debug for IContactInstantMessageFieldFactory {
     }
 }
 impl ::windows::core::RuntimeType for IContactInstantMessageFieldFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ba0b6794-91a3-4bb2-b1b9-69a5dff0ba09}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ba0b6794-91a3-4bb2-b1b9-69a5dff0ba09}");
 }
 unsafe impl ::windows::core::Vtable for IContactInstantMessageFieldFactory {
     type Vtable = IContactInstantMessageFieldFactory_Vtbl;
@@ -1580,7 +1580,7 @@ impl IContactLocationFieldFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactLocationFieldFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactLocationFieldFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IContactLocationFieldFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1593,7 +1593,7 @@ impl ::core::fmt::Debug for IContactLocationFieldFactory {
     }
 }
 impl ::windows::core::RuntimeType for IContactLocationFieldFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f79932d7-2fdf-43fe-8f18-41897390bcfe}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{f79932d7-2fdf-43fe-8f18-41897390bcfe}");
 }
 unsafe impl ::windows::core::Vtable for IContactLocationFieldFactory {
     type Vtable = IContactLocationFieldFactory_Vtbl;
@@ -2675,7 +2675,7 @@ impl ::core::fmt::Debug for AggregateContactManager {
     }
 }
 impl ::windows::core::RuntimeType for AggregateContactManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.AggregateContactManager;{0379d5dd-db5a-4fd3-b54e-4df17917a212})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.AggregateContactManager;{0379d5dd-db5a-4fd3-b54e-4df17917a212})");
 }
 impl ::core::clone::Clone for AggregateContactManager {
     fn clone(&self) -> Self {
@@ -2691,7 +2691,7 @@ unsafe impl ::windows::core::Interface for AggregateContactManager {
 impl ::windows::core::RuntimeName for AggregateContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.AggregateContactManager";
 }
-::windows::core::interface_hierarchy!(AggregateContactManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AggregateContactManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AggregateContactManager {}
 unsafe impl ::core::marker::Sync for AggregateContactManager {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -2701,8 +2701,8 @@ impl Contact {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Contact, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Contact, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3116,7 +3116,7 @@ impl ::core::fmt::Debug for Contact {
     }
 }
 impl ::windows::core::RuntimeType for Contact {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Contact;{ec0072f3-2118-4049-9ebc-17f0ab692b64})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Contact;{ec0072f3-2118-4049-9ebc-17f0ab692b64})");
 }
 impl ::core::clone::Clone for Contact {
     fn clone(&self) -> Self {
@@ -3132,7 +3132,7 @@ unsafe impl ::windows::core::Interface for Contact {
 impl ::windows::core::RuntimeName for Contact {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Contact";
 }
-::windows::core::interface_hierarchy!(Contact, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Contact, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Contact {}
 unsafe impl ::core::marker::Sync for Contact {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -3142,8 +3142,8 @@ impl ContactAddress {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactAddress, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactAddress, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn StreetAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3236,7 +3236,7 @@ impl ::core::fmt::Debug for ContactAddress {
     }
 }
 impl ::windows::core::RuntimeType for ContactAddress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAddress;{9739d39a-42ce-4872-8d70-3063aa584b70})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAddress;{9739d39a-42ce-4872-8d70-3063aa584b70})");
 }
 impl ::core::clone::Clone for ContactAddress {
     fn clone(&self) -> Self {
@@ -3252,7 +3252,7 @@ unsafe impl ::windows::core::Interface for ContactAddress {
 impl ::windows::core::RuntimeName for ContactAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAddress";
 }
-::windows::core::interface_hierarchy!(ContactAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactAddress {}
 unsafe impl ::core::marker::Sync for ContactAddress {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -3262,8 +3262,8 @@ impl ContactAnnotation {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactAnnotation, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactAnnotation, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3353,7 +3353,7 @@ impl ::core::fmt::Debug for ContactAnnotation {
     }
 }
 impl ::windows::core::RuntimeType for ContactAnnotation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotation;{821fc2ef-7d41-44a2-84c3-60a281dd7b86})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotation;{821fc2ef-7d41-44a2-84c3-60a281dd7b86})");
 }
 impl ::core::clone::Clone for ContactAnnotation {
     fn clone(&self) -> Self {
@@ -3369,7 +3369,7 @@ unsafe impl ::windows::core::Interface for ContactAnnotation {
 impl ::windows::core::RuntimeName for ContactAnnotation {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAnnotation";
 }
-::windows::core::interface_hierarchy!(ContactAnnotation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactAnnotation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactAnnotation {}
 unsafe impl ::core::marker::Sync for ContactAnnotation {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -3464,7 +3464,7 @@ impl ::core::fmt::Debug for ContactAnnotationList {
     }
 }
 impl ::windows::core::RuntimeType for ContactAnnotationList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotationList;{92a486aa-5c88-45b9-aad0-461888e68d8a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotationList;{92a486aa-5c88-45b9-aad0-461888e68d8a})");
 }
 impl ::core::clone::Clone for ContactAnnotationList {
     fn clone(&self) -> Self {
@@ -3480,7 +3480,7 @@ unsafe impl ::windows::core::Interface for ContactAnnotationList {
 impl ::windows::core::RuntimeName for ContactAnnotationList {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAnnotationList";
 }
-::windows::core::interface_hierarchy!(ContactAnnotationList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactAnnotationList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactAnnotationList {}
 unsafe impl ::core::marker::Sync for ContactAnnotationList {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -3581,7 +3581,7 @@ impl ::core::fmt::Debug for ContactAnnotationStore {
     }
 }
 impl ::windows::core::RuntimeType for ContactAnnotationStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotationStore;{23acf4aa-7a77-457d-8203-987f4b31af09})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotationStore;{23acf4aa-7a77-457d-8203-987f4b31af09})");
 }
 impl ::core::clone::Clone for ContactAnnotationStore {
     fn clone(&self) -> Self {
@@ -3597,7 +3597,7 @@ unsafe impl ::windows::core::Interface for ContactAnnotationStore {
 impl ::windows::core::RuntimeName for ContactAnnotationStore {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAnnotationStore";
 }
-::windows::core::interface_hierarchy!(ContactAnnotationStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactAnnotationStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactAnnotationStore {}
 unsafe impl ::core::marker::Sync for ContactAnnotationStore {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -3633,7 +3633,7 @@ impl ::core::fmt::Debug for ContactBatch {
     }
 }
 impl ::windows::core::RuntimeType for ContactBatch {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactBatch;{35d1972d-bfce-46bb-93f8-a5b06ec5e201})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactBatch;{35d1972d-bfce-46bb-93f8-a5b06ec5e201})");
 }
 impl ::core::clone::Clone for ContactBatch {
     fn clone(&self) -> Self {
@@ -3649,7 +3649,7 @@ unsafe impl ::windows::core::Interface for ContactBatch {
 impl ::windows::core::RuntimeName for ContactBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactBatch";
 }
-::windows::core::interface_hierarchy!(ContactBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactBatch {}
 unsafe impl ::core::marker::Sync for ContactBatch {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -3679,7 +3679,7 @@ impl ::core::fmt::Debug for ContactCardDelayedDataLoader {
     }
 }
 impl ::windows::core::RuntimeType for ContactCardDelayedDataLoader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactCardDelayedDataLoader;{b60af902-1546-434d-869c-6e3520760ef3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactCardDelayedDataLoader;{b60af902-1546-434d-869c-6e3520760ef3})");
 }
 impl ::core::clone::Clone for ContactCardDelayedDataLoader {
     fn clone(&self) -> Self {
@@ -3695,7 +3695,7 @@ unsafe impl ::windows::core::Interface for ContactCardDelayedDataLoader {
 impl ::windows::core::RuntimeName for ContactCardDelayedDataLoader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactCardDelayedDataLoader";
 }
-::windows::core::interface_hierarchy!(ContactCardDelayedDataLoader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactCardDelayedDataLoader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ContactCardDelayedDataLoader> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3727,8 +3727,8 @@ impl ContactCardOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactCardOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactCardOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn HeaderKind(&self) -> ::windows::core::Result<ContactCardHeaderKind> {
@@ -3775,7 +3775,7 @@ impl ::core::fmt::Debug for ContactCardOptions {
     }
 }
 impl ::windows::core::RuntimeType for ContactCardOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactCardOptions;{8c0a4f7e-6ab6-4f3f-be72-817236eeea5b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactCardOptions;{8c0a4f7e-6ab6-4f3f-be72-817236eeea5b})");
 }
 impl ::core::clone::Clone for ContactCardOptions {
     fn clone(&self) -> Self {
@@ -3791,7 +3791,7 @@ unsafe impl ::windows::core::Interface for ContactCardOptions {
 impl ::windows::core::RuntimeName for ContactCardOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactCardOptions";
 }
-::windows::core::interface_hierarchy!(ContactCardOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactCardOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactCardOptions {}
 unsafe impl ::core::marker::Sync for ContactCardOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -3825,7 +3825,7 @@ impl ::core::fmt::Debug for ContactChange {
     }
 }
 impl ::windows::core::RuntimeType for ContactChange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChange;{951d4b10-6a59-4720-a4e1-363d98c135d5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChange;{951d4b10-6a59-4720-a4e1-363d98c135d5})");
 }
 impl ::core::clone::Clone for ContactChange {
     fn clone(&self) -> Self {
@@ -3841,7 +3841,7 @@ unsafe impl ::windows::core::Interface for ContactChange {
 impl ::windows::core::RuntimeName for ContactChange {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChange";
 }
-::windows::core::interface_hierarchy!(ContactChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactChange {}
 unsafe impl ::core::marker::Sync for ContactChange {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -3878,7 +3878,7 @@ impl ::core::fmt::Debug for ContactChangeReader {
     }
 }
 impl ::windows::core::RuntimeType for ContactChangeReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangeReader;{217319fa-2d0c-42e0-a9da-3ecd56a78a47})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangeReader;{217319fa-2d0c-42e0-a9da-3ecd56a78a47})");
 }
 impl ::core::clone::Clone for ContactChangeReader {
     fn clone(&self) -> Self {
@@ -3894,7 +3894,7 @@ unsafe impl ::windows::core::Interface for ContactChangeReader {
 impl ::windows::core::RuntimeName for ContactChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangeReader";
 }
-::windows::core::interface_hierarchy!(ContactChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactChangeReader {}
 unsafe impl ::core::marker::Sync for ContactChangeReader {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -3936,7 +3936,7 @@ impl ::core::fmt::Debug for ContactChangeTracker {
     }
 }
 impl ::windows::core::RuntimeType for ContactChangeTracker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangeTracker;{6e992952-309b-404d-9712-b37bd30278aa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangeTracker;{6e992952-309b-404d-9712-b37bd30278aa})");
 }
 impl ::core::clone::Clone for ContactChangeTracker {
     fn clone(&self) -> Self {
@@ -3952,7 +3952,7 @@ unsafe impl ::windows::core::Interface for ContactChangeTracker {
 impl ::windows::core::RuntimeName for ContactChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangeTracker";
 }
-::windows::core::interface_hierarchy!(ContactChangeTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactChangeTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactChangeTracker {}
 unsafe impl ::core::marker::Sync for ContactChangeTracker {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -3976,7 +3976,7 @@ impl ::core::fmt::Debug for ContactChangedDeferral {
     }
 }
 impl ::windows::core::RuntimeType for ContactChangedDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangedDeferral;{c5143ae8-1b03-46f8-b694-a523e83cfcb6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangedDeferral;{c5143ae8-1b03-46f8-b694-a523e83cfcb6})");
 }
 impl ::core::clone::Clone for ContactChangedDeferral {
     fn clone(&self) -> Self {
@@ -3992,7 +3992,7 @@ unsafe impl ::windows::core::Interface for ContactChangedDeferral {
 impl ::windows::core::RuntimeName for ContactChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangedDeferral";
 }
-::windows::core::interface_hierarchy!(ContactChangedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactChangedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactChangedDeferral {}
 unsafe impl ::core::marker::Sync for ContactChangedDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -4019,7 +4019,7 @@ impl ::core::fmt::Debug for ContactChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangedEventArgs;{525e7fd1-73f3-4b7d-a918-580be4366121})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangedEventArgs;{525e7fd1-73f3-4b7d-a918-580be4366121})");
 }
 impl ::core::clone::Clone for ContactChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4035,7 +4035,7 @@ unsafe impl ::windows::core::Interface for ContactChangedEventArgs {
 impl ::windows::core::RuntimeName for ContactChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -4045,8 +4045,8 @@ impl ContactConnectedServiceAccount {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactConnectedServiceAccount, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactConnectedServiceAccount, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4084,7 +4084,7 @@ impl ::core::fmt::Debug for ContactConnectedServiceAccount {
     }
 }
 impl ::windows::core::RuntimeType for ContactConnectedServiceAccount {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount;{f6f83553-aa27-4731-8e4a-3dec5ce9eec9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount;{f6f83553-aa27-4731-8e4a-3dec5ce9eec9})");
 }
 impl ::core::clone::Clone for ContactConnectedServiceAccount {
     fn clone(&self) -> Self {
@@ -4100,7 +4100,7 @@ unsafe impl ::windows::core::Interface for ContactConnectedServiceAccount {
 impl ::windows::core::RuntimeName for ContactConnectedServiceAccount {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount";
 }
-::windows::core::interface_hierarchy!(ContactConnectedServiceAccount, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactConnectedServiceAccount, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactConnectedServiceAccount {}
 unsafe impl ::core::marker::Sync for ContactConnectedServiceAccount {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -4110,8 +4110,8 @@ impl ContactDate {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactDate, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactDate, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4206,7 +4206,7 @@ impl ::core::fmt::Debug for ContactDate {
     }
 }
 impl ::windows::core::RuntimeType for ContactDate {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactDate;{fe98ae66-b205-4934-9174-0ff2b0565707})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactDate;{fe98ae66-b205-4934-9174-0ff2b0565707})");
 }
 impl ::core::clone::Clone for ContactDate {
     fn clone(&self) -> Self {
@@ -4222,7 +4222,7 @@ unsafe impl ::windows::core::Interface for ContactDate {
 impl ::windows::core::RuntimeName for ContactDate {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactDate";
 }
-::windows::core::interface_hierarchy!(ContactDate, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactDate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactDate {}
 unsafe impl ::core::marker::Sync for ContactDate {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -4232,8 +4232,8 @@ impl ContactEmail {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactEmail, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactEmail, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Address(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4282,7 +4282,7 @@ impl ::core::fmt::Debug for ContactEmail {
     }
 }
 impl ::windows::core::RuntimeType for ContactEmail {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactEmail;{90a219a9-e3d3-4d63-993b-05b9a5393abf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactEmail;{90a219a9-e3d3-4d63-993b-05b9a5393abf})");
 }
 impl ::core::clone::Clone for ContactEmail {
     fn clone(&self) -> Self {
@@ -4298,7 +4298,7 @@ unsafe impl ::windows::core::Interface for ContactEmail {
 impl ::windows::core::RuntimeName for ContactEmail {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactEmail";
 }
-::windows::core::interface_hierarchy!(ContactEmail, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactEmail, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactEmail {}
 unsafe impl ::core::marker::Sync for ContactEmail {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -4353,7 +4353,7 @@ impl ContactField {
     }
     #[doc(hidden)]
     pub fn IContactFieldFactory<R, F: FnOnce(&IContactFieldFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactField, IContactFieldFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactField, IContactFieldFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4369,7 +4369,7 @@ impl ::core::fmt::Debug for ContactField {
     }
 }
 impl ::windows::core::RuntimeType for ContactField {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactField;{b176486a-d293-492c-a058-db575b3e3c0f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactField;{b176486a-d293-492c-a058-db575b3e3c0f})");
 }
 impl ::core::clone::Clone for ContactField {
     fn clone(&self) -> Self {
@@ -4385,7 +4385,7 @@ unsafe impl ::windows::core::Interface for ContactField {
 impl ::windows::core::RuntimeName for ContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactField";
 }
-::windows::core::interface_hierarchy!(ContactField, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactField, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactField> for IContactField {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactField) -> ::windows::core::Result<Self> {
@@ -4414,8 +4414,8 @@ impl ContactFieldFactory {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactFieldFactory, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactFieldFactory, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn CreateField_Default(&self, value: &::windows::core::HSTRING, r#type: ContactFieldType) -> ::windows::core::Result<ContactField> {
@@ -4496,7 +4496,7 @@ impl ::core::fmt::Debug for ContactFieldFactory {
     }
 }
 impl ::windows::core::RuntimeType for ContactFieldFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactFieldFactory;{85e2913f-0e4a-4a3e-8994-406ae7ed646e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactFieldFactory;{85e2913f-0e4a-4a3e-8994-406ae7ed646e})");
 }
 impl ::core::clone::Clone for ContactFieldFactory {
     fn clone(&self) -> Self {
@@ -4512,7 +4512,7 @@ unsafe impl ::windows::core::Interface for ContactFieldFactory {
 impl ::windows::core::RuntimeName for ContactFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactFieldFactory";
 }
-::windows::core::interface_hierarchy!(ContactFieldFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactFieldFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactFieldFactory> for IContactFieldFactory {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactFieldFactory) -> ::windows::core::Result<Self> {
@@ -4588,7 +4588,7 @@ impl ::core::fmt::Debug for ContactGroup {
     }
 }
 impl ::windows::core::RuntimeType for ContactGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactGroup;{59bdeb01-9e9a-475d-bfe5-a37b806d852c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactGroup;{59bdeb01-9e9a-475d-bfe5-a37b806d852c})");
 }
 impl ::core::clone::Clone for ContactGroup {
     fn clone(&self) -> Self {
@@ -4604,7 +4604,7 @@ unsafe impl ::windows::core::Interface for ContactGroup {
 impl ::windows::core::RuntimeName for ContactGroup {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactGroup";
 }
-::windows::core::interface_hierarchy!(ContactGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactGroup {}
 unsafe impl ::core::marker::Sync for ContactGroup {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -4694,7 +4694,7 @@ impl ::core::fmt::Debug for ContactInformation {
     }
 }
 impl ::windows::core::RuntimeType for ContactInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactInformation;{275eb6d4-6a2e-4278-a914-e460d5f088f6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactInformation;{275eb6d4-6a2e-4278-a914-e460d5f088f6})");
 }
 impl ::core::clone::Clone for ContactInformation {
     fn clone(&self) -> Self {
@@ -4710,7 +4710,7 @@ unsafe impl ::windows::core::Interface for ContactInformation {
 impl ::windows::core::RuntimeName for ContactInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactInformation";
 }
-::windows::core::interface_hierarchy!(ContactInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactInstantMessageField(::windows::core::IUnknown);
@@ -4795,7 +4795,7 @@ impl ContactInstantMessageField {
     }
     #[doc(hidden)]
     pub fn IContactInstantMessageFieldFactory<R, F: FnOnce(&IContactInstantMessageFieldFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactInstantMessageField, IContactInstantMessageFieldFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactInstantMessageField, IContactInstantMessageFieldFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4811,7 +4811,7 @@ impl ::core::fmt::Debug for ContactInstantMessageField {
     }
 }
 impl ::windows::core::RuntimeType for ContactInstantMessageField {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactInstantMessageField;{cce33b37-0d85-41fa-b43d-da599c3eb009})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactInstantMessageField;{cce33b37-0d85-41fa-b43d-da599c3eb009})");
 }
 impl ::core::clone::Clone for ContactInstantMessageField {
     fn clone(&self) -> Self {
@@ -4827,7 +4827,7 @@ unsafe impl ::windows::core::Interface for ContactInstantMessageField {
 impl ::windows::core::RuntimeName for ContactInstantMessageField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactInstantMessageField";
 }
-::windows::core::interface_hierarchy!(ContactInstantMessageField, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactInstantMessageField, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactInstantMessageField> for IContactField {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactInstantMessageField) -> ::windows::core::Result<Self> {
@@ -4856,8 +4856,8 @@ impl ContactJobInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactJobInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactJobInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn CompanyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4961,7 +4961,7 @@ impl ::core::fmt::Debug for ContactJobInfo {
     }
 }
 impl ::windows::core::RuntimeType for ContactJobInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactJobInfo;{6d117b4c-ce50-4b43-9e69-b18258ea5315})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactJobInfo;{6d117b4c-ce50-4b43-9e69-b18258ea5315})");
 }
 impl ::core::clone::Clone for ContactJobInfo {
     fn clone(&self) -> Self {
@@ -4977,7 +4977,7 @@ unsafe impl ::windows::core::Interface for ContactJobInfo {
 impl ::windows::core::RuntimeName for ContactJobInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactJobInfo";
 }
-::windows::core::interface_hierarchy!(ContactJobInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactJobInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactJobInfo {}
 unsafe impl ::core::marker::Sync for ContactJobInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -5015,7 +5015,7 @@ impl ContactLaunchActionVerbs {
     }
     #[doc(hidden)]
     pub fn IContactLaunchActionVerbsStatics<R, F: FnOnce(&IContactLaunchActionVerbsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactLaunchActionVerbs, IContactLaunchActionVerbsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactLaunchActionVerbs, IContactLaunchActionVerbsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5251,7 +5251,7 @@ impl ::core::fmt::Debug for ContactList {
     }
 }
 impl ::windows::core::RuntimeType for ContactList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactList;{16ddec75-392c-4845-9dfb-51a3e7ef3e42})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactList;{16ddec75-392c-4845-9dfb-51a3e7ef3e42})");
 }
 impl ::core::clone::Clone for ContactList {
     fn clone(&self) -> Self {
@@ -5267,7 +5267,7 @@ unsafe impl ::windows::core::Interface for ContactList {
 impl ::windows::core::RuntimeName for ContactList {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactList";
 }
-::windows::core::interface_hierarchy!(ContactList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactList {}
 unsafe impl ::core::marker::Sync for ContactList {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -5305,7 +5305,7 @@ impl ::core::fmt::Debug for ContactListLimitedWriteOperations {
     }
 }
 impl ::windows::core::RuntimeType for ContactListLimitedWriteOperations {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListLimitedWriteOperations;{e19813da-4a0b-44b8-9a1f-a0f3d218175f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListLimitedWriteOperations;{e19813da-4a0b-44b8-9a1f-a0f3d218175f})");
 }
 impl ::core::clone::Clone for ContactListLimitedWriteOperations {
     fn clone(&self) -> Self {
@@ -5321,7 +5321,7 @@ unsafe impl ::windows::core::Interface for ContactListLimitedWriteOperations {
 impl ::windows::core::RuntimeName for ContactListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactListLimitedWriteOperations";
 }
-::windows::core::interface_hierarchy!(ContactListLimitedWriteOperations, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactListLimitedWriteOperations, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListLimitedWriteOperations {}
 unsafe impl ::core::marker::Sync for ContactListLimitedWriteOperations {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -5865,7 +5865,7 @@ impl ::core::fmt::Debug for ContactListSyncConstraints {
     }
 }
 impl ::windows::core::RuntimeType for ContactListSyncConstraints {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListSyncConstraints;{b2b0bf01-3062-4e2e-969d-018d1987f314})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListSyncConstraints;{b2b0bf01-3062-4e2e-969d-018d1987f314})");
 }
 impl ::core::clone::Clone for ContactListSyncConstraints {
     fn clone(&self) -> Self {
@@ -5881,7 +5881,7 @@ unsafe impl ::windows::core::Interface for ContactListSyncConstraints {
 impl ::windows::core::RuntimeName for ContactListSyncConstraints {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactListSyncConstraints";
 }
-::windows::core::interface_hierarchy!(ContactListSyncConstraints, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactListSyncConstraints, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListSyncConstraints {}
 unsafe impl ::core::marker::Sync for ContactListSyncConstraints {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -5966,7 +5966,7 @@ impl ::core::fmt::Debug for ContactListSyncManager {
     }
 }
 impl ::windows::core::RuntimeType for ContactListSyncManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListSyncManager;{146e83be-7925-4acc-9de5-21ddd06f8674})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListSyncManager;{146e83be-7925-4acc-9de5-21ddd06f8674})");
 }
 impl ::core::clone::Clone for ContactListSyncManager {
     fn clone(&self) -> Self {
@@ -5982,7 +5982,7 @@ unsafe impl ::windows::core::Interface for ContactListSyncManager {
 impl ::windows::core::RuntimeName for ContactListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactListSyncManager";
 }
-::windows::core::interface_hierarchy!(ContactListSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactListSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListSyncManager {}
 unsafe impl ::core::marker::Sync for ContactListSyncManager {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -6079,7 +6079,7 @@ impl ContactLocationField {
     }
     #[doc(hidden)]
     pub fn IContactLocationFieldFactory<R, F: FnOnce(&IContactLocationFieldFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactLocationField, IContactLocationFieldFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactLocationField, IContactLocationFieldFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6095,7 +6095,7 @@ impl ::core::fmt::Debug for ContactLocationField {
     }
 }
 impl ::windows::core::RuntimeType for ContactLocationField {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactLocationField;{9ec00f82-ab6e-4b36-89e3-b23bc0a1dacc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactLocationField;{9ec00f82-ab6e-4b36-89e3-b23bc0a1dacc})");
 }
 impl ::core::clone::Clone for ContactLocationField {
     fn clone(&self) -> Self {
@@ -6111,7 +6111,7 @@ unsafe impl ::windows::core::Interface for ContactLocationField {
 impl ::windows::core::RuntimeName for ContactLocationField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactLocationField";
 }
-::windows::core::interface_hierarchy!(ContactLocationField, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactLocationField, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactLocationField> for IContactField {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactLocationField) -> ::windows::core::Result<Self> {
@@ -6279,27 +6279,27 @@ impl ContactManager {
     }
     #[doc(hidden)]
     pub fn IContactManagerStatics<R, F: FnOnce(&IContactManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactManager, IContactManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactManager, IContactManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IContactManagerStatics2<R, F: FnOnce(&IContactManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactManager, IContactManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactManager, IContactManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IContactManagerStatics3<R, F: FnOnce(&IContactManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactManager, IContactManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactManager, IContactManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IContactManagerStatics4<R, F: FnOnce(&IContactManagerStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactManager, IContactManagerStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactManager, IContactManagerStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IContactManagerStatics5<R, F: FnOnce(&IContactManagerStatics5) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactManager, IContactManagerStatics5> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactManager, IContactManagerStatics5> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6407,7 +6407,7 @@ impl ::core::fmt::Debug for ContactManagerForUser {
     }
 }
 impl ::windows::core::RuntimeType for ContactManagerForUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactManagerForUser;{b74bba57-1076-4bef-aef3-54686d18387d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactManagerForUser;{b74bba57-1076-4bef-aef3-54686d18387d})");
 }
 impl ::core::clone::Clone for ContactManagerForUser {
     fn clone(&self) -> Self {
@@ -6423,7 +6423,7 @@ unsafe impl ::windows::core::Interface for ContactManagerForUser {
 impl ::windows::core::RuntimeName for ContactManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactManagerForUser";
 }
-::windows::core::interface_hierarchy!(ContactManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactManagerForUser {}
 unsafe impl ::core::marker::Sync for ContactManagerForUser {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -6466,7 +6466,7 @@ impl ::core::fmt::Debug for ContactMatchReason {
     }
 }
 impl ::windows::core::RuntimeType for ContactMatchReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactMatchReason;{bc922504-e7d8-413e-95f4-b75c54c74077})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactMatchReason;{bc922504-e7d8-413e-95f4-b75c54c74077})");
 }
 impl ::core::clone::Clone for ContactMatchReason {
     fn clone(&self) -> Self {
@@ -6482,7 +6482,7 @@ unsafe impl ::windows::core::Interface for ContactMatchReason {
 impl ::windows::core::RuntimeName for ContactMatchReason {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactMatchReason";
 }
-::windows::core::interface_hierarchy!(ContactMatchReason, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactMatchReason, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactMatchReason {}
 unsafe impl ::core::marker::Sync for ContactMatchReason {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -6555,7 +6555,7 @@ impl ::core::fmt::Debug for ContactPanel {
     }
 }
 impl ::windows::core::RuntimeType for ContactPanel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanel;{41bf1265-d2ee-4b97-a80a-7d8d64cca6f5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanel;{41bf1265-d2ee-4b97-a80a-7d8d64cca6f5})");
 }
 impl ::core::clone::Clone for ContactPanel {
     fn clone(&self) -> Self {
@@ -6571,7 +6571,7 @@ unsafe impl ::windows::core::Interface for ContactPanel {
 impl ::windows::core::RuntimeName for ContactPanel {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPanel";
 }
-::windows::core::interface_hierarchy!(ContactPanel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactPanel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactPanel {}
 unsafe impl ::core::marker::Sync for ContactPanel {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -6600,7 +6600,7 @@ impl ::core::fmt::Debug for ContactPanelClosingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactPanelClosingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanelClosingEventArgs;{222174d3-cf4b-46d7-b739-6edc16110bfb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanelClosingEventArgs;{222174d3-cf4b-46d7-b739-6edc16110bfb})");
 }
 impl ::core::clone::Clone for ContactPanelClosingEventArgs {
     fn clone(&self) -> Self {
@@ -6616,7 +6616,7 @@ unsafe impl ::windows::core::Interface for ContactPanelClosingEventArgs {
 impl ::windows::core::RuntimeName for ContactPanelClosingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPanelClosingEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactPanelClosingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactPanelClosingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactPanelClosingEventArgs {}
 unsafe impl ::core::marker::Sync for ContactPanelClosingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -6647,7 +6647,7 @@ impl ::core::fmt::Debug for ContactPanelLaunchFullAppRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactPanelLaunchFullAppRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanelLaunchFullAppRequestedEventArgs;{88d61c0e-23b4-4be8-8afc-072c25a4190d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanelLaunchFullAppRequestedEventArgs;{88d61c0e-23b4-4be8-8afc-072c25a4190d})");
 }
 impl ::core::clone::Clone for ContactPanelLaunchFullAppRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -6663,7 +6663,7 @@ unsafe impl ::windows::core::Interface for ContactPanelLaunchFullAppRequestedEve
 impl ::windows::core::RuntimeName for ContactPanelLaunchFullAppRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPanelLaunchFullAppRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactPanelLaunchFullAppRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactPanelLaunchFullAppRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactPanelLaunchFullAppRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactPanelLaunchFullAppRequestedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -6673,8 +6673,8 @@ impl ContactPhone {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactPhone, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactPhone, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Number(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -6723,7 +6723,7 @@ impl ::core::fmt::Debug for ContactPhone {
     }
 }
 impl ::windows::core::RuntimeType for ContactPhone {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPhone;{467dab65-2712-4f52-b783-9ea8111c63cd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPhone;{467dab65-2712-4f52-b783-9ea8111c63cd})");
 }
 impl ::core::clone::Clone for ContactPhone {
     fn clone(&self) -> Self {
@@ -6739,7 +6739,7 @@ unsafe impl ::windows::core::Interface for ContactPhone {
 impl ::windows::core::RuntimeName for ContactPhone {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPhone";
 }
-::windows::core::interface_hierarchy!(ContactPhone, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactPhone, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactPhone {}
 unsafe impl ::core::marker::Sync for ContactPhone {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -6749,8 +6749,8 @@ impl ContactPicker {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactPicker, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactPicker, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn CommitButtonText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -6856,7 +6856,7 @@ impl ContactPicker {
     }
     #[doc(hidden)]
     pub fn IContactPickerStatics<R, F: FnOnce(&IContactPickerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactPicker, IContactPickerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactPicker, IContactPickerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6872,7 +6872,7 @@ impl ::core::fmt::Debug for ContactPicker {
     }
 }
 impl ::windows::core::RuntimeType for ContactPicker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPicker;{0e09fd91-42f8-4055-90a0-896f96738936})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPicker;{0e09fd91-42f8-4055-90a0-896f96738936})");
 }
 impl ::core::clone::Clone for ContactPicker {
     fn clone(&self) -> Self {
@@ -6888,7 +6888,7 @@ unsafe impl ::windows::core::Interface for ContactPicker {
 impl ::windows::core::RuntimeName for ContactPicker {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPicker";
 }
-::windows::core::interface_hierarchy!(ContactPicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactPicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactQueryOptions(::windows::core::IUnknown);
@@ -6896,8 +6896,8 @@ impl ContactQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactQueryOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactQueryOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn TextSearch(&self) -> ::windows::core::Result<ContactQueryTextSearch> {
@@ -6972,7 +6972,7 @@ impl ContactQueryOptions {
     }
     #[doc(hidden)]
     pub fn IContactQueryOptionsFactory<R, F: FnOnce(&IContactQueryOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactQueryOptions, IContactQueryOptionsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContactQueryOptions, IContactQueryOptionsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6988,7 +6988,7 @@ impl ::core::fmt::Debug for ContactQueryOptions {
     }
 }
 impl ::windows::core::RuntimeType for ContactQueryOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactQueryOptions;{4408cc9e-7d7c-42f0-8ac7-f50733ecdbc1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactQueryOptions;{4408cc9e-7d7c-42f0-8ac7-f50733ecdbc1})");
 }
 impl ::core::clone::Clone for ContactQueryOptions {
     fn clone(&self) -> Self {
@@ -7004,7 +7004,7 @@ unsafe impl ::windows::core::Interface for ContactQueryOptions {
 impl ::windows::core::RuntimeName for ContactQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactQueryOptions";
 }
-::windows::core::interface_hierarchy!(ContactQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactQueryOptions {}
 unsafe impl ::core::marker::Sync for ContactQueryOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -7057,7 +7057,7 @@ impl ::core::fmt::Debug for ContactQueryTextSearch {
     }
 }
 impl ::windows::core::RuntimeType for ContactQueryTextSearch {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactQueryTextSearch;{f7e3f9cb-a957-439b-a0b7-1c02a1963ff0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactQueryTextSearch;{f7e3f9cb-a957-439b-a0b7-1c02a1963ff0})");
 }
 impl ::core::clone::Clone for ContactQueryTextSearch {
     fn clone(&self) -> Self {
@@ -7073,7 +7073,7 @@ unsafe impl ::windows::core::Interface for ContactQueryTextSearch {
 impl ::windows::core::RuntimeName for ContactQueryTextSearch {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactQueryTextSearch";
 }
-::windows::core::interface_hierarchy!(ContactQueryTextSearch, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactQueryTextSearch, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactQueryTextSearch {}
 unsafe impl ::core::marker::Sync for ContactQueryTextSearch {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -7111,7 +7111,7 @@ impl ::core::fmt::Debug for ContactReader {
     }
 }
 impl ::windows::core::RuntimeType for ContactReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactReader;{d397e42e-1488-42f2-bf64-253f4884bfed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactReader;{d397e42e-1488-42f2-bf64-253f4884bfed})");
 }
 impl ::core::clone::Clone for ContactReader {
     fn clone(&self) -> Self {
@@ -7127,7 +7127,7 @@ unsafe impl ::windows::core::Interface for ContactReader {
 impl ::windows::core::RuntimeName for ContactReader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactReader";
 }
-::windows::core::interface_hierarchy!(ContactReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactReader {}
 unsafe impl ::core::marker::Sync for ContactReader {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -7137,8 +7137,8 @@ impl ContactSignificantOther {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactSignificantOther, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactSignificantOther, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -7187,7 +7187,7 @@ impl ::core::fmt::Debug for ContactSignificantOther {
     }
 }
 impl ::windows::core::RuntimeType for ContactSignificantOther {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactSignificantOther;{8873b5ab-c5fb-46d8-93fe-da3ff1934054})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactSignificantOther;{8873b5ab-c5fb-46d8-93fe-da3ff1934054})");
 }
 impl ::core::clone::Clone for ContactSignificantOther {
     fn clone(&self) -> Self {
@@ -7203,7 +7203,7 @@ unsafe impl ::windows::core::Interface for ContactSignificantOther {
 impl ::windows::core::RuntimeName for ContactSignificantOther {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactSignificantOther";
 }
-::windows::core::interface_hierarchy!(ContactSignificantOther, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactSignificantOther, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactSignificantOther {}
 unsafe impl ::core::marker::Sync for ContactSignificantOther {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -7345,7 +7345,7 @@ impl ::core::fmt::Debug for ContactStore {
     }
 }
 impl ::windows::core::RuntimeType for ContactStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactStore;{2c220b10-3a6c-4293-b9bc-fe987f6e0d52})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactStore;{2c220b10-3a6c-4293-b9bc-fe987f6e0d52})");
 }
 impl ::core::clone::Clone for ContactStore {
     fn clone(&self) -> Self {
@@ -7361,7 +7361,7 @@ unsafe impl ::windows::core::Interface for ContactStore {
 impl ::windows::core::RuntimeName for ContactStore {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactStore";
 }
-::windows::core::interface_hierarchy!(ContactStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactStore {}
 unsafe impl ::core::marker::Sync for ContactStore {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -7380,7 +7380,7 @@ impl ::core::fmt::Debug for ContactStoreNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for ContactStoreNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactStoreNotificationTriggerDetails;{abb298d6-878a-4f8b-a9ce-46bb7d1c84ce})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactStoreNotificationTriggerDetails;{abb298d6-878a-4f8b-a9ce-46bb7d1c84ce})");
 }
 impl ::core::clone::Clone for ContactStoreNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -7396,7 +7396,7 @@ unsafe impl ::windows::core::Interface for ContactStoreNotificationTriggerDetail
 impl ::windows::core::RuntimeName for ContactStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactStoreNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(ContactStoreNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactStoreNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactStoreNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ContactStoreNotificationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -7406,8 +7406,8 @@ impl ContactWebsite {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactWebsite, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactWebsite, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7460,7 +7460,7 @@ impl ::core::fmt::Debug for ContactWebsite {
     }
 }
 impl ::windows::core::RuntimeType for ContactWebsite {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactWebsite;{9f130176-dc1b-4055-ad66-652f39d990e8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactWebsite;{9f130176-dc1b-4055-ad66-652f39d990e8})");
 }
 impl ::core::clone::Clone for ContactWebsite {
     fn clone(&self) -> Self {
@@ -7476,7 +7476,7 @@ unsafe impl ::windows::core::Interface for ContactWebsite {
 impl ::windows::core::RuntimeName for ContactWebsite {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactWebsite";
 }
-::windows::core::interface_hierarchy!(ContactWebsite, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactWebsite, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactWebsite {}
 unsafe impl ::core::marker::Sync for ContactWebsite {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -7486,8 +7486,8 @@ impl FullContactCardOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FullContactCardOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<FullContactCardOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -7518,7 +7518,7 @@ impl ::core::fmt::Debug for FullContactCardOptions {
     }
 }
 impl ::windows::core::RuntimeType for FullContactCardOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.FullContactCardOptions;{8744436c-5cf9-4683-bdca-a1fdebf8dbce})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.FullContactCardOptions;{8744436c-5cf9-4683-bdca-a1fdebf8dbce})");
 }
 impl ::core::clone::Clone for FullContactCardOptions {
     fn clone(&self) -> Self {
@@ -7534,7 +7534,7 @@ unsafe impl ::windows::core::Interface for FullContactCardOptions {
 impl ::windows::core::RuntimeName for FullContactCardOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.FullContactCardOptions";
 }
-::windows::core::interface_hierarchy!(FullContactCardOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FullContactCardOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FullContactCardOptions {}
 unsafe impl ::core::marker::Sync for FullContactCardOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"deprecated\"`*"]
@@ -7593,7 +7593,7 @@ impl KnownContactField {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IKnownContactFieldStatics<R, F: FnOnce(&IKnownContactFieldStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownContactField, IKnownContactFieldStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownContactField, IKnownContactFieldStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7627,7 +7627,7 @@ impl ::core::fmt::Debug for PinnedContactIdsQueryResult {
     }
 }
 impl ::windows::core::RuntimeType for PinnedContactIdsQueryResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult;{7d9b2552-1579-4ddc-871f-a30a3aea9ba1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult;{7d9b2552-1579-4ddc-871f-a30a3aea9ba1})");
 }
 impl ::core::clone::Clone for PinnedContactIdsQueryResult {
     fn clone(&self) -> Self {
@@ -7643,7 +7643,7 @@ unsafe impl ::windows::core::Interface for PinnedContactIdsQueryResult {
 impl ::windows::core::RuntimeName for PinnedContactIdsQueryResult {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult";
 }
-::windows::core::interface_hierarchy!(PinnedContactIdsQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PinnedContactIdsQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PinnedContactIdsQueryResult {}
 unsafe impl ::core::marker::Sync for PinnedContactIdsQueryResult {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -7739,7 +7739,7 @@ impl PinnedContactManager {
     }
     #[doc(hidden)]
     pub fn IPinnedContactManagerStatics<R, F: FnOnce(&IPinnedContactManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PinnedContactManager, IPinnedContactManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PinnedContactManager, IPinnedContactManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7755,7 +7755,7 @@ impl ::core::fmt::Debug for PinnedContactManager {
     }
 }
 impl ::windows::core::RuntimeType for PinnedContactManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.PinnedContactManager;{fcbc740c-e1d6-45c3-b8b6-a35604e167a0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.PinnedContactManager;{fcbc740c-e1d6-45c3-b8b6-a35604e167a0})");
 }
 impl ::core::clone::Clone for PinnedContactManager {
     fn clone(&self) -> Self {
@@ -7771,7 +7771,7 @@ unsafe impl ::windows::core::Interface for PinnedContactManager {
 impl ::windows::core::RuntimeName for PinnedContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.PinnedContactManager";
 }
-::windows::core::interface_hierarchy!(PinnedContactManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PinnedContactManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PinnedContactManager {}
 unsafe impl ::core::marker::Sync for PinnedContactManager {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
@@ -7803,7 +7803,7 @@ impl ::core::fmt::Debug for ContactAddressKind {
     }
 }
 impl ::windows::core::RuntimeType for ContactAddressKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAddressKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAddressKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -7871,7 +7871,7 @@ impl ::core::ops::Not for ContactAnnotationOperations {
     }
 }
 impl ::windows::core::RuntimeType for ContactAnnotationOperations {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationOperations;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationOperations;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -7901,7 +7901,7 @@ impl ::core::fmt::Debug for ContactAnnotationStoreAccessType {
     }
 }
 impl ::windows::core::RuntimeType for ContactAnnotationStoreAccessType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -7932,7 +7932,7 @@ impl ::core::fmt::Debug for ContactBatchStatus {
     }
 }
 impl ::windows::core::RuntimeType for ContactBatchStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactBatchStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactBatchStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -7963,7 +7963,7 @@ impl ::core::fmt::Debug for ContactCardHeaderKind {
     }
 }
 impl ::windows::core::RuntimeType for ContactCardHeaderKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardHeaderKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardHeaderKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -7997,7 +7997,7 @@ impl ::core::fmt::Debug for ContactCardTabKind {
     }
 }
 impl ::windows::core::RuntimeType for ContactCardTabKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardTabKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardTabKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8029,7 +8029,7 @@ impl ::core::fmt::Debug for ContactChangeType {
     }
 }
 impl ::windows::core::RuntimeType for ContactChangeType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactChangeType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactChangeType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8060,7 +8060,7 @@ impl ::core::fmt::Debug for ContactDateKind {
     }
 }
 impl ::windows::core::RuntimeType for ContactDateKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactDateKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactDateKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8091,7 +8091,7 @@ impl ::core::fmt::Debug for ContactEmailKind {
     }
 }
 impl ::windows::core::RuntimeType for ContactEmailKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactEmailKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactEmailKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8124,7 +8124,7 @@ impl ::core::fmt::Debug for ContactFieldCategory {
     }
 }
 impl ::windows::core::RuntimeType for ContactFieldCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldCategory;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldCategory;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8164,7 +8164,7 @@ impl ::core::fmt::Debug for ContactFieldType {
     }
 }
 impl ::windows::core::RuntimeType for ContactFieldType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8196,7 +8196,7 @@ impl ::core::fmt::Debug for ContactListOtherAppReadAccess {
     }
 }
 impl ::windows::core::RuntimeType for ContactListOtherAppReadAccess {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8227,7 +8227,7 @@ impl ::core::fmt::Debug for ContactListOtherAppWriteAccess {
     }
 }
 impl ::windows::core::RuntimeType for ContactListOtherAppWriteAccess {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8262,7 +8262,7 @@ impl ::core::fmt::Debug for ContactListSyncStatus {
     }
 }
 impl ::windows::core::RuntimeType for ContactListSyncStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListSyncStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListSyncStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8296,7 +8296,7 @@ impl ::core::fmt::Debug for ContactMatchReasonKind {
     }
 }
 impl ::windows::core::RuntimeType for ContactMatchReasonKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactMatchReasonKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactMatchReasonKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8326,7 +8326,7 @@ impl ::core::fmt::Debug for ContactNameOrder {
     }
 }
 impl ::windows::core::RuntimeType for ContactNameOrder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactNameOrder;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactNameOrder;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8364,7 +8364,7 @@ impl ::core::fmt::Debug for ContactPhoneKind {
     }
 }
 impl ::windows::core::RuntimeType for ContactPhoneKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactPhoneKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactPhoneKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8429,7 +8429,7 @@ impl ::core::ops::Not for ContactQueryDesiredFields {
     }
 }
 impl ::windows::core::RuntimeType for ContactQueryDesiredFields {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQueryDesiredFields;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQueryDesiredFields;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8495,7 +8495,7 @@ impl ::core::ops::Not for ContactQuerySearchFields {
     }
 }
 impl ::windows::core::RuntimeType for ContactQuerySearchFields {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchFields;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchFields;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8525,7 +8525,7 @@ impl ::core::fmt::Debug for ContactQuerySearchScope {
     }
 }
 impl ::windows::core::RuntimeType for ContactQuerySearchScope {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchScope;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchScope;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8559,7 +8559,7 @@ impl ::core::fmt::Debug for ContactRelationship {
     }
 }
 impl ::windows::core::RuntimeType for ContactRelationship {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactRelationship;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactRelationship;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8589,7 +8589,7 @@ impl ::core::fmt::Debug for ContactSelectionMode {
     }
 }
 impl ::windows::core::RuntimeType for ContactSelectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactSelectionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactSelectionMode;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8620,7 +8620,7 @@ impl ::core::fmt::Debug for ContactStoreAccessType {
     }
 }
 impl ::windows::core::RuntimeType for ContactStoreAccessType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactStoreAccessType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactStoreAccessType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
@@ -8650,7 +8650,7 @@ impl ::core::fmt::Debug for PinnedContactSurface {
     }
 }
 impl ::windows::core::RuntimeType for PinnedContactSurface {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.PinnedContactSurface;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.PinnedContactSurface;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

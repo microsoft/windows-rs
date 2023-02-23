@@ -327,7 +327,7 @@ impl ::core::fmt::Debug for AppExtension {
     }
 }
 impl ::windows::core::RuntimeType for AppExtension {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtension;{8450902c-15ed-4faf-93ea-2237bbf8cbd6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtension;{8450902c-15ed-4faf-93ea-2237bbf8cbd6})");
 }
 impl ::core::clone::Clone for AppExtension {
     fn clone(&self) -> Self {
@@ -343,7 +343,7 @@ unsafe impl ::windows::core::Interface for AppExtension {
 impl ::windows::core::RuntimeName for AppExtension {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtension";
 }
-::windows::core::interface_hierarchy!(AppExtension, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppExtension, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtension {}
 unsafe impl ::core::marker::Sync for AppExtension {}
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
@@ -451,7 +451,7 @@ impl AppExtensionCatalog {
     }
     #[doc(hidden)]
     pub fn IAppExtensionCatalogStatics<R, F: FnOnce(&IAppExtensionCatalogStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppExtensionCatalog, IAppExtensionCatalogStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppExtensionCatalog, IAppExtensionCatalogStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -467,7 +467,7 @@ impl ::core::fmt::Debug for AppExtensionCatalog {
     }
 }
 impl ::windows::core::RuntimeType for AppExtensionCatalog {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionCatalog;{97872032-8426-4ad1-9084-92e88c2da200})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionCatalog;{97872032-8426-4ad1-9084-92e88c2da200})");
 }
 impl ::core::clone::Clone for AppExtensionCatalog {
     fn clone(&self) -> Self {
@@ -483,7 +483,7 @@ unsafe impl ::windows::core::Interface for AppExtensionCatalog {
 impl ::windows::core::RuntimeName for AppExtensionCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionCatalog";
 }
-::windows::core::interface_hierarchy!(AppExtensionCatalog, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppExtensionCatalog, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
 #[repr(transparent)]
 pub struct AppExtensionPackageInstalledEventArgs(::windows::core::IUnknown);
@@ -524,7 +524,7 @@ impl ::core::fmt::Debug for AppExtensionPackageInstalledEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppExtensionPackageInstalledEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageInstalledEventArgs;{39e59234-3351-4a8d-9745-e7d3dd45bc48})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageInstalledEventArgs;{39e59234-3351-4a8d-9745-e7d3dd45bc48})");
 }
 impl ::core::clone::Clone for AppExtensionPackageInstalledEventArgs {
     fn clone(&self) -> Self {
@@ -540,7 +540,7 @@ unsafe impl ::windows::core::Interface for AppExtensionPackageInstalledEventArgs
 impl ::windows::core::RuntimeName for AppExtensionPackageInstalledEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageInstalledEventArgs";
 }
-::windows::core::interface_hierarchy!(AppExtensionPackageInstalledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppExtensionPackageInstalledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtensionPackageInstalledEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageInstalledEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
@@ -574,7 +574,7 @@ impl ::core::fmt::Debug for AppExtensionPackageStatusChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppExtensionPackageStatusChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageStatusChangedEventArgs;{1ce17433-1153-44fd-87b1-8ae1050303df})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageStatusChangedEventArgs;{1ce17433-1153-44fd-87b1-8ae1050303df})");
 }
 impl ::core::clone::Clone for AppExtensionPackageStatusChangedEventArgs {
     fn clone(&self) -> Self {
@@ -590,7 +590,7 @@ unsafe impl ::windows::core::Interface for AppExtensionPackageStatusChangedEvent
 impl ::windows::core::RuntimeName for AppExtensionPackageStatusChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageStatusChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppExtensionPackageStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppExtensionPackageStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtensionPackageStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageStatusChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
@@ -624,7 +624,7 @@ impl ::core::fmt::Debug for AppExtensionPackageUninstallingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppExtensionPackageUninstallingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageUninstallingEventArgs;{60f160c5-171e-40ff-ae98-ab2c20dd4d75})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageUninstallingEventArgs;{60f160c5-171e-40ff-ae98-ab2c20dd4d75})");
 }
 impl ::core::clone::Clone for AppExtensionPackageUninstallingEventArgs {
     fn clone(&self) -> Self {
@@ -640,7 +640,7 @@ unsafe impl ::windows::core::Interface for AppExtensionPackageUninstallingEventA
 impl ::windows::core::RuntimeName for AppExtensionPackageUninstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUninstallingEventArgs";
 }
-::windows::core::interface_hierarchy!(AppExtensionPackageUninstallingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppExtensionPackageUninstallingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtensionPackageUninstallingEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageUninstallingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
@@ -683,7 +683,7 @@ impl ::core::fmt::Debug for AppExtensionPackageUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppExtensionPackageUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatedEventArgs;{3a83c43f-797e-44b5-ba24-a4c8b5a543d7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatedEventArgs;{3a83c43f-797e-44b5-ba24-a4c8b5a543d7})");
 }
 impl ::core::clone::Clone for AppExtensionPackageUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -699,7 +699,7 @@ unsafe impl ::windows::core::Interface for AppExtensionPackageUpdatedEventArgs {
 impl ::windows::core::RuntimeName for AppExtensionPackageUpdatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppExtensionPackageUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppExtensionPackageUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtensionPackageUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageUpdatedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
@@ -733,7 +733,7 @@ impl ::core::fmt::Debug for AppExtensionPackageUpdatingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppExtensionPackageUpdatingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatingEventArgs;{7ed59329-1a65-4800-a700-b321009e306a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatingEventArgs;{7ed59329-1a65-4800-a700-b321009e306a})");
 }
 impl ::core::clone::Clone for AppExtensionPackageUpdatingEventArgs {
     fn clone(&self) -> Self {
@@ -749,7 +749,7 @@ unsafe impl ::windows::core::Interface for AppExtensionPackageUpdatingEventArgs 
 impl ::windows::core::RuntimeName for AppExtensionPackageUpdatingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatingEventArgs";
 }
-::windows::core::interface_hierarchy!(AppExtensionPackageUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppExtensionPackageUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtensionPackageUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageUpdatingEventArgs {}
 #[cfg(feature = "implement")]

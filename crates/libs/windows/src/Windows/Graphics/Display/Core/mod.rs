@@ -195,7 +195,7 @@ impl HdmiDisplayInformation {
     }
     #[doc(hidden)]
     pub fn IHdmiDisplayInformationStatics<R, F: FnOnce(&IHdmiDisplayInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HdmiDisplayInformation, IHdmiDisplayInformationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HdmiDisplayInformation, IHdmiDisplayInformationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -211,7 +211,7 @@ impl ::core::fmt::Debug for HdmiDisplayInformation {
     }
 }
 impl ::windows::core::RuntimeType for HdmiDisplayInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.Core.HdmiDisplayInformation;{130b3c0a-f565-476e-abd5-ea05aee74c69})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.Core.HdmiDisplayInformation;{130b3c0a-f565-476e-abd5-ea05aee74c69})");
 }
 impl ::core::clone::Clone for HdmiDisplayInformation {
     fn clone(&self) -> Self {
@@ -227,7 +227,7 @@ unsafe impl ::windows::core::Interface for HdmiDisplayInformation {
 impl ::windows::core::RuntimeName for HdmiDisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayInformation";
 }
-::windows::core::interface_hierarchy!(HdmiDisplayInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HdmiDisplayInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HdmiDisplayInformation {}
 unsafe impl ::core::marker::Sync for HdmiDisplayInformation {}
 #[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
@@ -331,7 +331,7 @@ impl ::core::fmt::Debug for HdmiDisplayMode {
     }
 }
 impl ::windows::core::RuntimeType for HdmiDisplayMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.Core.HdmiDisplayMode;{0c06d5ad-1b90-4f51-9981-ef5a1c0ddf66})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.Core.HdmiDisplayMode;{0c06d5ad-1b90-4f51-9981-ef5a1c0ddf66})");
 }
 impl ::core::clone::Clone for HdmiDisplayMode {
     fn clone(&self) -> Self {
@@ -347,7 +347,7 @@ unsafe impl ::windows::core::Interface for HdmiDisplayMode {
 impl ::windows::core::RuntimeName for HdmiDisplayMode {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayMode";
 }
-::windows::core::interface_hierarchy!(HdmiDisplayMode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HdmiDisplayMode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HdmiDisplayMode {}
 unsafe impl ::core::marker::Sync for HdmiDisplayMode {}
 #[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
@@ -380,7 +380,7 @@ impl ::core::fmt::Debug for HdmiDisplayColorSpace {
     }
 }
 impl ::windows::core::RuntimeType for HdmiDisplayColorSpace {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayColorSpace;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayColorSpace;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
 #[repr(transparent)]
@@ -412,7 +412,7 @@ impl ::core::fmt::Debug for HdmiDisplayHdrOption {
     }
 }
 impl ::windows::core::RuntimeType for HdmiDisplayHdrOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayHdrOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayHdrOption;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
 #[repr(transparent)]
@@ -444,7 +444,7 @@ impl ::core::fmt::Debug for HdmiDisplayPixelEncoding {
     }
 }
 impl ::windows::core::RuntimeType for HdmiDisplayPixelEncoding {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
@@ -490,7 +490,7 @@ impl ::windows::core::TypeKind for HdmiDisplayHdr2086Metadata {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for HdmiDisplayHdr2086Metadata {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.Core.HdmiDisplayHdr2086Metadata;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.Core.HdmiDisplayHdr2086Metadata;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2)");
 }
 impl ::core::cmp::PartialEq for HdmiDisplayHdr2086Metadata {
     fn eq(&self, other: &Self) -> bool {

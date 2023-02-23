@@ -5,9 +5,9 @@ pub unsafe fn CreateSecurityPage<P0>(psi: P0) -> ::windows::core::Result<super::
 where
     P0: ::std::convert::Into<::windows::core::InParam<ISecurityInformation>>,
 {
-    ::windows::core::link ! ( "aclui.dll""system" fn CreateSecurityPage ( psi : * mut::core::ffi::c_void ) -> super::super::super::UI::Controls:: HPROPSHEETPAGE );
+    ::windows::imp::link ! ( "aclui.dll""system" fn CreateSecurityPage ( psi : * mut::core::ffi::c_void ) -> super::super::super::UI::Controls:: HPROPSHEETPAGE );
     let result__ = CreateSecurityPage(psi.into().abi());
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17,7 +17,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<ISecurityInformation>>,
 {
-    ::windows::core::link ! ( "aclui.dll""system" fn EditSecurity ( hwndowner : super::super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "aclui.dll""system" fn EditSecurity ( hwndowner : super::super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     EditSecurity(hwndowner.into(), psi.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
@@ -28,7 +28,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<ISecurityInformation>>,
 {
-    ::windows::core::link ! ( "aclui.dll""system" fn EditSecurityAdvanced ( hwndowner : super::super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void , usipage : SI_PAGE_TYPE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "aclui.dll""system" fn EditSecurityAdvanced ( hwndowner : super::super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void , usipage : SI_PAGE_TYPE ) -> :: windows::core::HRESULT );
     EditSecurityAdvanced(hwndowner.into(), psi.into().abi(), usipage).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
@@ -46,7 +46,7 @@ impl IEffectivePermission {
         (::windows::core::Vtable::vtable(self).GetEffectivePermission)(::windows::core::Vtable::as_raw(self), pguidobjecttype, pusersid.into(), pszservername.into().abi(), psd.into(), ppobjecttypelist, pcobjecttypelistlength, ppgrantedaccesslist, pcgrantedaccesslistlength).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEffectivePermission, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEffectivePermission, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEffectivePermission {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -126,7 +126,7 @@ impl IEffectivePermission2 {
         .ok()
     }
 }
-::windows::core::interface_hierarchy!(IEffectivePermission2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEffectivePermission2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEffectivePermission2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -215,7 +215,7 @@ impl ISecurityInformation {
         (::windows::core::Vtable::vtable(self).PropertySheetPageCallback)(::windows::core::Vtable::as_raw(self), hwnd.into(), umsg, upage).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISecurityInformation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISecurityInformation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISecurityInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -275,7 +275,7 @@ impl ISecurityInformation2 {
         (::windows::core::Vtable::vtable(self).LookupSids)(::windows::core::Vtable::as_raw(self), csids, rgpsids, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISecurityInformation2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISecurityInformation2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISecurityInformation2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -328,7 +328,7 @@ impl ISecurityInformation3 {
         (::windows::core::Vtable::vtable(self).OpenElevatedEditor)(::windows::core::Vtable::as_raw(self), hwnd.into(), upage).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISecurityInformation3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISecurityInformation3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISecurityInformation3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -371,7 +371,7 @@ impl ISecurityInformation4 {
         (::windows::core::Vtable::vtable(self).GetSecondarySecurity)(::windows::core::Vtable::as_raw(self), psecurityobjects, psecurityobjectcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISecurityInformation4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISecurityInformation4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISecurityInformation4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -411,7 +411,7 @@ impl ISecurityObjectTypeInfo {
         (::windows::core::Vtable::vtable(self).GetInheritSource)(::windows::core::Vtable::as_raw(self), si, pacl, ppinheritarray).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISecurityObjectTypeInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISecurityObjectTypeInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISecurityObjectTypeInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

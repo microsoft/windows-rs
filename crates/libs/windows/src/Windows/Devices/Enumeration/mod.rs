@@ -527,7 +527,7 @@ pub struct IDevicePairingResult_Vtbl {
 #[repr(transparent)]
 pub struct IDevicePairingSettings(::windows::core::IUnknown);
 impl IDevicePairingSettings {}
-::windows::core::interface_hierarchy!(IDevicePairingSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IDevicePairingSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IDevicePairingSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -540,7 +540,7 @@ impl ::core::fmt::Debug for IDevicePairingSettings {
     }
 }
 impl ::windows::core::RuntimeType for IDevicePairingSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{482cb27c-83bb-420e-be51-6602b222de54}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{482cb27c-83bb-420e-be51-6602b222de54}");
 }
 unsafe impl ::windows::core::Vtable for IDevicePairingSettings {
     type Vtable = IDevicePairingSettings_Vtbl;
@@ -964,7 +964,7 @@ impl ::core::fmt::Debug for DeviceAccessChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DeviceAccessChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceAccessChangedEventArgs;{deda0bcc-4f9d-4f58-9dba-a9bc800408d5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceAccessChangedEventArgs;{deda0bcc-4f9d-4f58-9dba-a9bc800408d5})");
 }
 impl ::core::clone::Clone for DeviceAccessChangedEventArgs {
     fn clone(&self) -> Self {
@@ -980,7 +980,7 @@ unsafe impl ::windows::core::Interface for DeviceAccessChangedEventArgs {
 impl ::windows::core::RuntimeName for DeviceAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceAccessChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(DeviceAccessChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceAccessChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceAccessChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1029,7 +1029,7 @@ impl DeviceAccessInformation {
     }
     #[doc(hidden)]
     pub fn IDeviceAccessInformationStatics<R, F: FnOnce(&IDeviceAccessInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeviceAccessInformation, IDeviceAccessInformationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DeviceAccessInformation, IDeviceAccessInformationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1045,7 +1045,7 @@ impl ::core::fmt::Debug for DeviceAccessInformation {
     }
 }
 impl ::windows::core::RuntimeType for DeviceAccessInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceAccessInformation;{0baa9a73-6de5-4915-8ddd-9a0554a6f545})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceAccessInformation;{0baa9a73-6de5-4915-8ddd-9a0554a6f545})");
 }
 impl ::core::clone::Clone for DeviceAccessInformation {
     fn clone(&self) -> Self {
@@ -1061,7 +1061,7 @@ unsafe impl ::windows::core::Interface for DeviceAccessInformation {
 impl ::windows::core::RuntimeName for DeviceAccessInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceAccessInformation";
 }
-::windows::core::interface_hierarchy!(DeviceAccessInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceAccessInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceAccessInformation {}
 unsafe impl ::core::marker::Sync for DeviceAccessInformation {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1088,7 +1088,7 @@ impl ::core::fmt::Debug for DeviceConnectionChangeTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for DeviceConnectionChangeTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceConnectionChangeTriggerDetails;{b8578c0c-bbc1-484b-bffa-7b31dcc200b2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceConnectionChangeTriggerDetails;{b8578c0c-bbc1-484b-bffa-7b31dcc200b2})");
 }
 impl ::core::clone::Clone for DeviceConnectionChangeTriggerDetails {
     fn clone(&self) -> Self {
@@ -1104,7 +1104,7 @@ unsafe impl ::windows::core::Interface for DeviceConnectionChangeTriggerDetails 
 impl ::windows::core::RuntimeName for DeviceConnectionChangeTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceConnectionChangeTriggerDetails";
 }
-::windows::core::interface_hierarchy!(DeviceConnectionChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceConnectionChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceConnectionChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for DeviceConnectionChangeTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1131,7 +1131,7 @@ impl ::core::fmt::Debug for DeviceDisconnectButtonClickedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DeviceDisconnectButtonClickedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceDisconnectButtonClickedEventArgs;{8e44b56d-f902-4a00-b536-f37992e6a2a7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceDisconnectButtonClickedEventArgs;{8e44b56d-f902-4a00-b536-f37992e6a2a7})");
 }
 impl ::core::clone::Clone for DeviceDisconnectButtonClickedEventArgs {
     fn clone(&self) -> Self {
@@ -1147,7 +1147,7 @@ unsafe impl ::windows::core::Interface for DeviceDisconnectButtonClickedEventArg
 impl ::windows::core::RuntimeName for DeviceDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceDisconnectButtonClickedEventArgs";
 }
-::windows::core::interface_hierarchy!(DeviceDisconnectButtonClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceDisconnectButtonClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceDisconnectButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceDisconnectButtonClickedEventArgs {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1364,12 +1364,12 @@ impl DeviceInformation {
     }
     #[doc(hidden)]
     pub fn IDeviceInformationStatics<R, F: FnOnce(&IDeviceInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeviceInformation, IDeviceInformationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DeviceInformation, IDeviceInformationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IDeviceInformationStatics2<R, F: FnOnce(&IDeviceInformationStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeviceInformation, IDeviceInformationStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DeviceInformation, IDeviceInformationStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1385,7 +1385,7 @@ impl ::core::fmt::Debug for DeviceInformation {
     }
 }
 impl ::windows::core::RuntimeType for DeviceInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformation;{aba0fb95-4398-489d-8e44-e6130927011f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformation;{aba0fb95-4398-489d-8e44-e6130927011f})");
 }
 impl ::core::clone::Clone for DeviceInformation {
     fn clone(&self) -> Self {
@@ -1401,7 +1401,7 @@ unsafe impl ::windows::core::Interface for DeviceInformation {
 impl ::windows::core::RuntimeName for DeviceInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformation";
 }
-::windows::core::interface_hierarchy!(DeviceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceInformation {}
 unsafe impl ::core::marker::Sync for DeviceInformation {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation_Collections\"`*"]
@@ -1472,7 +1472,7 @@ impl ::core::fmt::Debug for DeviceInformationCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for DeviceInformationCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Devices.Enumeration.DeviceInformation;{aba0fb95-4398-489d-8e44-e6130927011f})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Devices.Enumeration.DeviceInformation;{aba0fb95-4398-489d-8e44-e6130927011f})))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for DeviceInformationCollection {
@@ -1509,7 +1509,7 @@ impl ::core::iter::IntoIterator for &DeviceInformationCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(DeviceInformationCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceInformationCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DeviceInformationCollection> for super::super::Foundation::Collections::IIterable<DeviceInformation> {
     type Error = ::windows::core::Error;
@@ -1621,7 +1621,7 @@ impl ::core::fmt::Debug for DeviceInformationCustomPairing {
     }
 }
 impl ::windows::core::RuntimeType for DeviceInformationCustomPairing {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationCustomPairing;{85138c02-4ee6-4914-8370-107a39144c0e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationCustomPairing;{85138c02-4ee6-4914-8370-107a39144c0e})");
 }
 impl ::core::clone::Clone for DeviceInformationCustomPairing {
     fn clone(&self) -> Self {
@@ -1637,7 +1637,7 @@ unsafe impl ::windows::core::Interface for DeviceInformationCustomPairing {
 impl ::windows::core::RuntimeName for DeviceInformationCustomPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationCustomPairing";
 }
-::windows::core::interface_hierarchy!(DeviceInformationCustomPairing, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceInformationCustomPairing, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceInformationCustomPairing {}
 unsafe impl ::core::marker::Sync for DeviceInformationCustomPairing {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1726,12 +1726,12 @@ impl DeviceInformationPairing {
     }
     #[doc(hidden)]
     pub fn IDeviceInformationPairingStatics<R, F: FnOnce(&IDeviceInformationPairingStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeviceInformationPairing, IDeviceInformationPairingStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DeviceInformationPairing, IDeviceInformationPairingStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IDeviceInformationPairingStatics2<R, F: FnOnce(&IDeviceInformationPairingStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeviceInformationPairing, IDeviceInformationPairingStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DeviceInformationPairing, IDeviceInformationPairingStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1747,7 +1747,7 @@ impl ::core::fmt::Debug for DeviceInformationPairing {
     }
 }
 impl ::windows::core::RuntimeType for DeviceInformationPairing {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationPairing;{2c4769f5-f684-40d5-8469-e8dbaab70485})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationPairing;{2c4769f5-f684-40d5-8469-e8dbaab70485})");
 }
 impl ::core::clone::Clone for DeviceInformationPairing {
     fn clone(&self) -> Self {
@@ -1763,7 +1763,7 @@ unsafe impl ::windows::core::Interface for DeviceInformationPairing {
 impl ::windows::core::RuntimeName for DeviceInformationPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationPairing";
 }
-::windows::core::interface_hierarchy!(DeviceInformationPairing, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceInformationPairing, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceInformationPairing {}
 unsafe impl ::core::marker::Sync for DeviceInformationPairing {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1806,7 +1806,7 @@ impl ::core::fmt::Debug for DeviceInformationUpdate {
     }
 }
 impl ::windows::core::RuntimeType for DeviceInformationUpdate {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationUpdate;{8f315305-d972-44b7-a37e-9e822c78213b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationUpdate;{8f315305-d972-44b7-a37e-9e822c78213b})");
 }
 impl ::core::clone::Clone for DeviceInformationUpdate {
     fn clone(&self) -> Self {
@@ -1822,7 +1822,7 @@ unsafe impl ::windows::core::Interface for DeviceInformationUpdate {
 impl ::windows::core::RuntimeName for DeviceInformationUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationUpdate";
 }
-::windows::core::interface_hierarchy!(DeviceInformationUpdate, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceInformationUpdate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceInformationUpdate {}
 unsafe impl ::core::marker::Sync for DeviceInformationUpdate {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1886,7 +1886,7 @@ impl ::core::fmt::Debug for DevicePairingRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DevicePairingRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePairingRequestedEventArgs;{f717fc56-de6b-487f-8376-0180aca69963})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePairingRequestedEventArgs;{f717fc56-de6b-487f-8376-0180aca69963})");
 }
 impl ::core::clone::Clone for DevicePairingRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1902,7 +1902,7 @@ unsafe impl ::windows::core::Interface for DevicePairingRequestedEventArgs {
 impl ::windows::core::RuntimeName for DevicePairingRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(DevicePairingRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DevicePairingRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePairingRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePairingRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1936,7 +1936,7 @@ impl ::core::fmt::Debug for DevicePairingResult {
     }
 }
 impl ::windows::core::RuntimeType for DevicePairingResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePairingResult;{072b02bf-dd95-4025-9b37-de51adba37b7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePairingResult;{072b02bf-dd95-4025-9b37-de51adba37b7})");
 }
 impl ::core::clone::Clone for DevicePairingResult {
     fn clone(&self) -> Self {
@@ -1952,7 +1952,7 @@ unsafe impl ::windows::core::Interface for DevicePairingResult {
 impl ::windows::core::RuntimeName for DevicePairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingResult";
 }
-::windows::core::interface_hierarchy!(DevicePairingResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DevicePairingResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePairingResult {}
 unsafe impl ::core::marker::Sync for DevicePairingResult {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1962,8 +1962,8 @@ impl DevicePicker {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DevicePicker, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DevicePicker, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Filter(&self) -> ::windows::core::Result<DevicePickerFilter> {
@@ -2085,7 +2085,7 @@ impl ::core::fmt::Debug for DevicePicker {
     }
 }
 impl ::windows::core::RuntimeType for DevicePicker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePicker;{84997aa2-034a-4440-8813-7d0bd479bf5a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePicker;{84997aa2-034a-4440-8813-7d0bd479bf5a})");
 }
 impl ::core::clone::Clone for DevicePicker {
     fn clone(&self) -> Self {
@@ -2101,7 +2101,7 @@ unsafe impl ::windows::core::Interface for DevicePicker {
 impl ::windows::core::RuntimeName for DevicePicker {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePicker";
 }
-::windows::core::interface_hierarchy!(DevicePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DevicePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePicker {}
 unsafe impl ::core::marker::Sync for DevicePicker {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2222,7 +2222,7 @@ impl ::core::fmt::Debug for DevicePickerAppearance {
     }
 }
 impl ::windows::core::RuntimeType for DevicePickerAppearance {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePickerAppearance;{e69a12c6-e627-4ed8-9b6c-460af445e56d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePickerAppearance;{e69a12c6-e627-4ed8-9b6c-460af445e56d})");
 }
 impl ::core::clone::Clone for DevicePickerAppearance {
     fn clone(&self) -> Self {
@@ -2238,7 +2238,7 @@ unsafe impl ::windows::core::Interface for DevicePickerAppearance {
 impl ::windows::core::RuntimeName for DevicePickerAppearance {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePickerAppearance";
 }
-::windows::core::interface_hierarchy!(DevicePickerAppearance, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DevicePickerAppearance, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePickerAppearance {}
 unsafe impl ::core::marker::Sync for DevicePickerAppearance {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2276,7 +2276,7 @@ impl ::core::fmt::Debug for DevicePickerFilter {
     }
 }
 impl ::windows::core::RuntimeType for DevicePickerFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePickerFilter;{91db92a2-57cb-48f1-9b59-a59b7a1f02a2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePickerFilter;{91db92a2-57cb-48f1-9b59-a59b7a1f02a2})");
 }
 impl ::core::clone::Clone for DevicePickerFilter {
     fn clone(&self) -> Self {
@@ -2292,7 +2292,7 @@ unsafe impl ::windows::core::Interface for DevicePickerFilter {
 impl ::windows::core::RuntimeName for DevicePickerFilter {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePickerFilter";
 }
-::windows::core::interface_hierarchy!(DevicePickerFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DevicePickerFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePickerFilter {}
 unsafe impl ::core::marker::Sync for DevicePickerFilter {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2319,7 +2319,7 @@ impl ::core::fmt::Debug for DeviceSelectedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DeviceSelectedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceSelectedEventArgs;{269edade-1d2f-4940-8402-4156b81d3c77})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceSelectedEventArgs;{269edade-1d2f-4940-8402-4156b81d3c77})");
 }
 impl ::core::clone::Clone for DeviceSelectedEventArgs {
     fn clone(&self) -> Self {
@@ -2335,7 +2335,7 @@ unsafe impl ::windows::core::Interface for DeviceSelectedEventArgs {
 impl ::windows::core::RuntimeName for DeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceSelectedEventArgs";
 }
-::windows::core::interface_hierarchy!(DeviceSelectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceSelectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceSelectedEventArgs {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Storage_Streams\"`*"]
@@ -2486,7 +2486,7 @@ impl ::core::fmt::Debug for DeviceThumbnail {
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::core::RuntimeType for DeviceThumbnail {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceThumbnail;{cc254827-4b3d-438f-9232-10c76bc7e038})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceThumbnail;{cc254827-4b3d-438f-9232-10c76bc7e038})");
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::core::clone::Clone for DeviceThumbnail {
@@ -2507,7 +2507,7 @@ impl ::windows::core::RuntimeName for DeviceThumbnail {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceThumbnail";
 }
 #[cfg(feature = "Storage_Streams")]
-::windows::core::interface_hierarchy!(DeviceThumbnail, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceThumbnail, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2668,7 +2668,7 @@ impl ::core::fmt::Debug for DeviceUnpairingResult {
     }
 }
 impl ::windows::core::RuntimeType for DeviceUnpairingResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceUnpairingResult;{66f44ad3-79d9-444b-92cf-a92ef72571c7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceUnpairingResult;{66f44ad3-79d9-444b-92cf-a92ef72571c7})");
 }
 impl ::core::clone::Clone for DeviceUnpairingResult {
     fn clone(&self) -> Self {
@@ -2684,7 +2684,7 @@ unsafe impl ::windows::core::Interface for DeviceUnpairingResult {
 impl ::windows::core::RuntimeName for DeviceUnpairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceUnpairingResult";
 }
-::windows::core::interface_hierarchy!(DeviceUnpairingResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceUnpairingResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceUnpairingResult {}
 unsafe impl ::core::marker::Sync for DeviceUnpairingResult {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2807,7 +2807,7 @@ impl ::core::fmt::Debug for DeviceWatcher {
     }
 }
 impl ::windows::core::RuntimeType for DeviceWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceWatcher;{c9eab97d-8f6b-4f96-a9f4-abc814e22271})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceWatcher;{c9eab97d-8f6b-4f96-a9f4-abc814e22271})");
 }
 impl ::core::clone::Clone for DeviceWatcher {
     fn clone(&self) -> Self {
@@ -2823,7 +2823,7 @@ unsafe impl ::windows::core::Interface for DeviceWatcher {
 impl ::windows::core::RuntimeName for DeviceWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcher";
 }
-::windows::core::interface_hierarchy!(DeviceWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceWatcher {}
 unsafe impl ::core::marker::Sync for DeviceWatcher {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2864,7 +2864,7 @@ impl ::core::fmt::Debug for DeviceWatcherEvent {
     }
 }
 impl ::windows::core::RuntimeType for DeviceWatcherEvent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceWatcherEvent;{74aa9c0b-1dbd-47fd-b635-3cc556d0ff8b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceWatcherEvent;{74aa9c0b-1dbd-47fd-b635-3cc556d0ff8b})");
 }
 impl ::core::clone::Clone for DeviceWatcherEvent {
     fn clone(&self) -> Self {
@@ -2880,7 +2880,7 @@ unsafe impl ::windows::core::Interface for DeviceWatcherEvent {
 impl ::windows::core::RuntimeName for DeviceWatcherEvent {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcherEvent";
 }
-::windows::core::interface_hierarchy!(DeviceWatcherEvent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceWatcherEvent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceWatcherEvent {}
 unsafe impl ::core::marker::Sync for DeviceWatcherEvent {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2909,7 +2909,7 @@ impl ::core::fmt::Debug for DeviceWatcherTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for DeviceWatcherTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceWatcherTriggerDetails;{38808119-4cb7-4e57-a56d-776d07cbfef9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceWatcherTriggerDetails;{38808119-4cb7-4e57-a56d-776d07cbfef9})");
 }
 impl ::core::clone::Clone for DeviceWatcherTriggerDetails {
     fn clone(&self) -> Self {
@@ -2925,7 +2925,7 @@ unsafe impl ::windows::core::Interface for DeviceWatcherTriggerDetails {
 impl ::windows::core::RuntimeName for DeviceWatcherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcherTriggerDetails";
 }
-::windows::core::interface_hierarchy!(DeviceWatcherTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceWatcherTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceWatcherTriggerDetails {}
 unsafe impl ::core::marker::Sync for DeviceWatcherTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2973,7 +2973,7 @@ impl ::core::fmt::Debug for EnclosureLocation {
     }
 }
 impl ::windows::core::RuntimeType for EnclosureLocation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.EnclosureLocation;{42340a27-5810-459c-aabb-c65e1f813ecf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.EnclosureLocation;{42340a27-5810-459c-aabb-c65e1f813ecf})");
 }
 impl ::core::clone::Clone for EnclosureLocation {
     fn clone(&self) -> Self {
@@ -2989,7 +2989,7 @@ unsafe impl ::windows::core::Interface for EnclosureLocation {
 impl ::windows::core::RuntimeName for EnclosureLocation {
     const NAME: &'static str = "Windows.Devices.Enumeration.EnclosureLocation";
 }
-::windows::core::interface_hierarchy!(EnclosureLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EnclosureLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EnclosureLocation {}
 unsafe impl ::core::marker::Sync for EnclosureLocation {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -3022,7 +3022,7 @@ impl ::core::fmt::Debug for DeviceAccessStatus {
     }
 }
 impl ::windows::core::RuntimeType for DeviceAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceAccessStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceAccessStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
@@ -3057,7 +3057,7 @@ impl ::core::fmt::Debug for DeviceClass {
     }
 }
 impl ::windows::core::RuntimeType for DeviceClass {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceClass;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceClass;i4)");
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
@@ -3094,7 +3094,7 @@ impl ::core::fmt::Debug for DeviceInformationKind {
     }
 }
 impl ::windows::core::RuntimeType for DeviceInformationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceInformationKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceInformationKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
@@ -3161,7 +3161,7 @@ impl ::core::ops::Not for DevicePairingKinds {
     }
 }
 impl ::windows::core::RuntimeType for DevicePairingKinds {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingKinds;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingKinds;u4)");
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
@@ -3193,7 +3193,7 @@ impl ::core::fmt::Debug for DevicePairingProtectionLevel {
     }
 }
 impl ::windows::core::RuntimeType for DevicePairingProtectionLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingProtectionLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingProtectionLevel;i4)");
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
@@ -3241,7 +3241,7 @@ impl ::core::fmt::Debug for DevicePairingResultStatus {
     }
 }
 impl ::windows::core::RuntimeType for DevicePairingResultStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingResultStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingResultStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
@@ -3306,7 +3306,7 @@ impl ::core::ops::Not for DevicePickerDisplayStatusOptions {
     }
 }
 impl ::windows::core::RuntimeType for DevicePickerDisplayStatusOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePickerDisplayStatusOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePickerDisplayStatusOptions;u4)");
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
@@ -3339,7 +3339,7 @@ impl ::core::fmt::Debug for DeviceUnpairingResultStatus {
     }
 }
 impl ::windows::core::RuntimeType for DeviceUnpairingResultStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceUnpairingResultStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceUnpairingResultStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
@@ -3370,7 +3370,7 @@ impl ::core::fmt::Debug for DeviceWatcherEventKind {
     }
 }
 impl ::windows::core::RuntimeType for DeviceWatcherEventKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherEventKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherEventKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
@@ -3404,7 +3404,7 @@ impl ::core::fmt::Debug for DeviceWatcherStatus {
     }
 }
 impl ::windows::core::RuntimeType for DeviceWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
@@ -3439,7 +3439,7 @@ impl ::core::fmt::Debug for Panel {
     }
 }
 impl ::windows::core::RuntimeType for Panel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Panel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Panel;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

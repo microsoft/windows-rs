@@ -6,7 +6,7 @@ impl IAudioEndpointFormatControl {
         (::windows::core::Vtable::vtable(self).ResetToDefault)(::windows::core::Vtable::as_raw(self), resetflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioEndpointFormatControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioEndpointFormatControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioEndpointFormatControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -50,7 +50,7 @@ impl IAudioEndpointLastBufferControl {
         (::windows::core::Vtable::vtable(self).ReleaseOutputDataPointerForLastBuffer)(::windows::core::Vtable::as_raw(self), pconnectionproperty)
     }
 }
-::windows::core::interface_hierarchy!(IAudioEndpointLastBufferControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioEndpointLastBufferControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioEndpointLastBufferControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -99,7 +99,7 @@ impl IAudioEndpointOffloadStreamMeter {
         (::windows::core::Vtable::vtable(self).GetMeteringData)(::windows::core::Vtable::as_raw(self), u32channelcount, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAudioEndpointOffloadStreamMeter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioEndpointOffloadStreamMeter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioEndpointOffloadStreamMeter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -141,7 +141,7 @@ impl IAudioEndpointOffloadStreamMute {
         (::windows::core::Vtable::vtable(self).GetMute)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAudioEndpointOffloadStreamMute, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioEndpointOffloadStreamMute, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioEndpointOffloadStreamMute {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -189,7 +189,7 @@ impl IAudioEndpointOffloadStreamVolume {
         (::windows::core::Vtable::vtable(self).GetChannelVolumes)(::windows::core::Vtable::as_raw(self), u32channelcount, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAudioEndpointOffloadStreamVolume, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioEndpointOffloadStreamVolume, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioEndpointOffloadStreamVolume {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -302,7 +302,7 @@ impl IAudioEndpointVolume {
         (::windows::core::Vtable::vtable(self).GetVolumeRange)(::windows::core::Vtable::as_raw(self), pflvolumemindb, pflvolumemaxdb, pflvolumeincrementdb).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioEndpointVolume, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioEndpointVolume, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioEndpointVolume {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -364,7 +364,7 @@ impl IAudioEndpointVolumeCallback {
         (::windows::core::Vtable::vtable(self).OnNotify)(::windows::core::Vtable::as_raw(self), pnotify).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioEndpointVolumeCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioEndpointVolumeCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioEndpointVolumeCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -478,7 +478,7 @@ impl IAudioEndpointVolumeEx {
         (::windows::core::Vtable::vtable(self).GetVolumeRangeChannel)(::windows::core::Vtable::as_raw(self), ichannel, pflvolumemindb, pflvolumemaxdb, pflvolumeincrementdb).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioEndpointVolumeEx, ::windows::core::IUnknown, IAudioEndpointVolume);
+::windows::imp::interface_hierarchy!(IAudioEndpointVolumeEx, ::windows::core::IUnknown, IAudioEndpointVolume);
 impl ::core::cmp::PartialEq for IAudioEndpointVolumeEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -526,7 +526,7 @@ impl IAudioLfxControl {
         (::windows::core::Vtable::vtable(self).GetLocalEffectsState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAudioLfxControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioLfxControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioLfxControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -582,7 +582,7 @@ impl IAudioMeterInformation {
         (::windows::core::Vtable::vtable(self).QueryHardwareSupport)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAudioMeterInformation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioMeterInformation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioMeterInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -659,7 +659,7 @@ impl IHardwareAudioEngineBase {
         (::windows::core::Vtable::vtable(self).GetGfxState)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IHardwareAudioEngineBase, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHardwareAudioEngineBase, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHardwareAudioEngineBase {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

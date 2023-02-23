@@ -64,7 +64,7 @@ impl IAdcControllerProvider {
         }
     }
 }
-::windows::core::interface_hierarchy!(IAdcControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAdcControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IAdcControllerProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -77,7 +77,7 @@ impl ::core::fmt::Debug for IAdcControllerProvider {
     }
 }
 impl ::windows::core::RuntimeType for IAdcControllerProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{be545828-816d-4de5-a048-aba06958aaa8}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{be545828-816d-4de5-a048-aba06958aaa8}");
 }
 unsafe impl ::windows::core::Vtable for IAdcControllerProvider {
     type Vtable = IAdcControllerProvider_Vtbl;
@@ -119,7 +119,7 @@ impl IAdcProvider {
         }
     }
 }
-::windows::core::interface_hierarchy!(IAdcProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAdcProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IAdcProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -132,7 +132,7 @@ impl ::core::fmt::Debug for IAdcProvider {
     }
 }
 impl ::windows::core::RuntimeType for IAdcProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{28953668-9359-4c57-bc88-e275e81638c9}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{28953668-9359-4c57-bc88-e275e81638c9}");
 }
 unsafe impl ::windows::core::Vtable for IAdcProvider {
     type Vtable = IAdcProvider_Vtbl;
@@ -182,7 +182,7 @@ impl ::core::fmt::Debug for ProviderAdcChannelMode {
     }
 }
 impl ::windows::core::RuntimeType for ProviderAdcChannelMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.Provider.ProviderAdcChannelMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.Provider.ProviderAdcChannelMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

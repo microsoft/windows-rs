@@ -32,7 +32,7 @@ impl IActivatedEventArgsDeferral {
         }
     }
 }
-::windows::core::interface_hierarchy!(IActivatedEventArgsDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IActivatedEventArgsDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IActivatedEventArgsDeferral {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -45,7 +45,7 @@ impl ::core::fmt::Debug for IActivatedEventArgsDeferral {
     }
 }
 impl ::windows::core::RuntimeType for IActivatedEventArgsDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ca6d5f74-63c2-44a6-b97b-d9a03c20bc9b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ca6d5f74-63c2-44a6-b97b-d9a03c20bc9b}");
 }
 unsafe impl ::windows::core::Vtable for IActivatedEventArgsDeferral {
     type Vtable = IActivatedEventArgsDeferral_Vtbl;
@@ -315,7 +315,7 @@ impl IWebUIBackgroundTaskInstance {
         unsafe { (::windows::core::Vtable::vtable(this).SetSucceeded)(::windows::core::Vtable::as_raw(this), succeeded).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IWebUIBackgroundTaskInstance, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebUIBackgroundTaskInstance, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWebUIBackgroundTaskInstance {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -328,7 +328,7 @@ impl ::core::fmt::Debug for IWebUIBackgroundTaskInstance {
     }
 }
 impl ::windows::core::RuntimeType for IWebUIBackgroundTaskInstance {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{23f12c25-e2f7-4741-bc9c-394595de24dc}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{23f12c25-e2f7-4741-bc9c-394595de24dc}");
 }
 unsafe impl ::windows::core::Vtable for IWebUIBackgroundTaskInstance {
     type Vtable = IWebUIBackgroundTaskInstance_Vtbl;
@@ -400,7 +400,7 @@ impl IWebUINavigatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IWebUINavigatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebUINavigatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWebUINavigatedEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -413,7 +413,7 @@ impl ::core::fmt::Debug for IWebUINavigatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IWebUINavigatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a75841b8-2499-4030-a69d-15d2d9cfe524}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a75841b8-2499-4030-a69d-15d2d9cfe524}");
 }
 unsafe impl ::windows::core::Vtable for IWebUINavigatedEventArgs {
     type Vtable = IWebUINavigatedEventArgs_Vtbl;
@@ -538,7 +538,7 @@ impl ::core::fmt::Debug for ActivatedDeferral {
     }
 }
 impl ::windows::core::RuntimeType for ActivatedDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.ActivatedDeferral;{c3bd1978-a431-49d8-a76a-395a4e03dcf3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.ActivatedDeferral;{c3bd1978-a431-49d8-a76a-395a4e03dcf3})");
 }
 impl ::core::clone::Clone for ActivatedDeferral {
     fn clone(&self) -> Self {
@@ -554,7 +554,7 @@ unsafe impl ::windows::core::Interface for ActivatedDeferral {
 impl ::windows::core::RuntimeName for ActivatedDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.ActivatedDeferral";
 }
-::windows::core::interface_hierarchy!(ActivatedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ActivatedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_WebUI\"`*"]
 #[repr(transparent)]
 pub struct ActivatedOperation(::windows::core::IUnknown);
@@ -579,7 +579,7 @@ impl ::core::fmt::Debug for ActivatedOperation {
     }
 }
 impl ::windows::core::RuntimeType for ActivatedOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.ActivatedOperation;{b6a0b4bc-c6ca-42fd-9818-71904e45fed7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.ActivatedOperation;{b6a0b4bc-c6ca-42fd-9818-71904e45fed7})");
 }
 impl ::core::clone::Clone for ActivatedOperation {
     fn clone(&self) -> Self {
@@ -595,7 +595,7 @@ unsafe impl ::windows::core::Interface for ActivatedOperation {
 impl ::windows::core::RuntimeName for ActivatedOperation {
     const NAME: &'static str = "Windows.UI.WebUI.ActivatedOperation";
 }
-::windows::core::interface_hierarchy!(ActivatedOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ActivatedOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_WebUI\"`, `\"ApplicationModel_Activation\"`*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
@@ -628,7 +628,7 @@ impl ::core::fmt::Debug for BackgroundActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for BackgroundActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.BackgroundActivatedEventArgs;{ab14bee0-e760-440e-a91c-44796de3a92d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.BackgroundActivatedEventArgs;{ab14bee0-e760-440e-a91c-44796de3a92d})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for BackgroundActivatedEventArgs {
@@ -649,7 +649,7 @@ impl ::windows::core::RuntimeName for BackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.BackgroundActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(BackgroundActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<BackgroundActivatedEventArgs> for super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -708,7 +708,7 @@ impl ::core::fmt::Debug for EnteredBackgroundEventArgs {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeType for EnteredBackgroundEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.EnteredBackgroundEventArgs;{f722dcc2-9827-403d-aaed-ecca9ac17398})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.EnteredBackgroundEventArgs;{f722dcc2-9827-403d-aaed-ecca9ac17398})");
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::core::clone::Clone for EnteredBackgroundEventArgs {
@@ -729,7 +729,7 @@ impl ::windows::core::RuntimeName for EnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.EnteredBackgroundEventArgs";
 }
 #[cfg(feature = "ApplicationModel")]
-::windows::core::interface_hierarchy!(EnteredBackgroundEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EnteredBackgroundEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 impl ::core::convert::TryFrom<EnteredBackgroundEventArgs> for super::super::ApplicationModel::IEnteredBackgroundEventArgs {
     type Error = ::windows::core::Error;
@@ -881,7 +881,7 @@ impl ::core::fmt::Debug for HtmlPrintDocumentSource {
     }
 }
 impl ::windows::core::RuntimeType for HtmlPrintDocumentSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.HtmlPrintDocumentSource;{cea6469a-0e05-467a-abc9-36ec1d4cdcb6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.HtmlPrintDocumentSource;{cea6469a-0e05-467a-abc9-36ec1d4cdcb6})");
 }
 impl ::core::clone::Clone for HtmlPrintDocumentSource {
     fn clone(&self) -> Self {
@@ -897,7 +897,7 @@ unsafe impl ::windows::core::Interface for HtmlPrintDocumentSource {
 impl ::windows::core::RuntimeName for HtmlPrintDocumentSource {
     const NAME: &'static str = "Windows.UI.WebUI.HtmlPrintDocumentSource";
 }
-::windows::core::interface_hierarchy!(HtmlPrintDocumentSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HtmlPrintDocumentSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HtmlPrintDocumentSource> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -976,7 +976,7 @@ impl ::core::fmt::Debug for LeavingBackgroundEventArgs {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeType for LeavingBackgroundEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.LeavingBackgroundEventArgs;{39c6ec9a-ae6e-46f9-a07a-cfc23f88733e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.LeavingBackgroundEventArgs;{39c6ec9a-ae6e-46f9-a07a-cfc23f88733e})");
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::core::clone::Clone for LeavingBackgroundEventArgs {
@@ -997,7 +997,7 @@ impl ::windows::core::RuntimeName for LeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.LeavingBackgroundEventArgs";
 }
 #[cfg(feature = "ApplicationModel")]
-::windows::core::interface_hierarchy!(LeavingBackgroundEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LeavingBackgroundEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 impl ::core::convert::TryFrom<LeavingBackgroundEventArgs> for super::super::ApplicationModel::ILeavingBackgroundEventArgs {
     type Error = ::windows::core::Error;
@@ -1073,7 +1073,7 @@ impl ::core::fmt::Debug for NewWebUIViewCreatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for NewWebUIViewCreatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.NewWebUIViewCreatedEventArgs;{e8e1b216-be2b-4c9e-85e7-083143ec4be7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.NewWebUIViewCreatedEventArgs;{e8e1b216-be2b-4c9e-85e7-083143ec4be7})");
 }
 impl ::core::clone::Clone for NewWebUIViewCreatedEventArgs {
     fn clone(&self) -> Self {
@@ -1089,7 +1089,7 @@ unsafe impl ::windows::core::Interface for NewWebUIViewCreatedEventArgs {
 impl ::windows::core::RuntimeName for NewWebUIViewCreatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.NewWebUIViewCreatedEventArgs";
 }
-::windows::core::interface_hierarchy!(NewWebUIViewCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NewWebUIViewCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_WebUI\"`, `\"ApplicationModel\"`*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
@@ -1119,7 +1119,7 @@ impl ::core::fmt::Debug for SuspendingDeferral {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeType for SuspendingDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.SuspendingDeferral;{59140509-8bc9-4eb4-b636-dabdc4f46f66})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.SuspendingDeferral;{59140509-8bc9-4eb4-b636-dabdc4f46f66})");
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::core::clone::Clone for SuspendingDeferral {
@@ -1140,7 +1140,7 @@ impl ::windows::core::RuntimeName for SuspendingDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.SuspendingDeferral";
 }
 #[cfg(feature = "ApplicationModel")]
-::windows::core::interface_hierarchy!(SuspendingDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SuspendingDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 impl ::core::convert::TryFrom<SuspendingDeferral> for super::super::ApplicationModel::ISuspendingDeferral {
     type Error = ::windows::core::Error;
@@ -1195,7 +1195,7 @@ impl ::core::fmt::Debug for SuspendingEventArgs {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeType for SuspendingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.SuspendingEventArgs;{96061c05-2dba-4d08-b0bd-2b30a131c6aa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.SuspendingEventArgs;{96061c05-2dba-4d08-b0bd-2b30a131c6aa})");
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::core::clone::Clone for SuspendingEventArgs {
@@ -1216,7 +1216,7 @@ impl ::windows::core::RuntimeName for SuspendingEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.SuspendingEventArgs";
 }
 #[cfg(feature = "ApplicationModel")]
-::windows::core::interface_hierarchy!(SuspendingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SuspendingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 impl ::core::convert::TryFrom<SuspendingEventArgs> for super::super::ApplicationModel::ISuspendingEventArgs {
     type Error = ::windows::core::Error;
@@ -1280,7 +1280,7 @@ impl ::core::fmt::Debug for SuspendingOperation {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeType for SuspendingOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.SuspendingOperation;{9da4ca41-20e1-4e9b-9f65-a9f435340c3a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.SuspendingOperation;{9da4ca41-20e1-4e9b-9f65-a9f435340c3a})");
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::core::clone::Clone for SuspendingOperation {
@@ -1301,7 +1301,7 @@ impl ::windows::core::RuntimeName for SuspendingOperation {
     const NAME: &'static str = "Windows.UI.WebUI.SuspendingOperation";
 }
 #[cfg(feature = "ApplicationModel")]
-::windows::core::interface_hierarchy!(SuspendingOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SuspendingOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 impl ::core::convert::TryFrom<SuspendingOperation> for super::super::ApplicationModel::ISuspendingOperation {
     type Error = ::windows::core::Error;
@@ -1452,22 +1452,22 @@ impl WebUIApplication {
     }
     #[doc(hidden)]
     pub fn IWebUIActivationStatics<R, F: FnOnce(&IWebUIActivationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebUIApplication, IWebUIActivationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebUIApplication, IWebUIActivationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWebUIActivationStatics2<R, F: FnOnce(&IWebUIActivationStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebUIApplication, IWebUIActivationStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebUIApplication, IWebUIActivationStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWebUIActivationStatics3<R, F: FnOnce(&IWebUIActivationStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebUIApplication, IWebUIActivationStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebUIApplication, IWebUIActivationStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWebUIActivationStatics4<R, F: FnOnce(&IWebUIActivationStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebUIApplication, IWebUIActivationStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebUIApplication, IWebUIActivationStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1558,7 +1558,7 @@ impl ::core::fmt::Debug for WebUIAppointmentsProviderAddAppointmentActivatedEven
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderAddAppointmentActivatedEventArgs;{a2861367-cee5-4e4d-9ed7-41c34ec18b02})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderAddAppointmentActivatedEventArgs;{a2861367-cee5-4e4d-9ed7-41c34ec18b02})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -1579,7 +1579,7 @@ impl ::windows::core::RuntimeName for WebUIAppointmentsProviderAddAppointmentAct
     const NAME: &'static str = "Windows.UI.WebUI.WebUIAppointmentsProviderAddAppointmentActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -1774,7 +1774,7 @@ impl ::core::fmt::Debug for WebUIAppointmentsProviderRemoveAppointmentActivatedE
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs;{751f3ab8-0b8e-451c-9f15-966e699bac25})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs;{751f3ab8-0b8e-451c-9f15-966e699bac25})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
@@ -1795,7 +1795,7 @@ impl ::windows::core::RuntimeName for WebUIAppointmentsProviderRemoveAppointment
     const NAME: &'static str = "Windows.UI.WebUI.WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -1990,7 +1990,7 @@ impl ::core::fmt::Debug for WebUIAppointmentsProviderReplaceAppointmentActivated
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs;{1551b7d4-a981-4067-8a62-0524e4ade121})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs;{1551b7d4-a981-4067-8a62-0524e4ade121})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -2011,7 +2011,7 @@ impl ::windows::core::RuntimeName for WebUIAppointmentsProviderReplaceAppointmen
     const NAME: &'static str = "Windows.UI.WebUI.WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -2224,7 +2224,7 @@ impl ::core::fmt::Debug for WebUIAppointmentsProviderShowAppointmentDetailsActiv
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs;{3958f065-9841-4ca5-999b-885198b9ef2a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs;{3958f065-9841-4ca5-999b-885198b9ef2a})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
@@ -2245,7 +2245,7 @@ impl ::windows::core::RuntimeName for WebUIAppointmentsProviderShowAppointmentDe
     const NAME: &'static str = "Windows.UI.WebUI.WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -2449,7 +2449,7 @@ impl ::core::fmt::Debug for WebUIAppointmentsProviderShowTimeFrameActivatedEvent
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs;{9baeaba6-0e0b-49aa-babc-12b1dc774986})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs;{9baeaba6-0e0b-49aa-babc-12b1dc774986})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
@@ -2470,7 +2470,7 @@ impl ::windows::core::RuntimeName for WebUIAppointmentsProviderShowTimeFrameActi
     const NAME: &'static str = "Windows.UI.WebUI.WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -2592,7 +2592,7 @@ impl WebUIBackgroundTaskInstance {
     }
     #[doc(hidden)]
     pub fn IWebUIBackgroundTaskInstanceStatics<R, F: FnOnce(&IWebUIBackgroundTaskInstanceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebUIBackgroundTaskInstance, IWebUIBackgroundTaskInstanceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebUIBackgroundTaskInstance, IWebUIBackgroundTaskInstanceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2702,7 +2702,7 @@ impl ::core::fmt::Debug for WebUIBackgroundTaskInstanceRuntimeClass {
     }
 }
 impl ::windows::core::RuntimeType for WebUIBackgroundTaskInstanceRuntimeClass {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIBackgroundTaskInstanceRuntimeClass;{23f12c25-e2f7-4741-bc9c-394595de24dc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIBackgroundTaskInstanceRuntimeClass;{23f12c25-e2f7-4741-bc9c-394595de24dc})");
 }
 impl ::core::clone::Clone for WebUIBackgroundTaskInstanceRuntimeClass {
     fn clone(&self) -> Self {
@@ -2718,7 +2718,7 @@ unsafe impl ::windows::core::Interface for WebUIBackgroundTaskInstanceRuntimeCla
 impl ::windows::core::RuntimeName for WebUIBackgroundTaskInstanceRuntimeClass {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIBackgroundTaskInstanceRuntimeClass";
 }
-::windows::core::interface_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Background")]
 impl ::core::convert::TryFrom<WebUIBackgroundTaskInstanceRuntimeClass> for super::super::ApplicationModel::Background::IBackgroundTaskInstance {
     type Error = ::windows::core::Error;
@@ -2835,7 +2835,7 @@ impl ::core::fmt::Debug for WebUIBarcodeScannerPreviewActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIBarcodeScannerPreviewActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIBarcodeScannerPreviewActivatedEventArgs;{6772797c-99bf-4349-af22-e4123560371c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIBarcodeScannerPreviewActivatedEventArgs;{6772797c-99bf-4349-af22-e4123560371c})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIBarcodeScannerPreviewActivatedEventArgs {
@@ -2856,7 +2856,7 @@ impl ::windows::core::RuntimeName for WebUIBarcodeScannerPreviewActivatedEventAr
     const NAME: &'static str = "Windows.UI.WebUI.WebUIBarcodeScannerPreviewActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -3024,7 +3024,7 @@ impl ::core::fmt::Debug for WebUICachedFileUpdaterActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUICachedFileUpdaterActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUICachedFileUpdaterActivatedEventArgs;{d06eb1c7-3805-4ecb-b757-6cf15e26fef3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUICachedFileUpdaterActivatedEventArgs;{d06eb1c7-3805-4ecb-b757-6cf15e26fef3})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUICachedFileUpdaterActivatedEventArgs {
@@ -3045,7 +3045,7 @@ impl ::windows::core::RuntimeName for WebUICachedFileUpdaterActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUICachedFileUpdaterActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -3209,7 +3209,7 @@ impl ::core::fmt::Debug for WebUICameraSettingsActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUICameraSettingsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUICameraSettingsActivatedEventArgs;{fb67a508-2dad-490a-9170-dca036eb114b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUICameraSettingsActivatedEventArgs;{fb67a508-2dad-490a-9170-dca036eb114b})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUICameraSettingsActivatedEventArgs {
@@ -3230,7 +3230,7 @@ impl ::windows::core::RuntimeName for WebUICameraSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUICameraSettingsActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUICameraSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUICameraSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUICameraSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -3372,7 +3372,7 @@ impl ::core::fmt::Debug for WebUICommandLineActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUICommandLineActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUICommandLineActivatedEventArgs;{4506472c-006a-48eb-8afb-d07ab25e3366})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUICommandLineActivatedEventArgs;{4506472c-006a-48eb-8afb-d07ab25e3366})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUICommandLineActivatedEventArgs {
@@ -3393,7 +3393,7 @@ impl ::windows::core::RuntimeName for WebUICommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUICommandLineActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUICommandLineActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUICommandLineActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -3579,7 +3579,7 @@ impl ::core::fmt::Debug for WebUIContactCallActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIContactCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactCallActivatedEventArgs;{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactCallActivatedEventArgs;{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIContactCallActivatedEventArgs {
@@ -3600,7 +3600,7 @@ impl ::windows::core::RuntimeName for WebUIContactCallActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactCallActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIContactCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIContactCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -3773,7 +3773,7 @@ impl ::core::fmt::Debug for WebUIContactMapActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIContactMapActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactMapActivatedEventArgs;{b32bf870-eee7-4ad2-aaf1-a87effcf00a4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactMapActivatedEventArgs;{b32bf870-eee7-4ad2-aaf1-a87effcf00a4})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIContactMapActivatedEventArgs {
@@ -3794,7 +3794,7 @@ impl ::windows::core::RuntimeName for WebUIContactMapActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactMapActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIContactMapActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIContactMapActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -3976,7 +3976,7 @@ impl ::core::fmt::Debug for WebUIContactMessageActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIContactMessageActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactMessageActivatedEventArgs;{de598db2-0e03-43b0-bf56-bcc40b3162df})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactMessageActivatedEventArgs;{de598db2-0e03-43b0-bf56-bcc40b3162df})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIContactMessageActivatedEventArgs {
@@ -3997,7 +3997,7 @@ impl ::windows::core::RuntimeName for WebUIContactMessageActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactMessageActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIContactMessageActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIContactMessageActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -4170,7 +4170,7 @@ impl ::core::fmt::Debug for WebUIContactPanelActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIContactPanelActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactPanelActivatedEventArgs;{52bb63e4-d3d4-4b63-8051-4af2082cab80})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactPanelActivatedEventArgs;{52bb63e4-d3d4-4b63-8051-4af2082cab80})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIContactPanelActivatedEventArgs {
@@ -4191,7 +4191,7 @@ impl ::windows::core::RuntimeName for WebUIContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactPanelActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIContactPanelActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIContactPanelActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -4350,7 +4350,7 @@ impl ::core::fmt::Debug for WebUIContactPickerActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIContactPickerActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactPickerActivatedEventArgs;{ce57aae7-6449-45a7-971f-d113be7a8936})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactPickerActivatedEventArgs;{ce57aae7-6449-45a7-971f-d113be7a8936})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIContactPickerActivatedEventArgs {
@@ -4371,7 +4371,7 @@ impl ::windows::core::RuntimeName for WebUIContactPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactPickerActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIContactPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIContactPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIContactPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -4531,7 +4531,7 @@ impl ::core::fmt::Debug for WebUIContactPostActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIContactPostActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactPostActivatedEventArgs;{b35a3c67-f1e7-4655-ad6e-4857588f552f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactPostActivatedEventArgs;{b35a3c67-f1e7-4655-ad6e-4857588f552f})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIContactPostActivatedEventArgs {
@@ -4552,7 +4552,7 @@ impl ::windows::core::RuntimeName for WebUIContactPostActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactPostActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIContactPostActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIContactPostActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -4734,7 +4734,7 @@ impl ::core::fmt::Debug for WebUIContactVideoCallActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIContactVideoCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactVideoCallActivatedEventArgs;{61079db8-e3e7-4b4f-858d-5c63a96ef684})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactVideoCallActivatedEventArgs;{61079db8-e3e7-4b4f-858d-5c63a96ef684})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIContactVideoCallActivatedEventArgs {
@@ -4755,7 +4755,7 @@ impl ::windows::core::RuntimeName for WebUIContactVideoCallActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactVideoCallActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIContactVideoCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIContactVideoCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -4937,7 +4937,7 @@ impl ::core::fmt::Debug for WebUIDeviceActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIDeviceActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIDeviceActivatedEventArgs;{cd50b9a9-ce10-44d2-8234-c355a073ef33})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIDeviceActivatedEventArgs;{cd50b9a9-ce10-44d2-8234-c355a073ef33})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIDeviceActivatedEventArgs {
@@ -4958,7 +4958,7 @@ impl ::windows::core::RuntimeName for WebUIDeviceActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIDeviceActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIDeviceActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIDeviceActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -5144,7 +5144,7 @@ impl ::core::fmt::Debug for WebUIDevicePairingActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIDevicePairingActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIDevicePairingActivatedEventArgs;{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIDevicePairingActivatedEventArgs;{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIDevicePairingActivatedEventArgs {
@@ -5165,7 +5165,7 @@ impl ::windows::core::RuntimeName for WebUIDevicePairingActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIDevicePairingActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIDevicePairingActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIDevicePairingActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -5356,7 +5356,7 @@ impl ::core::fmt::Debug for WebUIDialReceiverActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIDialReceiverActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIDialReceiverActivatedEventArgs;{fb777ed7-85ee-456e-a44d-85d730e70aed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIDialReceiverActivatedEventArgs;{fb777ed7-85ee-456e-a44d-85d730e70aed})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIDialReceiverActivatedEventArgs {
@@ -5377,7 +5377,7 @@ impl ::windows::core::RuntimeName for WebUIDialReceiverActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIDialReceiverActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIDialReceiverActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIDialReceiverActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -5612,7 +5612,7 @@ impl ::core::fmt::Debug for WebUIFileActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIFileActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileActivatedEventArgs;{bb2afc33-93b1-42ed-8b26-236dd9c78496})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileActivatedEventArgs;{bb2afc33-93b1-42ed-8b26-236dd9c78496})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIFileActivatedEventArgs {
@@ -5633,7 +5633,7 @@ impl ::windows::core::RuntimeName for WebUIFileActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIFileActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIFileActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -5850,7 +5850,7 @@ impl ::core::fmt::Debug for WebUIFileOpenPickerActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIFileOpenPickerActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileOpenPickerActivatedEventArgs;{72827082-5525-4bf2-bc09-1f5095d4964d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileOpenPickerActivatedEventArgs;{72827082-5525-4bf2-bc09-1f5095d4964d})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIFileOpenPickerActivatedEventArgs {
@@ -5871,7 +5871,7 @@ impl ::windows::core::RuntimeName for WebUIFileOpenPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileOpenPickerActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -6066,7 +6066,7 @@ impl ::core::fmt::Debug for WebUIFileOpenPickerContinuationEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::windows::core::RuntimeType for WebUIFileOpenPickerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileOpenPickerContinuationEventArgs;{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileOpenPickerContinuationEventArgs;{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9})");
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::clone::Clone for WebUIFileOpenPickerContinuationEventArgs {
@@ -6087,7 +6087,7 @@ impl ::windows::core::RuntimeName for WebUIFileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileOpenPickerContinuationEventArgs";
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-::windows::core::interface_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -6291,7 +6291,7 @@ impl ::core::fmt::Debug for WebUIFileSavePickerActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIFileSavePickerActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileSavePickerActivatedEventArgs;{81c19cf1-74e6-4387-82eb-bb8fd64b4346})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileSavePickerActivatedEventArgs;{81c19cf1-74e6-4387-82eb-bb8fd64b4346})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIFileSavePickerActivatedEventArgs {
@@ -6312,7 +6312,7 @@ impl ::windows::core::RuntimeName for WebUIFileSavePickerActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileSavePickerActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIFileSavePickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIFileSavePickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -6507,7 +6507,7 @@ impl ::core::fmt::Debug for WebUIFileSavePickerContinuationEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::windows::core::RuntimeType for WebUIFileSavePickerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileSavePickerContinuationEventArgs;{2c846fe1-3bad-4f33-8c8b-e46fae824b4b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileSavePickerContinuationEventArgs;{2c846fe1-3bad-4f33-8c8b-e46fae824b4b})");
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::clone::Clone for WebUIFileSavePickerContinuationEventArgs {
@@ -6528,7 +6528,7 @@ impl ::windows::core::RuntimeName for WebUIFileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileSavePickerContinuationEventArgs";
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-::windows::core::interface_hierarchy!(WebUIFileSavePickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIFileSavePickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -6723,7 +6723,7 @@ impl ::core::fmt::Debug for WebUIFolderPickerContinuationEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::windows::core::RuntimeType for WebUIFolderPickerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFolderPickerContinuationEventArgs;{51882366-9f4b-498f-beb0-42684f6e1c29})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFolderPickerContinuationEventArgs;{51882366-9f4b-498f-beb0-42684f6e1c29})");
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::clone::Clone for WebUIFolderPickerContinuationEventArgs {
@@ -6744,7 +6744,7 @@ impl ::windows::core::RuntimeName for WebUIFolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFolderPickerContinuationEventArgs";
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-::windows::core::interface_hierarchy!(WebUIFolderPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIFolderPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -6966,7 +6966,7 @@ impl ::core::fmt::Debug for WebUILaunchActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUILaunchActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILaunchActivatedEventArgs;{fbc93e26-a14a-4b4f-82b0-33bed920af52})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILaunchActivatedEventArgs;{fbc93e26-a14a-4b4f-82b0-33bed920af52})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUILaunchActivatedEventArgs {
@@ -6987,7 +6987,7 @@ impl ::windows::core::RuntimeName for WebUILaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUILaunchActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUILaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUILaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -7226,7 +7226,7 @@ impl ::core::fmt::Debug for WebUILockScreenActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUILockScreenActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILockScreenActivatedEventArgs;{3ca77966-6108-4a41-8220-ee7d133c8532})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILockScreenActivatedEventArgs;{3ca77966-6108-4a41-8220-ee7d133c8532})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUILockScreenActivatedEventArgs {
@@ -7247,7 +7247,7 @@ impl ::windows::core::RuntimeName for WebUILockScreenActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUILockScreenActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUILockScreenActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUILockScreenActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -7451,7 +7451,7 @@ impl ::core::fmt::Debug for WebUILockScreenCallActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUILockScreenCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILockScreenCallActivatedEventArgs;{06f37fbe-b5f2-448b-b13e-e328ac1c516a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILockScreenCallActivatedEventArgs;{06f37fbe-b5f2-448b-b13e-e328ac1c516a})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUILockScreenCallActivatedEventArgs {
@@ -7472,7 +7472,7 @@ impl ::windows::core::RuntimeName for WebUILockScreenCallActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUILockScreenCallActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUILockScreenCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUILockScreenCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -7640,7 +7640,7 @@ impl ::core::fmt::Debug for WebUILockScreenComponentActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUILockScreenComponentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILockScreenComponentActivatedEventArgs;{cf651713-cd08-4fd8-b697-a281b6544e2e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILockScreenComponentActivatedEventArgs;{cf651713-cd08-4fd8-b697-a281b6544e2e})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUILockScreenComponentActivatedEventArgs {
@@ -7661,7 +7661,7 @@ impl ::windows::core::RuntimeName for WebUILockScreenComponentActivatedEventArgs
     const NAME: &'static str = "Windows.UI.WebUI.WebUILockScreenComponentActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUILockScreenComponentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUILockScreenComponentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUILockScreenComponentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -7727,7 +7727,7 @@ impl ::core::fmt::Debug for WebUINavigatedDeferral {
     }
 }
 impl ::windows::core::RuntimeType for WebUINavigatedDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUINavigatedDeferral;{d804204d-831f-46e2-b432-3afce211f962})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUINavigatedDeferral;{d804204d-831f-46e2-b432-3afce211f962})");
 }
 impl ::core::clone::Clone for WebUINavigatedDeferral {
     fn clone(&self) -> Self {
@@ -7743,7 +7743,7 @@ unsafe impl ::windows::core::Interface for WebUINavigatedDeferral {
 impl ::windows::core::RuntimeName for WebUINavigatedDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedDeferral";
 }
-::windows::core::interface_hierarchy!(WebUINavigatedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUINavigatedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_WebUI\"`*"]
 #[repr(transparent)]
 pub struct WebUINavigatedEventArgs(::windows::core::IUnknown);
@@ -7768,7 +7768,7 @@ impl ::core::fmt::Debug for WebUINavigatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebUINavigatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUINavigatedEventArgs;{a75841b8-2499-4030-a69d-15d2d9cfe524})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUINavigatedEventArgs;{a75841b8-2499-4030-a69d-15d2d9cfe524})");
 }
 impl ::core::clone::Clone for WebUINavigatedEventArgs {
     fn clone(&self) -> Self {
@@ -7784,7 +7784,7 @@ unsafe impl ::windows::core::Interface for WebUINavigatedEventArgs {
 impl ::windows::core::RuntimeName for WebUINavigatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebUINavigatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUINavigatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebUINavigatedEventArgs> for IWebUINavigatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: WebUINavigatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7828,7 +7828,7 @@ impl ::core::fmt::Debug for WebUINavigatedOperation {
     }
 }
 impl ::windows::core::RuntimeType for WebUINavigatedOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUINavigatedOperation;{7a965f08-8182-4a89-ab67-8492e8750d4b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUINavigatedOperation;{7a965f08-8182-4a89-ab67-8492e8750d4b})");
 }
 impl ::core::clone::Clone for WebUINavigatedOperation {
     fn clone(&self) -> Self {
@@ -7844,7 +7844,7 @@ unsafe impl ::windows::core::Interface for WebUINavigatedOperation {
 impl ::windows::core::RuntimeName for WebUINavigatedOperation {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedOperation";
 }
-::windows::core::interface_hierarchy!(WebUINavigatedOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUINavigatedOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_WebUI\"`, `\"ApplicationModel_Activation\"`*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
@@ -7920,7 +7920,7 @@ impl ::core::fmt::Debug for WebUIPhoneCallActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIPhoneCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPhoneCallActivatedEventArgs;{54615221-a3c1-4ced-b62f-8c60523619ad})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPhoneCallActivatedEventArgs;{54615221-a3c1-4ced-b62f-8c60523619ad})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIPhoneCallActivatedEventArgs {
@@ -7941,7 +7941,7 @@ impl ::windows::core::RuntimeName for WebUIPhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIPhoneCallActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIPhoneCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIPhoneCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -8100,7 +8100,7 @@ impl ::core::fmt::Debug for WebUIPrint3DWorkflowActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIPrint3DWorkflowActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPrint3DWorkflowActivatedEventArgs;{3f57e78b-f2ac-4619-8302-ef855e1c9b90})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPrint3DWorkflowActivatedEventArgs;{3f57e78b-f2ac-4619-8302-ef855e1c9b90})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIPrint3DWorkflowActivatedEventArgs {
@@ -8121,7 +8121,7 @@ impl ::windows::core::RuntimeName for WebUIPrint3DWorkflowActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIPrint3DWorkflowActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIPrint3DWorkflowActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -8254,7 +8254,7 @@ impl ::core::fmt::Debug for WebUIPrintTaskSettingsActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIPrintTaskSettingsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPrintTaskSettingsActivatedEventArgs;{ee30a0c9-ce56-4865-ba8e-8954ac271107})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPrintTaskSettingsActivatedEventArgs;{ee30a0c9-ce56-4865-ba8e-8954ac271107})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIPrintTaskSettingsActivatedEventArgs {
@@ -8275,7 +8275,7 @@ impl ::windows::core::RuntimeName for WebUIPrintTaskSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIPrintTaskSettingsActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIPrintTaskSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -8399,7 +8399,7 @@ impl ::core::fmt::Debug for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPrintWorkflowForegroundTaskActivatedEventArgs;{cf651713-cd08-4fd8-b697-a281b6544e2e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPrintWorkflowForegroundTaskActivatedEventArgs;{cf651713-cd08-4fd8-b697-a281b6544e2e})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
@@ -8420,7 +8420,7 @@ impl ::windows::core::RuntimeName for WebUIPrintWorkflowForegroundTaskActivatedE
     const NAME: &'static str = "Windows.UI.WebUI.WebUIPrintWorkflowForegroundTaskActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -8567,7 +8567,7 @@ impl ::core::fmt::Debug for WebUIProtocolActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIProtocolActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIProtocolActivatedEventArgs;{6095f4dd-b7c0-46ab-81fe-d90f36d00d24})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIProtocolActivatedEventArgs;{6095f4dd-b7c0-46ab-81fe-d90f36d00d24})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIProtocolActivatedEventArgs {
@@ -8588,7 +8588,7 @@ impl ::windows::core::RuntimeName for WebUIProtocolActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIProtocolActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIProtocolActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIProtocolActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -8832,7 +8832,7 @@ impl ::core::fmt::Debug for WebUIProtocolForResultsActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIProtocolForResultsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIProtocolForResultsActivatedEventArgs;{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIProtocolForResultsActivatedEventArgs;{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIProtocolForResultsActivatedEventArgs {
@@ -8853,7 +8853,7 @@ impl ::windows::core::RuntimeName for WebUIProtocolForResultsActivatedEventArgs 
     const NAME: &'static str = "Windows.UI.WebUI.WebUIProtocolForResultsActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIProtocolForResultsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIProtocolForResultsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -9083,7 +9083,7 @@ impl ::core::fmt::Debug for WebUIRestrictedLaunchActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIRestrictedLaunchActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIRestrictedLaunchActivatedEventArgs;{e0b7ac81-bfc3-4344-a5da-19fd5a27baae})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIRestrictedLaunchActivatedEventArgs;{e0b7ac81-bfc3-4344-a5da-19fd5a27baae})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIRestrictedLaunchActivatedEventArgs {
@@ -9104,7 +9104,7 @@ impl ::windows::core::RuntimeName for WebUIRestrictedLaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIRestrictedLaunchActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -9286,7 +9286,7 @@ impl ::core::fmt::Debug for WebUISearchActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUISearchActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUISearchActivatedEventArgs;{8cb36951-58c8-43e3-94bc-41d33f8b630e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUISearchActivatedEventArgs;{8cb36951-58c8-43e3-94bc-41d33f8b630e})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUISearchActivatedEventArgs {
@@ -9307,7 +9307,7 @@ impl ::windows::core::RuntimeName for WebUISearchActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUISearchActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUISearchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUISearchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -9493,7 +9493,7 @@ impl ::core::fmt::Debug for WebUIShareTargetActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIShareTargetActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIShareTargetActivatedEventArgs;{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIShareTargetActivatedEventArgs;{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIShareTargetActivatedEventArgs {
@@ -9514,7 +9514,7 @@ impl ::windows::core::RuntimeName for WebUIShareTargetActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIShareTargetActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIShareTargetActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIShareTargetActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -9678,7 +9678,7 @@ impl ::core::fmt::Debug for WebUIStartupTaskActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIStartupTaskActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIStartupTaskActivatedEventArgs;{03b11a58-5276-4d91-8621-54611864d5fa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIStartupTaskActivatedEventArgs;{03b11a58-5276-4d91-8621-54611864d5fa})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIStartupTaskActivatedEventArgs {
@@ -9699,7 +9699,7 @@ impl ::windows::core::RuntimeName for WebUIStartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIStartupTaskActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIStartupTaskActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIStartupTaskActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -9876,7 +9876,7 @@ impl ::core::fmt::Debug for WebUIToastNotificationActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIToastNotificationActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIToastNotificationActivatedEventArgs;{92a86f82-5290-431d-be85-c4aaeeb8685f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIToastNotificationActivatedEventArgs;{92a86f82-5290-431d-be85-c4aaeeb8685f})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIToastNotificationActivatedEventArgs {
@@ -9897,7 +9897,7 @@ impl ::windows::core::RuntimeName for WebUIToastNotificationActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIToastNotificationActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIToastNotificationActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIToastNotificationActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -10052,7 +10052,7 @@ impl ::core::fmt::Debug for WebUIUserDataAccountProviderActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIUserDataAccountProviderActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIUserDataAccountProviderActivatedEventArgs;{1bc9f723-8ef1-4a51-a63a-fe711eeab607})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIUserDataAccountProviderActivatedEventArgs;{1bc9f723-8ef1-4a51-a63a-fe711eeab607})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIUserDataAccountProviderActivatedEventArgs {
@@ -10073,7 +10073,7 @@ impl ::windows::core::RuntimeName for WebUIUserDataAccountProviderActivatedEvent
     const NAME: &'static str = "Windows.UI.WebUI.WebUIUserDataAccountProviderActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIUserDataAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -10657,7 +10657,7 @@ impl WebUIView {
     }
     #[doc(hidden)]
     pub fn IWebUIViewStatics<R, F: FnOnce(&IWebUIViewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebUIView, IWebUIViewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebUIView, IWebUIViewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -10673,7 +10673,7 @@ impl ::core::fmt::Debug for WebUIView {
     }
 }
 impl ::windows::core::RuntimeType for WebUIView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIView;{6783f64f-52da-4fd7-be69-8ef6284b423c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIView;{6783f64f-52da-4fd7-be69-8ef6284b423c})");
 }
 impl ::core::clone::Clone for WebUIView {
     fn clone(&self) -> Self {
@@ -10689,7 +10689,7 @@ unsafe impl ::windows::core::Interface for WebUIView {
 impl ::windows::core::RuntimeName for WebUIView {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIView";
 }
-::windows::core::interface_hierarchy!(WebUIView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Web_UI")]
 impl ::core::convert::TryFrom<WebUIView> for super::super::Web::UI::IWebViewControl {
     type Error = ::windows::core::Error;
@@ -10809,7 +10809,7 @@ impl ::core::fmt::Debug for WebUIVoiceCommandActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIVoiceCommandActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIVoiceCommandActivatedEventArgs;{ab92dcfd-8d43-4de6-9775-20704b581b00})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIVoiceCommandActivatedEventArgs;{ab92dcfd-8d43-4de6-9775-20704b581b00})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIVoiceCommandActivatedEventArgs {
@@ -10830,7 +10830,7 @@ impl ::windows::core::RuntimeName for WebUIVoiceCommandActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIVoiceCommandActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIVoiceCommandActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIVoiceCommandActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -11003,7 +11003,7 @@ impl ::core::fmt::Debug for WebUIWalletActionActivatedEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::windows::core::RuntimeType for WebUIWalletActionActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs;{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs;{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9})");
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::clone::Clone for WebUIWalletActionActivatedEventArgs {
@@ -11024,7 +11024,7 @@ impl ::windows::core::RuntimeName for WebUIWalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs";
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-::windows::core::interface_hierarchy!(WebUIWalletActionActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIWalletActionActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -11166,7 +11166,7 @@ impl ::core::fmt::Debug for WebUIWebAccountProviderActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIWebAccountProviderActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIWebAccountProviderActivatedEventArgs;{72b71774-98ea-4ccf-9752-46d9051004f1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIWebAccountProviderActivatedEventArgs;{72b71774-98ea-4ccf-9752-46d9051004f1})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIWebAccountProviderActivatedEventArgs {
@@ -11187,7 +11187,7 @@ impl ::windows::core::RuntimeName for WebUIWebAccountProviderActivatedEventArgs 
     const NAME: &'static str = "Windows.UI.WebUI.WebUIWebAccountProviderActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -11351,7 +11351,7 @@ impl ::core::fmt::Debug for WebUIWebAuthenticationBrokerContinuationEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for WebUIWebAuthenticationBrokerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIWebAuthenticationBrokerContinuationEventArgs;{75dda3d4-7714-453d-b7ff-b95e3a1709da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIWebAuthenticationBrokerContinuationEventArgs;{75dda3d4-7714-453d-b7ff-b95e3a1709da})");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::clone::Clone for WebUIWebAuthenticationBrokerContinuationEventArgs {
@@ -11372,7 +11372,7 @@ impl ::windows::core::RuntimeName for WebUIWebAuthenticationBrokerContinuationEv
     const NAME: &'static str = "Windows.UI.WebUI.WebUIWebAuthenticationBrokerContinuationEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows::core::interface_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -11491,7 +11491,7 @@ impl ::core::fmt::Debug for PrintContent {
     }
 }
 impl ::windows::core::RuntimeType for PrintContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.PrintContent;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.PrintContent;i4)");
 }
 #[doc = "*Required features: `\"UI_WebUI\"`, `\"ApplicationModel_Activation\"`*"]
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -11500,8 +11500,8 @@ pub struct ActivatedEventHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ActivatedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = ActivatedEventHandlerBox::<F> { vtable: &ActivatedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = ActivatedEventHandlerBox::<F> { vtable: &ActivatedEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11520,7 +11520,7 @@ impl ActivatedEventHandler {
 struct ActivatedEventHandlerBox<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const ActivatedEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ActivatedEventHandlerBox<F> {
@@ -11530,7 +11530,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::op
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<ActivatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<ActivatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -11546,7 +11546,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::op
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -11585,7 +11585,7 @@ unsafe impl ::windows::core::Interface for ActivatedEventHandler {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for ActivatedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{50f1e730-c5d1-4b6b-9adb-8a11756be29c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{50f1e730-c5d1-4b6b-9adb-8a11756be29c}");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
@@ -11604,8 +11604,8 @@ pub struct BackgroundActivatedEventHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = BackgroundActivatedEventHandlerBox::<F> { vtable: &BackgroundActivatedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = BackgroundActivatedEventHandlerBox::<F> { vtable: &BackgroundActivatedEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11624,7 +11624,7 @@ impl BackgroundActivatedEventHandler {
 struct BackgroundActivatedEventHandlerBox<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const BackgroundActivatedEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> BackgroundActivatedEventHandlerBox<F> {
@@ -11634,7 +11634,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::op
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<BackgroundActivatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<BackgroundActivatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -11650,7 +11650,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::op
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -11689,7 +11689,7 @@ unsafe impl ::windows::core::Interface for BackgroundActivatedEventHandler {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeType for BackgroundActivatedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{edb19fbb-0761-47cc-9a77-24d7072965ca}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{edb19fbb-0761-47cc-9a77-24d7072965ca}");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
@@ -11708,8 +11708,8 @@ pub struct EnteredBackgroundEventHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = EnteredBackgroundEventHandlerBox::<F> { vtable: &EnteredBackgroundEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = EnteredBackgroundEventHandlerBox::<F> { vtable: &EnteredBackgroundEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
@@ -11728,7 +11728,7 @@ impl EnteredBackgroundEventHandler {
 struct EnteredBackgroundEventHandlerBox<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const EnteredBackgroundEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 #[cfg(feature = "ApplicationModel")]
 impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> EnteredBackgroundEventHandlerBox<F> {
@@ -11738,7 +11738,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::op
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<EnteredBackgroundEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<EnteredBackgroundEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -11754,7 +11754,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::op
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -11793,7 +11793,7 @@ unsafe impl ::windows::core::Interface for EnteredBackgroundEventHandler {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeType for EnteredBackgroundEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2b09a173-b68e-4def-88c1-8de84e5aab2f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2b09a173-b68e-4def-88c1-8de84e5aab2f}");
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
@@ -11812,8 +11812,8 @@ pub struct LeavingBackgroundEventHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = LeavingBackgroundEventHandlerBox::<F> { vtable: &LeavingBackgroundEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = LeavingBackgroundEventHandlerBox::<F> { vtable: &LeavingBackgroundEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
@@ -11832,7 +11832,7 @@ impl LeavingBackgroundEventHandler {
 struct LeavingBackgroundEventHandlerBox<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const LeavingBackgroundEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 #[cfg(feature = "ApplicationModel")]
 impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> LeavingBackgroundEventHandlerBox<F> {
@@ -11842,7 +11842,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::op
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<LeavingBackgroundEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<LeavingBackgroundEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -11858,7 +11858,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::op
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -11897,7 +11897,7 @@ unsafe impl ::windows::core::Interface for LeavingBackgroundEventHandler {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeType for LeavingBackgroundEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{00b4ccd9-7a9c-4b6b-9ac4-13474f268bc4}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{00b4ccd9-7a9c-4b6b-9ac4-13474f268bc4}");
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
@@ -11914,8 +11914,8 @@ pub struct LeavingBackgroundEventHandler_Vtbl {
 pub struct NavigatedEventHandler(pub ::windows::core::IUnknown);
 impl NavigatedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&IWebUINavigatedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = NavigatedEventHandlerBox::<F> { vtable: &NavigatedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = NavigatedEventHandlerBox::<F> { vtable: &NavigatedEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke<P0, P1, E1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
     where
@@ -11931,7 +11931,7 @@ impl NavigatedEventHandler {
 struct NavigatedEventHandlerBox<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&IWebUINavigatedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const NavigatedEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&IWebUINavigatedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> NavigatedEventHandlerBox<F> {
     const VTABLE: NavigatedEventHandler_Vtbl = NavigatedEventHandler_Vtbl {
@@ -11940,7 +11940,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::op
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<NavigatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<NavigatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -11956,7 +11956,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::op
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -11988,7 +11988,7 @@ unsafe impl ::windows::core::Interface for NavigatedEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7af46fe6_40ca_4e49_a7d6_dbdb330cd1a3);
 }
 impl ::windows::core::RuntimeType for NavigatedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7af46fe6-40ca-4e49-a7d6-dbdb330cd1a3}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{7af46fe6-40ca-4e49-a7d6-dbdb330cd1a3}");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12001,8 +12001,8 @@ pub struct NavigatedEventHandler_Vtbl {
 pub struct ResumingEventHandler(pub ::windows::core::IUnknown);
 impl ResumingEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = ResumingEventHandlerBox::<F> { vtable: &ResumingEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = ResumingEventHandlerBox::<F> { vtable: &ResumingEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> ::windows::core::Result<()>
     where
@@ -12016,7 +12016,7 @@ impl ResumingEventHandler {
 struct ResumingEventHandlerBox<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const ResumingEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ResumingEventHandlerBox<F> {
     const VTABLE: ResumingEventHandler_Vtbl = ResumingEventHandler_Vtbl {
@@ -12025,7 +12025,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windo
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<ResumingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<ResumingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -12041,7 +12041,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windo
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -12073,7 +12073,7 @@ unsafe impl ::windows::core::Interface for ResumingEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26599ba9_a22d_4806_a728_acadc1d075fa);
 }
 impl ::windows::core::RuntimeType for ResumingEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{26599ba9-a22d-4806-a728-acadc1d075fa}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{26599ba9-a22d-4806-a728-acadc1d075fa}");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12088,8 +12088,8 @@ pub struct SuspendingEventHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = SuspendingEventHandlerBox::<F> { vtable: &SuspendingEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = SuspendingEventHandlerBox::<F> { vtable: &SuspendingEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
@@ -12108,7 +12108,7 @@ impl SuspendingEventHandler {
 struct SuspendingEventHandlerBox<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const SuspendingEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 #[cfg(feature = "ApplicationModel")]
 impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SuspendingEventHandlerBox<F> {
@@ -12118,7 +12118,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::op
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<SuspendingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<SuspendingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -12134,7 +12134,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>, ::core::op
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -12173,7 +12173,7 @@ unsafe impl ::windows::core::Interface for SuspendingEventHandler {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeType for SuspendingEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{509c429c-78e2-4883-abc8-8960dcde1b5c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{509c429c-78e2-4883-abc8-8960dcde1b5c}");
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]

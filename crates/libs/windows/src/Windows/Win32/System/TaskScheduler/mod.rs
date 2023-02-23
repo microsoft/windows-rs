@@ -15,7 +15,7 @@ impl IAction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IAction, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IAction, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAction {
     fn eq(&self, other: &Self) -> bool {
@@ -100,7 +100,7 @@ impl IActionCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IActionCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IActionCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IActionCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -222,7 +222,7 @@ impl IBootTrigger {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IBootTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
+::windows::imp::interface_hierarchy!(IBootTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IBootTrigger {
     fn eq(&self, other: &Self) -> bool {
@@ -288,7 +288,7 @@ impl IComHandlerAction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IComHandlerAction, ::windows::core::IUnknown, super::Com::IDispatch, IAction);
+::windows::imp::interface_hierarchy!(IComHandlerAction, ::windows::core::IUnknown, super::Com::IDispatch, IAction);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IComHandlerAction {
     fn eq(&self, other: &Self) -> bool {
@@ -401,7 +401,7 @@ impl IDailyTrigger {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDailyTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
+::windows::imp::interface_hierarchy!(IDailyTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDailyTrigger {
     fn eq(&self, other: &Self) -> bool {
@@ -529,7 +529,7 @@ impl IEmailAction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IEmailAction, ::windows::core::IUnknown, super::Com::IDispatch, IAction);
+::windows::imp::interface_hierarchy!(IEmailAction, ::windows::core::IUnknown, super::Com::IDispatch, IAction);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IEmailAction {
     fn eq(&self, other: &Self) -> bool {
@@ -614,7 +614,7 @@ impl IEnumWorkItems {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumWorkItems, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumWorkItems, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumWorkItems {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -734,7 +734,7 @@ impl IEventTrigger {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IEventTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
+::windows::imp::interface_hierarchy!(IEventTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IEventTrigger {
     fn eq(&self, other: &Self) -> bool {
@@ -816,7 +816,7 @@ impl IExecAction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IExecAction, ::windows::core::IUnknown, super::Com::IDispatch, IAction);
+::windows::imp::interface_hierarchy!(IExecAction, ::windows::core::IUnknown, super::Com::IDispatch, IAction);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IExecAction {
     fn eq(&self, other: &Self) -> bool {
@@ -905,7 +905,7 @@ impl IExecAction2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IExecAction2, ::windows::core::IUnknown, super::Com::IDispatch, IAction, IExecAction);
+::windows::imp::interface_hierarchy!(IExecAction2, ::windows::core::IUnknown, super::Com::IDispatch, IAction, IExecAction);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IExecAction2 {
     fn eq(&self, other: &Self) -> bool {
@@ -994,7 +994,7 @@ impl IIdleSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IIdleSettings, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IIdleSettings, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IIdleSettings {
     fn eq(&self, other: &Self) -> bool {
@@ -1111,7 +1111,7 @@ impl IIdleTrigger {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IIdleTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
+::windows::imp::interface_hierarchy!(IIdleTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IIdleTrigger {
     fn eq(&self, other: &Self) -> bool {
@@ -1220,7 +1220,7 @@ impl ILogonTrigger {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ILogonTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
+::windows::imp::interface_hierarchy!(ILogonTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ILogonTrigger {
     fn eq(&self, other: &Self) -> bool {
@@ -1292,7 +1292,7 @@ impl IMaintenanceSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMaintenanceSettings, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMaintenanceSettings, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMaintenanceSettings {
     fn eq(&self, other: &Self) -> bool {
@@ -1438,7 +1438,7 @@ impl IMonthlyDOWTrigger {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMonthlyDOWTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
+::windows::imp::interface_hierarchy!(IMonthlyDOWTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMonthlyDOWTrigger {
     fn eq(&self, other: &Self) -> bool {
@@ -1582,7 +1582,7 @@ impl IMonthlyTrigger {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMonthlyTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
+::windows::imp::interface_hierarchy!(IMonthlyTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMonthlyTrigger {
     fn eq(&self, other: &Self) -> bool {
@@ -1651,7 +1651,7 @@ impl INetworkSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetworkSettings, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetworkSettings, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetworkSettings {
     fn eq(&self, other: &Self) -> bool {
@@ -1734,7 +1734,7 @@ impl IPrincipal {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPrincipal, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IPrincipal, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrincipal {
     fn eq(&self, other: &Self) -> bool {
@@ -1804,7 +1804,7 @@ impl IPrincipal2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPrincipal2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IPrincipal2, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrincipal2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1858,7 +1858,7 @@ impl IProvideTaskPage {
         (::windows::core::Vtable::vtable(self).GetPage)(::windows::core::Vtable::as_raw(self), tptype, fpersistchanges.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IProvideTaskPage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProvideTaskPage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProvideTaskPage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1983,7 +1983,7 @@ impl IRegisteredTask {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRegisteredTask, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRegisteredTask, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRegisteredTask {
     fn eq(&self, other: &Self) -> bool {
@@ -2079,7 +2079,7 @@ impl IRegisteredTaskCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRegisteredTaskCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRegisteredTaskCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRegisteredTaskCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -2186,7 +2186,7 @@ impl IRegistrationInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRegistrationInfo, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRegistrationInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRegistrationInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -2313,7 +2313,7 @@ impl IRegistrationTrigger {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRegistrationTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
+::windows::imp::interface_hierarchy!(IRegistrationTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRegistrationTrigger {
     fn eq(&self, other: &Self) -> bool {
@@ -2383,7 +2383,7 @@ impl IRepetitionPattern {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRepetitionPattern, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRepetitionPattern, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRepetitionPattern {
     fn eq(&self, other: &Self) -> bool {
@@ -2468,7 +2468,7 @@ impl IRunningTask {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRunningTask, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRunningTask, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRunningTask {
     fn eq(&self, other: &Self) -> bool {
@@ -2533,7 +2533,7 @@ impl IRunningTaskCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRunningTaskCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRunningTaskCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRunningTaskCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -2699,7 +2699,7 @@ impl IScheduledWorkItem {
         (::windows::core::Vtable::vtable(self).GetAccountInformation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IScheduledWorkItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IScheduledWorkItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IScheduledWorkItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2848,7 +2848,7 @@ impl ISessionStateChangeTrigger {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISessionStateChangeTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
+::windows::imp::interface_hierarchy!(ISessionStateChangeTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISessionStateChangeTrigger {
     fn eq(&self, other: &Self) -> bool {
@@ -2918,7 +2918,7 @@ impl IShowMessageAction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShowMessageAction, ::windows::core::IUnknown, super::Com::IDispatch, IAction);
+::windows::imp::interface_hierarchy!(IShowMessageAction, ::windows::core::IUnknown, super::Com::IDispatch, IAction);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShowMessageAction {
     fn eq(&self, other: &Self) -> bool {
@@ -3133,7 +3133,7 @@ impl ITask {
         (::windows::core::Vtable::vtable(self).GetMaxRunTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITask, ::windows::core::IUnknown, IScheduledWorkItem);
+::windows::imp::interface_hierarchy!(ITask, ::windows::core::IUnknown, IScheduledWorkItem);
 impl ::core::cmp::PartialEq for ITask {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3263,7 +3263,7 @@ impl ITaskDefinition {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITaskDefinition, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITaskDefinition, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITaskDefinition {
     fn eq(&self, other: &Self) -> bool {
@@ -3416,7 +3416,7 @@ impl ITaskFolder {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITaskFolder, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITaskFolder, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITaskFolder {
     fn eq(&self, other: &Self) -> bool {
@@ -3507,7 +3507,7 @@ impl ITaskFolderCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITaskFolderCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITaskFolderCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITaskFolderCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -3569,7 +3569,7 @@ impl ITaskHandler {
         (::windows::core::Vtable::vtable(self).Resume)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITaskHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITaskHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITaskHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3612,7 +3612,7 @@ impl ITaskHandlerStatus {
         (::windows::core::Vtable::vtable(self).TaskCompleted)(::windows::core::Vtable::as_raw(self), taskerrcode).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITaskHandlerStatus, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITaskHandlerStatus, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITaskHandlerStatus {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3675,7 +3675,7 @@ impl ITaskNamedValueCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITaskNamedValueCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITaskNamedValueCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITaskNamedValueCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -3742,7 +3742,7 @@ impl ITaskNamedValuePair {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITaskNamedValuePair, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITaskNamedValuePair, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITaskNamedValuePair {
     fn eq(&self, other: &Self) -> bool {
@@ -3833,7 +3833,7 @@ impl ITaskScheduler {
         (::windows::core::Vtable::vtable(self).IsOfType)(::windows::core::Vtable::as_raw(self), pwszname.into().abi(), riid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITaskScheduler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITaskScheduler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITaskScheduler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3922,7 +3922,7 @@ impl ITaskService {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITaskService, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITaskService, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITaskService {
     fn eq(&self, other: &Self) -> bool {
@@ -4195,7 +4195,7 @@ impl ITaskSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITaskSettings, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITaskSettings, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITaskSettings {
     fn eq(&self, other: &Self) -> bool {
@@ -4376,7 +4376,7 @@ impl ITaskSettings2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITaskSettings2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITaskSettings2, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITaskSettings2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4700,7 +4700,7 @@ impl ITaskSettings3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITaskSettings3, ::windows::core::IUnknown, super::Com::IDispatch, ITaskSettings);
+::windows::imp::interface_hierarchy!(ITaskSettings3, ::windows::core::IUnknown, super::Com::IDispatch, ITaskSettings);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITaskSettings3 {
     fn eq(&self, other: &Self) -> bool {
@@ -4786,7 +4786,7 @@ impl ITaskTrigger {
         (::windows::core::Vtable::vtable(self).GetTriggerString)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITaskTrigger, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITaskTrigger, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITaskTrigger {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4833,7 +4833,7 @@ impl ITaskVariables {
         (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITaskVariables, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITaskVariables, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITaskVariables {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4932,7 +4932,7 @@ impl ITimeTrigger {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITimeTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
+::windows::imp::interface_hierarchy!(ITimeTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITimeTrigger {
     fn eq(&self, other: &Self) -> bool {
@@ -5031,7 +5031,7 @@ impl ITrigger {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITrigger, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITrigger, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITrigger {
     fn eq(&self, other: &Self) -> bool {
@@ -5126,7 +5126,7 @@ impl ITriggerCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITriggerCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITriggerCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITriggerCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -5256,7 +5256,7 @@ impl IWeeklyTrigger {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWeeklyTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
+::windows::imp::interface_hierarchy!(IWeeklyTrigger, ::windows::core::IUnknown, super::Com::IDispatch, ITrigger);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWeeklyTrigger {
     fn eq(&self, other: &Self) -> bool {

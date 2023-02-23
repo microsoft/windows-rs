@@ -4,7 +4,7 @@ pub unsafe fn CoGetInterceptor<P0>(iidintercepted: *const ::windows::core::GUID,
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetInterceptor ( iidintercepted : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetInterceptor ( iidintercepted : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoGetInterceptor(iidintercepted, punkouter.into().abi(), iid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
@@ -14,7 +14,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::ITypeInfo>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetInterceptorFromTypeInfo ( iidintercepted : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , typeinfo : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetInterceptorFromTypeInfo ( iidintercepted : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , typeinfo : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoGetInterceptorFromTypeInfo(iidintercepted, punkouter.into().abi(), typeinfo.into().abi(), iid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
@@ -115,7 +115,7 @@ impl ICallFrame {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), pvreceiver).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICallFrame, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICallFrame, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICallFrame {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -197,7 +197,7 @@ impl ICallFrameEvents {
         (::windows::core::Vtable::vtable(self).OnCall)(::windows::core::Vtable::as_raw(self), pframe.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICallFrameEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICallFrameEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICallFrameEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -240,7 +240,7 @@ impl ICallFrameWalker {
         (::windows::core::Vtable::vtable(self).OnWalkInterface)(::windows::core::Vtable::as_raw(self), iid, ppvinterface, fin.into(), fout.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICallFrameWalker, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICallFrameWalker, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICallFrameWalker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -294,7 +294,7 @@ impl ICallIndirect {
         (::windows::core::Vtable::vtable(self).GetIID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(piid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfderivesfromidispatch.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcmethod.unwrap_or(::std::ptr::null_mut())), pwszinterface).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICallIndirect, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICallIndirect, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICallIndirect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -364,7 +364,7 @@ impl ICallInterceptor {
         (::windows::core::Vtable::vtable(self).GetRegisteredSink)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICallInterceptor, ::windows::core::IUnknown, ICallIndirect);
+::windows::imp::interface_hierarchy!(ICallInterceptor, ::windows::core::IUnknown, ICallIndirect);
 impl ::core::cmp::PartialEq for ICallInterceptor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -412,7 +412,7 @@ impl ICallUnmarshal {
         (::windows::core::Vtable::vtable(self).ReleaseMarshalData)(::windows::core::Vtable::as_raw(self), imethod, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, ibfirstrelease, datarep, pcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICallUnmarshal, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICallUnmarshal, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICallUnmarshal {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -460,7 +460,7 @@ impl IInterfaceRelated {
         (::windows::core::Vtable::vtable(self).GetIID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IInterfaceRelated, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInterfaceRelated, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInterfaceRelated {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

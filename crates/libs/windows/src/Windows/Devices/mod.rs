@@ -106,7 +106,7 @@ impl ILowLevelDevicesAggregateProvider {
         }
     }
 }
-::windows::core::interface_hierarchy!(ILowLevelDevicesAggregateProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILowLevelDevicesAggregateProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ILowLevelDevicesAggregateProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -119,7 +119,7 @@ impl ::core::fmt::Debug for ILowLevelDevicesAggregateProvider {
     }
 }
 impl ::windows::core::RuntimeType for ILowLevelDevicesAggregateProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a73e561c-aac1-4ec7-a852-479f7060d01f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a73e561c-aac1-4ec7-a852-479f7060d01f}");
 }
 unsafe impl ::windows::core::Vtable for ILowLevelDevicesAggregateProvider {
     type Vtable = ILowLevelDevicesAggregateProvider_Vtbl;
@@ -291,7 +291,7 @@ impl LowLevelDevicesAggregateProvider {
     }
     #[doc(hidden)]
     pub fn ILowLevelDevicesAggregateProviderFactory<R, F: FnOnce(&ILowLevelDevicesAggregateProviderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProviderFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProviderFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -307,7 +307,7 @@ impl ::core::fmt::Debug for LowLevelDevicesAggregateProvider {
     }
 }
 impl ::windows::core::RuntimeType for LowLevelDevicesAggregateProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.LowLevelDevicesAggregateProvider;{a73e561c-aac1-4ec7-a852-479f7060d01f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.LowLevelDevicesAggregateProvider;{a73e561c-aac1-4ec7-a852-479f7060d01f})");
 }
 impl ::core::clone::Clone for LowLevelDevicesAggregateProvider {
     fn clone(&self) -> Self {
@@ -323,7 +323,7 @@ unsafe impl ::windows::core::Interface for LowLevelDevicesAggregateProvider {
 impl ::windows::core::RuntimeName for LowLevelDevicesAggregateProvider {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesAggregateProvider";
 }
-::windows::core::interface_hierarchy!(LowLevelDevicesAggregateProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LowLevelDevicesAggregateProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LowLevelDevicesAggregateProvider> for ILowLevelDevicesAggregateProvider {
     type Error = ::windows::core::Error;
     fn try_from(value: LowLevelDevicesAggregateProvider) -> ::windows::core::Result<Self> {
@@ -364,7 +364,7 @@ impl LowLevelDevicesController {
     }
     #[doc(hidden)]
     pub fn ILowLevelDevicesControllerStatics<R, F: FnOnce(&ILowLevelDevicesControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LowLevelDevicesController, ILowLevelDevicesControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LowLevelDevicesController, ILowLevelDevicesControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -380,7 +380,7 @@ impl ::core::fmt::Debug for LowLevelDevicesController {
     }
 }
 impl ::windows::core::RuntimeType for LowLevelDevicesController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.LowLevelDevicesController;{2ec23dd4-179b-45de-9b39-3ae02527de52})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.LowLevelDevicesController;{2ec23dd4-179b-45de-9b39-3ae02527de52})");
 }
 impl ::core::clone::Clone for LowLevelDevicesController {
     fn clone(&self) -> Self {
@@ -396,7 +396,7 @@ unsafe impl ::windows::core::Interface for LowLevelDevicesController {
 impl ::windows::core::RuntimeName for LowLevelDevicesController {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesController";
 }
-::windows::core::interface_hierarchy!(LowLevelDevicesController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LowLevelDevicesController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LowLevelDevicesController {}
 unsafe impl ::core::marker::Sync for LowLevelDevicesController {}
 #[cfg(feature = "implement")]

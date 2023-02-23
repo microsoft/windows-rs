@@ -5,7 +5,7 @@ pub struct DRendezvousSessionEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DRendezvousSessionEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DRendezvousSessionEvents, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DRendezvousSessionEvents, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DRendezvousSessionEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -51,7 +51,7 @@ impl IRendezvousApplication {
         (::windows::core::Vtable::vtable(self).SetRendezvousSession)(::windows::core::Vtable::as_raw(self), prendezvoussession.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRendezvousApplication, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRendezvousApplication, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRendezvousApplication {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -103,7 +103,7 @@ impl IRendezvousSession {
         (::windows::core::Vtable::vtable(self).Terminate)(::windows::core::Vtable::as_raw(self), hr, ::core::mem::transmute_copy(bstrappdata)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRendezvousSession, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRendezvousSession, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRendezvousSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

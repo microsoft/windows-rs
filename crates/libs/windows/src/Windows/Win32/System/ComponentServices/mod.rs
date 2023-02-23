@@ -4,7 +4,7 @@ pub unsafe fn CoCreateActivity<P0>(piunknown: P0, riid: *const ::windows::core::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "comsvcs.dll""system" fn CoCreateActivity ( piunknown : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "comsvcs.dll""system" fn CoCreateActivity ( piunknown : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoCreateActivity(piunknown.into().abi(), riid, ppobj).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -13,14 +13,14 @@ pub unsafe fn CoEnterServiceDomain<P0>(pconfigobject: P0) -> ::windows::core::Re
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "comsvcs.dll""system" fn CoEnterServiceDomain ( pconfigobject : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "comsvcs.dll""system" fn CoEnterServiceDomain ( pconfigobject : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoEnterServiceDomain(pconfigobject.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetDefaultContext ( apttype : super::Com:: APTTYPE , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetDefaultContext ( apttype : super::Com:: APTTYPE , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoGetDefaultContext(apttype, riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -29,32 +29,32 @@ pub unsafe fn CoLeaveServiceDomain<P0>(punkstatus: P0)
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "comsvcs.dll""system" fn CoLeaveServiceDomain ( punkstatus : * mut::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "comsvcs.dll""system" fn CoLeaveServiceDomain ( punkstatus : * mut::core::ffi::c_void ) -> ( ) );
     CoLeaveServiceDomain(punkstatus.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager> {
-    ::windows::core::link ! ( "mtxdm.dll""cdecl" fn GetDispenserManager ( param0 : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mtxdm.dll""cdecl" fn GetDispenserManager ( param0 : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IDispenserManager>();
     GetDispenserManager(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "comsvcs.dll""system" fn GetManagedExtensions ( dwexts : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "comsvcs.dll""system" fn GetManagedExtensions ( dwexts : *mut u32 ) -> :: windows::core::HRESULT );
     GetManagedExtensions(dwexts).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn MTSCreateActivity(riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "comsvcs.dll""system" fn MTSCreateActivity ( riid : *const :: windows::core::GUID , ppobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "comsvcs.dll""system" fn MTSCreateActivity ( riid : *const :: windows::core::GUID , ppobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MTSCreateActivity(riid, ppobj).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "comsvcs.dll""cdecl" fn RecycleSurrogate ( lreasoncode : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "comsvcs.dll""cdecl" fn RecycleSurrogate ( lreasoncode : i32 ) -> :: windows::core::HRESULT );
     RecycleSurrogate(lreasoncode).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -63,7 +63,7 @@ pub unsafe fn SafeRef<P0>(rid: *const ::windows::core::GUID, punk: P0) -> *mut :
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "comsvcs.dll""cdecl" fn SafeRef ( rid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "comsvcs.dll""cdecl" fn SafeRef ( rid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
     SafeRef(rid, punk.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
@@ -96,7 +96,7 @@ impl ContextInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ContextInfo, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ContextInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ContextInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -181,7 +181,7 @@ impl ContextInfo2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ContextInfo2, ::windows::core::IUnknown, super::Com::IDispatch, ContextInfo);
+::windows::imp::interface_hierarchy!(ContextInfo2, ::windows::core::IUnknown, super::Com::IDispatch, ContextInfo);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ContextInfo2 {
     fn eq(&self, other: &Self) -> bool {
@@ -239,7 +239,7 @@ impl IAppDomainHelper {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IAppDomainHelper, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IAppDomainHelper, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAppDomainHelper {
     fn eq(&self, other: &Self) -> bool {
@@ -290,7 +290,7 @@ impl IAssemblyLocator {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IAssemblyLocator, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IAssemblyLocator, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAssemblyLocator {
     fn eq(&self, other: &Self) -> bool {
@@ -337,7 +337,7 @@ impl IAsyncErrorNotify {
         (::windows::core::Vtable::vtable(self).OnError)(::windows::core::Vtable::as_raw(self), hr).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAsyncErrorNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAsyncErrorNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAsyncErrorNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -474,7 +474,7 @@ impl ICOMAdminCatalog {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICOMAdminCatalog, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICOMAdminCatalog, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICOMAdminCatalog {
     fn eq(&self, other: &Self) -> bool {
@@ -809,7 +809,7 @@ impl ICOMAdminCatalog2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICOMAdminCatalog2, ::windows::core::IUnknown, super::Com::IDispatch, ICOMAdminCatalog);
+::windows::imp::interface_hierarchy!(ICOMAdminCatalog2, ::windows::core::IUnknown, super::Com::IDispatch, ICOMAdminCatalog);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICOMAdminCatalog2 {
     fn eq(&self, other: &Self) -> bool {
@@ -940,7 +940,7 @@ impl ICOMLBArguments {
         (::windows::core::Vtable::vtable(self).SetMachineName)(::windows::core::Vtable::as_raw(self), szservername.len() as _, ::core::mem::transmute(szservername.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICOMLBArguments, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICOMLBArguments, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICOMLBArguments {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1056,7 +1056,7 @@ impl ICatalogCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICatalogCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICatalogCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICatalogCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -1180,7 +1180,7 @@ impl ICatalogObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICatalogObject, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICatalogObject, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICatalogObject {
     fn eq(&self, other: &Self) -> bool {
@@ -1256,7 +1256,7 @@ impl ICheckSxsConfig {
         (::windows::core::Vtable::vtable(self).IsSameSxsConfig)(::windows::core::Vtable::as_raw(self), wszsxsname.into().abi(), wszsxsdirectory.into().abi(), wszsxsappname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICheckSxsConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICheckSxsConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICheckSxsConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1311,7 +1311,7 @@ impl IComActivityEvents {
         (::windows::core::Vtable::vtable(self).OnActivityLeaveSame)(::windows::core::Vtable::as_raw(self), pinfo, guidcurrent, dwcalldepth).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComActivityEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComActivityEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComActivityEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1371,7 +1371,7 @@ impl IComApp2Events {
         (::windows::core::Vtable::vtable(self).OnAppRecycle2)(::windows::core::Vtable::as_raw(self), pinfo, ::core::mem::transmute(guidapp), ::core::mem::transmute(guidprocess), lreason).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComApp2Events, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComApp2Events, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComApp2Events {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1421,7 +1421,7 @@ impl IComAppEvents {
         (::windows::core::Vtable::vtable(self).OnAppForceShutdown)(::windows::core::Vtable::as_raw(self), pinfo, ::core::mem::transmute(guidapp)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComAppEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComAppEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComAppEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1512,7 +1512,7 @@ impl IComCRMEvents {
         (::windows::core::Vtable::vtable(self).OnCRMDeliver)(::windows::core::Vtable::as_raw(self), pinfo, ::core::mem::transmute(guidclerkclsid), fvariants.into(), dwrecordsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComCRMEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComCRMEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComCRMEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1572,7 +1572,7 @@ impl IComExceptionEvents {
         (::windows::core::Vtable::vtable(self).OnExceptionUser)(::windows::core::Vtable::as_raw(self), pinfo, code, address, pszstacktrace.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComExceptionEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComExceptionEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComExceptionEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1614,7 +1614,7 @@ impl IComIdentityEvents {
         (::windows::core::Vtable::vtable(self).OnIISRequestInfo)(::windows::core::Vtable::as_raw(self), pinfo, objid, pszclientip.into().abi(), pszserverip.into().abi(), pszurl.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComIdentityEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComIdentityEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComIdentityEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1654,7 +1654,7 @@ impl IComInstance2Events {
         (::windows::core::Vtable::vtable(self).OnObjectDestroy2)(::windows::core::Vtable::as_raw(self), pinfo, ctxtid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComInstance2Events, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComInstance2Events, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComInstance2Events {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1695,7 +1695,7 @@ impl IComInstanceEvents {
         (::windows::core::Vtable::vtable(self).OnObjectDestroy)(::windows::core::Vtable::as_raw(self), pinfo, ctxtid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComInstanceEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComInstanceEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComInstanceEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1755,7 +1755,7 @@ impl IComLTxEvents {
         (::windows::core::Vtable::vtable(self).OnLtxTransactionPromote)(::windows::core::Vtable::as_raw(self), pinfo, ::core::mem::transmute(guidltx), ::core::mem::transmute(txnid)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComLTxEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComLTxEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComLTxEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1808,7 +1808,7 @@ impl IComMethod2Events {
         (::windows::core::Vtable::vtable(self).OnMethodException2)(::windows::core::Vtable::as_raw(self), pinfo, oid, guidcid, guidrid, dwthread, imeth).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComMethod2Events, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComMethod2Events, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComMethod2Events {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1853,7 +1853,7 @@ impl IComMethodEvents {
         (::windows::core::Vtable::vtable(self).OnMethodException)(::windows::core::Vtable::as_raw(self), pinfo, oid, guidcid, guidrid, imeth).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComMethodEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComMethodEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComMethodEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1903,7 +1903,7 @@ impl IComMtaThreadPoolKnobs {
         (::windows::core::Vtable::vtable(self).MTAGetThrottleValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IComMtaThreadPoolKnobs, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComMtaThreadPoolKnobs, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComMtaThreadPoolKnobs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1946,7 +1946,7 @@ impl IComObjectConstruction2Events {
         (::windows::core::Vtable::vtable(self).OnObjectConstruct2)(::windows::core::Vtable::as_raw(self), pinfo, guidobject, sconstructstring.into().abi(), oid, guidpartition).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComObjectConstruction2Events, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComObjectConstruction2Events, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComObjectConstruction2Events {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1986,7 +1986,7 @@ impl IComObjectConstructionEvents {
         (::windows::core::Vtable::vtable(self).OnObjectConstruct)(::windows::core::Vtable::as_raw(self), pinfo, guidobject, sconstructstring.into().abi(), oid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComObjectConstructionEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComObjectConstructionEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComObjectConstructionEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2038,7 +2038,7 @@ impl IComObjectEvents {
         (::windows::core::Vtable::vtable(self).OnSetAbort)(::windows::core::Vtable::as_raw(self), pinfo, ctxtid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComObjectEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComObjectEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComObjectEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2089,7 +2089,7 @@ impl IComObjectPool2Events {
         (::windows::core::Vtable::vtable(self).OnObjPoolGetFromTx2)(::windows::core::Vtable::as_raw(self), pinfo, guidactivity, guidobject, guidtx, objid, guidpartition).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComObjectPool2Events, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComObjectPool2Events, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComObjectPool2Events {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2138,7 +2138,7 @@ impl IComObjectPoolEvents {
         (::windows::core::Vtable::vtable(self).OnObjPoolGetFromTx)(::windows::core::Vtable::as_raw(self), pinfo, guidactivity, guidobject, guidtx, objid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComObjectPoolEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComObjectPoolEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComObjectPoolEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2190,7 +2190,7 @@ impl IComObjectPoolEvents2 {
         (::windows::core::Vtable::vtable(self).OnObjPoolCreatePool)(::windows::core::Vtable::as_raw(self), pinfo, guidobject, dwmin, dwmax, dwtimeout).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComObjectPoolEvents2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComObjectPoolEvents2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComObjectPoolEvents2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2249,7 +2249,7 @@ impl IComQCEvents {
         (::windows::core::Vtable::vtable(self).OnQCPlayback)(::windows::core::Vtable::as_raw(self), pinfo, objid, guidmsgid, guidworkflowid, hr).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComQCEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComQCEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComQCEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2328,7 +2328,7 @@ impl IComResourceEvents {
         (::windows::core::Vtable::vtable(self).OnResourceTrack)(::windows::core::Vtable::as_raw(self), pinfo, objectid, psztype.into().abi(), resid, enlisted.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComResourceEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComResourceEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComResourceEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2391,7 +2391,7 @@ impl IComSecurityEvents {
         (::windows::core::Vtable::vtable(self).OnAuthenticateFail)(::windows::core::Vtable::as_raw(self), pinfo, guidactivity, objectid, guidiid, imeth, psidoriginaluser.len() as _, ::core::mem::transmute(psidoriginaluser.as_ptr()), psidcurrentuser.len() as _, ::core::mem::transmute(psidcurrentuser.as_ptr()), bcurrentuserinpersonatinginproc.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComSecurityEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComSecurityEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComSecurityEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2471,7 +2471,7 @@ impl IComStaThreadPoolKnobs {
         (::windows::core::Vtable::vtable(self).SetQueueDepth)(::windows::core::Vtable::as_raw(self), dwqdepth).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComStaThreadPoolKnobs, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComStaThreadPoolKnobs, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComStaThreadPoolKnobs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2603,7 +2603,7 @@ impl IComStaThreadPoolKnobs2 {
         (::windows::core::Vtable::vtable(self).SetWaitTimeForThreadCleanup)(::windows::core::Vtable::as_raw(self), dwthreadcleanupwaittime).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComStaThreadPoolKnobs2, ::windows::core::IUnknown, IComStaThreadPoolKnobs);
+::windows::imp::interface_hierarchy!(IComStaThreadPoolKnobs2, ::windows::core::IUnknown, IComStaThreadPoolKnobs);
 impl ::core::cmp::PartialEq for IComStaThreadPoolKnobs2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2691,7 +2691,7 @@ impl IComThreadEvents {
         (::windows::core::Vtable::vtable(self).OnThreadUnassignApartment)(::windows::core::Vtable::as_raw(self), pinfo, aptid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComThreadEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComThreadEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComThreadEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2746,7 +2746,7 @@ impl IComTrackingInfoCollection {
         (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), ulindex, riid, ppv).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComTrackingInfoCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComTrackingInfoCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComTrackingInfoCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2788,7 +2788,7 @@ impl IComTrackingInfoEvents {
         (::windows::core::Vtable::vtable(self).OnNewTrackingInfo)(::windows::core::Vtable::as_raw(self), ptoplevelcollection.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComTrackingInfoEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComTrackingInfoEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComTrackingInfoEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2831,7 +2831,7 @@ impl IComTrackingInfoObject {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), szpropertyname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IComTrackingInfoObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComTrackingInfoObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComTrackingInfoObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2876,7 +2876,7 @@ impl IComTrackingInfoProperties {
         (::windows::core::Vtable::vtable(self).GetPropName)(::windows::core::Vtable::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IComTrackingInfoProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComTrackingInfoProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComTrackingInfoProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2933,7 +2933,7 @@ impl IComTransaction2Events {
         (::windows::core::Vtable::vtable(self).OnTransactionCommit2)(::windows::core::Vtable::as_raw(self), pinfo, guidtx).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComTransaction2Events, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComTransaction2Events, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComTransaction2Events {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2998,7 +2998,7 @@ impl IComTransactionEvents {
         (::windows::core::Vtable::vtable(self).OnTransactionCommit)(::windows::core::Vtable::as_raw(self), pinfo, guidtx).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComTransactionEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComTransactionEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComTransactionEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3046,7 +3046,7 @@ impl IComUserEvent {
         (::windows::core::Vtable::vtable(self).OnUserEvent)(::windows::core::Vtable::as_raw(self), pinfo, pvarevent).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComUserEvent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComUserEvent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComUserEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3103,7 +3103,7 @@ impl IContextProperties {
         (::windows::core::Vtable::vtable(self).RemoveProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContextProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContextProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContextProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3160,7 +3160,7 @@ impl IContextSecurityPerimeter {
         (::windows::core::Vtable::vtable(self).SetPerimeterFlag)(::windows::core::Vtable::as_raw(self), fflag.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContextSecurityPerimeter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContextSecurityPerimeter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContextSecurityPerimeter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3220,7 +3220,7 @@ impl IContextState {
         (::windows::core::Vtable::vtable(self).GetMyTransactionVote)(::windows::core::Vtable::as_raw(self), ptxvote).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContextState, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContextState, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContextState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3269,7 +3269,7 @@ impl ICreateWithLocalTransaction {
         (::windows::core::Vtable::vtable(self).CreateInstanceWithSysTx)(::windows::core::Vtable::as_raw(self), ptransaction.into().abi(), rclsid, riid, pobject).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICreateWithLocalTransaction, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICreateWithLocalTransaction, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICreateWithLocalTransaction {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3310,7 +3310,7 @@ impl ICreateWithTipTransactionEx {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtipurl), rclsid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICreateWithTipTransactionEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICreateWithTipTransactionEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICreateWithTipTransactionEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3354,7 +3354,7 @@ impl ICreateWithTransactionEx {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), ptransaction.into().abi(), rclsid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICreateWithTransactionEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICreateWithTransactionEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICreateWithTransactionEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3446,7 +3446,7 @@ impl ICrmCompensator {
         (::windows::core::Vtable::vtable(self).EndAbort)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICrmCompensator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICrmCompensator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICrmCompensator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3562,7 +3562,7 @@ impl ICrmCompensatorVariants {
         (::windows::core::Vtable::vtable(self).EndAbortVariants)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICrmCompensatorVariants, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICrmCompensatorVariants, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICrmCompensatorVariants {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3645,7 +3645,7 @@ impl ICrmFormatLogRecords {
         (::windows::core::Vtable::vtable(self).GetColumnVariants)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(logrecord), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICrmFormatLogRecords, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICrmFormatLogRecords, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICrmFormatLogRecords {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3721,7 +3721,7 @@ impl ICrmLogControl {
         (::windows::core::Vtable::vtable(self).WriteLogRecord)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rgblob.as_ptr()), rgblob.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICrmLogControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICrmLogControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICrmLogControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3779,7 +3779,7 @@ impl ICrmMonitor {
         (::windows::core::Vtable::vtable(self).HoldClerk)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(index), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICrmMonitor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICrmMonitor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICrmMonitor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3861,7 +3861,7 @@ impl ICrmMonitorClerks {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICrmMonitorClerks, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICrmMonitorClerks, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICrmMonitorClerks {
     fn eq(&self, other: &Self) -> bool {
@@ -3948,7 +3948,7 @@ impl ICrmMonitorLogRecords {
         (::windows::core::Vtable::vtable(self).GetLogRecordVariants)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(indexnumber), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICrmMonitorLogRecords, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICrmMonitorLogRecords, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICrmMonitorLogRecords {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4018,7 +4018,7 @@ impl IDispenserDriver {
         (::windows::core::Vtable::vtable(self).DestroyResourceS)(::windows::core::Vtable::as_raw(self), resid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDispenserDriver, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDispenserDriver, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDispenserDriver {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4071,7 +4071,7 @@ impl IDispenserManager {
         (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), __midl__idispensermanager0002, __midl__idispensermanager0003).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDispenserManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDispenserManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDispenserManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4119,7 +4119,7 @@ impl IEnumNames {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumNames, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumNames, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumNames {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4168,7 +4168,7 @@ impl IEventServerTrace {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IEventServerTrace, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IEventServerTrace, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IEventServerTrace {
     fn eq(&self, other: &Self) -> bool {
@@ -4240,7 +4240,7 @@ impl IGetAppTrackerData {
         (::windows::core::Vtable::vtable(self).GetSuggestedPollingInterval)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IGetAppTrackerData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IGetAppTrackerData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGetAppTrackerData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4301,7 +4301,7 @@ impl IGetContextProperties {
         (::windows::core::Vtable::vtable(self).EnumNames)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IGetContextProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IGetContextProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGetContextProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4349,7 +4349,7 @@ impl IGetSecurityCallContext {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IGetSecurityCallContext, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IGetSecurityCallContext, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IGetSecurityCallContext {
     fn eq(&self, other: &Self) -> bool {
@@ -4427,7 +4427,7 @@ impl IHolder {
         (::windows::core::Vtable::vtable(self).RequestDestroyResource)(::windows::core::Vtable::as_raw(self), __midl__iholder0009).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHolder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHolder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHolder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4485,7 +4485,7 @@ impl ILBEvents {
         (::windows::core::Vtable::vtable(self).EngineDefined)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropname), varpropvalue, ::core::mem::transmute_copy(bstrclsideng)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ILBEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILBEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILBEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4545,7 +4545,7 @@ impl IMTSActivity {
         (::windows::core::Vtable::vtable(self).UnbindFromThread)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMTSActivity, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMTSActivity, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMTSActivity {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4586,7 +4586,7 @@ impl IMTSCall {
         (::windows::core::Vtable::vtable(self).OnCall)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMTSCall, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMTSCall, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMTSCall {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4627,7 +4627,7 @@ impl IMTSLocator {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMTSLocator, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMTSLocator, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMTSLocator {
     fn eq(&self, other: &Self) -> bool {
@@ -4683,7 +4683,7 @@ impl IManagedActivationEvents {
         (::windows::core::Vtable::vtable(self).DestroyManagedStub)(::windows::core::Vtable::as_raw(self), pinfo.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IManagedActivationEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IManagedActivationEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IManagedActivationEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4746,7 +4746,7 @@ impl IManagedObjectInfo {
         (::windows::core::Vtable::vtable(self).SetWrapperStrength)(::windows::core::Vtable::as_raw(self), bstrong.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IManagedObjectInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IManagedObjectInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IManagedObjectInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4792,7 +4792,7 @@ impl IManagedPoolAction {
         (::windows::core::Vtable::vtable(self).LastRelease)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IManagedPoolAction, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IManagedPoolAction, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IManagedPoolAction {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4834,7 +4834,7 @@ impl IManagedPooledObj {
         (::windows::core::Vtable::vtable(self).SetHeld)(::windows::core::Vtable::as_raw(self), m_bheld.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IManagedPooledObj, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IManagedPooledObj, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IManagedPooledObj {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4899,7 +4899,7 @@ impl IMessageMover {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMessageMover, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMessageMover, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMessageMover {
     fn eq(&self, other: &Self) -> bool {
@@ -4971,7 +4971,7 @@ impl IMtsEventInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMtsEventInfo, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMtsEventInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMtsEventInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -5045,7 +5045,7 @@ impl IMtsEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMtsEvents, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMtsEvents, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMtsEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -5110,7 +5110,7 @@ impl IMtsGrp {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMtsGrp, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMtsGrp, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMtsGrp {
     fn eq(&self, other: &Self) -> bool {
@@ -5177,7 +5177,7 @@ impl IObjPool {
         (::windows::core::Vtable::vtable(self).Reserved6)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IObjPool, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjPool, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjPool {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5225,7 +5225,7 @@ impl IObjectConstruct {
         (::windows::core::Vtable::vtable(self).Construct)(::windows::core::Vtable::as_raw(self), pctorobj.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IObjectConstruct, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectConstruct, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectConstruct {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5268,7 +5268,7 @@ impl IObjectConstructString {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IObjectConstructString, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IObjectConstructString, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IObjectConstructString {
     fn eq(&self, other: &Self) -> bool {
@@ -5339,7 +5339,7 @@ impl IObjectContext {
         (::windows::core::Vtable::vtable(self).IsCallerInRole)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrole), pfisinrole).ok()
     }
 }
-::windows::core::interface_hierarchy!(IObjectContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5392,7 +5392,7 @@ impl IObjectContextActivity {
         (::windows::core::Vtable::vtable(self).GetActivityId)(::windows::core::Vtable::as_raw(self), pguid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IObjectContextActivity, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectContextActivity, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectContextActivity {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5444,7 +5444,7 @@ impl IObjectContextInfo {
         (::windows::core::Vtable::vtable(self).GetContextId)(::windows::core::Vtable::as_raw(self), pguid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IObjectContextInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectContextInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectContextInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5512,7 +5512,7 @@ impl IObjectContextInfo2 {
         (::windows::core::Vtable::vtable(self).GetApplicationInstanceId)(::windows::core::Vtable::as_raw(self), pguid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IObjectContextInfo2, ::windows::core::IUnknown, IObjectContextInfo);
+::windows::imp::interface_hierarchy!(IObjectContextInfo2, ::windows::core::IUnknown, IObjectContextInfo);
 impl ::core::cmp::PartialEq for IObjectContextInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5551,7 +5551,7 @@ impl IObjectContextTip {
         (::windows::core::Vtable::vtable(self).GetTipUrl)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptipurl)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IObjectContextTip, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectContextTip, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectContextTip {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5596,7 +5596,7 @@ impl IObjectControl {
         (::windows::core::Vtable::vtable(self).CanBePooled)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IObjectControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5641,7 +5641,7 @@ impl IPlaybackControl {
         (::windows::core::Vtable::vtable(self).FinalServerRetry)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPlaybackControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPlaybackControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPlaybackControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5682,7 +5682,7 @@ impl IPoolManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPoolManager, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IPoolManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPoolManager {
     fn eq(&self, other: &Self) -> bool {
@@ -5732,7 +5732,7 @@ impl IProcessInitializer {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IProcessInitializer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProcessInitializer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProcessInitializer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5802,7 +5802,7 @@ impl ISecurityCallContext {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISecurityCallContext, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISecurityCallContext, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISecurityCallContext {
     fn eq(&self, other: &Self) -> bool {
@@ -5877,7 +5877,7 @@ impl ISecurityCallersColl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISecurityCallersColl, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISecurityCallersColl, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISecurityCallersColl {
     fn eq(&self, other: &Self) -> bool {
@@ -5940,7 +5940,7 @@ impl ISecurityIdentityColl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISecurityIdentityColl, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISecurityIdentityColl, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISecurityIdentityColl {
     fn eq(&self, other: &Self) -> bool {
@@ -6014,7 +6014,7 @@ impl ISecurityProperty {
         (::windows::core::Vtable::vtable(self).ReleaseSID)(::windows::core::Vtable::as_raw(self), psid.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISecurityProperty, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISecurityProperty, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISecurityProperty {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6076,7 +6076,7 @@ impl ISelectCOMLBServer {
         (::windows::core::Vtable::vtable(self).GetLBServer)(::windows::core::Vtable::as_raw(self), punk.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISelectCOMLBServer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISelectCOMLBServer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISelectCOMLBServer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6117,7 +6117,7 @@ impl ISendMethodEvents {
         (::windows::core::Vtable::vtable(self).SendMethodReturn)(::windows::core::Vtable::as_raw(self), pidentity, riid, dwmeth, hrcall, hrserver).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISendMethodEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISendMethodEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISendMethodEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6170,7 +6170,7 @@ impl IServiceActivity {
         (::windows::core::Vtable::vtable(self).UnbindFromThread)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceActivity, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServiceActivity, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServiceActivity {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6210,7 +6210,7 @@ impl IServiceCall {
         (::windows::core::Vtable::vtable(self).OnCall)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceCall, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServiceCall, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServiceCall {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6247,7 +6247,7 @@ impl IServiceComTIIntrinsicsConfig {
         (::windows::core::Vtable::vtable(self).ComTIIntrinsicsConfig)(::windows::core::Vtable::as_raw(self), comtiintrinsicsconfig).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceComTIIntrinsicsConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServiceComTIIntrinsicsConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServiceComTIIntrinsicsConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6284,7 +6284,7 @@ impl IServiceIISIntrinsicsConfig {
         (::windows::core::Vtable::vtable(self).IISIntrinsicsConfig)(::windows::core::Vtable::as_raw(self), iisintrinsicsconfig).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceIISIntrinsicsConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServiceIISIntrinsicsConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServiceIISIntrinsicsConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6321,7 +6321,7 @@ impl IServiceInheritanceConfig {
         (::windows::core::Vtable::vtable(self).ContainingContextTreatment)(::windows::core::Vtable::as_raw(self), inheritanceconfig).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceInheritanceConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServiceInheritanceConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServiceInheritanceConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6361,7 +6361,7 @@ impl IServicePartitionConfig {
         (::windows::core::Vtable::vtable(self).PartitionID)(::windows::core::Vtable::as_raw(self), guidpartitionid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServicePartitionConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServicePartitionConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServicePartitionConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6408,7 +6408,7 @@ impl IServicePool {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServicePool, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServicePool, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServicePool {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6489,7 +6489,7 @@ impl IServicePoolConfig {
         (::windows::core::Vtable::vtable(self).ClassFactory)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IServicePoolConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServicePoolConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServicePoolConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6559,7 +6559,7 @@ impl IServiceSxsConfig {
         (::windows::core::Vtable::vtable(self).SxsDirectory)(::windows::core::Vtable::as_raw(self), szsxsdirectory.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceSxsConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServiceSxsConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServiceSxsConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6598,7 +6598,7 @@ impl IServiceSynchronizationConfig {
         (::windows::core::Vtable::vtable(self).ConfigureSynchronization)(::windows::core::Vtable::as_raw(self), synchconfig).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceSynchronizationConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServiceSynchronizationConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServiceSynchronizationConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6667,7 +6667,7 @@ impl IServiceSysTxnConfig {
         (::windows::core::Vtable::vtable(self).ConfigureBYOTSysTxn)(::windows::core::Vtable::as_raw(self), ptxproxy.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceSysTxnConfig, ::windows::core::IUnknown, IServiceTransactionConfigBase, IServiceTransactionConfig);
+::windows::imp::interface_hierarchy!(IServiceSysTxnConfig, ::windows::core::IUnknown, IServiceTransactionConfigBase, IServiceTransactionConfig);
 impl ::core::cmp::PartialEq for IServiceSysTxnConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6707,7 +6707,7 @@ impl IServiceThreadPoolConfig {
         (::windows::core::Vtable::vtable(self).SetBindingInfo)(::windows::core::Vtable::as_raw(self), binding).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceThreadPoolConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServiceThreadPoolConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServiceThreadPoolConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6749,7 +6749,7 @@ impl IServiceTrackerConfig {
         (::windows::core::Vtable::vtable(self).TrackerConfig)(::windows::core::Vtable::as_raw(self), trackerconfig, sztrackerappname.into().abi(), sztrackerctxname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceTrackerConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServiceTrackerConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServiceTrackerConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6812,7 +6812,7 @@ impl IServiceTransactionConfig {
         (::windows::core::Vtable::vtable(self).ConfigureBYOT)(::windows::core::Vtable::as_raw(self), pitxbyot.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceTransactionConfig, ::windows::core::IUnknown, IServiceTransactionConfigBase);
+::windows::imp::interface_hierarchy!(IServiceTransactionConfig, ::windows::core::IUnknown, IServiceTransactionConfigBase);
 impl ::core::cmp::PartialEq for IServiceTransactionConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6870,7 +6870,7 @@ impl IServiceTransactionConfigBase {
         (::windows::core::Vtable::vtable(self).NewTransactionDescription)(::windows::core::Vtable::as_raw(self), sztxdesc.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceTransactionConfigBase, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServiceTransactionConfigBase, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServiceTransactionConfigBase {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6922,7 +6922,7 @@ impl ISharedProperty {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISharedProperty, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISharedProperty, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISharedProperty {
     fn eq(&self, other: &Self) -> bool {
@@ -6995,7 +6995,7 @@ impl ISharedPropertyGroup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISharedPropertyGroup, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISharedPropertyGroup, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISharedPropertyGroup {
     fn eq(&self, other: &Self) -> bool {
@@ -7069,7 +7069,7 @@ impl ISharedPropertyGroupManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISharedPropertyGroupManager, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISharedPropertyGroupManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISharedPropertyGroupManager {
     fn eq(&self, other: &Self) -> bool {
@@ -7124,7 +7124,7 @@ impl ISystemAppEventData {
         (::windows::core::Vtable::vtable(self).OnDataChanged)(::windows::core::Vtable::as_raw(self), dwpid, dwmask, dwnumbersinks, ::core::mem::transmute_copy(bstrdwmethodmask), dwreason, u64tracehandle).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISystemAppEventData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISystemAppEventData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISystemAppEventData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7189,7 +7189,7 @@ impl IThreadPoolKnobs {
         (::windows::core::Vtable::vtable(self).SetQueueDepth)(::windows::core::Vtable::as_raw(self), lcqueuedepth).ok()
     }
 }
-::windows::core::interface_hierarchy!(IThreadPoolKnobs, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IThreadPoolKnobs, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IThreadPoolKnobs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7247,7 +7247,7 @@ impl ITransactionContext {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITransactionContext, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITransactionContext, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITransactionContext {
     fn eq(&self, other: &Self) -> bool {
@@ -7306,7 +7306,7 @@ impl ITransactionContextEx {
         (::windows::core::Vtable::vtable(self).Abort)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionContextEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionContextEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionContextEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7397,7 +7397,7 @@ impl ITransactionProperty {
         (::windows::core::Vtable::vtable(self).Reserved17)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ITransactionProperty, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionProperty, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionProperty {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7480,7 +7480,7 @@ impl ITransactionProxy {
         (::windows::core::Vtable::vtable(self).IsReusable)(::windows::core::Vtable::as_raw(self), pfisreusable).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionProxy, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionProxy, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionProxy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7543,7 +7543,7 @@ impl ITransactionResourcePool {
         (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), ppool.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionResourcePool, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionResourcePool, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionResourcePool {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7584,7 +7584,7 @@ impl ITransactionStatus {
         (::windows::core::Vtable::vtable(self).GetTransactionStatus)(::windows::core::Vtable::as_raw(self), phrstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionStatus, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionStatus, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionStatus {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7622,7 +7622,7 @@ impl ITxProxyHolder {
         (::windows::core::Vtable::vtable(self).GetIdentifier)(::windows::core::Vtable::as_raw(self), pguidltx)
     }
 }
-::windows::core::interface_hierarchy!(ITxProxyHolder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITxProxyHolder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITxProxyHolder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7721,7 +7721,7 @@ impl ObjectContext {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ObjectContext, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ObjectContext, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ObjectContext {
     fn eq(&self, other: &Self) -> bool {
@@ -7806,7 +7806,7 @@ impl ObjectControl {
         (::windows::core::Vtable::vtable(self).CanBePooled)(::windows::core::Vtable::as_raw(self), pbpoolable).ok()
     }
 }
-::windows::core::interface_hierarchy!(ObjectControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ObjectControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ObjectControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7864,7 +7864,7 @@ impl SecurityProperty {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(SecurityProperty, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(SecurityProperty, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for SecurityProperty {
     fn eq(&self, other: &Self) -> bool {

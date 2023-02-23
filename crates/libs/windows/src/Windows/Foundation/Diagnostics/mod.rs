@@ -82,7 +82,7 @@ impl IErrorReportingSettings {
         }
     }
 }
-::windows::core::interface_hierarchy!(IErrorReportingSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IErrorReportingSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IErrorReportingSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -95,7 +95,7 @@ impl ::core::fmt::Debug for IErrorReportingSettings {
     }
 }
 impl ::windows::core::RuntimeType for IErrorReportingSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0}");
 }
 unsafe impl ::windows::core::Vtable for IErrorReportingSettings {
     type Vtable = IErrorReportingSettings_Vtbl;
@@ -175,7 +175,7 @@ impl IFileLoggingSession {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IFileLoggingSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFileLoggingSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IFileLoggingSession> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: IFileLoggingSession) -> ::windows::core::Result<Self> {
@@ -207,7 +207,7 @@ impl ::core::fmt::Debug for IFileLoggingSession {
     }
 }
 impl ::windows::core::RuntimeType for IFileLoggingSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{24c74216-fed2-404c-895f-1f9699cb02f7}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{24c74216-fed2-404c-895f-1f9699cb02f7}");
 }
 unsafe impl ::windows::core::Vtable for IFileLoggingSession {
     type Vtable = IFileLoggingSession_Vtbl;
@@ -400,7 +400,7 @@ impl ILoggingChannel {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ILoggingChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILoggingChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ILoggingChannel> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: ILoggingChannel) -> ::windows::core::Result<Self> {
@@ -432,7 +432,7 @@ impl ::core::fmt::Debug for ILoggingChannel {
     }
 }
 impl ::windows::core::RuntimeType for ILoggingChannel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e9a50343-11d7-4f01-b5ca-cf495278c0a8}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e9a50343-11d7-4f01-b5ca-cf495278c0a8}");
 }
 unsafe impl ::windows::core::Vtable for ILoggingChannel {
     type Vtable = ILoggingChannel_Vtbl;
@@ -802,7 +802,7 @@ impl ILoggingSession {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ILoggingSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILoggingSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ILoggingSession> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: ILoggingSession) -> ::windows::core::Result<Self> {
@@ -834,7 +834,7 @@ impl ::core::fmt::Debug for ILoggingSession {
     }
 }
 impl ::windows::core::RuntimeType for ILoggingSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6221f306-9380-4ad7-baf5-41ea9310d768}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{6221f306-9380-4ad7-baf5-41ea9310d768}");
 }
 unsafe impl ::windows::core::Vtable for ILoggingSession {
     type Vtable = ILoggingSession_Vtbl;
@@ -950,7 +950,7 @@ impl ILoggingTarget {
         }
     }
 }
-::windows::core::interface_hierarchy!(ILoggingTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILoggingTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ILoggingTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -963,7 +963,7 @@ impl ::core::fmt::Debug for ILoggingTarget {
     }
 }
 impl ::windows::core::RuntimeType for ILoggingTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{65f16c35-e388-4e26-b17a-f51cd3a83916}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{65f16c35-e388-4e26-b17a-f51cd3a83916}");
 }
 unsafe impl ::windows::core::Vtable for ILoggingTarget {
     type Vtable = ILoggingTarget_Vtbl;
@@ -1042,7 +1042,7 @@ impl AsyncCausalityTracer {
     }
     #[doc(hidden)]
     pub fn IAsyncCausalityTracerStatics<R, F: FnOnce(&IAsyncCausalityTracerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AsyncCausalityTracer, IAsyncCausalityTracerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AsyncCausalityTracer, IAsyncCausalityTracerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1082,7 +1082,7 @@ impl ErrorDetails {
     }
     #[doc(hidden)]
     pub fn IErrorDetailsStatics<R, F: FnOnce(&IErrorDetailsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ErrorDetails, IErrorDetailsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ErrorDetails, IErrorDetailsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1098,7 +1098,7 @@ impl ::core::fmt::Debug for ErrorDetails {
     }
 }
 impl ::windows::core::RuntimeType for ErrorDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.ErrorDetails;{378cbb01-2cc9-428f-8c55-2c990d463e8f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.ErrorDetails;{378cbb01-2cc9-428f-8c55-2c990d463e8f})");
 }
 impl ::core::clone::Clone for ErrorDetails {
     fn clone(&self) -> Self {
@@ -1114,7 +1114,7 @@ unsafe impl ::windows::core::Interface for ErrorDetails {
 impl ::windows::core::RuntimeName for ErrorDetails {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ErrorDetails";
 }
-::windows::core::interface_hierarchy!(ErrorDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ErrorDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ErrorDetails {}
 unsafe impl ::core::marker::Sync for ErrorDetails {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -1184,7 +1184,7 @@ impl FileLoggingSession {
     }
     #[doc(hidden)]
     pub fn IFileLoggingSessionFactory<R, F: FnOnce(&IFileLoggingSessionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileLoggingSession, IFileLoggingSessionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FileLoggingSession, IFileLoggingSessionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1200,7 +1200,7 @@ impl ::core::fmt::Debug for FileLoggingSession {
     }
 }
 impl ::windows::core::RuntimeType for FileLoggingSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.FileLoggingSession;{24c74216-fed2-404c-895f-1f9699cb02f7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.FileLoggingSession;{24c74216-fed2-404c-895f-1f9699cb02f7})");
 }
 impl ::core::clone::Clone for FileLoggingSession {
     fn clone(&self) -> Self {
@@ -1216,7 +1216,7 @@ unsafe impl ::windows::core::Interface for FileLoggingSession {
 impl ::windows::core::RuntimeName for FileLoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.FileLoggingSession";
 }
-::windows::core::interface_hierarchy!(FileLoggingSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileLoggingSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<FileLoggingSession> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: FileLoggingSession) -> ::windows::core::Result<Self> {
@@ -1283,7 +1283,7 @@ impl ::core::fmt::Debug for LogFileGeneratedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LogFileGeneratedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs;{269e976f-0d38-4c1a-b53f-b395d881df84})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs;{269e976f-0d38-4c1a-b53f-b395d881df84})");
 }
 impl ::core::clone::Clone for LogFileGeneratedEventArgs {
     fn clone(&self) -> Self {
@@ -1299,7 +1299,7 @@ unsafe impl ::windows::core::Interface for LogFileGeneratedEventArgs {
 impl ::windows::core::RuntimeName for LogFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs";
 }
-::windows::core::interface_hierarchy!(LogFileGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LogFileGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LogFileGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for LogFileGeneratedEventArgs {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -1430,7 +1430,7 @@ impl LoggingActivity {
     }
     #[doc(hidden)]
     pub fn ILoggingActivityFactory<R, F: FnOnce(&ILoggingActivityFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LoggingActivity, ILoggingActivityFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LoggingActivity, ILoggingActivityFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1446,7 +1446,7 @@ impl ::core::fmt::Debug for LoggingActivity {
     }
 }
 impl ::windows::core::RuntimeType for LoggingActivity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingActivity;{bc032941-b766-4cb5-9848-97ac6ba6d60c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingActivity;{bc032941-b766-4cb5-9848-97ac6ba6d60c})");
 }
 impl ::core::clone::Clone for LoggingActivity {
     fn clone(&self) -> Self {
@@ -1462,7 +1462,7 @@ unsafe impl ::windows::core::Interface for LoggingActivity {
 impl ::windows::core::RuntimeName for LoggingActivity {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingActivity";
 }
-::windows::core::interface_hierarchy!(LoggingActivity, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LoggingActivity, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LoggingActivity> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: LoggingActivity) -> ::windows::core::Result<Self> {
@@ -1653,12 +1653,12 @@ impl LoggingChannel {
     }
     #[doc(hidden)]
     pub fn ILoggingChannelFactory<R, F: FnOnce(&ILoggingChannelFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LoggingChannel, ILoggingChannelFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LoggingChannel, ILoggingChannelFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ILoggingChannelFactory2<R, F: FnOnce(&ILoggingChannelFactory2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LoggingChannel, ILoggingChannelFactory2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LoggingChannel, ILoggingChannelFactory2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1674,7 +1674,7 @@ impl ::core::fmt::Debug for LoggingChannel {
     }
 }
 impl ::windows::core::RuntimeType for LoggingChannel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingChannel;{e9a50343-11d7-4f01-b5ca-cf495278c0a8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingChannel;{e9a50343-11d7-4f01-b5ca-cf495278c0a8})");
 }
 impl ::core::clone::Clone for LoggingChannel {
     fn clone(&self) -> Self {
@@ -1690,7 +1690,7 @@ unsafe impl ::windows::core::Interface for LoggingChannel {
 impl ::windows::core::RuntimeName for LoggingChannel {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannel";
 }
-::windows::core::interface_hierarchy!(LoggingChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LoggingChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LoggingChannel> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: LoggingChannel) -> ::windows::core::Result<Self> {
@@ -1757,8 +1757,8 @@ impl LoggingChannelOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LoggingChannelOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<LoggingChannelOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -1780,7 +1780,7 @@ impl LoggingChannelOptions {
     }
     #[doc(hidden)]
     pub fn ILoggingChannelOptionsFactory<R, F: FnOnce(&ILoggingChannelOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LoggingChannelOptions, ILoggingChannelOptionsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LoggingChannelOptions, ILoggingChannelOptionsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1796,7 +1796,7 @@ impl ::core::fmt::Debug for LoggingChannelOptions {
     }
 }
 impl ::windows::core::RuntimeType for LoggingChannelOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingChannelOptions;{c3e847ff-0ebb-4a53-8c54-dec24926cb2c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingChannelOptions;{c3e847ff-0ebb-4a53-8c54-dec24926cb2c})");
 }
 impl ::core::clone::Clone for LoggingChannelOptions {
     fn clone(&self) -> Self {
@@ -1812,7 +1812,7 @@ unsafe impl ::windows::core::Interface for LoggingChannelOptions {
 impl ::windows::core::RuntimeName for LoggingChannelOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannelOptions";
 }
-::windows::core::interface_hierarchy!(LoggingChannelOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LoggingChannelOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LoggingChannelOptions {}
 unsafe impl ::core::marker::Sync for LoggingChannelOptions {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -1822,8 +1822,8 @@ impl LoggingFields {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LoggingFields, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<LoggingFields, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Clear(&self) -> ::windows::core::Result<()> {
@@ -2299,7 +2299,7 @@ impl ::core::fmt::Debug for LoggingFields {
     }
 }
 impl ::windows::core::RuntimeType for LoggingFields {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingFields;{d7f6b7af-762d-4579-83bd-52c23bc333bc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingFields;{d7f6b7af-762d-4579-83bd-52c23bc333bc})");
 }
 impl ::core::clone::Clone for LoggingFields {
     fn clone(&self) -> Self {
@@ -2315,7 +2315,7 @@ unsafe impl ::windows::core::Interface for LoggingFields {
 impl ::windows::core::RuntimeName for LoggingFields {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingFields";
 }
-::windows::core::interface_hierarchy!(LoggingFields, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LoggingFields, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LoggingFields {}
 unsafe impl ::core::marker::Sync for LoggingFields {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -2325,8 +2325,8 @@ impl LoggingOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LoggingOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<LoggingOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Keywords(&self) -> ::windows::core::Result<i64> {
@@ -2403,7 +2403,7 @@ impl LoggingOptions {
     }
     #[doc(hidden)]
     pub fn ILoggingOptionsFactory<R, F: FnOnce(&ILoggingOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LoggingOptions, ILoggingOptionsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LoggingOptions, ILoggingOptionsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2419,7 +2419,7 @@ impl ::core::fmt::Debug for LoggingOptions {
     }
 }
 impl ::windows::core::RuntimeType for LoggingOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingOptions;{90bc7850-0192-4f5d-ac26-006adaca12d8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingOptions;{90bc7850-0192-4f5d-ac26-006adaca12d8})");
 }
 impl ::core::clone::Clone for LoggingOptions {
     fn clone(&self) -> Self {
@@ -2435,7 +2435,7 @@ unsafe impl ::windows::core::Interface for LoggingOptions {
 impl ::windows::core::RuntimeName for LoggingOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingOptions";
 }
-::windows::core::interface_hierarchy!(LoggingOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LoggingOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LoggingOptions {}
 unsafe impl ::core::marker::Sync for LoggingOptions {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -2498,7 +2498,7 @@ impl LoggingSession {
     }
     #[doc(hidden)]
     pub fn ILoggingSessionFactory<R, F: FnOnce(&ILoggingSessionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LoggingSession, ILoggingSessionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LoggingSession, ILoggingSessionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2514,7 +2514,7 @@ impl ::core::fmt::Debug for LoggingSession {
     }
 }
 impl ::windows::core::RuntimeType for LoggingSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingSession;{6221f306-9380-4ad7-baf5-41ea9310d768})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingSession;{6221f306-9380-4ad7-baf5-41ea9310d768})");
 }
 impl ::core::clone::Clone for LoggingSession {
     fn clone(&self) -> Self {
@@ -2530,7 +2530,7 @@ unsafe impl ::windows::core::Interface for LoggingSession {
 impl ::windows::core::RuntimeName for LoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingSession";
 }
-::windows::core::interface_hierarchy!(LoggingSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LoggingSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LoggingSession> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: LoggingSession) -> ::windows::core::Result<Self> {
@@ -2578,8 +2578,8 @@ impl RuntimeBrokerErrorSettings {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RuntimeBrokerErrorSettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<RuntimeBrokerErrorSettings, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetErrorOptions(&self, value: ErrorOptions) -> ::windows::core::Result<()> {
@@ -2606,7 +2606,7 @@ impl ::core::fmt::Debug for RuntimeBrokerErrorSettings {
     }
 }
 impl ::windows::core::RuntimeType for RuntimeBrokerErrorSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings;{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings;{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0})");
 }
 impl ::core::clone::Clone for RuntimeBrokerErrorSettings {
     fn clone(&self) -> Self {
@@ -2622,7 +2622,7 @@ unsafe impl ::windows::core::Interface for RuntimeBrokerErrorSettings {
 impl ::windows::core::RuntimeName for RuntimeBrokerErrorSettings {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings";
 }
-::windows::core::interface_hierarchy!(RuntimeBrokerErrorSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RuntimeBrokerErrorSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RuntimeBrokerErrorSettings> for IErrorReportingSettings {
     type Error = ::windows::core::Error;
     fn try_from(value: RuntimeBrokerErrorSettings) -> ::windows::core::Result<Self> {
@@ -2675,7 +2675,7 @@ impl ::core::fmt::Debug for TracingStatusChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for TracingStatusChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs;{410b7711-ff3b-477f-9c9a-d2efda302dc3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs;{410b7711-ff3b-477f-9c9a-d2efda302dc3})");
 }
 impl ::core::clone::Clone for TracingStatusChangedEventArgs {
     fn clone(&self) -> Self {
@@ -2691,7 +2691,7 @@ unsafe impl ::windows::core::Interface for TracingStatusChangedEventArgs {
 impl ::windows::core::RuntimeName for TracingStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(TracingStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TracingStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TracingStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TracingStatusChangedEventArgs {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -2725,7 +2725,7 @@ impl ::core::fmt::Debug for CausalityRelation {
     }
 }
 impl ::windows::core::RuntimeType for CausalityRelation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityRelation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityRelation;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
@@ -2756,7 +2756,7 @@ impl ::core::fmt::Debug for CausalitySource {
     }
 }
 impl ::windows::core::RuntimeType for CausalitySource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySource;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySource;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
@@ -2787,7 +2787,7 @@ impl ::core::fmt::Debug for CausalitySynchronousWork {
     }
 }
 impl ::windows::core::RuntimeType for CausalitySynchronousWork {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySynchronousWork;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySynchronousWork;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
@@ -2818,7 +2818,7 @@ impl ::core::fmt::Debug for CausalityTraceLevel {
     }
 }
 impl ::windows::core::RuntimeType for CausalityTraceLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityTraceLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityTraceLevel;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
@@ -2884,7 +2884,7 @@ impl ::core::ops::Not for ErrorOptions {
     }
 }
 impl ::windows::core::RuntimeType for ErrorOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.ErrorOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.ErrorOptions;u4)");
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
@@ -2931,7 +2931,7 @@ impl ::core::fmt::Debug for LoggingFieldFormat {
     }
 }
 impl ::windows::core::RuntimeType for LoggingFieldFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingFieldFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingFieldFormat;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
@@ -2964,7 +2964,7 @@ impl ::core::fmt::Debug for LoggingLevel {
     }
 }
 impl ::windows::core::RuntimeType for LoggingLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingLevel;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
@@ -2999,7 +2999,7 @@ impl ::core::fmt::Debug for LoggingOpcode {
     }
 }
 impl ::windows::core::RuntimeType for LoggingOpcode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingOpcode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingOpcode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

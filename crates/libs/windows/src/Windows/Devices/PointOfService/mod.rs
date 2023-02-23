@@ -660,7 +660,7 @@ impl ICashDrawerEventSourceEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(ICashDrawerEventSourceEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICashDrawerEventSourceEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICashDrawerEventSourceEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -673,7 +673,7 @@ impl ::core::fmt::Debug for ICashDrawerEventSourceEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ICashDrawerEventSourceEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{69cb3bc1-147f-421c-9c23-090123bb786c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{69cb3bc1-147f-421c-9c23-090123bb786c}");
 }
 unsafe impl ::windows::core::Vtable for ICashDrawerEventSourceEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_Vtbl;
@@ -1769,7 +1769,7 @@ impl ICommonClaimedPosPrinterStation {
         }
     }
 }
-::windows::core::interface_hierarchy!(ICommonClaimedPosPrinterStation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICommonClaimedPosPrinterStation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICommonClaimedPosPrinterStation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1782,7 +1782,7 @@ impl ::core::fmt::Debug for ICommonClaimedPosPrinterStation {
     }
 }
 impl ::windows::core::RuntimeType for ICommonClaimedPosPrinterStation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b7eb66a8-fe8a-4cfb-8b42-e35b280cb27c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b7eb66a8-fe8a-4cfb-8b42-e35b280cb27c}");
 }
 unsafe impl ::windows::core::Vtable for ICommonClaimedPosPrinterStation {
     type Vtable = ICommonClaimedPosPrinterStation_Vtbl;
@@ -1917,7 +1917,7 @@ impl ICommonPosPrintStationCapabilities {
         }
     }
 }
-::windows::core::interface_hierarchy!(ICommonPosPrintStationCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICommonPosPrintStationCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICommonPosPrintStationCapabilities {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1930,7 +1930,7 @@ impl ::core::fmt::Debug for ICommonPosPrintStationCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for ICommonPosPrintStationCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{de5b52ca-e02e-40e9-9e5e-1b488e6aacfc}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{de5b52ca-e02e-40e9-9e5e-1b488e6aacfc}");
 }
 unsafe impl ::windows::core::Vtable for ICommonPosPrintStationCapabilities {
     type Vtable = ICommonPosPrintStationCapabilities_Vtbl;
@@ -2129,7 +2129,7 @@ impl ICommonReceiptSlipCapabilities {
         }
     }
 }
-::windows::core::interface_hierarchy!(ICommonReceiptSlipCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICommonReceiptSlipCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ICommonReceiptSlipCapabilities> for ICommonPosPrintStationCapabilities {
     type Error = ::windows::core::Error;
     fn try_from(value: ICommonReceiptSlipCapabilities) -> ::windows::core::Result<Self> {
@@ -2161,7 +2161,7 @@ impl ::core::fmt::Debug for ICommonReceiptSlipCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for ICommonReceiptSlipCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{09286b8b-9873-4d05-bfbe-4727a6038f69}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{09286b8b-9873-4d05-bfbe-4727a6038f69}");
 }
 unsafe impl ::windows::core::Vtable for ICommonReceiptSlipCapabilities {
     type Vtable = ICommonReceiptSlipCapabilities_Vtbl;
@@ -3297,7 +3297,7 @@ impl IPosPrinterJob {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPosPrinterJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPosPrinterJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPosPrinterJob {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3310,7 +3310,7 @@ impl ::core::fmt::Debug for IPosPrinterJob {
     }
 }
 impl ::windows::core::RuntimeType for IPosPrinterJob {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9a94005c-0615-4591-a58f-30f87edfe2e4}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{9a94005c-0615-4591-a58f-30f87edfe2e4}");
 }
 unsafe impl ::windows::core::Vtable for IPosPrinterJob {
     type Vtable = IPosPrinterJob_Vtbl;
@@ -3592,7 +3592,7 @@ impl IReceiptOrSlipJob {
         }
     }
 }
-::windows::core::interface_hierarchy!(IReceiptOrSlipJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IReceiptOrSlipJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IReceiptOrSlipJob> for IPosPrinterJob {
     type Error = ::windows::core::Error;
     fn try_from(value: IReceiptOrSlipJob) -> ::windows::core::Result<Self> {
@@ -3624,7 +3624,7 @@ impl ::core::fmt::Debug for IReceiptOrSlipJob {
     }
 }
 impl ::windows::core::RuntimeType for IReceiptOrSlipJob {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{532199be-c8c3-4dc2-89e9-5c4a37b34ddc}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{532199be-c8c3-4dc2-89e9-5c4a37b34ddc}");
 }
 unsafe impl ::windows::core::Vtable for IReceiptOrSlipJob {
     type Vtable = IReceiptOrSlipJob_Vtbl;
@@ -4028,12 +4028,12 @@ impl BarcodeScanner {
     }
     #[doc(hidden)]
     pub fn IBarcodeScannerStatics<R, F: FnOnce(&IBarcodeScannerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BarcodeScanner, IBarcodeScannerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BarcodeScanner, IBarcodeScannerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBarcodeScannerStatics2<R, F: FnOnce(&IBarcodeScannerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BarcodeScanner, IBarcodeScannerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BarcodeScanner, IBarcodeScannerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4049,7 +4049,7 @@ impl ::core::fmt::Debug for BarcodeScanner {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScanner {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScanner;{bea33e06-b264-4f03-a9c1-45b20f01134f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScanner;{bea33e06-b264-4f03-a9c1-45b20f01134f})");
 }
 impl ::core::clone::Clone for BarcodeScanner {
     fn clone(&self) -> Self {
@@ -4065,7 +4065,7 @@ unsafe impl ::windows::core::Interface for BarcodeScanner {
 impl ::windows::core::RuntimeName for BarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScanner";
 }
-::windows::core::interface_hierarchy!(BarcodeScanner, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScanner, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BarcodeScanner> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4149,7 +4149,7 @@ impl ::core::fmt::Debug for BarcodeScannerCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerCapabilities;{c60691e4-f2c8-4420-a307-b12ef6622857})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerCapabilities;{c60691e4-f2c8-4420-a307-b12ef6622857})");
 }
 impl ::core::clone::Clone for BarcodeScannerCapabilities {
     fn clone(&self) -> Self {
@@ -4165,7 +4165,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerCapabilities {
 impl ::windows::core::RuntimeName for BarcodeScannerCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerCapabilities";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerCapabilities {}
 unsafe impl ::core::marker::Sync for BarcodeScannerCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -4192,7 +4192,7 @@ impl ::core::fmt::Debug for BarcodeScannerDataReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerDataReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs;{4234a7e2-ed97-467d-ad2b-01e44313a929})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs;{4234a7e2-ed97-467d-ad2b-01e44313a929})");
 }
 impl ::core::clone::Clone for BarcodeScannerDataReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -4208,7 +4208,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerDataReceivedEventArgs {
 impl ::windows::core::RuntimeName for BarcodeScannerDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -4249,7 +4249,7 @@ impl ::core::fmt::Debug for BarcodeScannerErrorOccurredEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerErrorOccurredEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs;{2cd2602f-cf3a-4002-a75a-c5ec468f0a20})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs;{2cd2602f-cf3a-4002-a75a-c5ec468f0a20})");
 }
 impl ::core::clone::Clone for BarcodeScannerErrorOccurredEventArgs {
     fn clone(&self) -> Self {
@@ -4265,7 +4265,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerErrorOccurredEventArgs 
 impl ::windows::core::RuntimeName for BarcodeScannerErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -4294,7 +4294,7 @@ impl ::core::fmt::Debug for BarcodeScannerImagePreviewReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerImagePreviewReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs;{f3b7de85-6e8b-434e-9f58-06ef26bc4baf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs;{f3b7de85-6e8b-434e-9f58-06ef26bc4baf})");
 }
 impl ::core::clone::Clone for BarcodeScannerImagePreviewReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -4310,7 +4310,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerImagePreviewReceivedEve
 impl ::windows::core::RuntimeName for BarcodeScannerImagePreviewReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerImagePreviewReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerImagePreviewReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerImagePreviewReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerImagePreviewReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -4358,7 +4358,7 @@ impl BarcodeScannerReport {
     }
     #[doc(hidden)]
     pub fn IBarcodeScannerReportFactory<R, F: FnOnce(&IBarcodeScannerReportFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BarcodeScannerReport, IBarcodeScannerReportFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BarcodeScannerReport, IBarcodeScannerReportFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4374,7 +4374,7 @@ impl ::core::fmt::Debug for BarcodeScannerReport {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerReport;{5ce4d8b0-a489-4b96-86c4-f0bf8a37753d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerReport;{5ce4d8b0-a489-4b96-86c4-f0bf8a37753d})");
 }
 impl ::core::clone::Clone for BarcodeScannerReport {
     fn clone(&self) -> Self {
@@ -4390,7 +4390,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerReport {
 impl ::windows::core::RuntimeName for BarcodeScannerReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerReport";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerReport {}
 unsafe impl ::core::marker::Sync for BarcodeScannerReport {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -4424,7 +4424,7 @@ impl ::core::fmt::Debug for BarcodeScannerStatusUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerStatusUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs;{355d8586-9c43-462b-a91a-816dc97f452c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs;{355d8586-9c43-462b-a91a-816dc97f452c})");
 }
 impl ::core::clone::Clone for BarcodeScannerStatusUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -4440,7 +4440,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerStatusUpdatedEventArgs 
 impl ::windows::core::RuntimeName for BarcodeScannerStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -5018,12 +5018,12 @@ impl BarcodeSymbologies {
     }
     #[doc(hidden)]
     pub fn IBarcodeSymbologiesStatics<R, F: FnOnce(&IBarcodeSymbologiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BarcodeSymbologies, IBarcodeSymbologiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BarcodeSymbologies, IBarcodeSymbologiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBarcodeSymbologiesStatics2<R, F: FnOnce(&IBarcodeSymbologiesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BarcodeSymbologies, IBarcodeSymbologiesStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BarcodeSymbologies, IBarcodeSymbologiesStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5123,7 +5123,7 @@ impl ::core::fmt::Debug for BarcodeSymbologyAttributes {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeSymbologyAttributes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeSymbologyAttributes;{66413a78-ab7a-4ada-8ece-936014b2ead7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeSymbologyAttributes;{66413a78-ab7a-4ada-8ece-936014b2ead7})");
 }
 impl ::core::clone::Clone for BarcodeSymbologyAttributes {
     fn clone(&self) -> Self {
@@ -5139,7 +5139,7 @@ unsafe impl ::windows::core::Interface for BarcodeSymbologyAttributes {
 impl ::windows::core::RuntimeName for BarcodeSymbologyAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeSymbologyAttributes";
 }
-::windows::core::interface_hierarchy!(BarcodeSymbologyAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeSymbologyAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeSymbologyAttributes {}
 unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributes {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -5263,12 +5263,12 @@ impl CashDrawer {
     }
     #[doc(hidden)]
     pub fn ICashDrawerStatics<R, F: FnOnce(&ICashDrawerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CashDrawer, ICashDrawerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CashDrawer, ICashDrawerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICashDrawerStatics2<R, F: FnOnce(&ICashDrawerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CashDrawer, ICashDrawerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CashDrawer, ICashDrawerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5284,7 +5284,7 @@ impl ::core::fmt::Debug for CashDrawer {
     }
 }
 impl ::windows::core::RuntimeType for CashDrawer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawer;{9f88f5c8-de54-4aee-a890-920bcbfe30fc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawer;{9f88f5c8-de54-4aee-a890-920bcbfe30fc})");
 }
 impl ::core::clone::Clone for CashDrawer {
     fn clone(&self) -> Self {
@@ -5300,7 +5300,7 @@ unsafe impl ::windows::core::Interface for CashDrawer {
 impl ::windows::core::RuntimeName for CashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawer";
 }
-::windows::core::interface_hierarchy!(CashDrawer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CashDrawer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<CashDrawer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5384,7 +5384,7 @@ impl ::core::fmt::Debug for CashDrawerCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for CashDrawerCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCapabilities;{0bc6de0b-e8e7-4b1f-b1d1-3e501ad08247})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCapabilities;{0bc6de0b-e8e7-4b1f-b1d1-3e501ad08247})");
 }
 impl ::core::clone::Clone for CashDrawerCapabilities {
     fn clone(&self) -> Self {
@@ -5400,7 +5400,7 @@ unsafe impl ::windows::core::Interface for CashDrawerCapabilities {
 impl ::windows::core::RuntimeName for CashDrawerCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerCapabilities";
 }
-::windows::core::interface_hierarchy!(CashDrawerCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CashDrawerCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CashDrawerCapabilities {}
 unsafe impl ::core::marker::Sync for CashDrawerCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -5500,7 +5500,7 @@ impl ::core::fmt::Debug for CashDrawerCloseAlarm {
     }
 }
 impl ::windows::core::RuntimeType for CashDrawerCloseAlarm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCloseAlarm;{6bf88cc7-6f63-430e-ab3b-95d75ffbe87f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCloseAlarm;{6bf88cc7-6f63-430e-ab3b-95d75ffbe87f})");
 }
 impl ::core::clone::Clone for CashDrawerCloseAlarm {
     fn clone(&self) -> Self {
@@ -5516,7 +5516,7 @@ unsafe impl ::windows::core::Interface for CashDrawerCloseAlarm {
 impl ::windows::core::RuntimeName for CashDrawerCloseAlarm {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerCloseAlarm";
 }
-::windows::core::interface_hierarchy!(CashDrawerCloseAlarm, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CashDrawerCloseAlarm, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CashDrawerCloseAlarm {}
 unsafe impl ::core::marker::Sync for CashDrawerCloseAlarm {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -5543,7 +5543,7 @@ impl ::core::fmt::Debug for CashDrawerClosedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CashDrawerClosedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerClosedEventArgs;{69cb3bc1-147f-421c-9c23-090123bb786c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerClosedEventArgs;{69cb3bc1-147f-421c-9c23-090123bb786c})");
 }
 impl ::core::clone::Clone for CashDrawerClosedEventArgs {
     fn clone(&self) -> Self {
@@ -5559,7 +5559,7 @@ unsafe impl ::windows::core::Interface for CashDrawerClosedEventArgs {
 impl ::windows::core::RuntimeName for CashDrawerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerClosedEventArgs";
 }
-::windows::core::interface_hierarchy!(CashDrawerClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CashDrawerClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CashDrawerClosedEventArgs> for ICashDrawerEventSourceEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: CashDrawerClosedEventArgs) -> ::windows::core::Result<Self> {
@@ -5628,7 +5628,7 @@ impl ::core::fmt::Debug for CashDrawerEventSource {
     }
 }
 impl ::windows::core::RuntimeType for CashDrawerEventSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerEventSource;{e006e46c-f2f9-442f-8dd6-06c10a4227ba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerEventSource;{e006e46c-f2f9-442f-8dd6-06c10a4227ba})");
 }
 impl ::core::clone::Clone for CashDrawerEventSource {
     fn clone(&self) -> Self {
@@ -5644,7 +5644,7 @@ unsafe impl ::windows::core::Interface for CashDrawerEventSource {
 impl ::windows::core::RuntimeName for CashDrawerEventSource {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerEventSource";
 }
-::windows::core::interface_hierarchy!(CashDrawerEventSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CashDrawerEventSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CashDrawerEventSource {}
 unsafe impl ::core::marker::Sync for CashDrawerEventSource {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -5671,7 +5671,7 @@ impl ::core::fmt::Debug for CashDrawerOpenedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CashDrawerOpenedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerOpenedEventArgs;{69cb3bc1-147f-421c-9c23-090123bb786c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerOpenedEventArgs;{69cb3bc1-147f-421c-9c23-090123bb786c})");
 }
 impl ::core::clone::Clone for CashDrawerOpenedEventArgs {
     fn clone(&self) -> Self {
@@ -5687,7 +5687,7 @@ unsafe impl ::windows::core::Interface for CashDrawerOpenedEventArgs {
 impl ::windows::core::RuntimeName for CashDrawerOpenedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerOpenedEventArgs";
 }
-::windows::core::interface_hierarchy!(CashDrawerOpenedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CashDrawerOpenedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CashDrawerOpenedEventArgs> for ICashDrawerEventSourceEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: CashDrawerOpenedEventArgs) -> ::windows::core::Result<Self> {
@@ -5740,7 +5740,7 @@ impl ::core::fmt::Debug for CashDrawerStatus {
     }
 }
 impl ::windows::core::RuntimeType for CashDrawerStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatus;{6bbd78bf-dca1-4e06-99eb-5af6a5aec108})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatus;{6bbd78bf-dca1-4e06-99eb-5af6a5aec108})");
 }
 impl ::core::clone::Clone for CashDrawerStatus {
     fn clone(&self) -> Self {
@@ -5756,7 +5756,7 @@ unsafe impl ::windows::core::Interface for CashDrawerStatus {
 impl ::windows::core::RuntimeName for CashDrawerStatus {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerStatus";
 }
-::windows::core::interface_hierarchy!(CashDrawerStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CashDrawerStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CashDrawerStatus {}
 unsafe impl ::core::marker::Sync for CashDrawerStatus {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -5783,7 +5783,7 @@ impl ::core::fmt::Debug for CashDrawerStatusUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CashDrawerStatusUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs;{30aae98a-0d70-459c-9553-87e124c52488})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs;{30aae98a-0d70-459c-9553-87e124c52488})");
 }
 impl ::core::clone::Clone for CashDrawerStatusUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -5799,7 +5799,7 @@ unsafe impl ::windows::core::Interface for CashDrawerStatusUpdatedEventArgs {
 impl ::windows::core::RuntimeName for CashDrawerStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(CashDrawerStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CashDrawerStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CashDrawerStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -6096,7 +6096,7 @@ impl ::core::fmt::Debug for ClaimedBarcodeScanner {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedBarcodeScanner {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScanner;{4a63b49c-8fa4-4332-bb26-945d11d81e0f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScanner;{4a63b49c-8fa4-4332-bb26-945d11d81e0f})");
 }
 impl ::core::clone::Clone for ClaimedBarcodeScanner {
     fn clone(&self) -> Self {
@@ -6112,7 +6112,7 @@ unsafe impl ::windows::core::Interface for ClaimedBarcodeScanner {
 impl ::windows::core::RuntimeName for ClaimedBarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedBarcodeScanner";
 }
-::windows::core::interface_hierarchy!(ClaimedBarcodeScanner, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedBarcodeScanner, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ClaimedBarcodeScanner> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6153,7 +6153,7 @@ impl ::core::fmt::Debug for ClaimedBarcodeScannerClosedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedBarcodeScannerClosedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs;{cf7d5489-a22c-4c65-a901-88d77d833954})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs;{cf7d5489-a22c-4c65-a901-88d77d833954})");
 }
 impl ::core::clone::Clone for ClaimedBarcodeScannerClosedEventArgs {
     fn clone(&self) -> Self {
@@ -6169,7 +6169,7 @@ unsafe impl ::windows::core::Interface for ClaimedBarcodeScannerClosedEventArgs 
 impl ::windows::core::RuntimeName for ClaimedBarcodeScannerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs";
 }
-::windows::core::interface_hierarchy!(ClaimedBarcodeScannerClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedBarcodeScannerClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClaimedBarcodeScannerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedBarcodeScannerClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -6315,7 +6315,7 @@ impl ::core::fmt::Debug for ClaimedCashDrawer {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedCashDrawer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawer;{ca3f99af-abb8-42c1-8a84-5c66512f5a75})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawer;{ca3f99af-abb8-42c1-8a84-5c66512f5a75})");
 }
 impl ::core::clone::Clone for ClaimedCashDrawer {
     fn clone(&self) -> Self {
@@ -6331,7 +6331,7 @@ unsafe impl ::windows::core::Interface for ClaimedCashDrawer {
 impl ::windows::core::RuntimeName for ClaimedCashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedCashDrawer";
 }
-::windows::core::interface_hierarchy!(ClaimedCashDrawer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedCashDrawer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ClaimedCashDrawer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6372,7 +6372,7 @@ impl ::core::fmt::Debug for ClaimedCashDrawerClosedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedCashDrawerClosedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs;{cc573f33-3f34-4c5c-baae-deadf16cd7fa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs;{cc573f33-3f34-4c5c-baae-deadf16cd7fa})");
 }
 impl ::core::clone::Clone for ClaimedCashDrawerClosedEventArgs {
     fn clone(&self) -> Self {
@@ -6388,7 +6388,7 @@ unsafe impl ::windows::core::Interface for ClaimedCashDrawerClosedEventArgs {
 impl ::windows::core::RuntimeName for ClaimedCashDrawerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs";
 }
-::windows::core::interface_hierarchy!(ClaimedCashDrawerClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedCashDrawerClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClaimedCashDrawerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedCashDrawerClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -6533,7 +6533,7 @@ impl ::core::fmt::Debug for ClaimedJournalPrinter {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedJournalPrinter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedJournalPrinter;{67ea0630-517d-487f-9fdf-d2e0a0a264a5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedJournalPrinter;{67ea0630-517d-487f-9fdf-d2e0a0a264a5})");
 }
 impl ::core::clone::Clone for ClaimedJournalPrinter {
     fn clone(&self) -> Self {
@@ -6549,7 +6549,7 @@ unsafe impl ::windows::core::Interface for ClaimedJournalPrinter {
 impl ::windows::core::RuntimeName for ClaimedJournalPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedJournalPrinter";
 }
-::windows::core::interface_hierarchy!(ClaimedJournalPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedJournalPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ClaimedJournalPrinter> for ICommonClaimedPosPrinterStation {
     type Error = ::windows::core::Error;
     fn try_from(value: ClaimedJournalPrinter) -> ::windows::core::Result<Self> {
@@ -6843,7 +6843,7 @@ impl ClaimedLineDisplay {
     }
     #[doc(hidden)]
     pub fn IClaimedLineDisplayStatics<R, F: FnOnce(&IClaimedLineDisplayStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ClaimedLineDisplay, IClaimedLineDisplayStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ClaimedLineDisplay, IClaimedLineDisplayStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6859,7 +6859,7 @@ impl ::core::fmt::Debug for ClaimedLineDisplay {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedLineDisplay {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplay;{120ac970-9a75-4acf-aae7-09972bcf8794})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplay;{120ac970-9a75-4acf-aae7-09972bcf8794})");
 }
 impl ::core::clone::Clone for ClaimedLineDisplay {
     fn clone(&self) -> Self {
@@ -6875,7 +6875,7 @@ unsafe impl ::windows::core::Interface for ClaimedLineDisplay {
 impl ::windows::core::RuntimeName for ClaimedLineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedLineDisplay";
 }
-::windows::core::interface_hierarchy!(ClaimedLineDisplay, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedLineDisplay, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ClaimedLineDisplay> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6916,7 +6916,7 @@ impl ::core::fmt::Debug for ClaimedLineDisplayClosedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedLineDisplayClosedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs;{f915f364-d3d5-4f10-b511-90939edfacd8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs;{f915f364-d3d5-4f10-b511-90939edfacd8})");
 }
 impl ::core::clone::Clone for ClaimedLineDisplayClosedEventArgs {
     fn clone(&self) -> Self {
@@ -6932,7 +6932,7 @@ unsafe impl ::windows::core::Interface for ClaimedLineDisplayClosedEventArgs {
 impl ::windows::core::RuntimeName for ClaimedLineDisplayClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs";
 }
-::windows::core::interface_hierarchy!(ClaimedLineDisplayClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedLineDisplayClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClaimedLineDisplayClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedLineDisplayClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -7212,7 +7212,7 @@ impl ::core::fmt::Debug for ClaimedMagneticStripeReader {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedMagneticStripeReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReader;{475ca8f3-9417-48bc-b9d7-4163a7844c02})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReader;{475ca8f3-9417-48bc-b9d7-4163a7844c02})");
 }
 impl ::core::clone::Clone for ClaimedMagneticStripeReader {
     fn clone(&self) -> Self {
@@ -7228,7 +7228,7 @@ unsafe impl ::windows::core::Interface for ClaimedMagneticStripeReader {
 impl ::windows::core::RuntimeName for ClaimedMagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedMagneticStripeReader";
 }
-::windows::core::interface_hierarchy!(ClaimedMagneticStripeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedMagneticStripeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ClaimedMagneticStripeReader> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -7269,7 +7269,7 @@ impl ::core::fmt::Debug for ClaimedMagneticStripeReaderClosedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedMagneticStripeReaderClosedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs;{14ada93a-adcd-4c80-acda-c3eaed2647e1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs;{14ada93a-adcd-4c80-acda-c3eaed2647e1})");
 }
 impl ::core::clone::Clone for ClaimedMagneticStripeReaderClosedEventArgs {
     fn clone(&self) -> Self {
@@ -7285,7 +7285,7 @@ unsafe impl ::windows::core::Interface for ClaimedMagneticStripeReaderClosedEven
 impl ::windows::core::RuntimeName for ClaimedMagneticStripeReaderClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs";
 }
-::windows::core::interface_hierarchy!(ClaimedMagneticStripeReaderClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedMagneticStripeReaderClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClaimedMagneticStripeReaderClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedMagneticStripeReaderClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -7469,7 +7469,7 @@ impl ::core::fmt::Debug for ClaimedPosPrinter {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedPosPrinter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinter;{6d64ce0c-e03e-4b14-a38e-c28c34b86353})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinter;{6d64ce0c-e03e-4b14-a38e-c28c34b86353})");
 }
 impl ::core::clone::Clone for ClaimedPosPrinter {
     fn clone(&self) -> Self {
@@ -7485,7 +7485,7 @@ unsafe impl ::windows::core::Interface for ClaimedPosPrinter {
 impl ::windows::core::RuntimeName for ClaimedPosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedPosPrinter";
 }
-::windows::core::interface_hierarchy!(ClaimedPosPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedPosPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ClaimedPosPrinter> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -7526,7 +7526,7 @@ impl ::core::fmt::Debug for ClaimedPosPrinterClosedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedPosPrinterClosedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs;{e2b7a27b-4d40-471d-92ed-63375b18c788})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs;{e2b7a27b-4d40-471d-92ed-63375b18c788})");
 }
 impl ::core::clone::Clone for ClaimedPosPrinterClosedEventArgs {
     fn clone(&self) -> Self {
@@ -7542,7 +7542,7 @@ unsafe impl ::windows::core::Interface for ClaimedPosPrinterClosedEventArgs {
 impl ::windows::core::RuntimeName for ClaimedPosPrinterClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs";
 }
-::windows::core::interface_hierarchy!(ClaimedPosPrinterClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedPosPrinterClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClaimedPosPrinterClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedPosPrinterClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -7726,7 +7726,7 @@ impl ::core::fmt::Debug for ClaimedReceiptPrinter {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedReceiptPrinter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedReceiptPrinter;{9ad27a74-dd61-4ee2-9837-5b5d72d538b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedReceiptPrinter;{9ad27a74-dd61-4ee2-9837-5b5d72d538b9})");
 }
 impl ::core::clone::Clone for ClaimedReceiptPrinter {
     fn clone(&self) -> Self {
@@ -7742,7 +7742,7 @@ unsafe impl ::windows::core::Interface for ClaimedReceiptPrinter {
 impl ::windows::core::RuntimeName for ClaimedReceiptPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedReceiptPrinter";
 }
-::windows::core::interface_hierarchy!(ClaimedReceiptPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedReceiptPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ClaimedReceiptPrinter> for ICommonClaimedPosPrinterStation {
     type Error = ::windows::core::Error;
     fn try_from(value: ClaimedReceiptPrinter) -> ::windows::core::Result<Self> {
@@ -7989,7 +7989,7 @@ impl ::core::fmt::Debug for ClaimedSlipPrinter {
     }
 }
 impl ::windows::core::RuntimeType for ClaimedSlipPrinter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedSlipPrinter;{bd5deff2-af90-4e8a-b77b-e3ae9ca63a7f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedSlipPrinter;{bd5deff2-af90-4e8a-b77b-e3ae9ca63a7f})");
 }
 impl ::core::clone::Clone for ClaimedSlipPrinter {
     fn clone(&self) -> Self {
@@ -8005,7 +8005,7 @@ unsafe impl ::windows::core::Interface for ClaimedSlipPrinter {
 impl ::windows::core::RuntimeName for ClaimedSlipPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedSlipPrinter";
 }
-::windows::core::interface_hierarchy!(ClaimedSlipPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClaimedSlipPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ClaimedSlipPrinter> for ICommonClaimedPosPrinterStation {
     type Error = ::windows::core::Error;
     fn try_from(value: ClaimedSlipPrinter) -> ::windows::core::Result<Self> {
@@ -8077,7 +8077,7 @@ impl ::core::fmt::Debug for JournalPrintJob {
     }
 }
 impl ::windows::core::RuntimeType for JournalPrintJob {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrintJob;{9a94005c-0615-4591-a58f-30f87edfe2e4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrintJob;{9a94005c-0615-4591-a58f-30f87edfe2e4})");
 }
 impl ::core::clone::Clone for JournalPrintJob {
     fn clone(&self) -> Self {
@@ -8093,7 +8093,7 @@ unsafe impl ::windows::core::Interface for JournalPrintJob {
 impl ::windows::core::RuntimeName for JournalPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.JournalPrintJob";
 }
-::windows::core::interface_hierarchy!(JournalPrintJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(JournalPrintJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<JournalPrintJob> for IPosPrinterJob {
     type Error = ::windows::core::Error;
     fn try_from(value: JournalPrintJob) -> ::windows::core::Result<Self> {
@@ -8267,7 +8267,7 @@ impl ::core::fmt::Debug for JournalPrinterCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for JournalPrinterCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrinterCapabilities;{3b5ccc43-e047-4463-bb58-17b5ba1d8056})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrinterCapabilities;{3b5ccc43-e047-4463-bb58-17b5ba1d8056})");
 }
 impl ::core::clone::Clone for JournalPrinterCapabilities {
     fn clone(&self) -> Self {
@@ -8283,7 +8283,7 @@ unsafe impl ::windows::core::Interface for JournalPrinterCapabilities {
 impl ::windows::core::RuntimeName for JournalPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.JournalPrinterCapabilities";
 }
-::windows::core::interface_hierarchy!(JournalPrinterCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(JournalPrinterCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<JournalPrinterCapabilities> for ICommonPosPrintStationCapabilities {
     type Error = ::windows::core::Error;
     fn try_from(value: JournalPrinterCapabilities) -> ::windows::core::Result<Self> {
@@ -8418,12 +8418,12 @@ impl LineDisplay {
     }
     #[doc(hidden)]
     pub fn ILineDisplayStatics<R, F: FnOnce(&ILineDisplayStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LineDisplay, ILineDisplayStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LineDisplay, ILineDisplayStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ILineDisplayStatics2<R, F: FnOnce(&ILineDisplayStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LineDisplay, ILineDisplayStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LineDisplay, ILineDisplayStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -8439,7 +8439,7 @@ impl ::core::fmt::Debug for LineDisplay {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplay {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplay;{24f5df4e-3c99-44e2-b73f-e51be3637a8c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplay;{24f5df4e-3c99-44e2-b73f-e51be3637a8c})");
 }
 impl ::core::clone::Clone for LineDisplay {
     fn clone(&self) -> Self {
@@ -8455,7 +8455,7 @@ unsafe impl ::windows::core::Interface for LineDisplay {
 impl ::windows::core::RuntimeName for LineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplay";
 }
-::windows::core::interface_hierarchy!(LineDisplay, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LineDisplay, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<LineDisplay> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -8582,7 +8582,7 @@ impl ::core::fmt::Debug for LineDisplayAttributes {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayAttributes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayAttributes;{c17de99c-229a-4c14-a6f1-b4e4b1fead92})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayAttributes;{c17de99c-229a-4c14-a6f1-b4e4b1fead92})");
 }
 impl ::core::clone::Clone for LineDisplayAttributes {
     fn clone(&self) -> Self {
@@ -8598,7 +8598,7 @@ unsafe impl ::windows::core::Interface for LineDisplayAttributes {
 impl ::windows::core::RuntimeName for LineDisplayAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayAttributes";
 }
-::windows::core::interface_hierarchy!(LineDisplayAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LineDisplayAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayAttributes {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -8744,7 +8744,7 @@ impl ::core::fmt::Debug for LineDisplayCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCapabilities;{5a15b5d1-8dc5-4b9c-9172-303e47b70c55})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCapabilities;{5a15b5d1-8dc5-4b9c-9172-303e47b70c55})");
 }
 impl ::core::clone::Clone for LineDisplayCapabilities {
     fn clone(&self) -> Self {
@@ -8760,7 +8760,7 @@ unsafe impl ::windows::core::Interface for LineDisplayCapabilities {
 impl ::windows::core::RuntimeName for LineDisplayCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCapabilities";
 }
-::windows::core::interface_hierarchy!(LineDisplayCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LineDisplayCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayCapabilities {}
 unsafe impl ::core::marker::Sync for LineDisplayCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -8845,7 +8845,7 @@ impl ::core::fmt::Debug for LineDisplayCursor {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayCursor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursor;{ecdffc45-754a-4e3b-ab2b-151181085605})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursor;{ecdffc45-754a-4e3b-ab2b-151181085605})");
 }
 impl ::core::clone::Clone for LineDisplayCursor {
     fn clone(&self) -> Self {
@@ -8861,7 +8861,7 @@ unsafe impl ::windows::core::Interface for LineDisplayCursor {
 impl ::windows::core::RuntimeName for LineDisplayCursor {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCursor";
 }
-::windows::core::interface_hierarchy!(LineDisplayCursor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LineDisplayCursor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayCursor {}
 unsafe impl ::core::marker::Sync for LineDisplayCursor {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -8929,7 +8929,7 @@ impl ::core::fmt::Debug for LineDisplayCursorAttributes {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayCursorAttributes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursorAttributes;{4e2d54fe-4ffd-4190-aae1-ce285f20c896})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursorAttributes;{4e2d54fe-4ffd-4190-aae1-ce285f20c896})");
 }
 impl ::core::clone::Clone for LineDisplayCursorAttributes {
     fn clone(&self) -> Self {
@@ -8945,7 +8945,7 @@ unsafe impl ::windows::core::Interface for LineDisplayCursorAttributes {
 impl ::windows::core::RuntimeName for LineDisplayCursorAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCursorAttributes";
 }
-::windows::core::interface_hierarchy!(LineDisplayCursorAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LineDisplayCursorAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayCursorAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayCursorAttributes {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -8996,7 +8996,7 @@ impl ::core::fmt::Debug for LineDisplayCustomGlyphs {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayCustomGlyphs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCustomGlyphs;{2257f63c-f263-44f1-a1a0-e750a6a0ec54})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCustomGlyphs;{2257f63c-f263-44f1-a1a0-e750a6a0ec54})");
 }
 impl ::core::clone::Clone for LineDisplayCustomGlyphs {
     fn clone(&self) -> Self {
@@ -9012,7 +9012,7 @@ unsafe impl ::windows::core::Interface for LineDisplayCustomGlyphs {
 impl ::windows::core::RuntimeName for LineDisplayCustomGlyphs {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCustomGlyphs";
 }
-::windows::core::interface_hierarchy!(LineDisplayCustomGlyphs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LineDisplayCustomGlyphs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayCustomGlyphs {}
 unsafe impl ::core::marker::Sync for LineDisplayCustomGlyphs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -9091,7 +9091,7 @@ impl ::core::fmt::Debug for LineDisplayMarquee {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayMarquee {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayMarquee;{a3d33e3e-f46a-4b7a-bc21-53eb3b57f8b4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayMarquee;{a3d33e3e-f46a-4b7a-bc21-53eb3b57f8b4})");
 }
 impl ::core::clone::Clone for LineDisplayMarquee {
     fn clone(&self) -> Self {
@@ -9107,7 +9107,7 @@ unsafe impl ::windows::core::Interface for LineDisplayMarquee {
 impl ::windows::core::RuntimeName for LineDisplayMarquee {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayMarquee";
 }
-::windows::core::interface_hierarchy!(LineDisplayMarquee, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LineDisplayMarquee, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayMarquee {}
 unsafe impl ::core::marker::Sync for LineDisplayMarquee {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -9148,7 +9148,7 @@ impl ::core::fmt::Debug for LineDisplayStatisticsCategorySelector {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayStatisticsCategorySelector {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector;{b521c46b-9274-4d24-94f3-b6017b832444})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector;{b521c46b-9274-4d24-94f3-b6017b832444})");
 }
 impl ::core::clone::Clone for LineDisplayStatisticsCategorySelector {
     fn clone(&self) -> Self {
@@ -9164,7 +9164,7 @@ unsafe impl ::windows::core::Interface for LineDisplayStatisticsCategorySelector
 impl ::windows::core::RuntimeName for LineDisplayStatisticsCategorySelector {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector";
 }
-::windows::core::interface_hierarchy!(LineDisplayStatisticsCategorySelector, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LineDisplayStatisticsCategorySelector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayStatisticsCategorySelector {}
 unsafe impl ::core::marker::Sync for LineDisplayStatisticsCategorySelector {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -9191,7 +9191,7 @@ impl ::core::fmt::Debug for LineDisplayStatusUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayStatusUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs;{ddd57c1a-86fb-4eba-93d1-6f5eda52b752})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs;{ddd57c1a-86fb-4eba-93d1-6f5eda52b752})");
 }
 impl ::core::clone::Clone for LineDisplayStatusUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -9207,7 +9207,7 @@ unsafe impl ::windows::core::Interface for LineDisplayStatusUpdatedEventArgs {
 impl ::windows::core::RuntimeName for LineDisplayStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(LineDisplayStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LineDisplayStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for LineDisplayStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -9243,7 +9243,7 @@ impl ::core::fmt::Debug for LineDisplayStoredBitmap {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayStoredBitmap {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStoredBitmap;{f621515b-d81e-43ba-bf1b-bcfa3c785ba0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStoredBitmap;{f621515b-d81e-43ba-bf1b-bcfa3c785ba0})");
 }
 impl ::core::clone::Clone for LineDisplayStoredBitmap {
     fn clone(&self) -> Self {
@@ -9259,7 +9259,7 @@ unsafe impl ::windows::core::Interface for LineDisplayStoredBitmap {
 impl ::windows::core::RuntimeName for LineDisplayStoredBitmap {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStoredBitmap";
 }
-::windows::core::interface_hierarchy!(LineDisplayStoredBitmap, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LineDisplayStoredBitmap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayStoredBitmap {}
 unsafe impl ::core::marker::Sync for LineDisplayStoredBitmap {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -9440,7 +9440,7 @@ impl ::core::fmt::Debug for LineDisplayWindow {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayWindow {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayWindow;{d21feef4-2364-4be5-bee1-851680af4964})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayWindow;{d21feef4-2364-4be5-bee1-851680af4964})");
 }
 impl ::core::clone::Clone for LineDisplayWindow {
     fn clone(&self) -> Self {
@@ -9456,7 +9456,7 @@ unsafe impl ::windows::core::Interface for LineDisplayWindow {
 impl ::windows::core::RuntimeName for LineDisplayWindow {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayWindow";
 }
-::windows::core::interface_hierarchy!(LineDisplayWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LineDisplayWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<LineDisplayWindow> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -9602,12 +9602,12 @@ impl MagneticStripeReader {
     }
     #[doc(hidden)]
     pub fn IMagneticStripeReaderStatics<R, F: FnOnce(&IMagneticStripeReaderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MagneticStripeReader, IMagneticStripeReaderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MagneticStripeReader, IMagneticStripeReaderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMagneticStripeReaderStatics2<R, F: FnOnce(&IMagneticStripeReaderStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MagneticStripeReader, IMagneticStripeReaderStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MagneticStripeReader, IMagneticStripeReaderStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -9623,7 +9623,7 @@ impl ::core::fmt::Debug for MagneticStripeReader {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReader;{1a92b015-47c3-468a-9333-0c6517574883})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReader;{1a92b015-47c3-468a-9333-0c6517574883})");
 }
 impl ::core::clone::Clone for MagneticStripeReader {
     fn clone(&self) -> Self {
@@ -9639,7 +9639,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReader {
 impl ::windows::core::RuntimeName for MagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReader";
 }
-::windows::core::interface_hierarchy!(MagneticStripeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MagneticStripeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MagneticStripeReader> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -9814,7 +9814,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs;{0a4bbd51-c316-4910-87f3-7a62ba862d31})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs;{0a4bbd51-c316-4910-87f3-7a62ba862d31})");
 }
 impl ::core::clone::Clone for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -9830,7 +9830,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderAamvaCardDataRece
 impl ::windows::core::RuntimeName for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MagneticStripeReaderAamvaCardDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MagneticStripeReaderAamvaCardDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -9913,7 +9913,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderBankCardDataReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderBankCardDataReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs;{2e958823-a31a-4763-882c-23725e39b08e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs;{2e958823-a31a-4763-882c-23725e39b08e})");
 }
 impl ::core::clone::Clone for MagneticStripeReaderBankCardDataReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -9929,7 +9929,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderBankCardDataRecei
 impl ::windows::core::RuntimeName for MagneticStripeReaderBankCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MagneticStripeReaderBankCardDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MagneticStripeReaderBankCardDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderBankCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderBankCardDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10026,7 +10026,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderCapabilities;{7128809c-c440-44a2-a467-469175d02896})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderCapabilities;{7128809c-c440-44a2-a467-469175d02896})");
 }
 impl ::core::clone::Clone for MagneticStripeReaderCapabilities {
     fn clone(&self) -> Self {
@@ -10042,7 +10042,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderCapabilities {
 impl ::windows::core::RuntimeName for MagneticStripeReaderCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderCapabilities";
 }
-::windows::core::interface_hierarchy!(MagneticStripeReaderCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MagneticStripeReaderCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderCapabilities {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10074,7 +10074,7 @@ impl MagneticStripeReaderCardTypes {
     }
     #[doc(hidden)]
     pub fn IMagneticStripeReaderCardTypesStatics<R, F: FnOnce(&IMagneticStripeReaderCardTypesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MagneticStripeReaderCardTypes, IMagneticStripeReaderCardTypesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MagneticStripeReaderCardTypes, IMagneticStripeReaderCardTypesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -10104,7 +10104,7 @@ impl MagneticStripeReaderEncryptionAlgorithms {
     }
     #[doc(hidden)]
     pub fn IMagneticStripeReaderEncryptionAlgorithmsStatics<R, F: FnOnce(&IMagneticStripeReaderEncryptionAlgorithmsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MagneticStripeReaderEncryptionAlgorithms, IMagneticStripeReaderEncryptionAlgorithmsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MagneticStripeReaderEncryptionAlgorithms, IMagneticStripeReaderEncryptionAlgorithmsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -10170,7 +10170,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderErrorOccurredEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderErrorOccurredEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs;{1fedf95d-2c84-41ad-b778-f2356a789ab1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs;{1fedf95d-2c84-41ad-b778-f2356a789ab1})");
 }
 impl ::core::clone::Clone for MagneticStripeReaderErrorOccurredEventArgs {
     fn clone(&self) -> Self {
@@ -10186,7 +10186,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderErrorOccurredEven
 impl ::windows::core::RuntimeName for MagneticStripeReaderErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs";
 }
-::windows::core::interface_hierarchy!(MagneticStripeReaderErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MagneticStripeReaderErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10275,7 +10275,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderReport {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderReport;{6a5b6047-99b0-4188-bef1-eddf79f78fe6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderReport;{6a5b6047-99b0-4188-bef1-eddf79f78fe6})");
 }
 impl ::core::clone::Clone for MagneticStripeReaderReport {
     fn clone(&self) -> Self {
@@ -10291,7 +10291,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderReport {
 impl ::windows::core::RuntimeName for MagneticStripeReaderReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderReport";
 }
-::windows::core::interface_hierarchy!(MagneticStripeReaderReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MagneticStripeReaderReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderReport {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderReport {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10325,7 +10325,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderStatusUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderStatusUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs;{09cc6bb0-3262-401d-9e8a-e80d6358906b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs;{09cc6bb0-3262-401d-9e8a-e80d6358906b})");
 }
 impl ::core::clone::Clone for MagneticStripeReaderStatusUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -10341,7 +10341,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderStatusUpdatedEven
 impl ::windows::core::RuntimeName for MagneticStripeReaderStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(MagneticStripeReaderStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MagneticStripeReaderStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10388,7 +10388,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderTrackData {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderTrackData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderTrackData;{104cf671-4a9d-446e-abc5-20402307ba36})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderTrackData;{104cf671-4a9d-446e-abc5-20402307ba36})");
 }
 impl ::core::clone::Clone for MagneticStripeReaderTrackData {
     fn clone(&self) -> Self {
@@ -10404,7 +10404,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderTrackData {
 impl ::windows::core::RuntimeName for MagneticStripeReaderTrackData {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderTrackData";
 }
-::windows::core::interface_hierarchy!(MagneticStripeReaderTrackData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MagneticStripeReaderTrackData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderTrackData {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderTrackData {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10431,7 +10431,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderVendorSpecificCardDataReceivedEv
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs;{af0a5514-59cc-4a60-99e8-99a53dace5aa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs;{af0a5514-59cc-4a60-99e8-99a53dace5aa})");
 }
 impl ::core::clone::Clone for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -10447,7 +10447,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderVendorSpecificCar
 impl ::windows::core::RuntimeName for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10591,12 +10591,12 @@ impl PosPrinter {
     }
     #[doc(hidden)]
     pub fn IPosPrinterStatics<R, F: FnOnce(&IPosPrinterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PosPrinter, IPosPrinterStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PosPrinter, IPosPrinterStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPosPrinterStatics2<R, F: FnOnce(&IPosPrinterStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PosPrinter, IPosPrinterStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PosPrinter, IPosPrinterStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -10612,7 +10612,7 @@ impl ::core::fmt::Debug for PosPrinter {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinter;{2a03c10e-9a19-4a01-994f-12dfad6adcbf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinter;{2a03c10e-9a19-4a01-994f-12dfad6adcbf})");
 }
 impl ::core::clone::Clone for PosPrinter {
     fn clone(&self) -> Self {
@@ -10628,7 +10628,7 @@ unsafe impl ::windows::core::Interface for PosPrinter {
 impl ::windows::core::RuntimeName for PosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinter";
 }
-::windows::core::interface_hierarchy!(PosPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PosPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<PosPrinter> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -10740,7 +10740,7 @@ impl ::core::fmt::Debug for PosPrinterCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterCapabilities;{cde95721-4380-4985-adc5-39db30cd93bc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterCapabilities;{cde95721-4380-4985-adc5-39db30cd93bc})");
 }
 impl ::core::clone::Clone for PosPrinterCapabilities {
     fn clone(&self) -> Self {
@@ -10756,7 +10756,7 @@ unsafe impl ::windows::core::Interface for PosPrinterCapabilities {
 impl ::windows::core::RuntimeName for PosPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterCapabilities";
 }
-::windows::core::interface_hierarchy!(PosPrinterCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PosPrinterCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PosPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for PosPrinterCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10782,7 +10782,7 @@ impl PosPrinterCharacterSetIds {
     }
     #[doc(hidden)]
     pub fn IPosPrinterCharacterSetIdsStatics<R, F: FnOnce(&IPosPrinterCharacterSetIdsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PosPrinterCharacterSetIds, IPosPrinterCharacterSetIdsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PosPrinterCharacterSetIds, IPosPrinterCharacterSetIdsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -10829,7 +10829,7 @@ impl ::core::fmt::Debug for PosPrinterFontProperty {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterFontProperty {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterFontProperty;{a7f4e93a-f8ac-5f04-84d2-29b16d8a633c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterFontProperty;{a7f4e93a-f8ac-5f04-84d2-29b16d8a633c})");
 }
 impl ::core::clone::Clone for PosPrinterFontProperty {
     fn clone(&self) -> Self {
@@ -10845,7 +10845,7 @@ unsafe impl ::windows::core::Interface for PosPrinterFontProperty {
 impl ::windows::core::RuntimeName for PosPrinterFontProperty {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterFontProperty";
 }
-::windows::core::interface_hierarchy!(PosPrinterFontProperty, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PosPrinterFontProperty, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PosPrinterFontProperty {}
 unsafe impl ::core::marker::Sync for PosPrinterFontProperty {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10855,8 +10855,8 @@ impl PosPrinterPrintOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PosPrinterPrintOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PosPrinterPrintOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn TypeFace(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -11015,7 +11015,7 @@ impl ::core::fmt::Debug for PosPrinterPrintOptions {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterPrintOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterPrintOptions;{0a2e16fd-1d02-5a58-9d59-bfcde76fde86})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterPrintOptions;{0a2e16fd-1d02-5a58-9d59-bfcde76fde86})");
 }
 impl ::core::clone::Clone for PosPrinterPrintOptions {
     fn clone(&self) -> Self {
@@ -11031,7 +11031,7 @@ unsafe impl ::windows::core::Interface for PosPrinterPrintOptions {
 impl ::windows::core::RuntimeName for PosPrinterPrintOptions {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterPrintOptions";
 }
-::windows::core::interface_hierarchy!(PosPrinterPrintOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PosPrinterPrintOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PosPrinterPrintOptions {}
 unsafe impl ::core::marker::Sync for PosPrinterPrintOptions {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11050,7 +11050,7 @@ impl ::core::fmt::Debug for PosPrinterReleaseDeviceRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterReleaseDeviceRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs;{2bcba359-1cef-40b2-9ecb-f927f856ae3c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs;{2bcba359-1cef-40b2-9ecb-f927f856ae3c})");
 }
 impl ::core::clone::Clone for PosPrinterReleaseDeviceRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -11066,7 +11066,7 @@ unsafe impl ::windows::core::Interface for PosPrinterReleaseDeviceRequestedEvent
 impl ::windows::core::RuntimeName for PosPrinterReleaseDeviceRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(PosPrinterReleaseDeviceRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PosPrinterReleaseDeviceRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PosPrinterReleaseDeviceRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PosPrinterReleaseDeviceRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11100,7 +11100,7 @@ impl ::core::fmt::Debug for PosPrinterStatus {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatus;{d1f0c730-da40-4328-bf76-5156fa33b747})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatus;{d1f0c730-da40-4328-bf76-5156fa33b747})");
 }
 impl ::core::clone::Clone for PosPrinterStatus {
     fn clone(&self) -> Self {
@@ -11116,7 +11116,7 @@ unsafe impl ::windows::core::Interface for PosPrinterStatus {
 impl ::windows::core::RuntimeName for PosPrinterStatus {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterStatus";
 }
-::windows::core::interface_hierarchy!(PosPrinterStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PosPrinterStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PosPrinterStatus {}
 unsafe impl ::core::marker::Sync for PosPrinterStatus {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11143,7 +11143,7 @@ impl ::core::fmt::Debug for PosPrinterStatusUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterStatusUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs;{2edb87df-13a6-428d-ba81-b0e7c3e5a3cd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs;{2edb87df-13a6-428d-ba81-b0e7c3e5a3cd})");
 }
 impl ::core::clone::Clone for PosPrinterStatusUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -11159,7 +11159,7 @@ unsafe impl ::windows::core::Interface for PosPrinterStatusUpdatedEventArgs {
 impl ::windows::core::RuntimeName for PosPrinterStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(PosPrinterStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PosPrinterStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PosPrinterStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for PosPrinterStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11306,7 +11306,7 @@ impl ::core::fmt::Debug for ReceiptPrintJob {
     }
 }
 impl ::windows::core::RuntimeType for ReceiptPrintJob {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrintJob;{aa96066e-acad-4b79-9d0f-c0cfc08dc77b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrintJob;{aa96066e-acad-4b79-9d0f-c0cfc08dc77b})");
 }
 impl ::core::clone::Clone for ReceiptPrintJob {
     fn clone(&self) -> Self {
@@ -11322,7 +11322,7 @@ unsafe impl ::windows::core::Interface for ReceiptPrintJob {
 impl ::windows::core::RuntimeName for ReceiptPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.ReceiptPrintJob";
 }
-::windows::core::interface_hierarchy!(ReceiptPrintJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ReceiptPrintJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ReceiptPrintJob> for IPosPrinterJob {
     type Error = ::windows::core::Error;
     fn try_from(value: ReceiptPrintJob) -> ::windows::core::Result<Self> {
@@ -11603,7 +11603,7 @@ impl ::core::fmt::Debug for ReceiptPrinterCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for ReceiptPrinterCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrinterCapabilities;{b8f0b58f-51a8-43fc-9bd5-8de272a6415b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrinterCapabilities;{b8f0b58f-51a8-43fc-9bd5-8de272a6415b})");
 }
 impl ::core::clone::Clone for ReceiptPrinterCapabilities {
     fn clone(&self) -> Self {
@@ -11619,7 +11619,7 @@ unsafe impl ::windows::core::Interface for ReceiptPrinterCapabilities {
 impl ::windows::core::RuntimeName for ReceiptPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ReceiptPrinterCapabilities";
 }
-::windows::core::interface_hierarchy!(ReceiptPrinterCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ReceiptPrinterCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ReceiptPrinterCapabilities> for ICommonPosPrintStationCapabilities {
     type Error = ::windows::core::Error;
     fn try_from(value: ReceiptPrinterCapabilities) -> ::windows::core::Result<Self> {
@@ -11788,7 +11788,7 @@ impl ::core::fmt::Debug for SlipPrintJob {
     }
 }
 impl ::windows::core::RuntimeType for SlipPrintJob {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrintJob;{532199be-c8c3-4dc2-89e9-5c4a37b34ddc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrintJob;{532199be-c8c3-4dc2-89e9-5c4a37b34ddc})");
 }
 impl ::core::clone::Clone for SlipPrintJob {
     fn clone(&self) -> Self {
@@ -11804,7 +11804,7 @@ unsafe impl ::windows::core::Interface for SlipPrintJob {
 impl ::windows::core::RuntimeName for SlipPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.SlipPrintJob";
 }
-::windows::core::interface_hierarchy!(SlipPrintJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SlipPrintJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SlipPrintJob> for IPosPrinterJob {
     type Error = ::windows::core::Error;
     fn try_from(value: SlipPrintJob) -> ::windows::core::Result<Self> {
@@ -12078,7 +12078,7 @@ impl ::core::fmt::Debug for SlipPrinterCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for SlipPrinterCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrinterCapabilities;{99b16399-488c-4157-8ac2-9f57f708d3db})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrinterCapabilities;{99b16399-488c-4157-8ac2-9f57f708d3db})");
 }
 impl ::core::clone::Clone for SlipPrinterCapabilities {
     fn clone(&self) -> Self {
@@ -12094,7 +12094,7 @@ unsafe impl ::windows::core::Interface for SlipPrinterCapabilities {
 impl ::windows::core::RuntimeName for SlipPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.SlipPrinterCapabilities";
 }
-::windows::core::interface_hierarchy!(SlipPrinterCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SlipPrinterCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SlipPrinterCapabilities> for ICommonPosPrintStationCapabilities {
     type Error = ::windows::core::Error;
     fn try_from(value: SlipPrinterCapabilities) -> ::windows::core::Result<Self> {
@@ -12175,7 +12175,7 @@ impl UnifiedPosErrorData {
     }
     #[doc(hidden)]
     pub fn IUnifiedPosErrorDataFactory<R, F: FnOnce(&IUnifiedPosErrorDataFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UnifiedPosErrorData, IUnifiedPosErrorDataFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UnifiedPosErrorData, IUnifiedPosErrorDataFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -12191,7 +12191,7 @@ impl ::core::fmt::Debug for UnifiedPosErrorData {
     }
 }
 impl ::windows::core::RuntimeType for UnifiedPosErrorData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.UnifiedPosErrorData;{2b998c3a-555c-4889-8ed8-c599bb3a712a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.UnifiedPosErrorData;{2b998c3a-555c-4889-8ed8-c599bb3a712a})");
 }
 impl ::core::clone::Clone for UnifiedPosErrorData {
     fn clone(&self) -> Self {
@@ -12207,7 +12207,7 @@ unsafe impl ::windows::core::Interface for UnifiedPosErrorData {
 impl ::windows::core::RuntimeName for UnifiedPosErrorData {
     const NAME: &'static str = "Windows.Devices.PointOfService.UnifiedPosErrorData";
 }
-::windows::core::interface_hierarchy!(UnifiedPosErrorData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UnifiedPosErrorData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UnifiedPosErrorData {}
 unsafe impl ::core::marker::Sync for UnifiedPosErrorData {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -12241,7 +12241,7 @@ impl ::core::fmt::Debug for BarcodeScannerStatus {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeScannerStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeScannerStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12272,7 +12272,7 @@ impl ::core::fmt::Debug for BarcodeSymbologyDecodeLengthKind {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeSymbologyDecodeLengthKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeSymbologyDecodeLengthKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeSymbologyDecodeLengthKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12305,7 +12305,7 @@ impl ::core::fmt::Debug for CashDrawerStatusKind {
     }
 }
 impl ::windows::core::RuntimeType for CashDrawerStatusKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.CashDrawerStatusKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.CashDrawerStatusKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12339,7 +12339,7 @@ impl ::core::fmt::Debug for LineDisplayCursorType {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayCursorType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayCursorType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayCursorType;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12370,7 +12370,7 @@ impl ::core::fmt::Debug for LineDisplayDescriptorState {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayDescriptorState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayDescriptorState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayDescriptorState;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12401,7 +12401,7 @@ impl ::core::fmt::Debug for LineDisplayHorizontalAlignment {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayHorizontalAlignment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayHorizontalAlignment;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayHorizontalAlignment;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12432,7 +12432,7 @@ impl ::core::fmt::Debug for LineDisplayMarqueeFormat {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayMarqueeFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayMarqueeFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayMarqueeFormat;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12465,7 +12465,7 @@ impl ::core::fmt::Debug for LineDisplayPowerStatus {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayPowerStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayPowerStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayPowerStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12497,7 +12497,7 @@ impl ::core::fmt::Debug for LineDisplayScrollDirection {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayScrollDirection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayScrollDirection;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayScrollDirection;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12529,7 +12529,7 @@ impl ::core::fmt::Debug for LineDisplayTextAttribute {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayTextAttribute {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttribute;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttribute;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12560,7 +12560,7 @@ impl ::core::fmt::Debug for LineDisplayTextAttributeGranularity {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayTextAttributeGranularity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttributeGranularity;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttributeGranularity;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12591,7 +12591,7 @@ impl ::core::fmt::Debug for LineDisplayVerticalAlignment {
     }
 }
 impl ::windows::core::RuntimeType for LineDisplayVerticalAlignment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayVerticalAlignment;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayVerticalAlignment;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12622,7 +12622,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationLevel {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationLevel;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12652,7 +12652,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationProtocol {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationProtocol {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationProtocol;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationProtocol;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12682,7 +12682,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderErrorReportingType {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderErrorReportingType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderErrorReportingType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderErrorReportingType;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12713,7 +12713,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderStatus {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12747,7 +12747,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderTrackErrorType {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderTrackErrorType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackErrorType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackErrorType;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12780,7 +12780,7 @@ impl ::core::fmt::Debug for MagneticStripeReaderTrackIds {
     }
 }
 impl ::windows::core::RuntimeType for MagneticStripeReaderTrackIds {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackIds;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackIds;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12845,7 +12845,7 @@ impl ::core::ops::Not for PosConnectionTypes {
     }
 }
 impl ::windows::core::RuntimeType for PosConnectionTypes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosConnectionTypes;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosConnectionTypes;u4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12876,7 +12876,7 @@ impl ::core::fmt::Debug for PosPrinterAlignment {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterAlignment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterAlignment;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterAlignment;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12907,7 +12907,7 @@ impl ::core::fmt::Debug for PosPrinterBarcodeTextPosition {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterBarcodeTextPosition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterBarcodeTextPosition;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterBarcodeTextPosition;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -12973,7 +12973,7 @@ impl ::core::ops::Not for PosPrinterCartridgeSensors {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterCartridgeSensors {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterCartridgeSensors;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterCartridgeSensors;u4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13046,7 +13046,7 @@ impl ::core::ops::Not for PosPrinterColorCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterColorCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCapabilities;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCapabilities;u4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13085,7 +13085,7 @@ impl ::core::fmt::Debug for PosPrinterColorCartridge {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterColorCartridge {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCartridge;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCartridge;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13115,7 +13115,7 @@ impl ::core::fmt::Debug for PosPrinterLineDirection {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterLineDirection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineDirection;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineDirection;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13147,7 +13147,7 @@ impl ::core::fmt::Debug for PosPrinterLineStyle {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterLineStyle {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineStyle;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineStyle;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13179,7 +13179,7 @@ impl ::core::fmt::Debug for PosPrinterMapMode {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterMapMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMapMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMapMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13245,7 +13245,7 @@ impl ::core::ops::Not for PosPrinterMarkFeedCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterMarkFeedCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedCapabilities;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedCapabilities;u4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13277,7 +13277,7 @@ impl ::core::fmt::Debug for PosPrinterMarkFeedKind {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterMarkFeedKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13308,7 +13308,7 @@ impl ::core::fmt::Debug for PosPrinterPrintSide {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterPrintSide {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterPrintSide;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterPrintSide;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13340,7 +13340,7 @@ impl ::core::fmt::Debug for PosPrinterRotation {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterRotation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRotation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRotation;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13404,7 +13404,7 @@ impl ::core::ops::Not for PosPrinterRuledLineCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterRuledLineCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRuledLineCapabilities;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRuledLineCapabilities;u4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13437,7 +13437,7 @@ impl ::core::fmt::Debug for PosPrinterStatusKind {
     }
 }
 impl ::windows::core::RuntimeType for PosPrinterStatusKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterStatusKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterStatusKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13476,7 +13476,7 @@ impl ::core::fmt::Debug for UnifiedPosErrorReason {
     }
 }
 impl ::windows::core::RuntimeType for UnifiedPosErrorReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorReason;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13510,7 +13510,7 @@ impl ::core::fmt::Debug for UnifiedPosErrorSeverity {
     }
 }
 impl ::windows::core::RuntimeType for UnifiedPosErrorSeverity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorSeverity;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorSeverity;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13542,7 +13542,7 @@ impl ::core::fmt::Debug for UnifiedPosHealthCheckLevel {
     }
 }
 impl ::windows::core::RuntimeType for UnifiedPosHealthCheckLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosHealthCheckLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosHealthCheckLevel;i4)");
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
@@ -13573,7 +13573,7 @@ impl ::core::fmt::Debug for UnifiedPosPowerReportingType {
     }
 }
 impl ::windows::core::RuntimeType for UnifiedPosPowerReportingType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosPowerReportingType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosPowerReportingType;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -13596,7 +13596,7 @@ impl ::windows::core::TypeKind for SizeUInt32 {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for SizeUInt32 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.PointOfService.SizeUInt32;u4;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.PointOfService.SizeUInt32;u4;u4)");
 }
 impl ::core::cmp::PartialEq for SizeUInt32 {
     fn eq(&self, other: &Self) -> bool {

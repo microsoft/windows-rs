@@ -23,7 +23,7 @@ impl IGraphicsCaptureItemInterop {
         (::windows::core::Vtable::vtable(self).CreateForMonitor)(::windows::core::Vtable::as_raw(self), monitor.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IGraphicsCaptureItemInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IGraphicsCaptureItemInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGraphicsCaptureItemInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

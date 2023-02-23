@@ -10,7 +10,7 @@ impl IAudioFrameNative {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAudioFrameNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAudioFrameNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IAudioFrameNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -55,7 +55,7 @@ impl IAudioFrameNativeFactory {
         (::windows::core::Vtable::vtable(self).CreateFromMFSample)(::windows::core::Vtable::as_raw(self), data.into().abi(), forcereadonly.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAudioFrameNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAudioFrameNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IAudioFrameNativeFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -106,7 +106,7 @@ impl IVideoFrameNative {
         (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVideoFrameNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVideoFrameNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVideoFrameNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -153,7 +153,7 @@ impl IVideoFrameNativeFactory {
         (::windows::core::Vtable::vtable(self).CreateFromMFSample)(::windows::core::Vtable::as_raw(self), data.into().abi(), subtype, width, height, forcereadonly.into(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), device.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVideoFrameNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVideoFrameNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVideoFrameNativeFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

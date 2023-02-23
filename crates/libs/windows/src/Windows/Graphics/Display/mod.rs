@@ -739,7 +739,7 @@ impl ::core::fmt::Debug for AdvancedColorInfo {
     }
 }
 impl ::windows::core::RuntimeType for AdvancedColorInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.AdvancedColorInfo;{8797dcfb-b229-4081-ae9a-2cc85e34ad6a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.AdvancedColorInfo;{8797dcfb-b229-4081-ae9a-2cc85e34ad6a})");
 }
 impl ::core::clone::Clone for AdvancedColorInfo {
     fn clone(&self) -> Self {
@@ -755,7 +755,7 @@ unsafe impl ::windows::core::Interface for AdvancedColorInfo {
 impl ::windows::core::RuntimeName for AdvancedColorInfo {
     const NAME: &'static str = "Windows.Graphics.Display.AdvancedColorInfo";
 }
-::windows::core::interface_hierarchy!(AdvancedColorInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdvancedColorInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdvancedColorInfo {}
 unsafe impl ::core::marker::Sync for AdvancedColorInfo {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -873,7 +873,7 @@ impl BrightnessOverride {
     }
     #[doc(hidden)]
     pub fn IBrightnessOverrideStatics<R, F: FnOnce(&IBrightnessOverrideStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BrightnessOverride, IBrightnessOverrideStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BrightnessOverride, IBrightnessOverrideStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -889,7 +889,7 @@ impl ::core::fmt::Debug for BrightnessOverride {
     }
 }
 impl ::windows::core::RuntimeType for BrightnessOverride {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.BrightnessOverride;{96c9621a-c143-4392-bedd-4a7e9574c8fd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.BrightnessOverride;{96c9621a-c143-4392-bedd-4a7e9574c8fd})");
 }
 impl ::core::clone::Clone for BrightnessOverride {
     fn clone(&self) -> Self {
@@ -905,7 +905,7 @@ unsafe impl ::windows::core::Interface for BrightnessOverride {
 impl ::windows::core::RuntimeName for BrightnessOverride {
     const NAME: &'static str = "Windows.Graphics.Display.BrightnessOverride";
 }
-::windows::core::interface_hierarchy!(BrightnessOverride, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BrightnessOverride, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BrightnessOverride {}
 unsafe impl ::core::marker::Sync for BrightnessOverride {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -946,7 +946,7 @@ impl BrightnessOverrideSettings {
     }
     #[doc(hidden)]
     pub fn IBrightnessOverrideSettingsStatics<R, F: FnOnce(&IBrightnessOverrideSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BrightnessOverrideSettings, IBrightnessOverrideSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BrightnessOverrideSettings, IBrightnessOverrideSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -962,7 +962,7 @@ impl ::core::fmt::Debug for BrightnessOverrideSettings {
     }
 }
 impl ::windows::core::RuntimeType for BrightnessOverrideSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.BrightnessOverrideSettings;{d112ab2a-7604-4dba-bcf8-4b6f49502cb0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.BrightnessOverrideSettings;{d112ab2a-7604-4dba-bcf8-4b6f49502cb0})");
 }
 impl ::core::clone::Clone for BrightnessOverrideSettings {
     fn clone(&self) -> Self {
@@ -978,7 +978,7 @@ unsafe impl ::windows::core::Interface for BrightnessOverrideSettings {
 impl ::windows::core::RuntimeName for BrightnessOverrideSettings {
     const NAME: &'static str = "Windows.Graphics.Display.BrightnessOverrideSettings";
 }
-::windows::core::interface_hierarchy!(BrightnessOverrideSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BrightnessOverrideSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BrightnessOverrideSettings {}
 unsafe impl ::core::marker::Sync for BrightnessOverrideSettings {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -1000,7 +1000,7 @@ impl ColorOverrideSettings {
     }
     #[doc(hidden)]
     pub fn IColorOverrideSettingsStatics<R, F: FnOnce(&IColorOverrideSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ColorOverrideSettings, IColorOverrideSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ColorOverrideSettings, IColorOverrideSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1016,7 +1016,7 @@ impl ::core::fmt::Debug for ColorOverrideSettings {
     }
 }
 impl ::windows::core::RuntimeType for ColorOverrideSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.ColorOverrideSettings;{fbefa134-4a81-4c4d-a5b6-7d1b5c4bd00b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.ColorOverrideSettings;{fbefa134-4a81-4c4d-a5b6-7d1b5c4bd00b})");
 }
 impl ::core::clone::Clone for ColorOverrideSettings {
     fn clone(&self) -> Self {
@@ -1032,7 +1032,7 @@ unsafe impl ::windows::core::Interface for ColorOverrideSettings {
 impl ::windows::core::RuntimeName for ColorOverrideSettings {
     const NAME: &'static str = "Windows.Graphics.Display.ColorOverrideSettings";
 }
-::windows::core::interface_hierarchy!(ColorOverrideSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ColorOverrideSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ColorOverrideSettings {}
 unsafe impl ::core::marker::Sync for ColorOverrideSettings {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -1143,7 +1143,7 @@ impl DisplayEnhancementOverride {
     }
     #[doc(hidden)]
     pub fn IDisplayEnhancementOverrideStatics<R, F: FnOnce(&IDisplayEnhancementOverrideStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayEnhancementOverride, IDisplayEnhancementOverrideStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DisplayEnhancementOverride, IDisplayEnhancementOverrideStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1159,7 +1159,7 @@ impl ::core::fmt::Debug for DisplayEnhancementOverride {
     }
 }
 impl ::windows::core::RuntimeType for DisplayEnhancementOverride {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverride;{429594cf-d97a-4b02-a428-5c4292f7f522})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverride;{429594cf-d97a-4b02-a428-5c4292f7f522})");
 }
 impl ::core::clone::Clone for DisplayEnhancementOverride {
     fn clone(&self) -> Self {
@@ -1175,7 +1175,7 @@ unsafe impl ::windows::core::Interface for DisplayEnhancementOverride {
 impl ::windows::core::RuntimeName for DisplayEnhancementOverride {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverride";
 }
-::windows::core::interface_hierarchy!(DisplayEnhancementOverride, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayEnhancementOverride, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayEnhancementOverride {}
 unsafe impl ::core::marker::Sync for DisplayEnhancementOverride {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -1218,7 +1218,7 @@ impl ::core::fmt::Debug for DisplayEnhancementOverrideCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for DisplayEnhancementOverrideCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities;{457060de-ee5a-47b7-9918-1e51e812ccc8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities;{457060de-ee5a-47b7-9918-1e51e812ccc8})");
 }
 impl ::core::clone::Clone for DisplayEnhancementOverrideCapabilities {
     fn clone(&self) -> Self {
@@ -1234,7 +1234,7 @@ unsafe impl ::windows::core::Interface for DisplayEnhancementOverrideCapabilitie
 impl ::windows::core::RuntimeName for DisplayEnhancementOverrideCapabilities {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities";
 }
-::windows::core::interface_hierarchy!(DisplayEnhancementOverrideCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayEnhancementOverrideCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayEnhancementOverrideCapabilities {}
 unsafe impl ::core::marker::Sync for DisplayEnhancementOverrideCapabilities {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -1261,7 +1261,7 @@ impl ::core::fmt::Debug for DisplayEnhancementOverrideCapabilitiesChangedEventAr
     }
 }
 impl ::windows::core::RuntimeType for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs;{db61e664-15fa-49da-8b77-07dbd2af585d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs;{db61e664-15fa-49da-8b77-07dbd2af585d})");
 }
 impl ::core::clone::Clone for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1277,7 +1277,7 @@ unsafe impl ::windows::core::Interface for DisplayEnhancementOverrideCapabilitie
 impl ::windows::core::RuntimeName for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(DisplayEnhancementOverrideCapabilitiesChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayEnhancementOverrideCapabilitiesChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -1484,7 +1484,7 @@ impl DisplayInformation {
     }
     #[doc(hidden)]
     pub fn IDisplayInformationStatics<R, F: FnOnce(&IDisplayInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayInformation, IDisplayInformationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DisplayInformation, IDisplayInformationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1500,7 +1500,7 @@ impl ::core::fmt::Debug for DisplayInformation {
     }
 }
 impl ::windows::core::RuntimeType for DisplayInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayInformation;{bed112ae-adc3-4dc9-ae65-851f4d7d4799})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayInformation;{bed112ae-adc3-4dc9-ae65-851f4d7d4799})");
 }
 impl ::core::clone::Clone for DisplayInformation {
     fn clone(&self) -> Self {
@@ -1516,7 +1516,7 @@ unsafe impl ::windows::core::Interface for DisplayInformation {
 impl ::windows::core::RuntimeName for DisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayInformation";
 }
-::windows::core::interface_hierarchy!(DisplayInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayInformation {}
 unsafe impl ::core::marker::Sync for DisplayInformation {}
 #[doc = "*Required features: `\"Graphics_Display\"`, `\"deprecated\"`*"]
@@ -1653,7 +1653,7 @@ impl DisplayProperties {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IDisplayPropertiesStatics<R, F: FnOnce(&IDisplayPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayProperties, IDisplayPropertiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DisplayProperties, IDisplayPropertiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1673,7 +1673,7 @@ impl DisplayServices {
     }
     #[doc(hidden)]
     pub fn IDisplayServicesStatics<R, F: FnOnce(&IDisplayServicesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayServices, IDisplayServicesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DisplayServices, IDisplayServicesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1689,7 +1689,7 @@ impl ::core::fmt::Debug for DisplayServices {
     }
 }
 impl ::windows::core::RuntimeType for DisplayServices {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayServices;{1b54f32b-890d-5747-bd26-fdbdeb0c8a71})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayServices;{1b54f32b-890d-5747-bd26-fdbdeb0c8a71})");
 }
 impl ::core::clone::Clone for DisplayServices {
     fn clone(&self) -> Self {
@@ -1705,7 +1705,7 @@ unsafe impl ::windows::core::Interface for DisplayServices {
 impl ::windows::core::RuntimeName for DisplayServices {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayServices";
 }
-::windows::core::interface_hierarchy!(DisplayServices, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayServices, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayServices {}
 unsafe impl ::core::marker::Sync for DisplayServices {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -1737,7 +1737,7 @@ impl ::core::fmt::Debug for AdvancedColorKind {
     }
 }
 impl ::windows::core::RuntimeType for AdvancedColorKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.AdvancedColorKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.AdvancedColorKind;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
@@ -1800,7 +1800,7 @@ impl ::core::ops::Not for DisplayBrightnessOverrideOptions {
     }
 }
 impl ::windows::core::RuntimeType for DisplayBrightnessOverrideOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideOptions;u4)");
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
@@ -1831,7 +1831,7 @@ impl ::core::fmt::Debug for DisplayBrightnessOverrideScenario {
     }
 }
 impl ::windows::core::RuntimeType for DisplayBrightnessOverrideScenario {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideScenario;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideScenario;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
@@ -1863,7 +1863,7 @@ impl ::core::fmt::Debug for DisplayBrightnessScenario {
     }
 }
 impl ::windows::core::RuntimeType for DisplayBrightnessScenario {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessScenario;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessScenario;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
@@ -1892,7 +1892,7 @@ impl ::core::fmt::Debug for DisplayColorOverrideScenario {
     }
 }
 impl ::windows::core::RuntimeType for DisplayColorOverrideScenario {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayColorOverrideScenario;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayColorOverrideScenario;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
@@ -1958,7 +1958,7 @@ impl ::core::ops::Not for DisplayOrientations {
     }
 }
 impl ::windows::core::RuntimeType for DisplayOrientations {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayOrientations;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayOrientations;u4)");
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
@@ -1988,7 +1988,7 @@ impl ::core::fmt::Debug for HdrMetadataFormat {
     }
 }
 impl ::windows::core::RuntimeType for HdrMetadataFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.HdrMetadataFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.HdrMetadataFormat;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
@@ -2033,7 +2033,7 @@ impl ::core::fmt::Debug for ResolutionScale {
     }
 }
 impl ::windows::core::RuntimeType for ResolutionScale {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.ResolutionScale;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.ResolutionScale;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -2057,7 +2057,7 @@ impl ::windows::core::TypeKind for NitRange {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for NitRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.NitRange;f4;f4;f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.NitRange;f4;f4;f4)");
 }
 impl ::core::cmp::PartialEq for NitRange {
     fn eq(&self, other: &Self) -> bool {
@@ -2077,8 +2077,8 @@ pub struct DisplayPropertiesEventHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl DisplayPropertiesEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = DisplayPropertiesEventHandlerBox::<F> { vtable: &DisplayPropertiesEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = DisplayPropertiesEventHandlerBox::<F> { vtable: &DisplayPropertiesEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -2095,7 +2095,7 @@ impl DisplayPropertiesEventHandler {
 struct DisplayPropertiesEventHandlerBox<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const DisplayPropertiesEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 #[cfg(feature = "deprecated")]
 impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DisplayPropertiesEventHandlerBox<F> {
@@ -2105,7 +2105,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windo
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<DisplayPropertiesEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<DisplayPropertiesEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -2121,7 +2121,7 @@ impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windo
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -2160,7 +2160,7 @@ unsafe impl ::windows::core::Interface for DisplayPropertiesEventHandler {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for DisplayPropertiesEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{dbdd8b01-f1a1-46d1-9ee3-543bcc995980}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{dbdd8b01-f1a1-46d1-9ee3-543bcc995980}");
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]

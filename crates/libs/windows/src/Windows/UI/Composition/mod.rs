@@ -109,7 +109,7 @@ impl IAnimationObject {
         unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IAnimationObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAnimationObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IAnimationObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -122,7 +122,7 @@ impl ::core::fmt::Debug for IAnimationObject {
     }
 }
 impl ::windows::core::RuntimeType for IAnimationObject {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e7141e0a-04b8-4fc5-a4dc-195392e57807}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e7141e0a-04b8-4fc5-a4dc-195392e57807}");
 }
 unsafe impl ::windows::core::Vtable for IAnimationObject {
     type Vtable = IAnimationObject_Vtbl;
@@ -475,7 +475,7 @@ pub struct ICompositionAnimation4_Vtbl {
 #[repr(transparent)]
 pub struct ICompositionAnimationBase(::windows::core::IUnknown);
 impl ICompositionAnimationBase {}
-::windows::core::interface_hierarchy!(ICompositionAnimationBase, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICompositionAnimationBase, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICompositionAnimationBase {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -488,7 +488,7 @@ impl ::core::fmt::Debug for ICompositionAnimationBase {
     }
 }
 impl ::windows::core::RuntimeType for ICompositionAnimationBase {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1c2c2999-e818-48d3-a6dd-d78c82f8ace9}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1c2c2999-e818-48d3-a6dd-d78c82f8ace9}");
 }
 unsafe impl ::windows::core::Vtable for ICompositionAnimationBase {
     type Vtable = ICompositionAnimationBase_Vtbl;
@@ -2481,7 +2481,7 @@ impl ICompositionSupportsSystemBackdrop {
         unsafe { (::windows::core::Vtable::vtable(this).SetSystemBackdrop)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ICompositionSupportsSystemBackdrop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICompositionSupportsSystemBackdrop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICompositionSupportsSystemBackdrop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2494,7 +2494,7 @@ impl ::core::fmt::Debug for ICompositionSupportsSystemBackdrop {
     }
 }
 impl ::windows::core::RuntimeType for ICompositionSupportsSystemBackdrop {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{397dafe4-b6c2-5bb9-951d-f5707de8b7bc}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{397dafe4-b6c2-5bb9-951d-f5707de8b7bc}");
 }
 unsafe impl ::windows::core::Vtable for ICompositionSupportsSystemBackdrop {
     type Vtable = ICompositionSupportsSystemBackdrop_Vtbl;
@@ -2518,7 +2518,7 @@ pub struct ICompositionSupportsSystemBackdrop_Vtbl {
 #[repr(transparent)]
 pub struct ICompositionSurface(::windows::core::IUnknown);
 impl ICompositionSurface {}
-::windows::core::interface_hierarchy!(ICompositionSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICompositionSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICompositionSurface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2531,7 +2531,7 @@ impl ::core::fmt::Debug for ICompositionSurface {
     }
 }
 impl ::windows::core::RuntimeType for ICompositionSurface {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1527540d-42c7-47a6-a408-668f79a90dfb}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1527540d-42c7-47a6-a408-668f79a90dfb}");
 }
 unsafe impl ::windows::core::Vtable for ICompositionSurface {
     type Vtable = ICompositionSurface_Vtbl;
@@ -2674,7 +2674,7 @@ impl ICompositionSurfaceFacade {
         }
     }
 }
-::windows::core::interface_hierarchy!(ICompositionSurfaceFacade, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICompositionSurfaceFacade, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICompositionSurfaceFacade {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2687,7 +2687,7 @@ impl ::core::fmt::Debug for ICompositionSurfaceFacade {
     }
 }
 impl ::windows::core::RuntimeType for ICompositionSurfaceFacade {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e01622c8-2332-55c7-8868-a7312c5c229d}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e01622c8-2332-55c7-8868-a7312c5c229d}");
 }
 unsafe impl ::windows::core::Vtable for ICompositionSurfaceFacade {
     type Vtable = ICompositionSurfaceFacade_Vtbl;
@@ -4847,7 +4847,7 @@ pub struct IVisualCollection_Vtbl {
 #[repr(transparent)]
 pub struct IVisualElement(::windows::core::IUnknown);
 impl IVisualElement {}
-::windows::core::interface_hierarchy!(IVisualElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVisualElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVisualElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4860,7 +4860,7 @@ impl ::core::fmt::Debug for IVisualElement {
     }
 }
 impl ::windows::core::RuntimeType for IVisualElement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{01e64612-1d82-42f4-8e3f-a722ded33fc7}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{01e64612-1d82-42f4-8e3f-a722ded33fc7}");
 }
 unsafe impl ::windows::core::Vtable for IVisualElement {
     type Vtable = IVisualElement_Vtbl;
@@ -4890,7 +4890,7 @@ impl IVisualElement2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVisualElement2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVisualElement2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVisualElement2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4903,7 +4903,7 @@ impl ::core::fmt::Debug for IVisualElement2 {
     }
 }
 impl ::windows::core::RuntimeType for IVisualElement2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{993ae8a0-6057-5e40-918c-e06e0b7e7c64}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{993ae8a0-6057-5e40-918c-e06e0b7e7c64}");
 }
 unsafe impl ::windows::core::Vtable for IVisualElement2 {
     type Vtable = IVisualElement2_Vtbl;
@@ -5133,7 +5133,7 @@ impl ::core::fmt::Debug for AmbientLight {
     }
 }
 impl ::windows::core::RuntimeType for AmbientLight {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AmbientLight;{a48130a1-b7c4-46f7-b9bf-daf43a44e6ee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AmbientLight;{a48130a1-b7c4-46f7-b9bf-daf43a44e6ee})");
 }
 impl ::core::clone::Clone for AmbientLight {
     fn clone(&self) -> Self {
@@ -5149,7 +5149,7 @@ unsafe impl ::windows::core::Interface for AmbientLight {
 impl ::windows::core::RuntimeName for AmbientLight {
     const NAME: &'static str = "Windows.UI.Composition.AmbientLight";
 }
-::windows::core::interface_hierarchy!(AmbientLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AmbientLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AmbientLight> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: AmbientLight) -> ::windows::core::Result<Self> {
@@ -5387,7 +5387,7 @@ impl AnimationController {
     }
     #[doc(hidden)]
     pub fn IAnimationControllerStatics<R, F: FnOnce(&IAnimationControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AnimationController, IAnimationControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AnimationController, IAnimationControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5403,7 +5403,7 @@ impl ::core::fmt::Debug for AnimationController {
     }
 }
 impl ::windows::core::RuntimeType for AnimationController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AnimationController;{c934efd2-0722-4f5f-a4e2-9510f3d43bf7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AnimationController;{c934efd2-0722-4f5f-a4e2-9510f3d43bf7})");
 }
 impl ::core::clone::Clone for AnimationController {
     fn clone(&self) -> Self {
@@ -5419,7 +5419,7 @@ unsafe impl ::windows::core::Interface for AnimationController {
 impl ::windows::core::RuntimeName for AnimationController {
     const NAME: &'static str = "Windows.UI.Composition.AnimationController";
 }
-::windows::core::interface_hierarchy!(AnimationController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AnimationController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AnimationController> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: AnimationController) -> ::windows::core::Result<Self> {
@@ -5625,7 +5625,7 @@ impl ::core::fmt::Debug for AnimationPropertyInfo {
     }
 }
 impl ::windows::core::RuntimeType for AnimationPropertyInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AnimationPropertyInfo;{f4716f05-ed77-4e3c-b328-5c3985b3738f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AnimationPropertyInfo;{f4716f05-ed77-4e3c-b328-5c3985b3738f})");
 }
 impl ::core::clone::Clone for AnimationPropertyInfo {
     fn clone(&self) -> Self {
@@ -5641,7 +5641,7 @@ unsafe impl ::windows::core::Interface for AnimationPropertyInfo {
 impl ::windows::core::RuntimeName for AnimationPropertyInfo {
     const NAME: &'static str = "Windows.UI.Composition.AnimationPropertyInfo";
 }
-::windows::core::interface_hierarchy!(AnimationPropertyInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AnimationPropertyInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AnimationPropertyInfo> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: AnimationPropertyInfo) -> ::windows::core::Result<Self> {
@@ -5836,7 +5836,7 @@ impl ::core::fmt::Debug for BackEasingFunction {
     }
 }
 impl ::windows::core::RuntimeType for BackEasingFunction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BackEasingFunction;{b8560da4-5e3c-545d-b263-7987a2bd27cb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BackEasingFunction;{b8560da4-5e3c-545d-b263-7987a2bd27cb})");
 }
 impl ::core::clone::Clone for BackEasingFunction {
     fn clone(&self) -> Self {
@@ -5852,7 +5852,7 @@ unsafe impl ::windows::core::Interface for BackEasingFunction {
 impl ::windows::core::RuntimeName for BackEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.BackEasingFunction";
 }
-::windows::core::interface_hierarchy!(BackEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BackEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: BackEasingFunction) -> ::windows::core::Result<Self> {
@@ -6246,7 +6246,7 @@ impl ::core::fmt::Debug for BooleanKeyFrameAnimation {
     }
 }
 impl ::windows::core::RuntimeType for BooleanKeyFrameAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BooleanKeyFrameAnimation;{95e23a08-d1f4-4972-9770-3efe68d82e14})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BooleanKeyFrameAnimation;{95e23a08-d1f4-4972-9770-3efe68d82e14})");
 }
 impl ::core::clone::Clone for BooleanKeyFrameAnimation {
     fn clone(&self) -> Self {
@@ -6262,7 +6262,7 @@ unsafe impl ::windows::core::Interface for BooleanKeyFrameAnimation {
 impl ::windows::core::RuntimeName for BooleanKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BooleanKeyFrameAnimation";
 }
-::windows::core::interface_hierarchy!(BooleanKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BooleanKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BooleanKeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: BooleanKeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -6513,7 +6513,7 @@ impl ::core::fmt::Debug for BounceEasingFunction {
     }
 }
 impl ::windows::core::RuntimeType for BounceEasingFunction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceEasingFunction;{e7fdb44b-aad5-5174-9421-eef8b75a6a43})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceEasingFunction;{e7fdb44b-aad5-5174-9421-eef8b75a6a43})");
 }
 impl ::core::clone::Clone for BounceEasingFunction {
     fn clone(&self) -> Self {
@@ -6529,7 +6529,7 @@ unsafe impl ::windows::core::Interface for BounceEasingFunction {
 impl ::windows::core::RuntimeName for BounceEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.BounceEasingFunction";
 }
-::windows::core::interface_hierarchy!(BounceEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BounceEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BounceEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: BounceEasingFunction) -> ::windows::core::Result<Self> {
@@ -6924,7 +6924,7 @@ impl ::core::fmt::Debug for BounceScalarNaturalMotionAnimation {
     }
 }
 impl ::windows::core::RuntimeType for BounceScalarNaturalMotionAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceScalarNaturalMotionAnimation;{baa30dcc-a633-4618-9b06-7f7c72c87cff})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceScalarNaturalMotionAnimation;{baa30dcc-a633-4618-9b06-7f7c72c87cff})");
 }
 impl ::core::clone::Clone for BounceScalarNaturalMotionAnimation {
     fn clone(&self) -> Self {
@@ -6940,7 +6940,7 @@ unsafe impl ::windows::core::Interface for BounceScalarNaturalMotionAnimation {
 impl ::windows::core::RuntimeName for BounceScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceScalarNaturalMotionAnimation";
 }
-::windows::core::interface_hierarchy!(BounceScalarNaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BounceScalarNaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BounceScalarNaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: BounceScalarNaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -7388,7 +7388,7 @@ impl ::core::fmt::Debug for BounceVector2NaturalMotionAnimation {
     }
 }
 impl ::windows::core::RuntimeType for BounceVector2NaturalMotionAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceVector2NaturalMotionAnimation;{da344196-2154-4b3c-88aa-47361204eccd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceVector2NaturalMotionAnimation;{da344196-2154-4b3c-88aa-47361204eccd})");
 }
 impl ::core::clone::Clone for BounceVector2NaturalMotionAnimation {
     fn clone(&self) -> Self {
@@ -7404,7 +7404,7 @@ unsafe impl ::windows::core::Interface for BounceVector2NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for BounceVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceVector2NaturalMotionAnimation";
 }
-::windows::core::interface_hierarchy!(BounceVector2NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BounceVector2NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BounceVector2NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: BounceVector2NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -7852,7 +7852,7 @@ impl ::core::fmt::Debug for BounceVector3NaturalMotionAnimation {
     }
 }
 impl ::windows::core::RuntimeType for BounceVector3NaturalMotionAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceVector3NaturalMotionAnimation;{47dabc31-10d3-4518-86f1-09caf742d113})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceVector3NaturalMotionAnimation;{47dabc31-10d3-4518-86f1-09caf742d113})");
 }
 impl ::core::clone::Clone for BounceVector3NaturalMotionAnimation {
     fn clone(&self) -> Self {
@@ -7868,7 +7868,7 @@ unsafe impl ::windows::core::Interface for BounceVector3NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for BounceVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceVector3NaturalMotionAnimation";
 }
-::windows::core::interface_hierarchy!(BounceVector3NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BounceVector3NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BounceVector3NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: BounceVector3NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -8120,7 +8120,7 @@ impl ::core::fmt::Debug for CircleEasingFunction {
     }
 }
 impl ::windows::core::RuntimeType for CircleEasingFunction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CircleEasingFunction;{1e07222a-6f82-5a28-8748-2e92fc46ee2b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CircleEasingFunction;{1e07222a-6f82-5a28-8748-2e92fc46ee2b})");
 }
 impl ::core::clone::Clone for CircleEasingFunction {
     fn clone(&self) -> Self {
@@ -8136,7 +8136,7 @@ unsafe impl ::windows::core::Interface for CircleEasingFunction {
 impl ::windows::core::RuntimeName for CircleEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CircleEasingFunction";
 }
-::windows::core::interface_hierarchy!(CircleEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CircleEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CircleEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CircleEasingFunction) -> ::windows::core::Result<Self> {
@@ -8548,7 +8548,7 @@ impl ::core::fmt::Debug for ColorKeyFrameAnimation {
     }
 }
 impl ::windows::core::RuntimeType for ColorKeyFrameAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ColorKeyFrameAnimation;{93adb5e9-8e05-4593-84a3-dca152781e56})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ColorKeyFrameAnimation;{93adb5e9-8e05-4593-84a3-dca152781e56})");
 }
 impl ::core::clone::Clone for ColorKeyFrameAnimation {
     fn clone(&self) -> Self {
@@ -8564,7 +8564,7 @@ unsafe impl ::windows::core::Interface for ColorKeyFrameAnimation {
 impl ::windows::core::RuntimeName for ColorKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ColorKeyFrameAnimation";
 }
-::windows::core::interface_hierarchy!(ColorKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ColorKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ColorKeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ColorKeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -8885,7 +8885,7 @@ impl ::core::fmt::Debug for CompositionAnimation {
     }
 }
 impl ::windows::core::RuntimeType for CompositionAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionAnimation;{464c4c2c-1caa-4061-9b40-e13fde1503ca})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionAnimation;{464c4c2c-1caa-4061-9b40-e13fde1503ca})");
 }
 impl ::core::clone::Clone for CompositionAnimation {
     fn clone(&self) -> Self {
@@ -8901,7 +8901,7 @@ unsafe impl ::windows::core::Interface for CompositionAnimation {
 impl ::windows::core::RuntimeName for CompositionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.CompositionAnimation";
 }
-::windows::core::interface_hierarchy!(CompositionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionAnimation) -> ::windows::core::Result<Self> {
@@ -9135,7 +9135,7 @@ impl ::core::fmt::Debug for CompositionAnimationGroup {
     }
 }
 impl ::windows::core::RuntimeType for CompositionAnimationGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionAnimationGroup;{5e7cc90c-cd14-4e07-8a55-c72527aabdac})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionAnimationGroup;{5e7cc90c-cd14-4e07-8a55-c72527aabdac})");
 }
 impl ::core::clone::Clone for CompositionAnimationGroup {
     fn clone(&self) -> Self {
@@ -9167,7 +9167,7 @@ impl ::core::iter::IntoIterator for &CompositionAnimationGroup {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(CompositionAnimationGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionAnimationGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionAnimationGroup> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionAnimationGroup) -> ::windows::core::Result<Self> {
@@ -9389,7 +9389,7 @@ impl ::core::fmt::Debug for CompositionBackdropBrush {
     }
 }
 impl ::windows::core::RuntimeType for CompositionBackdropBrush {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBackdropBrush;{c5acae58-3898-499e-8d7f-224e91286a5d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBackdropBrush;{c5acae58-3898-499e-8d7f-224e91286a5d})");
 }
 impl ::core::clone::Clone for CompositionBackdropBrush {
     fn clone(&self) -> Self {
@@ -9405,7 +9405,7 @@ unsafe impl ::windows::core::Interface for CompositionBackdropBrush {
 impl ::windows::core::RuntimeName for CompositionBackdropBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBackdropBrush";
 }
-::windows::core::interface_hierarchy!(CompositionBackdropBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionBackdropBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionBackdropBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionBackdropBrush) -> ::windows::core::Result<Self> {
@@ -9601,7 +9601,7 @@ impl ::core::fmt::Debug for CompositionBatchCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CompositionBatchCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBatchCompletedEventArgs;{0d00dad0-9464-450a-a562-2e2698b0a812})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBatchCompletedEventArgs;{0d00dad0-9464-450a-a562-2e2698b0a812})");
 }
 impl ::core::clone::Clone for CompositionBatchCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -9617,7 +9617,7 @@ unsafe impl ::windows::core::Interface for CompositionBatchCompletedEventArgs {
 impl ::windows::core::RuntimeName for CompositionBatchCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBatchCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(CompositionBatchCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionBatchCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionBatchCompletedEventArgs> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionBatchCompletedEventArgs) -> ::windows::core::Result<Self> {
@@ -9798,7 +9798,7 @@ impl ::core::fmt::Debug for CompositionBrush {
     }
 }
 impl ::windows::core::RuntimeType for CompositionBrush {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBrush;{ab0d7608-30c0-40e9-b568-b60a6bd1fb46})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBrush;{ab0d7608-30c0-40e9-b568-b60a6bd1fb46})");
 }
 impl ::core::clone::Clone for CompositionBrush {
     fn clone(&self) -> Self {
@@ -9814,7 +9814,7 @@ unsafe impl ::windows::core::Interface for CompositionBrush {
 impl ::windows::core::RuntimeName for CompositionBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBrush";
 }
-::windows::core::interface_hierarchy!(CompositionBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionBrush) -> ::windows::core::Result<Self> {
@@ -9914,7 +9914,7 @@ impl CompositionCapabilities {
     }
     #[doc(hidden)]
     pub fn ICompositionCapabilitiesStatics<R, F: FnOnce(&ICompositionCapabilitiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CompositionCapabilities, ICompositionCapabilitiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CompositionCapabilities, ICompositionCapabilitiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -9930,7 +9930,7 @@ impl ::core::fmt::Debug for CompositionCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for CompositionCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionCapabilities;{8253353e-b517-48bc-b1e8-4b3561a2e181})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionCapabilities;{8253353e-b517-48bc-b1e8-4b3561a2e181})");
 }
 impl ::core::clone::Clone for CompositionCapabilities {
     fn clone(&self) -> Self {
@@ -9946,7 +9946,7 @@ unsafe impl ::windows::core::Interface for CompositionCapabilities {
 impl ::windows::core::RuntimeName for CompositionCapabilities {
     const NAME: &'static str = "Windows.UI.Composition.CompositionCapabilities";
 }
-::windows::core::interface_hierarchy!(CompositionCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompositionCapabilities {}
 unsafe impl ::core::marker::Sync for CompositionCapabilities {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
@@ -10168,7 +10168,7 @@ impl ::core::fmt::Debug for CompositionClip {
     }
 }
 impl ::windows::core::RuntimeType for CompositionClip {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionClip;{1ccd2a52-cfc7-4ace-9983-146bb8eb6a3c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionClip;{1ccd2a52-cfc7-4ace-9983-146bb8eb6a3c})");
 }
 impl ::core::clone::Clone for CompositionClip {
     fn clone(&self) -> Self {
@@ -10184,7 +10184,7 @@ unsafe impl ::windows::core::Interface for CompositionClip {
 impl ::windows::core::RuntimeName for CompositionClip {
     const NAME: &'static str = "Windows.UI.Composition.CompositionClip";
 }
-::windows::core::interface_hierarchy!(CompositionClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionClip> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionClip) -> ::windows::core::Result<Self> {
@@ -10376,7 +10376,7 @@ impl ::core::fmt::Debug for CompositionColorBrush {
     }
 }
 impl ::windows::core::RuntimeType for CompositionColorBrush {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorBrush;{2b264c5e-bf35-4831-8642-cf70c20fff2f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorBrush;{2b264c5e-bf35-4831-8642-cf70c20fff2f})");
 }
 impl ::core::clone::Clone for CompositionColorBrush {
     fn clone(&self) -> Self {
@@ -10392,7 +10392,7 @@ unsafe impl ::windows::core::Interface for CompositionColorBrush {
 impl ::windows::core::RuntimeName for CompositionColorBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorBrush";
 }
-::windows::core::interface_hierarchy!(CompositionColorBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionColorBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionColorBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionColorBrush) -> ::windows::core::Result<Self> {
@@ -10610,7 +10610,7 @@ impl ::core::fmt::Debug for CompositionColorGradientStop {
     }
 }
 impl ::windows::core::RuntimeType for CompositionColorGradientStop {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorGradientStop;{6f00ca92-c801-4e41-9a8f-a53e20f57778})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorGradientStop;{6f00ca92-c801-4e41-9a8f-a53e20f57778})");
 }
 impl ::core::clone::Clone for CompositionColorGradientStop {
     fn clone(&self) -> Self {
@@ -10626,7 +10626,7 @@ unsafe impl ::windows::core::Interface for CompositionColorGradientStop {
 impl ::windows::core::RuntimeName for CompositionColorGradientStop {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorGradientStop";
 }
-::windows::core::interface_hierarchy!(CompositionColorGradientStop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionColorGradientStop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionColorGradientStop> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionColorGradientStop) -> ::windows::core::Result<Self> {
@@ -10798,7 +10798,7 @@ impl ::core::fmt::Debug for CompositionColorGradientStopCollection {
     }
 }
 impl ::windows::core::RuntimeType for CompositionColorGradientStopCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorGradientStopCollection;{9f1d20ec-7b04-4b1d-90bc-9fa32c0cfd26})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorGradientStopCollection;{9f1d20ec-7b04-4b1d-90bc-9fa32c0cfd26})");
 }
 impl ::core::clone::Clone for CompositionColorGradientStopCollection {
     fn clone(&self) -> Self {
@@ -10830,7 +10830,7 @@ impl ::core::iter::IntoIterator for &CompositionColorGradientStopCollection {
         super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(CompositionColorGradientStopCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionColorGradientStopCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CompositionColorGradientStopCollection> for super::super::Foundation::Collections::IIterable<CompositionColorGradientStop> {
     type Error = ::windows::core::Error;
@@ -11028,7 +11028,7 @@ impl ::core::fmt::Debug for CompositionCommitBatch {
     }
 }
 impl ::windows::core::RuntimeType for CompositionCommitBatch {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionCommitBatch;{0d00dad0-ca07-4400-8c8e-cb5db08559cc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionCommitBatch;{0d00dad0-ca07-4400-8c8e-cb5db08559cc})");
 }
 impl ::core::clone::Clone for CompositionCommitBatch {
     fn clone(&self) -> Self {
@@ -11044,7 +11044,7 @@ unsafe impl ::windows::core::Interface for CompositionCommitBatch {
 impl ::windows::core::RuntimeName for CompositionCommitBatch {
     const NAME: &'static str = "Windows.UI.Composition.CompositionCommitBatch";
 }
-::windows::core::interface_hierarchy!(CompositionCommitBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionCommitBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionCommitBatch> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionCommitBatch) -> ::windows::core::Result<Self> {
@@ -11316,7 +11316,7 @@ impl ::core::fmt::Debug for CompositionContainerShape {
     }
 }
 impl ::windows::core::RuntimeType for CompositionContainerShape {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionContainerShape;{4f5e859b-2e5b-44a8-982c-aa0f69c16059})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionContainerShape;{4f5e859b-2e5b-44a8-982c-aa0f69c16059})");
 }
 impl ::core::clone::Clone for CompositionContainerShape {
     fn clone(&self) -> Self {
@@ -11332,7 +11332,7 @@ unsafe impl ::windows::core::Interface for CompositionContainerShape {
 impl ::windows::core::RuntimeName for CompositionContainerShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionContainerShape";
 }
-::windows::core::interface_hierarchy!(CompositionContainerShape, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionContainerShape, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionContainerShape> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionContainerShape) -> ::windows::core::Result<Self> {
@@ -11594,7 +11594,7 @@ impl ::core::fmt::Debug for CompositionDrawingSurface {
     }
 }
 impl ::windows::core::RuntimeType for CompositionDrawingSurface {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionDrawingSurface;{a166c300-fad0-4d11-9e67-e433162ff49e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionDrawingSurface;{a166c300-fad0-4d11-9e67-e433162ff49e})");
 }
 impl ::core::clone::Clone for CompositionDrawingSurface {
     fn clone(&self) -> Self {
@@ -11610,7 +11610,7 @@ unsafe impl ::windows::core::Interface for CompositionDrawingSurface {
 impl ::windows::core::RuntimeName for CompositionDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionDrawingSurface";
 }
-::windows::core::interface_hierarchy!(CompositionDrawingSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionDrawingSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionDrawingSurface> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionDrawingSurface) -> ::windows::core::Result<Self> {
@@ -11867,7 +11867,7 @@ impl CompositionEasingFunction {
     }
     #[doc(hidden)]
     pub fn ICompositionEasingFunctionStatics<R, F: FnOnce(&ICompositionEasingFunctionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CompositionEasingFunction, ICompositionEasingFunctionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CompositionEasingFunction, ICompositionEasingFunctionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -11883,7 +11883,7 @@ impl ::core::fmt::Debug for CompositionEasingFunction {
     }
 }
 impl ::windows::core::RuntimeType for CompositionEasingFunction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEasingFunction;{5145e356-bf79-4ea8-8cc2-6b5b472e6c9a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEasingFunction;{5145e356-bf79-4ea8-8cc2-6b5b472e6c9a})");
 }
 impl ::core::clone::Clone for CompositionEasingFunction {
     fn clone(&self) -> Self {
@@ -11899,7 +11899,7 @@ unsafe impl ::windows::core::Interface for CompositionEasingFunction {
 impl ::windows::core::RuntimeName for CompositionEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEasingFunction";
 }
-::windows::core::interface_hierarchy!(CompositionEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionEasingFunction) -> ::windows::core::Result<Self> {
@@ -12094,7 +12094,7 @@ impl ::core::fmt::Debug for CompositionEffectBrush {
     }
 }
 impl ::windows::core::RuntimeType for CompositionEffectBrush {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectBrush;{bf7f795e-83cc-44bf-a447-3e3c071789ec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectBrush;{bf7f795e-83cc-44bf-a447-3e3c071789ec})");
 }
 impl ::core::clone::Clone for CompositionEffectBrush {
     fn clone(&self) -> Self {
@@ -12110,7 +12110,7 @@ unsafe impl ::windows::core::Interface for CompositionEffectBrush {
 impl ::windows::core::RuntimeName for CompositionEffectBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectBrush";
 }
-::windows::core::interface_hierarchy!(CompositionEffectBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionEffectBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionEffectBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionEffectBrush) -> ::windows::core::Result<Self> {
@@ -12327,7 +12327,7 @@ impl ::core::fmt::Debug for CompositionEffectFactory {
     }
 }
 impl ::windows::core::RuntimeType for CompositionEffectFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectFactory;{be5624af-ba7e-4510-9850-41c0b4ff74df})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectFactory;{be5624af-ba7e-4510-9850-41c0b4ff74df})");
 }
 impl ::core::clone::Clone for CompositionEffectFactory {
     fn clone(&self) -> Self {
@@ -12343,7 +12343,7 @@ unsafe impl ::windows::core::Interface for CompositionEffectFactory {
 impl ::windows::core::RuntimeName for CompositionEffectFactory {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectFactory";
 }
-::windows::core::interface_hierarchy!(CompositionEffectFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionEffectFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionEffectFactory> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionEffectFactory) -> ::windows::core::Result<Self> {
@@ -12421,7 +12421,7 @@ impl CompositionEffectSourceParameter {
     }
     #[doc(hidden)]
     pub fn ICompositionEffectSourceParameterFactory<R, F: FnOnce(&ICompositionEffectSourceParameterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CompositionEffectSourceParameter, ICompositionEffectSourceParameterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CompositionEffectSourceParameter, ICompositionEffectSourceParameterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -12437,7 +12437,7 @@ impl ::core::fmt::Debug for CompositionEffectSourceParameter {
     }
 }
 impl ::windows::core::RuntimeType for CompositionEffectSourceParameter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectSourceParameter;{858ab13a-3292-4e4e-b3bb-2b6c6544a6ee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectSourceParameter;{858ab13a-3292-4e4e-b3bb-2b6c6544a6ee})");
 }
 impl ::core::clone::Clone for CompositionEffectSourceParameter {
     fn clone(&self) -> Self {
@@ -12453,7 +12453,7 @@ unsafe impl ::windows::core::Interface for CompositionEffectSourceParameter {
 impl ::windows::core::RuntimeName for CompositionEffectSourceParameter {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectSourceParameter";
 }
-::windows::core::interface_hierarchy!(CompositionEffectSourceParameter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionEffectSourceParameter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Graphics_Effects")]
 impl ::core::convert::TryFrom<CompositionEffectSourceParameter> for super::super::Graphics::Effects::IGraphicsEffectSource {
     type Error = ::windows::core::Error;
@@ -12663,7 +12663,7 @@ impl ::core::fmt::Debug for CompositionEllipseGeometry {
     }
 }
 impl ::windows::core::RuntimeType for CompositionEllipseGeometry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEllipseGeometry;{4801f884-f6ad-4b93-afa9-897b64e57b1f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEllipseGeometry;{4801f884-f6ad-4b93-afa9-897b64e57b1f})");
 }
 impl ::core::clone::Clone for CompositionEllipseGeometry {
     fn clone(&self) -> Self {
@@ -12679,7 +12679,7 @@ unsafe impl ::windows::core::Interface for CompositionEllipseGeometry {
 impl ::windows::core::RuntimeName for CompositionEllipseGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEllipseGeometry";
 }
-::windows::core::interface_hierarchy!(CompositionEllipseGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionEllipseGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionEllipseGeometry> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionEllipseGeometry) -> ::windows::core::Result<Self> {
@@ -12997,7 +12997,7 @@ impl ::core::fmt::Debug for CompositionGeometricClip {
     }
 }
 impl ::windows::core::RuntimeType for CompositionGeometricClip {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGeometricClip;{c840b581-81c9-4444-a2c1-ccaece3a50e5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGeometricClip;{c840b581-81c9-4444-a2c1-ccaece3a50e5})");
 }
 impl ::core::clone::Clone for CompositionGeometricClip {
     fn clone(&self) -> Self {
@@ -13013,7 +13013,7 @@ unsafe impl ::windows::core::Interface for CompositionGeometricClip {
 impl ::windows::core::RuntimeName for CompositionGeometricClip {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGeometricClip";
 }
-::windows::core::interface_hierarchy!(CompositionGeometricClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionGeometricClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionGeometricClip> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionGeometricClip) -> ::windows::core::Result<Self> {
@@ -13242,7 +13242,7 @@ impl ::core::fmt::Debug for CompositionGeometry {
     }
 }
 impl ::windows::core::RuntimeType for CompositionGeometry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGeometry;{e985217c-6a17-4207-abd8-5fd3dd612a9d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGeometry;{e985217c-6a17-4207-abd8-5fd3dd612a9d})");
 }
 impl ::core::clone::Clone for CompositionGeometry {
     fn clone(&self) -> Self {
@@ -13258,7 +13258,7 @@ unsafe impl ::windows::core::Interface for CompositionGeometry {
 impl ::windows::core::RuntimeName for CompositionGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGeometry";
 }
-::windows::core::interface_hierarchy!(CompositionGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionGeometry> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionGeometry) -> ::windows::core::Result<Self> {
@@ -13576,7 +13576,7 @@ impl ::core::fmt::Debug for CompositionGradientBrush {
     }
 }
 impl ::windows::core::RuntimeType for CompositionGradientBrush {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGradientBrush;{1d9709e0-ffc6-4c0e-a9ab-34144d4c9098})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGradientBrush;{1d9709e0-ffc6-4c0e-a9ab-34144d4c9098})");
 }
 impl ::core::clone::Clone for CompositionGradientBrush {
     fn clone(&self) -> Self {
@@ -13592,7 +13592,7 @@ unsafe impl ::windows::core::Interface for CompositionGradientBrush {
 impl ::windows::core::RuntimeName for CompositionGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGradientBrush";
 }
-::windows::core::interface_hierarchy!(CompositionGradientBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionGradientBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionGradientBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionGradientBrush) -> ::windows::core::Result<Self> {
@@ -13855,7 +13855,7 @@ impl ::core::fmt::Debug for CompositionGraphicsDevice {
     }
 }
 impl ::windows::core::RuntimeType for CompositionGraphicsDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGraphicsDevice;{fb22c6e1-80a2-4667-9936-dbeaf6eefe95})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGraphicsDevice;{fb22c6e1-80a2-4667-9936-dbeaf6eefe95})");
 }
 impl ::core::clone::Clone for CompositionGraphicsDevice {
     fn clone(&self) -> Self {
@@ -13871,7 +13871,7 @@ unsafe impl ::windows::core::Interface for CompositionGraphicsDevice {
 impl ::windows::core::RuntimeName for CompositionGraphicsDevice {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGraphicsDevice";
 }
-::windows::core::interface_hierarchy!(CompositionGraphicsDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionGraphicsDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionGraphicsDevice> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionGraphicsDevice) -> ::windows::core::Result<Self> {
@@ -14077,7 +14077,7 @@ impl ::core::fmt::Debug for CompositionLight {
     }
 }
 impl ::windows::core::RuntimeType for CompositionLight {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLight;{41a6d7c2-2e5d-4bc1-b09e-8f0a03e3d8d3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLight;{41a6d7c2-2e5d-4bc1-b09e-8f0a03e3d8d3})");
 }
 impl ::core::clone::Clone for CompositionLight {
     fn clone(&self) -> Self {
@@ -14093,7 +14093,7 @@ unsafe impl ::windows::core::Interface for CompositionLight {
 impl ::windows::core::RuntimeName for CompositionLight {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLight";
 }
-::windows::core::interface_hierarchy!(CompositionLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionLight> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionLight) -> ::windows::core::Result<Self> {
@@ -14337,7 +14337,7 @@ impl ::core::fmt::Debug for CompositionLineGeometry {
     }
 }
 impl ::windows::core::RuntimeType for CompositionLineGeometry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLineGeometry;{dd7615a4-0c9a-4b67-8dce-440a5bf9cdec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLineGeometry;{dd7615a4-0c9a-4b67-8dce-440a5bf9cdec})");
 }
 impl ::core::clone::Clone for CompositionLineGeometry {
     fn clone(&self) -> Self {
@@ -14353,7 +14353,7 @@ unsafe impl ::windows::core::Interface for CompositionLineGeometry {
 impl ::windows::core::RuntimeName for CompositionLineGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLineGeometry";
 }
-::windows::core::interface_hierarchy!(CompositionLineGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionLineGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionLineGeometry> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionLineGeometry) -> ::windows::core::Result<Self> {
@@ -14716,7 +14716,7 @@ impl ::core::fmt::Debug for CompositionLinearGradientBrush {
     }
 }
 impl ::windows::core::RuntimeType for CompositionLinearGradientBrush {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLinearGradientBrush;{983bc519-a9db-413c-a2d8-2a9056fc525e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLinearGradientBrush;{983bc519-a9db-413c-a2d8-2a9056fc525e})");
 }
 impl ::core::clone::Clone for CompositionLinearGradientBrush {
     fn clone(&self) -> Self {
@@ -14732,7 +14732,7 @@ unsafe impl ::windows::core::Interface for CompositionLinearGradientBrush {
 impl ::windows::core::RuntimeName for CompositionLinearGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLinearGradientBrush";
 }
-::windows::core::interface_hierarchy!(CompositionLinearGradientBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionLinearGradientBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionLinearGradientBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionLinearGradientBrush) -> ::windows::core::Result<Self> {
@@ -14971,7 +14971,7 @@ impl ::core::fmt::Debug for CompositionMaskBrush {
     }
 }
 impl ::windows::core::RuntimeType for CompositionMaskBrush {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionMaskBrush;{522cf09e-be6b-4f41-be49-f9226d471b4a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionMaskBrush;{522cf09e-be6b-4f41-be49-f9226d471b4a})");
 }
 impl ::core::clone::Clone for CompositionMaskBrush {
     fn clone(&self) -> Self {
@@ -14987,7 +14987,7 @@ unsafe impl ::windows::core::Interface for CompositionMaskBrush {
 impl ::windows::core::RuntimeName for CompositionMaskBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionMaskBrush";
 }
-::windows::core::interface_hierarchy!(CompositionMaskBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionMaskBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionMaskBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionMaskBrush) -> ::windows::core::Result<Self> {
@@ -15224,7 +15224,7 @@ impl ::core::fmt::Debug for CompositionMipmapSurface {
     }
 }
 impl ::windows::core::RuntimeType for CompositionMipmapSurface {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionMipmapSurface;{4863675c-cf4a-4b1c-9ece-c5ec0c2b2fe6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionMipmapSurface;{4863675c-cf4a-4b1c-9ece-c5ec0c2b2fe6})");
 }
 impl ::core::clone::Clone for CompositionMipmapSurface {
     fn clone(&self) -> Self {
@@ -15240,7 +15240,7 @@ unsafe impl ::windows::core::Interface for CompositionMipmapSurface {
 impl ::windows::core::RuntimeName for CompositionMipmapSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionMipmapSurface";
 }
-::windows::core::interface_hierarchy!(CompositionMipmapSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionMipmapSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionMipmapSurface> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionMipmapSurface) -> ::windows::core::Result<Self> {
@@ -15569,7 +15569,7 @@ impl ::core::fmt::Debug for CompositionNineGridBrush {
     }
 }
 impl ::windows::core::RuntimeType for CompositionNineGridBrush {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionNineGridBrush;{f25154e4-bc8c-4be7-b80f-8685b83c0186})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionNineGridBrush;{f25154e4-bc8c-4be7-b80f-8685b83c0186})");
 }
 impl ::core::clone::Clone for CompositionNineGridBrush {
     fn clone(&self) -> Self {
@@ -15585,7 +15585,7 @@ unsafe impl ::windows::core::Interface for CompositionNineGridBrush {
 impl ::windows::core::RuntimeName for CompositionNineGridBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionNineGridBrush";
 }
-::windows::core::interface_hierarchy!(CompositionNineGridBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionNineGridBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionNineGridBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionNineGridBrush) -> ::windows::core::Result<Self> {
@@ -15787,7 +15787,7 @@ impl CompositionObject {
     }
     #[doc(hidden)]
     pub fn ICompositionObjectStatics<R, F: FnOnce(&ICompositionObjectStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CompositionObject, ICompositionObjectStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CompositionObject, ICompositionObjectStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -15803,7 +15803,7 @@ impl ::core::fmt::Debug for CompositionObject {
     }
 }
 impl ::windows::core::RuntimeType for CompositionObject {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionObject;{bcb4ad45-7609-4550-934f-16002a68fded})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionObject;{bcb4ad45-7609-4550-934f-16002a68fded})");
 }
 impl ::core::clone::Clone for CompositionObject {
     fn clone(&self) -> Self {
@@ -15819,7 +15819,7 @@ unsafe impl ::windows::core::Interface for CompositionObject {
 impl ::windows::core::RuntimeName for CompositionObject {
     const NAME: &'static str = "Windows.UI.Composition.CompositionObject";
 }
-::windows::core::interface_hierarchy!(CompositionObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionObject> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionObject) -> ::windows::core::Result<Self> {
@@ -15881,7 +15881,7 @@ impl CompositionPath {
     }
     #[doc(hidden)]
     pub fn ICompositionPathFactory<R, F: FnOnce(&ICompositionPathFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CompositionPath, ICompositionPathFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CompositionPath, ICompositionPathFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -15897,7 +15897,7 @@ impl ::core::fmt::Debug for CompositionPath {
     }
 }
 impl ::windows::core::RuntimeType for CompositionPath {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPath;{66da1d5f-2e10-4f22-8a06-0a8151919e60})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPath;{66da1d5f-2e10-4f22-8a06-0a8151919e60})");
 }
 impl ::core::clone::Clone for CompositionPath {
     fn clone(&self) -> Self {
@@ -15913,7 +15913,7 @@ unsafe impl ::windows::core::Interface for CompositionPath {
 impl ::windows::core::RuntimeName for CompositionPath {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPath";
 }
-::windows::core::interface_hierarchy!(CompositionPath, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionPath, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Graphics")]
 impl ::core::convert::TryFrom<CompositionPath> for super::super::Graphics::IGeometrySource2D {
     type Error = ::windows::core::Error;
@@ -16104,7 +16104,7 @@ impl ::core::fmt::Debug for CompositionPathGeometry {
     }
 }
 impl ::windows::core::RuntimeType for CompositionPathGeometry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPathGeometry;{0b6a417e-2c77-4c23-af5e-6304c147bb61})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPathGeometry;{0b6a417e-2c77-4c23-af5e-6304c147bb61})");
 }
 impl ::core::clone::Clone for CompositionPathGeometry {
     fn clone(&self) -> Self {
@@ -16120,7 +16120,7 @@ unsafe impl ::windows::core::Interface for CompositionPathGeometry {
 impl ::windows::core::RuntimeName for CompositionPathGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPathGeometry";
 }
-::windows::core::interface_hierarchy!(CompositionPathGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionPathGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionPathGeometry> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionPathGeometry) -> ::windows::core::Result<Self> {
@@ -16377,7 +16377,7 @@ impl ::core::fmt::Debug for CompositionProjectedShadow {
     }
 }
 impl ::windows::core::RuntimeType for CompositionProjectedShadow {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadow;{285b8e72-4328-523f-bcf2-5557c52c3b25})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadow;{285b8e72-4328-523f-bcf2-5557c52c3b25})");
 }
 impl ::core::clone::Clone for CompositionProjectedShadow {
     fn clone(&self) -> Self {
@@ -16393,7 +16393,7 @@ unsafe impl ::windows::core::Interface for CompositionProjectedShadow {
 impl ::windows::core::RuntimeName for CompositionProjectedShadow {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadow";
 }
-::windows::core::interface_hierarchy!(CompositionProjectedShadow, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionProjectedShadow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionProjectedShadow> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionProjectedShadow) -> ::windows::core::Result<Self> {
@@ -16602,7 +16602,7 @@ impl ::core::fmt::Debug for CompositionProjectedShadowCaster {
     }
 }
 impl ::windows::core::RuntimeType for CompositionProjectedShadowCaster {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowCaster;{b1d7d426-1e36-5a62-be56-a16112fdd148})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowCaster;{b1d7d426-1e36-5a62-be56-a16112fdd148})");
 }
 impl ::core::clone::Clone for CompositionProjectedShadowCaster {
     fn clone(&self) -> Self {
@@ -16618,7 +16618,7 @@ unsafe impl ::windows::core::Interface for CompositionProjectedShadowCaster {
 impl ::windows::core::RuntimeName for CompositionProjectedShadowCaster {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowCaster";
 }
-::windows::core::interface_hierarchy!(CompositionProjectedShadowCaster, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionProjectedShadowCaster, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionProjectedShadowCaster> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionProjectedShadowCaster) -> ::windows::core::Result<Self> {
@@ -16834,7 +16834,7 @@ impl CompositionProjectedShadowCasterCollection {
     }
     #[doc(hidden)]
     pub fn ICompositionProjectedShadowCasterCollectionStatics<R, F: FnOnce(&ICompositionProjectedShadowCasterCollectionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CompositionProjectedShadowCasterCollection, ICompositionProjectedShadowCasterCollectionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CompositionProjectedShadowCasterCollection, ICompositionProjectedShadowCasterCollectionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -16850,7 +16850,7 @@ impl ::core::fmt::Debug for CompositionProjectedShadowCasterCollection {
     }
 }
 impl ::windows::core::RuntimeType for CompositionProjectedShadowCasterCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowCasterCollection;{d2525c0c-e07f-58a3-ac91-37f73ee91740})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowCasterCollection;{d2525c0c-e07f-58a3-ac91-37f73ee91740})");
 }
 impl ::core::clone::Clone for CompositionProjectedShadowCasterCollection {
     fn clone(&self) -> Self {
@@ -16882,7 +16882,7 @@ impl ::core::iter::IntoIterator for &CompositionProjectedShadowCasterCollection 
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(CompositionProjectedShadowCasterCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionProjectedShadowCasterCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionProjectedShadowCasterCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionProjectedShadowCasterCollection) -> ::windows::core::Result<Self> {
@@ -17099,7 +17099,7 @@ impl ::core::fmt::Debug for CompositionProjectedShadowReceiver {
     }
 }
 impl ::windows::core::RuntimeType for CompositionProjectedShadowReceiver {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowReceiver;{1377985a-6a49-536a-9be4-a96a8e5298a9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowReceiver;{1377985a-6a49-536a-9be4-a96a8e5298a9})");
 }
 impl ::core::clone::Clone for CompositionProjectedShadowReceiver {
     fn clone(&self) -> Self {
@@ -17115,7 +17115,7 @@ unsafe impl ::windows::core::Interface for CompositionProjectedShadowReceiver {
 impl ::windows::core::RuntimeName for CompositionProjectedShadowReceiver {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowReceiver";
 }
-::windows::core::interface_hierarchy!(CompositionProjectedShadowReceiver, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionProjectedShadowReceiver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionProjectedShadowReceiver> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionProjectedShadowReceiver) -> ::windows::core::Result<Self> {
@@ -17324,7 +17324,7 @@ impl ::core::fmt::Debug for CompositionProjectedShadowReceiverUnorderedCollectio
     }
 }
 impl ::windows::core::RuntimeType for CompositionProjectedShadowReceiverUnorderedCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowReceiverUnorderedCollection;{02b3e3b7-27d2-599f-ac4b-ab787cdde6fd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowReceiverUnorderedCollection;{02b3e3b7-27d2-599f-ac4b-ab787cdde6fd})");
 }
 impl ::core::clone::Clone for CompositionProjectedShadowReceiverUnorderedCollection {
     fn clone(&self) -> Self {
@@ -17356,7 +17356,7 @@ impl ::core::iter::IntoIterator for &CompositionProjectedShadowReceiverUnordered
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(CompositionProjectedShadowReceiverUnorderedCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionProjectedShadowReceiverUnorderedCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionProjectedShadowReceiverUnorderedCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionProjectedShadowReceiverUnorderedCollection) -> ::windows::core::Result<Self> {
@@ -17682,7 +17682,7 @@ impl ::core::fmt::Debug for CompositionPropertySet {
     }
 }
 impl ::windows::core::RuntimeType for CompositionPropertySet {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPropertySet;{c9d6d202-5f67-4453-9117-9eadd430d3c2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPropertySet;{c9d6d202-5f67-4453-9117-9eadd430d3c2})");
 }
 impl ::core::clone::Clone for CompositionPropertySet {
     fn clone(&self) -> Self {
@@ -17698,7 +17698,7 @@ unsafe impl ::windows::core::Interface for CompositionPropertySet {
 impl ::windows::core::RuntimeName for CompositionPropertySet {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPropertySet";
 }
-::windows::core::interface_hierarchy!(CompositionPropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionPropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionPropertySet> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionPropertySet) -> ::windows::core::Result<Self> {
@@ -18061,7 +18061,7 @@ impl ::core::fmt::Debug for CompositionRadialGradientBrush {
     }
 }
 impl ::windows::core::RuntimeType for CompositionRadialGradientBrush {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRadialGradientBrush;{3d3b50c5-e3fa-4ce2-b9fc-3ee12561788f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRadialGradientBrush;{3d3b50c5-e3fa-4ce2-b9fc-3ee12561788f})");
 }
 impl ::core::clone::Clone for CompositionRadialGradientBrush {
     fn clone(&self) -> Self {
@@ -18077,7 +18077,7 @@ unsafe impl ::windows::core::Interface for CompositionRadialGradientBrush {
 impl ::windows::core::RuntimeName for CompositionRadialGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRadialGradientBrush";
 }
-::windows::core::interface_hierarchy!(CompositionRadialGradientBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionRadialGradientBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionRadialGradientBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionRadialGradientBrush) -> ::windows::core::Result<Self> {
@@ -18351,7 +18351,7 @@ impl ::core::fmt::Debug for CompositionRectangleGeometry {
     }
 }
 impl ::windows::core::RuntimeType for CompositionRectangleGeometry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRectangleGeometry;{0cd51428-5356-4246-aecf-7a0b76975400})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRectangleGeometry;{0cd51428-5356-4246-aecf-7a0b76975400})");
 }
 impl ::core::clone::Clone for CompositionRectangleGeometry {
     fn clone(&self) -> Self {
@@ -18367,7 +18367,7 @@ unsafe impl ::windows::core::Interface for CompositionRectangleGeometry {
 impl ::windows::core::RuntimeName for CompositionRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRectangleGeometry";
 }
-::windows::core::interface_hierarchy!(CompositionRectangleGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionRectangleGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionRectangleGeometry> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionRectangleGeometry) -> ::windows::core::Result<Self> {
@@ -18641,7 +18641,7 @@ impl ::core::fmt::Debug for CompositionRoundedRectangleGeometry {
     }
 }
 impl ::windows::core::RuntimeType for CompositionRoundedRectangleGeometry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRoundedRectangleGeometry;{8770c822-1d50-4b8b-b013-7c9a0e46935f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRoundedRectangleGeometry;{8770c822-1d50-4b8b-b013-7c9a0e46935f})");
 }
 impl ::core::clone::Clone for CompositionRoundedRectangleGeometry {
     fn clone(&self) -> Self {
@@ -18657,7 +18657,7 @@ unsafe impl ::windows::core::Interface for CompositionRoundedRectangleGeometry {
 impl ::windows::core::RuntimeName for CompositionRoundedRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRoundedRectangleGeometry";
 }
-::windows::core::interface_hierarchy!(CompositionRoundedRectangleGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionRoundedRectangleGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionRoundedRectangleGeometry> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionRoundedRectangleGeometry) -> ::windows::core::Result<Self> {
@@ -18894,7 +18894,7 @@ impl ::core::fmt::Debug for CompositionScopedBatch {
     }
 }
 impl ::windows::core::RuntimeType for CompositionScopedBatch {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionScopedBatch;{0d00dad0-fb07-46fd-8c72-6280d1a3d1dd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionScopedBatch;{0d00dad0-fb07-46fd-8c72-6280d1a3d1dd})");
 }
 impl ::core::clone::Clone for CompositionScopedBatch {
     fn clone(&self) -> Self {
@@ -18910,7 +18910,7 @@ unsafe impl ::windows::core::Interface for CompositionScopedBatch {
 impl ::windows::core::RuntimeName for CompositionScopedBatch {
     const NAME: &'static str = "Windows.UI.Composition.CompositionScopedBatch";
 }
-::windows::core::interface_hierarchy!(CompositionScopedBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionScopedBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionScopedBatch> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionScopedBatch) -> ::windows::core::Result<Self> {
@@ -19091,7 +19091,7 @@ impl ::core::fmt::Debug for CompositionShadow {
     }
 }
 impl ::windows::core::RuntimeType for CompositionShadow {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShadow;{329e52e2-4335-49cc-b14a-37782d10f0c4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShadow;{329e52e2-4335-49cc-b14a-37782d10f0c4})");
 }
 impl ::core::clone::Clone for CompositionShadow {
     fn clone(&self) -> Self {
@@ -19107,7 +19107,7 @@ unsafe impl ::windows::core::Interface for CompositionShadow {
 impl ::windows::core::RuntimeName for CompositionShadow {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShadow";
 }
-::windows::core::interface_hierarchy!(CompositionShadow, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionShadow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionShadow> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionShadow) -> ::windows::core::Result<Self> {
@@ -19370,7 +19370,7 @@ impl ::core::fmt::Debug for CompositionShape {
     }
 }
 impl ::windows::core::RuntimeType for CompositionShape {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShape;{b47ce2f7-9a88-42c4-9e87-2e500ca8688c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShape;{b47ce2f7-9a88-42c4-9e87-2e500ca8688c})");
 }
 impl ::core::clone::Clone for CompositionShape {
     fn clone(&self) -> Self {
@@ -19386,7 +19386,7 @@ unsafe impl ::windows::core::Interface for CompositionShape {
 impl ::windows::core::RuntimeName for CompositionShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShape";
 }
-::windows::core::interface_hierarchy!(CompositionShape, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionShape, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionShape> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionShape) -> ::windows::core::Result<Self> {
@@ -19681,7 +19681,7 @@ impl ::core::fmt::Debug for CompositionShapeCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for CompositionShapeCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShapeCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.CompositionShape;{b47ce2f7-9a88-42c4-9e87-2e500ca8688c})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShapeCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.CompositionShape;{b47ce2f7-9a88-42c4-9e87-2e500ca8688c})))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for CompositionShapeCollection {
@@ -19718,7 +19718,7 @@ impl ::core::iter::IntoIterator for &CompositionShapeCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(CompositionShapeCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionShapeCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CompositionShapeCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
@@ -20172,7 +20172,7 @@ impl ::core::fmt::Debug for CompositionSpriteShape {
     }
 }
 impl ::windows::core::RuntimeType for CompositionSpriteShape {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionSpriteShape;{401b61bb-0007-4363-b1f3-6bcc003fb83e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionSpriteShape;{401b61bb-0007-4363-b1f3-6bcc003fb83e})");
 }
 impl ::core::clone::Clone for CompositionSpriteShape {
     fn clone(&self) -> Self {
@@ -20188,7 +20188,7 @@ unsafe impl ::windows::core::Interface for CompositionSpriteShape {
 impl ::windows::core::RuntimeName for CompositionSpriteShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionSpriteShape";
 }
-::windows::core::interface_hierarchy!(CompositionSpriteShape, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionSpriteShape, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionSpriteShape> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionSpriteShape) -> ::windows::core::Result<Self> {
@@ -20486,7 +20486,7 @@ impl ::core::fmt::Debug for CompositionStrokeDashArray {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for CompositionStrokeDashArray {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionStrokeDashArray;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};f4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionStrokeDashArray;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};f4))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for CompositionStrokeDashArray {
@@ -20523,7 +20523,7 @@ impl ::core::iter::IntoIterator for &CompositionStrokeDashArray {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(CompositionStrokeDashArray, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionStrokeDashArray, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CompositionStrokeDashArray> for IAnimationObject {
     type Error = ::windows::core::Error;
@@ -20923,7 +20923,7 @@ impl ::core::fmt::Debug for CompositionSurfaceBrush {
     }
 }
 impl ::windows::core::RuntimeType for CompositionSurfaceBrush {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionSurfaceBrush;{ad016d79-1e4c-4c0d-9c29-83338c87c162})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionSurfaceBrush;{ad016d79-1e4c-4c0d-9c29-83338c87c162})");
 }
 impl ::core::clone::Clone for CompositionSurfaceBrush {
     fn clone(&self) -> Self {
@@ -20939,7 +20939,7 @@ unsafe impl ::windows::core::Interface for CompositionSurfaceBrush {
 impl ::windows::core::RuntimeName for CompositionSurfaceBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionSurfaceBrush";
 }
-::windows::core::interface_hierarchy!(CompositionSurfaceBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionSurfaceBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionSurfaceBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionSurfaceBrush) -> ::windows::core::Result<Self> {
@@ -21149,7 +21149,7 @@ impl ::core::fmt::Debug for CompositionTarget {
     }
 }
 impl ::windows::core::RuntimeType for CompositionTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionTarget;{a1bea8ba-d726-4663-8129-6b5e7927ffa6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionTarget;{a1bea8ba-d726-4663-8129-6b5e7927ffa6})");
 }
 impl ::core::clone::Clone for CompositionTarget {
     fn clone(&self) -> Self {
@@ -21165,7 +21165,7 @@ unsafe impl ::windows::core::Interface for CompositionTarget {
 impl ::windows::core::RuntimeName for CompositionTarget {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTarget";
 }
-::windows::core::interface_hierarchy!(CompositionTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionTarget> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionTarget) -> ::windows::core::Result<Self> {
@@ -21346,7 +21346,7 @@ impl ::core::fmt::Debug for CompositionTransform {
     }
 }
 impl ::windows::core::RuntimeType for CompositionTransform {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionTransform;{7cd54529-fbed-4112-abc5-185906dd927c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionTransform;{7cd54529-fbed-4112-abc5-185906dd927c})");
 }
 impl ::core::clone::Clone for CompositionTransform {
     fn clone(&self) -> Self {
@@ -21362,7 +21362,7 @@ unsafe impl ::windows::core::Interface for CompositionTransform {
 impl ::windows::core::RuntimeName for CompositionTransform {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTransform";
 }
-::windows::core::interface_hierarchy!(CompositionTransform, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionTransform, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionTransform> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionTransform) -> ::windows::core::Result<Self> {
@@ -21606,7 +21606,7 @@ impl ::core::fmt::Debug for CompositionViewBox {
     }
 }
 impl ::windows::core::RuntimeType for CompositionViewBox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionViewBox;{b440bf07-068f-4537-84c6-4ecbe019e1f4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionViewBox;{b440bf07-068f-4537-84c6-4ecbe019e1f4})");
 }
 impl ::core::clone::Clone for CompositionViewBox {
     fn clone(&self) -> Self {
@@ -21622,7 +21622,7 @@ unsafe impl ::windows::core::Interface for CompositionViewBox {
 impl ::windows::core::RuntimeName for CompositionViewBox {
     const NAME: &'static str = "Windows.UI.Composition.CompositionViewBox";
 }
-::windows::core::interface_hierarchy!(CompositionViewBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionViewBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionViewBox> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionViewBox) -> ::windows::core::Result<Self> {
@@ -21875,7 +21875,7 @@ impl ::core::fmt::Debug for CompositionVirtualDrawingSurface {
     }
 }
 impl ::windows::core::RuntimeType for CompositionVirtualDrawingSurface {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionVirtualDrawingSurface;{a9c384db-8740-4f94-8b9d-b68521e7863d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionVirtualDrawingSurface;{a9c384db-8740-4f94-8b9d-b68521e7863d})");
 }
 impl ::core::clone::Clone for CompositionVirtualDrawingSurface {
     fn clone(&self) -> Self {
@@ -21891,7 +21891,7 @@ unsafe impl ::windows::core::Interface for CompositionVirtualDrawingSurface {
 impl ::windows::core::RuntimeName for CompositionVirtualDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionVirtualDrawingSurface";
 }
-::windows::core::interface_hierarchy!(CompositionVirtualDrawingSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionVirtualDrawingSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionVirtualDrawingSurface> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionVirtualDrawingSurface) -> ::windows::core::Result<Self> {
@@ -22150,7 +22150,7 @@ impl ::core::fmt::Debug for CompositionVisualSurface {
     }
 }
 impl ::windows::core::RuntimeType for CompositionVisualSurface {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionVisualSurface;{b224d803-4f6e-4a3f-8cae-3dc1cda74fc6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionVisualSurface;{b224d803-4f6e-4a3f-8cae-3dc1cda74fc6})");
 }
 impl ::core::clone::Clone for CompositionVisualSurface {
     fn clone(&self) -> Self {
@@ -22166,7 +22166,7 @@ unsafe impl ::windows::core::Interface for CompositionVisualSurface {
 impl ::windows::core::RuntimeName for CompositionVisualSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionVisualSurface";
 }
-::windows::core::interface_hierarchy!(CompositionVisualSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionVisualSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionVisualSurface> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionVisualSurface) -> ::windows::core::Result<Self> {
@@ -22251,8 +22251,8 @@ impl Compositor {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Compositor, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Compositor, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -22871,7 +22871,7 @@ impl Compositor {
     }
     #[doc(hidden)]
     pub fn ICompositorStatics<R, F: FnOnce(&ICompositorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Compositor, ICompositorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Compositor, ICompositorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -22887,7 +22887,7 @@ impl ::core::fmt::Debug for Compositor {
     }
 }
 impl ::windows::core::RuntimeType for Compositor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Compositor;{b403ca50-7f8c-4e83-985f-cc45060036d8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Compositor;{b403ca50-7f8c-4e83-985f-cc45060036d8})");
 }
 impl ::core::clone::Clone for Compositor {
     fn clone(&self) -> Self {
@@ -22903,7 +22903,7 @@ unsafe impl ::windows::core::Interface for Compositor {
 impl ::windows::core::RuntimeName for Compositor {
     const NAME: &'static str = "Windows.UI.Composition.Compositor";
 }
-::windows::core::interface_hierarchy!(Compositor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Compositor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<Compositor> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -23341,7 +23341,7 @@ impl ::core::fmt::Debug for ContainerVisual {
     }
 }
 impl ::windows::core::RuntimeType for ContainerVisual {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ContainerVisual;{02f6bc74-ed20-4773-afe6-d49b4a93db32})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ContainerVisual;{02f6bc74-ed20-4773-afe6-d49b4a93db32})");
 }
 impl ::core::clone::Clone for ContainerVisual {
     fn clone(&self) -> Self {
@@ -23357,7 +23357,7 @@ unsafe impl ::windows::core::Interface for ContainerVisual {
 impl ::windows::core::RuntimeName for ContainerVisual {
     const NAME: &'static str = "Windows.UI.Composition.ContainerVisual";
 }
-::windows::core::interface_hierarchy!(ContainerVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContainerVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContainerVisual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ContainerVisual) -> ::windows::core::Result<Self> {
@@ -23571,7 +23571,7 @@ impl ::core::fmt::Debug for CubicBezierEasingFunction {
     }
 }
 impl ::windows::core::RuntimeType for CubicBezierEasingFunction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CubicBezierEasingFunction;{32350666-c1e8-44f9-96b8-c98acf0ae698})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CubicBezierEasingFunction;{32350666-c1e8-44f9-96b8-c98acf0ae698})");
 }
 impl ::core::clone::Clone for CubicBezierEasingFunction {
     fn clone(&self) -> Self {
@@ -23587,7 +23587,7 @@ unsafe impl ::windows::core::Interface for CubicBezierEasingFunction {
 impl ::windows::core::RuntimeName for CubicBezierEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CubicBezierEasingFunction";
 }
-::windows::core::interface_hierarchy!(CubicBezierEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CubicBezierEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CubicBezierEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CubicBezierEasingFunction) -> ::windows::core::Result<Self> {
@@ -24098,7 +24098,7 @@ impl DelegatedInkTrailVisual {
     }
     #[doc(hidden)]
     pub fn IDelegatedInkTrailVisualStatics<R, F: FnOnce(&IDelegatedInkTrailVisualStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DelegatedInkTrailVisual, IDelegatedInkTrailVisualStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DelegatedInkTrailVisual, IDelegatedInkTrailVisualStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -24114,7 +24114,7 @@ impl ::core::fmt::Debug for DelegatedInkTrailVisual {
     }
 }
 impl ::windows::core::RuntimeType for DelegatedInkTrailVisual {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DelegatedInkTrailVisual;{856e60b1-e1ab-5b23-8e3d-d513f221c998})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DelegatedInkTrailVisual;{856e60b1-e1ab-5b23-8e3d-d513f221c998})");
 }
 impl ::core::clone::Clone for DelegatedInkTrailVisual {
     fn clone(&self) -> Self {
@@ -24130,7 +24130,7 @@ unsafe impl ::windows::core::Interface for DelegatedInkTrailVisual {
 impl ::windows::core::RuntimeName for DelegatedInkTrailVisual {
     const NAME: &'static str = "Windows.UI.Composition.DelegatedInkTrailVisual";
 }
-::windows::core::interface_hierarchy!(DelegatedInkTrailVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DelegatedInkTrailVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DelegatedInkTrailVisual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: DelegatedInkTrailVisual) -> ::windows::core::Result<Self> {
@@ -24402,7 +24402,7 @@ impl ::core::fmt::Debug for DistantLight {
     }
 }
 impl ::windows::core::RuntimeType for DistantLight {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DistantLight;{318cfafc-5ce3-4b55-ab5d-07a00353ac99})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DistantLight;{318cfafc-5ce3-4b55-ab5d-07a00353ac99})");
 }
 impl ::core::clone::Clone for DistantLight {
     fn clone(&self) -> Self {
@@ -24418,7 +24418,7 @@ unsafe impl ::windows::core::Interface for DistantLight {
 impl ::windows::core::RuntimeName for DistantLight {
     const NAME: &'static str = "Windows.UI.Composition.DistantLight";
 }
-::windows::core::interface_hierarchy!(DistantLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DistantLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DistantLight> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: DistantLight) -> ::windows::core::Result<Self> {
@@ -24687,7 +24687,7 @@ impl ::core::fmt::Debug for DropShadow {
     }
 }
 impl ::windows::core::RuntimeType for DropShadow {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DropShadow;{cb977c07-a154-4851-85e7-a8924c84fad8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DropShadow;{cb977c07-a154-4851-85e7-a8924c84fad8})");
 }
 impl ::core::clone::Clone for DropShadow {
     fn clone(&self) -> Self {
@@ -24703,7 +24703,7 @@ unsafe impl ::windows::core::Interface for DropShadow {
 impl ::windows::core::RuntimeName for DropShadow {
     const NAME: &'static str = "Windows.UI.Composition.DropShadow";
 }
-::windows::core::interface_hierarchy!(DropShadow, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DropShadow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DropShadow> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: DropShadow) -> ::windows::core::Result<Self> {
@@ -24920,7 +24920,7 @@ impl ::core::fmt::Debug for ElasticEasingFunction {
     }
 }
 impl ::windows::core::RuntimeType for ElasticEasingFunction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ElasticEasingFunction;{66de6285-054e-5594-8475-c22cb51f1bd5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ElasticEasingFunction;{66de6285-054e-5594-8475-c22cb51f1bd5})");
 }
 impl ::core::clone::Clone for ElasticEasingFunction {
     fn clone(&self) -> Self {
@@ -24936,7 +24936,7 @@ unsafe impl ::windows::core::Interface for ElasticEasingFunction {
 impl ::windows::core::RuntimeName for ElasticEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ElasticEasingFunction";
 }
-::windows::core::interface_hierarchy!(ElasticEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ElasticEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ElasticEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ElasticEasingFunction) -> ::windows::core::Result<Self> {
@@ -25146,7 +25146,7 @@ impl ::core::fmt::Debug for ExponentialEasingFunction {
     }
 }
 impl ::windows::core::RuntimeType for ExponentialEasingFunction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ExponentialEasingFunction;{6f7d1a51-98d2-5638-a34a-00486554c750})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ExponentialEasingFunction;{6f7d1a51-98d2-5638-a34a-00486554c750})");
 }
 impl ::core::clone::Clone for ExponentialEasingFunction {
     fn clone(&self) -> Self {
@@ -25162,7 +25162,7 @@ unsafe impl ::windows::core::Interface for ExponentialEasingFunction {
 impl ::windows::core::RuntimeName for ExponentialEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ExponentialEasingFunction";
 }
-::windows::core::interface_hierarchy!(ExponentialEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ExponentialEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ExponentialEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ExponentialEasingFunction) -> ::windows::core::Result<Self> {
@@ -25460,7 +25460,7 @@ impl ::core::fmt::Debug for ExpressionAnimation {
     }
 }
 impl ::windows::core::RuntimeType for ExpressionAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ExpressionAnimation;{6acc5431-7d3d-4bf3-abb6-f44bdc4888c1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ExpressionAnimation;{6acc5431-7d3d-4bf3-abb6-f44bdc4888c1})");
 }
 impl ::core::clone::Clone for ExpressionAnimation {
     fn clone(&self) -> Self {
@@ -25476,7 +25476,7 @@ unsafe impl ::windows::core::Interface for ExpressionAnimation {
 impl ::windows::core::RuntimeName for ExpressionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ExpressionAnimation";
 }
-::windows::core::interface_hierarchy!(ExpressionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ExpressionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ExpressionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ExpressionAnimation) -> ::windows::core::Result<Self> {
@@ -25761,7 +25761,7 @@ impl ::core::fmt::Debug for ImplicitAnimationCollection {
     }
 }
 impl ::windows::core::RuntimeType for ImplicitAnimationCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ImplicitAnimationCollection;{0598a3ff-0a92-4c9d-a427-b25519250dbf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ImplicitAnimationCollection;{0598a3ff-0a92-4c9d-a427-b25519250dbf})");
 }
 impl ::core::clone::Clone for ImplicitAnimationCollection {
     fn clone(&self) -> Self {
@@ -25793,7 +25793,7 @@ impl ::core::iter::IntoIterator for &ImplicitAnimationCollection {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(ImplicitAnimationCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ImplicitAnimationCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImplicitAnimationCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ImplicitAnimationCollection) -> ::windows::core::Result<Self> {
@@ -26090,7 +26090,7 @@ impl ::core::fmt::Debug for InitialValueExpressionCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for InitialValueExpressionCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.InitialValueExpressionCollection;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;string))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.InitialValueExpressionCollection;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;string))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for InitialValueExpressionCollection {
@@ -26127,7 +26127,7 @@ impl ::core::iter::IntoIterator for &InitialValueExpressionCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(InitialValueExpressionCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InitialValueExpressionCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<InitialValueExpressionCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
@@ -26501,7 +26501,7 @@ impl ::core::fmt::Debug for InsetClip {
     }
 }
 impl ::windows::core::RuntimeType for InsetClip {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.InsetClip;{1e73e647-84c7-477a-b474-5880e0442e15})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.InsetClip;{1e73e647-84c7-477a-b474-5880e0442e15})");
 }
 impl ::core::clone::Clone for InsetClip {
     fn clone(&self) -> Self {
@@ -26517,7 +26517,7 @@ unsafe impl ::windows::core::Interface for InsetClip {
 impl ::windows::core::RuntimeName for InsetClip {
     const NAME: &'static str = "Windows.UI.Composition.InsetClip";
 }
-::windows::core::interface_hierarchy!(InsetClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InsetClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InsetClip> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InsetClip) -> ::windows::core::Result<Self> {
@@ -26907,7 +26907,7 @@ impl ::core::fmt::Debug for KeyFrameAnimation {
     }
 }
 impl ::windows::core::RuntimeType for KeyFrameAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.KeyFrameAnimation;{126e7f22-3ae9-4540-9a8a-deae8a4a4a84})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.KeyFrameAnimation;{126e7f22-3ae9-4540-9a8a-deae8a4a4a84})");
 }
 impl ::core::clone::Clone for KeyFrameAnimation {
     fn clone(&self) -> Self {
@@ -26923,7 +26923,7 @@ unsafe impl ::windows::core::Interface for KeyFrameAnimation {
 impl ::windows::core::RuntimeName for KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.KeyFrameAnimation";
 }
-::windows::core::interface_hierarchy!(KeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(KeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<KeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: KeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -27454,7 +27454,7 @@ impl ::core::fmt::Debug for LayerVisual {
     }
 }
 impl ::windows::core::RuntimeType for LayerVisual {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.LayerVisual;{af843985-0444-4887-8e83-b40b253f822c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.LayerVisual;{af843985-0444-4887-8e83-b40b253f822c})");
 }
 impl ::core::clone::Clone for LayerVisual {
     fn clone(&self) -> Self {
@@ -27470,7 +27470,7 @@ unsafe impl ::windows::core::Interface for LayerVisual {
 impl ::windows::core::RuntimeName for LayerVisual {
     const NAME: &'static str = "Windows.UI.Composition.LayerVisual";
 }
-::windows::core::interface_hierarchy!(LayerVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LayerVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LayerVisual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: LayerVisual) -> ::windows::core::Result<Self> {
@@ -27681,7 +27681,7 @@ impl ::core::fmt::Debug for LinearEasingFunction {
     }
 }
 impl ::windows::core::RuntimeType for LinearEasingFunction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.LinearEasingFunction;{9400975a-c7a6-46b3-acf7-1a268a0a117d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.LinearEasingFunction;{9400975a-c7a6-46b3-acf7-1a268a0a117d})");
 }
 impl ::core::clone::Clone for LinearEasingFunction {
     fn clone(&self) -> Self {
@@ -27697,7 +27697,7 @@ unsafe impl ::windows::core::Interface for LinearEasingFunction {
 impl ::windows::core::RuntimeName for LinearEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.LinearEasingFunction";
 }
-::windows::core::interface_hierarchy!(LinearEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LinearEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LinearEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: LinearEasingFunction) -> ::windows::core::Result<Self> {
@@ -28021,7 +28021,7 @@ impl ::core::fmt::Debug for NaturalMotionAnimation {
     }
 }
 impl ::windows::core::RuntimeType for NaturalMotionAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.NaturalMotionAnimation;{438de12d-769b-4821-a949-284a6547e873})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.NaturalMotionAnimation;{438de12d-769b-4821-a949-284a6547e873})");
 }
 impl ::core::clone::Clone for NaturalMotionAnimation {
     fn clone(&self) -> Self {
@@ -28037,7 +28037,7 @@ unsafe impl ::windows::core::Interface for NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.NaturalMotionAnimation";
 }
-::windows::core::interface_hierarchy!(NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -28457,7 +28457,7 @@ impl ::core::fmt::Debug for PathKeyFrameAnimation {
     }
 }
 impl ::windows::core::RuntimeType for PathKeyFrameAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PathKeyFrameAnimation;{9d0d18c9-1576-4b3f-be60-1d5031f5e71b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PathKeyFrameAnimation;{9d0d18c9-1576-4b3f-be60-1d5031f5e71b})");
 }
 impl ::core::clone::Clone for PathKeyFrameAnimation {
     fn clone(&self) -> Self {
@@ -28473,7 +28473,7 @@ unsafe impl ::windows::core::Interface for PathKeyFrameAnimation {
 impl ::windows::core::RuntimeName for PathKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.PathKeyFrameAnimation";
 }
-::windows::core::interface_hierarchy!(PathKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PathKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PathKeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: PathKeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -28834,7 +28834,7 @@ impl ::core::fmt::Debug for PointLight {
     }
 }
 impl ::windows::core::RuntimeType for PointLight {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PointLight;{b18545b3-0c5a-4ab0-bedc-4f3546948272})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PointLight;{b18545b3-0c5a-4ab0-bedc-4f3546948272})");
 }
 impl ::core::clone::Clone for PointLight {
     fn clone(&self) -> Self {
@@ -28850,7 +28850,7 @@ unsafe impl ::windows::core::Interface for PointLight {
 impl ::windows::core::RuntimeName for PointLight {
     const NAME: &'static str = "Windows.UI.Composition.PointLight";
 }
-::windows::core::interface_hierarchy!(PointLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PointLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PointLight> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: PointLight) -> ::windows::core::Result<Self> {
@@ -29060,7 +29060,7 @@ impl ::core::fmt::Debug for PowerEasingFunction {
     }
 }
 impl ::windows::core::RuntimeType for PowerEasingFunction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PowerEasingFunction;{c3ff53d6-138b-5815-891a-b7f615ccc563})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PowerEasingFunction;{c3ff53d6-138b-5815-891a-b7f615ccc563})");
 }
 impl ::core::clone::Clone for PowerEasingFunction {
     fn clone(&self) -> Self {
@@ -29076,7 +29076,7 @@ unsafe impl ::windows::core::Interface for PowerEasingFunction {
 impl ::windows::core::RuntimeName for PowerEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.PowerEasingFunction";
 }
-::windows::core::interface_hierarchy!(PowerEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PowerEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PowerEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: PowerEasingFunction) -> ::windows::core::Result<Self> {
@@ -29481,7 +29481,7 @@ impl ::core::fmt::Debug for QuaternionKeyFrameAnimation {
     }
 }
 impl ::windows::core::RuntimeType for QuaternionKeyFrameAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.QuaternionKeyFrameAnimation;{404e5835-ecf6-4240-8520-671279cf36bc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.QuaternionKeyFrameAnimation;{404e5835-ecf6-4240-8520-671279cf36bc})");
 }
 impl ::core::clone::Clone for QuaternionKeyFrameAnimation {
     fn clone(&self) -> Self {
@@ -29497,7 +29497,7 @@ unsafe impl ::windows::core::Interface for QuaternionKeyFrameAnimation {
 impl ::windows::core::RuntimeName for QuaternionKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.QuaternionKeyFrameAnimation";
 }
-::windows::core::interface_hierarchy!(QuaternionKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(QuaternionKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<QuaternionKeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: QuaternionKeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -29928,7 +29928,7 @@ impl ::core::fmt::Debug for RectangleClip {
     }
 }
 impl ::windows::core::RuntimeType for RectangleClip {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RectangleClip;{b3e7549e-00b4-5b53-8be8-353f6c433101})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RectangleClip;{b3e7549e-00b4-5b53-8be8-353f6c433101})");
 }
 impl ::core::clone::Clone for RectangleClip {
     fn clone(&self) -> Self {
@@ -29944,7 +29944,7 @@ unsafe impl ::windows::core::Interface for RectangleClip {
 impl ::windows::core::RuntimeName for RectangleClip {
     const NAME: &'static str = "Windows.UI.Composition.RectangleClip";
 }
-::windows::core::interface_hierarchy!(RectangleClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RectangleClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RectangleClip> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: RectangleClip) -> ::windows::core::Result<Self> {
@@ -30445,7 +30445,7 @@ impl ::core::fmt::Debug for RedirectVisual {
     }
 }
 impl ::windows::core::RuntimeType for RedirectVisual {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RedirectVisual;{8cc6e340-8b75-5422-b06f-09ffe9f8617e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RedirectVisual;{8cc6e340-8b75-5422-b06f-09ffe9f8617e})");
 }
 impl ::core::clone::Clone for RedirectVisual {
     fn clone(&self) -> Self {
@@ -30461,7 +30461,7 @@ unsafe impl ::windows::core::Interface for RedirectVisual {
 impl ::windows::core::RuntimeName for RedirectVisual {
     const NAME: &'static str = "Windows.UI.Composition.RedirectVisual";
 }
-::windows::core::interface_hierarchy!(RedirectVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RedirectVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RedirectVisual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: RedirectVisual) -> ::windows::core::Result<Self> {
@@ -30679,7 +30679,7 @@ impl ::core::fmt::Debug for RenderingDeviceReplacedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RenderingDeviceReplacedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RenderingDeviceReplacedEventArgs;{3a31ac7d-28bf-4e7a-8524-71679d480f38})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RenderingDeviceReplacedEventArgs;{3a31ac7d-28bf-4e7a-8524-71679d480f38})");
 }
 impl ::core::clone::Clone for RenderingDeviceReplacedEventArgs {
     fn clone(&self) -> Self {
@@ -30695,7 +30695,7 @@ unsafe impl ::windows::core::Interface for RenderingDeviceReplacedEventArgs {
 impl ::windows::core::RuntimeName for RenderingDeviceReplacedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.RenderingDeviceReplacedEventArgs";
 }
-::windows::core::interface_hierarchy!(RenderingDeviceReplacedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RenderingDeviceReplacedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RenderingDeviceReplacedEventArgs> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: RenderingDeviceReplacedEventArgs) -> ::windows::core::Result<Self> {
@@ -31081,7 +31081,7 @@ impl ::core::fmt::Debug for ScalarKeyFrameAnimation {
     }
 }
 impl ::windows::core::RuntimeType for ScalarKeyFrameAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ScalarKeyFrameAnimation;{ae288fa9-252c-4b95-a725-bf85e38000a1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ScalarKeyFrameAnimation;{ae288fa9-252c-4b95-a725-bf85e38000a1})");
 }
 impl ::core::clone::Clone for ScalarKeyFrameAnimation {
     fn clone(&self) -> Self {
@@ -31097,7 +31097,7 @@ unsafe impl ::windows::core::Interface for ScalarKeyFrameAnimation {
 impl ::windows::core::RuntimeName for ScalarKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ScalarKeyFrameAnimation";
 }
-::windows::core::interface_hierarchy!(ScalarKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ScalarKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ScalarKeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ScalarKeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -31504,7 +31504,7 @@ impl ::core::fmt::Debug for ScalarNaturalMotionAnimation {
     }
 }
 impl ::windows::core::RuntimeType for ScalarNaturalMotionAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ScalarNaturalMotionAnimation;{94a94581-bf92-495b-b5bd-d2c659430737})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ScalarNaturalMotionAnimation;{94a94581-bf92-495b-b5bd-d2c659430737})");
 }
 impl ::core::clone::Clone for ScalarNaturalMotionAnimation {
     fn clone(&self) -> Self {
@@ -31520,7 +31520,7 @@ unsafe impl ::windows::core::Interface for ScalarNaturalMotionAnimation {
 impl ::windows::core::RuntimeName for ScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ScalarNaturalMotionAnimation";
 }
-::windows::core::interface_hierarchy!(ScalarNaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ScalarNaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ScalarNaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ScalarNaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -32061,7 +32061,7 @@ impl ::core::fmt::Debug for ShapeVisual {
     }
 }
 impl ::windows::core::RuntimeType for ShapeVisual {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ShapeVisual;{f2bd13c3-ba7e-4b0f-9126-ffb7536b8176})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ShapeVisual;{f2bd13c3-ba7e-4b0f-9126-ffb7536b8176})");
 }
 impl ::core::clone::Clone for ShapeVisual {
     fn clone(&self) -> Self {
@@ -32077,7 +32077,7 @@ unsafe impl ::windows::core::Interface for ShapeVisual {
 impl ::windows::core::RuntimeName for ShapeVisual {
     const NAME: &'static str = "Windows.UI.Composition.ShapeVisual";
 }
-::windows::core::interface_hierarchy!(ShapeVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ShapeVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ShapeVisual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ShapeVisual) -> ::windows::core::Result<Self> {
@@ -32295,7 +32295,7 @@ impl ::core::fmt::Debug for SineEasingFunction {
     }
 }
 impl ::windows::core::RuntimeType for SineEasingFunction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SineEasingFunction;{f1b518bf-9563-5474-bd13-44b2df4b1d58})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SineEasingFunction;{f1b518bf-9563-5474-bd13-44b2df4b1d58})");
 }
 impl ::core::clone::Clone for SineEasingFunction {
     fn clone(&self) -> Self {
@@ -32311,7 +32311,7 @@ unsafe impl ::windows::core::Interface for SineEasingFunction {
 impl ::windows::core::RuntimeName for SineEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.SineEasingFunction";
 }
-::windows::core::interface_hierarchy!(SineEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SineEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SineEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SineEasingFunction) -> ::windows::core::Result<Self> {
@@ -32719,7 +32719,7 @@ impl ::core::fmt::Debug for SpotLight {
     }
 }
 impl ::windows::core::RuntimeType for SpotLight {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpotLight;{5a9fe273-44a1-4f95-a422-8fa5116bdb44})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpotLight;{5a9fe273-44a1-4f95-a422-8fa5116bdb44})");
 }
 impl ::core::clone::Clone for SpotLight {
     fn clone(&self) -> Self {
@@ -32735,7 +32735,7 @@ unsafe impl ::windows::core::Interface for SpotLight {
 impl ::windows::core::RuntimeName for SpotLight {
     const NAME: &'static str = "Windows.UI.Composition.SpotLight";
 }
-::windows::core::interface_hierarchy!(SpotLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpotLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpotLight> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SpotLight) -> ::windows::core::Result<Self> {
@@ -33134,7 +33134,7 @@ impl ::core::fmt::Debug for SpringScalarNaturalMotionAnimation {
     }
 }
 impl ::windows::core::RuntimeType for SpringScalarNaturalMotionAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringScalarNaturalMotionAnimation;{0572a95f-37f9-4fbe-b87b-5cd03a89501c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringScalarNaturalMotionAnimation;{0572a95f-37f9-4fbe-b87b-5cd03a89501c})");
 }
 impl ::core::clone::Clone for SpringScalarNaturalMotionAnimation {
     fn clone(&self) -> Self {
@@ -33150,7 +33150,7 @@ unsafe impl ::windows::core::Interface for SpringScalarNaturalMotionAnimation {
 impl ::windows::core::RuntimeName for SpringScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringScalarNaturalMotionAnimation";
 }
-::windows::core::interface_hierarchy!(SpringScalarNaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpringScalarNaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpringScalarNaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SpringScalarNaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -33602,7 +33602,7 @@ impl ::core::fmt::Debug for SpringVector2NaturalMotionAnimation {
     }
 }
 impl ::windows::core::RuntimeType for SpringVector2NaturalMotionAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringVector2NaturalMotionAnimation;{23f494b5-ee73-4f0f-a423-402b946df4b3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringVector2NaturalMotionAnimation;{23f494b5-ee73-4f0f-a423-402b946df4b3})");
 }
 impl ::core::clone::Clone for SpringVector2NaturalMotionAnimation {
     fn clone(&self) -> Self {
@@ -33618,7 +33618,7 @@ unsafe impl ::windows::core::Interface for SpringVector2NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for SpringVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringVector2NaturalMotionAnimation";
 }
-::windows::core::interface_hierarchy!(SpringVector2NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpringVector2NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpringVector2NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SpringVector2NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -34070,7 +34070,7 @@ impl ::core::fmt::Debug for SpringVector3NaturalMotionAnimation {
     }
 }
 impl ::windows::core::RuntimeType for SpringVector3NaturalMotionAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringVector3NaturalMotionAnimation;{6c8749df-d57b-4794-8e2d-cecb11e194e5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringVector3NaturalMotionAnimation;{6c8749df-d57b-4794-8e2d-cecb11e194e5})");
 }
 impl ::core::clone::Clone for SpringVector3NaturalMotionAnimation {
     fn clone(&self) -> Self {
@@ -34086,7 +34086,7 @@ unsafe impl ::windows::core::Interface for SpringVector3NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for SpringVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringVector3NaturalMotionAnimation";
 }
-::windows::core::interface_hierarchy!(SpringVector3NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpringVector3NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpringVector3NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SpringVector3NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -34650,7 +34650,7 @@ impl ::core::fmt::Debug for SpriteVisual {
     }
 }
 impl ::windows::core::RuntimeType for SpriteVisual {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpriteVisual;{08e05581-1ad1-4f97-9757-402d76e4233b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpriteVisual;{08e05581-1ad1-4f97-9757-402d76e4233b})");
 }
 impl ::core::clone::Clone for SpriteVisual {
     fn clone(&self) -> Self {
@@ -34666,7 +34666,7 @@ unsafe impl ::windows::core::Interface for SpriteVisual {
 impl ::windows::core::RuntimeName for SpriteVisual {
     const NAME: &'static str = "Windows.UI.Composition.SpriteVisual";
 }
-::windows::core::interface_hierarchy!(SpriteVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpriteVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpriteVisual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SpriteVisual) -> ::windows::core::Result<Self> {
@@ -34932,7 +34932,7 @@ impl ::core::fmt::Debug for StepEasingFunction {
     }
 }
 impl ::windows::core::RuntimeType for StepEasingFunction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.StepEasingFunction;{d0caa74b-560c-4a0b-a5f6-206ca8c3ecd6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.StepEasingFunction;{d0caa74b-560c-4a0b-a5f6-206ca8c3ecd6})");
 }
 impl ::core::clone::Clone for StepEasingFunction {
     fn clone(&self) -> Self {
@@ -34948,7 +34948,7 @@ unsafe impl ::windows::core::Interface for StepEasingFunction {
 impl ::windows::core::RuntimeName for StepEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.StepEasingFunction";
 }
-::windows::core::interface_hierarchy!(StepEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StepEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StepEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: StepEasingFunction) -> ::windows::core::Result<Self> {
@@ -35353,7 +35353,7 @@ impl ::core::fmt::Debug for Vector2KeyFrameAnimation {
     }
 }
 impl ::windows::core::RuntimeType for Vector2KeyFrameAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector2KeyFrameAnimation;{df414515-4e29-4f11-b55e-bf2a6eb36294})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector2KeyFrameAnimation;{df414515-4e29-4f11-b55e-bf2a6eb36294})");
 }
 impl ::core::clone::Clone for Vector2KeyFrameAnimation {
     fn clone(&self) -> Self {
@@ -35369,7 +35369,7 @@ unsafe impl ::windows::core::Interface for Vector2KeyFrameAnimation {
 impl ::windows::core::RuntimeName for Vector2KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector2KeyFrameAnimation";
 }
-::windows::core::interface_hierarchy!(Vector2KeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Vector2KeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Vector2KeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: Vector2KeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -35780,7 +35780,7 @@ impl ::core::fmt::Debug for Vector2NaturalMotionAnimation {
     }
 }
 impl ::windows::core::RuntimeType for Vector2NaturalMotionAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector2NaturalMotionAnimation;{0f3e0b7d-e512-479d-a00c-77c93a30a395})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector2NaturalMotionAnimation;{0f3e0b7d-e512-479d-a00c-77c93a30a395})");
 }
 impl ::core::clone::Clone for Vector2NaturalMotionAnimation {
     fn clone(&self) -> Self {
@@ -35796,7 +35796,7 @@ unsafe impl ::windows::core::Interface for Vector2NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for Vector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector2NaturalMotionAnimation";
 }
-::windows::core::interface_hierarchy!(Vector2NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Vector2NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Vector2NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: Vector2NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -36235,7 +36235,7 @@ impl ::core::fmt::Debug for Vector3KeyFrameAnimation {
     }
 }
 impl ::windows::core::RuntimeType for Vector3KeyFrameAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector3KeyFrameAnimation;{c8039daa-a281-43c2-a73d-b68e3c533c40})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector3KeyFrameAnimation;{c8039daa-a281-43c2-a73d-b68e3c533c40})");
 }
 impl ::core::clone::Clone for Vector3KeyFrameAnimation {
     fn clone(&self) -> Self {
@@ -36251,7 +36251,7 @@ unsafe impl ::windows::core::Interface for Vector3KeyFrameAnimation {
 impl ::windows::core::RuntimeName for Vector3KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector3KeyFrameAnimation";
 }
-::windows::core::interface_hierarchy!(Vector3KeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Vector3KeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Vector3KeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: Vector3KeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -36662,7 +36662,7 @@ impl ::core::fmt::Debug for Vector3NaturalMotionAnimation {
     }
 }
 impl ::windows::core::RuntimeType for Vector3NaturalMotionAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector3NaturalMotionAnimation;{9c17042c-e2ca-45ad-969e-4e78b7b9ad41})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector3NaturalMotionAnimation;{9c17042c-e2ca-45ad-969e-4e78b7b9ad41})");
 }
 impl ::core::clone::Clone for Vector3NaturalMotionAnimation {
     fn clone(&self) -> Self {
@@ -36678,7 +36678,7 @@ unsafe impl ::windows::core::Interface for Vector3NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for Vector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector3NaturalMotionAnimation";
 }
-::windows::core::interface_hierarchy!(Vector3NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Vector3NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Vector3NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: Vector3NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -37117,7 +37117,7 @@ impl ::core::fmt::Debug for Vector4KeyFrameAnimation {
     }
 }
 impl ::windows::core::RuntimeType for Vector4KeyFrameAnimation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector4KeyFrameAnimation;{2457945b-addd-4385-9606-b6a3d5e4e1b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector4KeyFrameAnimation;{2457945b-addd-4385-9606-b6a3d5e4e1b9})");
 }
 impl ::core::clone::Clone for Vector4KeyFrameAnimation {
     fn clone(&self) -> Self {
@@ -37133,7 +37133,7 @@ unsafe impl ::windows::core::Interface for Vector4KeyFrameAnimation {
 impl ::windows::core::RuntimeName for Vector4KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector4KeyFrameAnimation";
 }
-::windows::core::interface_hierarchy!(Vector4KeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Vector4KeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Vector4KeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: Vector4KeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -37647,7 +37647,7 @@ impl ::core::fmt::Debug for Visual {
     }
 }
 impl ::windows::core::RuntimeType for Visual {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Visual;{117e202d-a859-4c89-873b-c2aa566788e3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Visual;{117e202d-a859-4c89-873b-c2aa566788e3})");
 }
 impl ::core::clone::Clone for Visual {
     fn clone(&self) -> Self {
@@ -37663,7 +37663,7 @@ unsafe impl ::windows::core::Interface for Visual {
 impl ::windows::core::RuntimeName for Visual {
     const NAME: &'static str = "Windows.UI.Composition.Visual";
 }
-::windows::core::interface_hierarchy!(Visual, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Visual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Visual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: Visual) -> ::windows::core::Result<Self> {
@@ -37901,7 +37901,7 @@ impl ::core::fmt::Debug for VisualCollection {
     }
 }
 impl ::windows::core::RuntimeType for VisualCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.VisualCollection;{8b745505-fd3e-4a98-84a8-e949468c6bcb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.VisualCollection;{8b745505-fd3e-4a98-84a8-e949468c6bcb})");
 }
 impl ::core::clone::Clone for VisualCollection {
     fn clone(&self) -> Self {
@@ -37933,7 +37933,7 @@ impl ::core::iter::IntoIterator for &VisualCollection {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(VisualCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VisualCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VisualCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: VisualCollection) -> ::windows::core::Result<Self> {
@@ -38170,7 +38170,7 @@ impl ::core::fmt::Debug for VisualUnorderedCollection {
     }
 }
 impl ::windows::core::RuntimeType for VisualUnorderedCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.VisualUnorderedCollection;{338faa70-54c8-40a7-8029-c9ceeb0aa250})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.VisualUnorderedCollection;{338faa70-54c8-40a7-8029-c9ceeb0aa250})");
 }
 impl ::core::clone::Clone for VisualUnorderedCollection {
     fn clone(&self) -> Self {
@@ -38202,7 +38202,7 @@ impl ::core::iter::IntoIterator for &VisualUnorderedCollection {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(VisualUnorderedCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VisualUnorderedCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VisualUnorderedCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: VisualUnorderedCollection) -> ::windows::core::Result<Self> {
@@ -38311,7 +38311,7 @@ impl ::core::fmt::Debug for AnimationControllerProgressBehavior {
     }
 }
 impl ::windows::core::RuntimeType for AnimationControllerProgressBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationControllerProgressBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationControllerProgressBehavior;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38341,7 +38341,7 @@ impl ::core::fmt::Debug for AnimationDelayBehavior {
     }
 }
 impl ::windows::core::RuntimeType for AnimationDelayBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDelayBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDelayBehavior;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38373,7 +38373,7 @@ impl ::core::fmt::Debug for AnimationDirection {
     }
 }
 impl ::windows::core::RuntimeType for AnimationDirection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDirection;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDirection;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38403,7 +38403,7 @@ impl ::core::fmt::Debug for AnimationIterationBehavior {
     }
 }
 impl ::windows::core::RuntimeType for AnimationIterationBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationIterationBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationIterationBehavior;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38435,7 +38435,7 @@ impl ::core::fmt::Debug for AnimationPropertyAccessMode {
     }
 }
 impl ::windows::core::RuntimeType for AnimationPropertyAccessMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationPropertyAccessMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationPropertyAccessMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38466,7 +38466,7 @@ impl ::core::fmt::Debug for AnimationStopBehavior {
     }
 }
 impl ::windows::core::RuntimeType for AnimationStopBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationStopBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationStopBehavior;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38497,7 +38497,7 @@ impl ::core::fmt::Debug for CompositionBackfaceVisibility {
     }
 }
 impl ::windows::core::RuntimeType for CompositionBackfaceVisibility {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBackfaceVisibility;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBackfaceVisibility;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38563,7 +38563,7 @@ impl ::core::ops::Not for CompositionBatchTypes {
     }
 }
 impl ::windows::core::RuntimeType for CompositionBatchTypes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBatchTypes;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBatchTypes;u4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38601,7 +38601,7 @@ impl ::core::fmt::Debug for CompositionBitmapInterpolationMode {
     }
 }
 impl ::windows::core::RuntimeType for CompositionBitmapInterpolationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBitmapInterpolationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBitmapInterpolationMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38632,7 +38632,7 @@ impl ::core::fmt::Debug for CompositionBorderMode {
     }
 }
 impl ::windows::core::RuntimeType for CompositionBorderMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBorderMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBorderMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38665,7 +38665,7 @@ impl ::core::fmt::Debug for CompositionColorSpace {
     }
 }
 impl ::windows::core::RuntimeType for CompositionColorSpace {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionColorSpace;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionColorSpace;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38697,7 +38697,7 @@ impl ::core::fmt::Debug for CompositionCompositeMode {
     }
 }
 impl ::windows::core::RuntimeType for CompositionCompositeMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionCompositeMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionCompositeMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38727,7 +38727,7 @@ impl ::core::fmt::Debug for CompositionDropShadowSourcePolicy {
     }
 }
 impl ::windows::core::RuntimeType for CompositionDropShadowSourcePolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionDropShadowSourcePolicy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionDropShadowSourcePolicy;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38758,7 +38758,7 @@ impl ::core::fmt::Debug for CompositionEasingFunctionMode {
     }
 }
 impl ::windows::core::RuntimeType for CompositionEasingFunctionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEasingFunctionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEasingFunctionMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38790,7 +38790,7 @@ impl ::core::fmt::Debug for CompositionEffectFactoryLoadStatus {
     }
 }
 impl ::windows::core::RuntimeType for CompositionEffectFactoryLoadStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEffectFactoryLoadStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEffectFactoryLoadStatus;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38821,7 +38821,7 @@ impl ::core::fmt::Debug for CompositionGetValueStatus {
     }
 }
 impl ::windows::core::RuntimeType for CompositionGetValueStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGetValueStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGetValueStatus;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38852,7 +38852,7 @@ impl ::core::fmt::Debug for CompositionGradientExtendMode {
     }
 }
 impl ::windows::core::RuntimeType for CompositionGradientExtendMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGradientExtendMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGradientExtendMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38882,7 +38882,7 @@ impl ::core::fmt::Debug for CompositionMappingMode {
     }
 }
 impl ::windows::core::RuntimeType for CompositionMappingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionMappingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionMappingMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38914,7 +38914,7 @@ impl ::core::fmt::Debug for CompositionStretch {
     }
 }
 impl ::windows::core::RuntimeType for CompositionStretch {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStretch;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStretch;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38946,7 +38946,7 @@ impl ::core::fmt::Debug for CompositionStrokeCap {
     }
 }
 impl ::windows::core::RuntimeType for CompositionStrokeCap {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeCap;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeCap;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -38978,7 +38978,7 @@ impl ::core::fmt::Debug for CompositionStrokeLineJoin {
     }
 }
 impl ::windows::core::RuntimeType for CompositionStrokeLineJoin {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeLineJoin;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeLineJoin;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
@@ -39007,7 +39007,7 @@ impl ::windows::core::TypeKind for InkTrailPoint {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for InkTrailPoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Composition.InkTrailPoint;struct(Windows.Foundation.Point;f4;f4);f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Composition.InkTrailPoint;struct(Windows.Foundation.Point;f4;f4);f4)");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for InkTrailPoint {

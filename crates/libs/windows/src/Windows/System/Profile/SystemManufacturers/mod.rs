@@ -155,7 +155,7 @@ impl ::core::fmt::Debug for OemSupportInfo {
     }
 }
 impl ::windows::core::RuntimeType for OemSupportInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemManufacturers.OemSupportInfo;{8d2eae55-87ef-4266-86d0-c4afbeb29bb9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemManufacturers.OemSupportInfo;{8d2eae55-87ef-4266-86d0-c4afbeb29bb9})");
 }
 impl ::core::clone::Clone for OemSupportInfo {
     fn clone(&self) -> Self {
@@ -171,7 +171,7 @@ unsafe impl ::windows::core::Interface for OemSupportInfo {
 impl ::windows::core::RuntimeName for OemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.OemSupportInfo";
 }
-::windows::core::interface_hierarchy!(OemSupportInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OemSupportInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OemSupportInfo {}
 unsafe impl ::core::marker::Sync for OemSupportInfo {}
 #[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
@@ -185,7 +185,7 @@ impl SmbiosInformation {
     }
     #[doc(hidden)]
     pub fn ISmbiosInformationStatics<R, F: FnOnce(&ISmbiosInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmbiosInformation, ISmbiosInformationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmbiosInformation, ISmbiosInformationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -258,7 +258,7 @@ impl ::core::fmt::Debug for SystemSupportDeviceInfo {
     }
 }
 impl ::windows::core::RuntimeType for SystemSupportDeviceInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo;{05880b99-8247-441b-a996-a1784bab79a8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo;{05880b99-8247-441b-a996-a1784bab79a8})");
 }
 impl ::core::clone::Clone for SystemSupportDeviceInfo {
     fn clone(&self) -> Self {
@@ -274,7 +274,7 @@ unsafe impl ::windows::core::Interface for SystemSupportDeviceInfo {
 impl ::windows::core::RuntimeName for SystemSupportDeviceInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo";
 }
-::windows::core::interface_hierarchy!(SystemSupportDeviceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemSupportDeviceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemSupportDeviceInfo {}
 unsafe impl ::core::marker::Sync for SystemSupportDeviceInfo {}
 #[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
@@ -300,12 +300,12 @@ impl SystemSupportInfo {
     }
     #[doc(hidden)]
     pub fn ISystemSupportInfoStatics<R, F: FnOnce(&ISystemSupportInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemSupportInfo, ISystemSupportInfoStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemSupportInfo, ISystemSupportInfoStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISystemSupportInfoStatics2<R, F: FnOnce(&ISystemSupportInfoStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemSupportInfo, ISystemSupportInfoStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemSupportInfo, ISystemSupportInfoStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

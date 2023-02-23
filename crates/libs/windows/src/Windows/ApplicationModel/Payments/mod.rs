@@ -809,8 +809,8 @@ impl PaymentAddress {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentAddress, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PaymentAddress, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Country(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -964,7 +964,7 @@ impl ::core::fmt::Debug for PaymentAddress {
     }
 }
 impl ::windows::core::RuntimeType for PaymentAddress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentAddress;{5f2264e9-6f3a-4166-a018-0a0b06bb32b5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentAddress;{5f2264e9-6f3a-4166-a018-0a0b06bb32b5})");
 }
 impl ::core::clone::Clone for PaymentAddress {
     fn clone(&self) -> Self {
@@ -980,7 +980,7 @@ unsafe impl ::windows::core::Interface for PaymentAddress {
 impl ::windows::core::RuntimeName for PaymentAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentAddress";
 }
-::windows::core::interface_hierarchy!(PaymentAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentAddress {}
 unsafe impl ::core::marker::Sync for PaymentAddress {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1002,7 +1002,7 @@ impl PaymentCanMakePaymentResult {
     }
     #[doc(hidden)]
     pub fn IPaymentCanMakePaymentResultFactory<R, F: FnOnce(&IPaymentCanMakePaymentResultFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentCanMakePaymentResult, IPaymentCanMakePaymentResultFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PaymentCanMakePaymentResult, IPaymentCanMakePaymentResultFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1018,7 +1018,7 @@ impl ::core::fmt::Debug for PaymentCanMakePaymentResult {
     }
 }
 impl ::windows::core::RuntimeType for PaymentCanMakePaymentResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult;{7696fe55-d5d3-4d3d-b345-45591759c510})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult;{7696fe55-d5d3-4d3d-b345-45591759c510})");
 }
 impl ::core::clone::Clone for PaymentCanMakePaymentResult {
     fn clone(&self) -> Self {
@@ -1034,7 +1034,7 @@ unsafe impl ::windows::core::Interface for PaymentCanMakePaymentResult {
 impl ::windows::core::RuntimeName for PaymentCanMakePaymentResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult";
 }
-::windows::core::interface_hierarchy!(PaymentCanMakePaymentResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentCanMakePaymentResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentCanMakePaymentResult {}
 unsafe impl ::core::marker::Sync for PaymentCanMakePaymentResult {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1088,7 +1088,7 @@ impl PaymentCurrencyAmount {
     }
     #[doc(hidden)]
     pub fn IPaymentCurrencyAmountFactory<R, F: FnOnce(&IPaymentCurrencyAmountFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentCurrencyAmount, IPaymentCurrencyAmountFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PaymentCurrencyAmount, IPaymentCurrencyAmountFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1104,7 +1104,7 @@ impl ::core::fmt::Debug for PaymentCurrencyAmount {
     }
 }
 impl ::windows::core::RuntimeType for PaymentCurrencyAmount {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentCurrencyAmount;{e3a3e9e0-b41f-4987-bdcb-071331f2daa4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentCurrencyAmount;{e3a3e9e0-b41f-4987-bdcb-071331f2daa4})");
 }
 impl ::core::clone::Clone for PaymentCurrencyAmount {
     fn clone(&self) -> Self {
@@ -1120,7 +1120,7 @@ unsafe impl ::windows::core::Interface for PaymentCurrencyAmount {
 impl ::windows::core::RuntimeName for PaymentCurrencyAmount {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentCurrencyAmount";
 }
-::windows::core::interface_hierarchy!(PaymentCurrencyAmount, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentCurrencyAmount, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentCurrencyAmount {}
 unsafe impl ::core::marker::Sync for PaymentCurrencyAmount {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1130,8 +1130,8 @@ impl PaymentDetails {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentDetails, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PaymentDetails, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Total(&self) -> ::windows::core::Result<PaymentItem> {
@@ -1222,7 +1222,7 @@ impl PaymentDetails {
     }
     #[doc(hidden)]
     pub fn IPaymentDetailsFactory<R, F: FnOnce(&IPaymentDetailsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentDetails, IPaymentDetailsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PaymentDetails, IPaymentDetailsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1238,7 +1238,7 @@ impl ::core::fmt::Debug for PaymentDetails {
     }
 }
 impl ::windows::core::RuntimeType for PaymentDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentDetails;{53bb2d7d-e0eb-4053-8eae-ce7c48e02945})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentDetails;{53bb2d7d-e0eb-4053-8eae-ce7c48e02945})");
 }
 impl ::core::clone::Clone for PaymentDetails {
     fn clone(&self) -> Self {
@@ -1254,7 +1254,7 @@ unsafe impl ::windows::core::Interface for PaymentDetails {
 impl ::windows::core::RuntimeName for PaymentDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentDetails";
 }
-::windows::core::interface_hierarchy!(PaymentDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentDetails {}
 unsafe impl ::core::marker::Sync for PaymentDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1335,7 +1335,7 @@ impl PaymentDetailsModifier {
     }
     #[doc(hidden)]
     pub fn IPaymentDetailsModifierFactory<R, F: FnOnce(&IPaymentDetailsModifierFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentDetailsModifier, IPaymentDetailsModifierFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PaymentDetailsModifier, IPaymentDetailsModifierFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1351,7 +1351,7 @@ impl ::core::fmt::Debug for PaymentDetailsModifier {
     }
 }
 impl ::windows::core::RuntimeType for PaymentDetailsModifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentDetailsModifier;{be1c7d65-4323-41d7-b305-dfcb765f69de})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentDetailsModifier;{be1c7d65-4323-41d7-b305-dfcb765f69de})");
 }
 impl ::core::clone::Clone for PaymentDetailsModifier {
     fn clone(&self) -> Self {
@@ -1367,7 +1367,7 @@ unsafe impl ::windows::core::Interface for PaymentDetailsModifier {
 impl ::windows::core::RuntimeName for PaymentDetailsModifier {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentDetailsModifier";
 }
-::windows::core::interface_hierarchy!(PaymentDetailsModifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentDetailsModifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentDetailsModifier {}
 unsafe impl ::core::marker::Sync for PaymentDetailsModifier {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1415,7 +1415,7 @@ impl PaymentItem {
     }
     #[doc(hidden)]
     pub fn IPaymentItemFactory<R, F: FnOnce(&IPaymentItemFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentItem, IPaymentItemFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PaymentItem, IPaymentItemFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1431,7 +1431,7 @@ impl ::core::fmt::Debug for PaymentItem {
     }
 }
 impl ::windows::core::RuntimeType for PaymentItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentItem;{685ac88b-79b2-4b76-9e03-a876223dfe72})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentItem;{685ac88b-79b2-4b76-9e03-a876223dfe72})");
 }
 impl ::core::clone::Clone for PaymentItem {
     fn clone(&self) -> Self {
@@ -1447,7 +1447,7 @@ unsafe impl ::windows::core::Interface for PaymentItem {
 impl ::windows::core::RuntimeName for PaymentItem {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentItem";
 }
-::windows::core::interface_hierarchy!(PaymentItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentItem {}
 unsafe impl ::core::marker::Sync for PaymentItem {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1457,8 +1457,8 @@ impl PaymentMediator {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentMediator, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PaymentMediator, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1510,7 +1510,7 @@ impl ::core::fmt::Debug for PaymentMediator {
     }
 }
 impl ::windows::core::RuntimeType for PaymentMediator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentMediator;{fb0ee829-ec0c-449a-83da-7ae3073365a2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentMediator;{fb0ee829-ec0c-449a-83da-7ae3073365a2})");
 }
 impl ::core::clone::Clone for PaymentMediator {
     fn clone(&self) -> Self {
@@ -1526,7 +1526,7 @@ unsafe impl ::windows::core::Interface for PaymentMediator {
 impl ::windows::core::RuntimeName for PaymentMediator {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMediator";
 }
-::windows::core::interface_hierarchy!(PaymentMediator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentMediator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentMediator {}
 unsafe impl ::core::marker::Sync for PaymentMediator {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1536,8 +1536,8 @@ impl PaymentMerchantInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentMerchantInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PaymentMerchantInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn PackageFullName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1566,7 +1566,7 @@ impl PaymentMerchantInfo {
     }
     #[doc(hidden)]
     pub fn IPaymentMerchantInfoFactory<R, F: FnOnce(&IPaymentMerchantInfoFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentMerchantInfo, IPaymentMerchantInfoFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PaymentMerchantInfo, IPaymentMerchantInfoFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1582,7 +1582,7 @@ impl ::core::fmt::Debug for PaymentMerchantInfo {
     }
 }
 impl ::windows::core::RuntimeType for PaymentMerchantInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentMerchantInfo;{63445050-0e94-4ed6-aacb-e6012bd327a7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentMerchantInfo;{63445050-0e94-4ed6-aacb-e6012bd327a7})");
 }
 impl ::core::clone::Clone for PaymentMerchantInfo {
     fn clone(&self) -> Self {
@@ -1598,7 +1598,7 @@ unsafe impl ::windows::core::Interface for PaymentMerchantInfo {
 impl ::windows::core::RuntimeName for PaymentMerchantInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMerchantInfo";
 }
-::windows::core::interface_hierarchy!(PaymentMerchantInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentMerchantInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentMerchantInfo {}
 unsafe impl ::core::marker::Sync for PaymentMerchantInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1647,7 +1647,7 @@ impl PaymentMethodData {
     }
     #[doc(hidden)]
     pub fn IPaymentMethodDataFactory<R, F: FnOnce(&IPaymentMethodDataFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentMethodData, IPaymentMethodDataFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PaymentMethodData, IPaymentMethodDataFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1663,7 +1663,7 @@ impl ::core::fmt::Debug for PaymentMethodData {
     }
 }
 impl ::windows::core::RuntimeType for PaymentMethodData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentMethodData;{d1d3caf4-de98-4129-b1b7-c3ad86237bf4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentMethodData;{d1d3caf4-de98-4129-b1b7-c3ad86237bf4})");
 }
 impl ::core::clone::Clone for PaymentMethodData {
     fn clone(&self) -> Self {
@@ -1679,7 +1679,7 @@ unsafe impl ::windows::core::Interface for PaymentMethodData {
 impl ::windows::core::RuntimeName for PaymentMethodData {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMethodData";
 }
-::windows::core::interface_hierarchy!(PaymentMethodData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentMethodData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentMethodData {}
 unsafe impl ::core::marker::Sync for PaymentMethodData {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1689,8 +1689,8 @@ impl PaymentOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PaymentOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn RequestPayerEmail(&self) -> ::windows::core::Result<PaymentOptionPresence> {
@@ -1761,7 +1761,7 @@ impl ::core::fmt::Debug for PaymentOptions {
     }
 }
 impl ::windows::core::RuntimeType for PaymentOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentOptions;{aaa30854-1f2b-4365-8251-01b58915a5bc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentOptions;{aaa30854-1f2b-4365-8251-01b58915a5bc})");
 }
 impl ::core::clone::Clone for PaymentOptions {
     fn clone(&self) -> Self {
@@ -1777,7 +1777,7 @@ unsafe impl ::windows::core::Interface for PaymentOptions {
 impl ::windows::core::RuntimeName for PaymentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentOptions";
 }
-::windows::core::interface_hierarchy!(PaymentOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentOptions {}
 unsafe impl ::core::marker::Sync for PaymentOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1871,12 +1871,12 @@ impl PaymentRequest {
     }
     #[doc(hidden)]
     pub fn IPaymentRequestFactory<R, F: FnOnce(&IPaymentRequestFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentRequest, IPaymentRequestFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PaymentRequest, IPaymentRequestFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPaymentRequestFactory2<R, F: FnOnce(&IPaymentRequestFactory2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentRequest, IPaymentRequestFactory2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PaymentRequest, IPaymentRequestFactory2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1892,7 +1892,7 @@ impl ::core::fmt::Debug for PaymentRequest {
     }
 }
 impl ::windows::core::RuntimeType for PaymentRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequest;{b74942e1-ed7b-47eb-bc08-78cc5d6896b6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequest;{b74942e1-ed7b-47eb-bc08-78cc5d6896b6})");
 }
 impl ::core::clone::Clone for PaymentRequest {
     fn clone(&self) -> Self {
@@ -1908,7 +1908,7 @@ unsafe impl ::windows::core::Interface for PaymentRequest {
 impl ::windows::core::RuntimeName for PaymentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequest";
 }
-::windows::core::interface_hierarchy!(PaymentRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentRequest {}
 unsafe impl ::core::marker::Sync for PaymentRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1953,7 +1953,7 @@ impl ::core::fmt::Debug for PaymentRequestChangedArgs {
     }
 }
 impl ::windows::core::RuntimeType for PaymentRequestChangedArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequestChangedArgs;{c6145e44-cd8b-4be4-b555-27c99194c0c5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequestChangedArgs;{c6145e44-cd8b-4be4-b555-27c99194c0c5})");
 }
 impl ::core::clone::Clone for PaymentRequestChangedArgs {
     fn clone(&self) -> Self {
@@ -1969,7 +1969,7 @@ unsafe impl ::windows::core::Interface for PaymentRequestChangedArgs {
 impl ::windows::core::RuntimeName for PaymentRequestChangedArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestChangedArgs";
 }
-::windows::core::interface_hierarchy!(PaymentRequestChangedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentRequestChangedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentRequestChangedArgs {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2023,7 +2023,7 @@ impl PaymentRequestChangedResult {
     }
     #[doc(hidden)]
     pub fn IPaymentRequestChangedResultFactory<R, F: FnOnce(&IPaymentRequestChangedResultFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentRequestChangedResult, IPaymentRequestChangedResultFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PaymentRequestChangedResult, IPaymentRequestChangedResultFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2039,7 +2039,7 @@ impl ::core::fmt::Debug for PaymentRequestChangedResult {
     }
 }
 impl ::windows::core::RuntimeType for PaymentRequestChangedResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequestChangedResult;{df699e5c-16c4-47ad-9401-8440ec0757db})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequestChangedResult;{df699e5c-16c4-47ad-9401-8440ec0757db})");
 }
 impl ::core::clone::Clone for PaymentRequestChangedResult {
     fn clone(&self) -> Self {
@@ -2055,7 +2055,7 @@ unsafe impl ::windows::core::Interface for PaymentRequestChangedResult {
 impl ::windows::core::RuntimeName for PaymentRequestChangedResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestChangedResult";
 }
-::windows::core::interface_hierarchy!(PaymentRequestChangedResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentRequestChangedResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentRequestChangedResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedResult {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2089,7 +2089,7 @@ impl ::core::fmt::Debug for PaymentRequestSubmitResult {
     }
 }
 impl ::windows::core::RuntimeType for PaymentRequestSubmitResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequestSubmitResult;{7b9c3912-30f2-4e90-b249-8ce7d78ffe56})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequestSubmitResult;{7b9c3912-30f2-4e90-b249-8ce7d78ffe56})");
 }
 impl ::core::clone::Clone for PaymentRequestSubmitResult {
     fn clone(&self) -> Self {
@@ -2105,7 +2105,7 @@ unsafe impl ::windows::core::Interface for PaymentRequestSubmitResult {
 impl ::windows::core::RuntimeName for PaymentRequestSubmitResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestSubmitResult";
 }
-::windows::core::interface_hierarchy!(PaymentRequestSubmitResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentRequestSubmitResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentRequestSubmitResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestSubmitResult {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2176,7 +2176,7 @@ impl ::core::fmt::Debug for PaymentResponse {
     }
 }
 impl ::windows::core::RuntimeType for PaymentResponse {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentResponse;{e1389457-8bd2-4888-9fa8-97985545108e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentResponse;{e1389457-8bd2-4888-9fa8-97985545108e})");
 }
 impl ::core::clone::Clone for PaymentResponse {
     fn clone(&self) -> Self {
@@ -2192,7 +2192,7 @@ unsafe impl ::windows::core::Interface for PaymentResponse {
 impl ::windows::core::RuntimeName for PaymentResponse {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentResponse";
 }
-::windows::core::interface_hierarchy!(PaymentResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentResponse {}
 unsafe impl ::core::marker::Sync for PaymentResponse {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2263,7 +2263,7 @@ impl PaymentShippingOption {
     }
     #[doc(hidden)]
     pub fn IPaymentShippingOptionFactory<R, F: FnOnce(&IPaymentShippingOptionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentShippingOption, IPaymentShippingOptionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PaymentShippingOption, IPaymentShippingOptionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2279,7 +2279,7 @@ impl ::core::fmt::Debug for PaymentShippingOption {
     }
 }
 impl ::windows::core::RuntimeType for PaymentShippingOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentShippingOption;{13372ada-9753-4574-8966-93145a76c7f9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentShippingOption;{13372ada-9753-4574-8966-93145a76c7f9})");
 }
 impl ::core::clone::Clone for PaymentShippingOption {
     fn clone(&self) -> Self {
@@ -2295,7 +2295,7 @@ unsafe impl ::windows::core::Interface for PaymentShippingOption {
 impl ::windows::core::RuntimeName for PaymentShippingOption {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentShippingOption";
 }
-::windows::core::interface_hierarchy!(PaymentShippingOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentShippingOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentShippingOption {}
 unsafe impl ::core::marker::Sync for PaymentShippingOption {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2330,7 +2330,7 @@ impl PaymentToken {
     }
     #[doc(hidden)]
     pub fn IPaymentTokenFactory<R, F: FnOnce(&IPaymentTokenFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentToken, IPaymentTokenFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PaymentToken, IPaymentTokenFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2346,7 +2346,7 @@ impl ::core::fmt::Debug for PaymentToken {
     }
 }
 impl ::windows::core::RuntimeType for PaymentToken {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentToken;{bbcac013-ccd0-41f2-b2a1-0a2e4b5dce25})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentToken;{bbcac013-ccd0-41f2-b2a1-0a2e4b5dce25})");
 }
 impl ::core::clone::Clone for PaymentToken {
     fn clone(&self) -> Self {
@@ -2362,7 +2362,7 @@ unsafe impl ::windows::core::Interface for PaymentToken {
 impl ::windows::core::RuntimeName for PaymentToken {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentToken";
 }
-::windows::core::interface_hierarchy!(PaymentToken, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentToken, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentToken {}
 unsafe impl ::core::marker::Sync for PaymentToken {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2398,7 +2398,7 @@ impl ::core::fmt::Debug for PaymentCanMakePaymentResultStatus {
     }
 }
 impl ::windows::core::RuntimeType for PaymentCanMakePaymentResultStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
@@ -2429,7 +2429,7 @@ impl ::core::fmt::Debug for PaymentOptionPresence {
     }
 }
 impl ::windows::core::RuntimeType for PaymentOptionPresence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentOptionPresence;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentOptionPresence;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
@@ -2459,7 +2459,7 @@ impl ::core::fmt::Debug for PaymentRequestChangeKind {
     }
 }
 impl ::windows::core::RuntimeType for PaymentRequestChangeKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestChangeKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestChangeKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
@@ -2490,7 +2490,7 @@ impl ::core::fmt::Debug for PaymentRequestCompletionStatus {
     }
 }
 impl ::windows::core::RuntimeType for PaymentRequestCompletionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
@@ -2521,7 +2521,7 @@ impl ::core::fmt::Debug for PaymentRequestStatus {
     }
 }
 impl ::windows::core::RuntimeType for PaymentRequestStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
@@ -2552,15 +2552,15 @@ impl ::core::fmt::Debug for PaymentShippingType {
     }
 }
 impl ::windows::core::RuntimeType for PaymentShippingType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentShippingType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentShippingType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentRequestChangedHandler(pub ::windows::core::IUnknown);
 impl PaymentRequestChangedHandler {
     pub fn new<F: FnMut(::core::option::Option<&PaymentRequest>, ::core::option::Option<&PaymentRequestChangedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = PaymentRequestChangedHandlerBox::<F> { vtable: &PaymentRequestChangedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = PaymentRequestChangedHandlerBox::<F> { vtable: &PaymentRequestChangedHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, paymentrequest: &PaymentRequest, args: &PaymentRequestChangedArgs) -> ::windows::core::Result<()> {
         let this = self;
@@ -2571,7 +2571,7 @@ impl PaymentRequestChangedHandler {
 struct PaymentRequestChangedHandlerBox<F: FnMut(::core::option::Option<&PaymentRequest>, ::core::option::Option<&PaymentRequestChangedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const PaymentRequestChangedHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&PaymentRequest>, ::core::option::Option<&PaymentRequestChangedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> PaymentRequestChangedHandlerBox<F> {
     const VTABLE: PaymentRequestChangedHandler_Vtbl = PaymentRequestChangedHandler_Vtbl {
@@ -2580,7 +2580,7 @@ impl<F: FnMut(::core::option::Option<&PaymentRequest>, ::core::option::Option<&P
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<PaymentRequestChangedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<PaymentRequestChangedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -2596,7 +2596,7 @@ impl<F: FnMut(::core::option::Option<&PaymentRequest>, ::core::option::Option<&P
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -2628,7 +2628,7 @@ unsafe impl ::windows::core::Interface for PaymentRequestChangedHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5078b9e1_f398_4f2c_a27e_94d371cf6c7d);
 }
 impl ::windows::core::RuntimeType for PaymentRequestChangedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5078b9e1-f398-4f2c-a27e-94d371cf6c7d}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{5078b9e1-f398-4f2c-a27e-94d371cf6c7d}");
 }
 #[repr(C)]
 #[doc(hidden)]

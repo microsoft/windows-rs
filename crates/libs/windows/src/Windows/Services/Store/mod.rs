@@ -1238,7 +1238,7 @@ impl ::core::fmt::Debug for StoreAcquireLicenseResult {
     }
 }
 impl ::windows::core::RuntimeType for StoreAcquireLicenseResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAcquireLicenseResult;{fbd7946d-f040-4cb3-9a39-29bcecdbe22d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAcquireLicenseResult;{fbd7946d-f040-4cb3-9a39-29bcecdbe22d})");
 }
 impl ::core::clone::Clone for StoreAcquireLicenseResult {
     fn clone(&self) -> Self {
@@ -1254,7 +1254,7 @@ unsafe impl ::windows::core::Interface for StoreAcquireLicenseResult {
 impl ::windows::core::RuntimeName for StoreAcquireLicenseResult {
     const NAME: &'static str = "Windows.Services.Store.StoreAcquireLicenseResult";
 }
-::windows::core::interface_hierarchy!(StoreAcquireLicenseResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreAcquireLicenseResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreAcquireLicenseResult {}
 unsafe impl ::core::marker::Sync for StoreAcquireLicenseResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1350,7 +1350,7 @@ impl ::core::fmt::Debug for StoreAppLicense {
     }
 }
 impl ::windows::core::RuntimeType for StoreAppLicense {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAppLicense;{f389f9de-73c0-45ce-9bab-b2fe3e5eafd3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAppLicense;{f389f9de-73c0-45ce-9bab-b2fe3e5eafd3})");
 }
 impl ::core::clone::Clone for StoreAppLicense {
     fn clone(&self) -> Self {
@@ -1366,7 +1366,7 @@ unsafe impl ::windows::core::Interface for StoreAppLicense {
 impl ::windows::core::RuntimeName for StoreAppLicense {
     const NAME: &'static str = "Windows.Services.Store.StoreAppLicense";
 }
-::windows::core::interface_hierarchy!(StoreAppLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreAppLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreAppLicense {}
 unsafe impl ::core::marker::Sync for StoreAppLicense {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1434,7 +1434,7 @@ impl ::core::fmt::Debug for StoreAvailability {
     }
 }
 impl ::windows::core::RuntimeType for StoreAvailability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAvailability;{fa060325-0ffd-4493-ad43-f1f9918f69fa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAvailability;{fa060325-0ffd-4493-ad43-f1f9918f69fa})");
 }
 impl ::core::clone::Clone for StoreAvailability {
     fn clone(&self) -> Self {
@@ -1450,7 +1450,7 @@ unsafe impl ::windows::core::Interface for StoreAvailability {
 impl ::windows::core::RuntimeName for StoreAvailability {
     const NAME: &'static str = "Windows.Services.Store.StoreAvailability";
 }
-::windows::core::interface_hierarchy!(StoreAvailability, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreAvailability, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreAvailability {}
 unsafe impl ::core::marker::Sync for StoreAvailability {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1491,7 +1491,7 @@ impl ::core::fmt::Debug for StoreCanAcquireLicenseResult {
     }
 }
 impl ::windows::core::RuntimeType for StoreCanAcquireLicenseResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreCanAcquireLicenseResult;{3a693db3-0088-482f-86d5-bd46522663ad})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreCanAcquireLicenseResult;{3a693db3-0088-482f-86d5-bd46522663ad})");
 }
 impl ::core::clone::Clone for StoreCanAcquireLicenseResult {
     fn clone(&self) -> Self {
@@ -1507,7 +1507,7 @@ unsafe impl ::windows::core::Interface for StoreCanAcquireLicenseResult {
 impl ::windows::core::RuntimeName for StoreCanAcquireLicenseResult {
     const NAME: &'static str = "Windows.Services.Store.StoreCanAcquireLicenseResult";
 }
-::windows::core::interface_hierarchy!(StoreCanAcquireLicenseResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreCanAcquireLicenseResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreCanAcquireLicenseResult {}
 unsafe impl ::core::marker::Sync for StoreCanAcquireLicenseResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1591,7 +1591,7 @@ impl ::core::fmt::Debug for StoreCollectionData {
     }
 }
 impl ::windows::core::RuntimeType for StoreCollectionData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreCollectionData;{8aa4c3b3-5bb3-441a-2ab4-4dab73d5ce67})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreCollectionData;{8aa4c3b3-5bb3-441a-2ab4-4dab73d5ce67})");
 }
 impl ::core::clone::Clone for StoreCollectionData {
     fn clone(&self) -> Self {
@@ -1607,7 +1607,7 @@ unsafe impl ::windows::core::Interface for StoreCollectionData {
 impl ::windows::core::RuntimeName for StoreCollectionData {
     const NAME: &'static str = "Windows.Services.Store.StoreCollectionData";
 }
-::windows::core::interface_hierarchy!(StoreCollectionData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreCollectionData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreCollectionData {}
 unsafe impl ::core::marker::Sync for StoreCollectionData {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1655,7 +1655,7 @@ impl ::core::fmt::Debug for StoreConsumableResult {
     }
 }
 impl ::windows::core::RuntimeType for StoreConsumableResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreConsumableResult;{ea5dab72-6a00-4052-be5b-bfdab4433352})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreConsumableResult;{ea5dab72-6a00-4052-be5b-bfdab4433352})");
 }
 impl ::core::clone::Clone for StoreConsumableResult {
     fn clone(&self) -> Self {
@@ -1671,7 +1671,7 @@ unsafe impl ::windows::core::Interface for StoreConsumableResult {
 impl ::windows::core::RuntimeName for StoreConsumableResult {
     const NAME: &'static str = "Windows.Services.Store.StoreConsumableResult";
 }
-::windows::core::interface_hierarchy!(StoreConsumableResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreConsumableResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreConsumableResult {}
 unsafe impl ::core::marker::Sync for StoreConsumableResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2099,7 +2099,7 @@ impl StoreContext {
     }
     #[doc(hidden)]
     pub fn IStoreContextStatics<R, F: FnOnce(&IStoreContextStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StoreContext, IStoreContextStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StoreContext, IStoreContextStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2115,7 +2115,7 @@ impl ::core::fmt::Debug for StoreContext {
     }
 }
 impl ::windows::core::RuntimeType for StoreContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreContext;{ac98b6be-f4fd-4912-babd-5035e5e8bcab})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreContext;{ac98b6be-f4fd-4912-babd-5035e5e8bcab})");
 }
 impl ::core::clone::Clone for StoreContext {
     fn clone(&self) -> Self {
@@ -2131,7 +2131,7 @@ unsafe impl ::windows::core::Interface for StoreContext {
 impl ::windows::core::RuntimeName for StoreContext {
     const NAME: &'static str = "Windows.Services.Store.StoreContext";
 }
-::windows::core::interface_hierarchy!(StoreContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreContext {}
 unsafe impl ::core::marker::Sync for StoreContext {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2188,7 +2188,7 @@ impl ::core::fmt::Debug for StoreImage {
     }
 }
 impl ::windows::core::RuntimeType for StoreImage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreImage;{081fd248-adb4-4b64-a993-784789926ed5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreImage;{081fd248-adb4-4b64-a993-784789926ed5})");
 }
 impl ::core::clone::Clone for StoreImage {
     fn clone(&self) -> Self {
@@ -2204,7 +2204,7 @@ unsafe impl ::windows::core::Interface for StoreImage {
 impl ::windows::core::RuntimeName for StoreImage {
     const NAME: &'static str = "Windows.Services.Store.StoreImage";
 }
-::windows::core::interface_hierarchy!(StoreImage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreImage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreImage {}
 unsafe impl ::core::marker::Sync for StoreImage {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2261,7 +2261,7 @@ impl ::core::fmt::Debug for StoreLicense {
     }
 }
 impl ::windows::core::RuntimeType for StoreLicense {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreLicense;{26dc9579-4c4f-4f30-bc89-649f60e36055})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreLicense;{26dc9579-4c4f-4f30-bc89-649f60e36055})");
 }
 impl ::core::clone::Clone for StoreLicense {
     fn clone(&self) -> Self {
@@ -2277,7 +2277,7 @@ unsafe impl ::windows::core::Interface for StoreLicense {
 impl ::windows::core::RuntimeName for StoreLicense {
     const NAME: &'static str = "Windows.Services.Store.StoreLicense";
 }
-::windows::core::interface_hierarchy!(StoreLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreLicense {}
 unsafe impl ::core::marker::Sync for StoreLicense {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2287,8 +2287,8 @@ impl StorePackageInstallOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorePackageInstallOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StorePackageInstallOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn AllowForcedAppRestart(&self) -> ::windows::core::Result<bool> {
@@ -2315,7 +2315,7 @@ impl ::core::fmt::Debug for StorePackageInstallOptions {
     }
 }
 impl ::windows::core::RuntimeType for StorePackageInstallOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageInstallOptions;{1d3d630c-0ccd-44dd-8c59-80810a729973})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageInstallOptions;{1d3d630c-0ccd-44dd-8c59-80810a729973})");
 }
 impl ::core::clone::Clone for StorePackageInstallOptions {
     fn clone(&self) -> Self {
@@ -2331,7 +2331,7 @@ unsafe impl ::windows::core::Interface for StorePackageInstallOptions {
 impl ::windows::core::RuntimeName for StorePackageInstallOptions {
     const NAME: &'static str = "Windows.Services.Store.StorePackageInstallOptions";
 }
-::windows::core::interface_hierarchy!(StorePackageInstallOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorePackageInstallOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorePackageInstallOptions {}
 unsafe impl ::core::marker::Sync for StorePackageInstallOptions {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2392,7 +2392,7 @@ impl ::core::fmt::Debug for StorePackageLicense {
     }
 }
 impl ::windows::core::RuntimeType for StorePackageLicense {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageLicense;{0c465714-14e1-4973-bd14-f77724271e99})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageLicense;{0c465714-14e1-4973-bd14-f77724271e99})");
 }
 impl ::core::clone::Clone for StorePackageLicense {
     fn clone(&self) -> Self {
@@ -2408,7 +2408,7 @@ unsafe impl ::windows::core::Interface for StorePackageLicense {
 impl ::windows::core::RuntimeName for StorePackageLicense {
     const NAME: &'static str = "Windows.Services.Store.StorePackageLicense";
 }
-::windows::core::interface_hierarchy!(StorePackageLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorePackageLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<StorePackageLicense> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2466,7 +2466,7 @@ impl ::core::fmt::Debug for StorePackageUpdate {
     }
 }
 impl ::windows::core::RuntimeType for StorePackageUpdate {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageUpdate;{140fa150-3cbf-4a35-b91f-48271c31b072})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageUpdate;{140fa150-3cbf-4a35-b91f-48271c31b072})");
 }
 impl ::core::clone::Clone for StorePackageUpdate {
     fn clone(&self) -> Self {
@@ -2482,7 +2482,7 @@ unsafe impl ::windows::core::Interface for StorePackageUpdate {
 impl ::windows::core::RuntimeName for StorePackageUpdate {
     const NAME: &'static str = "Windows.Services.Store.StorePackageUpdate";
 }
-::windows::core::interface_hierarchy!(StorePackageUpdate, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorePackageUpdate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorePackageUpdate {}
 unsafe impl ::core::marker::Sync for StorePackageUpdate {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2527,7 +2527,7 @@ impl ::core::fmt::Debug for StorePackageUpdateResult {
     }
 }
 impl ::windows::core::RuntimeType for StorePackageUpdateResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageUpdateResult;{e79142ed-61f9-4893-b4fe-cf191603af7b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageUpdateResult;{e79142ed-61f9-4893-b4fe-cf191603af7b})");
 }
 impl ::core::clone::Clone for StorePackageUpdateResult {
     fn clone(&self) -> Self {
@@ -2543,7 +2543,7 @@ unsafe impl ::windows::core::Interface for StorePackageUpdateResult {
 impl ::windows::core::RuntimeName for StorePackageUpdateResult {
     const NAME: &'static str = "Windows.Services.Store.StorePackageUpdateResult";
 }
-::windows::core::interface_hierarchy!(StorePackageUpdateResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorePackageUpdateResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorePackageUpdateResult {}
 unsafe impl ::core::marker::Sync for StorePackageUpdateResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2607,7 +2607,7 @@ impl ::core::fmt::Debug for StorePrice {
     }
 }
 impl ::windows::core::RuntimeType for StorePrice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePrice;{55ba94c4-15f1-407c-8f06-006380f4df0b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePrice;{55ba94c4-15f1-407c-8f06-006380f4df0b})");
 }
 impl ::core::clone::Clone for StorePrice {
     fn clone(&self) -> Self {
@@ -2623,7 +2623,7 @@ unsafe impl ::windows::core::Interface for StorePrice {
 impl ::windows::core::RuntimeName for StorePrice {
     const NAME: &'static str = "Windows.Services.Store.StorePrice";
 }
-::windows::core::interface_hierarchy!(StorePrice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorePrice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorePrice {}
 unsafe impl ::core::marker::Sync for StorePrice {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2785,7 +2785,7 @@ impl ::core::fmt::Debug for StoreProduct {
     }
 }
 impl ::windows::core::RuntimeType for StoreProduct {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProduct;{320e2c52-d760-450a-a42b-67d1e901ac90})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProduct;{320e2c52-d760-450a-a42b-67d1e901ac90})");
 }
 impl ::core::clone::Clone for StoreProduct {
     fn clone(&self) -> Self {
@@ -2801,7 +2801,7 @@ unsafe impl ::windows::core::Interface for StoreProduct {
 impl ::windows::core::RuntimeName for StoreProduct {
     const NAME: &'static str = "Windows.Services.Store.StoreProduct";
 }
-::windows::core::interface_hierarchy!(StoreProduct, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreProduct, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreProduct {}
 unsafe impl ::core::marker::Sync for StoreProduct {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2811,8 +2811,8 @@ impl StoreProductOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StoreProductOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StoreProductOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2837,7 +2837,7 @@ impl ::core::fmt::Debug for StoreProductOptions {
     }
 }
 impl ::windows::core::RuntimeType for StoreProductOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductOptions;{5b34a0f9-a113-4811-8326-16199c927f31})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductOptions;{5b34a0f9-a113-4811-8326-16199c927f31})");
 }
 impl ::core::clone::Clone for StoreProductOptions {
     fn clone(&self) -> Self {
@@ -2853,7 +2853,7 @@ unsafe impl ::windows::core::Interface for StoreProductOptions {
 impl ::windows::core::RuntimeName for StoreProductOptions {
     const NAME: &'static str = "Windows.Services.Store.StoreProductOptions";
 }
-::windows::core::interface_hierarchy!(StoreProductOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreProductOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreProductOptions {}
 unsafe impl ::core::marker::Sync for StoreProductOptions {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2905,7 +2905,7 @@ impl ::core::fmt::Debug for StoreProductPagedQueryResult {
     }
 }
 impl ::windows::core::RuntimeType for StoreProductPagedQueryResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductPagedQueryResult;{c92718c5-4dd5-4869-a462-ecc6872e43c5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductPagedQueryResult;{c92718c5-4dd5-4869-a462-ecc6872e43c5})");
 }
 impl ::core::clone::Clone for StoreProductPagedQueryResult {
     fn clone(&self) -> Self {
@@ -2921,7 +2921,7 @@ unsafe impl ::windows::core::Interface for StoreProductPagedQueryResult {
 impl ::windows::core::RuntimeName for StoreProductPagedQueryResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductPagedQueryResult";
 }
-::windows::core::interface_hierarchy!(StoreProductPagedQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreProductPagedQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreProductPagedQueryResult {}
 unsafe impl ::core::marker::Sync for StoreProductPagedQueryResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2957,7 +2957,7 @@ impl ::core::fmt::Debug for StoreProductQueryResult {
     }
 }
 impl ::windows::core::RuntimeType for StoreProductQueryResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductQueryResult;{d805e6c5-d456-4ff6-8049-9076d5165f73})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductQueryResult;{d805e6c5-d456-4ff6-8049-9076d5165f73})");
 }
 impl ::core::clone::Clone for StoreProductQueryResult {
     fn clone(&self) -> Self {
@@ -2973,7 +2973,7 @@ unsafe impl ::windows::core::Interface for StoreProductQueryResult {
 impl ::windows::core::RuntimeName for StoreProductQueryResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductQueryResult";
 }
-::windows::core::interface_hierarchy!(StoreProductQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreProductQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreProductQueryResult {}
 unsafe impl ::core::marker::Sync for StoreProductQueryResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3007,7 +3007,7 @@ impl ::core::fmt::Debug for StoreProductResult {
     }
 }
 impl ::windows::core::RuntimeType for StoreProductResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductResult;{b7674f73-3c87-4ee1-8201-f428359bd3af})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductResult;{b7674f73-3c87-4ee1-8201-f428359bd3af})");
 }
 impl ::core::clone::Clone for StoreProductResult {
     fn clone(&self) -> Self {
@@ -3023,7 +3023,7 @@ unsafe impl ::windows::core::Interface for StoreProductResult {
 impl ::windows::core::RuntimeName for StoreProductResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductResult";
 }
-::windows::core::interface_hierarchy!(StoreProductResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreProductResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreProductResult {}
 unsafe impl ::core::marker::Sync for StoreProductResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3033,8 +3033,8 @@ impl StorePurchaseProperties {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorePurchaseProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StorePurchaseProperties, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3067,7 +3067,7 @@ impl StorePurchaseProperties {
     }
     #[doc(hidden)]
     pub fn IStorePurchasePropertiesFactory<R, F: FnOnce(&IStorePurchasePropertiesFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorePurchaseProperties, IStorePurchasePropertiesFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorePurchaseProperties, IStorePurchasePropertiesFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3083,7 +3083,7 @@ impl ::core::fmt::Debug for StorePurchaseProperties {
     }
 }
 impl ::windows::core::RuntimeType for StorePurchaseProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePurchaseProperties;{836278f3-ff87-4364-a5b4-fd2153ebe43b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePurchaseProperties;{836278f3-ff87-4364-a5b4-fd2153ebe43b})");
 }
 impl ::core::clone::Clone for StorePurchaseProperties {
     fn clone(&self) -> Self {
@@ -3099,7 +3099,7 @@ unsafe impl ::windows::core::Interface for StorePurchaseProperties {
 impl ::windows::core::RuntimeName for StorePurchaseProperties {
     const NAME: &'static str = "Windows.Services.Store.StorePurchaseProperties";
 }
-::windows::core::interface_hierarchy!(StorePurchaseProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorePurchaseProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorePurchaseProperties {}
 unsafe impl ::core::marker::Sync for StorePurchaseProperties {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3133,7 +3133,7 @@ impl ::core::fmt::Debug for StorePurchaseResult {
     }
 }
 impl ::windows::core::RuntimeType for StorePurchaseResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePurchaseResult;{add28552-f96a-463d-a7bb-c20b4fca6952})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePurchaseResult;{add28552-f96a-463d-a7bb-c20b4fca6952})");
 }
 impl ::core::clone::Clone for StorePurchaseResult {
     fn clone(&self) -> Self {
@@ -3149,7 +3149,7 @@ unsafe impl ::windows::core::Interface for StorePurchaseResult {
 impl ::windows::core::RuntimeName for StorePurchaseResult {
     const NAME: &'static str = "Windows.Services.Store.StorePurchaseResult";
 }
-::windows::core::interface_hierarchy!(StorePurchaseResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorePurchaseResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorePurchaseResult {}
 unsafe impl ::core::marker::Sync for StorePurchaseResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3254,7 +3254,7 @@ impl ::core::fmt::Debug for StoreQueueItem {
     }
 }
 impl ::windows::core::RuntimeType for StoreQueueItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItem;{56d5c32b-f830-4293-9188-cad2dcde7357})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItem;{56d5c32b-f830-4293-9188-cad2dcde7357})");
 }
 impl ::core::clone::Clone for StoreQueueItem {
     fn clone(&self) -> Self {
@@ -3270,7 +3270,7 @@ unsafe impl ::windows::core::Interface for StoreQueueItem {
 impl ::windows::core::RuntimeName for StoreQueueItem {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItem";
 }
-::windows::core::interface_hierarchy!(StoreQueueItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreQueueItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreQueueItem {}
 unsafe impl ::core::marker::Sync for StoreQueueItem {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3297,7 +3297,7 @@ impl ::core::fmt::Debug for StoreQueueItemCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for StoreQueueItemCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItemCompletedEventArgs;{1247df6c-b44a-439b-bb07-1d3003d005c2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItemCompletedEventArgs;{1247df6c-b44a-439b-bb07-1d3003d005c2})");
 }
 impl ::core::clone::Clone for StoreQueueItemCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -3313,7 +3313,7 @@ unsafe impl ::windows::core::Interface for StoreQueueItemCompletedEventArgs {
 impl ::windows::core::RuntimeName for StoreQueueItemCompletedEventArgs {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItemCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(StoreQueueItemCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreQueueItemCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreQueueItemCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for StoreQueueItemCompletedEventArgs {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3361,7 +3361,7 @@ impl ::core::fmt::Debug for StoreQueueItemStatus {
     }
 }
 impl ::windows::core::RuntimeType for StoreQueueItemStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItemStatus;{9bd6796f-9cc3-4ec3-b2ef-7be433b30174})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItemStatus;{9bd6796f-9cc3-4ec3-b2ef-7be433b30174})");
 }
 impl ::core::clone::Clone for StoreQueueItemStatus {
     fn clone(&self) -> Self {
@@ -3377,7 +3377,7 @@ unsafe impl ::windows::core::Interface for StoreQueueItemStatus {
 impl ::windows::core::RuntimeName for StoreQueueItemStatus {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItemStatus";
 }
-::windows::core::interface_hierarchy!(StoreQueueItemStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreQueueItemStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreQueueItemStatus {}
 unsafe impl ::core::marker::Sync for StoreQueueItemStatus {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3425,7 +3425,7 @@ impl ::core::fmt::Debug for StoreRateAndReviewResult {
     }
 }
 impl ::windows::core::RuntimeType for StoreRateAndReviewResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreRateAndReviewResult;{9d209d56-a6b5-4121-9b61-ee6d0fbdbdbb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreRateAndReviewResult;{9d209d56-a6b5-4121-9b61-ee6d0fbdbdbb})");
 }
 impl ::core::clone::Clone for StoreRateAndReviewResult {
     fn clone(&self) -> Self {
@@ -3441,7 +3441,7 @@ unsafe impl ::windows::core::Interface for StoreRateAndReviewResult {
 impl ::windows::core::RuntimeName for StoreRateAndReviewResult {
     const NAME: &'static str = "Windows.Services.Store.StoreRateAndReviewResult";
 }
-::windows::core::interface_hierarchy!(StoreRateAndReviewResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreRateAndReviewResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreRateAndReviewResult {}
 unsafe impl ::core::marker::Sync for StoreRateAndReviewResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3457,7 +3457,7 @@ impl StoreRequestHelper {
     }
     #[doc(hidden)]
     pub fn IStoreRequestHelperStatics<R, F: FnOnce(&IStoreRequestHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StoreRequestHelper, IStoreRequestHelperStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StoreRequestHelper, IStoreRequestHelperStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3504,7 +3504,7 @@ impl ::core::fmt::Debug for StoreSendRequestResult {
     }
 }
 impl ::windows::core::RuntimeType for StoreSendRequestResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSendRequestResult;{c73abe60-8272-4502-8a69-6e75153a4299})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSendRequestResult;{c73abe60-8272-4502-8a69-6e75153a4299})");
 }
 impl ::core::clone::Clone for StoreSendRequestResult {
     fn clone(&self) -> Self {
@@ -3520,7 +3520,7 @@ unsafe impl ::windows::core::Interface for StoreSendRequestResult {
 impl ::windows::core::RuntimeName for StoreSendRequestResult {
     const NAME: &'static str = "Windows.Services.Store.StoreSendRequestResult";
 }
-::windows::core::interface_hierarchy!(StoreSendRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreSendRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreSendRequestResult {}
 unsafe impl ::core::marker::Sync for StoreSendRequestResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3687,7 +3687,7 @@ impl ::core::fmt::Debug for StoreSku {
     }
 }
 impl ::windows::core::RuntimeType for StoreSku {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSku;{397e6f55-4440-4f03-863c-91f3fec83d79})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSku;{397e6f55-4440-4f03-863c-91f3fec83d79})");
 }
 impl ::core::clone::Clone for StoreSku {
     fn clone(&self) -> Self {
@@ -3703,7 +3703,7 @@ unsafe impl ::windows::core::Interface for StoreSku {
 impl ::windows::core::RuntimeName for StoreSku {
     const NAME: &'static str = "Windows.Services.Store.StoreSku";
 }
-::windows::core::interface_hierarchy!(StoreSku, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreSku, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreSku {}
 unsafe impl ::core::marker::Sync for StoreSku {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3758,7 +3758,7 @@ impl ::core::fmt::Debug for StoreSubscriptionInfo {
     }
 }
 impl ::windows::core::RuntimeType for StoreSubscriptionInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSubscriptionInfo;{4189776a-0559-43ac-a9c6-3ab0011fb8eb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSubscriptionInfo;{4189776a-0559-43ac-a9c6-3ab0011fb8eb})");
 }
 impl ::core::clone::Clone for StoreSubscriptionInfo {
     fn clone(&self) -> Self {
@@ -3774,7 +3774,7 @@ unsafe impl ::windows::core::Interface for StoreSubscriptionInfo {
 impl ::windows::core::RuntimeName for StoreSubscriptionInfo {
     const NAME: &'static str = "Windows.Services.Store.StoreSubscriptionInfo";
 }
-::windows::core::interface_hierarchy!(StoreSubscriptionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreSubscriptionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreSubscriptionInfo {}
 unsafe impl ::core::marker::Sync for StoreSubscriptionInfo {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3808,7 +3808,7 @@ impl ::core::fmt::Debug for StoreUninstallStorePackageResult {
     }
 }
 impl ::windows::core::RuntimeType for StoreUninstallStorePackageResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreUninstallStorePackageResult;{9fca39fd-126f-4cda-b801-1346b8d0a260})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreUninstallStorePackageResult;{9fca39fd-126f-4cda-b801-1346b8d0a260})");
 }
 impl ::core::clone::Clone for StoreUninstallStorePackageResult {
     fn clone(&self) -> Self {
@@ -3824,7 +3824,7 @@ unsafe impl ::windows::core::Interface for StoreUninstallStorePackageResult {
 impl ::windows::core::RuntimeName for StoreUninstallStorePackageResult {
     const NAME: &'static str = "Windows.Services.Store.StoreUninstallStorePackageResult";
 }
-::windows::core::interface_hierarchy!(StoreUninstallStorePackageResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreUninstallStorePackageResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreUninstallStorePackageResult {}
 unsafe impl ::core::marker::Sync for StoreUninstallStorePackageResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3888,7 +3888,7 @@ impl ::core::fmt::Debug for StoreVideo {
     }
 }
 impl ::windows::core::RuntimeType for StoreVideo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreVideo;{f26cb184-6f5e-4dc2-886c-3c63083c2f94})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreVideo;{f26cb184-6f5e-4dc2-886c-3c63083c2f94})");
 }
 impl ::core::clone::Clone for StoreVideo {
     fn clone(&self) -> Self {
@@ -3904,7 +3904,7 @@ unsafe impl ::windows::core::Interface for StoreVideo {
 impl ::windows::core::RuntimeName for StoreVideo {
     const NAME: &'static str = "Windows.Services.Store.StoreVideo";
 }
-::windows::core::interface_hierarchy!(StoreVideo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreVideo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreVideo {}
 unsafe impl ::core::marker::Sync for StoreVideo {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3938,7 +3938,7 @@ impl ::core::fmt::Debug for StoreCanLicenseStatus {
     }
 }
 impl ::windows::core::RuntimeType for StoreCanLicenseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreCanLicenseStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreCanLicenseStatus;i4)");
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
@@ -3970,7 +3970,7 @@ impl ::core::fmt::Debug for StoreConsumableStatus {
     }
 }
 impl ::windows::core::RuntimeType for StoreConsumableStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreConsumableStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreConsumableStatus;i4)");
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
@@ -4004,7 +4004,7 @@ impl ::core::fmt::Debug for StoreDurationUnit {
     }
 }
 impl ::windows::core::RuntimeType for StoreDurationUnit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreDurationUnit;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreDurationUnit;i4)");
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
@@ -4041,7 +4041,7 @@ impl ::core::fmt::Debug for StorePackageUpdateState {
     }
 }
 impl ::windows::core::RuntimeType for StorePackageUpdateState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePackageUpdateState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePackageUpdateState;i4)");
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
@@ -4074,7 +4074,7 @@ impl ::core::fmt::Debug for StorePurchaseStatus {
     }
 }
 impl ::windows::core::RuntimeType for StorePurchaseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePurchaseStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePurchaseStatus;i4)");
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
@@ -4117,7 +4117,7 @@ impl ::core::fmt::Debug for StoreQueueItemExtendedState {
     }
 }
 impl ::windows::core::RuntimeType for StoreQueueItemExtendedState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemExtendedState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemExtendedState;i4)");
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
@@ -4148,7 +4148,7 @@ impl ::core::fmt::Debug for StoreQueueItemKind {
     }
 }
 impl ::windows::core::RuntimeType for StoreQueueItemKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemKind;i4)");
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
@@ -4181,7 +4181,7 @@ impl ::core::fmt::Debug for StoreQueueItemState {
     }
 }
 impl ::windows::core::RuntimeType for StoreQueueItemState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemState;i4)");
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
@@ -4213,7 +4213,7 @@ impl ::core::fmt::Debug for StoreRateAndReviewStatus {
     }
 }
 impl ::windows::core::RuntimeType for StoreRateAndReviewStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreRateAndReviewStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreRateAndReviewStatus;i4)");
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
@@ -4246,7 +4246,7 @@ impl ::core::fmt::Debug for StoreUninstallStorePackageStatus {
     }
 }
 impl ::windows::core::RuntimeType for StoreUninstallStorePackageStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreUninstallStorePackageStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreUninstallStorePackageStatus;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4279,7 +4279,7 @@ impl ::windows::core::TypeKind for StorePackageUpdateStatus {
     type TypeKind = ::windows::core::ValueType;
 }
 impl ::windows::core::RuntimeType for StorePackageUpdateStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Services.Store.StorePackageUpdateStatus;string;u8;u8;f8;f8;enum(Windows.Services.Store.StorePackageUpdateState;i4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Services.Store.StorePackageUpdateStatus;string;u8;u8;f8;f8;enum(Windows.Services.Store.StorePackageUpdateState;i4))");
 }
 impl ::core::cmp::PartialEq for StorePackageUpdateStatus {
     fn eq(&self, other: &Self) -> bool {

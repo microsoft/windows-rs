@@ -7,7 +7,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionAttachMouseDragToHwnd ( visual : * mut::core::ffi::c_void , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionAttachMouseDragToHwnd ( visual : * mut::core::ffi::c_void , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     DCompositionAttachMouseDragToHwnd(visual.into().abi(), hwnd.into(), enable.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
@@ -19,7 +19,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionAttachMouseWheelToHwnd ( visual : * mut::core::ffi::c_void , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionAttachMouseWheelToHwnd ( visual : * mut::core::ffi::c_void , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     DCompositionAttachMouseWheelToHwnd(visual.into().abi(), hwnd.into(), enable.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
@@ -29,7 +29,7 @@ pub unsafe fn DCompositionBoostCompositorClock<P0>(enable: P0) -> ::windows::cor
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionBoostCompositorClock ( enable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionBoostCompositorClock ( enable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     DCompositionBoostCompositorClock(enable.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi\"`*"]
@@ -40,7 +40,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::Dxgi::IDXGIDevice>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice ( dxgidevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice ( dxgidevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DCompositionCreateDevice(dxgidevice.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -51,7 +51,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice2 ( renderingdevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice2 ( renderingdevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DCompositionCreateDevice2(renderingdevice.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -62,7 +62,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice3 ( renderingdevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice3 ( renderingdevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DCompositionCreateDevice3(renderingdevice.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -70,14 +70,14 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionCreateSurfaceHandle ( desiredaccess : u32 , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , surfacehandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateSurfaceHandle ( desiredaccess : u32 , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , surfacehandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     DCompositionCreateSurfaceHandle(desiredaccess, ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
 pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> ::windows::core::Result<u64> {
-    ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionGetFrameId ( frameidtype : COMPOSITION_FRAME_ID_TYPE , frameid : *mut u64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionGetFrameId ( frameidtype : COMPOSITION_FRAME_ID_TYPE , frameid : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u64>();
     DCompositionGetFrameId(frameidtype, &mut result__).from_abi(result__)
 }
@@ -85,21 +85,21 @@ pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> 
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: ::core::option::Option<*mut COMPOSITION_TARGET_ID>, actualtargetidcount: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionGetStatistics ( frameid : u64 , framestats : *mut COMPOSITION_FRAME_STATS , targetidcount : u32 , targetids : *mut COMPOSITION_TARGET_ID , actualtargetidcount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionGetStatistics ( frameid : u64 , framestats : *mut COMPOSITION_FRAME_STATS , targetidcount : u32 , targetids : *mut COMPOSITION_TARGET_ID , actualtargetidcount : *mut u32 ) -> :: windows::core::HRESULT );
     DCompositionGetStatistics(frameid, framestats, targetidcount, ::core::mem::transmute(targetids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(actualtargetidcount.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID, targetstats: *mut COMPOSITION_TARGET_STATS) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionGetTargetStatistics ( frameid : u64 , targetid : *const COMPOSITION_TARGET_ID , targetstats : *mut COMPOSITION_TARGET_STATS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionGetTargetStatistics ( frameid : u64 , targetid : *const COMPOSITION_TARGET_ID , targetstats : *mut COMPOSITION_TARGET_STATS ) -> :: windows::core::HRESULT );
     DCompositionGetTargetStatistics(frameid, targetid, targetstats).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionWaitForCompositorClock(handles: ::core::option::Option<&[super::super::Foundation::HANDLE]>, timeoutinms: u32) -> u32 {
-    ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionWaitForCompositorClock ( count : u32 , handles : *const super::super::Foundation:: HANDLE , timeoutinms : u32 ) -> u32 );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionWaitForCompositorClock ( count : u32 , handles : *const super::super::Foundation:: HANDLE , timeoutinms : u32 ) -> u32 );
     DCompositionWaitForCompositorClock(handles.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(handles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), timeoutinms)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
@@ -146,7 +146,7 @@ impl IDCompositionAffineTransform2DEffect {
         (::windows::core::Vtable::vtable(self).SetSharpness2)(::windows::core::Vtable::as_raw(self), sharpness).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionAffineTransform2DEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionAffineTransform2DEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionAffineTransform2DEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -213,7 +213,7 @@ impl IDCompositionAnimation {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self), endoffset, endvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionAnimation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDCompositionAnimation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDCompositionAnimation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -307,7 +307,7 @@ impl IDCompositionArithmeticCompositeEffect {
         (::windows::core::Vtable::vtable(self).SetCoefficient42)(::windows::core::Vtable::as_raw(self), coefficient4).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionArithmeticCompositeEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionArithmeticCompositeEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionArithmeticCompositeEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -367,7 +367,7 @@ impl IDCompositionBlendEffect {
         (::windows::core::Vtable::vtable(self).SetMode)(::windows::core::Vtable::as_raw(self), mode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionBlendEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionBlendEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionBlendEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -456,7 +456,7 @@ impl IDCompositionBrightnessEffect {
         (::windows::core::Vtable::vtable(self).SetBlackPointY2)(::windows::core::Vtable::as_raw(self), blackpointy).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionBrightnessEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionBrightnessEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionBrightnessEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -504,7 +504,7 @@ pub struct IDCompositionBrightnessEffect_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionClip(::windows::core::IUnknown);
 impl IDCompositionClip {}
-::windows::core::interface_hierarchy!(IDCompositionClip, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDCompositionClip, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDCompositionClip {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -570,7 +570,7 @@ impl IDCompositionColorMatrixEffect {
         (::windows::core::Vtable::vtable(self).SetClampOutput)(::windows::core::Vtable::as_raw(self), clamp.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionColorMatrixEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionColorMatrixEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionColorMatrixEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -628,7 +628,7 @@ impl IDCompositionCompositeEffect {
         (::windows::core::Vtable::vtable(self).SetMode)(::windows::core::Vtable::as_raw(self), mode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionCompositeEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionCompositeEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionCompositeEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -681,7 +681,7 @@ impl IDCompositionDelegatedInkTrail {
         (::windows::core::Vtable::vtable(self).StartNewTrail)(::windows::core::Vtable::as_raw(self), color).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionDelegatedInkTrail, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDCompositionDelegatedInkTrail, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDCompositionDelegatedInkTrail {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -839,7 +839,7 @@ impl IDCompositionDesktopDevice {
         (::windows::core::Vtable::vtable(self).CreateSurfaceFromHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionDesktopDevice, ::windows::core::IUnknown, IDCompositionDevice2);
+::windows::imp::interface_hierarchy!(IDCompositionDesktopDevice, ::windows::core::IUnknown, IDCompositionDevice2);
 impl ::core::cmp::PartialEq for IDCompositionDesktopDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1001,7 +1001,7 @@ impl IDCompositionDevice {
         (::windows::core::Vtable::vtable(self).CheckDeviceState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDCompositionDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDCompositionDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1169,7 +1169,7 @@ impl IDCompositionDevice2 {
         (::windows::core::Vtable::vtable(self).CreateAnimation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionDevice2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDCompositionDevice2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDCompositionDevice2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1374,7 +1374,7 @@ impl IDCompositionDevice3 {
         (::windows::core::Vtable::vtable(self).CreateAffineTransform2DEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionDevice3, ::windows::core::IUnknown, IDCompositionDevice2);
+::windows::imp::interface_hierarchy!(IDCompositionDevice3, ::windows::core::IUnknown, IDCompositionDevice2);
 impl ::core::cmp::PartialEq for IDCompositionDevice3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1426,7 +1426,7 @@ impl IDCompositionDeviceDebug {
         (::windows::core::Vtable::vtable(self).DisableDebugCounters)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionDeviceDebug, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDCompositionDeviceDebug, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDCompositionDeviceDebug {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1460,7 +1460,7 @@ pub struct IDCompositionDeviceDebug_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionEffect(::windows::core::IUnknown);
 impl IDCompositionEffect {}
-::windows::core::interface_hierarchy!(IDCompositionEffect, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDCompositionEffect, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDCompositionEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1508,7 +1508,7 @@ impl IDCompositionEffectGroup {
         (::windows::core::Vtable::vtable(self).SetTransform3D)(::windows::core::Vtable::as_raw(self), transform3d.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionEffectGroup, ::windows::core::IUnknown, IDCompositionEffect);
+::windows::imp::interface_hierarchy!(IDCompositionEffectGroup, ::windows::core::IUnknown, IDCompositionEffect);
 impl ::core::cmp::PartialEq for IDCompositionEffectGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1550,7 +1550,7 @@ impl IDCompositionFilterEffect {
         (::windows::core::Vtable::vtable(self).SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionFilterEffect, ::windows::core::IUnknown, IDCompositionEffect);
+::windows::imp::interface_hierarchy!(IDCompositionFilterEffect, ::windows::core::IUnknown, IDCompositionEffect);
 impl ::core::cmp::PartialEq for IDCompositionFilterEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1604,7 +1604,7 @@ impl IDCompositionGaussianBlurEffect {
         (::windows::core::Vtable::vtable(self).SetBorderMode)(::windows::core::Vtable::as_raw(self), mode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionGaussianBlurEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionGaussianBlurEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionGaussianBlurEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1658,7 +1658,7 @@ impl IDCompositionHueRotationEffect {
         (::windows::core::Vtable::vtable(self).SetAngle2)(::windows::core::Vtable::as_raw(self), amountdegrees).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionHueRotationEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionHueRotationEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionHueRotationEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1704,7 +1704,7 @@ impl IDCompositionInkTrailDevice {
         (::windows::core::Vtable::vtable(self).CreateDelegatedInkTrailForSwapChain)(::windows::core::Vtable::as_raw(self), swapchain.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionInkTrailDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDCompositionInkTrailDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDCompositionInkTrailDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1857,7 +1857,7 @@ impl IDCompositionLinearTransferEffect {
         (::windows::core::Vtable::vtable(self).SetClampOutput)(::windows::core::Vtable::as_raw(self), clampoutput.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionLinearTransferEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionLinearTransferEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionLinearTransferEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1940,7 +1940,7 @@ impl IDCompositionMatrixTransform {
         (::windows::core::Vtable::vtable(self).SetMatrixElement2)(::windows::core::Vtable::as_raw(self), row, column, value).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionMatrixTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
+::windows::imp::interface_hierarchy!(IDCompositionMatrixTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl ::core::cmp::PartialEq for IDCompositionMatrixTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1993,7 +1993,7 @@ impl IDCompositionMatrixTransform3D {
         (::windows::core::Vtable::vtable(self).SetMatrixElement2)(::windows::core::Vtable::as_raw(self), row, column, value).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionMatrixTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
+::windows::imp::interface_hierarchy!(IDCompositionMatrixTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl ::core::cmp::PartialEq for IDCompositionMatrixTransform3D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2140,7 +2140,7 @@ impl IDCompositionRectangleClip {
         (::windows::core::Vtable::vtable(self).SetBottomRightRadiusY2)(::windows::core::Vtable::as_raw(self), radius).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionRectangleClip, ::windows::core::IUnknown, IDCompositionClip);
+::windows::imp::interface_hierarchy!(IDCompositionRectangleClip, ::windows::core::IUnknown, IDCompositionClip);
 impl ::core::cmp::PartialEq for IDCompositionRectangleClip {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2224,7 +2224,7 @@ impl IDCompositionRotateTransform {
         (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionRotateTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
+::windows::imp::interface_hierarchy!(IDCompositionRotateTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl ::core::cmp::PartialEq for IDCompositionRotateTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2326,7 +2326,7 @@ impl IDCompositionRotateTransform3D {
         (::windows::core::Vtable::vtable(self).SetCenterZ2)(::windows::core::Vtable::as_raw(self), centerz).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionRotateTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
+::windows::imp::interface_hierarchy!(IDCompositionRotateTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl ::core::cmp::PartialEq for IDCompositionRotateTransform3D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2388,7 +2388,7 @@ impl IDCompositionSaturationEffect {
         (::windows::core::Vtable::vtable(self).SetSaturation2)(::windows::core::Vtable::as_raw(self), ratio).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionSaturationEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionSaturationEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionSaturationEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2459,7 +2459,7 @@ impl IDCompositionScaleTransform {
         (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionScaleTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
+::windows::imp::interface_hierarchy!(IDCompositionScaleTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl ::core::cmp::PartialEq for IDCompositionScaleTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2554,7 +2554,7 @@ impl IDCompositionScaleTransform3D {
         (::windows::core::Vtable::vtable(self).SetCenterZ2)(::windows::core::Vtable::as_raw(self), centerz).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionScaleTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
+::windows::imp::interface_hierarchy!(IDCompositionScaleTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl ::core::cmp::PartialEq for IDCompositionScaleTransform3D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2655,7 +2655,7 @@ impl IDCompositionShadowEffect {
         (::windows::core::Vtable::vtable(self).SetAlpha2)(::windows::core::Vtable::as_raw(self), amount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionShadowEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionShadowEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionShadowEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2738,7 +2738,7 @@ impl IDCompositionSkewTransform {
         (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionSkewTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
+::windows::imp::interface_hierarchy!(IDCompositionSkewTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl ::core::cmp::PartialEq for IDCompositionSkewTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2802,7 +2802,7 @@ impl IDCompositionSurface {
         (::windows::core::Vtable::vtable(self).Scroll)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(scrollrect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(cliprect.unwrap_or(::std::ptr::null())), offsetx, offsety).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionSurface, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDCompositionSurface, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDCompositionSurface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2858,7 +2858,7 @@ impl IDCompositionSurfaceFactory {
         (::windows::core::Vtable::vtable(self).CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionSurfaceFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDCompositionSurfaceFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDCompositionSurfaceFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2993,7 +2993,7 @@ impl IDCompositionTableTransferEffect {
         (::windows::core::Vtable::vtable(self).SetAlphaTableValue2)(::windows::core::Vtable::as_raw(self), index, value).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionTableTransferEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionTableTransferEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionTableTransferEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3064,7 +3064,7 @@ impl IDCompositionTarget {
         (::windows::core::Vtable::vtable(self).SetRoot)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionTarget, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDCompositionTarget, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDCompositionTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3097,7 +3097,7 @@ pub struct IDCompositionTarget_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionTransform(::windows::core::IUnknown);
 impl IDCompositionTransform {}
-::windows::core::interface_hierarchy!(IDCompositionTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
+::windows::imp::interface_hierarchy!(IDCompositionTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl ::core::cmp::PartialEq for IDCompositionTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3129,7 +3129,7 @@ pub struct IDCompositionTransform_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionTransform3D(::windows::core::IUnknown);
 impl IDCompositionTransform3D {}
-::windows::core::interface_hierarchy!(IDCompositionTransform3D, ::windows::core::IUnknown, IDCompositionEffect);
+::windows::imp::interface_hierarchy!(IDCompositionTransform3D, ::windows::core::IUnknown, IDCompositionEffect);
 impl ::core::cmp::PartialEq for IDCompositionTransform3D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3180,7 +3180,7 @@ impl IDCompositionTranslateTransform {
         (::windows::core::Vtable::vtable(self).SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionTranslateTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
+::windows::imp::interface_hierarchy!(IDCompositionTranslateTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl ::core::cmp::PartialEq for IDCompositionTranslateTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3244,7 +3244,7 @@ impl IDCompositionTranslateTransform3D {
         (::windows::core::Vtable::vtable(self).SetOffsetZ2)(::windows::core::Vtable::as_raw(self), offsetz).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionTranslateTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
+::windows::imp::interface_hierarchy!(IDCompositionTranslateTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl ::core::cmp::PartialEq for IDCompositionTranslateTransform3D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3323,7 +3323,7 @@ impl IDCompositionTurbulenceEffect {
         (::windows::core::Vtable::vtable(self).SetStitchable)(::windows::core::Vtable::as_raw(self), stitchable.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionTurbulenceEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
+::windows::imp::interface_hierarchy!(IDCompositionTurbulenceEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::cmp::PartialEq for IDCompositionTurbulenceEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3409,7 +3409,7 @@ impl IDCompositionVirtualSurface {
         (::windows::core::Vtable::vtable(self).Trim)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rectangles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rectangles.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionVirtualSurface, ::windows::core::IUnknown, IDCompositionSurface);
+::windows::imp::interface_hierarchy!(IDCompositionVirtualSurface, ::windows::core::IUnknown, IDCompositionSurface);
 impl ::core::cmp::PartialEq for IDCompositionVirtualSurface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3533,7 +3533,7 @@ impl IDCompositionVisual {
         (::windows::core::Vtable::vtable(self).SetCompositeMode)(::windows::core::Vtable::as_raw(self), compositemode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionVisual, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDCompositionVisual, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDCompositionVisual {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3684,7 +3684,7 @@ impl IDCompositionVisual2 {
         (::windows::core::Vtable::vtable(self).SetBackFaceVisibility)(::windows::core::Vtable::as_raw(self), visibility).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionVisual2, ::windows::core::IUnknown, IDCompositionVisual);
+::windows::imp::interface_hierarchy!(IDCompositionVisual2, ::windows::core::IUnknown, IDCompositionVisual);
 impl ::core::cmp::PartialEq for IDCompositionVisual2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3865,7 +3865,7 @@ impl IDCompositionVisual3 {
         (::windows::core::Vtable::vtable(self).SetVisible)(::windows::core::Vtable::as_raw(self), visible.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionVisual3, ::windows::core::IUnknown, IDCompositionVisual, IDCompositionVisual2, IDCompositionVisualDebug);
+::windows::imp::interface_hierarchy!(IDCompositionVisual3, ::windows::core::IUnknown, IDCompositionVisual, IDCompositionVisual2, IDCompositionVisualDebug);
 impl ::core::cmp::PartialEq for IDCompositionVisual3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4018,7 +4018,7 @@ impl IDCompositionVisualDebug {
         (::windows::core::Vtable::vtable(self).DisableRedrawRegions)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDCompositionVisualDebug, ::windows::core::IUnknown, IDCompositionVisual, IDCompositionVisual2);
+::windows::imp::interface_hierarchy!(IDCompositionVisualDebug, ::windows::core::IUnknown, IDCompositionVisual, IDCompositionVisual2);
 impl ::core::cmp::PartialEq for IDCompositionVisualDebug {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

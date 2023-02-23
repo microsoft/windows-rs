@@ -5,7 +5,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManager ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManager ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DtcGetTransactionManager(i_pszhost.into().abi(), i_psztmname.into().abi(), i_riid, i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -15,7 +15,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerC ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerC ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DtcGetTransactionManagerC(i_pszhost.into().abi(), i_psztmname.into().abi(), i_riid, i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -25,7 +25,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExA ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExA ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DtcGetTransactionManagerExA(i_pszhost.into().abi(), i_psztmname.into().abi(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -35,7 +35,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExW ( i_pwszhost : :: windows::core::PCWSTR , i_pwsztmname : :: windows::core::PCWSTR , i_riid : *const :: windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExW ( i_pwszhost : :: windows::core::PCWSTR , i_pwsztmname : :: windows::core::PCWSTR , i_riid : *const :: windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DtcGetTransactionManagerExW(i_pwszhost.into().abi(), i_pwsztmname.into().abi(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -49,7 +49,7 @@ impl IDtcLuConfigure {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuConfigure, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuConfigure, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuConfigure {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -83,7 +83,7 @@ pub struct IDtcLuConfigure_Vtbl {
 #[repr(transparent)]
 pub struct IDtcLuRecovery(::windows::core::IUnknown);
 impl IDtcLuRecovery {}
-::windows::core::interface_hierarchy!(IDtcLuRecovery, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuRecovery, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecovery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -120,7 +120,7 @@ impl IDtcLuRecoveryFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRecoveryFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuRecoveryFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecoveryFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -157,7 +157,7 @@ impl IDtcLuRecoveryInitiatedByDtc {
         (::windows::core::Vtable::vtable(self).GetWork)(::windows::core::Vtable::as_raw(self), pwork, ppv).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtc, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtc, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecoveryInitiatedByDtc {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -194,7 +194,7 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWork {
         (::windows::core::Vtable::vtable(self).HandleCheckLuStatus)(::windows::core::Vtable::as_raw(self), lrecoveryseqnum).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcStatusWork, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcStatusWork, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecoveryInitiatedByDtcStatusWork {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -269,7 +269,7 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
         (::windows::core::Vtable::vtable(self).ObsoleteRecoverySeqNum)(::windows::core::Vtable::as_raw(self), lnewrecoveryseqnum).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcTransWork, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcTransWork, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecoveryInitiatedByDtcTransWork {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -322,7 +322,7 @@ impl IDtcLuRecoveryInitiatedByLu {
         (::windows::core::Vtable::vtable(self).GetObjectToHandleWorkFromLu)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByLu, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByLu, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecoveryInitiatedByLu {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -380,7 +380,7 @@ impl IDtcLuRecoveryInitiatedByLuWork {
         (::windows::core::Vtable::vtable(self).ConversationLost)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByLuWork, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByLuWork, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecoveryInitiatedByLuWork {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -444,7 +444,7 @@ impl IDtcLuRmEnlistment {
         (::windows::core::Vtable::vtable(self).RequestCommit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRmEnlistment, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuRmEnlistment, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRmEnlistment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -493,7 +493,7 @@ impl IDtcLuRmEnlistmentFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), puclupair, cblupair, pitransaction.into().abi(), ptransid, cbtransid, prmenlistmentsink.into().abi(), ::core::mem::transmute(pprmenlistment)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRmEnlistmentFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuRmEnlistmentFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRmEnlistmentFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -554,7 +554,7 @@ impl IDtcLuRmEnlistmentSink {
         (::windows::core::Vtable::vtable(self).RequestCommit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRmEnlistmentSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuRmEnlistmentSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRmEnlistmentSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -622,7 +622,7 @@ impl IDtcLuSubordinateDtc {
         (::windows::core::Vtable::vtable(self).RequestCommit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuSubordinateDtc, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuSubordinateDtc, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuSubordinateDtc {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -673,7 +673,7 @@ impl IDtcLuSubordinateDtcFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), puclupair, cblupair, punktransactionouter.into().abi(), isolevel, isoflags, poptions.into().abi(), ::core::mem::transmute(pptransaction), ptransid, cbtransid, psubordinatedtcsink.into().abi(), ::core::mem::transmute(ppsubordinatedtc)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuSubordinateDtcFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuSubordinateDtcFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuSubordinateDtcFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -731,7 +731,7 @@ impl IDtcLuSubordinateDtcSink {
         (::windows::core::Vtable::vtable(self).RequestCommit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuSubordinateDtcSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcLuSubordinateDtcSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuSubordinateDtcSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -859,7 +859,7 @@ impl IDtcNetworkAccessConfig {
         (::windows::core::Vtable::vtable(self).RestartDtcService)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcNetworkAccessConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcNetworkAccessConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcNetworkAccessConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1063,7 +1063,7 @@ impl IDtcNetworkAccessConfig2 {
         (::windows::core::Vtable::vtable(self).SetAuthenticationLevel)(::windows::core::Vtable::as_raw(self), authlevel).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcNetworkAccessConfig2, ::windows::core::IUnknown, IDtcNetworkAccessConfig);
+::windows::imp::interface_hierarchy!(IDtcNetworkAccessConfig2, ::windows::core::IUnknown, IDtcNetworkAccessConfig);
 impl ::core::cmp::PartialEq for IDtcNetworkAccessConfig2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1250,7 +1250,7 @@ impl IDtcNetworkAccessConfig3 {
         (::windows::core::Vtable::vtable(self).SetLUAccess)(::windows::core::Vtable::as_raw(self), bluaccess.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcNetworkAccessConfig3, ::windows::core::IUnknown, IDtcNetworkAccessConfig, IDtcNetworkAccessConfig2);
+::windows::imp::interface_hierarchy!(IDtcNetworkAccessConfig3, ::windows::core::IUnknown, IDtcNetworkAccessConfig, IDtcNetworkAccessConfig2);
 impl ::core::cmp::PartialEq for IDtcNetworkAccessConfig3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1307,7 +1307,7 @@ impl IDtcToXaHelper {
         (::windows::core::Vtable::vtable(self).TranslateTridToXid)(::windows::core::Vtable::as_raw(self), pitransaction.into().abi(), pguidbqual, pxid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcToXaHelper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcToXaHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcToXaHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1355,7 +1355,7 @@ impl IDtcToXaHelperFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pszdsn.into().abi(), pszclientdllname.into().abi(), pguidrm, ::core::mem::transmute(ppxahelper)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcToXaHelperFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcToXaHelperFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcToXaHelperFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1417,7 +1417,7 @@ impl IDtcToXaHelperSinglePipe {
         (::windows::core::Vtable::vtable(self).ReleaseRMCookie)(::windows::core::Vtable::as_raw(self), i_dwrmcookie, i_fnormal.into())
     }
 }
-::windows::core::interface_hierarchy!(IDtcToXaHelperSinglePipe, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcToXaHelperSinglePipe, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcToXaHelperSinglePipe {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1478,7 +1478,7 @@ impl IDtcToXaMapper {
         (::windows::core::Vtable::vtable(self).ReleaseResourceManager)(::windows::core::Vtable::as_raw(self), dwrmcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcToXaMapper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDtcToXaMapper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcToXaMapper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1521,7 +1521,7 @@ impl IGetDispenser {
         (::windows::core::Vtable::vtable(self).GetDispenser)(::windows::core::Vtable::as_raw(self), iid, ppvobject).ok()
     }
 }
-::windows::core::interface_hierarchy!(IGetDispenser, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IGetDispenser, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGetDispenser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1561,7 +1561,7 @@ impl IKernelTransaction {
         (::windows::core::Vtable::vtable(self).GetHandle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IKernelTransaction, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKernelTransaction, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKernelTransaction {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1604,7 +1604,7 @@ impl ILastResourceManager {
         (::windows::core::Vtable::vtable(self).RecoveryDone)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ILastResourceManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILastResourceManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILastResourceManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1645,7 +1645,7 @@ impl IPrepareInfo {
         (::windows::core::Vtable::vtable(self).GetPrepareInfo)(::windows::core::Vtable::as_raw(self), pprepinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPrepareInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPrepareInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPrepareInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1687,7 +1687,7 @@ impl IPrepareInfo2 {
         (::windows::core::Vtable::vtable(self).GetPrepareInfo)(::windows::core::Vtable::as_raw(self), pprepinfo.len() as _, ::core::mem::transmute(pprepinfo.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPrepareInfo2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPrepareInfo2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPrepareInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1735,7 +1735,7 @@ impl IRMHelper {
         (::windows::core::Vtable::vtable(self).RMInfo)(::windows::core::Vtable::as_raw(self), pxa_switch, fcdeclcallingconv.into(), pszopenstring.into().abi(), pszclosestring.into().abi(), ::core::mem::transmute(guidrmrecovery)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRMHelper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRMHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRMHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1790,7 +1790,7 @@ impl IResourceManager {
         (::windows::core::Vtable::vtable(self).GetDistributedTransactionManager)(::windows::core::Vtable::as_raw(self), iid, ppvobject).ok()
     }
 }
-::windows::core::interface_hierarchy!(IResourceManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IResourceManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IResourceManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1859,7 +1859,7 @@ impl IResourceManager2 {
         (::windows::core::Vtable::vtable(self).Reenlist2)(::windows::core::Vtable::as_raw(self), pxid, dwtimeout, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IResourceManager2, ::windows::core::IUnknown, IResourceManager);
+::windows::imp::interface_hierarchy!(IResourceManager2, ::windows::core::IUnknown, IResourceManager);
 impl ::core::cmp::PartialEq for IResourceManager2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1908,7 +1908,7 @@ impl IResourceManagerFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pguidrm, pszrmname.into().abi(), piresmgrsink.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IResourceManagerFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IResourceManagerFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IResourceManagerFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1957,7 +1957,7 @@ impl IResourceManagerFactory2 {
         (::windows::core::Vtable::vtable(self).CreateEx)(::windows::core::Vtable::as_raw(self), pguidrm, pszrmname.into().abi(), piresmgrsink.into().abi(), riidrequested, ppvresmgr).ok()
     }
 }
-::windows::core::interface_hierarchy!(IResourceManagerFactory2, ::windows::core::IUnknown, IResourceManagerFactory);
+::windows::imp::interface_hierarchy!(IResourceManagerFactory2, ::windows::core::IUnknown, IResourceManagerFactory);
 impl ::core::cmp::PartialEq for IResourceManagerFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2027,7 +2027,7 @@ impl IResourceManagerRejoinable {
         (::windows::core::Vtable::vtable(self).Rejoin)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IResourceManagerRejoinable, ::windows::core::IUnknown, IResourceManager, IResourceManager2);
+::windows::imp::interface_hierarchy!(IResourceManagerRejoinable, ::windows::core::IUnknown, IResourceManager, IResourceManager2);
 impl ::core::cmp::PartialEq for IResourceManagerRejoinable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2064,7 +2064,7 @@ impl IResourceManagerSink {
         (::windows::core::Vtable::vtable(self).TMDown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IResourceManagerSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IResourceManagerSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IResourceManagerSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2113,7 +2113,7 @@ impl ITipHelper {
         (::windows::core::Vtable::vtable(self).GetLocalTmUrl)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITipHelper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITipHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITipHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2152,7 +2152,7 @@ impl ITipPullSink {
         (::windows::core::Vtable::vtable(self).PullComplete)(::windows::core::Vtable::as_raw(self), i_hrpull).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITipPullSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITipPullSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITipPullSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2194,7 +2194,7 @@ impl ITipTransaction {
         (::windows::core::Vtable::vtable(self).GetTransactionUrl)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITipTransaction, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITipTransaction, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITipTransaction {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2236,7 +2236,7 @@ impl ITmNodeName {
         (::windows::core::Vtable::vtable(self).GetNodeName)(::windows::core::Vtable::as_raw(self), cbnodenamebuffersize, ::core::mem::transmute(pnodenamebuffer)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITmNodeName, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITmNodeName, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITmNodeName {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2291,7 +2291,7 @@ impl ITransaction {
         (::windows::core::Vtable::vtable(self).GetTransactionInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransaction, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransaction, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransaction {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2360,7 +2360,7 @@ impl ITransaction2 {
         (::windows::core::Vtable::vtable(self).GetTransactionInfo2)(::windows::core::Vtable::as_raw(self), pinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransaction2, ::windows::core::IUnknown, ITransaction, ITransactionCloner);
+::windows::imp::interface_hierarchy!(ITransaction2, ::windows::core::IUnknown, ITransaction, ITransactionCloner);
 impl ::core::cmp::PartialEq for ITransaction2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2418,7 +2418,7 @@ impl ITransactionCloner {
         (::windows::core::Vtable::vtable(self).CloneWithCommitDisabled)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionCloner, ::windows::core::IUnknown, ITransaction);
+::windows::imp::interface_hierarchy!(ITransactionCloner, ::windows::core::IUnknown, ITransaction);
 impl ::core::cmp::PartialEq for ITransactionCloner {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2464,7 +2464,7 @@ impl ITransactionDispenser {
         (::windows::core::Vtable::vtable(self).BeginTransaction)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), isolevel, isoflags, poptions.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionDispenser, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionDispenser, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionDispenser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2513,7 +2513,7 @@ impl ITransactionEnlistmentAsync {
         (::windows::core::Vtable::vtable(self).AbortRequestDone)(::windows::core::Vtable::as_raw(self), hr).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionEnlistmentAsync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionEnlistmentAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionEnlistmentAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2565,7 +2565,7 @@ impl ITransactionExport {
         (::windows::core::Vtable::vtable(self).GetTransactionCookie)(::windows::core::Vtable::as_raw(self), punktransaction.into().abi(), rgbtransactioncookie.len() as _, ::core::mem::transmute(rgbtransactioncookie.as_ptr()), pcbused).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionExport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionExport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionExport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2608,7 +2608,7 @@ impl ITransactionExportFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_ptr()), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionExportFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionExportFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionExportFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2650,7 +2650,7 @@ impl ITransactionImport {
         (::windows::core::Vtable::vtable(self).Import)(::windows::core::Vtable::as_raw(self), rgbtransactioncookie.len() as _, ::core::mem::transmute(rgbtransactioncookie.as_ptr()), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionImport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionImport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionImport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2691,7 +2691,7 @@ impl ITransactionImportWhereabouts {
         (::windows::core::Vtable::vtable(self).GetWhereabouts)(::windows::core::Vtable::as_raw(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_ptr()), pcbused).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionImportWhereabouts, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionImportWhereabouts, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionImportWhereabouts {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2729,7 +2729,7 @@ impl ITransactionLastEnlistmentAsync {
         (::windows::core::Vtable::vtable(self).TransactionOutcome)(::windows::core::Vtable::as_raw(self), xactstat, pboidreason).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionLastEnlistmentAsync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionLastEnlistmentAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionLastEnlistmentAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2769,7 +2769,7 @@ impl ITransactionLastResourceAsync {
         (::windows::core::Vtable::vtable(self).ForgetRequest)(::windows::core::Vtable::as_raw(self), pnewuow).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionLastResourceAsync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionLastResourceAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionLastResourceAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2810,7 +2810,7 @@ impl ITransactionOptions {
         (::windows::core::Vtable::vtable(self).GetOptions)(::windows::core::Vtable::as_raw(self), poptions).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionOptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2867,7 +2867,7 @@ impl ITransactionOutcomeEvents {
         (::windows::core::Vtable::vtable(self).Indoubt)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionOutcomeEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionOutcomeEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionOutcomeEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2926,7 +2926,7 @@ impl ITransactionPhase0EnlistmentAsync {
         (::windows::core::Vtable::vtable(self).GetTransaction)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionPhase0EnlistmentAsync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionPhase0EnlistmentAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionPhase0EnlistmentAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2971,7 +2971,7 @@ impl ITransactionPhase0Factory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pphase0notify.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionPhase0Factory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionPhase0Factory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionPhase0Factory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3016,7 +3016,7 @@ impl ITransactionPhase0NotifyAsync {
         (::windows::core::Vtable::vtable(self).EnlistCompleted)(::windows::core::Vtable::as_raw(self), status).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionPhase0NotifyAsync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionPhase0NotifyAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionPhase0NotifyAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3068,7 +3068,7 @@ impl ITransactionReceiver {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionReceiver, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionReceiver, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionReceiver {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3109,7 +3109,7 @@ impl ITransactionReceiverFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionReceiverFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionReceiverFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionReceiverFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3167,7 +3167,7 @@ impl ITransactionResource {
         (::windows::core::Vtable::vtable(self).TMDown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionResource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionResource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3234,7 +3234,7 @@ impl ITransactionResourceAsync {
         (::windows::core::Vtable::vtable(self).TMDown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionResourceAsync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionResourceAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionResourceAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3296,7 +3296,7 @@ impl ITransactionTransmitter {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionTransmitter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionTransmitter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionTransmitter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3338,7 +3338,7 @@ impl ITransactionTransmitterFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionTransmitterFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionTransmitterFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionTransmitterFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3375,7 +3375,7 @@ impl ITransactionVoterBallotAsync2 {
         (::windows::core::Vtable::vtable(self).VoteRequestDone)(::windows::core::Vtable::as_raw(self), hr, ::core::mem::transmute(pboidreason.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionVoterBallotAsync2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionVoterBallotAsync2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionVoterBallotAsync2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3417,7 +3417,7 @@ impl ITransactionVoterFactory2 {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ptransaction.into().abi(), pvoternotify.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionVoterFactory2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransactionVoterFactory2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionVoterFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3476,7 +3476,7 @@ impl ITransactionVoterNotifyAsync2 {
         (::windows::core::Vtable::vtable(self).VoteRequest)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionVoterNotifyAsync2, ::windows::core::IUnknown, ITransactionOutcomeEvents);
+::windows::imp::interface_hierarchy!(ITransactionVoterNotifyAsync2, ::windows::core::IUnknown, ITransactionOutcomeEvents);
 impl ::core::cmp::PartialEq for ITransactionVoterNotifyAsync2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3516,7 +3516,7 @@ impl IXAConfig {
         (::windows::core::Vtable::vtable(self).Terminate)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXAConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXAConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXAConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3557,7 +3557,7 @@ impl IXAObtainRMInfo {
         (::windows::core::Vtable::vtable(self).ObtainRMInfo)(::windows::core::Vtable::as_raw(self), pirmhelper.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXAObtainRMInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXAObtainRMInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXAObtainRMInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3595,7 +3595,7 @@ impl IXATransLookup {
         (::windows::core::Vtable::vtable(self).Lookup)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXATransLookup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXATransLookup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXATransLookup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3635,7 +3635,7 @@ impl IXATransLookup2 {
         (::windows::core::Vtable::vtable(self).Lookup)(::windows::core::Vtable::as_raw(self), pxid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXATransLookup2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXATransLookup2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXATransLookup2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

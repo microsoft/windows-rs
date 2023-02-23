@@ -259,7 +259,7 @@ impl DevicePortalConnection {
     }
     #[doc(hidden)]
     pub fn IDevicePortalConnectionStatics<R, F: FnOnce(&IDevicePortalConnectionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DevicePortalConnection, IDevicePortalConnectionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DevicePortalConnection, IDevicePortalConnectionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -275,7 +275,7 @@ impl ::core::fmt::Debug for DevicePortalConnection {
     }
 }
 impl ::windows::core::RuntimeType for DevicePortalConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnection;{0f447f51-1198-4da1-8d54-bdef393e09b6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnection;{0f447f51-1198-4da1-8d54-bdef393e09b6})");
 }
 impl ::core::clone::Clone for DevicePortalConnection {
     fn clone(&self) -> Self {
@@ -291,7 +291,7 @@ unsafe impl ::windows::core::Interface for DevicePortalConnection {
 impl ::windows::core::RuntimeName for DevicePortalConnection {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnection";
 }
-::windows::core::interface_hierarchy!(DevicePortalConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DevicePortalConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePortalConnection {}
 unsafe impl ::core::marker::Sync for DevicePortalConnection {}
 #[doc = "*Required features: `\"System_Diagnostics_DevicePortal\"`*"]
@@ -318,7 +318,7 @@ impl ::core::fmt::Debug for DevicePortalConnectionClosedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DevicePortalConnectionClosedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs;{fcf70e38-7032-428c-9f50-945c15a9f0cb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs;{fcf70e38-7032-428c-9f50-945c15a9f0cb})");
 }
 impl ::core::clone::Clone for DevicePortalConnectionClosedEventArgs {
     fn clone(&self) -> Self {
@@ -334,7 +334,7 @@ unsafe impl ::windows::core::Interface for DevicePortalConnectionClosedEventArgs
 impl ::windows::core::RuntimeName for DevicePortalConnectionClosedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs";
 }
-::windows::core::interface_hierarchy!(DevicePortalConnectionClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DevicePortalConnectionClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePortalConnectionClosedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePortalConnectionClosedEventArgs {}
 #[doc = "*Required features: `\"System_Diagnostics_DevicePortal\"`*"]
@@ -397,7 +397,7 @@ impl ::core::fmt::Debug for DevicePortalConnectionRequestReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DevicePortalConnectionRequestReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs;{64dae045-6fda-4459-9ebd-ecce22e38559})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs;{64dae045-6fda-4459-9ebd-ecce22e38559})");
 }
 impl ::core::clone::Clone for DevicePortalConnectionRequestReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -413,7 +413,7 @@ unsafe impl ::windows::core::Interface for DevicePortalConnectionRequestReceived
 impl ::windows::core::RuntimeName for DevicePortalConnectionRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(DevicePortalConnectionRequestReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DevicePortalConnectionRequestReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePortalConnectionRequestReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePortalConnectionRequestReceivedEventArgs {}
 #[doc = "*Required features: `\"System_Diagnostics_DevicePortal\"`*"]
@@ -448,7 +448,7 @@ impl ::core::fmt::Debug for DevicePortalConnectionClosedReason {
     }
 }
 impl ::windows::core::RuntimeType for DevicePortalConnectionClosedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

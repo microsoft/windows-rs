@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::Direct3D::ID3DInclude>>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10CompileEffectFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , psrcfilename : :: windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , hlslflags : u32 , fxflags : u32 , ppcompiledeffect : *mut * mut::core::ffi::c_void , pperrors : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CompileEffectFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , psrcfilename : :: windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , hlslflags : u32 , fxflags : u32 , ppcompiledeffect : *mut * mut::core::ffi::c_void , pperrors : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D10CompileEffectFromMemory(pdata, datalength, psrcfilename.into().abi(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), hlslflags, fxflags, ::core::mem::transmute(ppcompiledeffect), ::core::mem::transmute(pperrors.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
@@ -19,14 +19,14 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10CompileShader ( psrcdata : :: windows::core::PCSTR , srcdatasize : usize , pfilename : :: windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , pfunctionname : :: windows::core::PCSTR , pprofile : :: windows::core::PCSTR , flags : u32 , ppshader : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CompileShader ( psrcdata : :: windows::core::PCSTR , srcdatasize : usize , pfilename : :: windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , pfunctionname : :: windows::core::PCSTR , pprofile : :: windows::core::PCSTR , flags : u32 , ppshader : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D10CompileShader(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, pfilename.into().abi(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), pfunctionname.into().abi(), pprofile.into().abi(), flags, ::core::mem::transmute(ppshader), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10CreateBlob(numbytes: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10CreateBlob ( numbytes : usize , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateBlob ( numbytes : usize , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10CreateBlob(numbytes, &mut result__).from_abi(result__)
 }
@@ -38,7 +38,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::Dxgi::IDXGIAdapter>>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10CreateDevice ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : u32 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateDevice ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : u32 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D10CreateDevice(padapter.into().abi(), drivertype, software.into(), flags, sdkversion, ::core::mem::transmute(ppdevice.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi\"`*"]
@@ -49,7 +49,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::Dxgi::IDXGIAdapter>>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "d3d10_1.dll""system" fn D3D10CreateDevice1 ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : u32 , hardwarelevel : D3D10_FEATURE_LEVEL1 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10_1.dll""system" fn D3D10CreateDevice1 ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : u32 , hardwarelevel : D3D10_FEATURE_LEVEL1 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D10CreateDevice1(padapter.into().abi(), drivertype, software.into(), flags, hardwarelevel, sdkversion, ::core::mem::transmute(ppdevice.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -60,7 +60,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::Dxgi::IDXGIAdapter>>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10CreateDeviceAndSwapChain ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : u32 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateDeviceAndSwapChain ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : u32 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D10CreateDeviceAndSwapChain(padapter.into().abi(), drivertype, software.into(), flags, sdkversion, ::core::mem::transmute(pswapchaindesc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppswapchain.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdevice.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -71,7 +71,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::Dxgi::IDXGIAdapter>>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "d3d10_1.dll""system" fn D3D10CreateDeviceAndSwapChain1 ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : u32 , hardwarelevel : D3D10_FEATURE_LEVEL1 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10_1.dll""system" fn D3D10CreateDeviceAndSwapChain1 ( padapter : * mut::core::ffi::c_void , drivertype : D3D10_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : u32 , hardwarelevel : D3D10_FEATURE_LEVEL1 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D10CreateDeviceAndSwapChain1(padapter.into().abi(), drivertype, software.into(), flags, hardwarelevel, sdkversion, ::core::mem::transmute(pswapchaindesc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppswapchain.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdevice.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
@@ -81,7 +81,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D10Device>>,
     P1: ::std::convert::Into<::windows::core::InParam<ID3D10EffectPool>>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10CreateEffectFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , fxflags : u32 , pdevice : * mut::core::ffi::c_void , peffectpool : * mut::core::ffi::c_void , ppeffect : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateEffectFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , fxflags : u32 , pdevice : * mut::core::ffi::c_void , peffectpool : * mut::core::ffi::c_void , ppeffect : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3D10Effect>();
     D3D10CreateEffectFromMemory(pdata, datalength, fxflags, pdevice.into().abi(), peffectpool.into().abi(), &mut result__).from_abi(result__)
 }
@@ -91,7 +91,7 @@ pub unsafe fn D3D10CreateEffectPoolFromMemory<P0>(pdata: *const ::core::ffi::c_v
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D10Device>>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10CreateEffectPoolFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , fxflags : u32 , pdevice : * mut::core::ffi::c_void , ppeffectpool : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateEffectPoolFromMemory ( pdata : *const ::core::ffi::c_void , datalength : usize , fxflags : u32 , pdevice : * mut::core::ffi::c_void , ppeffectpool : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3D10EffectPool>();
     D3D10CreateEffectPoolFromMemory(pdata, datalength, fxflags, pdevice.into().abi(), &mut result__).from_abi(result__)
 }
@@ -101,7 +101,7 @@ pub unsafe fn D3D10CreateStateBlock<P0>(pdevice: P0, pstateblockmask: *const D3D
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D10Device>>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10CreateStateBlock ( pdevice : * mut::core::ffi::c_void , pstateblockmask : *const D3D10_STATE_BLOCK_MASK , ppstateblock : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10CreateStateBlock ( pdevice : * mut::core::ffi::c_void , pstateblockmask : *const D3D10_STATE_BLOCK_MASK , ppstateblock : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3D10StateBlock>();
     D3D10CreateStateBlock(pdevice.into().abi(), pstateblockmask, &mut result__).from_abi(result__)
 }
@@ -113,7 +113,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D10Effect>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10DisassembleEffect ( peffect : * mut::core::ffi::c_void , enablecolorcode : super::super::Foundation:: BOOL , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10DisassembleEffect ( peffect : * mut::core::ffi::c_void , enablecolorcode : super::super::Foundation:: BOOL , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10DisassembleEffect(peffect.into().abi(), enablecolorcode.into(), &mut result__).from_abi(result__)
 }
@@ -125,7 +125,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10DisassembleShader ( pshader : *const ::core::ffi::c_void , bytecodelength : usize , enablecolorcode : super::super::Foundation:: BOOL , pcomments : :: windows::core::PCSTR , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10DisassembleShader ( pshader : *const ::core::ffi::c_void , bytecodelength : usize , enablecolorcode : super::super::Foundation:: BOOL , pcomments : :: windows::core::PCSTR , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10DisassembleShader(pshader, bytecodelength, enablecolorcode.into(), pcomments.into().abi(), &mut result__).from_abi(result__)
 }
@@ -135,14 +135,14 @@ pub unsafe fn D3D10GetGeometryShaderProfile<P0>(pdevice: P0) -> ::windows::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D10Device>>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10GetGeometryShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetGeometryShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PSTR );
     D3D10GetGeometryShaderProfile(pdevice.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10GetInputAndOutputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10GetInputAndOutputSignatureBlob ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetInputAndOutputSignatureBlob ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10GetInputAndOutputSignatureBlob(pshaderbytecode, bytecodelength, &mut result__).from_abi(result__)
 }
@@ -150,7 +150,7 @@ pub unsafe fn D3D10GetInputAndOutputSignatureBlob(pshaderbytecode: *const ::core
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10GetInputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10GetInputSignatureBlob ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetInputSignatureBlob ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10GetInputSignatureBlob(pshaderbytecode, bytecodelength, &mut result__).from_abi(result__)
 }
@@ -158,7 +158,7 @@ pub unsafe fn D3D10GetInputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10GetOutputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10GetOutputSignatureBlob ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetOutputSignatureBlob ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10GetOutputSignatureBlob(pshaderbytecode, bytecodelength, &mut result__).from_abi(result__)
 }
@@ -168,14 +168,14 @@ pub unsafe fn D3D10GetPixelShaderProfile<P0>(pdevice: P0) -> ::windows::core::PS
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D10Device>>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10GetPixelShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetPixelShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PSTR );
     D3D10GetPixelShaderProfile(pdevice.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D10GetShaderDebugInfo(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10GetShaderDebugInfo ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppdebuginfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetShaderDebugInfo ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppdebuginfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3D10GetShaderDebugInfo(pshaderbytecode, bytecodelength, &mut result__).from_abi(result__)
 }
@@ -185,7 +185,7 @@ pub unsafe fn D3D10GetVertexShaderProfile<P0>(pdevice: P0) -> ::windows::core::P
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D10Device>>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10GetVertexShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetVertexShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PSTR );
     D3D10GetVertexShaderProfile(pdevice.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
@@ -196,63 +196,63 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::Direct3D::ID3DInclude>>,
 {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10PreprocessShader ( psrcdata : :: windows::core::PCSTR , srcdatasize : usize , pfilename : :: windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , ppshadertext : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10PreprocessShader ( psrcdata : :: windows::core::PCSTR , srcdatasize : usize , pfilename : :: windows::core::PCSTR , pdefines : *const super::Direct3D:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , ppshadertext : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D10PreprocessShader(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, pfilename.into().abi(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), ::core::mem::transmute(ppshadertext), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10ReflectShader(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D10ShaderReflection> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10ReflectShader ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppreflector : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10ReflectShader ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ppreflector : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3D10ShaderReflection>();
     D3D10ReflectShader(pshaderbytecode, bytecodelength, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskDifference(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskDifference ( pa : *const D3D10_STATE_BLOCK_MASK , pb : *const D3D10_STATE_BLOCK_MASK , presult : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskDifference ( pa : *const D3D10_STATE_BLOCK_MASK , pb : *const D3D10_STATE_BLOCK_MASK , presult : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
     D3D10StateBlockMaskDifference(pa, pb, presult).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskDisableAll(pmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskDisableAll ( pmask : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskDisableAll ( pmask : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
     D3D10StateBlockMaskDisableAll(pmask).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskDisableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskDisableCapture ( pmask : *mut D3D10_STATE_BLOCK_MASK , statetype : D3D10_DEVICE_STATE_TYPES , rangestart : u32 , rangelength : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskDisableCapture ( pmask : *mut D3D10_STATE_BLOCK_MASK , statetype : D3D10_DEVICE_STATE_TYPES , rangestart : u32 , rangelength : u32 ) -> :: windows::core::HRESULT );
     D3D10StateBlockMaskDisableCapture(pmask, statetype, rangestart, rangelength).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskEnableAll(pmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskEnableAll ( pmask : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskEnableAll ( pmask : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
     D3D10StateBlockMaskEnableAll(pmask).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskEnableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskEnableCapture ( pmask : *mut D3D10_STATE_BLOCK_MASK , statetype : D3D10_DEVICE_STATE_TYPES , rangestart : u32 , rangelength : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskEnableCapture ( pmask : *mut D3D10_STATE_BLOCK_MASK , statetype : D3D10_DEVICE_STATE_TYPES , rangestart : u32 , rangelength : u32 ) -> :: windows::core::HRESULT );
     D3D10StateBlockMaskEnableCapture(pmask, statetype, rangestart, rangelength).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskGetSetting(pmask: *const D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, entry: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskGetSetting ( pmask : *const D3D10_STATE_BLOCK_MASK , statetype : D3D10_DEVICE_STATE_TYPES , entry : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskGetSetting ( pmask : *const D3D10_STATE_BLOCK_MASK , statetype : D3D10_DEVICE_STATE_TYPES , entry : u32 ) -> super::super::Foundation:: BOOL );
     D3D10StateBlockMaskGetSetting(pmask, statetype, entry)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskIntersect(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskIntersect ( pa : *const D3D10_STATE_BLOCK_MASK , pb : *const D3D10_STATE_BLOCK_MASK , presult : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskIntersect ( pa : *const D3D10_STATE_BLOCK_MASK , pb : *const D3D10_STATE_BLOCK_MASK , presult : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
     D3D10StateBlockMaskIntersect(pa, pb, presult).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskUnion(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskUnion ( pa : *const D3D10_STATE_BLOCK_MASK , pb : *const D3D10_STATE_BLOCK_MASK , presult : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10StateBlockMaskUnion ( pa : *const D3D10_STATE_BLOCK_MASK , pb : *const D3D10_STATE_BLOCK_MASK , presult : *mut D3D10_STATE_BLOCK_MASK ) -> :: windows::core::HRESULT );
     D3D10StateBlockMaskUnion(pa, pb, presult).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
@@ -289,7 +289,7 @@ impl ID3D10Asynchronous {
         (::windows::core::Vtable::vtable(self).GetDataSize)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Asynchronous, ::windows::core::IUnknown, ID3D10DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D10Asynchronous, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::cmp::PartialEq for ID3D10Asynchronous {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -350,7 +350,7 @@ impl ID3D10BlendState {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10BlendState, ::windows::core::IUnknown, ID3D10DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D10BlendState, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::cmp::PartialEq for ID3D10BlendState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -416,7 +416,7 @@ impl ID3D10BlendState1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10BlendState1, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10BlendState);
+::windows::imp::interface_hierarchy!(ID3D10BlendState1, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10BlendState);
 impl ::core::cmp::PartialEq for ID3D10BlendState1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -492,7 +492,7 @@ impl ID3D10Buffer {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Buffer, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
+::windows::imp::interface_hierarchy!(ID3D10Buffer, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
 impl ::core::cmp::PartialEq for ID3D10Buffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -564,7 +564,7 @@ impl ID3D10Counter {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Counter, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Asynchronous);
+::windows::imp::interface_hierarchy!(ID3D10Counter, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Asynchronous);
 impl ::core::cmp::PartialEq for ID3D10Counter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -629,7 +629,7 @@ impl ID3D10Debug {
         (::windows::core::Vtable::vtable(self).Validate)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Debug, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D10Debug, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D10Debug {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -699,7 +699,7 @@ impl ID3D10DepthStencilState {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10DepthStencilState, ::windows::core::IUnknown, ID3D10DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D10DepthStencilState, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::cmp::PartialEq for ID3D10DepthStencilState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -765,7 +765,7 @@ impl ID3D10DepthStencilView {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10DepthStencilView, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10View);
+::windows::imp::interface_hierarchy!(ID3D10DepthStencilView, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10View);
 impl ::core::cmp::PartialEq for ID3D10DepthStencilView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1222,7 +1222,7 @@ impl ID3D10Device {
         (::windows::core::Vtable::vtable(self).GetTextFilterSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwidth.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pheight.unwrap_or(::std::ptr::null_mut())))
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Device, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D10Device, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D10Device {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1852,7 +1852,7 @@ impl ID3D10Device1 {
         (::windows::core::Vtable::vtable(self).GetFeatureLevel)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Device1, ::windows::core::IUnknown, ID3D10Device);
+::windows::imp::interface_hierarchy!(ID3D10Device1, ::windows::core::IUnknown, ID3D10Device);
 impl ::core::cmp::PartialEq for ID3D10Device1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1913,7 +1913,7 @@ impl ID3D10DeviceChild {
         (::windows::core::Vtable::vtable(self).SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10DeviceChild, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D10DeviceChild, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D10DeviceChild {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2012,7 +2012,7 @@ impl ID3D10Effect {
         (::windows::core::Vtable::vtable(self).IsOptimized)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Effect, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D10Effect, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D10Effect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2167,7 +2167,7 @@ impl ID3D10EffectBlendVariable {
         (::windows::core::Vtable::vtable(self).GetBackingStore)(::windows::core::Vtable::as_raw(self), index, pblenddesc).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectBlendVariable, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectBlendVariable, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectBlendVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2310,7 +2310,7 @@ impl ID3D10EffectConstantBuffer {
         (::windows::core::Vtable::vtable(self).GetTextureBuffer)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectConstantBuffer, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectConstantBuffer, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectConstantBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2441,7 +2441,7 @@ impl ID3D10EffectDepthStencilVariable {
         (::windows::core::Vtable::vtable(self).GetBackingStore)(::windows::core::Vtable::as_raw(self), index, pdepthstencildesc).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectDepthStencilVariable, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectDepthStencilVariable, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectDepthStencilVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2580,7 +2580,7 @@ impl ID3D10EffectDepthStencilViewVariable {
         (::windows::core::Vtable::vtable(self).GetDepthStencilArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppresources.as_ptr()), offset, ppresources.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectDepthStencilViewVariable, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectDepthStencilViewVariable, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectDepthStencilViewVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2726,7 +2726,7 @@ impl ID3D10EffectMatrixVariable {
         (::windows::core::Vtable::vtable(self).GetMatrixTransposeArray)(::windows::core::Vtable::as_raw(self), pdata, offset, count).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectMatrixVariable, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectMatrixVariable, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectMatrixVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2843,7 +2843,7 @@ impl ID3D10EffectPool {
         (::windows::core::Vtable::vtable(self).AsEffect)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectPool, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D10EffectPool, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D10EffectPool {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2974,7 +2974,7 @@ impl ID3D10EffectRasterizerVariable {
         (::windows::core::Vtable::vtable(self).GetBackingStore)(::windows::core::Vtable::as_raw(self), index, prasterizerdesc).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectRasterizerVariable, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectRasterizerVariable, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectRasterizerVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3113,7 +3113,7 @@ impl ID3D10EffectRenderTargetViewVariable {
         (::windows::core::Vtable::vtable(self).GetRenderTargetArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppresources.as_ptr()), offset, ppresources.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectRenderTargetViewVariable, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectRenderTargetViewVariable, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectRenderTargetViewVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3242,7 +3242,7 @@ impl ID3D10EffectSamplerVariable {
         (::windows::core::Vtable::vtable(self).GetBackingStore)(::windows::core::Vtable::as_raw(self), index, psamplerdesc).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectSamplerVariable, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectSamplerVariable, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectSamplerVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3412,7 +3412,7 @@ impl ID3D10EffectScalarVariable {
         (::windows::core::Vtable::vtable(self).GetBoolArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), offset, pdata.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectScalarVariable, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectScalarVariable, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectScalarVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3570,7 +3570,7 @@ impl ID3D10EffectShaderResourceVariable {
         (::windows::core::Vtable::vtable(self).GetResourceArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppresources.as_ptr()), offset, ppresources.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectShaderResourceVariable, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectShaderResourceVariable, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectShaderResourceVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3719,7 +3719,7 @@ impl ID3D10EffectShaderVariable {
         (::windows::core::Vtable::vtable(self).GetOutputSignatureElementDesc)(::windows::core::Vtable::as_raw(self), shaderindex, element, pdesc).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectShaderVariable, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectShaderVariable, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectShaderVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3859,7 +3859,7 @@ impl ID3D10EffectStringVariable {
         (::windows::core::Vtable::vtable(self).GetStringArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppstrings.as_ptr()), offset, ppstrings.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectStringVariable, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectStringVariable, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectStringVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4310,7 +4310,7 @@ impl ID3D10EffectVectorVariable {
         (::windows::core::Vtable::vtable(self).GetFloatVectorArray)(::windows::core::Vtable::as_raw(self), pdata, offset, count).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10EffectVectorVariable, ID3D10EffectVariable);
+::windows::imp::interface_hierarchy!(ID3D10EffectVectorVariable, ID3D10EffectVariable);
 impl ::core::cmp::PartialEq for ID3D10EffectVectorVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4383,7 +4383,7 @@ impl ID3D10GeometryShader {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10GeometryShader, ::windows::core::IUnknown, ID3D10DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D10GeometryShader, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::cmp::PartialEq for ID3D10GeometryShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4557,7 +4557,7 @@ impl ID3D10InfoQueue {
         (::windows::core::Vtable::vtable(self).GetMuteDebugOutput)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D10InfoQueue, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D10InfoQueue, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D10InfoQueue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4668,7 +4668,7 @@ impl ID3D10InputLayout {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10InputLayout, ::windows::core::IUnknown, ID3D10DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D10InputLayout, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::cmp::PartialEq for ID3D10InputLayout {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4722,7 +4722,7 @@ impl ID3D10Multithread {
         (::windows::core::Vtable::vtable(self).GetMultithreadProtected)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Multithread, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D10Multithread, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D10Multithread {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4784,7 +4784,7 @@ impl ID3D10PixelShader {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10PixelShader, ::windows::core::IUnknown, ID3D10DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D10PixelShader, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::cmp::PartialEq for ID3D10PixelShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4853,7 +4853,7 @@ impl ID3D10Predicate {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Predicate, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Asynchronous, ID3D10Query);
+::windows::imp::interface_hierarchy!(ID3D10Predicate, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Asynchronous, ID3D10Query);
 impl ::core::cmp::PartialEq for ID3D10Predicate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4922,7 +4922,7 @@ impl ID3D10Query {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Query, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Asynchronous);
+::windows::imp::interface_hierarchy!(ID3D10Query, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Asynchronous);
 impl ::core::cmp::PartialEq for ID3D10Query {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4980,7 +4980,7 @@ impl ID3D10RasterizerState {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10RasterizerState, ::windows::core::IUnknown, ID3D10DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D10RasterizerState, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::cmp::PartialEq for ID3D10RasterizerState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5046,7 +5046,7 @@ impl ID3D10RenderTargetView {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10RenderTargetView, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10View);
+::windows::imp::interface_hierarchy!(ID3D10RenderTargetView, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10View);
 impl ::core::cmp::PartialEq for ID3D10RenderTargetView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5113,7 +5113,7 @@ impl ID3D10Resource {
         (::windows::core::Vtable::vtable(self).GetEvictionPriority)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Resource, ::windows::core::IUnknown, ID3D10DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D10Resource, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::cmp::PartialEq for ID3D10Resource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5171,7 +5171,7 @@ impl ID3D10SamplerState {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10SamplerState, ::windows::core::IUnknown, ID3D10DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D10SamplerState, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::cmp::PartialEq for ID3D10SamplerState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5236,7 +5236,7 @@ impl ID3D10ShaderReflection {
         (::windows::core::Vtable::vtable(self).GetOutputParameterDesc)(::windows::core::Vtable::as_raw(self), parameterindex, pdesc).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10ShaderReflection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D10ShaderReflection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D10ShaderReflection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5366,7 +5366,7 @@ impl ID3D10ShaderReflection1 {
         (::windows::core::Vtable::vtable(self).IsSampleFrequencyShader)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10ShaderReflection1, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D10ShaderReflection1, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D10ShaderReflection1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5609,7 +5609,7 @@ impl ID3D10ShaderResourceView {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10ShaderResourceView, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10View);
+::windows::imp::interface_hierarchy!(ID3D10ShaderResourceView, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10View);
 impl ::core::cmp::PartialEq for ID3D10ShaderResourceView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5680,7 +5680,7 @@ impl ID3D10ShaderResourceView1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10ShaderResourceView1, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10View, ID3D10ShaderResourceView);
+::windows::imp::interface_hierarchy!(ID3D10ShaderResourceView1, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10View, ID3D10ShaderResourceView);
 impl ::core::cmp::PartialEq for ID3D10ShaderResourceView1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5732,7 +5732,7 @@ impl ID3D10StateBlock {
         (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10StateBlock, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D10StateBlock, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D10StateBlock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5784,7 +5784,7 @@ impl ID3D10SwitchToRef {
         (::windows::core::Vtable::vtable(self).GetUseRef)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D10SwitchToRef, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D10SwitchToRef, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D10SwitchToRef {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5866,7 +5866,7 @@ impl ID3D10Texture1D {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Texture1D, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
+::windows::imp::interface_hierarchy!(ID3D10Texture1D, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
 impl ::core::cmp::PartialEq for ID3D10Texture1D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5947,7 +5947,7 @@ impl ID3D10Texture2D {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Texture2D, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
+::windows::imp::interface_hierarchy!(ID3D10Texture2D, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
 impl ::core::cmp::PartialEq for ID3D10Texture2D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6028,7 +6028,7 @@ impl ID3D10Texture3D {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10Texture3D, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
+::windows::imp::interface_hierarchy!(ID3D10Texture3D, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
 impl ::core::cmp::PartialEq for ID3D10Texture3D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6086,7 +6086,7 @@ impl ID3D10VertexShader {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D10VertexShader, ::windows::core::IUnknown, ID3D10DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D10VertexShader, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::cmp::PartialEq for ID3D10VertexShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6143,7 +6143,7 @@ impl ID3D10View {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D10View, ::windows::core::IUnknown, ID3D10DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D10View, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::cmp::PartialEq for ID3D10View {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

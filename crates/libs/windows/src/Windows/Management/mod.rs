@@ -112,8 +112,8 @@ impl MdmAlert {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MdmAlert, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MdmAlert, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -202,7 +202,7 @@ impl ::core::fmt::Debug for MdmAlert {
     }
 }
 impl ::windows::core::RuntimeType for MdmAlert {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.MdmAlert;{b0fbc327-28c1-4b52-a548-c5807caf70b6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.MdmAlert;{b0fbc327-28c1-4b52-a548-c5807caf70b6})");
 }
 impl ::core::clone::Clone for MdmAlert {
     fn clone(&self) -> Self {
@@ -218,7 +218,7 @@ unsafe impl ::windows::core::Interface for MdmAlert {
 impl ::windows::core::RuntimeName for MdmAlert {
     const NAME: &'static str = "Windows.Management.MdmAlert";
 }
-::windows::core::interface_hierarchy!(MdmAlert, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MdmAlert, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 pub struct MdmSession(::windows::core::IUnknown);
@@ -301,7 +301,7 @@ impl ::core::fmt::Debug for MdmSession {
     }
 }
 impl ::windows::core::RuntimeType for MdmSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.MdmSession;{fe89314c-8f64-4797-a9d7-9d88f86ae166})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.MdmSession;{fe89314c-8f64-4797-a9d7-9d88f86ae166})");
 }
 impl ::core::clone::Clone for MdmSession {
     fn clone(&self) -> Self {
@@ -317,7 +317,7 @@ unsafe impl ::windows::core::Interface for MdmSession {
 impl ::windows::core::RuntimeName for MdmSession {
     const NAME: &'static str = "Windows.Management.MdmSession";
 }
-::windows::core::interface_hierarchy!(MdmSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MdmSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Management\"`*"]
 pub struct MdmSessionManager;
 impl MdmSessionManager {
@@ -346,7 +346,7 @@ impl MdmSessionManager {
     }
     #[doc(hidden)]
     pub fn IMdmSessionManagerStatics<R, F: FnOnce(&IMdmSessionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MdmSessionManager, IMdmSessionManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MdmSessionManager, IMdmSessionManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -383,7 +383,7 @@ impl ::core::fmt::Debug for MdmAlertDataType {
     }
 }
 impl ::windows::core::RuntimeType for MdmAlertDataType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
 }
 #[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
@@ -416,7 +416,7 @@ impl ::core::fmt::Debug for MdmAlertMark {
     }
 }
 impl ::windows::core::RuntimeType for MdmAlertMark {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
 }
 #[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
@@ -451,7 +451,7 @@ impl ::core::fmt::Debug for MdmSessionState {
     }
 }
 impl ::windows::core::RuntimeType for MdmSessionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmSessionState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmSessionState;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

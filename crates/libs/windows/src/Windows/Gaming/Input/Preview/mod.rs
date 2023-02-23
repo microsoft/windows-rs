@@ -54,7 +54,7 @@ impl GameControllerProviderInfo {
     }
     #[doc(hidden)]
     pub fn IGameControllerProviderInfoStatics<R, F: FnOnce(&IGameControllerProviderInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GameControllerProviderInfo, IGameControllerProviderInfoStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GameControllerProviderInfo, IGameControllerProviderInfoStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

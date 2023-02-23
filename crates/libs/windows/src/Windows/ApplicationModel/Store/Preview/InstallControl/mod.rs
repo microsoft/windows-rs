@@ -840,7 +840,7 @@ impl ::core::fmt::Debug for AppInstallItem {
     }
 }
 impl ::windows::core::RuntimeType for AppInstallItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem;{49d3dfab-168a-4cbf-a93a-9e448c82737d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem;{49d3dfab-168a-4cbf-a93a-9e448c82737d})");
 }
 impl ::core::clone::Clone for AppInstallItem {
     fn clone(&self) -> Self {
@@ -856,7 +856,7 @@ unsafe impl ::windows::core::Interface for AppInstallItem {
 impl ::windows::core::RuntimeName for AppInstallItem {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem";
 }
-::windows::core::interface_hierarchy!(AppInstallItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppInstallItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallItem {}
 unsafe impl ::core::marker::Sync for AppInstallItem {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -866,8 +866,8 @@ impl AppInstallManager {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppInstallManager, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AppInstallManager, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1258,7 +1258,7 @@ impl ::core::fmt::Debug for AppInstallManager {
     }
 }
 impl ::windows::core::RuntimeType for AppInstallManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager;{9353e170-8441-4b45-bd72-7c2fa925beee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager;{9353e170-8441-4b45-bd72-7c2fa925beee})");
 }
 impl ::core::clone::Clone for AppInstallManager {
     fn clone(&self) -> Self {
@@ -1274,7 +1274,7 @@ unsafe impl ::windows::core::Interface for AppInstallManager {
 impl ::windows::core::RuntimeName for AppInstallManager {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager";
 }
-::windows::core::interface_hierarchy!(AppInstallManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppInstallManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallManager {}
 unsafe impl ::core::marker::Sync for AppInstallManager {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -1301,7 +1301,7 @@ impl ::core::fmt::Debug for AppInstallManagerItemEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppInstallManagerItemEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManagerItemEventArgs;{bc505743-4674-4dd1-957e-c25682086a14})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManagerItemEventArgs;{bc505743-4674-4dd1-957e-c25682086a14})");
 }
 impl ::core::clone::Clone for AppInstallManagerItemEventArgs {
     fn clone(&self) -> Self {
@@ -1317,7 +1317,7 @@ unsafe impl ::windows::core::Interface for AppInstallManagerItemEventArgs {
 impl ::windows::core::RuntimeName for AppInstallManagerItemEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManagerItemEventArgs";
 }
-::windows::core::interface_hierarchy!(AppInstallManagerItemEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppInstallManagerItemEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallManagerItemEventArgs {}
 unsafe impl ::core::marker::Sync for AppInstallManagerItemEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -1327,8 +1327,8 @@ impl AppInstallOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppInstallOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AppInstallOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn CatalogId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1513,7 +1513,7 @@ impl ::core::fmt::Debug for AppInstallOptions {
     }
 }
 impl ::windows::core::RuntimeType for AppInstallOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallOptions;{c9808300-1cb8-4eb6-8c9f-6a30c64a5b51})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallOptions;{c9808300-1cb8-4eb6-8c9f-6a30c64a5b51})");
 }
 impl ::core::clone::Clone for AppInstallOptions {
     fn clone(&self) -> Self {
@@ -1529,7 +1529,7 @@ unsafe impl ::windows::core::Interface for AppInstallOptions {
 impl ::windows::core::RuntimeName for AppInstallOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallOptions";
 }
-::windows::core::interface_hierarchy!(AppInstallOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppInstallOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallOptions {}
 unsafe impl ::core::marker::Sync for AppInstallOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -1607,7 +1607,7 @@ impl ::core::fmt::Debug for AppInstallStatus {
     }
 }
 impl ::windows::core::RuntimeType for AppInstallStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallStatus;{936dccfa-2450-4126-88b1-6127a644dd5c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallStatus;{936dccfa-2450-4126-88b1-6127a644dd5c})");
 }
 impl ::core::clone::Clone for AppInstallStatus {
     fn clone(&self) -> Self {
@@ -1623,7 +1623,7 @@ unsafe impl ::windows::core::Interface for AppInstallStatus {
 impl ::windows::core::RuntimeName for AppInstallStatus {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallStatus";
 }
-::windows::core::interface_hierarchy!(AppInstallStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppInstallStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallStatus {}
 unsafe impl ::core::marker::Sync for AppInstallStatus {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -1633,8 +1633,8 @@ impl AppUpdateOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppUpdateOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AppUpdateOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn CatalogId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1683,7 +1683,7 @@ impl ::core::fmt::Debug for AppUpdateOptions {
     }
 }
 impl ::windows::core::RuntimeType for AppUpdateOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions;{26f0b02f-c2f3-4aea-af8c-6308dd9db85f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions;{26f0b02f-c2f3-4aea-af8c-6308dd9db85f})");
 }
 impl ::core::clone::Clone for AppUpdateOptions {
     fn clone(&self) -> Self {
@@ -1699,7 +1699,7 @@ unsafe impl ::windows::core::Interface for AppUpdateOptions {
 impl ::windows::core::RuntimeName for AppUpdateOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions";
 }
-::windows::core::interface_hierarchy!(AppUpdateOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppUpdateOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppUpdateOptions {}
 unsafe impl ::core::marker::Sync for AppUpdateOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -1726,7 +1726,7 @@ impl ::core::fmt::Debug for GetEntitlementResult {
     }
 }
 impl ::windows::core::RuntimeType for GetEntitlementResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementResult;{74fc843f-1a9e-4609-8e4d-819086d08a3d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementResult;{74fc843f-1a9e-4609-8e4d-819086d08a3d})");
 }
 impl ::core::clone::Clone for GetEntitlementResult {
     fn clone(&self) -> Self {
@@ -1742,7 +1742,7 @@ unsafe impl ::windows::core::Interface for GetEntitlementResult {
 impl ::windows::core::RuntimeName for GetEntitlementResult {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementResult";
 }
-::windows::core::interface_hierarchy!(GetEntitlementResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GetEntitlementResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GetEntitlementResult {}
 unsafe impl ::core::marker::Sync for GetEntitlementResult {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -1785,7 +1785,7 @@ impl ::core::fmt::Debug for AppInstallState {
     }
 }
 impl ::windows::core::RuntimeType for AppInstallState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallState;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
@@ -1816,7 +1816,7 @@ impl ::core::fmt::Debug for AppInstallType {
     }
 }
 impl ::windows::core::RuntimeType for AppInstallType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
@@ -1848,7 +1848,7 @@ impl ::core::fmt::Debug for AppInstallationToastNotificationMode {
     }
 }
 impl ::windows::core::RuntimeType for AppInstallationToastNotificationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
@@ -1880,7 +1880,7 @@ impl ::core::fmt::Debug for AutoUpdateSetting {
     }
 }
 impl ::windows::core::RuntimeType for AutoUpdateSetting {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AutoUpdateSetting;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AutoUpdateSetting;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
 #[repr(transparent)]
@@ -1912,7 +1912,7 @@ impl ::core::fmt::Debug for GetEntitlementStatus {
     }
 }
 impl ::windows::core::RuntimeType for GetEntitlementStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

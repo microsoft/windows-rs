@@ -279,7 +279,7 @@ impl IStorageItemExtraProperties {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageItemExtraProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageItemExtraProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageItemExtraProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -292,7 +292,7 @@ impl ::core::fmt::Debug for IStorageItemExtraProperties {
     }
 }
 impl ::windows::core::RuntimeType for IStorageItemExtraProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c54361b2-54cd-432b-bdbc-4b19c4b470d7}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{c54361b2-54cd-432b-bdbc-4b19c4b470d7}");
 }
 unsafe impl ::windows::core::Vtable for IStorageItemExtraProperties {
     type Vtable = IStorageItemExtraProperties_Vtbl;
@@ -483,7 +483,7 @@ impl ::core::fmt::Debug for BasicProperties {
     }
 }
 impl ::windows::core::RuntimeType for BasicProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.BasicProperties;{d05d55db-785e-4a66-be02-9beec58aea81})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.BasicProperties;{d05d55db-785e-4a66-be02-9beec58aea81})");
 }
 impl ::core::clone::Clone for BasicProperties {
     fn clone(&self) -> Self {
@@ -499,7 +499,7 @@ unsafe impl ::windows::core::Interface for BasicProperties {
 impl ::windows::core::RuntimeName for BasicProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.BasicProperties";
 }
-::windows::core::interface_hierarchy!(BasicProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BasicProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BasicProperties> for IStorageItemExtraProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: BasicProperties) -> ::windows::core::Result<Self> {
@@ -611,7 +611,7 @@ impl ::core::fmt::Debug for DocumentProperties {
     }
 }
 impl ::windows::core::RuntimeType for DocumentProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.DocumentProperties;{7eab19bc-1821-4923-b4a9-0aea404d0070})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.DocumentProperties;{7eab19bc-1821-4923-b4a9-0aea404d0070})");
 }
 impl ::core::clone::Clone for DocumentProperties {
     fn clone(&self) -> Self {
@@ -627,7 +627,7 @@ unsafe impl ::windows::core::Interface for DocumentProperties {
 impl ::windows::core::RuntimeName for DocumentProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.DocumentProperties";
 }
-::windows::core::interface_hierarchy!(DocumentProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DocumentProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DocumentProperties> for IStorageItemExtraProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: DocumentProperties) -> ::windows::core::Result<Self> {
@@ -688,7 +688,7 @@ impl GeotagHelper {
     }
     #[doc(hidden)]
     pub fn IGeotagHelperStatics<R, F: FnOnce(&IGeotagHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GeotagHelper, IGeotagHelperStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GeotagHelper, IGeotagHelperStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -863,7 +863,7 @@ impl ::core::fmt::Debug for ImageProperties {
     }
 }
 impl ::windows::core::RuntimeType for ImageProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.ImageProperties;{523c9424-fcff-4275-afee-ecdb9ab47973})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.ImageProperties;{523c9424-fcff-4275-afee-ecdb9ab47973})");
 }
 impl ::core::clone::Clone for ImageProperties {
     fn clone(&self) -> Self {
@@ -879,7 +879,7 @@ unsafe impl ::windows::core::Interface for ImageProperties {
 impl ::windows::core::RuntimeName for ImageProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.ImageProperties";
 }
-::windows::core::interface_hierarchy!(ImageProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ImageProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImageProperties> for IStorageItemExtraProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: ImageProperties) -> ::windows::core::Result<Self> {
@@ -1111,7 +1111,7 @@ impl ::core::fmt::Debug for MusicProperties {
     }
 }
 impl ::windows::core::RuntimeType for MusicProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.MusicProperties;{bc8aab62-66ec-419a-bc5d-ca65a4cb46da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.MusicProperties;{bc8aab62-66ec-419a-bc5d-ca65a4cb46da})");
 }
 impl ::core::clone::Clone for MusicProperties {
     fn clone(&self) -> Self {
@@ -1127,7 +1127,7 @@ unsafe impl ::windows::core::Interface for MusicProperties {
 impl ::windows::core::RuntimeName for MusicProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.MusicProperties";
 }
-::windows::core::interface_hierarchy!(MusicProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MusicProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MusicProperties> for IStorageItemExtraProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: MusicProperties) -> ::windows::core::Result<Self> {
@@ -1235,7 +1235,7 @@ impl ::core::fmt::Debug for StorageItemContentProperties {
     }
 }
 impl ::windows::core::RuntimeType for StorageItemContentProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.StorageItemContentProperties;{05294bad-bc38-48bf-85d7-770e0e2ae0ba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.StorageItemContentProperties;{05294bad-bc38-48bf-85d7-770e0e2ae0ba})");
 }
 impl ::core::clone::Clone for StorageItemContentProperties {
     fn clone(&self) -> Self {
@@ -1251,7 +1251,7 @@ unsafe impl ::windows::core::Interface for StorageItemContentProperties {
 impl ::windows::core::RuntimeName for StorageItemContentProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.StorageItemContentProperties";
 }
-::windows::core::interface_hierarchy!(StorageItemContentProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageItemContentProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageItemContentProperties> for IStorageItemExtraProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageItemContentProperties) -> ::windows::core::Result<Self> {
@@ -1447,7 +1447,7 @@ impl ::core::fmt::Debug for StorageItemThumbnail {
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::core::RuntimeType for StorageItemThumbnail {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.StorageItemThumbnail;{cc254827-4b3d-438f-9232-10c76bc7e038})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.StorageItemThumbnail;{cc254827-4b3d-438f-9232-10c76bc7e038})");
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::core::clone::Clone for StorageItemThumbnail {
@@ -1468,7 +1468,7 @@ impl ::windows::core::RuntimeName for StorageItemThumbnail {
     const NAME: &'static str = "Windows.Storage.FileProperties.StorageItemThumbnail";
 }
 #[cfg(feature = "Storage_Streams")]
-::windows::core::interface_hierarchy!(StorageItemThumbnail, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageItemThumbnail, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1799,7 +1799,7 @@ impl ::core::fmt::Debug for VideoProperties {
     }
 }
 impl ::windows::core::RuntimeType for VideoProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.VideoProperties;{719ae507-68de-4db8-97de-49998c059f2f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.VideoProperties;{719ae507-68de-4db8-97de-49998c059f2f})");
 }
 impl ::core::clone::Clone for VideoProperties {
     fn clone(&self) -> Self {
@@ -1815,7 +1815,7 @@ unsafe impl ::windows::core::Interface for VideoProperties {
 impl ::windows::core::RuntimeName for VideoProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.VideoProperties";
 }
-::windows::core::interface_hierarchy!(VideoProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VideoProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VideoProperties> for IStorageItemExtraProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: VideoProperties) -> ::windows::core::Result<Self> {
@@ -1870,7 +1870,7 @@ impl ::core::fmt::Debug for PhotoOrientation {
     }
 }
 impl ::windows::core::RuntimeType for PhotoOrientation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PhotoOrientation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PhotoOrientation;i4)");
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
@@ -1937,7 +1937,7 @@ impl ::core::ops::Not for PropertyPrefetchOptions {
     }
 }
 impl ::windows::core::RuntimeType for PropertyPrefetchOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PropertyPrefetchOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PropertyPrefetchOptions;u4)");
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
@@ -1971,7 +1971,7 @@ impl ::core::fmt::Debug for ThumbnailMode {
     }
 }
 impl ::windows::core::RuntimeType for ThumbnailMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailMode;i4)");
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
@@ -2036,7 +2036,7 @@ impl ::core::ops::Not for ThumbnailOptions {
     }
 }
 impl ::windows::core::RuntimeType for ThumbnailOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailOptions;u4)");
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
@@ -2066,7 +2066,7 @@ impl ::core::fmt::Debug for ThumbnailType {
     }
 }
 impl ::windows::core::RuntimeType for ThumbnailType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailType;i4)");
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
@@ -2098,7 +2098,7 @@ impl ::core::fmt::Debug for VideoOrientation {
     }
 }
 impl ::windows::core::RuntimeType for VideoOrientation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.VideoOrientation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.VideoOrientation;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

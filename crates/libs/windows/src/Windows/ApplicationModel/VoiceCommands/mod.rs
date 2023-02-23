@@ -385,7 +385,7 @@ impl ::core::fmt::Debug for VoiceCommand {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommand {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommand;{936f5273-ec82-42a6-a55c-d2d79ec6f920})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommand;{936f5273-ec82-42a6-a55c-d2d79ec6f920})");
 }
 impl ::core::clone::Clone for VoiceCommand {
     fn clone(&self) -> Self {
@@ -401,7 +401,7 @@ unsafe impl ::windows::core::Interface for VoiceCommand {
 impl ::windows::core::RuntimeName for VoiceCommand {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommand";
 }
-::windows::core::interface_hierarchy!(VoiceCommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoiceCommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommand {}
 unsafe impl ::core::marker::Sync for VoiceCommand {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -428,7 +428,7 @@ impl ::core::fmt::Debug for VoiceCommandCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommandCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs;{c85e675d-fe42-432c-9907-09df9fcf64e8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs;{c85e675d-fe42-432c-9907-09df9fcf64e8})");
 }
 impl ::core::clone::Clone for VoiceCommandCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -444,7 +444,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandCompletedEventArgs {
 impl ::windows::core::RuntimeName for VoiceCommandCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(VoiceCommandCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoiceCommandCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for VoiceCommandCompletedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -471,7 +471,7 @@ impl ::core::fmt::Debug for VoiceCommandConfirmationResult {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommandConfirmationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandConfirmationResult;{a022593e-8221-4526-b083-840972262247})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandConfirmationResult;{a022593e-8221-4526-b083-840972262247})");
 }
 impl ::core::clone::Clone for VoiceCommandConfirmationResult {
     fn clone(&self) -> Self {
@@ -487,7 +487,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandConfirmationResult {
 impl ::windows::core::RuntimeName for VoiceCommandConfirmationResult {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandConfirmationResult";
 }
-::windows::core::interface_hierarchy!(VoiceCommandConfirmationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoiceCommandConfirmationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandConfirmationResult {}
 unsafe impl ::core::marker::Sync for VoiceCommandConfirmationResult {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -497,8 +497,8 @@ impl VoiceCommandContentTile {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VoiceCommandContentTile, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VoiceCommandContentTile, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -613,7 +613,7 @@ impl ::core::fmt::Debug for VoiceCommandContentTile {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommandContentTile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile;{3eefe9f0-b8c7-4c76-a0de-1607895ee327})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile;{3eefe9f0-b8c7-4c76-a0de-1607895ee327})");
 }
 impl ::core::clone::Clone for VoiceCommandContentTile {
     fn clone(&self) -> Self {
@@ -629,7 +629,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandContentTile {
 impl ::windows::core::RuntimeName for VoiceCommandContentTile {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile";
 }
-::windows::core::interface_hierarchy!(VoiceCommandContentTile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoiceCommandContentTile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandContentTile {}
 unsafe impl ::core::marker::Sync for VoiceCommandContentTile {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -676,7 +676,7 @@ impl ::core::fmt::Debug for VoiceCommandDefinition {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommandDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinition;{7972aad0-0974-4979-984b-cb8959cd61ae})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinition;{7972aad0-0974-4979-984b-cb8959cd61ae})");
 }
 impl ::core::clone::Clone for VoiceCommandDefinition {
     fn clone(&self) -> Self {
@@ -692,7 +692,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandDefinition {
 impl ::windows::core::RuntimeName for VoiceCommandDefinition {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinition";
 }
-::windows::core::interface_hierarchy!(VoiceCommandDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoiceCommandDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandDefinition {}
 unsafe impl ::core::marker::Sync for VoiceCommandDefinition {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -716,7 +716,7 @@ impl VoiceCommandDefinitionManager {
     }
     #[doc(hidden)]
     pub fn IVoiceCommandDefinitionManagerStatics<R, F: FnOnce(&IVoiceCommandDefinitionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VoiceCommandDefinitionManager, IVoiceCommandDefinitionManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VoiceCommandDefinitionManager, IVoiceCommandDefinitionManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -747,7 +747,7 @@ impl ::core::fmt::Debug for VoiceCommandDisambiguationResult {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommandDisambiguationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandDisambiguationResult;{ecc68cfe-c9ac-45df-a8ea-feea08ef9c5e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandDisambiguationResult;{ecc68cfe-c9ac-45df-a8ea-feea08ef9c5e})");
 }
 impl ::core::clone::Clone for VoiceCommandDisambiguationResult {
     fn clone(&self) -> Self {
@@ -763,7 +763,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandDisambiguationResult {
 impl ::windows::core::RuntimeName for VoiceCommandDisambiguationResult {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDisambiguationResult";
 }
-::windows::core::interface_hierarchy!(VoiceCommandDisambiguationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoiceCommandDisambiguationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandDisambiguationResult {}
 unsafe impl ::core::marker::Sync for VoiceCommandDisambiguationResult {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -856,7 +856,7 @@ impl VoiceCommandResponse {
     }
     #[doc(hidden)]
     pub fn IVoiceCommandResponseStatics<R, F: FnOnce(&IVoiceCommandResponseStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VoiceCommandResponse, IVoiceCommandResponseStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VoiceCommandResponse, IVoiceCommandResponseStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -872,7 +872,7 @@ impl ::core::fmt::Debug for VoiceCommandResponse {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommandResponse {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse;{0284b30e-8a3b-4cc4-a6a1-cad5be2716b5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse;{0284b30e-8a3b-4cc4-a6a1-cad5be2716b5})");
 }
 impl ::core::clone::Clone for VoiceCommandResponse {
     fn clone(&self) -> Self {
@@ -888,7 +888,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandResponse {
 impl ::windows::core::RuntimeName for VoiceCommandResponse {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse";
 }
-::windows::core::interface_hierarchy!(VoiceCommandResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoiceCommandResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandResponse {}
 unsafe impl ::core::marker::Sync for VoiceCommandResponse {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -992,7 +992,7 @@ impl VoiceCommandServiceConnection {
     }
     #[doc(hidden)]
     pub fn IVoiceCommandServiceConnectionStatics<R, F: FnOnce(&IVoiceCommandServiceConnectionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VoiceCommandServiceConnection, IVoiceCommandServiceConnectionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VoiceCommandServiceConnection, IVoiceCommandServiceConnectionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1008,7 +1008,7 @@ impl ::core::fmt::Debug for VoiceCommandServiceConnection {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommandServiceConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection;{d894bb9f-21da-44a4-98a2-fb131920a9cc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection;{d894bb9f-21da-44a4-98a2-fb131920a9cc})");
 }
 impl ::core::clone::Clone for VoiceCommandServiceConnection {
     fn clone(&self) -> Self {
@@ -1024,7 +1024,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandServiceConnection {
 impl ::windows::core::RuntimeName for VoiceCommandServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection";
 }
-::windows::core::interface_hierarchy!(VoiceCommandServiceConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoiceCommandServiceConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandServiceConnection {}
 unsafe impl ::core::marker::Sync for VoiceCommandServiceConnection {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -1034,8 +1034,8 @@ impl VoiceCommandUserMessage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VoiceCommandUserMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VoiceCommandUserMessage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn DisplayMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1073,7 +1073,7 @@ impl ::core::fmt::Debug for VoiceCommandUserMessage {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommandUserMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandUserMessage;{674eb3c0-44f6-4f07-b979-4c723fc08597})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandUserMessage;{674eb3c0-44f6-4f07-b979-4c723fc08597})");
 }
 impl ::core::clone::Clone for VoiceCommandUserMessage {
     fn clone(&self) -> Self {
@@ -1089,7 +1089,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandUserMessage {
 impl ::windows::core::RuntimeName for VoiceCommandUserMessage {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandUserMessage";
 }
-::windows::core::interface_hierarchy!(VoiceCommandUserMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoiceCommandUserMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandUserMessage {}
 unsafe impl ::core::marker::Sync for VoiceCommandUserMessage {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -1125,7 +1125,7 @@ impl ::core::fmt::Debug for VoiceCommandCompletionReason {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommandCompletionReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletionReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletionReason;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
 #[repr(transparent)]
@@ -1161,7 +1161,7 @@ impl ::core::fmt::Debug for VoiceCommandContentTileType {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommandContentTileType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTileType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTileType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

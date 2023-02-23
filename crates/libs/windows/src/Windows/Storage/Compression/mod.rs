@@ -174,7 +174,7 @@ impl Compressor {
     }
     #[doc(hidden)]
     pub fn ICompressorFactory<R, F: FnOnce(&ICompressorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Compressor, ICompressorFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Compressor, ICompressorFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -190,7 +190,7 @@ impl ::core::fmt::Debug for Compressor {
     }
 }
 impl ::windows::core::RuntimeType for Compressor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Compressor;{0ac3645a-57ac-4ee1-b702-84d39d5424e0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Compressor;{0ac3645a-57ac-4ee1-b702-84d39d5424e0})");
 }
 impl ::core::clone::Clone for Compressor {
     fn clone(&self) -> Self {
@@ -206,7 +206,7 @@ unsafe impl ::windows::core::Interface for Compressor {
 impl ::windows::core::RuntimeName for Compressor {
     const NAME: &'static str = "Windows.Storage.Compression.Compressor";
 }
-::windows::core::interface_hierarchy!(Compressor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Compressor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<Compressor> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -299,7 +299,7 @@ impl Decompressor {
     }
     #[doc(hidden)]
     pub fn IDecompressorFactory<R, F: FnOnce(&IDecompressorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Decompressor, IDecompressorFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Decompressor, IDecompressorFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -315,7 +315,7 @@ impl ::core::fmt::Debug for Decompressor {
     }
 }
 impl ::windows::core::RuntimeType for Decompressor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Decompressor;{b883fe46-d68a-4c8b-ada0-4ee813fc5283})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Decompressor;{b883fe46-d68a-4c8b-ada0-4ee813fc5283})");
 }
 impl ::core::clone::Clone for Decompressor {
     fn clone(&self) -> Self {
@@ -331,7 +331,7 @@ unsafe impl ::windows::core::Interface for Decompressor {
 impl ::windows::core::RuntimeName for Decompressor {
     const NAME: &'static str = "Windows.Storage.Compression.Decompressor";
 }
-::windows::core::interface_hierarchy!(Decompressor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Decompressor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<Decompressor> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -410,7 +410,7 @@ impl ::core::fmt::Debug for CompressAlgorithm {
     }
 }
 impl ::windows::core::RuntimeType for CompressAlgorithm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

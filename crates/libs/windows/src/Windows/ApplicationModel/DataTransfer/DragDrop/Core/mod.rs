@@ -225,7 +225,7 @@ impl ICoreDropOperationTarget {
         }
     }
 }
-::windows::core::interface_hierarchy!(ICoreDropOperationTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICoreDropOperationTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICoreDropOperationTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -238,7 +238,7 @@ impl ::core::fmt::Debug for ICoreDropOperationTarget {
     }
 }
 impl ::windows::core::RuntimeType for ICoreDropOperationTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d9126196-4c5b-417d-bb37-76381def8db4}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{d9126196-4c5b-417d-bb37-76381def8db4}");
 }
 unsafe impl ::windows::core::Vtable for ICoreDropOperationTarget {
     type Vtable = ICoreDropOperationTarget_Vtbl;
@@ -330,7 +330,7 @@ impl CoreDragDropManager {
     }
     #[doc(hidden)]
     pub fn ICoreDragDropManagerStatics<R, F: FnOnce(&ICoreDragDropManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreDragDropManager, ICoreDragDropManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreDragDropManager, ICoreDragDropManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -346,7 +346,7 @@ impl ::core::fmt::Debug for CoreDragDropManager {
     }
 }
 impl ::windows::core::RuntimeType for CoreDragDropManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager;{7d56d344-8464-4faf-aa49-37ea6e2d7bd1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager;{7d56d344-8464-4faf-aa49-37ea6e2d7bd1})");
 }
 impl ::core::clone::Clone for CoreDragDropManager {
     fn clone(&self) -> Self {
@@ -362,7 +362,7 @@ unsafe impl ::windows::core::Interface for CoreDragDropManager {
 impl ::windows::core::RuntimeName for CoreDragDropManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager";
 }
-::windows::core::interface_hierarchy!(CoreDragDropManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreDragDropManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDragDropManager {}
 unsafe impl ::core::marker::Sync for CoreDragDropManager {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]
@@ -412,7 +412,7 @@ impl ::core::fmt::Debug for CoreDragInfo {
     }
 }
 impl ::windows::core::RuntimeType for CoreDragInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo;{48353a8b-cb50-464e-9575-cd4e3a7ab028})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo;{48353a8b-cb50-464e-9575-cd4e3a7ab028})");
 }
 impl ::core::clone::Clone for CoreDragInfo {
     fn clone(&self) -> Self {
@@ -428,7 +428,7 @@ unsafe impl ::windows::core::Interface for CoreDragInfo {
 impl ::windows::core::RuntimeName for CoreDragInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo";
 }
-::windows::core::interface_hierarchy!(CoreDragInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreDragInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDragInfo {}
 unsafe impl ::core::marker::Sync for CoreDragInfo {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]
@@ -438,8 +438,8 @@ impl CoreDragOperation {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreDragOperation, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CoreDragOperation, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Data(&self) -> ::windows::core::Result<super::super::DataPackage> {
@@ -509,7 +509,7 @@ impl ::core::fmt::Debug for CoreDragOperation {
     }
 }
 impl ::windows::core::RuntimeType for CoreDragOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation;{cc06de4f-6db0-4e62-ab1b-a74a02dc6d85})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation;{cc06de4f-6db0-4e62-ab1b-a74a02dc6d85})");
 }
 impl ::core::clone::Clone for CoreDragOperation {
     fn clone(&self) -> Self {
@@ -525,7 +525,7 @@ unsafe impl ::windows::core::Interface for CoreDragOperation {
 impl ::windows::core::RuntimeName for CoreDragOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation";
 }
-::windows::core::interface_hierarchy!(CoreDragOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreDragOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDragOperation {}
 unsafe impl ::core::marker::Sync for CoreDragOperation {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]
@@ -605,7 +605,7 @@ impl ::core::fmt::Debug for CoreDragUIOverride {
     }
 }
 impl ::windows::core::RuntimeType for CoreDragUIOverride {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride;{89a85064-3389-4f4f-8897-7e8a3ffb3c93})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride;{89a85064-3389-4f4f-8897-7e8a3ffb3c93})");
 }
 impl ::core::clone::Clone for CoreDragUIOverride {
     fn clone(&self) -> Self {
@@ -621,7 +621,7 @@ unsafe impl ::windows::core::Interface for CoreDragUIOverride {
 impl ::windows::core::RuntimeName for CoreDragUIOverride {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride";
 }
-::windows::core::interface_hierarchy!(CoreDragUIOverride, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreDragUIOverride, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDragUIOverride {}
 unsafe impl ::core::marker::Sync for CoreDragUIOverride {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]
@@ -649,7 +649,7 @@ impl ::core::fmt::Debug for CoreDropOperationTargetRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CoreDropOperationTargetRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs;{2aca929a-5e28-4ea6-829e-29134e665d6d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs;{2aca929a-5e28-4ea6-829e-29134e665d6d})");
 }
 impl ::core::clone::Clone for CoreDropOperationTargetRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -665,7 +665,7 @@ unsafe impl ::windows::core::Interface for CoreDropOperationTargetRequestedEvent
 impl ::windows::core::RuntimeName for CoreDropOperationTargetRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(CoreDropOperationTargetRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreDropOperationTargetRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDropOperationTargetRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreDropOperationTargetRequestedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]
@@ -729,7 +729,7 @@ impl ::core::ops::Not for CoreDragUIContentMode {
     }
 }
 impl ::windows::core::RuntimeType for CoreDragUIContentMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -3604,7 +3604,7 @@ impl ::core::fmt::Debug for AdvancedCapturedPhoto {
     }
 }
 impl ::windows::core::RuntimeType for AdvancedCapturedPhoto {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AdvancedCapturedPhoto;{f072728b-b292-4491-9d41-99807a550bbf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AdvancedCapturedPhoto;{f072728b-b292-4491-9d41-99807a550bbf})");
 }
 impl ::core::clone::Clone for AdvancedCapturedPhoto {
     fn clone(&self) -> Self {
@@ -3620,7 +3620,7 @@ unsafe impl ::windows::core::Interface for AdvancedCapturedPhoto {
 impl ::windows::core::RuntimeName for AdvancedCapturedPhoto {
     const NAME: &'static str = "Windows.Media.Capture.AdvancedCapturedPhoto";
 }
-::windows::core::interface_hierarchy!(AdvancedCapturedPhoto, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdvancedCapturedPhoto, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdvancedCapturedPhoto {}
 unsafe impl ::core::marker::Sync for AdvancedCapturedPhoto {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3700,7 +3700,7 @@ impl ::core::fmt::Debug for AdvancedPhotoCapture {
     }
 }
 impl ::windows::core::RuntimeType for AdvancedPhotoCapture {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AdvancedPhotoCapture;{83ffaafa-6667-44dc-973c-a6bce596aa0f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AdvancedPhotoCapture;{83ffaafa-6667-44dc-973c-a6bce596aa0f})");
 }
 impl ::core::clone::Clone for AdvancedPhotoCapture {
     fn clone(&self) -> Self {
@@ -3716,7 +3716,7 @@ unsafe impl ::windows::core::Interface for AdvancedPhotoCapture {
 impl ::windows::core::RuntimeName for AdvancedPhotoCapture {
     const NAME: &'static str = "Windows.Media.Capture.AdvancedPhotoCapture";
 }
-::windows::core::interface_hierarchy!(AdvancedPhotoCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdvancedPhotoCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdvancedPhotoCapture {}
 unsafe impl ::core::marker::Sync for AdvancedPhotoCapture {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3891,7 +3891,7 @@ impl ::core::fmt::Debug for AppBroadcastBackgroundService {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastBackgroundService {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastBackgroundService;{bad1e72a-fa94-46f9-95fc-d71511cda70b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastBackgroundService;{bad1e72a-fa94-46f9-95fc-d71511cda70b})");
 }
 impl ::core::clone::Clone for AppBroadcastBackgroundService {
     fn clone(&self) -> Self {
@@ -3907,7 +3907,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastBackgroundService {
 impl ::windows::core::RuntimeName for AppBroadcastBackgroundService {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundService";
 }
-::windows::core::interface_hierarchy!(AppBroadcastBackgroundService, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastBackgroundService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastBackgroundServiceSignInInfo(::windows::core::IUnknown);
@@ -4012,7 +4012,7 @@ impl ::core::fmt::Debug for AppBroadcastBackgroundServiceSignInInfo {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastBackgroundServiceSignInInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo;{5e735275-88c8-4eca-89ba-4825985db880})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo;{5e735275-88c8-4eca-89ba-4825985db880})");
 }
 impl ::core::clone::Clone for AppBroadcastBackgroundServiceSignInInfo {
     fn clone(&self) -> Self {
@@ -4028,7 +4028,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastBackgroundServiceSignInIn
 impl ::windows::core::RuntimeName for AppBroadcastBackgroundServiceSignInInfo {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo";
 }
-::windows::core::interface_hierarchy!(AppBroadcastBackgroundServiceSignInInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastBackgroundServiceSignInInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastBackgroundServiceStreamInfo(::windows::core::IUnknown);
@@ -4142,7 +4142,7 @@ impl ::core::fmt::Debug for AppBroadcastBackgroundServiceStreamInfo {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastBackgroundServiceStreamInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo;{31dc02bc-990a-4904-aa96-fe364381f136})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo;{31dc02bc-990a-4904-aa96-fe364381f136})");
 }
 impl ::core::clone::Clone for AppBroadcastBackgroundServiceStreamInfo {
     fn clone(&self) -> Self {
@@ -4158,7 +4158,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastBackgroundServiceStreamIn
 impl ::windows::core::RuntimeName for AppBroadcastBackgroundServiceStreamInfo {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo";
 }
-::windows::core::interface_hierarchy!(AppBroadcastBackgroundServiceStreamInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastBackgroundServiceStreamInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastCameraCaptureStateChangedEventArgs(::windows::core::IUnknown);
@@ -4190,7 +4190,7 @@ impl ::core::fmt::Debug for AppBroadcastCameraCaptureStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastCameraCaptureStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs;{1e334cd0-b882-4b88-8692-05999aceb70f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs;{1e334cd0-b882-4b88-8692-05999aceb70f})");
 }
 impl ::core::clone::Clone for AppBroadcastCameraCaptureStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4206,7 +4206,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastCameraCaptureStateChanged
 impl ::windows::core::RuntimeName for AppBroadcastCameraCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppBroadcastCameraCaptureStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastCameraCaptureStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastCameraCaptureStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastCameraCaptureStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4364,7 +4364,7 @@ impl ::core::fmt::Debug for AppBroadcastGlobalSettings {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastGlobalSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastGlobalSettings;{b2cb27a5-70fc-4e17-80bd-6ba0fd3ff3a0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastGlobalSettings;{b2cb27a5-70fc-4e17-80bd-6ba0fd3ff3a0})");
 }
 impl ::core::clone::Clone for AppBroadcastGlobalSettings {
     fn clone(&self) -> Self {
@@ -4380,7 +4380,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastGlobalSettings {
 impl ::windows::core::RuntimeName for AppBroadcastGlobalSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastGlobalSettings";
 }
-::windows::core::interface_hierarchy!(AppBroadcastGlobalSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastGlobalSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastHeartbeatRequestedEventArgs(::windows::core::IUnknown);
@@ -4409,7 +4409,7 @@ impl ::core::fmt::Debug for AppBroadcastHeartbeatRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastHeartbeatRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs;{cea54283-ee51-4dbf-9472-79a9ed4e2165})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs;{cea54283-ee51-4dbf-9472-79a9ed4e2165})");
 }
 impl ::core::clone::Clone for AppBroadcastHeartbeatRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -4425,7 +4425,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastHeartbeatRequestedEventAr
 impl ::windows::core::RuntimeName for AppBroadcastHeartbeatRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppBroadcastHeartbeatRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastHeartbeatRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 pub struct AppBroadcastManager;
 impl AppBroadcastManager {
@@ -4449,7 +4449,7 @@ impl AppBroadcastManager {
     }
     #[doc(hidden)]
     pub fn IAppBroadcastManagerStatics<R, F: FnOnce(&IAppBroadcastManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppBroadcastManager, IAppBroadcastManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppBroadcastManager, IAppBroadcastManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4487,7 +4487,7 @@ impl ::core::fmt::Debug for AppBroadcastMicrophoneCaptureStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastMicrophoneCaptureStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs;{a86ad5e9-9440-4908-9d09-65b7e315d795})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs;{a86ad5e9-9440-4908-9d09-65b7e315d795})");
 }
 impl ::core::clone::Clone for AppBroadcastMicrophoneCaptureStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4503,7 +4503,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastMicrophoneCaptureStateCha
 impl ::windows::core::RuntimeName for AppBroadcastMicrophoneCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppBroadcastMicrophoneCaptureStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastMicrophoneCaptureStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastMicrophoneCaptureStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastMicrophoneCaptureStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4553,7 +4553,7 @@ impl ::core::fmt::Debug for AppBroadcastPlugIn {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastPlugIn {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPlugIn;{520c1e66-6513-4574-ac54-23b79729615b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPlugIn;{520c1e66-6513-4574-ac54-23b79729615b})");
 }
 impl ::core::clone::Clone for AppBroadcastPlugIn {
     fn clone(&self) -> Self {
@@ -4569,7 +4569,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPlugIn {
 impl ::windows::core::RuntimeName for AppBroadcastPlugIn {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugIn";
 }
-::windows::core::interface_hierarchy!(AppBroadcastPlugIn, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastPlugIn, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPlugIn {}
 unsafe impl ::core::marker::Sync for AppBroadcastPlugIn {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4619,7 +4619,7 @@ impl AppBroadcastPlugInManager {
     }
     #[doc(hidden)]
     pub fn IAppBroadcastPlugInManagerStatics<R, F: FnOnce(&IAppBroadcastPlugInManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppBroadcastPlugInManager, IAppBroadcastPlugInManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppBroadcastPlugInManager, IAppBroadcastPlugInManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4635,7 +4635,7 @@ impl ::core::fmt::Debug for AppBroadcastPlugInManager {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastPlugInManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPlugInManager;{e550d979-27a1-49a7-bbf4-d7a9e9d07668})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPlugInManager;{e550d979-27a1-49a7-bbf4-d7a9e9d07668})");
 }
 impl ::core::clone::Clone for AppBroadcastPlugInManager {
     fn clone(&self) -> Self {
@@ -4651,7 +4651,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPlugInManager {
 impl ::windows::core::RuntimeName for AppBroadcastPlugInManager {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugInManager";
 }
-::windows::core::interface_hierarchy!(AppBroadcastPlugInManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastPlugInManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPlugInManager {}
 unsafe impl ::core::marker::Sync for AppBroadcastPlugInManager {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4678,7 +4678,7 @@ impl ::core::fmt::Debug for AppBroadcastPlugInStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastPlugInStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs;{4881d0f2-abc5-4fc6-84b0-89370bb47212})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs;{4881d0f2-abc5-4fc6-84b0-89370bb47212})");
 }
 impl ::core::clone::Clone for AppBroadcastPlugInStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4694,7 +4694,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPlugInStateChangedEventAr
 impl ::windows::core::RuntimeName for AppBroadcastPlugInStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppBroadcastPlugInStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastPlugInStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPlugInStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastPlugInStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4756,7 +4756,7 @@ impl ::core::fmt::Debug for AppBroadcastPreview {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastPreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreview;{14b60f5a-6e4a-4b80-a14f-67ee77d153e7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreview;{14b60f5a-6e4a-4b80-a14f-67ee77d153e7})");
 }
 impl ::core::clone::Clone for AppBroadcastPreview {
     fn clone(&self) -> Self {
@@ -4772,7 +4772,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPreview {
 impl ::windows::core::RuntimeName for AppBroadcastPreview {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreview";
 }
-::windows::core::interface_hierarchy!(AppBroadcastPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPreview {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreview {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4806,7 +4806,7 @@ impl ::core::fmt::Debug for AppBroadcastPreviewStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastPreviewStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs;{5a57f2de-8dea-4e86-90ad-03fc26b9653c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs;{5a57f2de-8dea-4e86-90ad-03fc26b9653c})");
 }
 impl ::core::clone::Clone for AppBroadcastPreviewStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4822,7 +4822,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPreviewStateChangedEventA
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppBroadcastPreviewStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastPreviewStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPreviewStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreviewStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4903,7 +4903,7 @@ impl ::core::fmt::Debug for AppBroadcastPreviewStreamReader {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastPreviewStreamReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreviewStreamReader;{92228d50-db3f-40a8-8cd4-f4e371ddab37})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreviewStreamReader;{92228d50-db3f-40a8-8cd4-f4e371ddab37})");
 }
 impl ::core::clone::Clone for AppBroadcastPreviewStreamReader {
     fn clone(&self) -> Self {
@@ -4919,7 +4919,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPreviewStreamReader {
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStreamReader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamReader";
 }
-::windows::core::interface_hierarchy!(AppBroadcastPreviewStreamReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastPreviewStreamReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPreviewStreamReader {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamReader {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4955,7 +4955,7 @@ impl ::core::fmt::Debug for AppBroadcastPreviewStreamVideoFrame {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastPreviewStreamVideoFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame;{010fbea1-94fe-4499-b8c0-8d244279fb12})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame;{010fbea1-94fe-4499-b8c0-8d244279fb12})");
 }
 impl ::core::clone::Clone for AppBroadcastPreviewStreamVideoFrame {
     fn clone(&self) -> Self {
@@ -4971,7 +4971,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPreviewStreamVideoFrame {
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStreamVideoFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame";
 }
-::windows::core::interface_hierarchy!(AppBroadcastPreviewStreamVideoFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastPreviewStreamVideoFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPreviewStreamVideoFrame {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamVideoFrame {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -5025,7 +5025,7 @@ impl ::core::fmt::Debug for AppBroadcastPreviewStreamVideoHeader {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastPreviewStreamVideoHeader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader;{8bef6113-da84-4499-a7ab-87118cb4a157})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader;{8bef6113-da84-4499-a7ab-87118cb4a157})");
 }
 impl ::core::clone::Clone for AppBroadcastPreviewStreamVideoHeader {
     fn clone(&self) -> Self {
@@ -5041,7 +5041,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPreviewStreamVideoHeader 
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStreamVideoHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader";
 }
-::windows::core::interface_hierarchy!(AppBroadcastPreviewStreamVideoHeader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastPreviewStreamVideoHeader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPreviewStreamVideoHeader {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamVideoHeader {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -5138,7 +5138,7 @@ impl ::core::fmt::Debug for AppBroadcastProviderSettings {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastProviderSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastProviderSettings;{c30bdf62-9948-458f-ad50-aa06ec03da08})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastProviderSettings;{c30bdf62-9948-458f-ad50-aa06ec03da08})");
 }
 impl ::core::clone::Clone for AppBroadcastProviderSettings {
     fn clone(&self) -> Self {
@@ -5154,7 +5154,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastProviderSettings {
 impl ::windows::core::RuntimeName for AppBroadcastProviderSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastProviderSettings";
 }
-::windows::core::interface_hierarchy!(AppBroadcastProviderSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastProviderSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastServices(::windows::core::IUnknown);
@@ -5260,7 +5260,7 @@ impl ::core::fmt::Debug for AppBroadcastServices {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastServices {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastServices;{8660b4d6-969b-4e3c-ac3a-8b042ee4ee63})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastServices;{8660b4d6-969b-4e3c-ac3a-8b042ee4ee63})");
 }
 impl ::core::clone::Clone for AppBroadcastServices {
     fn clone(&self) -> Self {
@@ -5276,7 +5276,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastServices {
 impl ::windows::core::RuntimeName for AppBroadcastServices {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastServices";
 }
-::windows::core::interface_hierarchy!(AppBroadcastServices, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastServices, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastServices {}
 unsafe impl ::core::marker::Sync for AppBroadcastServices {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -5310,7 +5310,7 @@ impl ::core::fmt::Debug for AppBroadcastSignInStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastSignInStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs;{02b692a4-5919-4a9e-8d5e-c9bb0dd3377a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs;{02b692a4-5919-4a9e-8d5e-c9bb0dd3377a})");
 }
 impl ::core::clone::Clone for AppBroadcastSignInStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5326,7 +5326,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastSignInStateChangedEventAr
 impl ::windows::core::RuntimeName for AppBroadcastSignInStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppBroadcastSignInStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastSignInStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastState(::windows::core::IUnknown);
@@ -5587,7 +5587,7 @@ impl ::core::fmt::Debug for AppBroadcastState {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastState;{ee08056d-8099-4ddd-922e-c56dac58abfb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastState;{ee08056d-8099-4ddd-922e-c56dac58abfb})");
 }
 impl ::core::clone::Clone for AppBroadcastState {
     fn clone(&self) -> Self {
@@ -5603,7 +5603,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastState {
 impl ::windows::core::RuntimeName for AppBroadcastState {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastState";
 }
-::windows::core::interface_hierarchy!(AppBroadcastState, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastState {}
 unsafe impl ::core::marker::Sync for AppBroadcastState {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -5639,7 +5639,7 @@ impl ::core::fmt::Debug for AppBroadcastStreamAudioFrame {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastStreamAudioFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamAudioFrame;{efab4ac8-21ba-453f-8bb7-5e938a2e9a74})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamAudioFrame;{efab4ac8-21ba-453f-8bb7-5e938a2e9a74})");
 }
 impl ::core::clone::Clone for AppBroadcastStreamAudioFrame {
     fn clone(&self) -> Self {
@@ -5655,7 +5655,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastStreamAudioFrame {
 impl ::windows::core::RuntimeName for AppBroadcastStreamAudioFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamAudioFrame";
 }
-::windows::core::interface_hierarchy!(AppBroadcastStreamAudioFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastStreamAudioFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamAudioHeader(::windows::core::IUnknown);
@@ -5714,7 +5714,7 @@ impl ::core::fmt::Debug for AppBroadcastStreamAudioHeader {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastStreamAudioHeader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamAudioHeader;{bf21a570-6b78-4216-9f07-5aff5256f1b7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamAudioHeader;{bf21a570-6b78-4216-9f07-5aff5256f1b7})");
 }
 impl ::core::clone::Clone for AppBroadcastStreamAudioHeader {
     fn clone(&self) -> Self {
@@ -5730,7 +5730,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastStreamAudioHeader {
 impl ::windows::core::RuntimeName for AppBroadcastStreamAudioHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamAudioHeader";
 }
-::windows::core::interface_hierarchy!(AppBroadcastStreamAudioHeader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastStreamAudioHeader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamReader(::windows::core::IUnknown);
@@ -5843,7 +5843,7 @@ impl ::core::fmt::Debug for AppBroadcastStreamReader {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastStreamReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamReader;{b338bcf9-3364-4460-b5f1-3cc2796a8aa2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamReader;{b338bcf9-3364-4460-b5f1-3cc2796a8aa2})");
 }
 impl ::core::clone::Clone for AppBroadcastStreamReader {
     fn clone(&self) -> Self {
@@ -5859,7 +5859,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastStreamReader {
 impl ::windows::core::RuntimeName for AppBroadcastStreamReader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamReader";
 }
-::windows::core::interface_hierarchy!(AppBroadcastStreamReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastStreamReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamStateChangedEventArgs(::windows::core::IUnknown);
@@ -5884,7 +5884,7 @@ impl ::core::fmt::Debug for AppBroadcastStreamStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastStreamStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs;{5108a733-d008-4a89-93be-58aed961374e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs;{5108a733-d008-4a89-93be-58aed961374e})");
 }
 impl ::core::clone::Clone for AppBroadcastStreamStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5900,7 +5900,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastStreamStateChangedEventAr
 impl ::windows::core::RuntimeName for AppBroadcastStreamStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppBroadcastStreamStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastStreamStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamVideoFrame(::windows::core::IUnknown);
@@ -5934,7 +5934,7 @@ impl ::core::fmt::Debug for AppBroadcastStreamVideoFrame {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastStreamVideoFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamVideoFrame;{0f97cf2b-c9e4-4e88-8194-d814cbd585d8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamVideoFrame;{0f97cf2b-c9e4-4e88-8194-d814cbd585d8})");
 }
 impl ::core::clone::Clone for AppBroadcastStreamVideoFrame {
     fn clone(&self) -> Self {
@@ -5950,7 +5950,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastStreamVideoFrame {
 impl ::windows::core::RuntimeName for AppBroadcastStreamVideoFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamVideoFrame";
 }
-::windows::core::interface_hierarchy!(AppBroadcastStreamVideoFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastStreamVideoFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamVideoHeader(::windows::core::IUnknown);
@@ -6016,7 +6016,7 @@ impl ::core::fmt::Debug for AppBroadcastStreamVideoHeader {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastStreamVideoHeader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamVideoHeader;{0b9ebece-7e32-432d-8ca2-36bf10b9f462})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamVideoHeader;{0b9ebece-7e32-432d-8ca2-36bf10b9f462})");
 }
 impl ::core::clone::Clone for AppBroadcastStreamVideoHeader {
     fn clone(&self) -> Self {
@@ -6032,7 +6032,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastStreamVideoHeader {
 impl ::windows::core::RuntimeName for AppBroadcastStreamVideoHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamVideoHeader";
 }
-::windows::core::interface_hierarchy!(AppBroadcastStreamVideoHeader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastStreamVideoHeader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastTriggerDetails(::windows::core::IUnknown);
@@ -6057,7 +6057,7 @@ impl ::core::fmt::Debug for AppBroadcastTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastTriggerDetails;{deebab35-ec5e-4d8f-b1c0-5da6e8c75638})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastTriggerDetails;{deebab35-ec5e-4d8f-b1c0-5da6e8c75638})");
 }
 impl ::core::clone::Clone for AppBroadcastTriggerDetails {
     fn clone(&self) -> Self {
@@ -6073,7 +6073,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastTriggerDetails {
 impl ::windows::core::RuntimeName for AppBroadcastTriggerDetails {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastTriggerDetails";
 }
-::windows::core::interface_hierarchy!(AppBroadcastTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastViewerCountChangedEventArgs(::windows::core::IUnknown);
@@ -6098,7 +6098,7 @@ impl ::core::fmt::Debug for AppBroadcastViewerCountChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastViewerCountChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs;{e6e11825-5401-4ade-8bd2-c14ecee6807d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs;{e6e11825-5401-4ade-8bd2-c14ecee6807d})");
 }
 impl ::core::clone::Clone for AppBroadcastViewerCountChangedEventArgs {
     fn clone(&self) -> Self {
@@ -6114,7 +6114,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastViewerCountChangedEventAr
 impl ::windows::core::RuntimeName for AppBroadcastViewerCountChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppBroadcastViewerCountChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastViewerCountChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastViewerCountChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastViewerCountChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6166,12 +6166,12 @@ impl AppCapture {
     }
     #[doc(hidden)]
     pub fn IAppCaptureStatics<R, F: FnOnce(&IAppCaptureStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppCapture, IAppCaptureStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppCapture, IAppCaptureStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAppCaptureStatics2<R, F: FnOnce(&IAppCaptureStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppCapture, IAppCaptureStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppCapture, IAppCaptureStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6187,7 +6187,7 @@ impl ::core::fmt::Debug for AppCapture {
     }
 }
 impl ::windows::core::RuntimeType for AppCapture {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCapture;{9749d453-a29a-45ed-8f29-22d09942cff7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCapture;{9749d453-a29a-45ed-8f29-22d09942cff7})");
 }
 impl ::core::clone::Clone for AppCapture {
     fn clone(&self) -> Self {
@@ -6203,7 +6203,7 @@ unsafe impl ::windows::core::Interface for AppCapture {
 impl ::windows::core::RuntimeName for AppCapture {
     const NAME: &'static str = "Windows.Media.Capture.AppCapture";
 }
-::windows::core::interface_hierarchy!(AppCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureAlternateShortcutKeys(::windows::core::IUnknown);
@@ -6461,7 +6461,7 @@ impl ::core::fmt::Debug for AppCaptureAlternateShortcutKeys {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureAlternateShortcutKeys {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureAlternateShortcutKeys;{19e8e0ef-236c-40f9-b38f-9b7dd65d1ccc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureAlternateShortcutKeys;{19e8e0ef-236c-40f9-b38f-9b7dd65d1ccc})");
 }
 impl ::core::clone::Clone for AppCaptureAlternateShortcutKeys {
     fn clone(&self) -> Self {
@@ -6477,7 +6477,7 @@ unsafe impl ::windows::core::Interface for AppCaptureAlternateShortcutKeys {
 impl ::windows::core::RuntimeName for AppCaptureAlternateShortcutKeys {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureAlternateShortcutKeys";
 }
-::windows::core::interface_hierarchy!(AppCaptureAlternateShortcutKeys, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCaptureAlternateShortcutKeys, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureDurationGeneratedEventArgs(::windows::core::IUnknown);
@@ -6504,7 +6504,7 @@ impl ::core::fmt::Debug for AppCaptureDurationGeneratedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureDurationGeneratedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureDurationGeneratedEventArgs;{c1f5563b-ffa1-44c9-975f-27fbeb553b35})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureDurationGeneratedEventArgs;{c1f5563b-ffa1-44c9-975f-27fbeb553b35})");
 }
 impl ::core::clone::Clone for AppCaptureDurationGeneratedEventArgs {
     fn clone(&self) -> Self {
@@ -6520,7 +6520,7 @@ unsafe impl ::windows::core::Interface for AppCaptureDurationGeneratedEventArgs 
 impl ::windows::core::RuntimeName for AppCaptureDurationGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureDurationGeneratedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppCaptureDurationGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCaptureDurationGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureDurationGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureDurationGeneratedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6549,7 +6549,7 @@ impl ::core::fmt::Debug for AppCaptureFileGeneratedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureFileGeneratedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureFileGeneratedEventArgs;{4189fbf4-465e-45bf-907f-165b3fb23758})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureFileGeneratedEventArgs;{4189fbf4-465e-45bf-907f-165b3fb23758})");
 }
 impl ::core::clone::Clone for AppCaptureFileGeneratedEventArgs {
     fn clone(&self) -> Self {
@@ -6565,7 +6565,7 @@ unsafe impl ::windows::core::Interface for AppCaptureFileGeneratedEventArgs {
 impl ::windows::core::RuntimeName for AppCaptureFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureFileGeneratedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppCaptureFileGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCaptureFileGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureFileGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureFileGeneratedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6582,7 +6582,7 @@ impl AppCaptureManager {
     }
     #[doc(hidden)]
     pub fn IAppCaptureManagerStatics<R, F: FnOnce(&IAppCaptureManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppCaptureManager, IAppCaptureManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppCaptureManager, IAppCaptureManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6596,8 +6596,8 @@ impl AppCaptureMetadataWriter {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppCaptureMetadataWriter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AppCaptureMetadataWriter, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn AddStringEvent(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
@@ -6673,7 +6673,7 @@ impl ::core::fmt::Debug for AppCaptureMetadataWriter {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureMetadataWriter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureMetadataWriter;{e0ce4877-9aaf-46b4-ad31-6a60b441c780})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureMetadataWriter;{e0ce4877-9aaf-46b4-ad31-6a60b441c780})");
 }
 impl ::core::clone::Clone for AppCaptureMetadataWriter {
     fn clone(&self) -> Self {
@@ -6689,7 +6689,7 @@ unsafe impl ::windows::core::Interface for AppCaptureMetadataWriter {
 impl ::windows::core::RuntimeName for AppCaptureMetadataWriter {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureMetadataWriter";
 }
-::windows::core::interface_hierarchy!(AppCaptureMetadataWriter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCaptureMetadataWriter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AppCaptureMetadataWriter> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6745,7 +6745,7 @@ impl ::core::fmt::Debug for AppCaptureMicrophoneCaptureStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureMicrophoneCaptureStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureMicrophoneCaptureStateChangedEventArgs;{324d249e-45bc-4c35-bc35-e469fc7a69e0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureMicrophoneCaptureStateChangedEventArgs;{324d249e-45bc-4c35-bc35-e469fc7a69e0})");
 }
 impl ::core::clone::Clone for AppCaptureMicrophoneCaptureStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -6761,7 +6761,7 @@ unsafe impl ::windows::core::Interface for AppCaptureMicrophoneCaptureStateChang
 impl ::windows::core::RuntimeName for AppCaptureMicrophoneCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureMicrophoneCaptureStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppCaptureMicrophoneCaptureStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCaptureMicrophoneCaptureStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureMicrophoneCaptureStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureMicrophoneCaptureStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6873,7 +6873,7 @@ impl ::core::fmt::Debug for AppCaptureRecordOperation {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureRecordOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureRecordOperation;{c66020a9-1538-495c-9bbb-2ba870ec5861})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureRecordOperation;{c66020a9-1538-495c-9bbb-2ba870ec5861})");
 }
 impl ::core::clone::Clone for AppCaptureRecordOperation {
     fn clone(&self) -> Self {
@@ -6889,7 +6889,7 @@ unsafe impl ::windows::core::Interface for AppCaptureRecordOperation {
 impl ::windows::core::RuntimeName for AppCaptureRecordOperation {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureRecordOperation";
 }
-::windows::core::interface_hierarchy!(AppCaptureRecordOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCaptureRecordOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureRecordOperation {}
 unsafe impl ::core::marker::Sync for AppCaptureRecordOperation {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6923,7 +6923,7 @@ impl ::core::fmt::Debug for AppCaptureRecordingStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureRecordingStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureRecordingStateChangedEventArgs;{24fc8712-e305-490d-b415-6b1c9049736b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureRecordingStateChangedEventArgs;{24fc8712-e305-490d-b415-6b1c9049736b})");
 }
 impl ::core::clone::Clone for AppCaptureRecordingStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -6939,7 +6939,7 @@ unsafe impl ::windows::core::Interface for AppCaptureRecordingStateChangedEventA
 impl ::windows::core::RuntimeName for AppCaptureRecordingStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureRecordingStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppCaptureRecordingStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCaptureRecordingStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureRecordingStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureRecordingStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6989,7 +6989,7 @@ impl ::core::fmt::Debug for AppCaptureServices {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureServices {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureServices;{44fec0b5-34f5-4f18-ae8c-b9123abbfc0d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureServices;{44fec0b5-34f5-4f18-ae8c-b9123abbfc0d})");
 }
 impl ::core::clone::Clone for AppCaptureServices {
     fn clone(&self) -> Self {
@@ -7005,7 +7005,7 @@ unsafe impl ::windows::core::Interface for AppCaptureServices {
 impl ::windows::core::RuntimeName for AppCaptureServices {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureServices";
 }
-::windows::core::interface_hierarchy!(AppCaptureServices, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCaptureServices, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureServices {}
 unsafe impl ::core::marker::Sync for AppCaptureServices {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7332,7 +7332,7 @@ impl ::core::fmt::Debug for AppCaptureSettings {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureSettings;{14683a86-8807-48d3-883a-970ee4532a39})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureSettings;{14683a86-8807-48d3-883a-970ee4532a39})");
 }
 impl ::core::clone::Clone for AppCaptureSettings {
     fn clone(&self) -> Self {
@@ -7348,7 +7348,7 @@ unsafe impl ::windows::core::Interface for AppCaptureSettings {
 impl ::windows::core::RuntimeName for AppCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureSettings";
 }
-::windows::core::interface_hierarchy!(AppCaptureSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCaptureSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureState(::windows::core::IUnknown);
@@ -7439,7 +7439,7 @@ impl ::core::fmt::Debug for AppCaptureState {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureState;{73134372-d4eb-44ce-9538-465f506ac4ea})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureState;{73134372-d4eb-44ce-9538-465f506ac4ea})");
 }
 impl ::core::clone::Clone for AppCaptureState {
     fn clone(&self) -> Self {
@@ -7455,7 +7455,7 @@ unsafe impl ::windows::core::Interface for AppCaptureState {
 impl ::windows::core::RuntimeName for AppCaptureState {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureState";
 }
-::windows::core::interface_hierarchy!(AppCaptureState, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCaptureState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureState {}
 unsafe impl ::core::marker::Sync for AppCaptureState {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7465,8 +7465,8 @@ impl CameraCaptureUI {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CameraCaptureUI, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CameraCaptureUI, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn PhotoSettings(&self) -> ::windows::core::Result<CameraCaptureUIPhotoCaptureSettings> {
@@ -7505,7 +7505,7 @@ impl ::core::fmt::Debug for CameraCaptureUI {
     }
 }
 impl ::windows::core::RuntimeType for CameraCaptureUI {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CameraCaptureUI;{48587540-6f93-4bb4-b8f3-e89e48948c91})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CameraCaptureUI;{48587540-6f93-4bb4-b8f3-e89e48948c91})");
 }
 impl ::core::clone::Clone for CameraCaptureUI {
     fn clone(&self) -> Self {
@@ -7521,7 +7521,7 @@ unsafe impl ::windows::core::Interface for CameraCaptureUI {
 impl ::windows::core::RuntimeName for CameraCaptureUI {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUI";
 }
-::windows::core::interface_hierarchy!(CameraCaptureUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CameraCaptureUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIPhotoCaptureSettings(::windows::core::IUnknown);
@@ -7602,7 +7602,7 @@ impl ::core::fmt::Debug for CameraCaptureUIPhotoCaptureSettings {
     }
 }
 impl ::windows::core::RuntimeType for CameraCaptureUIPhotoCaptureSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CameraCaptureUIPhotoCaptureSettings;{b9f5be97-3472-46a8-8a9e-04ce42ccc97d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CameraCaptureUIPhotoCaptureSettings;{b9f5be97-3472-46a8-8a9e-04ce42ccc97d})");
 }
 impl ::core::clone::Clone for CameraCaptureUIPhotoCaptureSettings {
     fn clone(&self) -> Self {
@@ -7618,7 +7618,7 @@ unsafe impl ::windows::core::Interface for CameraCaptureUIPhotoCaptureSettings {
 impl ::windows::core::RuntimeName for CameraCaptureUIPhotoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUIPhotoCaptureSettings";
 }
-::windows::core::interface_hierarchy!(CameraCaptureUIPhotoCaptureSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CameraCaptureUIPhotoCaptureSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CameraCaptureUIPhotoCaptureSettings {}
 unsafe impl ::core::marker::Sync for CameraCaptureUIPhotoCaptureSettings {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7682,7 +7682,7 @@ impl ::core::fmt::Debug for CameraCaptureUIVideoCaptureSettings {
     }
 }
 impl ::windows::core::RuntimeType for CameraCaptureUIVideoCaptureSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CameraCaptureUIVideoCaptureSettings;{64e92d1f-a28d-425a-b84f-e568335ff24e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CameraCaptureUIVideoCaptureSettings;{64e92d1f-a28d-425a-b84f-e568335ff24e})");
 }
 impl ::core::clone::Clone for CameraCaptureUIVideoCaptureSettings {
     fn clone(&self) -> Self {
@@ -7698,7 +7698,7 @@ unsafe impl ::windows::core::Interface for CameraCaptureUIVideoCaptureSettings {
 impl ::windows::core::RuntimeName for CameraCaptureUIVideoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUIVideoCaptureSettings";
 }
-::windows::core::interface_hierarchy!(CameraCaptureUIVideoCaptureSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CameraCaptureUIVideoCaptureSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CameraCaptureUIVideoCaptureSettings {}
 unsafe impl ::core::marker::Sync for CameraCaptureUIVideoCaptureSettings {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7709,7 +7709,7 @@ impl CameraOptionsUI {
     }
     #[doc(hidden)]
     pub fn ICameraOptionsUIStatics<R, F: FnOnce(&ICameraOptionsUIStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CameraOptionsUI, ICameraOptionsUIStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CameraOptionsUI, ICameraOptionsUIStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7897,7 +7897,7 @@ impl ::core::fmt::Debug for CapturedFrame {
     }
 }
 impl ::windows::core::RuntimeType for CapturedFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CapturedFrame;{1dd2de1f-571b-44d8-8e80-a08a1578766e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CapturedFrame;{1dd2de1f-571b-44d8-8e80-a08a1578766e})");
 }
 impl ::core::clone::Clone for CapturedFrame {
     fn clone(&self) -> Self {
@@ -7913,7 +7913,7 @@ unsafe impl ::windows::core::Interface for CapturedFrame {
 impl ::windows::core::RuntimeName for CapturedFrame {
     const NAME: &'static str = "Windows.Media.Capture.CapturedFrame";
 }
-::windows::core::interface_hierarchy!(CapturedFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CapturedFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<CapturedFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -8191,7 +8191,7 @@ impl ::core::fmt::Debug for CapturedFrameControlValues {
     }
 }
 impl ::windows::core::RuntimeType for CapturedFrameControlValues {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CapturedFrameControlValues;{90c65b7f-4e0d-4ca4-882d-7a144fed0a90})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CapturedFrameControlValues;{90c65b7f-4e0d-4ca4-882d-7a144fed0a90})");
 }
 impl ::core::clone::Clone for CapturedFrameControlValues {
     fn clone(&self) -> Self {
@@ -8207,7 +8207,7 @@ unsafe impl ::windows::core::Interface for CapturedFrameControlValues {
 impl ::windows::core::RuntimeName for CapturedFrameControlValues {
     const NAME: &'static str = "Windows.Media.Capture.CapturedFrameControlValues";
 }
-::windows::core::interface_hierarchy!(CapturedFrameControlValues, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CapturedFrameControlValues, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CapturedFrameControlValues {}
 unsafe impl ::core::marker::Sync for CapturedFrameControlValues {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8241,7 +8241,7 @@ impl ::core::fmt::Debug for CapturedPhoto {
     }
 }
 impl ::windows::core::RuntimeType for CapturedPhoto {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CapturedPhoto;{b0ce7e5a-cfcc-4d6c-8ad1-0869208aca16})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CapturedPhoto;{b0ce7e5a-cfcc-4d6c-8ad1-0869208aca16})");
 }
 impl ::core::clone::Clone for CapturedPhoto {
     fn clone(&self) -> Self {
@@ -8257,7 +8257,7 @@ unsafe impl ::windows::core::Interface for CapturedPhoto {
 impl ::windows::core::RuntimeName for CapturedPhoto {
     const NAME: &'static str = "Windows.Media.Capture.CapturedPhoto";
 }
-::windows::core::interface_hierarchy!(CapturedPhoto, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CapturedPhoto, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CapturedPhoto {}
 unsafe impl ::core::marker::Sync for CapturedPhoto {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8335,7 +8335,7 @@ impl ::core::fmt::Debug for GameBarServices {
     }
 }
 impl ::windows::core::RuntimeType for GameBarServices {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServices;{2dbead57-50a6-499e-8c6c-d330a7311796})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServices;{2dbead57-50a6-499e-8c6c-d330a7311796})");
 }
 impl ::core::clone::Clone for GameBarServices {
     fn clone(&self) -> Self {
@@ -8351,7 +8351,7 @@ unsafe impl ::windows::core::Interface for GameBarServices {
 impl ::windows::core::RuntimeName for GameBarServices {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServices";
 }
-::windows::core::interface_hierarchy!(GameBarServices, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameBarServices, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameBarServices {}
 unsafe impl ::core::marker::Sync for GameBarServices {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8385,7 +8385,7 @@ impl ::core::fmt::Debug for GameBarServicesCommandEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GameBarServicesCommandEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServicesCommandEventArgs;{a74226b2-f176-4fcf-8fbb-cf698b2eb8e0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServicesCommandEventArgs;{a74226b2-f176-4fcf-8fbb-cf698b2eb8e0})");
 }
 impl ::core::clone::Clone for GameBarServicesCommandEventArgs {
     fn clone(&self) -> Self {
@@ -8401,7 +8401,7 @@ unsafe impl ::windows::core::Interface for GameBarServicesCommandEventArgs {
 impl ::windows::core::RuntimeName for GameBarServicesCommandEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesCommandEventArgs";
 }
-::windows::core::interface_hierarchy!(GameBarServicesCommandEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameBarServicesCommandEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameBarServicesCommandEventArgs {}
 unsafe impl ::core::marker::Sync for GameBarServicesCommandEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8431,7 +8431,7 @@ impl GameBarServicesManager {
     }
     #[doc(hidden)]
     pub fn IGameBarServicesManagerStatics<R, F: FnOnce(&IGameBarServicesManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GameBarServicesManager, IGameBarServicesManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GameBarServicesManager, IGameBarServicesManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -8447,7 +8447,7 @@ impl ::core::fmt::Debug for GameBarServicesManager {
     }
 }
 impl ::windows::core::RuntimeType for GameBarServicesManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServicesManager;{3a4b9cfa-7f8b-4c60-9dbb-0bcd262dffc6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServicesManager;{3a4b9cfa-7f8b-4c60-9dbb-0bcd262dffc6})");
 }
 impl ::core::clone::Clone for GameBarServicesManager {
     fn clone(&self) -> Self {
@@ -8463,7 +8463,7 @@ unsafe impl ::windows::core::Interface for GameBarServicesManager {
 impl ::windows::core::RuntimeName for GameBarServicesManager {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesManager";
 }
-::windows::core::interface_hierarchy!(GameBarServicesManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameBarServicesManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameBarServicesManager {}
 unsafe impl ::core::marker::Sync for GameBarServicesManager {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8490,7 +8490,7 @@ impl ::core::fmt::Debug for GameBarServicesManagerGameBarServicesCreatedEventArg
     }
 }
 impl ::windows::core::RuntimeType for GameBarServicesManagerGameBarServicesCreatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs;{ededbd9c-143e-49a3-a5ea-0b1995c8d46e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs;{ededbd9c-143e-49a3-a5ea-0b1995c8d46e})");
 }
 impl ::core::clone::Clone for GameBarServicesManagerGameBarServicesCreatedEventArgs {
     fn clone(&self) -> Self {
@@ -8506,7 +8506,7 @@ unsafe impl ::windows::core::Interface for GameBarServicesManagerGameBarServices
 impl ::windows::core::RuntimeName for GameBarServicesManagerGameBarServicesCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs";
 }
-::windows::core::interface_hierarchy!(GameBarServicesManagerGameBarServicesCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameBarServicesManagerGameBarServicesCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameBarServicesManagerGameBarServicesCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for GameBarServicesManagerGameBarServicesCreatedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8554,7 +8554,7 @@ impl ::core::fmt::Debug for GameBarServicesTargetInfo {
     }
 }
 impl ::windows::core::RuntimeType for GameBarServicesTargetInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServicesTargetInfo;{b4202f92-1611-4e05-b6ef-dfd737ae33b0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServicesTargetInfo;{b4202f92-1611-4e05-b6ef-dfd737ae33b0})");
 }
 impl ::core::clone::Clone for GameBarServicesTargetInfo {
     fn clone(&self) -> Self {
@@ -8570,7 +8570,7 @@ unsafe impl ::windows::core::Interface for GameBarServicesTargetInfo {
 impl ::windows::core::RuntimeName for GameBarServicesTargetInfo {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesTargetInfo";
 }
-::windows::core::interface_hierarchy!(GameBarServicesTargetInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameBarServicesTargetInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameBarServicesTargetInfo {}
 unsafe impl ::core::marker::Sync for GameBarServicesTargetInfo {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8653,7 +8653,7 @@ impl ::core::fmt::Debug for LowLagMediaRecording {
     }
 }
 impl ::windows::core::RuntimeType for LowLagMediaRecording {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.LowLagMediaRecording;{41c8baf7-ff3f-49f0-a477-f195e3ce5108})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.LowLagMediaRecording;{41c8baf7-ff3f-49f0-a477-f195e3ce5108})");
 }
 impl ::core::clone::Clone for LowLagMediaRecording {
     fn clone(&self) -> Self {
@@ -8669,7 +8669,7 @@ unsafe impl ::windows::core::Interface for LowLagMediaRecording {
 impl ::windows::core::RuntimeName for LowLagMediaRecording {
     const NAME: &'static str = "Windows.Media.Capture.LowLagMediaRecording";
 }
-::windows::core::interface_hierarchy!(LowLagMediaRecording, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LowLagMediaRecording, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct LowLagPhotoCapture(::windows::core::IUnknown);
@@ -8705,7 +8705,7 @@ impl ::core::fmt::Debug for LowLagPhotoCapture {
     }
 }
 impl ::windows::core::RuntimeType for LowLagPhotoCapture {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.LowLagPhotoCapture;{a37251b7-6b44-473d-8f24-f703d6c0ec44})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.LowLagPhotoCapture;{a37251b7-6b44-473d-8f24-f703d6c0ec44})");
 }
 impl ::core::clone::Clone for LowLagPhotoCapture {
     fn clone(&self) -> Self {
@@ -8721,7 +8721,7 @@ unsafe impl ::windows::core::Interface for LowLagPhotoCapture {
 impl ::windows::core::RuntimeName for LowLagPhotoCapture {
     const NAME: &'static str = "Windows.Media.Capture.LowLagPhotoCapture";
 }
-::windows::core::interface_hierarchy!(LowLagPhotoCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LowLagPhotoCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct LowLagPhotoSequenceCapture(::windows::core::IUnknown);
@@ -8781,7 +8781,7 @@ impl ::core::fmt::Debug for LowLagPhotoSequenceCapture {
     }
 }
 impl ::windows::core::RuntimeType for LowLagPhotoSequenceCapture {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.LowLagPhotoSequenceCapture;{7cc346bb-b9a9-4c91-8ffa-287e9c668669})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.LowLagPhotoSequenceCapture;{7cc346bb-b9a9-4c91-8ffa-287e9c668669})");
 }
 impl ::core::clone::Clone for LowLagPhotoSequenceCapture {
     fn clone(&self) -> Self {
@@ -8797,7 +8797,7 @@ unsafe impl ::windows::core::Interface for LowLagPhotoSequenceCapture {
 impl ::windows::core::RuntimeName for LowLagPhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.LowLagPhotoSequenceCapture";
 }
-::windows::core::interface_hierarchy!(LowLagPhotoSequenceCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LowLagPhotoSequenceCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct MediaCapture(::windows::core::IUnknown);
@@ -8805,8 +8805,8 @@ impl MediaCapture {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaCapture, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MediaCapture, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -9463,7 +9463,7 @@ impl MediaCapture {
     }
     #[doc(hidden)]
     pub fn IMediaCaptureStatics<R, F: FnOnce(&IMediaCaptureStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaCapture, IMediaCaptureStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaCapture, IMediaCaptureStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -9479,7 +9479,7 @@ impl ::core::fmt::Debug for MediaCapture {
     }
 }
 impl ::windows::core::RuntimeType for MediaCapture {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCapture;{c61afbb4-fb10-4a34-ac18-ca80d9c8e7ee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCapture;{c61afbb4-fb10-4a34-ac18-ca80d9c8e7ee})");
 }
 impl ::core::clone::Clone for MediaCapture {
     fn clone(&self) -> Self {
@@ -9495,7 +9495,7 @@ unsafe impl ::windows::core::Interface for MediaCapture {
 impl ::windows::core::RuntimeName for MediaCapture {
     const NAME: &'static str = "Windows.Media.Capture.MediaCapture";
 }
-::windows::core::interface_hierarchy!(MediaCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaCapture> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -9549,7 +9549,7 @@ impl ::core::fmt::Debug for MediaCaptureDeviceExclusiveControlStatusChangedEvent
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatusChangedEventArgs;{9d2f920d-a588-43c6-89d6-5ad322af006a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatusChangedEventArgs;{9d2f920d-a588-43c6-89d6-5ad322af006a})");
 }
 impl ::core::clone::Clone for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
     fn clone(&self) -> Self {
@@ -9565,7 +9565,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureDeviceExclusiveControlSta
 impl ::windows::core::RuntimeName for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatusChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaCaptureDeviceExclusiveControlStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaCaptureDeviceExclusiveControlStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -9599,7 +9599,7 @@ impl ::core::fmt::Debug for MediaCaptureFailedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureFailedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureFailedEventArgs;{80fde3f4-54c4-42c0-8d19-cea1a87ca18b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureFailedEventArgs;{80fde3f4-54c4-42c0-8d19-cea1a87ca18b})");
 }
 impl ::core::clone::Clone for MediaCaptureFailedEventArgs {
     fn clone(&self) -> Self {
@@ -9615,7 +9615,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureFailedEventArgs {
 impl ::windows::core::RuntimeName for MediaCaptureFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureFailedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaCaptureFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaCaptureFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct MediaCaptureFocusChangedEventArgs(::windows::core::IUnknown);
@@ -9642,7 +9642,7 @@ impl ::core::fmt::Debug for MediaCaptureFocusChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureFocusChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureFocusChangedEventArgs;{81e1bc7f-2277-493e-abee-d3f44ff98c04})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureFocusChangedEventArgs;{81e1bc7f-2277-493e-abee-d3f44ff98c04})");
 }
 impl ::core::clone::Clone for MediaCaptureFocusChangedEventArgs {
     fn clone(&self) -> Self {
@@ -9658,7 +9658,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureFocusChangedEventArgs {
 impl ::windows::core::RuntimeName for MediaCaptureFocusChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureFocusChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaCaptureFocusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaCaptureFocusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaCaptureFocusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaCaptureFocusChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -9668,8 +9668,8 @@ impl MediaCaptureInitializationSettings {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaCaptureInitializationSettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MediaCaptureInitializationSettings, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetAudioDeviceId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -9911,7 +9911,7 @@ impl ::core::fmt::Debug for MediaCaptureInitializationSettings {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureInitializationSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureInitializationSettings;{9782ba70-ea65-4900-9356-8ca887726884})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureInitializationSettings;{9782ba70-ea65-4900-9356-8ca887726884})");
 }
 impl ::core::clone::Clone for MediaCaptureInitializationSettings {
     fn clone(&self) -> Self {
@@ -9927,7 +9927,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureInitializationSettings {
 impl ::windows::core::RuntimeName for MediaCaptureInitializationSettings {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureInitializationSettings";
 }
-::windows::core::interface_hierarchy!(MediaCaptureInitializationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaCaptureInitializationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaCaptureInitializationSettings {}
 unsafe impl ::core::marker::Sync for MediaCaptureInitializationSettings {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -9969,7 +9969,7 @@ impl ::core::fmt::Debug for MediaCapturePauseResult {
     }
 }
 impl ::windows::core::RuntimeType for MediaCapturePauseResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCapturePauseResult;{aec47ca3-4477-4b04-a06f-2c1c5182fe9d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCapturePauseResult;{aec47ca3-4477-4b04-a06f-2c1c5182fe9d})");
 }
 impl ::core::clone::Clone for MediaCapturePauseResult {
     fn clone(&self) -> Self {
@@ -9985,7 +9985,7 @@ unsafe impl ::windows::core::Interface for MediaCapturePauseResult {
 impl ::windows::core::RuntimeName for MediaCapturePauseResult {
     const NAME: &'static str = "Windows.Media.Capture.MediaCapturePauseResult";
 }
-::windows::core::interface_hierarchy!(MediaCapturePauseResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaCapturePauseResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaCapturePauseResult> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -10063,7 +10063,7 @@ impl ::core::fmt::Debug for MediaCaptureRelativePanelWatcher {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureRelativePanelWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureRelativePanelWatcher;{7d896566-04be-5b89-b30e-bd34a9f12db0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureRelativePanelWatcher;{7d896566-04be-5b89-b30e-bd34a9f12db0})");
 }
 impl ::core::clone::Clone for MediaCaptureRelativePanelWatcher {
     fn clone(&self) -> Self {
@@ -10079,7 +10079,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureRelativePanelWatcher {
 impl ::windows::core::RuntimeName for MediaCaptureRelativePanelWatcher {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureRelativePanelWatcher";
 }
-::windows::core::interface_hierarchy!(MediaCaptureRelativePanelWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaCaptureRelativePanelWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaCaptureRelativePanelWatcher> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -10227,7 +10227,7 @@ impl ::core::fmt::Debug for MediaCaptureSettings {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureSettings;{1d83aafe-6d45-4477-8dc4-ac5bc01c4091})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureSettings;{1d83aafe-6d45-4477-8dc4-ac5bc01c4091})");
 }
 impl ::core::clone::Clone for MediaCaptureSettings {
     fn clone(&self) -> Self {
@@ -10243,7 +10243,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureSettings {
 impl ::windows::core::RuntimeName for MediaCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureSettings";
 }
-::windows::core::interface_hierarchy!(MediaCaptureSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaCaptureSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct MediaCaptureStopResult(::windows::core::IUnknown);
@@ -10283,7 +10283,7 @@ impl ::core::fmt::Debug for MediaCaptureStopResult {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureStopResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureStopResult;{f9db6a2a-a092-4ad1-97d4-f201f9d082db})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureStopResult;{f9db6a2a-a092-4ad1-97d4-f201f9d082db})");
 }
 impl ::core::clone::Clone for MediaCaptureStopResult {
     fn clone(&self) -> Self {
@@ -10299,7 +10299,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureStopResult {
 impl ::windows::core::RuntimeName for MediaCaptureStopResult {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureStopResult";
 }
-::windows::core::interface_hierarchy!(MediaCaptureStopResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaCaptureStopResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaCaptureStopResult> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -10407,7 +10407,7 @@ impl ::core::fmt::Debug for MediaCaptureVideoProfile {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureVideoProfile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureVideoProfile;{21a073bf-a3ee-4ecf-9ef6-50b0bc4e1305})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureVideoProfile;{21a073bf-a3ee-4ecf-9ef6-50b0bc4e1305})");
 }
 impl ::core::clone::Clone for MediaCaptureVideoProfile {
     fn clone(&self) -> Self {
@@ -10423,7 +10423,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureVideoProfile {
 impl ::windows::core::RuntimeName for MediaCaptureVideoProfile {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureVideoProfile";
 }
-::windows::core::interface_hierarchy!(MediaCaptureVideoProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaCaptureVideoProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaCaptureVideoProfile {}
 unsafe impl ::core::marker::Sync for MediaCaptureVideoProfile {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -10498,7 +10498,7 @@ impl ::core::fmt::Debug for MediaCaptureVideoProfileMediaDescription {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureVideoProfileMediaDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureVideoProfileMediaDescription;{8012afef-b691-49ff-83f2-c1e76eaaea1b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureVideoProfileMediaDescription;{8012afef-b691-49ff-83f2-c1e76eaaea1b})");
 }
 impl ::core::clone::Clone for MediaCaptureVideoProfileMediaDescription {
     fn clone(&self) -> Self {
@@ -10514,7 +10514,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureVideoProfileMediaDescript
 impl ::windows::core::RuntimeName for MediaCaptureVideoProfileMediaDescription {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureVideoProfileMediaDescription";
 }
-::windows::core::interface_hierarchy!(MediaCaptureVideoProfileMediaDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaCaptureVideoProfileMediaDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaCaptureVideoProfileMediaDescription {}
 unsafe impl ::core::marker::Sync for MediaCaptureVideoProfileMediaDescription {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -10548,7 +10548,7 @@ impl ::core::fmt::Debug for OptionalReferencePhotoCapturedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for OptionalReferencePhotoCapturedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.OptionalReferencePhotoCapturedEventArgs;{470f88b3-1e6d-4051-9c8b-f1d85af047b7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.OptionalReferencePhotoCapturedEventArgs;{470f88b3-1e6d-4051-9c8b-f1d85af047b7})");
 }
 impl ::core::clone::Clone for OptionalReferencePhotoCapturedEventArgs {
     fn clone(&self) -> Self {
@@ -10564,7 +10564,7 @@ unsafe impl ::windows::core::Interface for OptionalReferencePhotoCapturedEventAr
 impl ::windows::core::RuntimeName for OptionalReferencePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.OptionalReferencePhotoCapturedEventArgs";
 }
-::windows::core::interface_hierarchy!(OptionalReferencePhotoCapturedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OptionalReferencePhotoCapturedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OptionalReferencePhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for OptionalReferencePhotoCapturedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -10607,7 +10607,7 @@ impl ::core::fmt::Debug for PhotoCapturedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PhotoCapturedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.PhotoCapturedEventArgs;{373bfbc1-984e-4ff0-bf85-1c00aabc5a45})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.PhotoCapturedEventArgs;{373bfbc1-984e-4ff0-bf85-1c00aabc5a45})");
 }
 impl ::core::clone::Clone for PhotoCapturedEventArgs {
     fn clone(&self) -> Self {
@@ -10623,7 +10623,7 @@ unsafe impl ::windows::core::Interface for PhotoCapturedEventArgs {
 impl ::windows::core::RuntimeName for PhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.PhotoCapturedEventArgs";
 }
-::windows::core::interface_hierarchy!(PhotoCapturedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoCapturedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoCapturedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -10659,7 +10659,7 @@ impl ::core::fmt::Debug for PhotoConfirmationCapturedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PhotoConfirmationCapturedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.PhotoConfirmationCapturedEventArgs;{ab473672-c28a-4827-8f8d-3636d3beb51e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.PhotoConfirmationCapturedEventArgs;{ab473672-c28a-4827-8f8d-3636d3beb51e})");
 }
 impl ::core::clone::Clone for PhotoConfirmationCapturedEventArgs {
     fn clone(&self) -> Self {
@@ -10675,7 +10675,7 @@ unsafe impl ::windows::core::Interface for PhotoConfirmationCapturedEventArgs {
 impl ::windows::core::RuntimeName for PhotoConfirmationCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.PhotoConfirmationCapturedEventArgs";
 }
-::windows::core::interface_hierarchy!(PhotoConfirmationCapturedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoConfirmationCapturedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoConfirmationCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoConfirmationCapturedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -10737,7 +10737,7 @@ impl ScreenCapture {
     }
     #[doc(hidden)]
     pub fn IScreenCaptureStatics<R, F: FnOnce(&IScreenCaptureStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ScreenCapture, IScreenCaptureStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ScreenCapture, IScreenCaptureStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -10753,7 +10753,7 @@ impl ::core::fmt::Debug for ScreenCapture {
     }
 }
 impl ::windows::core::RuntimeType for ScreenCapture {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.ScreenCapture;{89179ef7-cd12-4e0e-a6d4-5b3de98b2e9b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.ScreenCapture;{89179ef7-cd12-4e0e-a6d4-5b3de98b2e9b})");
 }
 impl ::core::clone::Clone for ScreenCapture {
     fn clone(&self) -> Self {
@@ -10769,7 +10769,7 @@ unsafe impl ::windows::core::Interface for ScreenCapture {
 impl ::windows::core::RuntimeName for ScreenCapture {
     const NAME: &'static str = "Windows.Media.Capture.ScreenCapture";
 }
-::windows::core::interface_hierarchy!(ScreenCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ScreenCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ScreenCapture {}
 unsafe impl ::core::marker::Sync for ScreenCapture {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -10803,7 +10803,7 @@ impl ::core::fmt::Debug for SourceSuspensionChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SourceSuspensionChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.SourceSuspensionChangedEventArgs;{2ece7b5e-d49b-4394-bc32-f97d6cedec1c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.SourceSuspensionChangedEventArgs;{2ece7b5e-d49b-4394-bc32-f97d6cedec1c})");
 }
 impl ::core::clone::Clone for SourceSuspensionChangedEventArgs {
     fn clone(&self) -> Self {
@@ -10819,7 +10819,7 @@ unsafe impl ::windows::core::Interface for SourceSuspensionChangedEventArgs {
 impl ::windows::core::RuntimeName for SourceSuspensionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.SourceSuspensionChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(SourceSuspensionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SourceSuspensionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SourceSuspensionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SourceSuspensionChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -10857,7 +10857,7 @@ impl ::core::fmt::Debug for VideoStreamConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for VideoStreamConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.VideoStreamConfiguration;{d8770a6f-4390-4b5e-ad3e-0f8af0963490})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.VideoStreamConfiguration;{d8770a6f-4390-4b5e-ad3e-0f8af0963490})");
 }
 impl ::core::clone::Clone for VideoStreamConfiguration {
     fn clone(&self) -> Self {
@@ -10873,7 +10873,7 @@ unsafe impl ::windows::core::Interface for VideoStreamConfiguration {
 impl ::windows::core::RuntimeName for VideoStreamConfiguration {
     const NAME: &'static str = "Windows.Media.Capture.VideoStreamConfiguration";
 }
-::windows::core::interface_hierarchy!(VideoStreamConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VideoStreamConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VideoStreamConfiguration {}
 unsafe impl ::core::marker::Sync for VideoStreamConfiguration {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -10905,7 +10905,7 @@ impl ::core::fmt::Debug for AppBroadcastCameraCaptureState {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastCameraCaptureState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCameraCaptureState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCameraCaptureState;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -10942,7 +10942,7 @@ impl ::core::fmt::Debug for AppBroadcastCameraOverlayLocation {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastCameraOverlayLocation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCameraOverlayLocation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCameraOverlayLocation;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -10973,7 +10973,7 @@ impl ::core::fmt::Debug for AppBroadcastCameraOverlaySize {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastCameraOverlaySize {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCameraOverlaySize;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCameraOverlaySize;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11003,7 +11003,7 @@ impl ::core::fmt::Debug for AppBroadcastCaptureTargetType {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastCaptureTargetType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCaptureTargetType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCaptureTargetType;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11035,7 +11035,7 @@ impl ::core::fmt::Debug for AppBroadcastExitBroadcastModeReason {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastExitBroadcastModeReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastExitBroadcastModeReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastExitBroadcastModeReason;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11066,7 +11066,7 @@ impl ::core::fmt::Debug for AppBroadcastMicrophoneCaptureState {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastMicrophoneCaptureState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastMicrophoneCaptureState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastMicrophoneCaptureState;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11101,7 +11101,7 @@ impl ::core::fmt::Debug for AppBroadcastPlugInState {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastPlugInState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastPlugInState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastPlugInState;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11132,7 +11132,7 @@ impl ::core::fmt::Debug for AppBroadcastPreviewState {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastPreviewState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastPreviewState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastPreviewState;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11165,7 +11165,7 @@ impl ::core::fmt::Debug for AppBroadcastSignInResult {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastSignInResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastSignInResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastSignInResult;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11198,7 +11198,7 @@ impl ::core::fmt::Debug for AppBroadcastSignInState {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastSignInState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastSignInState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastSignInState;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11231,7 +11231,7 @@ impl ::core::fmt::Debug for AppBroadcastStreamState {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastStreamState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastStreamState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastStreamState;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11269,7 +11269,7 @@ impl ::core::fmt::Debug for AppBroadcastTerminationReason {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastTerminationReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastTerminationReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastTerminationReason;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11299,7 +11299,7 @@ impl ::core::fmt::Debug for AppBroadcastVideoEncodingBitrateMode {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastVideoEncodingBitrateMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11329,7 +11329,7 @@ impl ::core::fmt::Debug for AppBroadcastVideoEncodingResolutionMode {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastVideoEncodingResolutionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11359,7 +11359,7 @@ impl ::core::fmt::Debug for AppCaptureHistoricalBufferLengthUnit {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureHistoricalBufferLengthUnit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureHistoricalBufferLengthUnit;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureHistoricalBufferLengthUnit;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11389,7 +11389,7 @@ impl ::core::fmt::Debug for AppCaptureMetadataPriority {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureMetadataPriority {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureMetadataPriority;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureMetadataPriority;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11420,7 +11420,7 @@ impl ::core::fmt::Debug for AppCaptureMicrophoneCaptureState {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureMicrophoneCaptureState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureMicrophoneCaptureState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureMicrophoneCaptureState;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11451,7 +11451,7 @@ impl ::core::fmt::Debug for AppCaptureRecordingState {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureRecordingState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureRecordingState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureRecordingState;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11482,7 +11482,7 @@ impl ::core::fmt::Debug for AppCaptureVideoEncodingBitrateMode {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureVideoEncodingBitrateMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureVideoEncodingBitrateMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureVideoEncodingBitrateMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11512,7 +11512,7 @@ impl ::core::fmt::Debug for AppCaptureVideoEncodingFrameRateMode {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureVideoEncodingFrameRateMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureVideoEncodingFrameRateMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureVideoEncodingFrameRateMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11543,7 +11543,7 @@ impl ::core::fmt::Debug for AppCaptureVideoEncodingResolutionMode {
     }
 }
 impl ::windows::core::RuntimeType for AppCaptureVideoEncodingResolutionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureVideoEncodingResolutionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureVideoEncodingResolutionMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11577,7 +11577,7 @@ impl ::core::fmt::Debug for CameraCaptureUIMaxPhotoResolution {
     }
 }
 impl ::windows::core::RuntimeType for CameraCaptureUIMaxPhotoResolution {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIMaxPhotoResolution;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIMaxPhotoResolution;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11609,7 +11609,7 @@ impl ::core::fmt::Debug for CameraCaptureUIMaxVideoResolution {
     }
 }
 impl ::windows::core::RuntimeType for CameraCaptureUIMaxVideoResolution {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIMaxVideoResolution;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIMaxVideoResolution;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11640,7 +11640,7 @@ impl ::core::fmt::Debug for CameraCaptureUIMode {
     }
 }
 impl ::windows::core::RuntimeType for CameraCaptureUIMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11671,7 +11671,7 @@ impl ::core::fmt::Debug for CameraCaptureUIPhotoFormat {
     }
 }
 impl ::windows::core::RuntimeType for CameraCaptureUIPhotoFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIPhotoFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIPhotoFormat;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11701,7 +11701,7 @@ impl ::core::fmt::Debug for CameraCaptureUIVideoFormat {
     }
 }
 impl ::windows::core::RuntimeType for CameraCaptureUIVideoFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIVideoFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIVideoFormat;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11731,7 +11731,7 @@ impl ::core::fmt::Debug for ForegroundActivationArgument {
     }
 }
 impl ::windows::core::RuntimeType for ForegroundActivationArgument {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.ForegroundActivationArgument;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.ForegroundActivationArgument;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11773,7 +11773,7 @@ impl ::core::fmt::Debug for GameBarCommand {
     }
 }
 impl ::windows::core::RuntimeType for GameBarCommand {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarCommand;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarCommand;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11804,7 +11804,7 @@ impl ::core::fmt::Debug for GameBarCommandOrigin {
     }
 }
 impl ::windows::core::RuntimeType for GameBarCommandOrigin {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarCommandOrigin;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarCommandOrigin;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11834,7 +11834,7 @@ impl ::core::fmt::Debug for GameBarServicesDisplayMode {
     }
 }
 impl ::windows::core::RuntimeType for GameBarServicesDisplayMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarServicesDisplayMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarServicesDisplayMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11867,7 +11867,7 @@ impl ::core::fmt::Debug for GameBarTargetCapturePolicy {
     }
 }
 impl ::windows::core::RuntimeType for GameBarTargetCapturePolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarTargetCapturePolicy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarTargetCapturePolicy;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11906,7 +11906,7 @@ impl ::core::fmt::Debug for KnownVideoProfile {
     }
 }
 impl ::windows::core::RuntimeType for KnownVideoProfile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.KnownVideoProfile;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.KnownVideoProfile;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11936,7 +11936,7 @@ impl ::core::fmt::Debug for MediaCaptureDeviceExclusiveControlReleaseMode {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureDeviceExclusiveControlReleaseMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureDeviceExclusiveControlReleaseMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureDeviceExclusiveControlReleaseMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11966,7 +11966,7 @@ impl ::core::fmt::Debug for MediaCaptureDeviceExclusiveControlStatus {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureDeviceExclusiveControlStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -11996,7 +11996,7 @@ impl ::core::fmt::Debug for MediaCaptureMemoryPreference {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureMemoryPreference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureMemoryPreference;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureMemoryPreference;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -12026,7 +12026,7 @@ impl ::core::fmt::Debug for MediaCaptureSharingMode {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureSharingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureSharingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureSharingMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -12056,7 +12056,7 @@ impl ::core::fmt::Debug for MediaCaptureThermalStatus {
     }
 }
 impl ::windows::core::RuntimeType for MediaCaptureThermalStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureThermalStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureThermalStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -12092,7 +12092,7 @@ impl ::core::fmt::Debug for MediaCategory {
     }
 }
 impl ::windows::core::RuntimeType for MediaCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCategory;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCategory;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -12125,7 +12125,7 @@ impl ::core::fmt::Debug for MediaStreamType {
     }
 }
 impl ::windows::core::RuntimeType for MediaStreamType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaStreamType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaStreamType;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -12156,7 +12156,7 @@ impl ::core::fmt::Debug for PhotoCaptureSource {
     }
 }
 impl ::windows::core::RuntimeType for PhotoCaptureSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.PhotoCaptureSource;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.PhotoCaptureSource;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -12188,7 +12188,7 @@ impl ::core::fmt::Debug for PowerlineFrequency {
     }
 }
 impl ::windows::core::RuntimeType for PowerlineFrequency {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.PowerlineFrequency;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.PowerlineFrequency;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -12219,7 +12219,7 @@ impl ::core::fmt::Debug for StreamingCaptureMode {
     }
 }
 impl ::windows::core::RuntimeType for StreamingCaptureMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.StreamingCaptureMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.StreamingCaptureMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -12252,7 +12252,7 @@ impl ::core::fmt::Debug for VideoDeviceCharacteristic {
     }
 }
 impl ::windows::core::RuntimeType for VideoDeviceCharacteristic {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.VideoDeviceCharacteristic;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.VideoDeviceCharacteristic;i4)");
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
@@ -12284,7 +12284,7 @@ impl ::core::fmt::Debug for VideoRotation {
     }
 }
 impl ::windows::core::RuntimeType for VideoRotation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.VideoRotation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.VideoRotation;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -12308,7 +12308,7 @@ impl ::windows::core::TypeKind for WhiteBalanceGain {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for WhiteBalanceGain {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Media.Capture.WhiteBalanceGain;f8;f8;f8)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Media.Capture.WhiteBalanceGain;f8;f8;f8)");
 }
 impl ::core::cmp::PartialEq for WhiteBalanceGain {
     fn eq(&self, other: &Self) -> bool {
@@ -12326,8 +12326,8 @@ impl ::core::default::Default for WhiteBalanceGain {
 pub struct MediaCaptureFailedEventHandler(pub ::windows::core::IUnknown);
 impl MediaCaptureFailedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&MediaCapture>, ::core::option::Option<&MediaCaptureFailedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = MediaCaptureFailedEventHandlerBox::<F> { vtable: &MediaCaptureFailedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = MediaCaptureFailedEventHandlerBox::<F> { vtable: &MediaCaptureFailedEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, sender: &MediaCapture, erroreventargs: &MediaCaptureFailedEventArgs) -> ::windows::core::Result<()> {
         let this = self;
@@ -12338,7 +12338,7 @@ impl MediaCaptureFailedEventHandler {
 struct MediaCaptureFailedEventHandlerBox<F: FnMut(::core::option::Option<&MediaCapture>, ::core::option::Option<&MediaCaptureFailedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const MediaCaptureFailedEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&MediaCapture>, ::core::option::Option<&MediaCaptureFailedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MediaCaptureFailedEventHandlerBox<F> {
     const VTABLE: MediaCaptureFailedEventHandler_Vtbl = MediaCaptureFailedEventHandler_Vtbl {
@@ -12347,7 +12347,7 @@ impl<F: FnMut(::core::option::Option<&MediaCapture>, ::core::option::Option<&Med
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<MediaCaptureFailedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<MediaCaptureFailedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -12363,7 +12363,7 @@ impl<F: FnMut(::core::option::Option<&MediaCapture>, ::core::option::Option<&Med
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -12395,7 +12395,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureFailedEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2014effb_5cd8_4f08_a314_0d360da59f14);
 }
 impl ::windows::core::RuntimeType for MediaCaptureFailedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2014effb-5cd8-4f08-a314-0d360da59f14}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2014effb-5cd8-4f08-a314-0d360da59f14}");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12408,8 +12408,8 @@ pub struct MediaCaptureFailedEventHandler_Vtbl {
 pub struct RecordLimitationExceededEventHandler(pub ::windows::core::IUnknown);
 impl RecordLimitationExceededEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&MediaCapture>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = RecordLimitationExceededEventHandlerBox::<F> { vtable: &RecordLimitationExceededEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = RecordLimitationExceededEventHandlerBox::<F> { vtable: &RecordLimitationExceededEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, sender: &MediaCapture) -> ::windows::core::Result<()> {
         let this = self;
@@ -12420,7 +12420,7 @@ impl RecordLimitationExceededEventHandler {
 struct RecordLimitationExceededEventHandlerBox<F: FnMut(::core::option::Option<&MediaCapture>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const RecordLimitationExceededEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&MediaCapture>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> RecordLimitationExceededEventHandlerBox<F> {
     const VTABLE: RecordLimitationExceededEventHandler_Vtbl = RecordLimitationExceededEventHandler_Vtbl {
@@ -12429,7 +12429,7 @@ impl<F: FnMut(::core::option::Option<&MediaCapture>) -> ::windows::core::Result<
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<RecordLimitationExceededEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<RecordLimitationExceededEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -12445,7 +12445,7 @@ impl<F: FnMut(::core::option::Option<&MediaCapture>) -> ::windows::core::Result<
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -12477,7 +12477,7 @@ unsafe impl ::windows::core::Interface for RecordLimitationExceededEventHandler 
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fae8f2e_4fe1_4ffd_aaba_e1f1337d4e53);
 }
 impl ::windows::core::RuntimeType for RecordLimitationExceededEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3fae8f2e-4fe1-4ffd-aaba-e1f1337d4e53}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{3fae8f2e-4fe1-4ffd-aaba-e1f1337d4e53}");
 }
 #[repr(C)]
 #[doc(hidden)]

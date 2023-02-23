@@ -5,27 +5,27 @@ pub unsafe fn OfflineFilesEnable<P0>(benable: P0, pbrebootrequired: *mut super::
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "cscapi.dll""system" fn OfflineFilesEnable ( benable : super::super::Foundation:: BOOL , pbrebootrequired : *mut super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "cscapi.dll""system" fn OfflineFilesEnable ( benable : super::super::Foundation:: BOOL , pbrebootrequired : *mut super::super::Foundation:: BOOL ) -> u32 );
     OfflineFilesEnable(benable.into(), pbrebootrequired)
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OfflineFilesQueryStatus(pbactive: ::core::option::Option<*mut super::super::Foundation::BOOL>, pbenabled: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> u32 {
-    ::windows::core::link ! ( "cscapi.dll""system" fn OfflineFilesQueryStatus ( pbactive : *mut super::super::Foundation:: BOOL , pbenabled : *mut super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "cscapi.dll""system" fn OfflineFilesQueryStatus ( pbactive : *mut super::super::Foundation:: BOOL , pbenabled : *mut super::super::Foundation:: BOOL ) -> u32 );
     OfflineFilesQueryStatus(::core::mem::transmute(pbactive.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbenabled.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OfflineFilesQueryStatusEx(pbactive: ::core::option::Option<*mut super::super::Foundation::BOOL>, pbenabled: ::core::option::Option<*mut super::super::Foundation::BOOL>, pbavailable: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> u32 {
-    ::windows::core::link ! ( "cscapi.dll""system" fn OfflineFilesQueryStatusEx ( pbactive : *mut super::super::Foundation:: BOOL , pbenabled : *mut super::super::Foundation:: BOOL , pbavailable : *mut super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "cscapi.dll""system" fn OfflineFilesQueryStatusEx ( pbactive : *mut super::super::Foundation:: BOOL , pbenabled : *mut super::super::Foundation:: BOOL , pbavailable : *mut super::super::Foundation:: BOOL ) -> u32 );
     OfflineFilesQueryStatusEx(::core::mem::transmute(pbactive.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbenabled.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbavailable.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[inline]
 pub unsafe fn OfflineFilesStart() -> u32 {
-    ::windows::core::link ! ( "cscapi.dll""system" fn OfflineFilesStart ( ) -> u32 );
+    ::windows::imp::link ! ( "cscapi.dll""system" fn OfflineFilesStart ( ) -> u32 );
     OfflineFilesStart()
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
@@ -46,7 +46,7 @@ impl IEnumOfflineFilesItems {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumOfflineFilesItems, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumOfflineFilesItems, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumOfflineFilesItems {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -96,7 +96,7 @@ impl IEnumOfflineFilesSettings {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumOfflineFilesSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumOfflineFilesSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumOfflineFilesSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -265,7 +265,7 @@ impl IOfflineFilesCache {
         (::windows::core::Vtable::vtable(self).IsPathCacheable)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), pbcacheable, psharecachingmode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesCache, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesCache, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesCache {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -484,7 +484,7 @@ impl IOfflineFilesCache2 {
         (::windows::core::Vtable::vtable(self).RenameItemEx)(::windows::core::Vtable::as_raw(self), pszpathoriginal.into().abi(), pszpathnew.into().abi(), breplaceifexists.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesCache2, ::windows::core::IUnknown, IOfflineFilesCache);
+::windows::imp::interface_hierarchy!(IOfflineFilesCache2, ::windows::core::IUnknown, IOfflineFilesCache);
 impl ::core::cmp::PartialEq for IOfflineFilesCache2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -556,7 +556,7 @@ impl IOfflineFilesChangeInfo {
         (::windows::core::Vtable::vtable(self).IsLocallyModifiedTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesChangeInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesChangeInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesChangeInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -642,7 +642,7 @@ impl IOfflineFilesConnectionInfo {
         (::windows::core::Vtable::vtable(self).TransitionOffline)(::windows::core::Vtable::as_raw(self), hwndparent.into(), dwflags, bforceopenfilesclosed.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesConnectionInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesConnectionInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesConnectionInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -709,7 +709,7 @@ impl IOfflineFilesDirectoryItem {
         (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesDirectoryItem, ::windows::core::IUnknown, IOfflineFilesItem);
+::windows::imp::interface_hierarchy!(IOfflineFilesDirectoryItem, ::windows::core::IUnknown, IOfflineFilesItem);
 impl ::core::cmp::PartialEq for IOfflineFilesDirectoryItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -750,7 +750,7 @@ impl IOfflineFilesDirtyInfo {
         (::windows::core::Vtable::vtable(self).RemoteDirtyByteCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesDirtyInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesDirtyInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesDirtyInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -795,7 +795,7 @@ impl IOfflineFilesErrorInfo {
         (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesErrorInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesErrorInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesErrorInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -978,7 +978,7 @@ impl IOfflineFilesEvents {
         (::windows::core::Vtable::vtable(self).Ping)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1226,7 +1226,7 @@ impl IOfflineFilesEvents2 {
         (::windows::core::Vtable::vtable(self).SettingsChangesApplied)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesEvents2, ::windows::core::IUnknown, IOfflineFilesEvents);
+::windows::imp::interface_hierarchy!(IOfflineFilesEvents2, ::windows::core::IUnknown, IOfflineFilesEvents);
 impl ::core::cmp::PartialEq for IOfflineFilesEvents2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1463,7 +1463,7 @@ impl IOfflineFilesEvents3 {
         (::windows::core::Vtable::vtable(self).PrefetchFileEnd)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), hrresult).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesEvents3, ::windows::core::IUnknown, IOfflineFilesEvents, IOfflineFilesEvents2);
+::windows::imp::interface_hierarchy!(IOfflineFilesEvents3, ::windows::core::IUnknown, IOfflineFilesEvents, IOfflineFilesEvents2);
 impl ::core::cmp::PartialEq for IOfflineFilesEvents3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1703,7 +1703,7 @@ impl IOfflineFilesEvents4 {
         (::windows::core::Vtable::vtable(self).PrefetchCloseHandleEnd)(::windows::core::Vtable::as_raw(self), dwclosedhandlecount, dwopenhandlecount, hrresult).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesEvents4, ::windows::core::IUnknown, IOfflineFilesEvents, IOfflineFilesEvents2, IOfflineFilesEvents3);
+::windows::imp::interface_hierarchy!(IOfflineFilesEvents4, ::windows::core::IUnknown, IOfflineFilesEvents, IOfflineFilesEvents2, IOfflineFilesEvents3);
 impl ::core::cmp::PartialEq for IOfflineFilesEvents4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1747,7 +1747,7 @@ impl IOfflineFilesEventsFilter {
         (::windows::core::Vtable::vtable(self).GetExcludedEvents)(::windows::core::Vtable::as_raw(self), celements, prgevents, pcevents).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesEventsFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesEventsFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesEventsFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1816,7 +1816,7 @@ impl IOfflineFilesFileItem {
         (::windows::core::Vtable::vtable(self).IsEncrypted)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesFileItem, ::windows::core::IUnknown, IOfflineFilesItem);
+::windows::imp::interface_hierarchy!(IOfflineFilesFileItem, ::windows::core::IUnknown, IOfflineFilesItem);
 impl ::core::cmp::PartialEq for IOfflineFilesFileItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1870,7 +1870,7 @@ impl IOfflineFilesFileSysInfo {
         (::windows::core::Vtable::vtable(self).GetFileSize)(::windows::core::Vtable::as_raw(self), copy, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesFileSysInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesFileSysInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesFileSysInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1915,7 +1915,7 @@ impl IOfflineFilesGhostInfo {
         (::windows::core::Vtable::vtable(self).IsGhosted)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesGhostInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesGhostInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesGhostInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1973,7 +1973,7 @@ impl IOfflineFilesItem {
         (::windows::core::Vtable::vtable(self).IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2028,7 +2028,7 @@ impl IOfflineFilesItemContainer {
         (::windows::core::Vtable::vtable(self).EnumItemsEx)(::windows::core::Vtable::as_raw(self), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), dwenumflags, dwqueryflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesItemContainer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesItemContainer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesItemContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2074,7 +2074,7 @@ impl IOfflineFilesItemFilter {
         (::windows::core::Vtable::vtable(self).GetPatternFilter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszpattern.as_ptr()), pszpattern.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesItemFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesItemFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesItemFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2139,7 +2139,7 @@ impl IOfflineFilesPinInfo {
         (::windows::core::Vtable::vtable(self).IsPinnedForFolderRedirection)(::windows::core::Vtable::as_raw(self), pbpinnedforfolderredirection, pbinherit).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesPinInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesPinInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesPinInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2224,7 +2224,7 @@ impl IOfflineFilesPinInfo2 {
         (::windows::core::Vtable::vtable(self).IsPartlyPinned)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesPinInfo2, ::windows::core::IUnknown, IOfflineFilesPinInfo);
+::windows::imp::interface_hierarchy!(IOfflineFilesPinInfo2, ::windows::core::IUnknown, IOfflineFilesPinInfo);
 impl ::core::cmp::PartialEq for IOfflineFilesPinInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2276,7 +2276,7 @@ impl IOfflineFilesProgress {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self), hrresult).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesProgress, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesProgress, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesProgress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2339,7 +2339,7 @@ impl IOfflineFilesServerItem {
         (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesServerItem, ::windows::core::IUnknown, IOfflineFilesItem);
+::windows::imp::interface_hierarchy!(IOfflineFilesServerItem, ::windows::core::IUnknown, IOfflineFilesItem);
 impl ::core::cmp::PartialEq for IOfflineFilesServerItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2411,7 +2411,7 @@ impl IOfflineFilesSetting {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), pvarvalue, pbsetbypolicy).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesSetting, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesSetting, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesSetting {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2479,7 +2479,7 @@ impl IOfflineFilesShareInfo {
         (::windows::core::Vtable::vtable(self).IsShareDfsJunction)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesShareInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesShareInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesShareInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2539,7 +2539,7 @@ impl IOfflineFilesShareItem {
         (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesShareItem, ::windows::core::IUnknown, IOfflineFilesItem);
+::windows::imp::interface_hierarchy!(IOfflineFilesShareItem, ::windows::core::IUnknown, IOfflineFilesItem);
 impl ::core::cmp::PartialEq for IOfflineFilesShareItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2601,7 +2601,7 @@ impl IOfflineFilesSimpleProgress {
         (::windows::core::Vtable::vtable(self).ItemResult)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), hrresult, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesSimpleProgress, ::windows::core::IUnknown, IOfflineFilesProgress);
+::windows::imp::interface_hierarchy!(IOfflineFilesSimpleProgress, ::windows::core::IUnknown, IOfflineFilesProgress);
 impl ::core::cmp::PartialEq for IOfflineFilesSimpleProgress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2644,7 +2644,7 @@ impl IOfflineFilesSuspend {
         (::windows::core::Vtable::vtable(self).SuspendRoot)(::windows::core::Vtable::as_raw(self), bsuspend.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesSuspend, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesSuspend, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesSuspend {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2686,7 +2686,7 @@ impl IOfflineFilesSuspendInfo {
         (::windows::core::Vtable::vtable(self).IsSuspended)(::windows::core::Vtable::as_raw(self), pbsuspended, pbsuspendedroot).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesSuspendInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesSuspendInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesSuspendInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2729,7 +2729,7 @@ impl IOfflineFilesSyncConflictHandler {
         (::windows::core::Vtable::vtable(self).ResolveConflict)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), fstateknown, state, fchangedetails, pconflictresolution, ppsznewname).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesSyncConflictHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesSyncConflictHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesSyncConflictHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2803,7 +2803,7 @@ impl IOfflineFilesSyncErrorInfo {
         (::windows::core::Vtable::vtable(self).GetOriginalInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesSyncErrorInfo, ::windows::core::IUnknown, IOfflineFilesErrorInfo);
+::windows::imp::interface_hierarchy!(IOfflineFilesSyncErrorInfo, ::windows::core::IUnknown, IOfflineFilesErrorInfo);
 impl ::core::cmp::PartialEq for IOfflineFilesSyncErrorInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2862,7 +2862,7 @@ impl IOfflineFilesSyncErrorItemInfo {
         (::windows::core::Vtable::vtable(self).GetFileSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesSyncErrorItemInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesSyncErrorItemInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesSyncErrorItemInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2931,7 +2931,7 @@ impl IOfflineFilesSyncProgress {
         (::windows::core::Vtable::vtable(self).SyncItemResult)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), hrresult, perrorinfo.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesSyncProgress, ::windows::core::IUnknown, IOfflineFilesProgress);
+::windows::imp::interface_hierarchy!(IOfflineFilesSyncProgress, ::windows::core::IUnknown, IOfflineFilesProgress);
 impl ::core::cmp::PartialEq for IOfflineFilesSyncProgress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2972,7 +2972,7 @@ impl IOfflineFilesTransparentCacheInfo {
         (::windows::core::Vtable::vtable(self).IsTransparentlyCached)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOfflineFilesTransparentCacheInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOfflineFilesTransparentCacheInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOfflineFilesTransparentCacheInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

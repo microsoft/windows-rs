@@ -923,7 +923,7 @@ impl EnhancedWaypoint {
     }
     #[doc(hidden)]
     pub fn IEnhancedWaypointFactory<R, F: FnOnce(&IEnhancedWaypointFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EnhancedWaypoint, IEnhancedWaypointFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EnhancedWaypoint, IEnhancedWaypointFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -939,7 +939,7 @@ impl ::core::fmt::Debug for EnhancedWaypoint {
     }
 }
 impl ::windows::core::RuntimeType for EnhancedWaypoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.EnhancedWaypoint;{ed268c74-5913-11e6-8b77-86f30ca893d3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.EnhancedWaypoint;{ed268c74-5913-11e6-8b77-86f30ca893d3})");
 }
 impl ::core::clone::Clone for EnhancedWaypoint {
     fn clone(&self) -> Self {
@@ -955,7 +955,7 @@ unsafe impl ::windows::core::Interface for EnhancedWaypoint {
 impl ::windows::core::RuntimeName for EnhancedWaypoint {
     const NAME: &'static str = "Windows.Services.Maps.EnhancedWaypoint";
 }
-::windows::core::interface_hierarchy!(EnhancedWaypoint, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EnhancedWaypoint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EnhancedWaypoint {}
 unsafe impl ::core::marker::Sync for EnhancedWaypoint {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -989,7 +989,7 @@ impl ::core::fmt::Debug for ManeuverWarning {
     }
 }
 impl ::windows::core::RuntimeType for ManeuverWarning {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.ManeuverWarning;{c1a36d8a-2630-4378-9e4a-6e44253dceba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.ManeuverWarning;{c1a36d8a-2630-4378-9e4a-6e44253dceba})");
 }
 impl ::core::clone::Clone for ManeuverWarning {
     fn clone(&self) -> Self {
@@ -1005,7 +1005,7 @@ unsafe impl ::windows::core::Interface for ManeuverWarning {
 impl ::windows::core::RuntimeName for ManeuverWarning {
     const NAME: &'static str = "Windows.Services.Maps.ManeuverWarning";
 }
-::windows::core::interface_hierarchy!(ManeuverWarning, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ManeuverWarning, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ManeuverWarning {}
 unsafe impl ::core::marker::Sync for ManeuverWarning {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1137,7 +1137,7 @@ impl ::core::fmt::Debug for MapAddress {
     }
 }
 impl ::windows::core::RuntimeType for MapAddress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapAddress;{cfa7a973-a3b4-4494-b3ff-cba94db69699})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapAddress;{cfa7a973-a3b4-4494-b3ff-cba94db69699})");
 }
 impl ::core::clone::Clone for MapAddress {
     fn clone(&self) -> Self {
@@ -1153,7 +1153,7 @@ unsafe impl ::windows::core::Interface for MapAddress {
 impl ::windows::core::RuntimeName for MapAddress {
     const NAME: &'static str = "Windows.Services.Maps.MapAddress";
 }
-::windows::core::interface_hierarchy!(MapAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MapAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapAddress {}
 unsafe impl ::core::marker::Sync for MapAddress {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1203,7 +1203,7 @@ impl ::core::fmt::Debug for MapLocation {
     }
 }
 impl ::windows::core::RuntimeType for MapLocation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapLocation;{3c073f57-0da4-42e8-9ee2-a96fcf2371dc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapLocation;{3c073f57-0da4-42e8-9ee2-a96fcf2371dc})");
 }
 impl ::core::clone::Clone for MapLocation {
     fn clone(&self) -> Self {
@@ -1219,7 +1219,7 @@ unsafe impl ::windows::core::Interface for MapLocation {
 impl ::windows::core::RuntimeName for MapLocation {
     const NAME: &'static str = "Windows.Services.Maps.MapLocation";
 }
-::windows::core::interface_hierarchy!(MapLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MapLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapLocation {}
 unsafe impl ::core::marker::Sync for MapLocation {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1259,12 +1259,12 @@ impl MapLocationFinder {
     }
     #[doc(hidden)]
     pub fn IMapLocationFinderStatics<R, F: FnOnce(&IMapLocationFinderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MapLocationFinder, IMapLocationFinderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MapLocationFinder, IMapLocationFinderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMapLocationFinderStatics2<R, F: FnOnce(&IMapLocationFinderStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MapLocationFinder, IMapLocationFinderStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MapLocationFinder, IMapLocationFinderStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1304,7 +1304,7 @@ impl ::core::fmt::Debug for MapLocationFinderResult {
     }
 }
 impl ::windows::core::RuntimeType for MapLocationFinderResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapLocationFinderResult;{43f1f179-e8cc-45f6-bed2-54ccbf965d9a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapLocationFinderResult;{43f1f179-e8cc-45f6-bed2-54ccbf965d9a})");
 }
 impl ::core::clone::Clone for MapLocationFinderResult {
     fn clone(&self) -> Self {
@@ -1320,7 +1320,7 @@ unsafe impl ::windows::core::Interface for MapLocationFinderResult {
 impl ::windows::core::RuntimeName for MapLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapLocationFinderResult";
 }
-::windows::core::interface_hierarchy!(MapLocationFinderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MapLocationFinderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapLocationFinderResult {}
 unsafe impl ::core::marker::Sync for MapLocationFinderResult {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1334,7 +1334,7 @@ impl MapManager {
     }
     #[doc(hidden)]
     pub fn IMapManagerStatics<R, F: FnOnce(&IMapManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MapManager, IMapManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MapManager, IMapManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1445,7 +1445,7 @@ impl ::core::fmt::Debug for MapRoute {
     }
 }
 impl ::windows::core::RuntimeType for MapRoute {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRoute;{fb07b732-584d-4583-9c60-641fea274349})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRoute;{fb07b732-584d-4583-9c60-641fea274349})");
 }
 impl ::core::clone::Clone for MapRoute {
     fn clone(&self) -> Self {
@@ -1461,7 +1461,7 @@ unsafe impl ::windows::core::Interface for MapRoute {
 impl ::windows::core::RuntimeName for MapRoute {
     const NAME: &'static str = "Windows.Services.Maps.MapRoute";
 }
-::windows::core::interface_hierarchy!(MapRoute, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MapRoute, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapRoute {}
 unsafe impl ::core::marker::Sync for MapRoute {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1471,8 +1471,8 @@ impl MapRouteDrivingOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MapRouteDrivingOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MapRouteDrivingOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn MaxAlternateRouteCount(&self) -> ::windows::core::Result<u32> {
@@ -1559,7 +1559,7 @@ impl ::core::fmt::Debug for MapRouteDrivingOptions {
     }
 }
 impl ::windows::core::RuntimeType for MapRouteDrivingOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteDrivingOptions;{6815364d-c6dc-4697-a452-b18f8f0b67a1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteDrivingOptions;{6815364d-c6dc-4697-a452-b18f8f0b67a1})");
 }
 impl ::core::clone::Clone for MapRouteDrivingOptions {
     fn clone(&self) -> Self {
@@ -1575,7 +1575,7 @@ unsafe impl ::windows::core::Interface for MapRouteDrivingOptions {
 impl ::windows::core::RuntimeName for MapRouteDrivingOptions {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteDrivingOptions";
 }
-::windows::core::interface_hierarchy!(MapRouteDrivingOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MapRouteDrivingOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapRouteDrivingOptions {}
 unsafe impl ::core::marker::Sync for MapRouteDrivingOptions {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1715,17 +1715,17 @@ impl MapRouteFinder {
     }
     #[doc(hidden)]
     pub fn IMapRouteFinderStatics<R, F: FnOnce(&IMapRouteFinderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MapRouteFinder, IMapRouteFinderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MapRouteFinder, IMapRouteFinderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMapRouteFinderStatics2<R, F: FnOnce(&IMapRouteFinderStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MapRouteFinder, IMapRouteFinderStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MapRouteFinder, IMapRouteFinderStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMapRouteFinderStatics3<R, F: FnOnce(&IMapRouteFinderStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MapRouteFinder, IMapRouteFinderStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MapRouteFinder, IMapRouteFinderStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1772,7 +1772,7 @@ impl ::core::fmt::Debug for MapRouteFinderResult {
     }
 }
 impl ::windows::core::RuntimeType for MapRouteFinderResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteFinderResult;{a868a31a-9422-46ac-8ca1-b1614d4bfbe2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteFinderResult;{a868a31a-9422-46ac-8ca1-b1614d4bfbe2})");
 }
 impl ::core::clone::Clone for MapRouteFinderResult {
     fn clone(&self) -> Self {
@@ -1788,7 +1788,7 @@ unsafe impl ::windows::core::Interface for MapRouteFinderResult {
 impl ::windows::core::RuntimeName for MapRouteFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteFinderResult";
 }
-::windows::core::interface_hierarchy!(MapRouteFinderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MapRouteFinderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapRouteFinderResult {}
 unsafe impl ::core::marker::Sync for MapRouteFinderResult {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1867,7 +1867,7 @@ impl ::core::fmt::Debug for MapRouteLeg {
     }
 }
 impl ::windows::core::RuntimeType for MapRouteLeg {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteLeg;{96f8b2f6-5bba-4d17-9db6-1a263fec7471})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteLeg;{96f8b2f6-5bba-4d17-9db6-1a263fec7471})");
 }
 impl ::core::clone::Clone for MapRouteLeg {
     fn clone(&self) -> Self {
@@ -1883,7 +1883,7 @@ unsafe impl ::windows::core::Interface for MapRouteLeg {
 impl ::windows::core::RuntimeName for MapRouteLeg {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteLeg";
 }
-::windows::core::interface_hierarchy!(MapRouteLeg, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MapRouteLeg, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapRouteLeg {}
 unsafe impl ::core::marker::Sync for MapRouteLeg {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1977,7 +1977,7 @@ impl ::core::fmt::Debug for MapRouteManeuver {
     }
 }
 impl ::windows::core::RuntimeType for MapRouteManeuver {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteManeuver;{ed5c17f0-a6ab-4d65-a086-fa8a7e340df2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteManeuver;{ed5c17f0-a6ab-4d65-a086-fa8a7e340df2})");
 }
 impl ::core::clone::Clone for MapRouteManeuver {
     fn clone(&self) -> Self {
@@ -1993,7 +1993,7 @@ unsafe impl ::windows::core::Interface for MapRouteManeuver {
 impl ::windows::core::RuntimeName for MapRouteManeuver {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteManeuver";
 }
-::windows::core::interface_hierarchy!(MapRouteManeuver, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MapRouteManeuver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapRouteManeuver {}
 unsafe impl ::core::marker::Sync for MapRouteManeuver {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -2031,22 +2031,22 @@ impl MapService {
     }
     #[doc(hidden)]
     pub fn IMapServiceStatics<R, F: FnOnce(&IMapServiceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MapService, IMapServiceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MapService, IMapServiceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMapServiceStatics2<R, F: FnOnce(&IMapServiceStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MapService, IMapServiceStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MapService, IMapServiceStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMapServiceStatics3<R, F: FnOnce(&IMapServiceStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MapService, IMapServiceStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MapService, IMapServiceStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMapServiceStatics4<R, F: FnOnce(&IMapServiceStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MapService, IMapServiceStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MapService, IMapServiceStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2155,12 +2155,12 @@ impl PlaceInfo {
     }
     #[doc(hidden)]
     pub fn IPlaceInfoStatics<R, F: FnOnce(&IPlaceInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlaceInfo, IPlaceInfoStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlaceInfo, IPlaceInfoStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPlaceInfoStatics2<R, F: FnOnce(&IPlaceInfoStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlaceInfo, IPlaceInfoStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlaceInfo, IPlaceInfoStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2176,7 +2176,7 @@ impl ::core::fmt::Debug for PlaceInfo {
     }
 }
 impl ::windows::core::RuntimeType for PlaceInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.PlaceInfo;{9a0810b6-31c8-4f6a-9f18-950b4c38951a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.PlaceInfo;{9a0810b6-31c8-4f6a-9f18-950b4c38951a})");
 }
 impl ::core::clone::Clone for PlaceInfo {
     fn clone(&self) -> Self {
@@ -2192,7 +2192,7 @@ unsafe impl ::windows::core::Interface for PlaceInfo {
 impl ::windows::core::RuntimeName for PlaceInfo {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfo";
 }
-::windows::core::interface_hierarchy!(PlaceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlaceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlaceInfo {}
 unsafe impl ::core::marker::Sync for PlaceInfo {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -2202,8 +2202,8 @@ impl PlaceInfoCreateOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlaceInfoCreateOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PlaceInfoCreateOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -2241,7 +2241,7 @@ impl ::core::fmt::Debug for PlaceInfoCreateOptions {
     }
 }
 impl ::windows::core::RuntimeType for PlaceInfoCreateOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.PlaceInfoCreateOptions;{cd33c125-67f1-4bb3-9907-ecce939b0399})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.PlaceInfoCreateOptions;{cd33c125-67f1-4bb3-9907-ecce939b0399})");
 }
 impl ::core::clone::Clone for PlaceInfoCreateOptions {
     fn clone(&self) -> Self {
@@ -2257,7 +2257,7 @@ unsafe impl ::windows::core::Interface for PlaceInfoCreateOptions {
 impl ::windows::core::RuntimeName for PlaceInfoCreateOptions {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfoCreateOptions";
 }
-::windows::core::interface_hierarchy!(PlaceInfoCreateOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlaceInfoCreateOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlaceInfoCreateOptions {}
 unsafe impl ::core::marker::Sync for PlaceInfoCreateOptions {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -2322,7 +2322,7 @@ impl ::core::fmt::Debug for ManeuverWarningKind {
     }
 }
 impl ::windows::core::RuntimeType for ManeuverWarningKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningKind;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2355,7 +2355,7 @@ impl ::core::fmt::Debug for ManeuverWarningSeverity {
     }
 }
 impl ::windows::core::RuntimeType for ManeuverWarningSeverity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningSeverity;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningSeverity;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2385,7 +2385,7 @@ impl ::core::fmt::Debug for MapLocationDesiredAccuracy {
     }
 }
 impl ::windows::core::RuntimeType for MapLocationDesiredAccuracy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationDesiredAccuracy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationDesiredAccuracy;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2420,7 +2420,7 @@ impl ::core::fmt::Debug for MapLocationFinderStatus {
     }
 }
 impl ::windows::core::RuntimeType for MapLocationFinderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationFinderStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationFinderStatus;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2484,7 +2484,7 @@ impl ::core::ops::Not for MapManeuverNotices {
     }
 }
 impl ::windows::core::RuntimeType for MapManeuverNotices {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapManeuverNotices;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapManeuverNotices;u4)");
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2522,7 +2522,7 @@ impl ::core::fmt::Debug for MapRouteFinderStatus {
     }
 }
 impl ::windows::core::RuntimeType for MapRouteFinderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteFinderStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteFinderStatus;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2575,7 +2575,7 @@ impl ::core::fmt::Debug for MapRouteManeuverKind {
     }
 }
 impl ::windows::core::RuntimeType for MapRouteManeuverKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteManeuverKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteManeuverKind;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2607,7 +2607,7 @@ impl ::core::fmt::Debug for MapRouteOptimization {
     }
 }
 impl ::windows::core::RuntimeType for MapRouteOptimization {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteOptimization;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteOptimization;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2675,7 +2675,7 @@ impl ::core::ops::Not for MapRouteRestrictions {
     }
 }
 impl ::windows::core::RuntimeType for MapRouteRestrictions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteRestrictions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteRestrictions;u4)");
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2705,7 +2705,7 @@ impl ::core::fmt::Debug for MapServiceDataUsagePreference {
     }
 }
 impl ::windows::core::RuntimeType for MapServiceDataUsagePreference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapServiceDataUsagePreference;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapServiceDataUsagePreference;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2738,7 +2738,7 @@ impl ::core::fmt::Debug for TrafficCongestion {
     }
 }
 impl ::windows::core::RuntimeType for TrafficCongestion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.TrafficCongestion;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.TrafficCongestion;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2768,7 +2768,7 @@ impl ::core::fmt::Debug for WaypointKind {
     }
 }
 impl ::windows::core::RuntimeType for WaypointKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.WaypointKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.WaypointKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

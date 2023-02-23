@@ -97,7 +97,7 @@ impl IIOControlCode {
         }
     }
 }
-::windows::core::interface_hierarchy!(IIOControlCode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IIOControlCode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IIOControlCode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -110,7 +110,7 @@ impl ::core::fmt::Debug for IIOControlCode {
     }
 }
 impl ::windows::core::RuntimeType for IIOControlCode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0e9559e7-60c8-4375-a761-7f8808066c60}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{0e9559e7-60c8-4375-a761-7f8808066c60}");
 }
 unsafe impl ::windows::core::Vtable for IIOControlCode {
     type Vtable = IIOControlCode_Vtbl;
@@ -245,7 +245,7 @@ impl CustomDevice {
     }
     #[doc(hidden)]
     pub fn ICustomDeviceStatics<R, F: FnOnce(&ICustomDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CustomDevice, ICustomDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CustomDevice, ICustomDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -261,7 +261,7 @@ impl ::core::fmt::Debug for CustomDevice {
     }
 }
 impl ::windows::core::RuntimeType for CustomDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.CustomDevice;{dd30251f-c48b-43bd-bcb1-dec88f15143e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.CustomDevice;{dd30251f-c48b-43bd-bcb1-dec88f15143e})");
 }
 impl ::core::clone::Clone for CustomDevice {
     fn clone(&self) -> Self {
@@ -277,7 +277,7 @@ unsafe impl ::windows::core::Interface for CustomDevice {
 impl ::windows::core::RuntimeName for CustomDevice {
     const NAME: &'static str = "Windows.Devices.Custom.CustomDevice";
 }
-::windows::core::interface_hierarchy!(CustomDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CustomDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CustomDevice {}
 unsafe impl ::core::marker::Sync for CustomDevice {}
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
@@ -327,7 +327,7 @@ impl IOControlCode {
     }
     #[doc(hidden)]
     pub fn IIOControlCodeFactory<R, F: FnOnce(&IIOControlCodeFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<IOControlCode, IIOControlCodeFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<IOControlCode, IIOControlCodeFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -343,7 +343,7 @@ impl ::core::fmt::Debug for IOControlCode {
     }
 }
 impl ::windows::core::RuntimeType for IOControlCode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.IOControlCode;{0e9559e7-60c8-4375-a761-7f8808066c60})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.IOControlCode;{0e9559e7-60c8-4375-a761-7f8808066c60})");
 }
 impl ::core::clone::Clone for IOControlCode {
     fn clone(&self) -> Self {
@@ -359,7 +359,7 @@ unsafe impl ::windows::core::Interface for IOControlCode {
 impl ::windows::core::RuntimeName for IOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IOControlCode";
 }
-::windows::core::interface_hierarchy!(IOControlCode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IOControlCode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IOControlCode> for IIOControlCode {
     type Error = ::windows::core::Error;
     fn try_from(value: IOControlCode) -> ::windows::core::Result<Self> {
@@ -392,7 +392,7 @@ impl KnownDeviceTypes {
     }
     #[doc(hidden)]
     pub fn IKnownDeviceTypesStatics<R, F: FnOnce(&IKnownDeviceTypesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownDeviceTypes, IKnownDeviceTypesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownDeviceTypes, IKnownDeviceTypesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -428,7 +428,7 @@ impl ::core::fmt::Debug for DeviceAccessMode {
     }
 }
 impl ::windows::core::RuntimeType for DeviceAccessMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceAccessMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceAccessMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
 #[repr(transparent)]
@@ -458,7 +458,7 @@ impl ::core::fmt::Debug for DeviceSharingMode {
     }
 }
 impl ::windows::core::RuntimeType for DeviceSharingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceSharingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceSharingMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
 #[repr(transparent)]
@@ -490,7 +490,7 @@ impl ::core::fmt::Debug for IOControlAccessMode {
     }
 }
 impl ::windows::core::RuntimeType for IOControlAccessMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlAccessMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlAccessMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
 #[repr(transparent)]
@@ -522,7 +522,7 @@ impl ::core::fmt::Debug for IOControlBufferingMethod {
     }
 }
 impl ::windows::core::RuntimeType for IOControlBufferingMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlBufferingMethod;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlBufferingMethod;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

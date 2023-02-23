@@ -58,7 +58,7 @@ impl IPwmControllerProvider {
         unsafe { (::windows::core::Vtable::vtable(this).SetPulseParameters)(::windows::core::Vtable::as_raw(this), pin, dutycycle, invertpolarity).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IPwmControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPwmControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPwmControllerProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -71,7 +71,7 @@ impl ::core::fmt::Debug for IPwmControllerProvider {
     }
 }
 impl ::windows::core::RuntimeType for IPwmControllerProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1300593b-e2e3-40a4-b7d9-48dff0377a52}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1300593b-e2e3-40a4-b7d9-48dff0377a52}");
 }
 unsafe impl ::windows::core::Vtable for IPwmControllerProvider {
     type Vtable = IPwmControllerProvider_Vtbl;
@@ -113,7 +113,7 @@ impl IPwmProvider {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPwmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPwmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPwmProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -126,7 +126,7 @@ impl ::core::fmt::Debug for IPwmProvider {
     }
 }
 impl ::windows::core::RuntimeType for IPwmProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a3301228-52f1-47b0-9349-66ba43d25902}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a3301228-52f1-47b0-9349-66ba43d25902}");
 }
 unsafe impl ::windows::core::Vtable for IPwmProvider {
     type Vtable = IPwmProvider_Vtbl;

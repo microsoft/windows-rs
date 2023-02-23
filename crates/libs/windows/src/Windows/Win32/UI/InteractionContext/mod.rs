@@ -4,7 +4,7 @@ pub unsafe fn AddPointerInteractionContext<P0>(interactioncontext: P0, pointerid
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn AddPointerInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , pointerid : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn AddPointerInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , pointerid : u32 ) -> :: windows::core::HRESULT );
     AddPointerInteractionContext(interactioncontext.into(), pointerid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -14,13 +14,13 @@ pub unsafe fn BufferPointerPacketsInteractionContext<P0>(interactioncontext: P0,
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn BufferPointerPacketsInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , entriescount : u32 , pointerinfo : *const super::Input::Pointer:: POINTER_INFO ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn BufferPointerPacketsInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , entriescount : u32 , pointerinfo : *const super::Input::Pointer:: POINTER_INFO ) -> :: windows::core::HRESULT );
     BufferPointerPacketsInteractionContext(interactioncontext.into(), pointerinfo.len() as _, ::core::mem::transmute(pointerinfo.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
 pub unsafe fn CreateInteractionContext() -> ::windows::core::Result<HINTERACTIONCONTEXT> {
-    ::windows::core::link ! ( "ninput.dll""system" fn CreateInteractionContext ( interactioncontext : *mut HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn CreateInteractionContext ( interactioncontext : *mut HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<HINTERACTIONCONTEXT>();
     CreateInteractionContext(&mut result__).from_abi(result__)
 }
@@ -30,7 +30,7 @@ pub unsafe fn DestroyInteractionContext<P0>(interactioncontext: P0) -> ::windows
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn DestroyInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn DestroyInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
     DestroyInteractionContext(interactioncontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -39,7 +39,7 @@ pub unsafe fn GetCrossSlideParameterInteractionContext<P0>(interactioncontext: P
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn GetCrossSlideParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , threshold : CROSS_SLIDE_THRESHOLD , distance : *mut f32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn GetCrossSlideParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , threshold : CROSS_SLIDE_THRESHOLD , distance : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<f32>();
     GetCrossSlideParameterInteractionContext(interactioncontext.into(), threshold, &mut result__).from_abi(result__)
 }
@@ -49,7 +49,7 @@ pub unsafe fn GetHoldParameterInteractionContext<P0>(interactioncontext: P0, par
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn GetHoldParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : HOLD_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn GetHoldParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : HOLD_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<f32>();
     GetHoldParameterInteractionContext(interactioncontext.into(), parameter, &mut result__).from_abi(result__)
 }
@@ -59,7 +59,7 @@ pub unsafe fn GetInertiaParameterInteractionContext<P0>(interactioncontext: P0, 
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn GetInertiaParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , inertiaparameter : INERTIA_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn GetInertiaParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , inertiaparameter : INERTIA_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<f32>();
     GetInertiaParameterInteractionContext(interactioncontext.into(), inertiaparameter, &mut result__).from_abi(result__)
 }
@@ -69,7 +69,7 @@ pub unsafe fn GetInteractionConfigurationInteractionContext<P0>(interactionconte
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn GetInteractionConfigurationInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , configurationcount : u32 , configuration : *mut INTERACTION_CONTEXT_CONFIGURATION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn GetInteractionConfigurationInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , configurationcount : u32 , configuration : *mut INTERACTION_CONTEXT_CONFIGURATION ) -> :: windows::core::HRESULT );
     GetInteractionConfigurationInteractionContext(interactioncontext.into(), configuration.len() as _, ::core::mem::transmute(configuration.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -78,7 +78,7 @@ pub unsafe fn GetMouseWheelParameterInteractionContext<P0>(interactioncontext: P
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn GetMouseWheelParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : MOUSE_WHEEL_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn GetMouseWheelParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : MOUSE_WHEEL_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<f32>();
     GetMouseWheelParameterInteractionContext(interactioncontext.into(), parameter, &mut result__).from_abi(result__)
 }
@@ -88,7 +88,7 @@ pub unsafe fn GetPropertyInteractionContext<P0>(interactioncontext: P0, contextp
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn GetPropertyInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , contextproperty : INTERACTION_CONTEXT_PROPERTY , value : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn GetPropertyInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , contextproperty : INTERACTION_CONTEXT_PROPERTY , value : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     GetPropertyInteractionContext(interactioncontext.into(), contextproperty, &mut result__).from_abi(result__)
 }
@@ -99,7 +99,7 @@ pub unsafe fn GetStateInteractionContext<P0>(interactioncontext: P0, pointerinfo
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn GetStateInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , pointerinfo : *const super::Input::Pointer:: POINTER_INFO , state : *mut INTERACTION_STATE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn GetStateInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , pointerinfo : *const super::Input::Pointer:: POINTER_INFO , state : *mut INTERACTION_STATE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<INTERACTION_STATE>();
     GetStateInteractionContext(interactioncontext.into(), ::core::mem::transmute(pointerinfo.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -109,7 +109,7 @@ pub unsafe fn GetTapParameterInteractionContext<P0>(interactioncontext: P0, para
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn GetTapParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TAP_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn GetTapParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TAP_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<f32>();
     GetTapParameterInteractionContext(interactioncontext.into(), parameter, &mut result__).from_abi(result__)
 }
@@ -119,7 +119,7 @@ pub unsafe fn GetTranslationParameterInteractionContext<P0>(interactioncontext: 
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn GetTranslationParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TRANSLATION_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn GetTranslationParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TRANSLATION_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<f32>();
     GetTranslationParameterInteractionContext(interactioncontext.into(), parameter, &mut result__).from_abi(result__)
 }
@@ -129,7 +129,7 @@ pub unsafe fn ProcessBufferedPacketsInteractionContext<P0>(interactioncontext: P
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn ProcessBufferedPacketsInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn ProcessBufferedPacketsInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
     ProcessBufferedPacketsInteractionContext(interactioncontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -138,7 +138,7 @@ pub unsafe fn ProcessInertiaInteractionContext<P0>(interactioncontext: P0) -> ::
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn ProcessInertiaInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn ProcessInertiaInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
     ProcessInertiaInteractionContext(interactioncontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -148,7 +148,7 @@ pub unsafe fn ProcessPointerFramesInteractionContext<P0>(interactioncontext: P0,
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn ProcessPointerFramesInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , entriescount : u32 , pointercount : u32 , pointerinfo : *const super::Input::Pointer:: POINTER_INFO ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn ProcessPointerFramesInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , entriescount : u32 , pointercount : u32 , pointerinfo : *const super::Input::Pointer:: POINTER_INFO ) -> :: windows::core::HRESULT );
     ProcessPointerFramesInteractionContext(interactioncontext.into(), entriescount, pointercount, pointerinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -158,7 +158,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext<P0>(interactioncontext: P
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn RegisterOutputCallbackInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK , clientdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn RegisterOutputCallbackInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK , clientdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     RegisterOutputCallbackInteractionContext(interactioncontext.into(), outputcallback, ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -168,7 +168,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext2<P0>(interactioncontext: 
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn RegisterOutputCallbackInteractionContext2 ( interactioncontext : HINTERACTIONCONTEXT , outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK2 , clientdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn RegisterOutputCallbackInteractionContext2 ( interactioncontext : HINTERACTIONCONTEXT , outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK2 , clientdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     RegisterOutputCallbackInteractionContext2(interactioncontext.into(), outputcallback, ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -177,7 +177,7 @@ pub unsafe fn RemovePointerInteractionContext<P0>(interactioncontext: P0, pointe
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn RemovePointerInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , pointerid : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn RemovePointerInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , pointerid : u32 ) -> :: windows::core::HRESULT );
     RemovePointerInteractionContext(interactioncontext.into(), pointerid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -186,7 +186,7 @@ pub unsafe fn ResetInteractionContext<P0>(interactioncontext: P0) -> ::windows::
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn ResetInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn ResetInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
     ResetInteractionContext(interactioncontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -195,7 +195,7 @@ pub unsafe fn SetCrossSlideParametersInteractionContext<P0>(interactioncontext: 
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn SetCrossSlideParametersInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parametercount : u32 , crossslideparameters : *const CROSS_SLIDE_PARAMETER ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn SetCrossSlideParametersInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parametercount : u32 , crossslideparameters : *const CROSS_SLIDE_PARAMETER ) -> :: windows::core::HRESULT );
     SetCrossSlideParametersInteractionContext(interactioncontext.into(), crossslideparameters.len() as _, ::core::mem::transmute(crossslideparameters.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -204,7 +204,7 @@ pub unsafe fn SetHoldParameterInteractionContext<P0>(interactioncontext: P0, par
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn SetHoldParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : HOLD_PARAMETER , value : f32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn SetHoldParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : HOLD_PARAMETER , value : f32 ) -> :: windows::core::HRESULT );
     SetHoldParameterInteractionContext(interactioncontext.into(), parameter, value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -213,7 +213,7 @@ pub unsafe fn SetInertiaParameterInteractionContext<P0>(interactioncontext: P0, 
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn SetInertiaParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , inertiaparameter : INERTIA_PARAMETER , value : f32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn SetInertiaParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , inertiaparameter : INERTIA_PARAMETER , value : f32 ) -> :: windows::core::HRESULT );
     SetInertiaParameterInteractionContext(interactioncontext.into(), inertiaparameter, value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -222,7 +222,7 @@ pub unsafe fn SetInteractionConfigurationInteractionContext<P0>(interactionconte
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn SetInteractionConfigurationInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , configurationcount : u32 , configuration : *const INTERACTION_CONTEXT_CONFIGURATION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn SetInteractionConfigurationInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , configurationcount : u32 , configuration : *const INTERACTION_CONTEXT_CONFIGURATION ) -> :: windows::core::HRESULT );
     SetInteractionConfigurationInteractionContext(interactioncontext.into(), configuration.len() as _, ::core::mem::transmute(configuration.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -231,7 +231,7 @@ pub unsafe fn SetMouseWheelParameterInteractionContext<P0>(interactioncontext: P
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn SetMouseWheelParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : MOUSE_WHEEL_PARAMETER , value : f32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn SetMouseWheelParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : MOUSE_WHEEL_PARAMETER , value : f32 ) -> :: windows::core::HRESULT );
     SetMouseWheelParameterInteractionContext(interactioncontext.into(), parameter, value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -240,7 +240,7 @@ pub unsafe fn SetPivotInteractionContext<P0>(interactioncontext: P0, x: f32, y: 
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn SetPivotInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , x : f32 , y : f32 , radius : f32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn SetPivotInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , x : f32 , y : f32 , radius : f32 ) -> :: windows::core::HRESULT );
     SetPivotInteractionContext(interactioncontext.into(), x, y, radius).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -249,7 +249,7 @@ pub unsafe fn SetPropertyInteractionContext<P0>(interactioncontext: P0, contextp
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn SetPropertyInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , contextproperty : INTERACTION_CONTEXT_PROPERTY , value : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn SetPropertyInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , contextproperty : INTERACTION_CONTEXT_PROPERTY , value : u32 ) -> :: windows::core::HRESULT );
     SetPropertyInteractionContext(interactioncontext.into(), contextproperty, value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -258,7 +258,7 @@ pub unsafe fn SetTapParameterInteractionContext<P0>(interactioncontext: P0, para
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn SetTapParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TAP_PARAMETER , value : f32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn SetTapParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TAP_PARAMETER , value : f32 ) -> :: windows::core::HRESULT );
     SetTapParameterInteractionContext(interactioncontext.into(), parameter, value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -267,7 +267,7 @@ pub unsafe fn SetTranslationParameterInteractionContext<P0>(interactioncontext: 
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn SetTranslationParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TRANSLATION_PARAMETER , value : f32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn SetTranslationParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TRANSLATION_PARAMETER , value : f32 ) -> :: windows::core::HRESULT );
     SetTranslationParameterInteractionContext(interactioncontext.into(), parameter, value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -276,7 +276,7 @@ pub unsafe fn StopInteractionContext<P0>(interactioncontext: P0) -> ::windows::c
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn StopInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ninput.dll""system" fn StopInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
     StopInteractionContext(interactioncontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]

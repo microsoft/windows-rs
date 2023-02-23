@@ -216,7 +216,7 @@ impl IHttpFilter {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IHttpFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IHttpFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IHttpFilter> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -251,7 +251,7 @@ impl ::core::fmt::Debug for IHttpFilter {
     }
 }
 impl ::windows::core::RuntimeType for IHttpFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a4cb6dd5-0902-439e-bfd7-e12552b165ce}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a4cb6dd5-0902-439e-bfd7-e12552b165ce}");
 }
 unsafe impl ::windows::core::Vtable for IHttpFilter {
     type Vtable = IHttpFilter_Vtbl;
@@ -321,8 +321,8 @@ impl HttpBaseProtocolFilter {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpBaseProtocolFilter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<HttpBaseProtocolFilter, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -523,7 +523,7 @@ impl HttpBaseProtocolFilter {
     }
     #[doc(hidden)]
     pub fn IHttpBaseProtocolFilterStatics<R, F: FnOnce(&IHttpBaseProtocolFilterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpBaseProtocolFilter, IHttpBaseProtocolFilterStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpBaseProtocolFilter, IHttpBaseProtocolFilterStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -539,7 +539,7 @@ impl ::core::fmt::Debug for HttpBaseProtocolFilter {
     }
 }
 impl ::windows::core::RuntimeType for HttpBaseProtocolFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Filters.HttpBaseProtocolFilter;{71c89b09-e131-4b54-a53c-eb43ff37e9bb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Filters.HttpBaseProtocolFilter;{71c89b09-e131-4b54-a53c-eb43ff37e9bb})");
 }
 impl ::core::clone::Clone for HttpBaseProtocolFilter {
     fn clone(&self) -> Self {
@@ -555,7 +555,7 @@ unsafe impl ::windows::core::Interface for HttpBaseProtocolFilter {
 impl ::windows::core::RuntimeName for HttpBaseProtocolFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpBaseProtocolFilter";
 }
-::windows::core::interface_hierarchy!(HttpBaseProtocolFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpBaseProtocolFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpBaseProtocolFilter> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -638,7 +638,7 @@ impl ::core::fmt::Debug for HttpCacheControl {
     }
 }
 impl ::windows::core::RuntimeType for HttpCacheControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Filters.HttpCacheControl;{c77e1cb4-3cea-4eb5-ac85-04e186e63ab7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Filters.HttpCacheControl;{c77e1cb4-3cea-4eb5-ac85-04e186e63ab7})");
 }
 impl ::core::clone::Clone for HttpCacheControl {
     fn clone(&self) -> Self {
@@ -654,7 +654,7 @@ unsafe impl ::windows::core::Interface for HttpCacheControl {
 impl ::windows::core::RuntimeName for HttpCacheControl {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpCacheControl";
 }
-::windows::core::interface_hierarchy!(HttpCacheControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpCacheControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpCacheControl {}
 unsafe impl ::core::marker::Sync for HttpCacheControl {}
 #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
@@ -730,7 +730,7 @@ impl ::core::fmt::Debug for HttpServerCustomValidationRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for HttpServerCustomValidationRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs;{3165fe32-e7dd-48b7-a361-939c750e63cc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs;{3165fe32-e7dd-48b7-a361-939c750e63cc})");
 }
 impl ::core::clone::Clone for HttpServerCustomValidationRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -746,7 +746,7 @@ unsafe impl ::windows::core::Interface for HttpServerCustomValidationRequestedEv
 impl ::windows::core::RuntimeName for HttpServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(HttpServerCustomValidationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpServerCustomValidationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpServerCustomValidationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpServerCustomValidationRequestedEventArgs {}
 #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
@@ -779,7 +779,7 @@ impl ::core::fmt::Debug for HttpCacheReadBehavior {
     }
 }
 impl ::windows::core::RuntimeType for HttpCacheReadBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheReadBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheReadBehavior;i4)");
 }
 #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
 #[repr(transparent)]
@@ -809,7 +809,7 @@ impl ::core::fmt::Debug for HttpCacheWriteBehavior {
     }
 }
 impl ::windows::core::RuntimeType for HttpCacheWriteBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheWriteBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheWriteBehavior;i4)");
 }
 #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
 #[repr(transparent)]
@@ -839,7 +839,7 @@ impl ::core::fmt::Debug for HttpCookieUsageBehavior {
     }
 }
 impl ::windows::core::RuntimeType for HttpCookieUsageBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCookieUsageBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCookieUsageBehavior;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

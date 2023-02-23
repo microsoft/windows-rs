@@ -287,7 +287,7 @@ impl IUserActivityContentInfo {
         }
     }
 }
-::windows::core::interface_hierarchy!(IUserActivityContentInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IUserActivityContentInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IUserActivityContentInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -300,7 +300,7 @@ impl ::core::fmt::Debug for IUserActivityContentInfo {
     }
 }
 impl ::windows::core::RuntimeType for IUserActivityContentInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b399e5ad-137f-409d-822d-e1af27ce08dc}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b399e5ad-137f-409d-822d-e1af27ce08dc}");
 }
 unsafe impl ::windows::core::Vtable for IUserActivityContentInfo {
     type Vtable = IUserActivityContentInfo_Vtbl;
@@ -752,12 +752,12 @@ impl UserActivity {
     }
     #[doc(hidden)]
     pub fn IUserActivityFactory<R, F: FnOnce(&IUserActivityFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserActivity, IUserActivityFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserActivity, IUserActivityFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IUserActivityStatics<R, F: FnOnce(&IUserActivityStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserActivity, IUserActivityStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserActivity, IUserActivityStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -773,7 +773,7 @@ impl ::core::fmt::Debug for UserActivity {
     }
 }
 impl ::windows::core::RuntimeType for UserActivity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivity;{fc103e9e-2cab-4d36-aea2-b4bb556cef0f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivity;{fc103e9e-2cab-4d36-aea2-b4bb556cef0f})");
 }
 impl ::core::clone::Clone for UserActivity {
     fn clone(&self) -> Self {
@@ -789,7 +789,7 @@ unsafe impl ::windows::core::Interface for UserActivity {
 impl ::windows::core::RuntimeName for UserActivity {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivity";
 }
-::windows::core::interface_hierarchy!(UserActivity, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserActivity, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivity {}
 unsafe impl ::core::marker::Sync for UserActivity {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -799,8 +799,8 @@ impl UserActivityAttribution {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserActivityAttribution, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<UserActivityAttribution, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -850,7 +850,7 @@ impl UserActivityAttribution {
     }
     #[doc(hidden)]
     pub fn IUserActivityAttributionFactory<R, F: FnOnce(&IUserActivityAttributionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserActivityAttribution, IUserActivityAttributionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserActivityAttribution, IUserActivityAttributionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -866,7 +866,7 @@ impl ::core::fmt::Debug for UserActivityAttribution {
     }
 }
 impl ::windows::core::RuntimeType for UserActivityAttribution {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityAttribution;{34a5c8b5-86dd-4aec-a491-6a4faea5d22e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityAttribution;{34a5c8b5-86dd-4aec-a491-6a4faea5d22e})");
 }
 impl ::core::clone::Clone for UserActivityAttribution {
     fn clone(&self) -> Self {
@@ -882,7 +882,7 @@ unsafe impl ::windows::core::Interface for UserActivityAttribution {
 impl ::windows::core::RuntimeName for UserActivityAttribution {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityAttribution";
 }
-::windows::core::interface_hierarchy!(UserActivityAttribution, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserActivityAttribution, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivityAttribution {}
 unsafe impl ::core::marker::Sync for UserActivityAttribution {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -961,17 +961,17 @@ impl UserActivityChannel {
     }
     #[doc(hidden)]
     pub fn IUserActivityChannelStatics<R, F: FnOnce(&IUserActivityChannelStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserActivityChannel, IUserActivityChannelStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserActivityChannel, IUserActivityChannelStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IUserActivityChannelStatics2<R, F: FnOnce(&IUserActivityChannelStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserActivityChannel, IUserActivityChannelStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserActivityChannel, IUserActivityChannelStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IUserActivityChannelStatics3<R, F: FnOnce(&IUserActivityChannelStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserActivityChannel, IUserActivityChannelStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserActivityChannel, IUserActivityChannelStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -987,7 +987,7 @@ impl ::core::fmt::Debug for UserActivityChannel {
     }
 }
 impl ::windows::core::RuntimeType for UserActivityChannel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityChannel;{bac0f8b8-a0e4-483b-b948-9cbabd06070c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityChannel;{bac0f8b8-a0e4-483b-b948-9cbabd06070c})");
 }
 impl ::core::clone::Clone for UserActivityChannel {
     fn clone(&self) -> Self {
@@ -1003,7 +1003,7 @@ unsafe impl ::windows::core::Interface for UserActivityChannel {
 impl ::windows::core::RuntimeName for UserActivityChannel {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityChannel";
 }
-::windows::core::interface_hierarchy!(UserActivityChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserActivityChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivityChannel {}
 unsafe impl ::core::marker::Sync for UserActivityChannel {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -1025,7 +1025,7 @@ impl UserActivityContentInfo {
     }
     #[doc(hidden)]
     pub fn IUserActivityContentInfoStatics<R, F: FnOnce(&IUserActivityContentInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserActivityContentInfo, IUserActivityContentInfoStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserActivityContentInfo, IUserActivityContentInfoStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1041,7 +1041,7 @@ impl ::core::fmt::Debug for UserActivityContentInfo {
     }
 }
 impl ::windows::core::RuntimeType for UserActivityContentInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityContentInfo;{b399e5ad-137f-409d-822d-e1af27ce08dc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityContentInfo;{b399e5ad-137f-409d-822d-e1af27ce08dc})");
 }
 impl ::core::clone::Clone for UserActivityContentInfo {
     fn clone(&self) -> Self {
@@ -1057,7 +1057,7 @@ unsafe impl ::windows::core::Interface for UserActivityContentInfo {
 impl ::windows::core::RuntimeName for UserActivityContentInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityContentInfo";
 }
-::windows::core::interface_hierarchy!(UserActivityContentInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserActivityContentInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UserActivityContentInfo> for IUserActivityContentInfo {
     type Error = ::windows::core::Error;
     fn try_from(value: UserActivityContentInfo) -> ::windows::core::Result<Self> {
@@ -1100,7 +1100,7 @@ impl ::core::fmt::Debug for UserActivityRequest {
     }
 }
 impl ::windows::core::RuntimeType for UserActivityRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequest;{a0ef6355-cf35-4ff0-8833-50cb4b72e06d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequest;{a0ef6355-cf35-4ff0-8833-50cb4b72e06d})");
 }
 impl ::core::clone::Clone for UserActivityRequest {
     fn clone(&self) -> Self {
@@ -1116,7 +1116,7 @@ unsafe impl ::windows::core::Interface for UserActivityRequest {
 impl ::windows::core::RuntimeName for UserActivityRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequest";
 }
-::windows::core::interface_hierarchy!(UserActivityRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserActivityRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivityRequest {}
 unsafe impl ::core::marker::Sync for UserActivityRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -1146,7 +1146,7 @@ impl UserActivityRequestManager {
     }
     #[doc(hidden)]
     pub fn IUserActivityRequestManagerStatics<R, F: FnOnce(&IUserActivityRequestManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserActivityRequestManager, IUserActivityRequestManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserActivityRequestManager, IUserActivityRequestManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1162,7 +1162,7 @@ impl ::core::fmt::Debug for UserActivityRequestManager {
     }
 }
 impl ::windows::core::RuntimeType for UserActivityRequestManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestManager;{0c30be4e-903d-48d6-82d4-4043ed57791b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestManager;{0c30be4e-903d-48d6-82d4-4043ed57791b})");
 }
 impl ::core::clone::Clone for UserActivityRequestManager {
     fn clone(&self) -> Self {
@@ -1178,7 +1178,7 @@ unsafe impl ::windows::core::Interface for UserActivityRequestManager {
 impl ::windows::core::RuntimeName for UserActivityRequestManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequestManager";
 }
-::windows::core::interface_hierarchy!(UserActivityRequestManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserActivityRequestManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityRequestedEventArgs(::windows::core::IUnknown);
@@ -1212,7 +1212,7 @@ impl ::core::fmt::Debug for UserActivityRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UserActivityRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs;{a4cc7a4c-8229-4cfd-a3bc-c61d318575a4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs;{a4cc7a4c-8229-4cfd-a3bc-c61d318575a4})");
 }
 impl ::core::clone::Clone for UserActivityRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1228,7 +1228,7 @@ unsafe impl ::windows::core::Interface for UserActivityRequestedEventArgs {
 impl ::windows::core::RuntimeName for UserActivityRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(UserActivityRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserActivityRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivityRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for UserActivityRequestedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -1261,7 +1261,7 @@ impl ::core::fmt::Debug for UserActivitySession {
     }
 }
 impl ::windows::core::RuntimeType for UserActivitySession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivitySession;{ae434d78-24fa-44a3-ad48-6eda61aa1924})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivitySession;{ae434d78-24fa-44a3-ad48-6eda61aa1924})");
 }
 impl ::core::clone::Clone for UserActivitySession {
     fn clone(&self) -> Self {
@@ -1277,7 +1277,7 @@ unsafe impl ::windows::core::Interface for UserActivitySession {
 impl ::windows::core::RuntimeName for UserActivitySession {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivitySession";
 }
-::windows::core::interface_hierarchy!(UserActivitySession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserActivitySession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<UserActivitySession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1344,7 +1344,7 @@ impl ::core::fmt::Debug for UserActivitySessionHistoryItem {
     }
 }
 impl ::windows::core::RuntimeType for UserActivitySessionHistoryItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem;{e8d59bd3-3e5d-49fd-98d7-6da97521e255})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem;{e8d59bd3-3e5d-49fd-98d7-6da97521e255})");
 }
 impl ::core::clone::Clone for UserActivitySessionHistoryItem {
     fn clone(&self) -> Self {
@@ -1360,7 +1360,7 @@ unsafe impl ::windows::core::Interface for UserActivitySessionHistoryItem {
 impl ::windows::core::RuntimeName for UserActivitySessionHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem";
 }
-::windows::core::interface_hierarchy!(UserActivitySessionHistoryItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserActivitySessionHistoryItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivitySessionHistoryItem {}
 unsafe impl ::core::marker::Sync for UserActivitySessionHistoryItem {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -1458,7 +1458,7 @@ impl ::core::fmt::Debug for UserActivityVisualElements {
     }
 }
 impl ::windows::core::RuntimeType for UserActivityVisualElements {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityVisualElements;{94757513-262f-49ef-bbbf-9b75d2e85250})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityVisualElements;{94757513-262f-49ef-bbbf-9b75d2e85250})");
 }
 impl ::core::clone::Clone for UserActivityVisualElements {
     fn clone(&self) -> Self {
@@ -1474,7 +1474,7 @@ unsafe impl ::windows::core::Interface for UserActivityVisualElements {
 impl ::windows::core::RuntimeName for UserActivityVisualElements {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityVisualElements";
 }
-::windows::core::interface_hierarchy!(UserActivityVisualElements, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserActivityVisualElements, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivityVisualElements {}
 unsafe impl ::core::marker::Sync for UserActivityVisualElements {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -1505,7 +1505,7 @@ impl ::core::fmt::Debug for UserActivityState {
     }
 }
 impl ::windows::core::RuntimeType for UserActivityState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserActivities.UserActivityState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserActivities.UserActivityState;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -6,7 +6,7 @@ impl IInkCommitRequestHandler {
         (::windows::core::Vtable::vtable(self).OnCommitRequested)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInkCommitRequestHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInkCommitRequestHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInkCommitRequestHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -50,7 +50,7 @@ impl IInkD2DRenderer {
         (::windows::core::Vtable::vtable(self).Draw)(::windows::core::Vtable::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), fhighcontrast.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInkD2DRenderer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInkD2DRenderer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInkD2DRenderer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -94,7 +94,7 @@ impl IInkD2DRenderer2 {
         (::windows::core::Vtable::vtable(self).Draw)(::windows::core::Vtable::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), highcontrastadjustment).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInkD2DRenderer2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInkD2DRenderer2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInkD2DRenderer2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -149,7 +149,7 @@ impl IInkDesktopHost {
         (::windows::core::Vtable::vtable(self).CreateAndInitializeInkPresenter)(::windows::core::Vtable::as_raw(self), rootvisual.into().abi(), width, height, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IInkDesktopHost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInkDesktopHost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInkDesktopHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -188,7 +188,7 @@ impl IInkHostWorkItem {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInkHostWorkItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInkHostWorkItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInkHostWorkItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -244,7 +244,7 @@ impl IInkPresenterDesktop {
         (::windows::core::Vtable::vtable(self).OnHighContrastChanged)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInkPresenterDesktop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInkPresenterDesktop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInkPresenterDesktop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

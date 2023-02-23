@@ -219,7 +219,7 @@ impl IGameController {
         }
     }
 }
-::windows::core::interface_hierarchy!(IGameController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IGameController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IGameController {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -232,7 +232,7 @@ impl ::core::fmt::Debug for IGameController {
     }
 }
 impl ::windows::core::RuntimeType for IGameController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1baf6522-5f64-42c5-8267-b9fe2215bfbd}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1baf6522-5f64-42c5-8267-b9fe2215bfbd}");
 }
 unsafe impl ::windows::core::Vtable for IGameController {
     type Vtable = IGameController_Vtbl;
@@ -294,7 +294,7 @@ impl IGameControllerBatteryInfo {
         }
     }
 }
-::windows::core::interface_hierarchy!(IGameControllerBatteryInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IGameControllerBatteryInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IGameControllerBatteryInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -307,7 +307,7 @@ impl ::core::fmt::Debug for IGameControllerBatteryInfo {
     }
 }
 impl ::windows::core::RuntimeType for IGameControllerBatteryInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{dcecc681-3963-4da6-955d-553f3b6f6161}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{dcecc681-3963-4da6-955d-553f3b6f6161}");
 }
 unsafe impl ::windows::core::Vtable for IGameControllerBatteryInfo {
     type Vtable = IGameControllerBatteryInfo_Vtbl;
@@ -858,12 +858,12 @@ impl ArcadeStick {
     }
     #[doc(hidden)]
     pub fn IArcadeStickStatics<R, F: FnOnce(&IArcadeStickStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ArcadeStick, IArcadeStickStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ArcadeStick, IArcadeStickStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IArcadeStickStatics2<R, F: FnOnce(&IArcadeStickStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ArcadeStick, IArcadeStickStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ArcadeStick, IArcadeStickStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -879,7 +879,7 @@ impl ::core::fmt::Debug for ArcadeStick {
     }
 }
 impl ::windows::core::RuntimeType for ArcadeStick {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ArcadeStick;{b14a539d-befb-4c81-8051-15ecf3b13036})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ArcadeStick;{b14a539d-befb-4c81-8051-15ecf3b13036})");
 }
 impl ::core::clone::Clone for ArcadeStick {
     fn clone(&self) -> Self {
@@ -895,7 +895,7 @@ unsafe impl ::windows::core::Interface for ArcadeStick {
 impl ::windows::core::RuntimeName for ArcadeStick {
     const NAME: &'static str = "Windows.Gaming.Input.ArcadeStick";
 }
-::windows::core::interface_hierarchy!(ArcadeStick, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ArcadeStick, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ArcadeStick> for IGameController {
     type Error = ::windows::core::Error;
     fn try_from(value: ArcadeStick) -> ::windows::core::Result<Self> {
@@ -1084,7 +1084,7 @@ impl FlightStick {
     }
     #[doc(hidden)]
     pub fn IFlightStickStatics<R, F: FnOnce(&IFlightStickStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FlightStick, IFlightStickStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FlightStick, IFlightStickStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1100,7 +1100,7 @@ impl ::core::fmt::Debug for FlightStick {
     }
 }
 impl ::windows::core::RuntimeType for FlightStick {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.FlightStick;{b4a2c01c-b83b-4459-a1a9-97b03c33da7c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.FlightStick;{b4a2c01c-b83b-4459-a1a9-97b03c33da7c})");
 }
 impl ::core::clone::Clone for FlightStick {
     fn clone(&self) -> Self {
@@ -1116,7 +1116,7 @@ unsafe impl ::windows::core::Interface for FlightStick {
 impl ::windows::core::RuntimeName for FlightStick {
     const NAME: &'static str = "Windows.Gaming.Input.FlightStick";
 }
-::windows::core::interface_hierarchy!(FlightStick, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FlightStick, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<FlightStick> for IGameController {
     type Error = ::windows::core::Error;
     fn try_from(value: FlightStick) -> ::windows::core::Result<Self> {
@@ -1309,12 +1309,12 @@ impl Gamepad {
     }
     #[doc(hidden)]
     pub fn IGamepadStatics<R, F: FnOnce(&IGamepadStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Gamepad, IGamepadStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Gamepad, IGamepadStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGamepadStatics2<R, F: FnOnce(&IGamepadStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Gamepad, IGamepadStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Gamepad, IGamepadStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1330,7 +1330,7 @@ impl ::core::fmt::Debug for Gamepad {
     }
 }
 impl ::windows::core::RuntimeType for Gamepad {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Gamepad;{bc7bb43c-0a69-3903-9e9d-a50f86a45de5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Gamepad;{bc7bb43c-0a69-3903-9e9d-a50f86a45de5})");
 }
 impl ::core::clone::Clone for Gamepad {
     fn clone(&self) -> Self {
@@ -1346,7 +1346,7 @@ unsafe impl ::windows::core::Interface for Gamepad {
 impl ::windows::core::RuntimeName for Gamepad {
     const NAME: &'static str = "Windows.Gaming.Input.Gamepad";
 }
-::windows::core::interface_hierarchy!(Gamepad, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Gamepad, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Gamepad> for IGameController {
     type Error = ::windows::core::Error;
     fn try_from(value: Gamepad) -> ::windows::core::Result<Self> {
@@ -1427,7 +1427,7 @@ impl ::core::fmt::Debug for Headset {
     }
 }
 impl ::windows::core::RuntimeType for Headset {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Headset;{3fd156ef-6925-3fa8-9181-029c5223ae3b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Headset;{3fd156ef-6925-3fa8-9181-029c5223ae3b})");
 }
 impl ::core::clone::Clone for Headset {
     fn clone(&self) -> Self {
@@ -1443,7 +1443,7 @@ unsafe impl ::windows::core::Interface for Headset {
 impl ::windows::core::RuntimeName for Headset {
     const NAME: &'static str = "Windows.Gaming.Input.Headset";
 }
-::windows::core::interface_hierarchy!(Headset, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Headset, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Headset> for IGameControllerBatteryInfo {
     type Error = ::windows::core::Error;
     fn try_from(value: Headset) -> ::windows::core::Result<Self> {
@@ -1650,12 +1650,12 @@ impl RacingWheel {
     }
     #[doc(hidden)]
     pub fn IRacingWheelStatics<R, F: FnOnce(&IRacingWheelStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RacingWheel, IRacingWheelStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RacingWheel, IRacingWheelStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IRacingWheelStatics2<R, F: FnOnce(&IRacingWheelStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RacingWheel, IRacingWheelStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RacingWheel, IRacingWheelStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1671,7 +1671,7 @@ impl ::core::fmt::Debug for RacingWheel {
     }
 }
 impl ::windows::core::RuntimeType for RacingWheel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RacingWheel;{f546656f-e106-4c82-a90f-554012904b85})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RacingWheel;{f546656f-e106-4c82-a90f-554012904b85})");
 }
 impl ::core::clone::Clone for RacingWheel {
     fn clone(&self) -> Self {
@@ -1687,7 +1687,7 @@ unsafe impl ::windows::core::Interface for RacingWheel {
 impl ::windows::core::RuntimeName for RacingWheel {
     const NAME: &'static str = "Windows.Gaming.Input.RacingWheel";
 }
-::windows::core::interface_hierarchy!(RacingWheel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RacingWheel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RacingWheel> for IGameController {
     type Error = ::windows::core::Error;
     fn try_from(value: RacingWheel) -> ::windows::core::Result<Self> {
@@ -1943,7 +1943,7 @@ impl RawGameController {
     }
     #[doc(hidden)]
     pub fn IRawGameControllerStatics<R, F: FnOnce(&IRawGameControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RawGameController, IRawGameControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RawGameController, IRawGameControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1959,7 +1959,7 @@ impl ::core::fmt::Debug for RawGameController {
     }
 }
 impl ::windows::core::RuntimeType for RawGameController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RawGameController;{7cad6d91-a7e1-4f71-9a78-33e9c5dfea62})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RawGameController;{7cad6d91-a7e1-4f71-9a78-33e9c5dfea62})");
 }
 impl ::core::clone::Clone for RawGameController {
     fn clone(&self) -> Self {
@@ -1975,7 +1975,7 @@ unsafe impl ::windows::core::Interface for RawGameController {
 impl ::windows::core::RuntimeName for RawGameController {
     const NAME: &'static str = "Windows.Gaming.Input.RawGameController";
 }
-::windows::core::interface_hierarchy!(RawGameController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RawGameController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RawGameController> for IGameController {
     type Error = ::windows::core::Error;
     fn try_from(value: RawGameController) -> ::windows::core::Result<Self> {
@@ -2164,12 +2164,12 @@ impl UINavigationController {
     }
     #[doc(hidden)]
     pub fn IUINavigationControllerStatics<R, F: FnOnce(&IUINavigationControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UINavigationController, IUINavigationControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UINavigationController, IUINavigationControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IUINavigationControllerStatics2<R, F: FnOnce(&IUINavigationControllerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UINavigationController, IUINavigationControllerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UINavigationController, IUINavigationControllerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2185,7 +2185,7 @@ impl ::core::fmt::Debug for UINavigationController {
     }
 }
 impl ::windows::core::RuntimeType for UINavigationController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.UINavigationController;{e5aeefdd-f50e-4a55-8cdc-d33229548175})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.UINavigationController;{e5aeefdd-f50e-4a55-8cdc-d33229548175})");
 }
 impl ::core::clone::Clone for UINavigationController {
     fn clone(&self) -> Self {
@@ -2201,7 +2201,7 @@ unsafe impl ::windows::core::Interface for UINavigationController {
 impl ::windows::core::RuntimeName for UINavigationController {
     const NAME: &'static str = "Windows.Gaming.Input.UINavigationController";
 }
-::windows::core::interface_hierarchy!(UINavigationController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UINavigationController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UINavigationController> for IGameController {
     type Error = ::windows::core::Error;
     fn try_from(value: UINavigationController) -> ::windows::core::Result<Self> {
@@ -2314,7 +2314,7 @@ impl ::core::ops::Not for ArcadeStickButtons {
     }
 }
 impl ::windows::core::RuntimeType for ArcadeStickButtons {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ArcadeStickButtons;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ArcadeStickButtons;u4)");
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
@@ -2378,7 +2378,7 @@ impl ::core::ops::Not for FlightStickButtons {
     }
 }
 impl ::windows::core::RuntimeType for FlightStickButtons {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.FlightStickButtons;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.FlightStickButtons;u4)");
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
@@ -2475,7 +2475,7 @@ impl ::core::fmt::Debug for GameControllerButtonLabel {
     }
 }
 impl ::windows::core::RuntimeType for GameControllerButtonLabel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerButtonLabel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerButtonLabel;i4)");
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
@@ -2506,7 +2506,7 @@ impl ::core::fmt::Debug for GameControllerSwitchKind {
     }
 }
 impl ::windows::core::RuntimeType for GameControllerSwitchKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchKind;i4)");
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
@@ -2543,7 +2543,7 @@ impl ::core::fmt::Debug for GameControllerSwitchPosition {
     }
 }
 impl ::windows::core::RuntimeType for GameControllerSwitchPosition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4)");
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
@@ -2623,7 +2623,7 @@ impl ::core::ops::Not for GamepadButtons {
     }
 }
 impl ::windows::core::RuntimeType for GamepadButtons {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GamepadButtons;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GamepadButtons;u4)");
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
@@ -2697,7 +2697,7 @@ impl ::core::ops::Not for OptionalUINavigationButtons {
     }
 }
 impl ::windows::core::RuntimeType for OptionalUINavigationButtons {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4)");
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
@@ -2781,7 +2781,7 @@ impl ::core::ops::Not for RacingWheelButtons {
     }
 }
 impl ::windows::core::RuntimeType for RacingWheelButtons {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RacingWheelButtons;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RacingWheelButtons;u4)");
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
@@ -2851,7 +2851,7 @@ impl ::core::ops::Not for RequiredUINavigationButtons {
     }
 }
 impl ::windows::core::RuntimeType for RequiredUINavigationButtons {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
@@ -2874,7 +2874,7 @@ impl ::windows::core::TypeKind for ArcadeStickReading {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for ArcadeStickReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.ArcadeStickReading;u8;enum(Windows.Gaming.Input.ArcadeStickButtons;u4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.ArcadeStickReading;u8;enum(Windows.Gaming.Input.ArcadeStickButtons;u4))");
 }
 impl ::core::cmp::PartialEq for ArcadeStickReading {
     fn eq(&self, other: &Self) -> bool {
@@ -2913,7 +2913,7 @@ impl ::windows::core::TypeKind for FlightStickReading {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for FlightStickReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.FlightStickReading;u8;enum(Windows.Gaming.Input.FlightStickButtons;u4);enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4);f8;f8;f8;f8)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.FlightStickReading;u8;enum(Windows.Gaming.Input.FlightStickButtons;u4);enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4);f8;f8;f8;f8)");
 }
 impl ::core::cmp::PartialEq for FlightStickReading {
     fn eq(&self, other: &Self) -> bool {
@@ -2953,7 +2953,7 @@ impl ::windows::core::TypeKind for GamepadReading {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for GamepadReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadReading;u8;enum(Windows.Gaming.Input.GamepadButtons;u4);f8;f8;f8;f8;f8;f8)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadReading;u8;enum(Windows.Gaming.Input.GamepadButtons;u4);f8;f8;f8;f8;f8;f8)");
 }
 impl ::core::cmp::PartialEq for GamepadReading {
     fn eq(&self, other: &Self) -> bool {
@@ -2989,7 +2989,7 @@ impl ::windows::core::TypeKind for GamepadVibration {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for GamepadVibration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadVibration;f8;f8;f8;f8)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadVibration;f8;f8;f8;f8)");
 }
 impl ::core::cmp::PartialEq for GamepadVibration {
     fn eq(&self, other: &Self) -> bool {
@@ -3029,7 +3029,7 @@ impl ::windows::core::TypeKind for RacingWheelReading {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for RacingWheelReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.RacingWheelReading;u8;enum(Windows.Gaming.Input.RacingWheelButtons;u4);i4;f8;f8;f8;f8;f8)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.RacingWheelReading;u8;enum(Windows.Gaming.Input.RacingWheelButtons;u4);i4;f8;f8;f8;f8;f8)");
 }
 impl ::core::cmp::PartialEq for RacingWheelReading {
     fn eq(&self, other: &Self) -> bool {
@@ -3064,7 +3064,7 @@ impl ::windows::core::TypeKind for UINavigationReading {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for UINavigationReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.UINavigationReading;u8;enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4);enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.UINavigationReading;u8;enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4);enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4))");
 }
 impl ::core::cmp::PartialEq for UINavigationReading {
     fn eq(&self, other: &Self) -> bool {

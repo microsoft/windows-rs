@@ -107,7 +107,7 @@ impl XsltProcessor {
     }
     #[doc(hidden)]
     pub fn IXsltProcessorFactory<R, F: FnOnce(&IXsltProcessorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<XsltProcessor, IXsltProcessorFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<XsltProcessor, IXsltProcessorFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -123,7 +123,7 @@ impl ::core::fmt::Debug for XsltProcessor {
     }
 }
 impl ::windows::core::RuntimeType for XsltProcessor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Xsl.XsltProcessor;{7b64703f-550c-48c6-a90f-93a5b964518f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Xsl.XsltProcessor;{7b64703f-550c-48c6-a90f-93a5b964518f})");
 }
 impl ::core::clone::Clone for XsltProcessor {
     fn clone(&self) -> Self {
@@ -139,7 +139,7 @@ unsafe impl ::windows::core::Interface for XsltProcessor {
 impl ::windows::core::RuntimeName for XsltProcessor {
     const NAME: &'static str = "Windows.Data.Xml.Xsl.XsltProcessor";
 }
-::windows::core::interface_hierarchy!(XsltProcessor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XsltProcessor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XsltProcessor {}
 unsafe impl ::core::marker::Sync for XsltProcessor {}
 #[cfg(feature = "implement")]

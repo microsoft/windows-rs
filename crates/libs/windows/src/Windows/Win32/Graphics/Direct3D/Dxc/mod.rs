@@ -4,7 +4,7 @@ pub unsafe fn DxcCreateInstance<T>(rclsid: *const ::windows::core::GUID) -> ::wi
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance ( rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance ( rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DxcCreateInstance(rclsid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -16,7 +16,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IMalloc>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance2 ( pmalloc : * mut::core::ffi::c_void , rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxcompiler.dll""system" fn DxcCreateInstance2 ( pmalloc : * mut::core::ffi::c_void , rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DxcCreateInstance2(pmalloc.into().abi(), rclsid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -32,7 +32,7 @@ impl IDxcAssembler {
         (::windows::core::Vtable::vtable(self).AssembleToContainer)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcAssembler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcAssembler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcAssembler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -72,7 +72,7 @@ impl IDxcBlob {
         (::windows::core::Vtable::vtable(self).GetBufferSize)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDxcBlob, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcBlob, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcBlob {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -118,7 +118,7 @@ impl IDxcBlobEncoding {
         (::windows::core::Vtable::vtable(self).GetEncoding)(::windows::core::Vtable::as_raw(self), pknown, pcodepage).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDxcBlobEncoding, ::windows::core::IUnknown, IDxcBlob);
+::windows::imp::interface_hierarchy!(IDxcBlobEncoding, ::windows::core::IUnknown, IDxcBlob);
 impl ::core::cmp::PartialEq for IDxcBlobEncoding {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -172,7 +172,7 @@ impl IDxcBlobUtf16 {
         (::windows::core::Vtable::vtable(self).GetStringLength)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDxcBlobUtf16, ::windows::core::IUnknown, IDxcBlob, IDxcBlobEncoding);
+::windows::imp::interface_hierarchy!(IDxcBlobUtf16, ::windows::core::IUnknown, IDxcBlob, IDxcBlobEncoding);
 impl ::core::cmp::PartialEq for IDxcBlobUtf16 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -224,7 +224,7 @@ impl IDxcBlobUtf8 {
         (::windows::core::Vtable::vtable(self).GetStringLength)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDxcBlobUtf8, ::windows::core::IUnknown, IDxcBlob, IDxcBlobEncoding);
+::windows::imp::interface_hierarchy!(IDxcBlobUtf8, ::windows::core::IUnknown, IDxcBlob, IDxcBlobEncoding);
 impl ::core::cmp::PartialEq for IDxcBlobUtf8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -286,7 +286,7 @@ impl IDxcCompiler {
         (::windows::core::Vtable::vtable(self).Disassemble)(::windows::core::Vtable::as_raw(self), psource.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcCompiler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcCompiler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcCompiler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -374,7 +374,7 @@ impl IDxcCompiler2 {
         .ok()
     }
 }
-::windows::core::interface_hierarchy!(IDxcCompiler2, ::windows::core::IUnknown, IDxcCompiler);
+::windows::imp::interface_hierarchy!(IDxcCompiler2, ::windows::core::IUnknown, IDxcCompiler);
 impl ::core::cmp::PartialEq for IDxcCompiler2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -423,7 +423,7 @@ impl IDxcCompiler3 {
         (::windows::core::Vtable::vtable(self).Disassemble)(::windows::core::Vtable::as_raw(self), pobject, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcCompiler3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcCompiler3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcCompiler3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -473,7 +473,7 @@ impl IDxcCompilerArgs {
         (::windows::core::Vtable::vtable(self).AddDefines)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDxcCompilerArgs, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcCompilerArgs, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcCompilerArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -530,7 +530,7 @@ impl IDxcContainerBuilder {
         (::windows::core::Vtable::vtable(self).SerializeContainer)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcContainerBuilder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcContainerBuilder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcContainerBuilder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -592,7 +592,7 @@ impl IDxcContainerReflection {
         (::windows::core::Vtable::vtable(self).GetPartReflection)(::windows::core::Vtable::as_raw(self), idx, iid, ppvobject).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDxcContainerReflection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcContainerReflection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcContainerReflection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -640,7 +640,7 @@ impl IDxcExtraOutputs {
         (::windows::core::Vtable::vtable(self).GetOutput)(::windows::core::Vtable::as_raw(self), uindex, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(ppoutputtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoutputname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDxcExtraOutputs, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcExtraOutputs, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcExtraOutputs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -682,7 +682,7 @@ impl IDxcIncludeHandler {
         (::windows::core::Vtable::vtable(self).LoadSource)(::windows::core::Vtable::as_raw(self), pfilename.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcIncludeHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcIncludeHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcIncludeHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -782,7 +782,7 @@ impl IDxcLibrary {
         (::windows::core::Vtable::vtable(self).GetBlobAsUtf16)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcLibrary, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcLibrary, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcLibrary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -849,7 +849,7 @@ impl IDxcLinker {
         (::windows::core::Vtable::vtable(self).Link)(::windows::core::Vtable::as_raw(self), pentryname.into().abi(), ptargetprofile.into().abi(), ::core::mem::transmute(plibnames.as_ptr()), plibnames.len() as _, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcLinker, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcLinker, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcLinker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -896,7 +896,7 @@ impl IDxcOperationResult {
         (::windows::core::Vtable::vtable(self).GetErrorBuffer)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcOperationResult, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcOperationResult, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcOperationResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -946,7 +946,7 @@ impl IDxcOptimizer {
         (::windows::core::Vtable::vtable(self).RunOptimizer)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), ::core::mem::transmute(ppoptions.as_ptr()), ppoptions.len() as _, ::core::mem::transmute(poutputmodule), ::core::mem::transmute(ppoutputtext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDxcOptimizer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcOptimizer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcOptimizer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1002,7 +1002,7 @@ impl IDxcOptimizerPass {
         (::windows::core::Vtable::vtable(self).GetOptionArgDescription)(::windows::core::Vtable::as_raw(self), argindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcOptimizerPass, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcOptimizerPass, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcOptimizerPass {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1141,7 +1141,7 @@ impl IDxcPdbUtils {
         (::windows::core::Vtable::vtable(self).OverrideRootSignature)(::windows::core::Vtable::as_raw(self), prootsignature.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDxcPdbUtils, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcPdbUtils, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcPdbUtils {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1233,7 +1233,7 @@ impl IDxcResult {
         (::windows::core::Vtable::vtable(self).PrimaryOutput)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDxcResult, ::windows::core::IUnknown, IDxcOperationResult);
+::windows::imp::interface_hierarchy!(IDxcResult, ::windows::core::IUnknown, IDxcOperationResult);
 impl ::core::cmp::PartialEq for IDxcResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1353,7 +1353,7 @@ impl IDxcUtils {
         (::windows::core::Vtable::vtable(self).GetPDBContents)(::windows::core::Vtable::as_raw(self), ppdbblob.into().abi(), ::core::mem::transmute(pphash), ::core::mem::transmute(ppcontainer)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDxcUtils, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcUtils, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcUtils {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1412,7 +1412,7 @@ impl IDxcValidator {
         (::windows::core::Vtable::vtable(self).Validate)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcValidator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcValidator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcValidator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1460,7 +1460,7 @@ impl IDxcValidator2 {
         (::windows::core::Vtable::vtable(self).ValidateWithDebug)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, ::core::mem::transmute(poptdebugbitcode.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcValidator2, ::windows::core::IUnknown, IDxcValidator);
+::windows::imp::interface_hierarchy!(IDxcValidator2, ::windows::core::IUnknown, IDxcValidator);
 impl ::core::cmp::PartialEq for IDxcValidator2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1501,7 +1501,7 @@ impl IDxcVersionInfo {
         (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcVersionInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcVersionInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcVersionInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1546,7 +1546,7 @@ impl IDxcVersionInfo2 {
         (::windows::core::Vtable::vtable(self).GetCommitInfo)(::windows::core::Vtable::as_raw(self), pcommitcount, pcommithash).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDxcVersionInfo2, ::windows::core::IUnknown, IDxcVersionInfo);
+::windows::imp::interface_hierarchy!(IDxcVersionInfo2, ::windows::core::IUnknown, IDxcVersionInfo);
 impl ::core::cmp::PartialEq for IDxcVersionInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1584,7 +1584,7 @@ impl IDxcVersionInfo3 {
         (::windows::core::Vtable::vtable(self).GetCustomVersionString)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDxcVersionInfo3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDxcVersionInfo3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDxcVersionInfo3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

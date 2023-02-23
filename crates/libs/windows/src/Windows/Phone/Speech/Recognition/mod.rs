@@ -29,7 +29,7 @@ impl ::core::fmt::Debug for SpeechRecognitionUIStatus {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionUIStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Speech.Recognition.SpeechRecognitionUIStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Speech.Recognition.SpeechRecognitionUIStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

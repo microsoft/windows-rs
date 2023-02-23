@@ -1,5 +1,5 @@
 use super::*;
-use bindings::*;
+use imp::*;
 
 /// An error code value returned by most COM functions.
 #[repr(transparent)]
@@ -99,7 +99,7 @@ impl HRESULT {
 }
 
 impl RuntimeType for HRESULT {
-    const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"struct(Windows.Foundation.HResult;i32)");
+    const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.HResult;i32)");
 }
 
 impl TypeKind for HRESULT {

@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::StructuredStorage::IStorage>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "query.dll""system" fn BindIFilterFromStorage ( pstg : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "query.dll""system" fn BindIFilterFromStorage ( pstg : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     BindIFilterFromStorage(pstg.into().abi(), punkouter.into().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "query.dll""system" fn BindIFilterFromStream ( pstm : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "query.dll""system" fn BindIFilterFromStream ( pstm : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     BindIFilterFromStream(pstm.into().abi(), punkouter.into().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -27,7 +27,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "query.dll""system" fn LoadIFilter ( pwcspath : :: windows::core::PCWSTR , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "query.dll""system" fn LoadIFilter ( pwcspath : :: windows::core::PCWSTR , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     LoadIFilter(pwcspath.into().abi(), punkouter.into().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -36,7 +36,7 @@ pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const ::windo
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "query.dll""system" fn LoadIFilterEx ( pwcspath : :: windows::core::PCWSTR , dwflags : u32 , riid : *const :: windows::core::GUID , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "query.dll""system" fn LoadIFilterEx ( pwcspath : :: windows::core::PCWSTR , dwflags : u32 , riid : *const :: windows::core::GUID , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     LoadIFilterEx(pwcspath.into().abi(), dwflags, riid, ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -65,7 +65,7 @@ impl IFilter {
         (::windows::core::Vtable::vtable(self).BindRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(origpos), riid, ppunk)
     }
 }
-::windows::core::interface_hierarchy!(IFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -125,7 +125,7 @@ impl IPhraseSink {
         (::windows::core::Vtable::vtable(self).PutPhrase)(::windows::core::Vtable::as_raw(self), pwcphrase.into().abi(), cwcphrase).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPhraseSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPhraseSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPhraseSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

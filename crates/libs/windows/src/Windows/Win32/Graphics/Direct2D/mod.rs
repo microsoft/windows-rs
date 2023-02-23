@@ -4,14 +4,14 @@ pub mod Common;
 #[cfg(feature = "Foundation_Numerics")]
 #[inline]
 pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32 {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1ComputeMaximumScaleFactor ( matrix : *const super::super::super::Foundation::Numerics:: Matrix3x2 ) -> f32 );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1ComputeMaximumScaleFactor ( matrix : *const super::super::super::Foundation::Numerics:: Matrix3x2 ) -> f32 );
     D2D1ComputeMaximumScaleFactor(matrix)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[inline]
 pub unsafe fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1ConvertColorSpace ( sourcecolorspace : D2D1_COLOR_SPACE , destinationcolorspace : D2D1_COLOR_SPACE , color : *const Common:: D2D1_COLOR_F ) -> Common:: D2D1_COLOR_F );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1ConvertColorSpace ( sourcecolorspace : D2D1_COLOR_SPACE , destinationcolorspace : D2D1_COLOR_SPACE , color : *const Common:: D2D1_COLOR_F ) -> Common:: D2D1_COLOR_F );
     D2D1ConvertColorSpace(sourcecolorspace, destinationcolorspace, color)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`*"]
@@ -21,7 +21,7 @@ pub unsafe fn D2D1CreateDevice<P0>(dxgidevice: P0, creationproperties: ::core::o
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::Dxgi::IDXGIDevice>>,
 {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1CreateDevice ( dxgidevice : * mut::core::ffi::c_void , creationproperties : *const D2D1_CREATION_PROPERTIES , d2ddevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1CreateDevice ( dxgidevice : * mut::core::ffi::c_void , creationproperties : *const D2D1_CREATION_PROPERTIES , d2ddevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID2D1Device>();
     D2D1CreateDevice(dxgidevice.into().abi(), ::core::mem::transmute(creationproperties.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -32,7 +32,7 @@ pub unsafe fn D2D1CreateDeviceContext<P0>(dxgisurface: P0, creationproperties: :
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::Dxgi::IDXGISurface>>,
 {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1CreateDeviceContext ( dxgisurface : * mut::core::ffi::c_void , creationproperties : *const D2D1_CREATION_PROPERTIES , d2ddevicecontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1CreateDeviceContext ( dxgisurface : * mut::core::ffi::c_void , creationproperties : *const D2D1_CREATION_PROPERTIES , d2ddevicecontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID2D1DeviceContext>();
     D2D1CreateDeviceContext(dxgisurface.into().abi(), ::core::mem::transmute(creationproperties.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -42,7 +42,7 @@ pub unsafe fn D2D1CreateFactory<T>(factorytype: D2D1_FACTORY_TYPE, pfactoryoptio
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1CreateFactory ( factorytype : D2D1_FACTORY_TYPE , riid : *const :: windows::core::GUID , pfactoryoptions : *const D2D1_FACTORY_OPTIONS , ppifactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1CreateFactory ( factorytype : D2D1_FACTORY_TYPE , riid : *const :: windows::core::GUID , pfactoryoptions : *const D2D1_FACTORY_OPTIONS , ppifactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     D2D1CreateFactory(factorytype, &<T as ::windows::core::Interface>::IID, ::core::mem::transmute(pfactoryoptions.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -50,53 +50,53 @@ where
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[inline]
 pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Common::D2D_POINT_2F, ppoint1: *const Common::D2D_POINT_2F, ppoint2: *const Common::D2D_POINT_2F, ppoint3: *const Common::D2D_POINT_2F, ppoint4: *const Common::D2D_POINT_2F, ppoint5: *const Common::D2D_POINT_2F, ppoint6: *const Common::D2D_POINT_2F, ppoint7: *const Common::D2D_POINT_2F, ppoint8: *const Common::D2D_POINT_2F, ppoint9: *const Common::D2D_POINT_2F, ppoint10: *const Common::D2D_POINT_2F, ppoint11: *const Common::D2D_POINT_2F, ptensorpoint11: *mut Common::D2D_POINT_2F, ptensorpoint12: *mut Common::D2D_POINT_2F, ptensorpoint21: *mut Common::D2D_POINT_2F, ptensorpoint22: *mut Common::D2D_POINT_2F) {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch ( ppoint0 : *const Common:: D2D_POINT_2F , ppoint1 : *const Common:: D2D_POINT_2F , ppoint2 : *const Common:: D2D_POINT_2F , ppoint3 : *const Common:: D2D_POINT_2F , ppoint4 : *const Common:: D2D_POINT_2F , ppoint5 : *const Common:: D2D_POINT_2F , ppoint6 : *const Common:: D2D_POINT_2F , ppoint7 : *const Common:: D2D_POINT_2F , ppoint8 : *const Common:: D2D_POINT_2F , ppoint9 : *const Common:: D2D_POINT_2F , ppoint10 : *const Common:: D2D_POINT_2F , ppoint11 : *const Common:: D2D_POINT_2F , ptensorpoint11 : *mut Common:: D2D_POINT_2F , ptensorpoint12 : *mut Common:: D2D_POINT_2F , ptensorpoint21 : *mut Common:: D2D_POINT_2F , ptensorpoint22 : *mut Common:: D2D_POINT_2F ) -> ( ) );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch ( ppoint0 : *const Common:: D2D_POINT_2F , ppoint1 : *const Common:: D2D_POINT_2F , ppoint2 : *const Common:: D2D_POINT_2F , ppoint3 : *const Common:: D2D_POINT_2F , ppoint4 : *const Common:: D2D_POINT_2F , ppoint5 : *const Common:: D2D_POINT_2F , ppoint6 : *const Common:: D2D_POINT_2F , ppoint7 : *const Common:: D2D_POINT_2F , ppoint8 : *const Common:: D2D_POINT_2F , ppoint9 : *const Common:: D2D_POINT_2F , ppoint10 : *const Common:: D2D_POINT_2F , ppoint11 : *const Common:: D2D_POINT_2F , ptensorpoint11 : *mut Common:: D2D_POINT_2F , ptensorpoint12 : *mut Common:: D2D_POINT_2F , ptensorpoint21 : *mut Common:: D2D_POINT_2F , ptensorpoint22 : *mut Common:: D2D_POINT_2F ) -> ( ) );
     D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0, ppoint1, ppoint2, ppoint3, ppoint4, ppoint5, ppoint6, ppoint7, ppoint8, ppoint9, ppoint10, ppoint11, ptensorpoint11, ptensorpoint12, ptensorpoint21, ptensorpoint22)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1InvertMatrix ( matrix : *mut super::super::super::Foundation::Numerics:: Matrix3x2 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1InvertMatrix ( matrix : *mut super::super::super::Foundation::Numerics:: Matrix3x2 ) -> super::super::Foundation:: BOOL );
     D2D1InvertMatrix(matrix)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1IsMatrixInvertible ( matrix : *const super::super::super::Foundation::Numerics:: Matrix3x2 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1IsMatrixInvertible ( matrix : *const super::super::super::Foundation::Numerics:: Matrix3x2 ) -> super::super::Foundation:: BOOL );
     D2D1IsMatrixInvertible(matrix)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 #[inline]
 pub unsafe fn D2D1MakeRotateMatrix(angle: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1MakeRotateMatrix ( angle : f32 , center : Common:: D2D_POINT_2F , matrix : *mut super::super::super::Foundation::Numerics:: Matrix3x2 ) -> ( ) );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1MakeRotateMatrix ( angle : f32 , center : Common:: D2D_POINT_2F , matrix : *mut super::super::super::Foundation::Numerics:: Matrix3x2 ) -> ( ) );
     D2D1MakeRotateMatrix(angle, ::core::mem::transmute(center), matrix)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 #[inline]
 pub unsafe fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1MakeSkewMatrix ( anglex : f32 , angley : f32 , center : Common:: D2D_POINT_2F , matrix : *mut super::super::super::Foundation::Numerics:: Matrix3x2 ) -> ( ) );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1MakeSkewMatrix ( anglex : f32 , angley : f32 , center : Common:: D2D_POINT_2F , matrix : *mut super::super::super::Foundation::Numerics:: Matrix3x2 ) -> ( ) );
     D2D1MakeSkewMatrix(anglex, angley, ::core::mem::transmute(center), matrix)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[inline]
 pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1SinCos ( angle : f32 , s : *mut f32 , c : *mut f32 ) -> ( ) );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1SinCos ( angle : f32 , s : *mut f32 , c : *mut f32 ) -> ( ) );
     D2D1SinCos(angle, s, c)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[inline]
 pub unsafe fn D2D1Tan(angle: f32) -> f32 {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1Tan ( angle : f32 ) -> f32 );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1Tan ( angle : f32 ) -> f32 );
     D2D1Tan(angle)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[inline]
 pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
-    ::windows::core::link ! ( "d2d1.dll""system" fn D2D1Vec3Length ( x : f32 , y : f32 , z : f32 ) -> f32 );
+    ::windows::imp::link ! ( "d2d1.dll""system" fn D2D1Vec3Length ( x : f32 , y : f32 , z : f32 ) -> f32 );
     D2D1Vec3Length(x, y, z)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
@@ -107,7 +107,7 @@ impl ID2D1AnalysisTransform {
         (::windows::core::Vtable::vtable(self).ProcessAnalysisResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(analysisdata.as_ptr()), analysisdata.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1AnalysisTransform, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1AnalysisTransform, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1AnalysisTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -193,7 +193,7 @@ impl ID2D1Bitmap {
         (::windows::core::Vtable::vtable(self).CopyFromMemory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(dstrect.unwrap_or(::std::ptr::null())), srcdata, pitch).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Bitmap, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image);
+::windows::imp::interface_hierarchy!(ID2D1Bitmap, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image);
 impl ::core::cmp::PartialEq for ID2D1Bitmap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -324,7 +324,7 @@ impl ID2D1Bitmap1 {
         (::windows::core::Vtable::vtable(self).Unmap)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Bitmap1, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image, ID2D1Bitmap);
+::windows::imp::interface_hierarchy!(ID2D1Bitmap1, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image, ID2D1Bitmap);
 impl ::core::cmp::PartialEq for ID2D1Bitmap1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -417,7 +417,7 @@ impl ID2D1BitmapBrush {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1BitmapBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
+::windows::imp::interface_hierarchy!(ID2D1BitmapBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
 impl ::core::cmp::PartialEq for ID2D1BitmapBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -516,7 +516,7 @@ impl ID2D1BitmapBrush1 {
         (::windows::core::Vtable::vtable(self).GetInterpolationMode1)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1BitmapBrush1, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush, ID2D1BitmapBrush);
+::windows::imp::interface_hierarchy!(ID2D1BitmapBrush1, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush, ID2D1BitmapBrush);
 impl ::core::cmp::PartialEq for ID2D1BitmapBrush1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -886,7 +886,7 @@ impl ID2D1BitmapRenderTarget {
         (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1BitmapRenderTarget, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
+::windows::imp::interface_hierarchy!(ID2D1BitmapRenderTarget, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
 impl ::core::cmp::PartialEq for ID2D1BitmapRenderTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -942,7 +942,7 @@ impl ID2D1BlendTransform {
         (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), description)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1BlendTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1ConcreteTransform);
+::windows::imp::interface_hierarchy!(ID2D1BlendTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1ConcreteTransform);
 impl ::core::cmp::PartialEq for ID2D1BlendTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1005,7 +1005,7 @@ impl ID2D1BorderTransform {
         (::windows::core::Vtable::vtable(self).GetExtendModeY)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1BorderTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1ConcreteTransform);
+::windows::imp::interface_hierarchy!(ID2D1BorderTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1ConcreteTransform);
 impl ::core::cmp::PartialEq for ID2D1BorderTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1059,7 +1059,7 @@ impl ID2D1BoundsAdjustmentTransform {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1BoundsAdjustmentTransform, ::windows::core::IUnknown, ID2D1TransformNode);
+::windows::imp::interface_hierarchy!(ID2D1BoundsAdjustmentTransform, ::windows::core::IUnknown, ID2D1TransformNode);
 impl ::core::cmp::PartialEq for ID2D1BoundsAdjustmentTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1123,7 +1123,7 @@ impl ID2D1Brush {
         (::windows::core::Vtable::vtable(self).GetTransform)(::windows::core::Vtable::as_raw(self), transform)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Brush, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1Brush, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1Brush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1182,7 +1182,7 @@ impl ID2D1ColorContext {
         (::windows::core::Vtable::vtable(self).GetProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(profile.as_ptr()), profile.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1ColorContext, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1ColorContext, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1ColorContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1247,7 +1247,7 @@ impl ID2D1ColorContext1 {
         (::windows::core::Vtable::vtable(self).GetSimpleColorProfile)(::windows::core::Vtable::as_raw(self), simpleprofile).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1ColorContext1, ::windows::core::IUnknown, ID2D1Resource, ID2D1ColorContext);
+::windows::imp::interface_hierarchy!(ID2D1ColorContext1, ::windows::core::IUnknown, ID2D1Resource, ID2D1ColorContext);
 impl ::core::cmp::PartialEq for ID2D1ColorContext1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1305,7 +1305,7 @@ impl ID2D1CommandList {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1CommandList, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image);
+::windows::imp::interface_hierarchy!(ID2D1CommandList, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image);
 impl ::core::cmp::PartialEq for ID2D1CommandList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1490,7 +1490,7 @@ impl ID2D1CommandSink {
         (::windows::core::Vtable::vtable(self).PopLayer)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1CommandSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1CommandSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1CommandSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1740,7 +1740,7 @@ impl ID2D1CommandSink1 {
         (::windows::core::Vtable::vtable(self).SetPrimitiveBlend1)(::windows::core::Vtable::as_raw(self), primitiveblend).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1CommandSink1, ::windows::core::IUnknown, ID2D1CommandSink);
+::windows::imp::interface_hierarchy!(ID2D1CommandSink1, ::windows::core::IUnknown, ID2D1CommandSink);
 impl ::core::cmp::PartialEq for ID2D1CommandSink1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1949,7 +1949,7 @@ impl ID2D1CommandSink2 {
         (::windows::core::Vtable::vtable(self).DrawGdiMetafile2)(::windows::core::Vtable::as_raw(self), gdimetafile.into().abi(), ::core::mem::transmute(destinationrectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sourcerectangle.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1CommandSink2, ::windows::core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1);
+::windows::imp::interface_hierarchy!(ID2D1CommandSink2, ::windows::core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1);
 impl ::core::cmp::PartialEq for ID2D1CommandSink2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2170,7 +2170,7 @@ impl ID2D1CommandSink3 {
         (::windows::core::Vtable::vtable(self).DrawSpriteBatch)(::windows::core::Vtable::as_raw(self), spritebatch.into().abi(), startindex, spritecount, bitmap.into().abi(), interpolationmode, spriteoptions).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1CommandSink3, ::windows::core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2);
+::windows::imp::interface_hierarchy!(ID2D1CommandSink3, ::windows::core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2);
 impl ::core::cmp::PartialEq for ID2D1CommandSink3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2389,7 +2389,7 @@ impl ID2D1CommandSink4 {
         (::windows::core::Vtable::vtable(self).SetPrimitiveBlend2)(::windows::core::Vtable::as_raw(self), primitiveblend).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1CommandSink4, ::windows::core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2, ID2D1CommandSink3);
+::windows::imp::interface_hierarchy!(ID2D1CommandSink4, ::windows::core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2, ID2D1CommandSink3);
 impl ::core::cmp::PartialEq for ID2D1CommandSink4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2616,7 +2616,7 @@ impl ID2D1CommandSink5 {
         (::windows::core::Vtable::vtable(self).BlendImage)(::windows::core::Vtable::as_raw(self), image.into().abi(), blendmode, ::core::mem::transmute(targetoffset.unwrap_or(::std::ptr::null())), ::core::mem::transmute(imagerectangle.unwrap_or(::std::ptr::null())), interpolationmode).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1CommandSink5, ::windows::core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2, ID2D1CommandSink3, ID2D1CommandSink4);
+::windows::imp::interface_hierarchy!(ID2D1CommandSink5, ::windows::core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2, ID2D1CommandSink3, ID2D1CommandSink4);
 impl ::core::cmp::PartialEq for ID2D1CommandSink5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2684,7 +2684,7 @@ impl ID2D1ComputeInfo {
         (::windows::core::Vtable::vtable(self).SetResourceTexture)(::windows::core::Vtable::as_raw(self), textureindex, resourcetexture.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1ComputeInfo, ::windows::core::IUnknown, ID2D1RenderInfo);
+::windows::imp::interface_hierarchy!(ID2D1ComputeInfo, ::windows::core::IUnknown, ID2D1RenderInfo);
 impl ::core::cmp::PartialEq for ID2D1ComputeInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2752,7 +2752,7 @@ impl ID2D1ComputeTransform {
         (::windows::core::Vtable::vtable(self).CalculateThreadgroups)(::windows::core::Vtable::as_raw(self), outputrect, dimensionx, dimensiony, dimensionz).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1ComputeTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1Transform);
+::windows::imp::interface_hierarchy!(ID2D1ComputeTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1Transform);
 impl ::core::cmp::PartialEq for ID2D1ComputeTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2806,7 +2806,7 @@ impl ID2D1ConcreteTransform {
         (::windows::core::Vtable::vtable(self).SetCached)(::windows::core::Vtable::as_raw(self), iscached.into())
     }
 }
-::windows::core::interface_hierarchy!(ID2D1ConcreteTransform, ::windows::core::IUnknown, ID2D1TransformNode);
+::windows::imp::interface_hierarchy!(ID2D1ConcreteTransform, ::windows::core::IUnknown, ID2D1TransformNode);
 impl ::core::cmp::PartialEq for ID2D1ConcreteTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3183,7 +3183,7 @@ impl ID2D1DCRenderTarget {
         (::windows::core::Vtable::vtable(self).BindDC)(::windows::core::Vtable::as_raw(self), hdc.into(), psubrect).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1DCRenderTarget, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
+::windows::imp::interface_hierarchy!(ID2D1DCRenderTarget, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
 impl ::core::cmp::PartialEq for ID2D1DCRenderTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3250,7 +3250,7 @@ impl ID2D1Device {
         (::windows::core::Vtable::vtable(self).ClearResources)(::windows::core::Vtable::as_raw(self), millisecondssinceuse)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Device, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1Device, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1Device {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3331,7 +3331,7 @@ impl ID2D1Device1 {
         (::windows::core::Vtable::vtable(self).CreateDeviceContext2)(::windows::core::Vtable::as_raw(self), options, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Device1, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device);
+::windows::imp::interface_hierarchy!(ID2D1Device1, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device);
 impl ::core::cmp::PartialEq for ID2D1Device1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3423,7 +3423,7 @@ impl ID2D1Device2 {
         (::windows::core::Vtable::vtable(self).GetDxgiDevice)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Device2, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1);
+::windows::imp::interface_hierarchy!(ID2D1Device2, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1);
 impl ::core::cmp::PartialEq for ID2D1Device2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3522,7 +3522,7 @@ impl ID2D1Device3 {
         (::windows::core::Vtable::vtable(self).CreateDeviceContext4)(::windows::core::Vtable::as_raw(self), options, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Device3, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2);
+::windows::imp::interface_hierarchy!(ID2D1Device3, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2);
 impl ::core::cmp::PartialEq for ID2D1Device3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3626,7 +3626,7 @@ impl ID2D1Device4 {
         (::windows::core::Vtable::vtable(self).GetMaximumColorGlyphCacheMemory)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Device4, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2, ID2D1Device3);
+::windows::imp::interface_hierarchy!(ID2D1Device4, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2, ID2D1Device3);
 impl ::core::cmp::PartialEq for ID2D1Device4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3736,7 +3736,7 @@ impl ID2D1Device5 {
         (::windows::core::Vtable::vtable(self).CreateDeviceContext6)(::windows::core::Vtable::as_raw(self), options, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Device5, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2, ID2D1Device3, ID2D1Device4);
+::windows::imp::interface_hierarchy!(ID2D1Device5, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2, ID2D1Device3, ID2D1Device4);
 impl ::core::cmp::PartialEq for ID2D1Device5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3848,7 +3848,7 @@ impl ID2D1Device6 {
         (::windows::core::Vtable::vtable(self).CreateDeviceContext7)(::windows::core::Vtable::as_raw(self), options, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Device6, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2, ID2D1Device3, ID2D1Device4, ID2D1Device5);
+::windows::imp::interface_hierarchy!(ID2D1Device6, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2, ID2D1Device3, ID2D1Device4, ID2D1Device5);
 impl ::core::cmp::PartialEq for ID2D1Device6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4443,7 +4443,7 @@ impl ID2D1DeviceContext {
         (::windows::core::Vtable::vtable(self).FillOpacityMask2)(::windows::core::Vtable::as_raw(self), opacitymask.into().abi(), brush.into().abi(), ::core::mem::transmute(destinationrectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sourcerectangle.unwrap_or(::std::ptr::null())))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1DeviceContext, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
+::windows::imp::interface_hierarchy!(ID2D1DeviceContext, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
 impl ::core::cmp::PartialEq for ID2D1DeviceContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5163,7 +5163,7 @@ impl ID2D1DeviceContext1 {
         (::windows::core::Vtable::vtable(self).DrawGeometryRealization)(::windows::core::Vtable::as_raw(self), geometryrealization.into().abi(), brush.into().abi())
     }
 }
-::windows::core::interface_hierarchy!(ID2D1DeviceContext1, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext);
+::windows::imp::interface_hierarchy!(ID2D1DeviceContext1, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext);
 impl ::core::cmp::PartialEq for ID2D1DeviceContext1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5855,7 +5855,7 @@ impl ID2D1DeviceContext2 {
         (::windows::core::Vtable::vtable(self).CreateTransformedImageSource)(::windows::core::Vtable::as_raw(self), imagesource.into().abi(), properties, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1DeviceContext2, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1);
+::windows::imp::interface_hierarchy!(ID2D1DeviceContext2, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1);
 impl ::core::cmp::PartialEq for ID2D1DeviceContext2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6584,7 +6584,7 @@ impl ID2D1DeviceContext3 {
         (::windows::core::Vtable::vtable(self).DrawSpriteBatch)(::windows::core::Vtable::as_raw(self), spritebatch.into().abi(), startindex, spritecount, bitmap.into().abi(), interpolationmode, spriteoptions)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1DeviceContext3, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2);
+::windows::imp::interface_hierarchy!(ID2D1DeviceContext3, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2);
 impl ::core::cmp::PartialEq for ID2D1DeviceContext3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7344,7 +7344,7 @@ impl ID2D1DeviceContext4 {
         (::windows::core::Vtable::vtable(self).GetSvgGlyphImage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(glyphorigin), fontface.into().abi(), fontemsize, glyphindex, issideways.into(), ::core::mem::transmute(worldtransform.unwrap_or(::std::ptr::null())), defaultfillbrush.into().abi(), svgglyphstyle.into().abi(), colorpaletteindex, glyphtransform, ::core::mem::transmute(glyphimage)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1DeviceContext4, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3);
+::windows::imp::interface_hierarchy!(ID2D1DeviceContext4, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3);
 impl ::core::cmp::PartialEq for ID2D1DeviceContext4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8154,7 +8154,7 @@ impl ID2D1DeviceContext5 {
         (::windows::core::Vtable::vtable(self).CreateColorContextFromSimpleColorProfile)(::windows::core::Vtable::as_raw(self), simpleprofile, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1DeviceContext5, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3, ID2D1DeviceContext4);
+::windows::imp::interface_hierarchy!(ID2D1DeviceContext5, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3, ID2D1DeviceContext4);
 impl ::core::cmp::PartialEq for ID2D1DeviceContext5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8960,7 +8960,7 @@ impl ID2D1DeviceContext6 {
         (::windows::core::Vtable::vtable(self).BlendImage)(::windows::core::Vtable::as_raw(self), image.into().abi(), blendmode, ::core::mem::transmute(targetoffset.unwrap_or(::std::ptr::null())), ::core::mem::transmute(imagerectangle.unwrap_or(::std::ptr::null())), interpolationmode)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1DeviceContext6, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3, ID2D1DeviceContext4, ID2D1DeviceContext5);
+::windows::imp::interface_hierarchy!(ID2D1DeviceContext6, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3, ID2D1DeviceContext4, ID2D1DeviceContext5);
 impl ::core::cmp::PartialEq for ID2D1DeviceContext6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9037,7 +9037,7 @@ impl ID2D1DrawInfo {
         (::windows::core::Vtable::vtable(self).SetVertexProcessing)(::windows::core::Vtable::as_raw(self), vertexbuffer.into().abi(), vertexoptions, ::core::mem::transmute(blenddescription.unwrap_or(::std::ptr::null())), ::core::mem::transmute(vertexrange.unwrap_or(::std::ptr::null())), ::core::mem::transmute(vertexshader.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1DrawInfo, ::windows::core::IUnknown, ID2D1RenderInfo);
+::windows::imp::interface_hierarchy!(ID2D1DrawInfo, ::windows::core::IUnknown, ID2D1RenderInfo);
 impl ::core::cmp::PartialEq for ID2D1DrawInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9102,7 +9102,7 @@ impl ID2D1DrawTransform {
         (::windows::core::Vtable::vtable(self).SetDrawInfo)(::windows::core::Vtable::as_raw(self), drawinfo.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1DrawTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1Transform);
+::windows::imp::interface_hierarchy!(ID2D1DrawTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1Transform);
 impl ::core::cmp::PartialEq for ID2D1DrawTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9168,7 +9168,7 @@ impl ID2D1DrawingStateBlock {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1DrawingStateBlock, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1DrawingStateBlock, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1DrawingStateBlock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9259,7 +9259,7 @@ impl ID2D1DrawingStateBlock1 {
         (::windows::core::Vtable::vtable(self).SetDescription2)(::windows::core::Vtable::as_raw(self), statedescription)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1DrawingStateBlock1, ::windows::core::IUnknown, ID2D1Resource, ID2D1DrawingStateBlock);
+::windows::imp::interface_hierarchy!(ID2D1DrawingStateBlock1, ::windows::core::IUnknown, ID2D1Resource, ID2D1DrawingStateBlock);
 impl ::core::cmp::PartialEq for ID2D1DrawingStateBlock1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9370,7 +9370,7 @@ impl ID2D1Effect {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Effect, ::windows::core::IUnknown, ID2D1Properties);
+::windows::imp::interface_hierarchy!(ID2D1Effect, ::windows::core::IUnknown, ID2D1Properties);
 impl ::core::cmp::PartialEq for ID2D1Effect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9513,7 +9513,7 @@ impl ID2D1EffectContext {
         (::windows::core::Vtable::vtable(self).IsBufferPrecisionSupported)(::windows::core::Vtable::as_raw(self), bufferprecision)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1EffectContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1EffectContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1EffectContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9694,7 +9694,7 @@ impl ID2D1EffectContext1 {
         (::windows::core::Vtable::vtable(self).CreateLookupTable3D)(::windows::core::Vtable::as_raw(self), precision, ::core::mem::transmute(extents.as_ptr()), ::core::mem::transmute(data.as_ptr()), data.len() as _, ::core::mem::transmute(strides.as_ptr()), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1EffectContext1, ::windows::core::IUnknown, ID2D1EffectContext);
+::windows::imp::interface_hierarchy!(ID2D1EffectContext1, ::windows::core::IUnknown, ID2D1EffectContext);
 impl ::core::cmp::PartialEq for ID2D1EffectContext1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9846,7 +9846,7 @@ impl ID2D1EffectContext2 {
         (::windows::core::Vtable::vtable(self).CreateColorContextFromSimpleColorProfile)(::windows::core::Vtable::as_raw(self), simpleprofile, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1EffectContext2, ::windows::core::IUnknown, ID2D1EffectContext, ID2D1EffectContext1);
+::windows::imp::interface_hierarchy!(ID2D1EffectContext2, ::windows::core::IUnknown, ID2D1EffectContext, ID2D1EffectContext1);
 impl ::core::cmp::PartialEq for ID2D1EffectContext2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9905,7 +9905,7 @@ impl ID2D1EffectImpl {
         (::windows::core::Vtable::vtable(self).SetGraph)(::windows::core::Vtable::as_raw(self), transformgraph.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1EffectImpl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1EffectImpl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1EffectImpl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10053,7 +10053,7 @@ impl ID2D1EllipseGeometry {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1EllipseGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
+::windows::imp::interface_hierarchy!(ID2D1EllipseGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
 impl ::core::cmp::PartialEq for ID2D1EllipseGeometry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10178,7 +10178,7 @@ impl ID2D1Factory {
         (::windows::core::Vtable::vtable(self).CreateDCRenderTarget)(::windows::core::Vtable::as_raw(self), rendertargetproperties, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Factory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1Factory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1Factory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10402,7 +10402,7 @@ impl ID2D1Factory1 {
         (::windows::core::Vtable::vtable(self).GetEffectProperties)(::windows::core::Vtable::as_raw(self), effectid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Factory1, ::windows::core::IUnknown, ID2D1Factory);
+::windows::imp::interface_hierarchy!(ID2D1Factory1, ::windows::core::IUnknown, ID2D1Factory);
 impl ::core::cmp::PartialEq for ID2D1Factory1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10613,7 +10613,7 @@ impl ID2D1Factory2 {
         (::windows::core::Vtable::vtable(self).CreateDevice2)(::windows::core::Vtable::as_raw(self), dxgidevice.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Factory2, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1);
+::windows::imp::interface_hierarchy!(ID2D1Factory2, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1);
 impl ::core::cmp::PartialEq for ID2D1Factory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10815,7 +10815,7 @@ impl ID2D1Factory3 {
         (::windows::core::Vtable::vtable(self).CreateDevice3)(::windows::core::Vtable::as_raw(self), dxgidevice.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Factory3, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2);
+::windows::imp::interface_hierarchy!(ID2D1Factory3, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2);
 impl ::core::cmp::PartialEq for ID2D1Factory3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11026,7 +11026,7 @@ impl ID2D1Factory4 {
         (::windows::core::Vtable::vtable(self).CreateDevice4)(::windows::core::Vtable::as_raw(self), dxgidevice.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Factory4, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3);
+::windows::imp::interface_hierarchy!(ID2D1Factory4, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3);
 impl ::core::cmp::PartialEq for ID2D1Factory4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11246,7 +11246,7 @@ impl ID2D1Factory5 {
         (::windows::core::Vtable::vtable(self).CreateDevice5)(::windows::core::Vtable::as_raw(self), dxgidevice.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Factory5, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3, ID2D1Factory4);
+::windows::imp::interface_hierarchy!(ID2D1Factory5, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3, ID2D1Factory4);
 impl ::core::cmp::PartialEq for ID2D1Factory5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11475,7 +11475,7 @@ impl ID2D1Factory6 {
         (::windows::core::Vtable::vtable(self).CreateDevice6)(::windows::core::Vtable::as_raw(self), dxgidevice.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Factory6, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3, ID2D1Factory4, ID2D1Factory5);
+::windows::imp::interface_hierarchy!(ID2D1Factory6, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3, ID2D1Factory4, ID2D1Factory5);
 impl ::core::cmp::PartialEq for ID2D1Factory6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11713,7 +11713,7 @@ impl ID2D1Factory7 {
         (::windows::core::Vtable::vtable(self).CreateDevice7)(::windows::core::Vtable::as_raw(self), dxgidevice.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Factory7, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3, ID2D1Factory4, ID2D1Factory5, ID2D1Factory6);
+::windows::imp::interface_hierarchy!(ID2D1Factory7, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3, ID2D1Factory4, ID2D1Factory5, ID2D1Factory6);
 impl ::core::cmp::PartialEq for ID2D1Factory7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11763,7 +11763,7 @@ impl ID2D1GdiInteropRenderTarget {
         (::windows::core::Vtable::vtable(self).ReleaseDC)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(update.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1GdiInteropRenderTarget, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1GdiInteropRenderTarget, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1GdiInteropRenderTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11823,7 +11823,7 @@ impl ID2D1GdiMetafile {
         (::windows::core::Vtable::vtable(self).GetBounds)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1GdiMetafile, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1GdiMetafile, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1GdiMetafile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11889,7 +11889,7 @@ impl ID2D1GdiMetafile1 {
         (::windows::core::Vtable::vtable(self).GetSourceBounds)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1GdiMetafile1, ::windows::core::IUnknown, ID2D1Resource, ID2D1GdiMetafile);
+::windows::imp::interface_hierarchy!(ID2D1GdiMetafile1, ::windows::core::IUnknown, ID2D1Resource, ID2D1GdiMetafile);
 impl ::core::cmp::PartialEq for ID2D1GdiMetafile1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11932,7 +11932,7 @@ impl ID2D1GdiMetafileSink {
         (::windows::core::Vtable::vtable(self).ProcessRecord)(::windows::core::Vtable::as_raw(self), recordtype, ::core::mem::transmute(recorddata.unwrap_or(::std::ptr::null())), recorddatasize).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1GdiMetafileSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1GdiMetafileSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1GdiMetafileSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11974,7 +11974,7 @@ impl ID2D1GdiMetafileSink1 {
         (::windows::core::Vtable::vtable(self).ProcessRecord2)(::windows::core::Vtable::as_raw(self), recordtype, ::core::mem::transmute(recorddata.unwrap_or(::std::ptr::null())), recorddatasize, flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1GdiMetafileSink1, ::windows::core::IUnknown, ID2D1GdiMetafileSink);
+::windows::imp::interface_hierarchy!(ID2D1GdiMetafileSink1, ::windows::core::IUnknown, ID2D1GdiMetafileSink);
 impl ::core::cmp::PartialEq for ID2D1GdiMetafileSink1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12113,7 +12113,7 @@ impl ID2D1Geometry {
         (::windows::core::Vtable::vtable(self).Widen)(::windows::core::Vtable::as_raw(self), strokewidth, strokestyle.into().abi(), ::core::mem::transmute(worldtransform.unwrap_or(::std::ptr::null())), flatteningtolerance, geometrysink.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Geometry, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1Geometry, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1Geometry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12314,7 +12314,7 @@ impl ID2D1GeometryGroup {
         (::windows::core::Vtable::vtable(self).GetSourceGeometries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(geometries.as_ptr()), geometries.len() as _)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1GeometryGroup, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
+::windows::imp::interface_hierarchy!(ID2D1GeometryGroup, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
 impl ::core::cmp::PartialEq for ID2D1GeometryGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12360,7 +12360,7 @@ impl ID2D1GeometryRealization {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1GeometryRealization, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1GeometryRealization, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1GeometryRealization {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12458,7 +12458,7 @@ impl ID2D1GeometrySink {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-::windows::core::interface_hierarchy!(ID2D1GeometrySink, ::windows::core::IUnknown, Common::ID2D1SimplifiedGeometrySink);
+::windows::imp::interface_hierarchy!(ID2D1GeometrySink, ::windows::core::IUnknown, Common::ID2D1SimplifiedGeometrySink);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for ID2D1GeometrySink {
     fn eq(&self, other: &Self) -> bool {
@@ -12535,7 +12535,7 @@ impl ID2D1GradientMesh {
         (::windows::core::Vtable::vtable(self).GetPatches)(::windows::core::Vtable::as_raw(self), startindex, ::core::mem::transmute(patches.as_ptr()), patches.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1GradientMesh, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1GradientMesh, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1GradientMesh {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12594,7 +12594,7 @@ impl ID2D1GradientStopCollection {
         (::windows::core::Vtable::vtable(self).GetExtendMode)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1GradientStopCollection, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1GradientStopCollection, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1GradientStopCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12672,7 +12672,7 @@ impl ID2D1GradientStopCollection1 {
         (::windows::core::Vtable::vtable(self).GetColorInterpolationMode)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1GradientStopCollection1, ::windows::core::IUnknown, ID2D1Resource, ID2D1GradientStopCollection);
+::windows::imp::interface_hierarchy!(ID2D1GradientStopCollection1, ::windows::core::IUnknown, ID2D1Resource, ID2D1GradientStopCollection);
 impl ::core::cmp::PartialEq for ID2D1GradientStopCollection1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13057,7 +13057,7 @@ impl ID2D1HwndRenderTarget {
         (::windows::core::Vtable::vtable(self).GetHwnd)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1HwndRenderTarget, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
+::windows::imp::interface_hierarchy!(ID2D1HwndRenderTarget, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
 impl ::core::cmp::PartialEq for ID2D1HwndRenderTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13106,7 +13106,7 @@ impl ID2D1Image {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Image, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1Image, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1Image {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13203,7 +13203,7 @@ impl ID2D1ImageBrush {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1ImageBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
+::windows::imp::interface_hierarchy!(ID2D1ImageBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
 impl ::core::cmp::PartialEq for ID2D1ImageBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13268,7 +13268,7 @@ impl ID2D1ImageSource {
         (::windows::core::Vtable::vtable(self).TryReclaimResources)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1ImageSource, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image);
+::windows::imp::interface_hierarchy!(ID2D1ImageSource, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image);
 impl ::core::cmp::PartialEq for ID2D1ImageSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13339,7 +13339,7 @@ impl ID2D1ImageSourceFromWic {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1ImageSourceFromWic, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image, ID2D1ImageSource);
+::windows::imp::interface_hierarchy!(ID2D1ImageSourceFromWic, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image, ID2D1ImageSource);
 impl ::core::cmp::PartialEq for ID2D1ImageSourceFromWic {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13435,7 +13435,7 @@ impl ID2D1Ink {
         (::windows::core::Vtable::vtable(self).GetBounds)(::windows::core::Vtable::as_raw(self), inkstyle.into().abi(), ::core::mem::transmute(worldtransform.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Ink, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1Ink, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1Ink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13507,7 +13507,7 @@ impl ID2D1InkStyle {
         (::windows::core::Vtable::vtable(self).GetNibShape)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1InkStyle, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1InkStyle, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1InkStyle {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13564,7 +13564,7 @@ impl ID2D1Layer {
         result__
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Layer, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1Layer, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1Layer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13653,7 +13653,7 @@ impl ID2D1LinearGradientBrush {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1LinearGradientBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
+::windows::imp::interface_hierarchy!(ID2D1LinearGradientBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
 impl ::core::cmp::PartialEq for ID2D1LinearGradientBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13710,7 +13710,7 @@ impl ID2D1LookupTable3D {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1LookupTable3D, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1LookupTable3D, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1LookupTable3D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13754,7 +13754,7 @@ impl ID2D1Mesh {
         (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Mesh, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1Mesh, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1Mesh {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13801,7 +13801,7 @@ impl ID2D1Multithread {
         (::windows::core::Vtable::vtable(self).Leave)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Multithread, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1Multithread, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1Multithread {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13857,7 +13857,7 @@ impl ID2D1OffsetTransform {
         result__
     }
 }
-::windows::core::interface_hierarchy!(ID2D1OffsetTransform, ::windows::core::IUnknown, ID2D1TransformNode);
+::windows::imp::interface_hierarchy!(ID2D1OffsetTransform, ::windows::core::IUnknown, ID2D1TransformNode);
 impl ::core::cmp::PartialEq for ID2D1OffsetTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14025,7 +14025,7 @@ impl ID2D1PathGeometry {
         (::windows::core::Vtable::vtable(self).GetFigureCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1PathGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
+::windows::imp::interface_hierarchy!(ID2D1PathGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
 impl ::core::cmp::PartialEq for ID2D1PathGeometry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14200,7 +14200,7 @@ impl ID2D1PathGeometry1 {
         (::windows::core::Vtable::vtable(self).ComputePointAndSegmentAtLength)(::windows::core::Vtable::as_raw(self), length, startsegment, ::core::mem::transmute(worldtransform.unwrap_or(::std::ptr::null())), flatteningtolerance, pointdescription).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1PathGeometry1, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry, ID2D1PathGeometry);
+::windows::imp::interface_hierarchy!(ID2D1PathGeometry1, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry, ID2D1PathGeometry);
 impl ::core::cmp::PartialEq for ID2D1PathGeometry1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14251,7 +14251,7 @@ impl ID2D1PrintControl {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1PrintControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1PrintControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1PrintControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14334,7 +14334,7 @@ impl ID2D1Properties {
         (::windows::core::Vtable::vtable(self).GetSubProperties)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Properties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1Properties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1Properties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14442,7 +14442,7 @@ impl ID2D1RadialGradientBrush {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1RadialGradientBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
+::windows::imp::interface_hierarchy!(ID2D1RadialGradientBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
 impl ::core::cmp::PartialEq for ID2D1RadialGradientBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14608,7 +14608,7 @@ impl ID2D1RectangleGeometry {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1RectangleGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
+::windows::imp::interface_hierarchy!(ID2D1RectangleGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
 impl ::core::cmp::PartialEq for ID2D1RectangleGeometry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14664,7 +14664,7 @@ impl ID2D1RenderInfo {
         (::windows::core::Vtable::vtable(self).SetInstructionCountHint)(::windows::core::Vtable::as_raw(self), instructioncount)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1RenderInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1RenderInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1RenderInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15035,7 +15035,7 @@ impl ID2D1RenderTarget {
         (::windows::core::Vtable::vtable(self).IsSupported)(::windows::core::Vtable::as_raw(self), rendertargetproperties)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1RenderTarget, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1RenderTarget, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1RenderTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15227,7 +15227,7 @@ impl ID2D1Resource {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Resource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1Resource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1Resource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15266,7 +15266,7 @@ impl ID2D1ResourceTexture {
         (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(minimumextents.unwrap_or(::std::ptr::null())), ::core::mem::transmute(maximimumextents.unwrap_or(::std::ptr::null())), ::core::mem::transmute(strides.unwrap_or(::std::ptr::null())), dimensions, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1ResourceTexture, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1ResourceTexture, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1ResourceTexture {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15410,7 +15410,7 @@ impl ID2D1RoundedRectangleGeometry {
         (::windows::core::Vtable::vtable(self).GetRoundedRect)(::windows::core::Vtable::as_raw(self), roundedrect)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1RoundedRectangleGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
+::windows::imp::interface_hierarchy!(ID2D1RoundedRectangleGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
 impl ::core::cmp::PartialEq for ID2D1RoundedRectangleGeometry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15482,7 +15482,7 @@ impl ID2D1SolidColorBrush {
         result__
     }
 }
-::windows::core::interface_hierarchy!(ID2D1SolidColorBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
+::windows::imp::interface_hierarchy!(ID2D1SolidColorBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
 impl ::core::cmp::PartialEq for ID2D1SolidColorBrush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15558,7 +15558,7 @@ impl ID2D1SourceTransform {
         (::windows::core::Vtable::vtable(self).Draw)(::windows::core::Vtable::as_raw(self), target.into().abi(), drawrect, ::core::mem::transmute(targetorigin)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1SourceTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1Transform);
+::windows::imp::interface_hierarchy!(ID2D1SourceTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1Transform);
 impl ::core::cmp::PartialEq for ID2D1SourceTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15624,7 +15624,7 @@ impl ID2D1SpriteBatch {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1SpriteBatch, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1SpriteBatch, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1SpriteBatch {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15705,7 +15705,7 @@ impl ID2D1StrokeStyle {
         (::windows::core::Vtable::vtable(self).GetDashes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(dashes.as_ptr()), dashes.len() as _)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1StrokeStyle, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1StrokeStyle, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1StrokeStyle {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15784,7 +15784,7 @@ impl ID2D1StrokeStyle1 {
         (::windows::core::Vtable::vtable(self).GetStrokeTransformType)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1StrokeStyle1, ::windows::core::IUnknown, ID2D1Resource, ID2D1StrokeStyle);
+::windows::imp::interface_hierarchy!(ID2D1StrokeStyle1, ::windows::core::IUnknown, ID2D1Resource, ID2D1StrokeStyle);
 impl ::core::cmp::PartialEq for ID2D1StrokeStyle1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15834,7 +15834,7 @@ impl ID2D1SvgAttribute {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1SvgAttribute, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1SvgAttribute, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1SvgAttribute {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15947,7 +15947,7 @@ impl ID2D1SvgDocument {
         (::windows::core::Vtable::vtable(self).CreatePathData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(segmentdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), segmentdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(commands.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), commands.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1SvgDocument, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1SvgDocument, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1SvgDocument {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16182,7 +16182,7 @@ impl ID2D1SvgElement {
         (::windows::core::Vtable::vtable(self).GetAttributeValueLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1SvgElement, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1SvgElement, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1SvgElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16290,7 +16290,7 @@ impl ID2D1SvgGlyphStyle {
         (::windows::core::Vtable::vtable(self).GetStroke)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(brush.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(strokewidth.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(dashes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dashes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(dashoffset.unwrap_or(::std::ptr::null_mut())))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1SvgGlyphStyle, ::windows::core::IUnknown, ID2D1Resource);
+::windows::imp::interface_hierarchy!(ID2D1SvgGlyphStyle, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::cmp::PartialEq for ID2D1SvgGlyphStyle {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16374,7 +16374,7 @@ impl ID2D1SvgPaint {
         (::windows::core::Vtable::vtable(self).GetIdLength)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1SvgPaint, ::windows::core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
+::windows::imp::interface_hierarchy!(ID2D1SvgPaint, ::windows::core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
 impl ::core::cmp::PartialEq for ID2D1SvgPaint {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16466,7 +16466,7 @@ impl ID2D1SvgPathData {
         (::windows::core::Vtable::vtable(self).CreatePathGeometry)(::windows::core::Vtable::as_raw(self), fillmode, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1SvgPathData, ::windows::core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
+::windows::imp::interface_hierarchy!(ID2D1SvgPathData, ::windows::core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
 impl ::core::cmp::PartialEq for ID2D1SvgPathData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16543,7 +16543,7 @@ impl ID2D1SvgPointCollection {
         (::windows::core::Vtable::vtable(self).GetPointsCount)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1SvgPointCollection, ::windows::core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
+::windows::imp::interface_hierarchy!(ID2D1SvgPointCollection, ::windows::core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
 impl ::core::cmp::PartialEq for ID2D1SvgPointCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16620,7 +16620,7 @@ impl ID2D1SvgStrokeDashArray {
         (::windows::core::Vtable::vtable(self).GetDashesCount)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1SvgStrokeDashArray, ::windows::core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
+::windows::imp::interface_hierarchy!(ID2D1SvgStrokeDashArray, ::windows::core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
 impl ::core::cmp::PartialEq for ID2D1SvgStrokeDashArray {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16669,7 +16669,7 @@ impl ID2D1TessellationSink {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1TessellationSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1TessellationSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1TessellationSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16728,7 +16728,7 @@ impl ID2D1Transform {
         (::windows::core::Vtable::vtable(self).MapInvalidRect)(::windows::core::Vtable::as_raw(self), inputindex, ::core::mem::transmute(invalidinputrect), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1Transform, ::windows::core::IUnknown, ID2D1TransformNode);
+::windows::imp::interface_hierarchy!(ID2D1Transform, ::windows::core::IUnknown, ID2D1TransformNode);
 impl ::core::cmp::PartialEq for ID2D1Transform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16821,7 +16821,7 @@ impl ID2D1TransformGraph {
         (::windows::core::Vtable::vtable(self).SetPassthroughGraph)(::windows::core::Vtable::as_raw(self), effectinputindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1TransformGraph, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1TransformGraph, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1TransformGraph {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16868,7 +16868,7 @@ impl ID2D1TransformNode {
         (::windows::core::Vtable::vtable(self).GetInputCount)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID2D1TransformNode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1TransformNode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1TransformNode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17017,7 +17017,7 @@ impl ID2D1TransformedGeometry {
         (::windows::core::Vtable::vtable(self).GetTransform)(::windows::core::Vtable::as_raw(self), transform)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1TransformedGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
+::windows::imp::interface_hierarchy!(ID2D1TransformedGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
 impl ::core::cmp::PartialEq for ID2D1TransformedGeometry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17070,7 +17070,7 @@ impl ID2D1TransformedImageSource {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), properties)
     }
 }
-::windows::core::interface_hierarchy!(ID2D1TransformedImageSource, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image);
+::windows::imp::interface_hierarchy!(ID2D1TransformedImageSource, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image);
 impl ::core::cmp::PartialEq for ID2D1TransformedImageSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17113,7 +17113,7 @@ impl ID2D1VertexBuffer {
         (::windows::core::Vtable::vtable(self).Unmap)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID2D1VertexBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID2D1VertexBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID2D1VertexBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

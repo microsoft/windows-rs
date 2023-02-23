@@ -1,5 +1,5 @@
 use super::*;
-use bindings::*;
+use imp::*;
 use std::marker::PhantomData;
 
 /// A type representing an agile reference to a COM/WinRT object.

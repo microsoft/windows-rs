@@ -306,7 +306,7 @@ impl ::core::fmt::Debug for SpatialSurfaceInfo {
     }
 }
 impl ::windows::core::RuntimeType for SpatialSurfaceInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceInfo;{f8e9ebe7-39b7-3962-bb03-57f56e1fb0a1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceInfo;{f8e9ebe7-39b7-3962-bb03-57f56e1fb0a1})");
 }
 impl ::core::clone::Clone for SpatialSurfaceInfo {
     fn clone(&self) -> Self {
@@ -322,7 +322,7 @@ unsafe impl ::windows::core::Interface for SpatialSurfaceInfo {
 impl ::windows::core::RuntimeName for SpatialSurfaceInfo {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceInfo";
 }
-::windows::core::interface_hierarchy!(SpatialSurfaceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialSurfaceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialSurfaceInfo {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceInfo {}
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -386,7 +386,7 @@ impl ::core::fmt::Debug for SpatialSurfaceMesh {
     }
 }
 impl ::windows::core::RuntimeType for SpatialSurfaceMesh {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMesh;{108f57d9-df0d-3950-a0fd-f972c77c27b4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMesh;{108f57d9-df0d-3950-a0fd-f972c77c27b4})");
 }
 impl ::core::clone::Clone for SpatialSurfaceMesh {
     fn clone(&self) -> Self {
@@ -402,7 +402,7 @@ unsafe impl ::windows::core::Interface for SpatialSurfaceMesh {
 impl ::windows::core::RuntimeName for SpatialSurfaceMesh {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMesh";
 }
-::windows::core::interface_hierarchy!(SpatialSurfaceMesh, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialSurfaceMesh, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialSurfaceMesh {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMesh {}
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -454,7 +454,7 @@ impl ::core::fmt::Debug for SpatialSurfaceMeshBuffer {
     }
 }
 impl ::windows::core::RuntimeType for SpatialSurfaceMeshBuffer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshBuffer;{93cf59e0-871f-33f8-98b2-03d101458f6f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshBuffer;{93cf59e0-871f-33f8-98b2-03d101458f6f})");
 }
 impl ::core::clone::Clone for SpatialSurfaceMeshBuffer {
     fn clone(&self) -> Self {
@@ -470,7 +470,7 @@ unsafe impl ::windows::core::Interface for SpatialSurfaceMeshBuffer {
 impl ::windows::core::RuntimeName for SpatialSurfaceMeshBuffer {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshBuffer";
 }
-::windows::core::interface_hierarchy!(SpatialSurfaceMeshBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialSurfaceMeshBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialSurfaceMeshBuffer {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMeshBuffer {}
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -480,8 +480,8 @@ impl SpatialSurfaceMeshOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialSurfaceMeshOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SpatialSurfaceMeshOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
@@ -566,7 +566,7 @@ impl SpatialSurfaceMeshOptions {
     }
     #[doc(hidden)]
     pub fn ISpatialSurfaceMeshOptionsStatics<R, F: FnOnce(&ISpatialSurfaceMeshOptionsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialSurfaceMeshOptions, ISpatialSurfaceMeshOptionsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialSurfaceMeshOptions, ISpatialSurfaceMeshOptionsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -582,7 +582,7 @@ impl ::core::fmt::Debug for SpatialSurfaceMeshOptions {
     }
 }
 impl ::windows::core::RuntimeType for SpatialSurfaceMeshOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions;{d2759f89-3572-3d2d-a10d-5fee9394aa37})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions;{d2759f89-3572-3d2d-a10d-5fee9394aa37})");
 }
 impl ::core::clone::Clone for SpatialSurfaceMeshOptions {
     fn clone(&self) -> Self {
@@ -598,7 +598,7 @@ unsafe impl ::windows::core::Interface for SpatialSurfaceMeshOptions {
 impl ::windows::core::RuntimeName for SpatialSurfaceMeshOptions {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions";
 }
-::windows::core::interface_hierarchy!(SpatialSurfaceMeshOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialSurfaceMeshOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialSurfaceMeshOptions {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMeshOptions {}
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -608,8 +608,8 @@ impl SpatialSurfaceObserver {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialSurfaceObserver, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SpatialSurfaceObserver, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -666,12 +666,12 @@ impl SpatialSurfaceObserver {
     }
     #[doc(hidden)]
     pub fn ISpatialSurfaceObserverStatics<R, F: FnOnce(&ISpatialSurfaceObserverStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialSurfaceObserver, ISpatialSurfaceObserverStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialSurfaceObserver, ISpatialSurfaceObserverStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISpatialSurfaceObserverStatics2<R, F: FnOnce(&ISpatialSurfaceObserverStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialSurfaceObserver, ISpatialSurfaceObserverStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialSurfaceObserver, ISpatialSurfaceObserverStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -687,7 +687,7 @@ impl ::core::fmt::Debug for SpatialSurfaceObserver {
     }
 }
 impl ::windows::core::RuntimeType for SpatialSurfaceObserver {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver;{10b69819-ddca-3483-ac3a-748fe8c86df5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver;{10b69819-ddca-3483-ac3a-748fe8c86df5})");
 }
 impl ::core::clone::Clone for SpatialSurfaceObserver {
     fn clone(&self) -> Self {
@@ -703,7 +703,7 @@ unsafe impl ::windows::core::Interface for SpatialSurfaceObserver {
 impl ::windows::core::RuntimeName for SpatialSurfaceObserver {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver";
 }
-::windows::core::interface_hierarchy!(SpatialSurfaceObserver, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialSurfaceObserver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialSurfaceObserver {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceObserver {}
 #[cfg(feature = "implement")]

@@ -387,7 +387,7 @@ impl ::core::fmt::Debug for ContactDataProviderConnection {
     }
 }
 impl ::windows::core::RuntimeType for ContactDataProviderConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection;{1a398a52-8c9d-4d6f-a4e0-111e9a125a30})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection;{1a398a52-8c9d-4d6f-a4e0-111e9a125a30})");
 }
 impl ::core::clone::Clone for ContactDataProviderConnection {
     fn clone(&self) -> Self {
@@ -403,7 +403,7 @@ unsafe impl ::windows::core::Interface for ContactDataProviderConnection {
 impl ::windows::core::RuntimeName for ContactDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection";
 }
-::windows::core::interface_hierarchy!(ContactDataProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactDataProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactDataProviderConnection {}
 unsafe impl ::core::marker::Sync for ContactDataProviderConnection {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -430,7 +430,7 @@ impl ::core::fmt::Debug for ContactDataProviderTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for ContactDataProviderTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderTriggerDetails;{527104be-3c62-43c8-9ae7-db531685cd99})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderTriggerDetails;{527104be-3c62-43c8-9ae7-db531685cd99})");
 }
 impl ::core::clone::Clone for ContactDataProviderTriggerDetails {
     fn clone(&self) -> Self {
@@ -446,7 +446,7 @@ unsafe impl ::windows::core::Interface for ContactDataProviderTriggerDetails {
 impl ::windows::core::RuntimeName for ContactDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderTriggerDetails";
 }
-::windows::core::interface_hierarchy!(ContactDataProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactDataProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for ContactDataProviderTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -498,7 +498,7 @@ impl ::core::fmt::Debug for ContactListCreateOrUpdateContactRequest {
     }
 }
 impl ::windows::core::RuntimeType for ContactListCreateOrUpdateContactRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequest;{b4af411f-c849-47d0-b119-91cf605b2f2a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequest;{b4af411f-c849-47d0-b119-91cf605b2f2a})");
 }
 impl ::core::clone::Clone for ContactListCreateOrUpdateContactRequest {
     fn clone(&self) -> Self {
@@ -514,7 +514,7 @@ unsafe impl ::windows::core::Interface for ContactListCreateOrUpdateContactReque
 impl ::windows::core::RuntimeName for ContactListCreateOrUpdateContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequest";
 }
-::windows::core::interface_hierarchy!(ContactListCreateOrUpdateContactRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactListCreateOrUpdateContactRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListCreateOrUpdateContactRequest {}
 unsafe impl ::core::marker::Sync for ContactListCreateOrUpdateContactRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -550,7 +550,7 @@ impl ::core::fmt::Debug for ContactListCreateOrUpdateContactRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactListCreateOrUpdateContactRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequestEventArgs;{851c1690-1a51-4b0c-aeef-1240ac5bed75})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequestEventArgs;{851c1690-1a51-4b0c-aeef-1240ac5bed75})");
 }
 impl ::core::clone::Clone for ContactListCreateOrUpdateContactRequestEventArgs {
     fn clone(&self) -> Self {
@@ -566,7 +566,7 @@ unsafe impl ::windows::core::Interface for ContactListCreateOrUpdateContactReque
 impl ::windows::core::RuntimeName for ContactListCreateOrUpdateContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactListCreateOrUpdateContactRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactListCreateOrUpdateContactRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListCreateOrUpdateContactRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListCreateOrUpdateContactRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -618,7 +618,7 @@ impl ::core::fmt::Debug for ContactListDeleteContactRequest {
     }
 }
 impl ::windows::core::RuntimeType for ContactListDeleteContactRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequest;{5e114687-ce03-4de5-8557-9ccf552d472a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequest;{5e114687-ce03-4de5-8557-9ccf552d472a})");
 }
 impl ::core::clone::Clone for ContactListDeleteContactRequest {
     fn clone(&self) -> Self {
@@ -634,7 +634,7 @@ unsafe impl ::windows::core::Interface for ContactListDeleteContactRequest {
 impl ::windows::core::RuntimeName for ContactListDeleteContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequest";
 }
-::windows::core::interface_hierarchy!(ContactListDeleteContactRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactListDeleteContactRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListDeleteContactRequest {}
 unsafe impl ::core::marker::Sync for ContactListDeleteContactRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -670,7 +670,7 @@ impl ::core::fmt::Debug for ContactListDeleteContactRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactListDeleteContactRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequestEventArgs;{b22054a1-e8fa-4db5-9389-2d12ee7d15ee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequestEventArgs;{b22054a1-e8fa-4db5-9389-2d12ee7d15ee})");
 }
 impl ::core::clone::Clone for ContactListDeleteContactRequestEventArgs {
     fn clone(&self) -> Self {
@@ -686,7 +686,7 @@ unsafe impl ::windows::core::Interface for ContactListDeleteContactRequestEventA
 impl ::windows::core::RuntimeName for ContactListDeleteContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactListDeleteContactRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactListDeleteContactRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListDeleteContactRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListDeleteContactRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -761,7 +761,7 @@ impl ::core::fmt::Debug for ContactListServerSearchReadBatchRequest {
     }
 }
 impl ::windows::core::RuntimeType for ContactListServerSearchReadBatchRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequest;{ba776a97-4030-4925-9fb4-143b295e653b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequest;{ba776a97-4030-4925-9fb4-143b295e653b})");
 }
 impl ::core::clone::Clone for ContactListServerSearchReadBatchRequest {
     fn clone(&self) -> Self {
@@ -777,7 +777,7 @@ unsafe impl ::windows::core::Interface for ContactListServerSearchReadBatchReque
 impl ::windows::core::RuntimeName for ContactListServerSearchReadBatchRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequest";
 }
-::windows::core::interface_hierarchy!(ContactListServerSearchReadBatchRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactListServerSearchReadBatchRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListServerSearchReadBatchRequest {}
 unsafe impl ::core::marker::Sync for ContactListServerSearchReadBatchRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -813,7 +813,7 @@ impl ::core::fmt::Debug for ContactListServerSearchReadBatchRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactListServerSearchReadBatchRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequestEventArgs;{1a27e87b-69d7-4e4e-8042-861cba61471e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequestEventArgs;{1a27e87b-69d7-4e4e-8042-861cba61471e})");
 }
 impl ::core::clone::Clone for ContactListServerSearchReadBatchRequestEventArgs {
     fn clone(&self) -> Self {
@@ -829,7 +829,7 @@ unsafe impl ::windows::core::Interface for ContactListServerSearchReadBatchReque
 impl ::windows::core::RuntimeName for ContactListServerSearchReadBatchRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactListServerSearchReadBatchRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactListServerSearchReadBatchRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListServerSearchReadBatchRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListServerSearchReadBatchRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -874,7 +874,7 @@ impl ::core::fmt::Debug for ContactListSyncManagerSyncRequest {
     }
 }
 impl ::windows::core::RuntimeType for ContactListSyncManagerSyncRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequest;{3c0e57a4-c4e7-4970-9a8f-9a66a2bb6c1a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequest;{3c0e57a4-c4e7-4970-9a8f-9a66a2bb6c1a})");
 }
 impl ::core::clone::Clone for ContactListSyncManagerSyncRequest {
     fn clone(&self) -> Self {
@@ -890,7 +890,7 @@ unsafe impl ::windows::core::Interface for ContactListSyncManagerSyncRequest {
 impl ::windows::core::RuntimeName for ContactListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequest";
 }
-::windows::core::interface_hierarchy!(ContactListSyncManagerSyncRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactListSyncManagerSyncRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for ContactListSyncManagerSyncRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -926,7 +926,7 @@ impl ::core::fmt::Debug for ContactListSyncManagerSyncRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactListSyncManagerSyncRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequestEventArgs;{158e4dac-446d-4f10-afc2-02683ec533a6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequestEventArgs;{158e4dac-446d-4f10-afc2-02683ec533a6})");
 }
 impl ::core::clone::Clone for ContactListSyncManagerSyncRequestEventArgs {
     fn clone(&self) -> Self {
@@ -942,7 +942,7 @@ unsafe impl ::windows::core::Interface for ContactListSyncManagerSyncRequestEven
 impl ::windows::core::RuntimeName for ContactListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactListSyncManagerSyncRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactListSyncManagerSyncRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListSyncManagerSyncRequestEventArgs {}
 #[cfg(feature = "implement")]

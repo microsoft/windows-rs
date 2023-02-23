@@ -24,7 +24,7 @@ impl IActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IActivatedEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37,7 +37,7 @@ impl ::core::fmt::Debug for IActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cf651713-cd08-4fd8-b697-a281b6544e2e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{cf651713-cd08-4fd8-b697-a281b6544e2e}");
 }
 unsafe impl ::windows::core::Vtable for IActivatedEventArgs {
     type Vtable = IActivatedEventArgs_Vtbl;
@@ -93,7 +93,7 @@ impl IActivatedEventArgsWithUser {
         }
     }
 }
-::windows::core::interface_hierarchy!(IActivatedEventArgsWithUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IActivatedEventArgsWithUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IActivatedEventArgsWithUser> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IActivatedEventArgsWithUser) -> ::windows::core::Result<Self> {
@@ -125,7 +125,7 @@ impl ::core::fmt::Debug for IActivatedEventArgsWithUser {
     }
 }
 impl ::windows::core::RuntimeType for IActivatedEventArgsWithUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1cf09b9e-9962-4936-80ff-afc8e8ae5c8c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1cf09b9e-9962-4936-80ff-afc8e8ae5c8c}");
 }
 unsafe impl ::windows::core::Vtable for IActivatedEventArgsWithUser {
     type Vtable = IActivatedEventArgsWithUser_Vtbl;
@@ -180,7 +180,7 @@ impl IApplicationViewActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IApplicationViewActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IApplicationViewActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IApplicationViewActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IApplicationViewActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -212,7 +212,7 @@ impl ::core::fmt::Debug for IApplicationViewActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IApplicationViewActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{930cef4b-b829-40fc-88f4-8513e8a64738}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{930cef4b-b829-40fc-88f4-8513e8a64738}");
 }
 unsafe impl ::windows::core::Vtable for IApplicationViewActivatedEventArgs {
     type Vtable = IApplicationViewActivatedEventArgs_Vtbl;
@@ -264,7 +264,7 @@ impl IAppointmentsProviderActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IAppointmentsProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAppointmentsProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAppointmentsProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IAppointmentsProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -296,7 +296,7 @@ impl ::core::fmt::Debug for IAppointmentsProviderActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IAppointmentsProviderActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3364c405-933c-4e7d-a034-500fb8dcd9f3}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{3364c405-933c-4e7d-a034-500fb8dcd9f3}");
 }
 unsafe impl ::windows::core::Vtable for IAppointmentsProviderActivatedEventArgs {
     type Vtable = IAppointmentsProviderActivatedEventArgs_Vtbl;
@@ -357,7 +357,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IAppointmentsProviderAddAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAppointmentsProviderAddAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -408,7 +408,7 @@ impl ::core::fmt::Debug for IAppointmentsProviderAddAppointmentActivatedEventArg
     }
 }
 impl ::windows::core::RuntimeType for IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a2861367-cee5-4e4d-9ed7-41c34ec18b02}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a2861367-cee5-4e4d-9ed7-41c34ec18b02}");
 }
 unsafe impl ::windows::core::Vtable for IAppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl;
@@ -472,7 +472,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IAppointmentsProviderRemoveAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAppointmentsProviderRemoveAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -523,7 +523,7 @@ impl ::core::fmt::Debug for IAppointmentsProviderRemoveAppointmentActivatedEvent
     }
 }
 impl ::windows::core::RuntimeType for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{751f3ab8-0b8e-451c-9f15-966e699bac25}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{751f3ab8-0b8e-451c-9f15-966e699bac25}");
 }
 unsafe impl ::windows::core::Vtable for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl;
@@ -587,7 +587,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IAppointmentsProviderReplaceAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAppointmentsProviderReplaceAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -638,7 +638,7 @@ impl ::core::fmt::Debug for IAppointmentsProviderReplaceAppointmentActivatedEven
     }
 }
 impl ::windows::core::RuntimeType for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1551b7d4-a981-4067-8a62-0524e4ade121}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1551b7d4-a981-4067-8a62-0524e4ade121}");
 }
 unsafe impl ::windows::core::Vtable for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl;
@@ -716,7 +716,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -767,7 +767,7 @@ impl ::core::fmt::Debug for IAppointmentsProviderShowAppointmentDetailsActivated
     }
 }
 impl ::windows::core::RuntimeType for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3958f065-9841-4ca5-999b-885198b9ef2a}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{3958f065-9841-4ca5-999b-885198b9ef2a}");
 }
 unsafe impl ::windows::core::Vtable for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl;
@@ -842,7 +842,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -893,7 +893,7 @@ impl ::core::fmt::Debug for IAppointmentsProviderShowTimeFrameActivatedEventArgs
     }
 }
 impl ::windows::core::RuntimeType for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9baeaba6-0e0b-49aa-babc-12b1dc774986}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{9baeaba6-0e0b-49aa-babc-12b1dc774986}");
 }
 unsafe impl ::windows::core::Vtable for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl;
@@ -933,7 +933,7 @@ impl IBackgroundActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBackgroundActivatedEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -946,7 +946,7 @@ impl ::core::fmt::Debug for IBackgroundActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ab14bee0-e760-440e-a91c-44796de3a92d}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ab14bee0-e760-440e-a91c-44796de3a92d}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundActivatedEventArgs {
     type Vtable = IBackgroundActivatedEventArgs_Vtbl;
@@ -1001,7 +1001,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IBarcodeScannerPreviewActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBarcodeScannerPreviewActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IBarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1033,7 +1033,7 @@ impl ::core::fmt::Debug for IBarcodeScannerPreviewActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IBarcodeScannerPreviewActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6772797c-99bf-4349-af22-e4123560371c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{6772797c-99bf-4349-af22-e4123560371c}");
 }
 unsafe impl ::windows::core::Vtable for IBarcodeScannerPreviewActivatedEventArgs {
     type Vtable = IBarcodeScannerPreviewActivatedEventArgs_Vtbl;
@@ -1087,7 +1087,7 @@ impl ICachedFileUpdaterActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(ICachedFileUpdaterActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICachedFileUpdaterActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ICachedFileUpdaterActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ICachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1119,7 +1119,7 @@ impl ::core::fmt::Debug for ICachedFileUpdaterActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ICachedFileUpdaterActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d06eb1c7-3805-4ecb-b757-6cf15e26fef3}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{d06eb1c7-3805-4ecb-b757-6cf15e26fef3}");
 }
 unsafe impl ::windows::core::Vtable for ICachedFileUpdaterActivatedEventArgs {
     type Vtable = ICachedFileUpdaterActivatedEventArgs_Vtbl;
@@ -1181,7 +1181,7 @@ impl ICameraSettingsActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(ICameraSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICameraSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ICameraSettingsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ICameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1213,7 +1213,7 @@ impl ::core::fmt::Debug for ICameraSettingsActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ICameraSettingsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fb67a508-2dad-490a-9170-dca036eb114b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{fb67a508-2dad-490a-9170-dca036eb114b}");
 }
 unsafe impl ::windows::core::Vtable for ICameraSettingsActivatedEventArgs {
     type Vtable = ICameraSettingsActivatedEventArgs_Vtbl;
@@ -1266,7 +1266,7 @@ impl ICommandLineActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(ICommandLineActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICommandLineActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ICommandLineActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ICommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1298,7 +1298,7 @@ impl ::core::fmt::Debug for ICommandLineActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ICommandLineActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4506472c-006a-48eb-8afb-d07ab25e3366}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4506472c-006a-48eb-8afb-d07ab25e3366}");
 }
 unsafe impl ::windows::core::Vtable for ICommandLineActivatedEventArgs {
     type Vtable = ICommandLineActivatedEventArgs_Vtbl;
@@ -1377,7 +1377,7 @@ impl IContactActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1409,7 +1409,7 @@ impl ::core::fmt::Debug for IContactActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IContactActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d627a1c4-c025-4c41-9def-f1eafad075e7}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{d627a1c4-c025-4c41-9def-f1eafad075e7}");
 }
 unsafe impl ::windows::core::Vtable for IContactActivatedEventArgs {
     type Vtable = IContactActivatedEventArgs_Vtbl;
@@ -1484,7 +1484,7 @@ impl IContactCallActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1535,7 +1535,7 @@ impl ::core::fmt::Debug for IContactCallActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IContactCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3}");
 }
 unsafe impl ::windows::core::Vtable for IContactCallActivatedEventArgs {
     type Vtable = IContactCallActivatedEventArgs_Vtbl;
@@ -1610,7 +1610,7 @@ impl IContactMapActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactMapActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactMapActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactMapActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1661,7 +1661,7 @@ impl ::core::fmt::Debug for IContactMapActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IContactMapActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b32bf870-eee7-4ad2-aaf1-a87effcf00a4}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b32bf870-eee7-4ad2-aaf1-a87effcf00a4}");
 }
 unsafe impl ::windows::core::Vtable for IContactMapActivatedEventArgs {
     type Vtable = IContactMapActivatedEventArgs_Vtbl;
@@ -1743,7 +1743,7 @@ impl IContactMessageActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactMessageActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactMessageActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactMessageActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1794,7 +1794,7 @@ impl ::core::fmt::Debug for IContactMessageActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IContactMessageActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{de598db2-0e03-43b0-bf56-bcc40b3162df}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{de598db2-0e03-43b0-bf56-bcc40b3162df}");
 }
 unsafe impl ::windows::core::Vtable for IContactMessageActivatedEventArgs {
     type Vtable = IContactMessageActivatedEventArgs_Vtbl;
@@ -1841,7 +1841,7 @@ impl IContactPanelActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactPanelActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactPanelActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IContactPanelActivatedEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1854,7 +1854,7 @@ impl ::core::fmt::Debug for IContactPanelActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IContactPanelActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{52bb63e4-d3d4-4b63-8051-4af2082cab80}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{52bb63e4-d3d4-4b63-8051-4af2082cab80}");
 }
 unsafe impl ::windows::core::Vtable for IContactPanelActivatedEventArgs {
     type Vtable = IContactPanelActivatedEventArgs_Vtbl;
@@ -1915,7 +1915,7 @@ impl IContactPickerActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactPickerActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1947,7 +1947,7 @@ impl ::core::fmt::Debug for IContactPickerActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IContactPickerActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ce57aae7-6449-45a7-971f-d113be7a8936}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ce57aae7-6449-45a7-971f-d113be7a8936}");
 }
 unsafe impl ::windows::core::Vtable for IContactPickerActivatedEventArgs {
     type Vtable = IContactPickerActivatedEventArgs_Vtbl;
@@ -2025,7 +2025,7 @@ impl IContactPostActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactPostActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactPostActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactPostActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2076,7 +2076,7 @@ impl ::core::fmt::Debug for IContactPostActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IContactPostActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b35a3c67-f1e7-4655-ad6e-4857588f552f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b35a3c67-f1e7-4655-ad6e-4857588f552f}");
 }
 unsafe impl ::windows::core::Vtable for IContactPostActivatedEventArgs {
     type Vtable = IContactPostActivatedEventArgs_Vtbl;
@@ -2156,7 +2156,7 @@ impl IContactVideoCallActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactVideoCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactVideoCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactVideoCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2207,7 +2207,7 @@ impl ::core::fmt::Debug for IContactVideoCallActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IContactVideoCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61079db8-e3e7-4b4f-858d-5c63a96ef684}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{61079db8-e3e7-4b4f-858d-5c63a96ef684}");
 }
 unsafe impl ::windows::core::Vtable for IContactVideoCallActivatedEventArgs {
     type Vtable = IContactVideoCallActivatedEventArgs_Vtbl;
@@ -2264,7 +2264,7 @@ impl IContactsProviderActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContactsProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContactsProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactsProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactsProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2296,7 +2296,7 @@ impl ::core::fmt::Debug for IContactsProviderActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IContactsProviderActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4580dca8-5750-4916-aa52-c0829521eb94}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4580dca8-5750-4916-aa52-c0829521eb94}");
 }
 unsafe impl ::windows::core::Vtable for IContactsProviderActivatedEventArgs {
     type Vtable = IContactsProviderActivatedEventArgs_Vtbl;
@@ -2350,7 +2350,7 @@ impl IContinuationActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IContinuationActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IContinuationActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContinuationActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContinuationActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2382,7 +2382,7 @@ impl ::core::fmt::Debug for IContinuationActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IContinuationActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e58106b5-155f-4a94-a742-c7e08f4e188c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e58106b5-155f-4a94-a742-c7e08f4e188c}");
 }
 unsafe impl ::windows::core::Vtable for IContinuationActivatedEventArgs {
     type Vtable = IContinuationActivatedEventArgs_Vtbl;
@@ -2444,7 +2444,7 @@ impl IDeviceActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IDeviceActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IDeviceActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IDeviceActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IDeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2476,7 +2476,7 @@ impl ::core::fmt::Debug for IDeviceActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IDeviceActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cd50b9a9-ce10-44d2-8234-c355a073ef33}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{cd50b9a9-ce10-44d2-8234-c355a073ef33}");
 }
 unsafe impl ::windows::core::Vtable for IDeviceActivatedEventArgs {
     type Vtable = IDeviceActivatedEventArgs_Vtbl;
@@ -2531,7 +2531,7 @@ impl IDevicePairingActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IDevicePairingActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IDevicePairingActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IDevicePairingActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IDevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2563,7 +2563,7 @@ impl ::core::fmt::Debug for IDevicePairingActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IDevicePairingActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e}");
 }
 unsafe impl ::windows::core::Vtable for IDevicePairingActivatedEventArgs {
     type Vtable = IDevicePairingActivatedEventArgs_Vtbl;
@@ -2632,7 +2632,7 @@ impl IDialReceiverActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IDialReceiverActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IDialReceiverActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IDialReceiverActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IDialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2683,7 +2683,7 @@ impl ::core::fmt::Debug for IDialReceiverActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IDialReceiverActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fb777ed7-85ee-456e-a44d-85d730e70aed}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{fb777ed7-85ee-456e-a44d-85d730e70aed}");
 }
 unsafe impl ::windows::core::Vtable for IDialReceiverActivatedEventArgs {
     type Vtable = IDialReceiverActivatedEventArgs_Vtbl;
@@ -2744,7 +2744,7 @@ impl IFileActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IFileActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFileActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IFileActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IFileActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2776,7 +2776,7 @@ impl ::core::fmt::Debug for IFileActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IFileActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bb2afc33-93b1-42ed-8b26-236dd9c78496}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{bb2afc33-93b1-42ed-8b26-236dd9c78496}");
 }
 unsafe impl ::windows::core::Vtable for IFileActivatedEventArgs {
     type Vtable = IFileActivatedEventArgs_Vtbl;
@@ -2832,7 +2832,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName {
         }
     }
 }
-::windows::core::interface_hierarchy!(IFileActivatedEventArgsWithCallerPackageFamilyName, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFileActivatedEventArgsWithCallerPackageFamilyName, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IFileActivatedEventArgsWithCallerPackageFamilyName> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IFileActivatedEventArgsWithCallerPackageFamilyName) -> ::windows::core::Result<Self> {
@@ -2864,7 +2864,7 @@ impl ::core::fmt::Debug for IFileActivatedEventArgsWithCallerPackageFamilyName {
     }
 }
 impl ::windows::core::RuntimeType for IFileActivatedEventArgsWithCallerPackageFamilyName {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2d60f06b-d25f-4d25-8653-e1c5e1108309}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2d60f06b-d25f-4d25-8653-e1c5e1108309}");
 }
 unsafe impl ::windows::core::Vtable for IFileActivatedEventArgsWithCallerPackageFamilyName {
     type Vtable = IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl;
@@ -2934,7 +2934,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
         }
     }
 }
-::windows::core::interface_hierarchy!(IFileActivatedEventArgsWithNeighboringFiles, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFileActivatedEventArgsWithNeighboringFiles, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IFileActivatedEventArgsWithNeighboringFiles> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IFileActivatedEventArgsWithNeighboringFiles) -> ::windows::core::Result<Self> {
@@ -2985,7 +2985,7 @@ impl ::core::fmt::Debug for IFileActivatedEventArgsWithNeighboringFiles {
     }
 }
 impl ::windows::core::RuntimeType for IFileActivatedEventArgsWithNeighboringFiles {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{433ba1a4-e1e2-48fd-b7fc-b5d6eee65033}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{433ba1a4-e1e2-48fd-b7fc-b5d6eee65033}");
 }
 unsafe impl ::windows::core::Vtable for IFileActivatedEventArgsWithNeighboringFiles {
     type Vtable = IFileActivatedEventArgsWithNeighboringFiles_Vtbl;
@@ -3042,7 +3042,7 @@ impl IFileOpenPickerActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IFileOpenPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFileOpenPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IFileOpenPickerActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IFileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -3074,7 +3074,7 @@ impl ::core::fmt::Debug for IFileOpenPickerActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IFileOpenPickerActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72827082-5525-4bf2-bc09-1f5095d4964d}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{72827082-5525-4bf2-bc09-1f5095d4964d}");
 }
 unsafe impl ::windows::core::Vtable for IFileOpenPickerActivatedEventArgs {
     type Vtable = IFileOpenPickerActivatedEventArgs_Vtbl;
@@ -3108,7 +3108,7 @@ impl IFileOpenPickerActivatedEventArgs2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IFileOpenPickerActivatedEventArgs2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFileOpenPickerActivatedEventArgs2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IFileOpenPickerActivatedEventArgs2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3121,7 +3121,7 @@ impl ::core::fmt::Debug for IFileOpenPickerActivatedEventArgs2 {
     }
 }
 impl ::windows::core::RuntimeType for IFileOpenPickerActivatedEventArgs2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5e731f66-8d1f-45fb-af1d-73205c8fc7a1}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{5e731f66-8d1f-45fb-af1d-73205c8fc7a1}");
 }
 unsafe impl ::windows::core::Vtable for IFileOpenPickerActivatedEventArgs2 {
     type Vtable = IFileOpenPickerActivatedEventArgs2_Vtbl;
@@ -3187,7 +3187,7 @@ impl IFileOpenPickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(IFileOpenPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFileOpenPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<IFileOpenPickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -3248,7 +3248,7 @@ impl ::core::fmt::Debug for IFileOpenPickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for IFileOpenPickerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for IFileOpenPickerContinuationEventArgs {
@@ -3309,7 +3309,7 @@ impl IFileSavePickerActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IFileSavePickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFileSavePickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IFileSavePickerActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IFileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -3341,7 +3341,7 @@ impl ::core::fmt::Debug for IFileSavePickerActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IFileSavePickerActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{81c19cf1-74e6-4387-82eb-bb8fd64b4346}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{81c19cf1-74e6-4387-82eb-bb8fd64b4346}");
 }
 unsafe impl ::windows::core::Vtable for IFileSavePickerActivatedEventArgs {
     type Vtable = IFileSavePickerActivatedEventArgs_Vtbl;
@@ -3382,7 +3382,7 @@ impl IFileSavePickerActivatedEventArgs2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IFileSavePickerActivatedEventArgs2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFileSavePickerActivatedEventArgs2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IFileSavePickerActivatedEventArgs2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3395,7 +3395,7 @@ impl ::core::fmt::Debug for IFileSavePickerActivatedEventArgs2 {
     }
 }
 impl ::windows::core::RuntimeType for IFileSavePickerActivatedEventArgs2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6b73fe13-2cf2-4d48-8cbc-af67d23f1ce7}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{6b73fe13-2cf2-4d48-8cbc-af67d23f1ce7}");
 }
 unsafe impl ::windows::core::Vtable for IFileSavePickerActivatedEventArgs2 {
     type Vtable = IFileSavePickerActivatedEventArgs2_Vtbl;
@@ -3462,7 +3462,7 @@ impl IFileSavePickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(IFileSavePickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFileSavePickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<IFileSavePickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -3523,7 +3523,7 @@ impl ::core::fmt::Debug for IFileSavePickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for IFileSavePickerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2c846fe1-3bad-4f33-8c8b-e46fae824b4b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2c846fe1-3bad-4f33-8c8b-e46fae824b4b}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for IFileSavePickerContinuationEventArgs {
@@ -3596,7 +3596,7 @@ impl IFolderPickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(IFolderPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFolderPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<IFolderPickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -3657,7 +3657,7 @@ impl ::core::fmt::Debug for IFolderPickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for IFolderPickerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{51882366-9f4b-498f-beb0-42684f6e1c29}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{51882366-9f4b-498f-beb0-42684f6e1c29}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for IFolderPickerContinuationEventArgs {
@@ -3723,7 +3723,7 @@ impl ILaunchActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(ILaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ILaunchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ILaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -3755,7 +3755,7 @@ impl ::core::fmt::Debug for ILaunchActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ILaunchActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fbc93e26-a14a-4b4f-82b0-33bed920af52}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{fbc93e26-a14a-4b4f-82b0-33bed920af52}");
 }
 unsafe impl ::windows::core::Vtable for ILaunchActivatedEventArgs {
     type Vtable = ILaunchActivatedEventArgs_Vtbl;
@@ -3822,7 +3822,7 @@ impl ILaunchActivatedEventArgs2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(ILaunchActivatedEventArgs2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILaunchActivatedEventArgs2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ILaunchActivatedEventArgs2> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ILaunchActivatedEventArgs2) -> ::windows::core::Result<Self> {
@@ -3873,7 +3873,7 @@ impl ::core::fmt::Debug for ILaunchActivatedEventArgs2 {
     }
 }
 impl ::windows::core::RuntimeType for ILaunchActivatedEventArgs2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0fd37ebc-9dc9-46b5-9ace-bd95d4565345}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{0fd37ebc-9dc9-46b5-9ace-bd95d4565345}");
 }
 unsafe impl ::windows::core::Vtable for ILaunchActivatedEventArgs2 {
     type Vtable = ILaunchActivatedEventArgs2_Vtbl;
@@ -3925,7 +3925,7 @@ impl ILockScreenActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(ILockScreenActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILockScreenActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ILockScreenActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ILockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -3957,7 +3957,7 @@ impl ::core::fmt::Debug for ILockScreenActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ILockScreenActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3ca77966-6108-4a41-8220-ee7d133c8532}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{3ca77966-6108-4a41-8220-ee7d133c8532}");
 }
 unsafe impl ::windows::core::Vtable for ILockScreenActivatedEventArgs {
     type Vtable = ILockScreenActivatedEventArgs_Vtbl;
@@ -4025,7 +4025,7 @@ impl ILockScreenCallActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(ILockScreenCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILockScreenCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ILockScreenCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ILockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -4076,7 +4076,7 @@ impl ::core::fmt::Debug for ILockScreenCallActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ILockScreenCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{06f37fbe-b5f2-448b-b13e-e328ac1c516a}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{06f37fbe-b5f2-448b-b13e-e328ac1c516a}");
 }
 unsafe impl ::windows::core::Vtable for ILockScreenCallActivatedEventArgs {
     type Vtable = ILockScreenCallActivatedEventArgs_Vtbl;
@@ -4131,7 +4131,7 @@ impl IPhoneCallActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPhoneCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPhoneCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPhoneCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IPhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -4163,7 +4163,7 @@ impl ::core::fmt::Debug for IPhoneCallActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IPhoneCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{54615221-a3c1-4ced-b62f-8c60523619ad}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{54615221-a3c1-4ced-b62f-8c60523619ad}");
 }
 unsafe impl ::windows::core::Vtable for IPhoneCallActivatedEventArgs {
     type Vtable = IPhoneCallActivatedEventArgs_Vtbl;
@@ -4215,7 +4215,7 @@ impl IPickerReturnedActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPickerReturnedActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPickerReturnedActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPickerReturnedActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IPickerReturnedActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -4247,7 +4247,7 @@ impl ::core::fmt::Debug for IPickerReturnedActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IPickerReturnedActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{360defb9-a9d3-4984-a4ed-9ec734604921}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{360defb9-a9d3-4984-a4ed-9ec734604921}");
 }
 unsafe impl ::windows::core::Vtable for IPickerReturnedActivatedEventArgs {
     type Vtable = IPickerReturnedActivatedEventArgs_Vtbl;
@@ -4299,7 +4299,7 @@ impl IPrelaunchActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPrelaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrelaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrelaunchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrelaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -4331,7 +4331,7 @@ impl ::core::fmt::Debug for IPrelaunchActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IPrelaunchActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0c44717b-19f7-48d6-b046-cf22826eaa74}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{0c44717b-19f7-48d6-b046-cf22826eaa74}");
 }
 unsafe impl ::windows::core::Vtable for IPrelaunchActivatedEventArgs {
     type Vtable = IPrelaunchActivatedEventArgs_Vtbl;
@@ -4385,7 +4385,7 @@ impl IPrint3DWorkflowActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPrint3DWorkflowActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrint3DWorkflowActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrint3DWorkflowActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrint3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -4417,7 +4417,7 @@ impl ::core::fmt::Debug for IPrint3DWorkflowActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IPrint3DWorkflowActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3f57e78b-f2ac-4619-8302-ef855e1c9b90}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{3f57e78b-f2ac-4619-8302-ef855e1c9b90}");
 }
 unsafe impl ::windows::core::Vtable for IPrint3DWorkflowActivatedEventArgs {
     type Vtable = IPrint3DWorkflowActivatedEventArgs_Vtbl;
@@ -4474,7 +4474,7 @@ impl IPrintTaskSettingsActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPrintTaskSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrintTaskSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrintTaskSettingsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -4506,7 +4506,7 @@ impl ::core::fmt::Debug for IPrintTaskSettingsActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IPrintTaskSettingsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ee30a0c9-ce56-4865-ba8e-8954ac271107}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ee30a0c9-ce56-4865-ba8e-8954ac271107}");
 }
 unsafe impl ::windows::core::Vtable for IPrintTaskSettingsActivatedEventArgs {
     type Vtable = IPrintTaskSettingsActivatedEventArgs_Vtbl;
@@ -4563,7 +4563,7 @@ impl IProtocolActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IProtocolActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IProtocolActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IProtocolActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -4595,7 +4595,7 @@ impl ::core::fmt::Debug for IProtocolActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IProtocolActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6095f4dd-b7c0-46ab-81fe-d90f36d00d24}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{6095f4dd-b7c0-46ab-81fe-d90f36d00d24}");
 }
 unsafe impl ::windows::core::Vtable for IProtocolActivatedEventArgs {
     type Vtable = IProtocolActivatedEventArgs_Vtbl;
@@ -4659,7 +4659,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
         }
     }
 }
-::windows::core::interface_hierarchy!(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> ::windows::core::Result<Self> {
@@ -4691,7 +4691,7 @@ impl ::core::fmt::Debug for IProtocolActivatedEventArgsWithCallerPackageFamilyNa
     }
 }
 impl ::windows::core::RuntimeType for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d84a0c12-5c8f-438c-83cb-c28fcc0b2fdb}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{d84a0c12-5c8f-438c-83cb-c28fcc0b2fdb}");
 }
 unsafe impl ::windows::core::Vtable for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     type Vtable = IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl;
@@ -4749,7 +4749,7 @@ impl IProtocolForResultsActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IProtocolForResultsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IProtocolForResultsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IProtocolForResultsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -4781,7 +4781,7 @@ impl ::core::fmt::Debug for IProtocolForResultsActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IProtocolForResultsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c}");
 }
 unsafe impl ::windows::core::Vtable for IProtocolForResultsActivatedEventArgs {
     type Vtable = IProtocolForResultsActivatedEventArgs_Vtbl;
@@ -4836,7 +4836,7 @@ impl IRestrictedLaunchActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IRestrictedLaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IRestrictedLaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IRestrictedLaunchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IRestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -4868,7 +4868,7 @@ impl ::core::fmt::Debug for IRestrictedLaunchActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IRestrictedLaunchActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e0b7ac81-bfc3-4344-a5da-19fd5a27baae}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e0b7ac81-bfc3-4344-a5da-19fd5a27baae}");
 }
 unsafe impl ::windows::core::Vtable for IRestrictedLaunchActivatedEventArgs {
     type Vtable = IRestrictedLaunchActivatedEventArgs_Vtbl;
@@ -4927,7 +4927,7 @@ impl ISearchActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(ISearchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISearchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ISearchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ISearchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -4959,7 +4959,7 @@ impl ::core::fmt::Debug for ISearchActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ISearchActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8cb36951-58c8-43e3-94bc-41d33f8b630e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{8cb36951-58c8-43e3-94bc-41d33f8b630e}");
 }
 unsafe impl ::windows::core::Vtable for ISearchActivatedEventArgs {
     type Vtable = ISearchActivatedEventArgs_Vtbl;
@@ -4993,7 +4993,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails {
         }
     }
 }
-::windows::core::interface_hierarchy!(ISearchActivatedEventArgsWithLinguisticDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISearchActivatedEventArgsWithLinguisticDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISearchActivatedEventArgsWithLinguisticDetails {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5006,7 +5006,7 @@ impl ::core::fmt::Debug for ISearchActivatedEventArgsWithLinguisticDetails {
     }
 }
 impl ::windows::core::RuntimeType for ISearchActivatedEventArgsWithLinguisticDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c09f33da-08ab-4931-9b7c-451025f21f81}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{c09f33da-08ab-4931-9b7c-451025f21f81}");
 }
 unsafe impl ::windows::core::Vtable for ISearchActivatedEventArgsWithLinguisticDetails {
     type Vtable = ISearchActivatedEventArgsWithLinguisticDetails_Vtbl;
@@ -5063,7 +5063,7 @@ impl IShareTargetActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IShareTargetActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IShareTargetActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IShareTargetActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5095,7 +5095,7 @@ impl ::core::fmt::Debug for IShareTargetActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IShareTargetActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec}");
 }
 unsafe impl ::windows::core::Vtable for IShareTargetActivatedEventArgs {
     type Vtable = IShareTargetActivatedEventArgs_Vtbl;
@@ -5181,7 +5181,7 @@ impl IStartupTaskActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStartupTaskActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStartupTaskActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IStartupTaskActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IStartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5213,7 +5213,7 @@ impl ::core::fmt::Debug for IStartupTaskActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IStartupTaskActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{03b11a58-5276-4d91-8621-54611864d5fa}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{03b11a58-5276-4d91-8621-54611864d5fa}");
 }
 unsafe impl ::windows::core::Vtable for IStartupTaskActivatedEventArgs {
     type Vtable = IStartupTaskActivatedEventArgs_Vtbl;
@@ -5297,7 +5297,7 @@ impl IToastNotificationActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IToastNotificationActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IToastNotificationActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IToastNotificationActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5329,7 +5329,7 @@ impl ::core::fmt::Debug for IToastNotificationActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IToastNotificationActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{92a86f82-5290-431d-be85-c4aaeeb8685f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{92a86f82-5290-431d-be85-c4aaeeb8685f}");
 }
 unsafe impl ::windows::core::Vtable for IToastNotificationActivatedEventArgs {
     type Vtable = IToastNotificationActivatedEventArgs_Vtbl;
@@ -5387,7 +5387,7 @@ impl IUserDataAccountProviderActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IUserDataAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IUserDataAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IUserDataAccountProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IUserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5419,7 +5419,7 @@ impl ::core::fmt::Debug for IUserDataAccountProviderActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IUserDataAccountProviderActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1bc9f723-8ef1-4a51-a63a-fe711eeab607}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1bc9f723-8ef1-4a51-a63a-fe711eeab607}");
 }
 unsafe impl ::windows::core::Vtable for IUserDataAccountProviderActivatedEventArgs {
     type Vtable = IUserDataAccountProviderActivatedEventArgs_Vtbl;
@@ -5476,7 +5476,7 @@ impl IViewSwitcherProvider {
         }
     }
 }
-::windows::core::interface_hierarchy!(IViewSwitcherProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IViewSwitcherProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IViewSwitcherProvider> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IViewSwitcherProvider) -> ::windows::core::Result<Self> {
@@ -5508,7 +5508,7 @@ impl ::core::fmt::Debug for IViewSwitcherProvider {
     }
 }
 impl ::windows::core::RuntimeType for IViewSwitcherProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{33f288a6-5c2c-4d27-bac7-7536088f1219}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{33f288a6-5c2c-4d27-bac7-7536088f1219}");
 }
 unsafe impl ::windows::core::Vtable for IViewSwitcherProvider {
     type Vtable = IViewSwitcherProvider_Vtbl;
@@ -5565,7 +5565,7 @@ impl IVoiceCommandActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVoiceCommandActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVoiceCommandActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IVoiceCommandActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IVoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5597,7 +5597,7 @@ impl ::core::fmt::Debug for IVoiceCommandActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IVoiceCommandActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ab92dcfd-8d43-4de6-9775-20704b581b00}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ab92dcfd-8d43-4de6-9775-20704b581b00}");
 }
 unsafe impl ::windows::core::Vtable for IVoiceCommandActivatedEventArgs {
     type Vtable = IVoiceCommandActivatedEventArgs_Vtbl;
@@ -5675,7 +5675,7 @@ impl IWalletActionActivatedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(IWalletActionActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWalletActionActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<IWalletActionActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -5714,7 +5714,7 @@ impl ::core::fmt::Debug for IWalletActionActivatedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for IWalletActionActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for IWalletActionActivatedEventArgs {
@@ -5783,7 +5783,7 @@ impl IWebAccountProviderActivatedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IWebAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebAccountProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5815,7 +5815,7 @@ impl ::core::fmt::Debug for IWebAccountProviderActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IWebAccountProviderActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72b71774-98ea-4ccf-9752-46d9051004f1}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{72b71774-98ea-4ccf-9752-46d9051004f1}");
 }
 unsafe impl ::windows::core::Vtable for IWebAccountProviderActivatedEventArgs {
     type Vtable = IWebAccountProviderActivatedEventArgs_Vtbl;
@@ -5881,7 +5881,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IWebAuthenticationBrokerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebAuthenticationBrokerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebAuthenticationBrokerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
@@ -5932,7 +5932,7 @@ impl ::core::fmt::Debug for IWebAuthenticationBrokerContinuationEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IWebAuthenticationBrokerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{75dda3d4-7714-453d-b7ff-b95e3a1709da}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{75dda3d4-7714-453d-b7ff-b95e3a1709da}");
 }
 unsafe impl ::windows::core::Vtable for IWebAuthenticationBrokerContinuationEventArgs {
     type Vtable = IWebAuthenticationBrokerContinuationEventArgs_Vtbl;
@@ -6017,7 +6017,7 @@ impl ::core::fmt::Debug for AppointmentsProviderAddAppointmentActivatedEventArgs
     }
 }
 impl ::windows::core::RuntimeType for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs;{a2861367-cee5-4e4d-9ed7-41c34ec18b02})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs;{a2861367-cee5-4e4d-9ed7-41c34ec18b02})");
 }
 impl ::core::clone::Clone for AppointmentsProviderAddAppointmentActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -6033,7 +6033,7 @@ unsafe impl ::windows::core::Interface for AppointmentsProviderAddAppointmentAct
 impl ::windows::core::RuntimeName for AppointmentsProviderAddAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppointmentsProviderAddAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentsProviderAddAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -6175,7 +6175,7 @@ impl ::core::fmt::Debug for AppointmentsProviderRemoveAppointmentActivatedEventA
     }
 }
 impl ::windows::core::RuntimeType for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs;{751f3ab8-0b8e-451c-9f15-966e699bac25})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs;{751f3ab8-0b8e-451c-9f15-966e699bac25})");
 }
 impl ::core::clone::Clone for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -6191,7 +6191,7 @@ unsafe impl ::windows::core::Interface for AppointmentsProviderRemoveAppointment
 impl ::windows::core::RuntimeName for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppointmentsProviderRemoveAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentsProviderRemoveAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -6333,7 +6333,7 @@ impl ::core::fmt::Debug for AppointmentsProviderReplaceAppointmentActivatedEvent
     }
 }
 impl ::windows::core::RuntimeType for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs;{1551b7d4-a981-4067-8a62-0524e4ade121})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs;{1551b7d4-a981-4067-8a62-0524e4ade121})");
 }
 impl ::core::clone::Clone for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -6349,7 +6349,7 @@ unsafe impl ::windows::core::Interface for AppointmentsProviderReplaceAppointmen
 impl ::windows::core::RuntimeName for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppointmentsProviderReplaceAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentsProviderReplaceAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -6505,7 +6505,7 @@ impl ::core::fmt::Debug for AppointmentsProviderShowAppointmentDetailsActivatedE
     }
 }
 impl ::windows::core::RuntimeType for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs;{3958f065-9841-4ca5-999b-885198b9ef2a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs;{3958f065-9841-4ca5-999b-885198b9ef2a})");
 }
 impl ::core::clone::Clone for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -6521,7 +6521,7 @@ unsafe impl ::windows::core::Interface for AppointmentsProviderShowAppointmentDe
 impl ::windows::core::RuntimeName for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppointmentsProviderShowAppointmentDetailsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentsProviderShowAppointmentDetailsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -6672,7 +6672,7 @@ impl ::core::fmt::Debug for AppointmentsProviderShowTimeFrameActivatedEventArgs 
     }
 }
 impl ::windows::core::RuntimeType for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs;{9baeaba6-0e0b-49aa-babc-12b1dc774986})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs;{9baeaba6-0e0b-49aa-babc-12b1dc774986})");
 }
 impl ::core::clone::Clone for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -6688,7 +6688,7 @@ unsafe impl ::windows::core::Interface for AppointmentsProviderShowTimeFrameActi
 impl ::windows::core::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppointmentsProviderShowTimeFrameActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentsProviderShowTimeFrameActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -6793,7 +6793,7 @@ impl ::core::fmt::Debug for BackgroundActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs;{ab14bee0-e760-440e-a91c-44796de3a92d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs;{ab14bee0-e760-440e-a91c-44796de3a92d})");
 }
 impl ::core::clone::Clone for BackgroundActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -6809,7 +6809,7 @@ unsafe impl ::windows::core::Interface for BackgroundActivatedEventArgs {
 impl ::windows::core::RuntimeName for BackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(BackgroundActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BackgroundActivatedEventArgs> for IBackgroundActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: BackgroundActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -6885,7 +6885,7 @@ impl ::core::fmt::Debug for BarcodeScannerPreviewActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarcodeScannerPreviewActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs;{6772797c-99bf-4349-af22-e4123560371c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs;{6772797c-99bf-4349-af22-e4123560371c})");
 }
 impl ::core::clone::Clone for BarcodeScannerPreviewActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -6901,7 +6901,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerPreviewActivatedEventAr
 impl ::windows::core::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(BarcodeScannerPreviewActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarcodeScannerPreviewActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7017,7 +7017,7 @@ impl ::core::fmt::Debug for CachedFileUpdaterActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CachedFileUpdaterActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs;{d06eb1c7-3805-4ecb-b757-6cf15e26fef3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs;{d06eb1c7-3805-4ecb-b757-6cf15e26fef3})");
 }
 impl ::core::clone::Clone for CachedFileUpdaterActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -7033,7 +7033,7 @@ unsafe impl ::windows::core::Interface for CachedFileUpdaterActivatedEventArgs {
 impl ::windows::core::RuntimeName for CachedFileUpdaterActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(CachedFileUpdaterActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CachedFileUpdaterActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7145,7 +7145,7 @@ impl ::core::fmt::Debug for CameraSettingsActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CameraSettingsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs;{fb67a508-2dad-490a-9170-dca036eb114b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs;{fb67a508-2dad-490a-9170-dca036eb114b})");
 }
 impl ::core::clone::Clone for CameraSettingsActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -7161,7 +7161,7 @@ unsafe impl ::windows::core::Interface for CameraSettingsActivatedEventArgs {
 impl ::windows::core::RuntimeName for CameraSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(CameraSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CameraSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CameraSettingsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7256,7 +7256,7 @@ impl ::core::fmt::Debug for CommandLineActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CommandLineActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs;{4506472c-006a-48eb-8afb-d07ab25e3366})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs;{4506472c-006a-48eb-8afb-d07ab25e3366})");
 }
 impl ::core::clone::Clone for CommandLineActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -7272,7 +7272,7 @@ unsafe impl ::windows::core::Interface for CommandLineActivatedEventArgs {
 impl ::windows::core::RuntimeName for CommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(CommandLineActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CommandLineActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CommandLineActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7383,7 +7383,7 @@ impl ::core::fmt::Debug for CommandLineActivationOperation {
     }
 }
 impl ::windows::core::RuntimeType for CommandLineActivationOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivationOperation;{994b2841-c59e-4f69-bcfd-b61ed4e622eb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivationOperation;{994b2841-c59e-4f69-bcfd-b61ed4e622eb})");
 }
 impl ::core::clone::Clone for CommandLineActivationOperation {
     fn clone(&self) -> Self {
@@ -7399,7 +7399,7 @@ unsafe impl ::windows::core::Interface for CommandLineActivationOperation {
 impl ::windows::core::RuntimeName for CommandLineActivationOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivationOperation";
 }
-::windows::core::interface_hierarchy!(CommandLineActivationOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CommandLineActivationOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CommandLineActivationOperation {}
 unsafe impl ::core::marker::Sync for CommandLineActivationOperation {}
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7470,7 +7470,7 @@ impl ::core::fmt::Debug for ContactCallActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs;{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs;{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3})");
 }
 impl ::core::clone::Clone for ContactCallActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -7486,7 +7486,7 @@ unsafe impl ::windows::core::Interface for ContactCallActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7609,7 +7609,7 @@ impl ::core::fmt::Debug for ContactMapActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactMapActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs;{b32bf870-eee7-4ad2-aaf1-a87effcf00a4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs;{b32bf870-eee7-4ad2-aaf1-a87effcf00a4})");
 }
 impl ::core::clone::Clone for ContactMapActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -7625,7 +7625,7 @@ unsafe impl ::windows::core::Interface for ContactMapActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactMapActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactMapActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactMapActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactMapActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7753,7 +7753,7 @@ impl ::core::fmt::Debug for ContactMessageActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactMessageActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs;{de598db2-0e03-43b0-bf56-bcc40b3162df})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs;{de598db2-0e03-43b0-bf56-bcc40b3162df})");
 }
 impl ::core::clone::Clone for ContactMessageActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -7769,7 +7769,7 @@ unsafe impl ::windows::core::Interface for ContactMessageActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactMessageActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactMessageActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactMessageActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactMessageActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7894,7 +7894,7 @@ impl ::core::fmt::Debug for ContactPanelActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactPanelActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs;{52bb63e4-d3d4-4b63-8051-4af2082cab80})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs;{52bb63e4-d3d4-4b63-8051-4af2082cab80})");
 }
 impl ::core::clone::Clone for ContactPanelActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -7910,7 +7910,7 @@ unsafe impl ::windows::core::Interface for ContactPanelActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactPanelActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactPanelActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactPanelActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -8017,7 +8017,7 @@ impl ::core::fmt::Debug for ContactPickerActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactPickerActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs;{ce57aae7-6449-45a7-971f-d113be7a8936})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs;{ce57aae7-6449-45a7-971f-d113be7a8936})");
 }
 impl ::core::clone::Clone for ContactPickerActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -8033,7 +8033,7 @@ unsafe impl ::windows::core::Interface for ContactPickerActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactPickerActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -8142,7 +8142,7 @@ impl ::core::fmt::Debug for ContactPostActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactPostActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs;{b35a3c67-f1e7-4655-ad6e-4857588f552f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs;{b35a3c67-f1e7-4655-ad6e-4857588f552f})");
 }
 impl ::core::clone::Clone for ContactPostActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -8158,7 +8158,7 @@ unsafe impl ::windows::core::Interface for ContactPostActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactPostActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactPostActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactPostActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactPostActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -8286,7 +8286,7 @@ impl ::core::fmt::Debug for ContactVideoCallActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ContactVideoCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs;{61079db8-e3e7-4b4f-858d-5c63a96ef684})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs;{61079db8-e3e7-4b4f-858d-5c63a96ef684})");
 }
 impl ::core::clone::Clone for ContactVideoCallActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -8302,7 +8302,7 @@ unsafe impl ::windows::core::Interface for ContactVideoCallActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactVideoCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ContactVideoCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactVideoCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactVideoCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -8439,7 +8439,7 @@ impl ::core::fmt::Debug for DeviceActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DeviceActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DeviceActivatedEventArgs;{cd50b9a9-ce10-44d2-8234-c355a073ef33})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DeviceActivatedEventArgs;{cd50b9a9-ce10-44d2-8234-c355a073ef33})");
 }
 impl ::core::clone::Clone for DeviceActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -8455,7 +8455,7 @@ unsafe impl ::windows::core::Interface for DeviceActivatedEventArgs {
 impl ::windows::core::RuntimeName for DeviceActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DeviceActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(DeviceActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -8609,7 +8609,7 @@ impl ::core::fmt::Debug for DevicePairingActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DevicePairingActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs;{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs;{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e})");
 }
 impl ::core::clone::Clone for DevicePairingActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -8625,7 +8625,7 @@ unsafe impl ::windows::core::Interface for DevicePairingActivatedEventArgs {
 impl ::windows::core::RuntimeName for DevicePairingActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(DevicePairingActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DevicePairingActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DevicePairingActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -8769,7 +8769,7 @@ impl ::core::fmt::Debug for DialReceiverActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DialReceiverActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs;{fb777ed7-85ee-456e-a44d-85d730e70aed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs;{fb777ed7-85ee-456e-a44d-85d730e70aed})");
 }
 impl ::core::clone::Clone for DialReceiverActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -8785,7 +8785,7 @@ unsafe impl ::windows::core::Interface for DialReceiverActivatedEventArgs {
 impl ::windows::core::RuntimeName for DialReceiverActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(DialReceiverActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DialReceiverActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -8997,7 +8997,7 @@ impl ::core::fmt::Debug for FileActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for FileActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileActivatedEventArgs;{bb2afc33-93b1-42ed-8b26-236dd9c78496})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileActivatedEventArgs;{bb2afc33-93b1-42ed-8b26-236dd9c78496})");
 }
 impl ::core::clone::Clone for FileActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -9013,7 +9013,7 @@ unsafe impl ::windows::core::Interface for FileActivatedEventArgs {
 impl ::windows::core::RuntimeName for FileActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(FileActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<FileActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -9212,7 +9212,7 @@ impl ::core::fmt::Debug for FileOpenPickerActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for FileOpenPickerActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs;{72827082-5525-4bf2-bc09-1f5095d4964d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs;{72827082-5525-4bf2-bc09-1f5095d4964d})");
 }
 impl ::core::clone::Clone for FileOpenPickerActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -9228,7 +9228,7 @@ unsafe impl ::windows::core::Interface for FileOpenPickerActivatedEventArgs {
 impl ::windows::core::RuntimeName for FileOpenPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(FileOpenPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileOpenPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -9378,7 +9378,7 @@ impl ::core::fmt::Debug for FileOpenPickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for FileOpenPickerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs;{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs;{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for FileOpenPickerContinuationEventArgs {
@@ -9399,7 +9399,7 @@ impl ::windows::core::RuntimeName for FileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(FileOpenPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileOpenPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -9562,7 +9562,7 @@ impl ::core::fmt::Debug for FileSavePickerActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for FileSavePickerActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs;{81c19cf1-74e6-4387-82eb-bb8fd64b4346})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs;{81c19cf1-74e6-4387-82eb-bb8fd64b4346})");
 }
 impl ::core::clone::Clone for FileSavePickerActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -9578,7 +9578,7 @@ unsafe impl ::windows::core::Interface for FileSavePickerActivatedEventArgs {
 impl ::windows::core::RuntimeName for FileSavePickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(FileSavePickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileSavePickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -9728,7 +9728,7 @@ impl ::core::fmt::Debug for FileSavePickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for FileSavePickerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs;{2c846fe1-3bad-4f33-8c8b-e46fae824b4b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs;{2c846fe1-3bad-4f33-8c8b-e46fae824b4b})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for FileSavePickerContinuationEventArgs {
@@ -9749,7 +9749,7 @@ impl ::windows::core::RuntimeName for FileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(FileSavePickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileSavePickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -9913,7 +9913,7 @@ impl ::core::fmt::Debug for FolderPickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for FolderPickerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs;{51882366-9f4b-498f-beb0-42684f6e1c29})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs;{51882366-9f4b-498f-beb0-42684f6e1c29})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for FolderPickerContinuationEventArgs {
@@ -9934,7 +9934,7 @@ impl ::windows::core::RuntimeName for FolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(FolderPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FolderPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -10118,7 +10118,7 @@ impl ::core::fmt::Debug for LaunchActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LaunchActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LaunchActivatedEventArgs;{fbc93e26-a14a-4b4f-82b0-33bed920af52})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LaunchActivatedEventArgs;{fbc93e26-a14a-4b4f-82b0-33bed920af52})");
 }
 impl ::core::clone::Clone for LaunchActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -10134,7 +10134,7 @@ unsafe impl ::windows::core::Interface for LaunchActivatedEventArgs {
 impl ::windows::core::RuntimeName for LaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LaunchActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(LaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LaunchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -10324,7 +10324,7 @@ impl ::core::fmt::Debug for LockScreenActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LockScreenActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs;{3ca77966-6108-4a41-8220-ee7d133c8532})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs;{3ca77966-6108-4a41-8220-ee7d133c8532})");
 }
 impl ::core::clone::Clone for LockScreenActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -10340,7 +10340,7 @@ unsafe impl ::windows::core::Interface for LockScreenActivatedEventArgs {
 impl ::windows::core::RuntimeName for LockScreenActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(LockScreenActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LockScreenActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LockScreenActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: LockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -10477,7 +10477,7 @@ impl ::core::fmt::Debug for LockScreenCallActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LockScreenCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs;{06f37fbe-b5f2-448b-b13e-e328ac1c516a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs;{06f37fbe-b5f2-448b-b13e-e328ac1c516a})");
 }
 impl ::core::clone::Clone for LockScreenCallActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -10493,7 +10493,7 @@ unsafe impl ::windows::core::Interface for LockScreenCallActivatedEventArgs {
 impl ::windows::core::RuntimeName for LockScreenCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(LockScreenCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LockScreenCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LockScreenCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: LockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -10629,7 +10629,7 @@ impl ::core::fmt::Debug for LockScreenComponentActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LockScreenComponentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs;{cf651713-cd08-4fd8-b697-a281b6544e2e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs;{cf651713-cd08-4fd8-b697-a281b6544e2e})");
 }
 impl ::core::clone::Clone for LockScreenComponentActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -10645,7 +10645,7 @@ unsafe impl ::windows::core::Interface for LockScreenComponentActivatedEventArgs
 impl ::windows::core::RuntimeName for LockScreenComponentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(LockScreenComponentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LockScreenComponentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LockScreenComponentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: LockScreenComponentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -10721,7 +10721,7 @@ impl ::core::fmt::Debug for PhoneCallActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs;{54615221-a3c1-4ced-b62f-8c60523619ad})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs;{54615221-a3c1-4ced-b62f-8c60523619ad})");
 }
 impl ::core::clone::Clone for PhoneCallActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -10737,7 +10737,7 @@ unsafe impl ::windows::core::Interface for PhoneCallActivatedEventArgs {
 impl ::windows::core::RuntimeName for PhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(PhoneCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PhoneCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: PhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -10842,7 +10842,7 @@ impl ::core::fmt::Debug for PickerReturnedActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PickerReturnedActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs;{360defb9-a9d3-4984-a4ed-9ec734604921})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs;{360defb9-a9d3-4984-a4ed-9ec734604921})");
 }
 impl ::core::clone::Clone for PickerReturnedActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -10858,7 +10858,7 @@ unsafe impl ::windows::core::Interface for PickerReturnedActivatedEventArgs {
 impl ::windows::core::RuntimeName for PickerReturnedActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(PickerReturnedActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PickerReturnedActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PickerReturnedActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: PickerReturnedActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -10946,7 +10946,7 @@ impl ::core::fmt::Debug for Print3DWorkflowActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for Print3DWorkflowActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs;{3f57e78b-f2ac-4619-8302-ef855e1c9b90})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs;{3f57e78b-f2ac-4619-8302-ef855e1c9b90})");
 }
 impl ::core::clone::Clone for Print3DWorkflowActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -10962,7 +10962,7 @@ unsafe impl ::windows::core::Interface for Print3DWorkflowActivatedEventArgs {
 impl ::windows::core::RuntimeName for Print3DWorkflowActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(Print3DWorkflowActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Print3DWorkflowActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Print3DWorkflowActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: Print3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11050,7 +11050,7 @@ impl ::core::fmt::Debug for PrintTaskSettingsActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskSettingsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs;{ee30a0c9-ce56-4865-ba8e-8954ac271107})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs;{ee30a0c9-ce56-4865-ba8e-8954ac271107})");
 }
 impl ::core::clone::Clone for PrintTaskSettingsActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -11066,7 +11066,7 @@ unsafe impl ::windows::core::Interface for PrintTaskSettingsActivatedEventArgs {
 impl ::windows::core::RuntimeName for PrintTaskSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintTaskSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintTaskSettingsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11195,7 +11195,7 @@ impl ::core::fmt::Debug for ProtocolActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ProtocolActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs;{6095f4dd-b7c0-46ab-81fe-d90f36d00d24})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs;{6095f4dd-b7c0-46ab-81fe-d90f36d00d24})");
 }
 impl ::core::clone::Clone for ProtocolActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -11211,7 +11211,7 @@ unsafe impl ::windows::core::Interface for ProtocolActivatedEventArgs {
 impl ::windows::core::RuntimeName for ProtocolActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ProtocolActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProtocolActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ProtocolActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11425,7 +11425,7 @@ impl ::core::fmt::Debug for ProtocolForResultsActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ProtocolForResultsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs;{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs;{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c})");
 }
 impl ::core::clone::Clone for ProtocolForResultsActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -11441,7 +11441,7 @@ unsafe impl ::windows::core::Interface for ProtocolForResultsActivatedEventArgs 
 impl ::windows::core::RuntimeName for ProtocolForResultsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ProtocolForResultsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProtocolForResultsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ProtocolForResultsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11631,7 +11631,7 @@ impl ::core::fmt::Debug for RestrictedLaunchActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RestrictedLaunchActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs;{e0b7ac81-bfc3-4344-a5da-19fd5a27baae})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs;{e0b7ac81-bfc3-4344-a5da-19fd5a27baae})");
 }
 impl ::core::clone::Clone for RestrictedLaunchActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -11647,7 +11647,7 @@ unsafe impl ::windows::core::Interface for RestrictedLaunchActivatedEventArgs {
 impl ::windows::core::RuntimeName for RestrictedLaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(RestrictedLaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RestrictedLaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RestrictedLaunchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: RestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11793,7 +11793,7 @@ impl ::core::fmt::Debug for SearchActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SearchActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.SearchActivatedEventArgs;{8cb36951-58c8-43e3-94bc-41d33f8b630e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.SearchActivatedEventArgs;{8cb36951-58c8-43e3-94bc-41d33f8b630e})");
 }
 impl ::core::clone::Clone for SearchActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -11809,7 +11809,7 @@ unsafe impl ::windows::core::Interface for SearchActivatedEventArgs {
 impl ::windows::core::RuntimeName for SearchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SearchActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(SearchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SearchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SearchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11982,7 +11982,7 @@ impl ::core::fmt::Debug for ShareTargetActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ShareTargetActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs;{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs;{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec})");
 }
 impl ::core::clone::Clone for ShareTargetActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -11998,7 +11998,7 @@ unsafe impl ::windows::core::Interface for ShareTargetActivatedEventArgs {
 impl ::windows::core::RuntimeName for ShareTargetActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ShareTargetActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ShareTargetActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ShareTargetActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -12099,7 +12099,7 @@ impl ::core::fmt::Debug for SplashScreen {
     }
 }
 impl ::windows::core::RuntimeType for SplashScreen {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.SplashScreen;{ca4d975c-d4d6-43f0-97c0-0833c6391c24})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.SplashScreen;{ca4d975c-d4d6-43f0-97c0-0833c6391c24})");
 }
 impl ::core::clone::Clone for SplashScreen {
     fn clone(&self) -> Self {
@@ -12115,7 +12115,7 @@ unsafe impl ::windows::core::Interface for SplashScreen {
 impl ::windows::core::RuntimeName for SplashScreen {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SplashScreen";
 }
-::windows::core::interface_hierarchy!(SplashScreen, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SplashScreen, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
 pub struct StartupTaskActivatedEventArgs(::windows::core::IUnknown);
@@ -12170,7 +12170,7 @@ impl ::core::fmt::Debug for StartupTaskActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for StartupTaskActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs;{03b11a58-5276-4d91-8621-54611864d5fa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs;{03b11a58-5276-4d91-8621-54611864d5fa})");
 }
 impl ::core::clone::Clone for StartupTaskActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -12186,7 +12186,7 @@ unsafe impl ::windows::core::Interface for StartupTaskActivatedEventArgs {
 impl ::windows::core::RuntimeName for StartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(StartupTaskActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StartupTaskActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StartupTaskActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: StartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -12272,7 +12272,7 @@ impl ::core::fmt::Debug for TileActivatedInfo {
     }
 }
 impl ::windows::core::RuntimeType for TileActivatedInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.TileActivatedInfo;{80e4a3b1-3980-4f17-b738-89194e0b8f65})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.TileActivatedInfo;{80e4a3b1-3980-4f17-b738-89194e0b8f65})");
 }
 impl ::core::clone::Clone for TileActivatedInfo {
     fn clone(&self) -> Self {
@@ -12288,7 +12288,7 @@ unsafe impl ::windows::core::Interface for TileActivatedInfo {
 impl ::windows::core::RuntimeName for TileActivatedInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.TileActivatedInfo";
 }
-::windows::core::interface_hierarchy!(TileActivatedInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TileActivatedInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TileActivatedInfo {}
 unsafe impl ::core::marker::Sync for TileActivatedInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12361,7 +12361,7 @@ impl ::core::fmt::Debug for ToastNotificationActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ToastNotificationActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs;{92a86f82-5290-431d-be85-c4aaeeb8685f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs;{92a86f82-5290-431d-be85-c4aaeeb8685f})");
 }
 impl ::core::clone::Clone for ToastNotificationActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -12377,7 +12377,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationActivatedEventArgs {
 impl ::windows::core::RuntimeName for ToastNotificationActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ToastNotificationActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastNotificationActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ToastNotificationActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -12503,7 +12503,7 @@ impl ::core::fmt::Debug for UserDataAccountProviderActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UserDataAccountProviderActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs;{1bc9f723-8ef1-4a51-a63a-fe711eeab607})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs;{1bc9f723-8ef1-4a51-a63a-fe711eeab607})");
 }
 impl ::core::clone::Clone for UserDataAccountProviderActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -12519,7 +12519,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountProviderActivatedEvent
 impl ::windows::core::RuntimeName for UserDataAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(UserDataAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UserDataAccountProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: UserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -12616,7 +12616,7 @@ impl ::core::fmt::Debug for VoiceCommandActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommandActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs;{ab92dcfd-8d43-4de6-9775-20704b581b00})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs;{ab92dcfd-8d43-4de6-9775-20704b581b00})");
 }
 impl ::core::clone::Clone for VoiceCommandActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -12632,7 +12632,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandActivatedEventArgs {
 impl ::windows::core::RuntimeName for VoiceCommandActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(VoiceCommandActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoiceCommandActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VoiceCommandActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: VoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -12763,7 +12763,7 @@ impl ::core::fmt::Debug for WalletActionActivatedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletActionActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs;{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs;{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for WalletActionActivatedEventArgs {
@@ -12784,7 +12784,7 @@ impl ::windows::core::RuntimeName for WalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(WalletActionActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WalletActionActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<WalletActionActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -12889,7 +12889,7 @@ impl ::core::fmt::Debug for WebAccountProviderActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountProviderActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs;{72b71774-98ea-4ccf-9752-46d9051004f1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs;{72b71774-98ea-4ccf-9752-46d9051004f1})");
 }
 impl ::core::clone::Clone for WebAccountProviderActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -12905,7 +12905,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderActivatedEventArgs 
 impl ::windows::core::RuntimeName for WebAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -13021,7 +13021,7 @@ impl ::core::fmt::Debug for WebAuthenticationBrokerContinuationEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebAuthenticationBrokerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs;{75dda3d4-7714-453d-b7ff-b95e3a1709da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs;{75dda3d4-7714-453d-b7ff-b95e3a1709da})");
 }
 impl ::core::clone::Clone for WebAuthenticationBrokerContinuationEventArgs {
     fn clone(&self) -> Self {
@@ -13037,7 +13037,7 @@ unsafe impl ::windows::core::Interface for WebAuthenticationBrokerContinuationEv
 impl ::windows::core::RuntimeName for WebAuthenticationBrokerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs";
 }
-::windows::core::interface_hierarchy!(WebAuthenticationBrokerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAuthenticationBrokerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAuthenticationBrokerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
@@ -13167,7 +13167,7 @@ impl ::core::fmt::Debug for ActivationKind {
     }
 }
 impl ::windows::core::RuntimeType for ActivationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ActivationKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ActivationKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -13200,7 +13200,7 @@ impl ::core::fmt::Debug for ApplicationExecutionState {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationExecutionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ApplicationExecutionState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ApplicationExecutionState;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

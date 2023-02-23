@@ -6,7 +6,7 @@ pub unsafe fn WICConvertBitmapSource<P0>(dstformat: *const ::windows::core::GUID
 where
     P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICConvertBitmapSource ( dstformat : *const :: windows::core::GUID , pisrc : * mut::core::ffi::c_void , ppidst : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICConvertBitmapSource ( dstformat : *const :: windows::core::GUID , pisrc : * mut::core::ffi::c_void , ppidst : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWICBitmapSource>();
     WICConvertBitmapSource(dstformat, pisrc.into().abi(), &mut result__).from_abi(result__)
 }
@@ -17,7 +17,7 @@ pub unsafe fn WICCreateBitmapFromSection<P0>(width: u32, height: u32, pixelforma
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICCreateBitmapFromSection ( width : u32 , height : u32 , pixelformat : *const :: windows::core::GUID , hsection : super::super::Foundation:: HANDLE , stride : u32 , offset : u32 , ppibitmap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICCreateBitmapFromSection ( width : u32 , height : u32 , pixelformat : *const :: windows::core::GUID , hsection : super::super::Foundation:: HANDLE , stride : u32 , offset : u32 , ppibitmap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
     WICCreateBitmapFromSection(width, height, pixelformat, hsection.into(), stride, offset, &mut result__).from_abi(result__)
 }
@@ -28,7 +28,7 @@ pub unsafe fn WICCreateBitmapFromSectionEx<P0>(width: u32, height: u32, pixelfor
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICCreateBitmapFromSectionEx ( width : u32 , height : u32 , pixelformat : *const :: windows::core::GUID , hsection : super::super::Foundation:: HANDLE , stride : u32 , offset : u32 , desiredaccesslevel : WICSectionAccessLevel , ppibitmap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICCreateBitmapFromSectionEx ( width : u32 , height : u32 , pixelformat : *const :: windows::core::GUID , hsection : super::super::Foundation:: HANDLE , stride : u32 , offset : u32 , desiredaccesslevel : WICSectionAccessLevel , ppibitmap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
     WICCreateBitmapFromSectionEx(width, height, pixelformat, hsection.into(), stride, offset, desiredaccesslevel, &mut result__).from_abi(result__)
 }
@@ -38,14 +38,14 @@ pub unsafe fn WICGetMetadataContentSize<P0>(guidcontainerformat: *const ::window
 where
     P0: ::std::convert::Into<::windows::core::InParam<IWICMetadataWriter>>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICGetMetadataContentSize ( guidcontainerformat : *const :: windows::core::GUID , piwriter : * mut::core::ffi::c_void , pcbsize : *mut u64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICGetMetadataContentSize ( guidcontainerformat : *const :: windows::core::GUID , piwriter : * mut::core::ffi::c_void , pcbsize : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u64>();
     WICGetMetadataContentSize(guidcontainerformat, piwriter.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
 pub unsafe fn WICMapGuidToShortName(guid: *const ::windows::core::GUID, wzname: ::core::option::Option<&mut [u16]>, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMapGuidToShortName ( guid : *const :: windows::core::GUID , cchname : u32 , wzname : :: windows::core::PWSTR , pcchactual : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICMapGuidToShortName ( guid : *const :: windows::core::GUID , cchname : u32 , wzname : :: windows::core::PWSTR , pcchactual : *mut u32 ) -> :: windows::core::HRESULT );
     WICMapGuidToShortName(guid, wzname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(wzname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcchactual).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -54,7 +54,7 @@ pub unsafe fn WICMapSchemaToName<P0>(guidmetadataformat: *const ::windows::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMapSchemaToName ( guidmetadataformat : *const :: windows::core::GUID , pwzschema : :: windows::core::PCWSTR , cchname : u32 , wzname : :: windows::core::PWSTR , pcchactual : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICMapSchemaToName ( guidmetadataformat : *const :: windows::core::GUID , pwzschema : :: windows::core::PCWSTR , cchname : u32 , wzname : :: windows::core::PWSTR , pcchactual : *mut u32 ) -> :: windows::core::HRESULT );
     WICMapSchemaToName(guidmetadataformat, pwzschema.into().abi(), wzname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(wzname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcchactual).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -63,7 +63,7 @@ pub unsafe fn WICMapShortNameToGuid<P0>(wzname: P0) -> ::windows::core::Result<:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMapShortNameToGuid ( wzname : :: windows::core::PCWSTR , pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICMapShortNameToGuid ( wzname : :: windows::core::PCWSTR , pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     WICMapShortNameToGuid(wzname.into().abi(), &mut result__).from_abi(result__)
 }
@@ -74,7 +74,7 @@ pub unsafe fn WICMatchMetadataContent<P0>(guidcontainerformat: *const ::windows:
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMatchMetadataContent ( guidcontainerformat : *const :: windows::core::GUID , pguidvendor : *const :: windows::core::GUID , pistream : * mut::core::ffi::c_void , pguidmetadataformat : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICMatchMetadataContent ( guidcontainerformat : *const :: windows::core::GUID , pguidvendor : *const :: windows::core::GUID , pistream : * mut::core::ffi::c_void , pguidmetadataformat : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     WICMatchMetadataContent(guidcontainerformat, ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), pistream.into().abi(), &mut result__).from_abi(result__)
 }
@@ -86,7 +86,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IWICMetadataWriter>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICSerializeMetadataContent ( guidcontainerformat : *const :: windows::core::GUID , piwriter : * mut::core::ffi::c_void , dwpersistoptions : u32 , pistream : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICSerializeMetadataContent ( guidcontainerformat : *const :: windows::core::GUID , piwriter : * mut::core::ffi::c_void , dwpersistoptions : u32 , pistream : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     WICSerializeMetadataContent(guidcontainerformat, piwriter.into().abi(), dwpersistoptions, pistream.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -126,7 +126,7 @@ impl IWICBitmap {
         (::windows::core::Vtable::vtable(self).SetResolution)(::windows::core::Vtable::as_raw(self), dpix, dpiy).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmap, ::windows::core::IUnknown, IWICBitmapSource);
+::windows::imp::interface_hierarchy!(IWICBitmap, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICBitmap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -187,7 +187,7 @@ impl IWICBitmapClipper {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pisource.into().abi(), prc).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapClipper, ::windows::core::IUnknown, IWICBitmapSource);
+::windows::imp::interface_hierarchy!(IWICBitmapClipper, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICBitmapClipper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -304,7 +304,7 @@ impl IWICBitmapCodecInfo {
         (::windows::core::Vtable::vtable(self).MatchesMimeType)(::windows::core::Vtable::as_raw(self), wzmimetype.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapCodecInfo, ::windows::core::IUnknown, IWICComponentInfo);
+::windows::imp::interface_hierarchy!(IWICBitmapCodecInfo, ::windows::core::IUnknown, IWICComponentInfo);
 impl ::core::cmp::PartialEq for IWICBitmapCodecInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -367,7 +367,7 @@ impl IWICBitmapCodecProgressNotification {
         (::windows::core::Vtable::vtable(self).RegisterProgressNotification)(::windows::core::Vtable::as_raw(self), pfnprogressnotification, ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null())), dwprogressflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapCodecProgressNotification, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICBitmapCodecProgressNotification, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapCodecProgressNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -455,7 +455,7 @@ impl IWICBitmapDecoder {
         (::windows::core::Vtable::vtable(self).GetFrame)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapDecoder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICBitmapDecoder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapDecoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -606,7 +606,7 @@ impl IWICBitmapDecoderInfo {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapDecoderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICBitmapCodecInfo);
+::windows::imp::interface_hierarchy!(IWICBitmapDecoderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICBitmapCodecInfo);
 impl ::core::cmp::PartialEq for IWICBitmapDecoderInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -697,7 +697,7 @@ impl IWICBitmapEncoder {
         (::windows::core::Vtable::vtable(self).GetMetadataQueryWriter)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapEncoder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICBitmapEncoder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapEncoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -833,7 +833,7 @@ impl IWICBitmapEncoderInfo {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapEncoderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICBitmapCodecInfo);
+::windows::imp::interface_hierarchy!(IWICBitmapEncoderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICBitmapCodecInfo);
 impl ::core::cmp::PartialEq for IWICBitmapEncoderInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -892,7 +892,7 @@ impl IWICBitmapFlipRotator {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pisource.into().abi(), options).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapFlipRotator, ::windows::core::IUnknown, IWICBitmapSource);
+::windows::imp::interface_hierarchy!(IWICBitmapFlipRotator, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICBitmapFlipRotator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -956,7 +956,7 @@ impl IWICBitmapFrameDecode {
         (::windows::core::Vtable::vtable(self).GetThumbnail)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapFrameDecode, ::windows::core::IUnknown, IWICBitmapSource);
+::windows::imp::interface_hierarchy!(IWICBitmapFrameDecode, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICBitmapFrameDecode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1040,7 +1040,7 @@ impl IWICBitmapFrameEncode {
         (::windows::core::Vtable::vtable(self).GetMetadataQueryWriter)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapFrameEncode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICBitmapFrameEncode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapFrameEncode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1101,7 +1101,7 @@ impl IWICBitmapLock {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapLock, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICBitmapLock, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapLock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1163,7 +1163,7 @@ impl IWICBitmapScaler {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pisource.into().abi(), uiwidth, uiheight, mode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapScaler, ::windows::core::IUnknown, IWICBitmapSource);
+::windows::imp::interface_hierarchy!(IWICBitmapScaler, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICBitmapScaler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1216,7 +1216,7 @@ impl IWICBitmapSource {
         (::windows::core::Vtable::vtable(self).CopyPixels)(::windows::core::Vtable::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapSource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICBitmapSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1269,7 +1269,7 @@ impl IWICBitmapSourceTransform {
         (::windows::core::Vtable::vtable(self).DoesSupportTransform)(::windows::core::Vtable::as_raw(self), dsttransform, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapSourceTransform, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICBitmapSourceTransform, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapSourceTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1332,7 +1332,7 @@ impl IWICColorContext {
         (::windows::core::Vtable::vtable(self).GetExifColorSpace)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICColorContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICColorContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICColorContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1398,7 +1398,7 @@ impl IWICColorTransform {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pibitmapsource.into().abi(), picontextsource.into().abi(), picontextdest.into().abi(), pixelfmtdest).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICColorTransform, ::windows::core::IUnknown, IWICBitmapSource);
+::windows::imp::interface_hierarchy!(IWICColorTransform, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICColorTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1619,7 +1619,7 @@ impl IWICComponentFactory {
         (::windows::core::Vtable::vtable(self).CreateEncoderPropertyBag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppropoptions.as_ptr()), ppropoptions.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICComponentFactory, ::windows::core::IUnknown, IWICImagingFactory);
+::windows::imp::interface_hierarchy!(IWICComponentFactory, ::windows::core::IUnknown, IWICImagingFactory);
 impl ::core::cmp::PartialEq for IWICComponentFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1696,7 +1696,7 @@ impl IWICComponentInfo {
         (::windows::core::Vtable::vtable(self).GetFriendlyName)(::windows::core::Vtable::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICComponentInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICComponentInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICComponentInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1746,7 +1746,7 @@ impl IWICDdsDecoder {
         (::windows::core::Vtable::vtable(self).GetFrame)(::windows::core::Vtable::as_raw(self), arrayindex, miplevel, sliceindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICDdsDecoder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICDdsDecoder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICDdsDecoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1797,7 +1797,7 @@ impl IWICDdsEncoder {
         (::windows::core::Vtable::vtable(self).CreateNewFrame)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppiframeencode), parrayindex, pmiplevel, psliceindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICDdsEncoder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICDdsEncoder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICDdsEncoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1851,7 +1851,7 @@ impl IWICDdsFrameDecode {
         (::windows::core::Vtable::vtable(self).CopyBlocks)(::windows::core::Vtable::as_raw(self), prcboundsinblocks, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICDdsFrameDecode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICDdsFrameDecode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICDdsFrameDecode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2036,7 +2036,7 @@ impl IWICDevelopRaw {
         (::windows::core::Vtable::vtable(self).SetNotificationCallback)(::windows::core::Vtable::as_raw(self), pcallback.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICDevelopRaw, ::windows::core::IUnknown, IWICBitmapSource, IWICBitmapFrameDecode);
+::windows::imp::interface_hierarchy!(IWICDevelopRaw, ::windows::core::IUnknown, IWICBitmapSource, IWICBitmapFrameDecode);
 impl ::core::cmp::PartialEq for IWICDevelopRaw {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2107,7 +2107,7 @@ impl IWICDevelopRawNotificationCallback {
         (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), notificationmask).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICDevelopRawNotificationCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICDevelopRawNotificationCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICDevelopRawNotificationCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2156,7 +2156,7 @@ impl IWICEnumMetadataItem {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICEnumMetadataItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICEnumMetadataItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICEnumMetadataItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2203,7 +2203,7 @@ impl IWICFastMetadataEncoder {
         (::windows::core::Vtable::vtable(self).GetMetadataQueryWriter)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICFastMetadataEncoder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICFastMetadataEncoder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICFastMetadataEncoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2270,7 +2270,7 @@ impl IWICFormatConverter {
         (::windows::core::Vtable::vtable(self).CanConvert)(::windows::core::Vtable::as_raw(self), srcpixelformat, dstpixelformat, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICFormatConverter, ::windows::core::IUnknown, IWICBitmapSource);
+::windows::imp::interface_hierarchy!(IWICFormatConverter, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICFormatConverter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2343,7 +2343,7 @@ impl IWICFormatConverterInfo {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICFormatConverterInfo, ::windows::core::IUnknown, IWICComponentInfo);
+::windows::imp::interface_hierarchy!(IWICFormatConverterInfo, ::windows::core::IUnknown, IWICComponentInfo);
 impl ::core::cmp::PartialEq for IWICFormatConverterInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2516,7 +2516,7 @@ impl IWICImagingFactory {
         (::windows::core::Vtable::vtable(self).CreateQueryWriterFromReader)(::windows::core::Vtable::as_raw(self), piqueryreader.into().abi(), pguidvendor, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICImagingFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICImagingFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICImagingFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2628,7 +2628,7 @@ impl IWICJpegFrameDecode {
         (::windows::core::Vtable::vtable(self).CopyMinimalStream)(::windows::core::Vtable::as_raw(self), streamoffset, pbstreamdata.len() as _, ::core::mem::transmute(pbstreamdata.as_ptr()), pcbstreamdataactual).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICJpegFrameDecode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICJpegFrameDecode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICJpegFrameDecode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2701,7 +2701,7 @@ impl IWICJpegFrameEncode {
         (::windows::core::Vtable::vtable(self).WriteScan)(::windows::core::Vtable::as_raw(self), pbscandata.len() as _, ::core::mem::transmute(pbscandata.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICJpegFrameEncode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICJpegFrameEncode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICJpegFrameEncode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2765,7 +2765,7 @@ impl IWICMetadataBlockReader {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataBlockReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICMetadataBlockReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICMetadataBlockReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2848,7 +2848,7 @@ impl IWICMetadataBlockWriter {
         (::windows::core::Vtable::vtable(self).RemoveWriterByIndex)(::windows::core::Vtable::as_raw(self), nindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataBlockWriter, ::windows::core::IUnknown, IWICMetadataBlockReader);
+::windows::imp::interface_hierarchy!(IWICMetadataBlockWriter, ::windows::core::IUnknown, IWICMetadataBlockReader);
 impl ::core::cmp::PartialEq for IWICMetadataBlockWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2945,7 +2945,7 @@ impl IWICMetadataHandlerInfo {
         (::windows::core::Vtable::vtable(self).DoesRequireFixedSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataHandlerInfo, ::windows::core::IUnknown, IWICComponentInfo);
+::windows::imp::interface_hierarchy!(IWICMetadataHandlerInfo, ::windows::core::IUnknown, IWICComponentInfo);
 impl ::core::cmp::PartialEq for IWICMetadataHandlerInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3015,7 +3015,7 @@ impl IWICMetadataQueryReader {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataQueryReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICMetadataQueryReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICMetadataQueryReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3093,7 +3093,7 @@ impl IWICMetadataQueryWriter {
         (::windows::core::Vtable::vtable(self).RemoveMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataQueryWriter, ::windows::core::IUnknown, IWICMetadataQueryReader);
+::windows::imp::interface_hierarchy!(IWICMetadataQueryWriter, ::windows::core::IUnknown, IWICMetadataQueryReader);
 impl ::core::cmp::PartialEq for IWICMetadataQueryWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3157,7 +3157,7 @@ impl IWICMetadataReader {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICMetadataReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICMetadataReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3277,7 +3277,7 @@ impl IWICMetadataReaderInfo {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataReaderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
+::windows::imp::interface_hierarchy!(IWICMetadataReaderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
 impl ::core::cmp::PartialEq for IWICMetadataReaderInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3360,7 +3360,7 @@ impl IWICMetadataWriter {
         (::windows::core::Vtable::vtable(self).RemoveValueByIndex)(::windows::core::Vtable::as_raw(self), nindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataWriter, ::windows::core::IUnknown, IWICMetadataReader);
+::windows::imp::interface_hierarchy!(IWICMetadataWriter, ::windows::core::IUnknown, IWICMetadataReader);
 impl ::core::cmp::PartialEq for IWICMetadataWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3472,7 +3472,7 @@ impl IWICMetadataWriterInfo {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataWriterInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
+::windows::imp::interface_hierarchy!(IWICMetadataWriterInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
 impl ::core::cmp::PartialEq for IWICMetadataWriterInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3562,7 +3562,7 @@ impl IWICPalette {
         (::windows::core::Vtable::vtable(self).HasAlpha)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICPalette, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICPalette, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICPalette {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3674,7 +3674,7 @@ impl IWICPersistStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWICPersistStream, ::windows::core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistStream);
+::windows::imp::interface_hierarchy!(IWICPersistStream, ::windows::core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWICPersistStream {
     fn eq(&self, other: &Self) -> bool {
@@ -3769,7 +3769,7 @@ impl IWICPixelFormatInfo {
         (::windows::core::Vtable::vtable(self).GetChannelMask)(::windows::core::Vtable::as_raw(self), uichannelindex, pbmaskbuffer.len() as _, ::core::mem::transmute(pbmaskbuffer.as_ptr()), pcbactual).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICPixelFormatInfo, ::windows::core::IUnknown, IWICComponentInfo);
+::windows::imp::interface_hierarchy!(IWICPixelFormatInfo, ::windows::core::IUnknown, IWICComponentInfo);
 impl ::core::cmp::PartialEq for IWICPixelFormatInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3864,7 +3864,7 @@ impl IWICPixelFormatInfo2 {
         (::windows::core::Vtable::vtable(self).GetNumericRepresentation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICPixelFormatInfo2, ::windows::core::IUnknown, IWICComponentInfo, IWICPixelFormatInfo);
+::windows::imp::interface_hierarchy!(IWICPixelFormatInfo2, ::windows::core::IUnknown, IWICComponentInfo, IWICPixelFormatInfo);
 impl ::core::cmp::PartialEq for IWICPixelFormatInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3908,7 +3908,7 @@ impl IWICPlanarBitmapFrameEncode {
         (::windows::core::Vtable::vtable(self).WriteSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppplanes.as_ptr()), ppplanes.len() as _, prcsource).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICPlanarBitmapFrameEncode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICPlanarBitmapFrameEncode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICPlanarBitmapFrameEncode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3951,7 +3951,7 @@ impl IWICPlanarBitmapSourceTransform {
         (::windows::core::Vtable::vtable(self).CopyPixels)(::windows::core::Vtable::as_raw(self), prcsource, uiwidth, uiheight, dsttransform, dstplanaroptions, ::core::mem::transmute(pdstplanes.as_ptr()), pdstplanes.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICPlanarBitmapSourceTransform, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICPlanarBitmapSourceTransform, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICPlanarBitmapSourceTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4020,7 +4020,7 @@ impl IWICPlanarFormatConverter {
         (::windows::core::Vtable::vtable(self).CanConvert)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psrcpixelformats.as_ptr()), psrcpixelformats.len() as _, dstpixelformat, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICPlanarFormatConverter, ::windows::core::IUnknown, IWICBitmapSource);
+::windows::imp::interface_hierarchy!(IWICPlanarFormatConverter, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICPlanarFormatConverter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4061,7 +4061,7 @@ impl IWICProgressCallback {
         (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), uframenum, operation, dblprogress).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICProgressCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICProgressCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICProgressCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4106,7 +4106,7 @@ impl IWICProgressiveLevelControl {
         (::windows::core::Vtable::vtable(self).SetCurrentLevel)(::windows::core::Vtable::as_raw(self), nlevel).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICProgressiveLevelControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICProgressiveLevelControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICProgressiveLevelControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4229,7 +4229,7 @@ impl IWICStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWICStream, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
+::windows::imp::interface_hierarchy!(IWICStream, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWICStream {
     fn eq(&self, other: &Self) -> bool {
@@ -4296,7 +4296,7 @@ impl IWICStreamProvider {
         (::windows::core::Vtable::vtable(self).RefreshStream)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICStreamProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICStreamProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICStreamProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

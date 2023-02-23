@@ -35,7 +35,7 @@ impl CorePerceptionAutomation {
     }
     #[doc(hidden)]
     pub fn ICorePerceptionAutomationStatics<R, F: FnOnce(&ICorePerceptionAutomationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CorePerceptionAutomation, ICorePerceptionAutomationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CorePerceptionAutomation, ICorePerceptionAutomationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

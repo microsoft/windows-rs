@@ -19,7 +19,7 @@ impl IUIApplication {
         (::windows::core::Vtable::vtable(self).OnDestroyUICommand)(::windows::core::Vtable::as_raw(self), commandid, typeid, commandhandler.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIApplication, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIApplication, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIApplication {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -87,7 +87,7 @@ impl IUICollection {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUICollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUICollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUICollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -134,7 +134,7 @@ impl IUICollectionChangedEvent {
         (::windows::core::Vtable::vtable(self).OnChanged)(::windows::core::Vtable::as_raw(self), action, oldindex, olditem.into().abi(), newindex, newitem.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUICollectionChangedEvent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUICollectionChangedEvent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUICollectionChangedEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -182,7 +182,7 @@ impl IUICommandHandler {
         (::windows::core::Vtable::vtable(self).UpdateProperty)(::windows::core::Vtable::as_raw(self), commandid, key, ::core::mem::transmute(currentvalue.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUICommandHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUICommandHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUICommandHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -226,7 +226,7 @@ impl IUIContextualUI {
         (::windows::core::Vtable::vtable(self).ShowAtLocation)(::windows::core::Vtable::as_raw(self), x, y).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIContextualUI, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIContextualUI, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIContextualUI {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -263,7 +263,7 @@ impl IUIEventLogger {
         (::windows::core::Vtable::vtable(self).OnUIEvent)(::windows::core::Vtable::as_raw(self), peventparams)
     }
 }
-::windows::core::interface_hierarchy!(IUIEventLogger, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIEventLogger, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIEventLogger {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -303,7 +303,7 @@ impl IUIEventingManager {
         (::windows::core::Vtable::vtable(self).SetEventLogger)(::windows::core::Vtable::as_raw(self), eventlogger.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIEventingManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIEventingManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIEventingManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -383,7 +383,7 @@ impl IUIFramework {
         (::windows::core::Vtable::vtable(self).SetModes)(::windows::core::Vtable::as_raw(self), imodes).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIFramework, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIFramework, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIFramework {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -446,7 +446,7 @@ impl IUIImage {
         (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIImage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIImage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIImage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -492,7 +492,7 @@ impl IUIImageFromBitmap {
         (::windows::core::Vtable::vtable(self).CreateImage)(::windows::core::Vtable::as_raw(self), bitmap.into(), options, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIImageFromBitmap, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIImageFromBitmap, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIImageFromBitmap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -549,7 +549,7 @@ impl IUIRibbon {
         (::windows::core::Vtable::vtable(self).SaveSettingsToStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIRibbon, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIRibbon, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIRibbon {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -597,7 +597,7 @@ impl IUISimplePropertySet {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), key, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUISimplePropertySet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUISimplePropertySet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUISimplePropertySet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

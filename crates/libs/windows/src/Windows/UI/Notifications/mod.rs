@@ -21,7 +21,7 @@ impl IAdaptiveNotificationContent {
         }
     }
 }
-::windows::core::interface_hierarchy!(IAdaptiveNotificationContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAdaptiveNotificationContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IAdaptiveNotificationContent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -34,7 +34,7 @@ impl ::core::fmt::Debug for IAdaptiveNotificationContent {
     }
 }
 impl ::windows::core::RuntimeType for IAdaptiveNotificationContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{eb0dbe66-7448-448d-9db8-d78acd2abba9}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{eb0dbe66-7448-448d-9db8-d78acd2abba9}");
 }
 unsafe impl ::windows::core::Vtable for IAdaptiveNotificationContent {
     type Vtable = IAdaptiveNotificationContent_Vtbl;
@@ -1788,8 +1788,8 @@ impl AdaptiveNotificationText {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AdaptiveNotificationText, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AdaptiveNotificationText, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Kind(&self) -> ::windows::core::Result<AdaptiveNotificationContentKind> {
@@ -1843,7 +1843,7 @@ impl ::core::fmt::Debug for AdaptiveNotificationText {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveNotificationText {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.AdaptiveNotificationText;{46d4a3be-609a-4326-a40b-bfde872034a3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.AdaptiveNotificationText;{46d4a3be-609a-4326-a40b-bfde872034a3})");
 }
 impl ::core::clone::Clone for AdaptiveNotificationText {
     fn clone(&self) -> Self {
@@ -1859,7 +1859,7 @@ unsafe impl ::windows::core::Interface for AdaptiveNotificationText {
 impl ::windows::core::RuntimeName for AdaptiveNotificationText {
     const NAME: &'static str = "Windows.UI.Notifications.AdaptiveNotificationText";
 }
-::windows::core::interface_hierarchy!(AdaptiveNotificationText, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveNotificationText, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AdaptiveNotificationText> for IAdaptiveNotificationContent {
     type Error = ::windows::core::Error;
     fn try_from(value: AdaptiveNotificationText) -> ::windows::core::Result<Self> {
@@ -1923,7 +1923,7 @@ impl BadgeNotification {
     }
     #[doc(hidden)]
     pub fn IBadgeNotificationFactory<R, F: FnOnce(&IBadgeNotificationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BadgeNotification, IBadgeNotificationFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BadgeNotification, IBadgeNotificationFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1939,7 +1939,7 @@ impl ::core::fmt::Debug for BadgeNotification {
     }
 }
 impl ::windows::core::RuntimeType for BadgeNotification {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeNotification;{075cb4ca-d08a-4e2f-9233-7e289c1f7722})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeNotification;{075cb4ca-d08a-4e2f-9233-7e289c1f7722})");
 }
 impl ::core::clone::Clone for BadgeNotification {
     fn clone(&self) -> Self {
@@ -1955,7 +1955,7 @@ unsafe impl ::windows::core::Interface for BadgeNotification {
 impl ::windows::core::RuntimeName for BadgeNotification {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeNotification";
 }
-::windows::core::interface_hierarchy!(BadgeNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BadgeNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BadgeNotification {}
 unsafe impl ::core::marker::Sync for BadgeNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -1997,12 +1997,12 @@ impl BadgeUpdateManager {
     }
     #[doc(hidden)]
     pub fn IBadgeUpdateManagerStatics<R, F: FnOnce(&IBadgeUpdateManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BadgeUpdateManager, IBadgeUpdateManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BadgeUpdateManager, IBadgeUpdateManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBadgeUpdateManagerStatics2<R, F: FnOnce(&IBadgeUpdateManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BadgeUpdateManager, IBadgeUpdateManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BadgeUpdateManager, IBadgeUpdateManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2056,7 +2056,7 @@ impl ::core::fmt::Debug for BadgeUpdateManagerForUser {
     }
 }
 impl ::windows::core::RuntimeType for BadgeUpdateManagerForUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdateManagerForUser;{996b21bc-0386-44e5-ba8d-0c1077a62e92})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdateManagerForUser;{996b21bc-0386-44e5-ba8d-0c1077a62e92})");
 }
 impl ::core::clone::Clone for BadgeUpdateManagerForUser {
     fn clone(&self) -> Self {
@@ -2072,7 +2072,7 @@ unsafe impl ::windows::core::Interface for BadgeUpdateManagerForUser {
 impl ::windows::core::RuntimeName for BadgeUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManagerForUser";
 }
-::windows::core::interface_hierarchy!(BadgeUpdateManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BadgeUpdateManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BadgeUpdateManagerForUser {}
 unsafe impl ::core::marker::Sync for BadgeUpdateManagerForUser {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2116,7 +2116,7 @@ impl ::core::fmt::Debug for BadgeUpdater {
     }
 }
 impl ::windows::core::RuntimeType for BadgeUpdater {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdater;{b5fa1fd4-7562-4f6c-bfa3-1b6ed2e57f2f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdater;{b5fa1fd4-7562-4f6c-bfa3-1b6ed2e57f2f})");
 }
 impl ::core::clone::Clone for BadgeUpdater {
     fn clone(&self) -> Self {
@@ -2132,7 +2132,7 @@ unsafe impl ::windows::core::Interface for BadgeUpdater {
 impl ::windows::core::RuntimeName for BadgeUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdater";
 }
-::windows::core::interface_hierarchy!(BadgeUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BadgeUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BadgeUpdater {}
 unsafe impl ::core::marker::Sync for BadgeUpdater {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2176,7 +2176,7 @@ impl KnownAdaptiveNotificationHints {
     }
     #[doc(hidden)]
     pub fn IKnownAdaptiveNotificationHintsStatics<R, F: FnOnce(&IKnownAdaptiveNotificationHintsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownAdaptiveNotificationHints, IKnownAdaptiveNotificationHintsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownAdaptiveNotificationHints, IKnownAdaptiveNotificationHintsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2302,7 +2302,7 @@ impl KnownAdaptiveNotificationTextStyles {
     }
     #[doc(hidden)]
     pub fn IKnownAdaptiveNotificationTextStylesStatics<R, F: FnOnce(&IKnownAdaptiveNotificationTextStylesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownAdaptiveNotificationTextStyles, IKnownAdaptiveNotificationTextStylesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownAdaptiveNotificationTextStyles, IKnownAdaptiveNotificationTextStylesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2320,7 +2320,7 @@ impl KnownNotificationBindings {
     }
     #[doc(hidden)]
     pub fn IKnownNotificationBindingsStatics<R, F: FnOnce(&IKnownNotificationBindingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownNotificationBindings, IKnownNotificationBindingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownNotificationBindings, IKnownNotificationBindingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2334,8 +2334,8 @@ impl Notification {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Notification, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Notification, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2381,7 +2381,7 @@ impl ::core::fmt::Debug for Notification {
     }
 }
 impl ::windows::core::RuntimeType for Notification {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Notification;{108037fe-eb76-4f82-97bc-da07530a2e20})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Notification;{108037fe-eb76-4f82-97bc-da07530a2e20})");
 }
 impl ::core::clone::Clone for Notification {
     fn clone(&self) -> Self {
@@ -2397,7 +2397,7 @@ unsafe impl ::windows::core::Interface for Notification {
 impl ::windows::core::RuntimeName for Notification {
     const NAME: &'static str = "Windows.UI.Notifications.Notification";
 }
-::windows::core::interface_hierarchy!(Notification, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Notification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Notification {}
 unsafe impl ::core::marker::Sync for Notification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2457,7 +2457,7 @@ impl ::core::fmt::Debug for NotificationBinding {
     }
 }
 impl ::windows::core::RuntimeType for NotificationBinding {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationBinding;{f29e4b85-0370-4ad3-b4ea-da9e35e7eabf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationBinding;{f29e4b85-0370-4ad3-b4ea-da9e35e7eabf})");
 }
 impl ::core::clone::Clone for NotificationBinding {
     fn clone(&self) -> Self {
@@ -2473,7 +2473,7 @@ unsafe impl ::windows::core::Interface for NotificationBinding {
 impl ::windows::core::RuntimeName for NotificationBinding {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationBinding";
 }
-::windows::core::interface_hierarchy!(NotificationBinding, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NotificationBinding, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NotificationBinding {}
 unsafe impl ::core::marker::Sync for NotificationBinding {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2483,8 +2483,8 @@ impl NotificationData {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NotificationData, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<NotificationData, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2533,7 +2533,7 @@ impl NotificationData {
     }
     #[doc(hidden)]
     pub fn INotificationDataFactory<R, F: FnOnce(&INotificationDataFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NotificationData, INotificationDataFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NotificationData, INotificationDataFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2549,7 +2549,7 @@ impl ::core::fmt::Debug for NotificationData {
     }
 }
 impl ::windows::core::RuntimeType for NotificationData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationData;{9ffd2312-9d6a-4aaf-b6ac-ff17f0c1f280})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationData;{9ffd2312-9d6a-4aaf-b6ac-ff17f0c1f280})");
 }
 impl ::core::clone::Clone for NotificationData {
     fn clone(&self) -> Self {
@@ -2565,7 +2565,7 @@ unsafe impl ::windows::core::Interface for NotificationData {
 impl ::windows::core::RuntimeName for NotificationData {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationData";
 }
-::windows::core::interface_hierarchy!(NotificationData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NotificationData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NotificationData {}
 unsafe impl ::core::marker::Sync for NotificationData {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2612,7 +2612,7 @@ impl ::core::fmt::Debug for NotificationVisual {
     }
 }
 impl ::windows::core::RuntimeType for NotificationVisual {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationVisual;{68835b8e-aa56-4e11-86d3-5f9a6957bc5b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationVisual;{68835b8e-aa56-4e11-86d3-5f9a6957bc5b})");
 }
 impl ::core::clone::Clone for NotificationVisual {
     fn clone(&self) -> Self {
@@ -2628,7 +2628,7 @@ unsafe impl ::windows::core::Interface for NotificationVisual {
 impl ::windows::core::RuntimeName for NotificationVisual {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationVisual";
 }
-::windows::core::interface_hierarchy!(NotificationVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NotificationVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NotificationVisual {}
 unsafe impl ::core::marker::Sync for NotificationVisual {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2704,7 +2704,7 @@ impl ScheduledTileNotification {
     }
     #[doc(hidden)]
     pub fn IScheduledTileNotificationFactory<R, F: FnOnce(&IScheduledTileNotificationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ScheduledTileNotification, IScheduledTileNotificationFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ScheduledTileNotification, IScheduledTileNotificationFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2720,7 +2720,7 @@ impl ::core::fmt::Debug for ScheduledTileNotification {
     }
 }
 impl ::windows::core::RuntimeType for ScheduledTileNotification {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledTileNotification;{0abca6d5-99dc-4c78-a11c-c9e7f86d7ef7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledTileNotification;{0abca6d5-99dc-4c78-a11c-c9e7f86d7ef7})");
 }
 impl ::core::clone::Clone for ScheduledTileNotification {
     fn clone(&self) -> Self {
@@ -2736,7 +2736,7 @@ unsafe impl ::windows::core::Interface for ScheduledTileNotification {
 impl ::windows::core::RuntimeName for ScheduledTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledTileNotification";
 }
-::windows::core::interface_hierarchy!(ScheduledTileNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ScheduledTileNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ScheduledTileNotification {}
 unsafe impl ::core::marker::Sync for ScheduledTileNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2880,7 +2880,7 @@ impl ScheduledToastNotification {
     }
     #[doc(hidden)]
     pub fn IScheduledToastNotificationFactory<R, F: FnOnce(&IScheduledToastNotificationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ScheduledToastNotification, IScheduledToastNotificationFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ScheduledToastNotification, IScheduledToastNotificationFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2896,7 +2896,7 @@ impl ::core::fmt::Debug for ScheduledToastNotification {
     }
 }
 impl ::windows::core::RuntimeType for ScheduledToastNotification {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledToastNotification;{79f577f8-0de7-48cd-9740-9b370490c838})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledToastNotification;{79f577f8-0de7-48cd-9740-9b370490c838})");
 }
 impl ::core::clone::Clone for ScheduledToastNotification {
     fn clone(&self) -> Self {
@@ -2912,7 +2912,7 @@ unsafe impl ::windows::core::Interface for ScheduledToastNotification {
 impl ::windows::core::RuntimeName for ScheduledToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotification";
 }
-::windows::core::interface_hierarchy!(ScheduledToastNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ScheduledToastNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ScheduledToastNotification {}
 unsafe impl ::core::marker::Sync for ScheduledToastNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2959,7 +2959,7 @@ impl ::core::fmt::Debug for ScheduledToastNotificationShowingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ScheduledToastNotificationShowingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs;{6173f6b4-412a-5e2c-a6ed-a0209aef9a09})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs;{6173f6b4-412a-5e2c-a6ed-a0209aef9a09})");
 }
 impl ::core::clone::Clone for ScheduledToastNotificationShowingEventArgs {
     fn clone(&self) -> Self {
@@ -2975,7 +2975,7 @@ unsafe impl ::windows::core::Interface for ScheduledToastNotificationShowingEven
 impl ::windows::core::RuntimeName for ScheduledToastNotificationShowingEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs";
 }
-::windows::core::interface_hierarchy!(ScheduledToastNotificationShowingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ScheduledToastNotificationShowingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ScheduledToastNotificationShowingEventArgs {}
 unsafe impl ::core::marker::Sync for ScheduledToastNotificationShowingEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3002,7 +3002,7 @@ impl ::core::fmt::Debug for ShownTileNotification {
     }
 }
 impl ::windows::core::RuntimeType for ShownTileNotification {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ShownTileNotification;{342d8988-5af2-481a-a6a3-f2fdc78de88e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ShownTileNotification;{342d8988-5af2-481a-a6a3-f2fdc78de88e})");
 }
 impl ::core::clone::Clone for ShownTileNotification {
     fn clone(&self) -> Self {
@@ -3018,7 +3018,7 @@ unsafe impl ::windows::core::Interface for ShownTileNotification {
 impl ::windows::core::RuntimeName for ShownTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ShownTileNotification";
 }
-::windows::core::interface_hierarchy!(ShownTileNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ShownTileNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ShownTileNotification {}
 unsafe impl ::core::marker::Sync for ShownTileNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3063,7 +3063,7 @@ impl TileFlyoutNotification {
     }
     #[doc(hidden)]
     pub fn ITileFlyoutNotificationFactory<R, F: FnOnce(&ITileFlyoutNotificationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TileFlyoutNotification, ITileFlyoutNotificationFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TileFlyoutNotification, ITileFlyoutNotificationFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3079,7 +3079,7 @@ impl ::core::fmt::Debug for TileFlyoutNotification {
     }
 }
 impl ::windows::core::RuntimeType for TileFlyoutNotification {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileFlyoutNotification;{9a53b261-c70c-42be-b2f3-f42aa97d34e5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileFlyoutNotification;{9a53b261-c70c-42be-b2f3-f42aa97d34e5})");
 }
 impl ::core::clone::Clone for TileFlyoutNotification {
     fn clone(&self) -> Self {
@@ -3095,7 +3095,7 @@ unsafe impl ::windows::core::Interface for TileFlyoutNotification {
 impl ::windows::core::RuntimeName for TileFlyoutNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutNotification";
 }
-::windows::core::interface_hierarchy!(TileFlyoutNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TileFlyoutNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TileFlyoutNotification {}
 unsafe impl ::core::marker::Sync for TileFlyoutNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3129,7 +3129,7 @@ impl TileFlyoutUpdateManager {
     }
     #[doc(hidden)]
     pub fn ITileFlyoutUpdateManagerStatics<R, F: FnOnce(&ITileFlyoutUpdateManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TileFlyoutUpdateManager, ITileFlyoutUpdateManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TileFlyoutUpdateManager, ITileFlyoutUpdateManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3184,7 +3184,7 @@ impl ::core::fmt::Debug for TileFlyoutUpdater {
     }
 }
 impl ::windows::core::RuntimeType for TileFlyoutUpdater {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileFlyoutUpdater;{8d40c76a-c465-4052-a740-5c2654c1a089})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileFlyoutUpdater;{8d40c76a-c465-4052-a740-5c2654c1a089})");
 }
 impl ::core::clone::Clone for TileFlyoutUpdater {
     fn clone(&self) -> Self {
@@ -3200,7 +3200,7 @@ unsafe impl ::windows::core::Interface for TileFlyoutUpdater {
 impl ::windows::core::RuntimeName for TileFlyoutUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutUpdater";
 }
-::windows::core::interface_hierarchy!(TileFlyoutUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TileFlyoutUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct TileNotification(::windows::core::IUnknown);
@@ -3254,7 +3254,7 @@ impl TileNotification {
     }
     #[doc(hidden)]
     pub fn ITileNotificationFactory<R, F: FnOnce(&ITileNotificationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TileNotification, ITileNotificationFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TileNotification, ITileNotificationFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3270,7 +3270,7 @@ impl ::core::fmt::Debug for TileNotification {
     }
 }
 impl ::windows::core::RuntimeType for TileNotification {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileNotification;{ebaec8fa-50ec-4c18-b4d0-3af02e5540ab})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileNotification;{ebaec8fa-50ec-4c18-b4d0-3af02e5540ab})");
 }
 impl ::core::clone::Clone for TileNotification {
     fn clone(&self) -> Self {
@@ -3286,7 +3286,7 @@ unsafe impl ::windows::core::Interface for TileNotification {
 impl ::windows::core::RuntimeName for TileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileNotification";
 }
-::windows::core::interface_hierarchy!(TileNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TileNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TileNotification {}
 unsafe impl ::core::marker::Sync for TileNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3328,12 +3328,12 @@ impl TileUpdateManager {
     }
     #[doc(hidden)]
     pub fn ITileUpdateManagerStatics<R, F: FnOnce(&ITileUpdateManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TileUpdateManager, ITileUpdateManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TileUpdateManager, ITileUpdateManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ITileUpdateManagerStatics2<R, F: FnOnce(&ITileUpdateManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TileUpdateManager, ITileUpdateManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TileUpdateManager, ITileUpdateManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3387,7 +3387,7 @@ impl ::core::fmt::Debug for TileUpdateManagerForUser {
     }
 }
 impl ::windows::core::RuntimeType for TileUpdateManagerForUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileUpdateManagerForUser;{55141348-2ee2-4e2d-9cc1-216a20decc9f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileUpdateManagerForUser;{55141348-2ee2-4e2d-9cc1-216a20decc9f})");
 }
 impl ::core::clone::Clone for TileUpdateManagerForUser {
     fn clone(&self) -> Self {
@@ -3403,7 +3403,7 @@ unsafe impl ::windows::core::Interface for TileUpdateManagerForUser {
 impl ::windows::core::RuntimeName for TileUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdateManagerForUser";
 }
-::windows::core::interface_hierarchy!(TileUpdateManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TileUpdateManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TileUpdateManagerForUser {}
 unsafe impl ::core::marker::Sync for TileUpdateManagerForUser {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3507,7 +3507,7 @@ impl ::core::fmt::Debug for TileUpdater {
     }
 }
 impl ::windows::core::RuntimeType for TileUpdater {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileUpdater;{0942a48b-1d91-44ec-9243-c1e821c29a20})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileUpdater;{0942a48b-1d91-44ec-9243-c1e821c29a20})");
 }
 impl ::core::clone::Clone for TileUpdater {
     fn clone(&self) -> Self {
@@ -3523,7 +3523,7 @@ unsafe impl ::windows::core::Interface for TileUpdater {
 impl ::windows::core::RuntimeName for TileUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdater";
 }
-::windows::core::interface_hierarchy!(TileUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TileUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TileUpdater {}
 unsafe impl ::core::marker::Sync for TileUpdater {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3559,7 +3559,7 @@ impl ::core::fmt::Debug for ToastActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ToastActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastActivatedEventArgs;{e3bf92f3-c197-436f-8265-0625824f8dac})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastActivatedEventArgs;{e3bf92f3-c197-436f-8265-0625824f8dac})");
 }
 impl ::core::clone::Clone for ToastActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -3575,7 +3575,7 @@ unsafe impl ::windows::core::Interface for ToastActivatedEventArgs {
 impl ::windows::core::RuntimeName for ToastActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ToastActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct ToastCollection(::windows::core::IUnknown);
@@ -3634,7 +3634,7 @@ impl ToastCollection {
     }
     #[doc(hidden)]
     pub fn IToastCollectionFactory<R, F: FnOnce(&IToastCollectionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ToastCollection, IToastCollectionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ToastCollection, IToastCollectionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3650,7 +3650,7 @@ impl ::core::fmt::Debug for ToastCollection {
     }
 }
 impl ::windows::core::RuntimeType for ToastCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastCollection;{0a8bc3b0-e0be-4858-bc2a-89dfe0b32863})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastCollection;{0a8bc3b0-e0be-4858-bc2a-89dfe0b32863})");
 }
 impl ::core::clone::Clone for ToastCollection {
     fn clone(&self) -> Self {
@@ -3666,7 +3666,7 @@ unsafe impl ::windows::core::Interface for ToastCollection {
 impl ::windows::core::RuntimeName for ToastCollection {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollection";
 }
-::windows::core::interface_hierarchy!(ToastCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastCollection {}
 unsafe impl ::core::marker::Sync for ToastCollection {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3747,7 +3747,7 @@ impl ::core::fmt::Debug for ToastCollectionManager {
     }
 }
 impl ::windows::core::RuntimeType for ToastCollectionManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastCollectionManager;{2a1821fe-179d-49bc-b79d-a527920d3665})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastCollectionManager;{2a1821fe-179d-49bc-b79d-a527920d3665})");
 }
 impl ::core::clone::Clone for ToastCollectionManager {
     fn clone(&self) -> Self {
@@ -3763,7 +3763,7 @@ unsafe impl ::windows::core::Interface for ToastCollectionManager {
 impl ::windows::core::RuntimeName for ToastCollectionManager {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollectionManager";
 }
-::windows::core::interface_hierarchy!(ToastCollectionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastCollectionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastCollectionManager {}
 unsafe impl ::core::marker::Sync for ToastCollectionManager {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3790,7 +3790,7 @@ impl ::core::fmt::Debug for ToastDismissedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ToastDismissedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastDismissedEventArgs;{3f89d935-d9cb-4538-a0f0-ffe7659938f8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastDismissedEventArgs;{3f89d935-d9cb-4538-a0f0-ffe7659938f8})");
 }
 impl ::core::clone::Clone for ToastDismissedEventArgs {
     fn clone(&self) -> Self {
@@ -3806,7 +3806,7 @@ unsafe impl ::windows::core::Interface for ToastDismissedEventArgs {
 impl ::windows::core::RuntimeName for ToastDismissedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastDismissedEventArgs";
 }
-::windows::core::interface_hierarchy!(ToastDismissedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastDismissedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastDismissedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastDismissedEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3833,7 +3833,7 @@ impl ::core::fmt::Debug for ToastFailedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ToastFailedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastFailedEventArgs;{35176862-cfd4-44f8-ad64-f500fd896c3b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastFailedEventArgs;{35176862-cfd4-44f8-ad64-f500fd896c3b})");
 }
 impl ::core::clone::Clone for ToastFailedEventArgs {
     fn clone(&self) -> Self {
@@ -3849,7 +3849,7 @@ unsafe impl ::windows::core::Interface for ToastFailedEventArgs {
 impl ::windows::core::RuntimeName for ToastFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastFailedEventArgs";
 }
-::windows::core::interface_hierarchy!(ToastFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastFailedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastFailedEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -4027,7 +4027,7 @@ impl ToastNotification {
     }
     #[doc(hidden)]
     pub fn IToastNotificationFactory<R, F: FnOnce(&IToastNotificationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ToastNotification, IToastNotificationFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ToastNotification, IToastNotificationFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4043,7 +4043,7 @@ impl ::core::fmt::Debug for ToastNotification {
     }
 }
 impl ::windows::core::RuntimeType for ToastNotification {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotification;{997e2675-059e-4e60-8b06-1760917c8b80})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotification;{997e2675-059e-4e60-8b06-1760917c8b80})");
 }
 impl ::core::clone::Clone for ToastNotification {
     fn clone(&self) -> Self {
@@ -4059,7 +4059,7 @@ unsafe impl ::windows::core::Interface for ToastNotification {
 impl ::windows::core::RuntimeName for ToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotification";
 }
-::windows::core::interface_hierarchy!(ToastNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastNotification {}
 unsafe impl ::core::marker::Sync for ToastNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -4095,7 +4095,7 @@ impl ::core::fmt::Debug for ToastNotificationActionTriggerDetail {
     }
 }
 impl ::windows::core::RuntimeType for ToastNotificationActionTriggerDetail {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationActionTriggerDetail;{9445135a-38f3-42f6-96aa-7955b0f03da2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationActionTriggerDetail;{9445135a-38f3-42f6-96aa-7955b0f03da2})");
 }
 impl ::core::clone::Clone for ToastNotificationActionTriggerDetail {
     fn clone(&self) -> Self {
@@ -4111,7 +4111,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationActionTriggerDetail 
 impl ::windows::core::RuntimeName for ToastNotificationActionTriggerDetail {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationActionTriggerDetail";
 }
-::windows::core::interface_hierarchy!(ToastNotificationActionTriggerDetail, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastNotificationActionTriggerDetail, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct ToastNotificationHistory(::windows::core::IUnknown);
@@ -4175,7 +4175,7 @@ impl ::core::fmt::Debug for ToastNotificationHistory {
     }
 }
 impl ::windows::core::RuntimeType for ToastNotificationHistory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationHistory;{5caddc63-01d3-4c97-986f-0533483fee14})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationHistory;{5caddc63-01d3-4c97-986f-0533483fee14})");
 }
 impl ::core::clone::Clone for ToastNotificationHistory {
     fn clone(&self) -> Self {
@@ -4191,7 +4191,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationHistory {
 impl ::windows::core::RuntimeName for ToastNotificationHistory {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationHistory";
 }
-::windows::core::interface_hierarchy!(ToastNotificationHistory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastNotificationHistory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct ToastNotificationHistoryChangedTriggerDetail(::windows::core::IUnknown);
@@ -4223,7 +4223,7 @@ impl ::core::fmt::Debug for ToastNotificationHistoryChangedTriggerDetail {
     }
 }
 impl ::windows::core::RuntimeType for ToastNotificationHistoryChangedTriggerDetail {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationHistoryChangedTriggerDetail;{db037ffa-0068-412c-9c83-267c37f65670})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationHistoryChangedTriggerDetail;{db037ffa-0068-412c-9c83-267c37f65670})");
 }
 impl ::core::clone::Clone for ToastNotificationHistoryChangedTriggerDetail {
     fn clone(&self) -> Self {
@@ -4239,7 +4239,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationHistoryChangedTrigge
 impl ::windows::core::RuntimeName for ToastNotificationHistoryChangedTriggerDetail {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationHistoryChangedTriggerDetail";
 }
-::windows::core::interface_hierarchy!(ToastNotificationHistoryChangedTriggerDetail, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastNotificationHistoryChangedTriggerDetail, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 pub struct ToastNotificationManager;
 impl ToastNotificationManager {
@@ -4288,22 +4288,22 @@ impl ToastNotificationManager {
     }
     #[doc(hidden)]
     pub fn IToastNotificationManagerStatics<R, F: FnOnce(&IToastNotificationManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IToastNotificationManagerStatics2<R, F: FnOnce(&IToastNotificationManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IToastNotificationManagerStatics4<R, F: FnOnce(&IToastNotificationManagerStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IToastNotificationManagerStatics5<R, F: FnOnce(&IToastNotificationManagerStatics5) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics5> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics5> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4411,7 +4411,7 @@ impl ::core::fmt::Debug for ToastNotificationManagerForUser {
     }
 }
 impl ::windows::core::RuntimeType for ToastNotificationManagerForUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationManagerForUser;{79ab57f6-43fe-487b-8a7f-99567200ae94})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationManagerForUser;{79ab57f6-43fe-487b-8a7f-99567200ae94})");
 }
 impl ::core::clone::Clone for ToastNotificationManagerForUser {
     fn clone(&self) -> Self {
@@ -4427,7 +4427,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationManagerForUser {
 impl ::windows::core::RuntimeName for ToastNotificationManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationManagerForUser";
 }
-::windows::core::interface_hierarchy!(ToastNotificationManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastNotificationManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastNotificationManagerForUser {}
 unsafe impl ::core::marker::Sync for ToastNotificationManagerForUser {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -4508,7 +4508,7 @@ impl ::core::fmt::Debug for ToastNotifier {
     }
 }
 impl ::windows::core::RuntimeType for ToastNotifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotifier;{75927b93-03f3-41ec-91d3-6e5bac1b38e7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotifier;{75927b93-03f3-41ec-91d3-6e5bac1b38e7})");
 }
 impl ::core::clone::Clone for ToastNotifier {
     fn clone(&self) -> Self {
@@ -4524,7 +4524,7 @@ unsafe impl ::windows::core::Interface for ToastNotifier {
 impl ::windows::core::RuntimeName for ToastNotifier {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotifier";
 }
-::windows::core::interface_hierarchy!(ToastNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastNotifier {}
 unsafe impl ::core::marker::Sync for ToastNotifier {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -4576,7 +4576,7 @@ impl ::core::fmt::Debug for UserNotification {
     }
 }
 impl ::windows::core::RuntimeType for UserNotification {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.UserNotification;{adf7e52f-4e53-42d5-9c33-eb5ea515b23e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.UserNotification;{adf7e52f-4e53-42d5-9c33-eb5ea515b23e})");
 }
 impl ::core::clone::Clone for UserNotification {
     fn clone(&self) -> Self {
@@ -4592,7 +4592,7 @@ unsafe impl ::windows::core::Interface for UserNotification {
 impl ::windows::core::RuntimeName for UserNotification {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotification";
 }
-::windows::core::interface_hierarchy!(UserNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserNotification {}
 unsafe impl ::core::marker::Sync for UserNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -4626,7 +4626,7 @@ impl ::core::fmt::Debug for UserNotificationChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UserNotificationChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.UserNotificationChangedEventArgs;{b6bd6839-79cf-4b25-82c0-0ce1eef81f8c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.UserNotificationChangedEventArgs;{b6bd6839-79cf-4b25-82c0-0ce1eef81f8c})");
 }
 impl ::core::clone::Clone for UserNotificationChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4642,7 +4642,7 @@ unsafe impl ::windows::core::Interface for UserNotificationChangedEventArgs {
 impl ::windows::core::RuntimeName for UserNotificationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotificationChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(UserNotificationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserNotificationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserNotificationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserNotificationChangedEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -4672,7 +4672,7 @@ impl ::core::fmt::Debug for AdaptiveNotificationContentKind {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveNotificationContentKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.AdaptiveNotificationContentKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.AdaptiveNotificationContentKind;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -4702,7 +4702,7 @@ impl ::core::fmt::Debug for BadgeTemplateType {
     }
 }
 impl ::windows::core::RuntimeType for BadgeTemplateType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.BadgeTemplateType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.BadgeTemplateType;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -4765,7 +4765,7 @@ impl ::core::ops::Not for NotificationKinds {
     }
 }
 impl ::windows::core::RuntimeType for NotificationKinds {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationKinds;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationKinds;u4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -4795,7 +4795,7 @@ impl ::core::fmt::Debug for NotificationMirroring {
     }
 }
 impl ::windows::core::RuntimeType for NotificationMirroring {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationMirroring;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationMirroring;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -4828,7 +4828,7 @@ impl ::core::fmt::Debug for NotificationSetting {
     }
 }
 impl ::windows::core::RuntimeType for NotificationSetting {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationSetting;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationSetting;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -4859,7 +4859,7 @@ impl ::core::fmt::Debug for NotificationUpdateResult {
     }
 }
 impl ::windows::core::RuntimeType for NotificationUpdateResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationUpdateResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationUpdateResult;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -4892,7 +4892,7 @@ impl ::core::fmt::Debug for PeriodicUpdateRecurrence {
     }
 }
 impl ::windows::core::RuntimeType for PeriodicUpdateRecurrence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.PeriodicUpdateRecurrence;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.PeriodicUpdateRecurrence;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -4921,7 +4921,7 @@ impl ::core::fmt::Debug for TileFlyoutTemplateType {
     }
 }
 impl ::windows::core::RuntimeType for TileFlyoutTemplateType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileFlyoutTemplateType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileFlyoutTemplateType;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -5075,7 +5075,7 @@ impl ::core::fmt::Debug for TileTemplateType {
     }
 }
 impl ::windows::core::RuntimeType for TileTemplateType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileTemplateType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileTemplateType;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -5106,7 +5106,7 @@ impl ::core::fmt::Debug for ToastDismissalReason {
     }
 }
 impl ::windows::core::RuntimeType for ToastDismissalReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastDismissalReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastDismissalReason;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -5138,7 +5138,7 @@ impl ::core::fmt::Debug for ToastHistoryChangedType {
     }
 }
 impl ::windows::core::RuntimeType for ToastHistoryChangedType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastHistoryChangedType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastHistoryChangedType;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -5169,7 +5169,7 @@ impl ::core::fmt::Debug for ToastNotificationMode {
     }
 }
 impl ::windows::core::RuntimeType for ToastNotificationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -5199,7 +5199,7 @@ impl ::core::fmt::Debug for ToastNotificationPriority {
     }
 }
 impl ::windows::core::RuntimeType for ToastNotificationPriority {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationPriority;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationPriority;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -5235,7 +5235,7 @@ impl ::core::fmt::Debug for ToastTemplateType {
     }
 }
 impl ::windows::core::RuntimeType for ToastTemplateType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastTemplateType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastTemplateType;i4)");
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
@@ -5265,7 +5265,7 @@ impl ::core::fmt::Debug for UserNotificationChangedKind {
     }
 }
 impl ::windows::core::RuntimeType for UserNotificationChangedKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.UserNotificationChangedKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.UserNotificationChangedKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

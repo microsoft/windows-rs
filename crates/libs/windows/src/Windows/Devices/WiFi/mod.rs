@@ -480,7 +480,7 @@ impl WiFiAdapter {
     }
     #[doc(hidden)]
     pub fn IWiFiAdapterStatics<R, F: FnOnce(&IWiFiAdapterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WiFiAdapter, IWiFiAdapterStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WiFiAdapter, IWiFiAdapterStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -496,7 +496,7 @@ impl ::core::fmt::Debug for WiFiAdapter {
     }
 }
 impl ::windows::core::RuntimeType for WiFiAdapter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiAdapter;{a6c4e423-3d75-43a4-b9de-11e26b72d9b0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiAdapter;{a6c4e423-3d75-43a4-b9de-11e26b72d9b0})");
 }
 impl ::core::clone::Clone for WiFiAdapter {
     fn clone(&self) -> Self {
@@ -512,7 +512,7 @@ unsafe impl ::windows::core::Interface for WiFiAdapter {
 impl ::windows::core::RuntimeName for WiFiAdapter {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiAdapter";
 }
-::windows::core::interface_hierarchy!(WiFiAdapter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiAdapter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiAdapter {}
 unsafe impl ::core::marker::Sync for WiFiAdapter {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -615,7 +615,7 @@ impl ::core::fmt::Debug for WiFiAvailableNetwork {
     }
 }
 impl ::windows::core::RuntimeType for WiFiAvailableNetwork {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiAvailableNetwork;{26e96246-183e-4704-9826-71b4a2f0f668})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiAvailableNetwork;{26e96246-183e-4704-9826-71b4a2f0f668})");
 }
 impl ::core::clone::Clone for WiFiAvailableNetwork {
     fn clone(&self) -> Self {
@@ -631,7 +631,7 @@ unsafe impl ::windows::core::Interface for WiFiAvailableNetwork {
 impl ::windows::core::RuntimeName for WiFiAvailableNetwork {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiAvailableNetwork";
 }
-::windows::core::interface_hierarchy!(WiFiAvailableNetwork, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiAvailableNetwork, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiAvailableNetwork {}
 unsafe impl ::core::marker::Sync for WiFiAvailableNetwork {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -658,7 +658,7 @@ impl ::core::fmt::Debug for WiFiConnectionResult {
     }
 }
 impl ::windows::core::RuntimeType for WiFiConnectionResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiConnectionResult;{143bdfd9-c37d-40be-a5c8-857bce85a931})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiConnectionResult;{143bdfd9-c37d-40be-a5c8-857bce85a931})");
 }
 impl ::core::clone::Clone for WiFiConnectionResult {
     fn clone(&self) -> Self {
@@ -674,7 +674,7 @@ unsafe impl ::windows::core::Interface for WiFiConnectionResult {
 impl ::windows::core::RuntimeName for WiFiConnectionResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiConnectionResult";
 }
-::windows::core::interface_hierarchy!(WiFiConnectionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiConnectionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiConnectionResult {}
 unsafe impl ::core::marker::Sync for WiFiConnectionResult {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -712,7 +712,7 @@ impl ::core::fmt::Debug for WiFiNetworkReport {
     }
 }
 impl ::windows::core::RuntimeType for WiFiNetworkReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiNetworkReport;{9524ded2-5911-445e-8194-be4f1a704895})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiNetworkReport;{9524ded2-5911-445e-8194-be4f1a704895})");
 }
 impl ::core::clone::Clone for WiFiNetworkReport {
     fn clone(&self) -> Self {
@@ -728,7 +728,7 @@ unsafe impl ::windows::core::Interface for WiFiNetworkReport {
 impl ::windows::core::RuntimeName for WiFiNetworkReport {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiNetworkReport";
 }
-::windows::core::interface_hierarchy!(WiFiNetworkReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiNetworkReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiNetworkReport {}
 unsafe impl ::core::marker::Sync for WiFiNetworkReport {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -775,7 +775,7 @@ impl ::core::fmt::Debug for WiFiOnDemandHotspotConnectTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for WiFiOnDemandHotspotConnectTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiOnDemandHotspotConnectTriggerDetails;{a268eb58-68f5-59cf-8d38-35bf44b097ef})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiOnDemandHotspotConnectTriggerDetails;{a268eb58-68f5-59cf-8d38-35bf44b097ef})");
 }
 impl ::core::clone::Clone for WiFiOnDemandHotspotConnectTriggerDetails {
     fn clone(&self) -> Self {
@@ -791,7 +791,7 @@ unsafe impl ::windows::core::Interface for WiFiOnDemandHotspotConnectTriggerDeta
 impl ::windows::core::RuntimeName for WiFiOnDemandHotspotConnectTriggerDetails {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiOnDemandHotspotConnectTriggerDetails";
 }
-::windows::core::interface_hierarchy!(WiFiOnDemandHotspotConnectTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiOnDemandHotspotConnectTriggerDetails {}
 unsafe impl ::core::marker::Sync for WiFiOnDemandHotspotConnectTriggerDetails {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -818,7 +818,7 @@ impl ::core::fmt::Debug for WiFiOnDemandHotspotConnectionResult {
     }
 }
 impl ::windows::core::RuntimeType for WiFiOnDemandHotspotConnectionResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiOnDemandHotspotConnectionResult;{911794a1-6c82-5de3-8a4a-f9ff22a4957a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiOnDemandHotspotConnectionResult;{911794a1-6c82-5de3-8a4a-f9ff22a4957a})");
 }
 impl ::core::clone::Clone for WiFiOnDemandHotspotConnectionResult {
     fn clone(&self) -> Self {
@@ -834,7 +834,7 @@ unsafe impl ::windows::core::Interface for WiFiOnDemandHotspotConnectionResult {
 impl ::windows::core::RuntimeName for WiFiOnDemandHotspotConnectionResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiOnDemandHotspotConnectionResult";
 }
-::windows::core::interface_hierarchy!(WiFiOnDemandHotspotConnectionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiOnDemandHotspotConnectionResult {}
 unsafe impl ::core::marker::Sync for WiFiOnDemandHotspotConnectionResult {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -867,7 +867,7 @@ impl WiFiOnDemandHotspotNetwork {
     }
     #[doc(hidden)]
     pub fn IWiFiOnDemandHotspotNetworkStatics<R, F: FnOnce(&IWiFiOnDemandHotspotNetworkStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WiFiOnDemandHotspotNetwork, IWiFiOnDemandHotspotNetworkStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WiFiOnDemandHotspotNetwork, IWiFiOnDemandHotspotNetworkStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -883,7 +883,7 @@ impl ::core::fmt::Debug for WiFiOnDemandHotspotNetwork {
     }
 }
 impl ::windows::core::RuntimeType for WiFiOnDemandHotspotNetwork {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiOnDemandHotspotNetwork;{18dc7115-a04e-507c-bbaf-b78369d29fa7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiOnDemandHotspotNetwork;{18dc7115-a04e-507c-bbaf-b78369d29fa7})");
 }
 impl ::core::clone::Clone for WiFiOnDemandHotspotNetwork {
     fn clone(&self) -> Self {
@@ -899,7 +899,7 @@ unsafe impl ::windows::core::Interface for WiFiOnDemandHotspotNetwork {
 impl ::windows::core::RuntimeName for WiFiOnDemandHotspotNetwork {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiOnDemandHotspotNetwork";
 }
-::windows::core::interface_hierarchy!(WiFiOnDemandHotspotNetwork, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiOnDemandHotspotNetwork, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiOnDemandHotspotNetwork {}
 unsafe impl ::core::marker::Sync for WiFiOnDemandHotspotNetwork {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -1016,7 +1016,7 @@ impl ::core::fmt::Debug for WiFiOnDemandHotspotNetworkProperties {
     }
 }
 impl ::windows::core::RuntimeType for WiFiOnDemandHotspotNetworkProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiOnDemandHotspotNetworkProperties;{c810a1f2-c81d-5852-be50-e4bd4d81e98d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiOnDemandHotspotNetworkProperties;{c810a1f2-c81d-5852-be50-e4bd4d81e98d})");
 }
 impl ::core::clone::Clone for WiFiOnDemandHotspotNetworkProperties {
     fn clone(&self) -> Self {
@@ -1032,7 +1032,7 @@ unsafe impl ::windows::core::Interface for WiFiOnDemandHotspotNetworkProperties 
 impl ::windows::core::RuntimeName for WiFiOnDemandHotspotNetworkProperties {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiOnDemandHotspotNetworkProperties";
 }
-::windows::core::interface_hierarchy!(WiFiOnDemandHotspotNetworkProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiOnDemandHotspotNetworkProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiOnDemandHotspotNetworkProperties {}
 unsafe impl ::core::marker::Sync for WiFiOnDemandHotspotNetworkProperties {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -1068,7 +1068,7 @@ impl ::core::fmt::Debug for WiFiWpsConfigurationResult {
     }
 }
 impl ::windows::core::RuntimeType for WiFiWpsConfigurationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiWpsConfigurationResult;{67b49871-17ee-42d1-b14f-5a11f1226fb5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiWpsConfigurationResult;{67b49871-17ee-42d1-b14f-5a11f1226fb5})");
 }
 impl ::core::clone::Clone for WiFiWpsConfigurationResult {
     fn clone(&self) -> Self {
@@ -1084,7 +1084,7 @@ unsafe impl ::windows::core::Interface for WiFiWpsConfigurationResult {
 impl ::windows::core::RuntimeName for WiFiWpsConfigurationResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiWpsConfigurationResult";
 }
-::windows::core::interface_hierarchy!(WiFiWpsConfigurationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiWpsConfigurationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiWpsConfigurationResult {}
 unsafe impl ::core::marker::Sync for WiFiWpsConfigurationResult {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -1117,7 +1117,7 @@ impl ::core::fmt::Debug for WiFiAccessStatus {
     }
 }
 impl ::windows::core::RuntimeType for WiFiAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiAccessStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiAccessStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
@@ -1148,7 +1148,7 @@ impl ::core::fmt::Debug for WiFiConnectionMethod {
     }
 }
 impl ::windows::core::RuntimeType for WiFiConnectionMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionMethod;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionMethod;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
@@ -1183,7 +1183,7 @@ impl ::core::fmt::Debug for WiFiConnectionStatus {
     }
 }
 impl ::windows::core::RuntimeType for WiFiConnectionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
@@ -1214,7 +1214,7 @@ impl ::core::fmt::Debug for WiFiNetworkKind {
     }
 }
 impl ::windows::core::RuntimeType for WiFiNetworkKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiNetworkKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiNetworkKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
@@ -1244,7 +1244,7 @@ impl ::core::fmt::Debug for WiFiOnDemandHotspotAvailability {
     }
 }
 impl ::windows::core::RuntimeType for WiFiOnDemandHotspotAvailability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotAvailability;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotAvailability;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
@@ -1278,7 +1278,7 @@ impl ::core::fmt::Debug for WiFiOnDemandHotspotCellularBars {
     }
 }
 impl ::windows::core::RuntimeType for WiFiOnDemandHotspotCellularBars {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotCellularBars;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotCellularBars;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
@@ -1325,7 +1325,7 @@ impl ::core::fmt::Debug for WiFiOnDemandHotspotConnectStatus {
     }
 }
 impl ::windows::core::RuntimeType for WiFiOnDemandHotspotConnectStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotConnectStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotConnectStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
@@ -1365,7 +1365,7 @@ impl ::core::fmt::Debug for WiFiPhyKind {
     }
 }
 impl ::windows::core::RuntimeType for WiFiPhyKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiPhyKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiPhyKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
@@ -1395,7 +1395,7 @@ impl ::core::fmt::Debug for WiFiReconnectionKind {
     }
 }
 impl ::windows::core::RuntimeType for WiFiReconnectionKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiReconnectionKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiReconnectionKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
@@ -1426,7 +1426,7 @@ impl ::core::fmt::Debug for WiFiWpsConfigurationStatus {
     }
 }
 impl ::windows::core::RuntimeType for WiFiWpsConfigurationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsConfigurationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsConfigurationStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
@@ -1460,7 +1460,7 @@ impl ::core::fmt::Debug for WiFiWpsKind {
     }
 }
 impl ::windows::core::RuntimeType for WiFiWpsKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

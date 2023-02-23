@@ -921,7 +921,7 @@ impl ::core::fmt::Debug for PrintWorkflowBackgroundSession {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowBackgroundSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession;{5b7913ba-0c5e-528a-7458-86a46cbddc45})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession;{5b7913ba-0c5e-528a-7458-86a46cbddc45})");
 }
 impl ::core::clone::Clone for PrintWorkflowBackgroundSession {
     fn clone(&self) -> Self {
@@ -937,7 +937,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowBackgroundSession {
 impl ::windows::core::RuntimeName for PrintWorkflowBackgroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowBackgroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowBackgroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowBackgroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSession {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -986,7 +986,7 @@ impl ::core::fmt::Debug for PrintWorkflowBackgroundSetupRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowBackgroundSetupRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs;{43e97342-1750-59c9-61fb-383748a20362})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs;{43e97342-1750-59c9-61fb-383748a20362})");
 }
 impl ::core::clone::Clone for PrintWorkflowBackgroundSetupRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1002,7 +1002,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowBackgroundSetupRequested
 impl ::windows::core::RuntimeName for PrintWorkflowBackgroundSetupRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowBackgroundSetupRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowBackgroundSetupRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1047,7 +1047,7 @@ impl ::core::fmt::Debug for PrintWorkflowConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration;{d0aac4ed-fd4b-5df5-4bb6-8d0d159ebe3f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration;{d0aac4ed-fd4b-5df5-4bb6-8d0d159ebe3f})");
 }
 impl ::core::clone::Clone for PrintWorkflowConfiguration {
     fn clone(&self) -> Self {
@@ -1063,7 +1063,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowConfiguration {
 impl ::windows::core::RuntimeName for PrintWorkflowConfiguration {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowConfiguration {}
 unsafe impl ::core::marker::Sync for PrintWorkflowConfiguration {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1124,7 +1124,7 @@ impl ::core::fmt::Debug for PrintWorkflowForegroundSession {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowForegroundSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession;{c79b63d0-f8ec-4ceb-953a-c8876157dd33})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession;{c79b63d0-f8ec-4ceb-953a-c8876157dd33})");
 }
 impl ::core::clone::Clone for PrintWorkflowForegroundSession {
     fn clone(&self) -> Self {
@@ -1140,7 +1140,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowForegroundSession {
 impl ::windows::core::RuntimeName for PrintWorkflowForegroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowForegroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowForegroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowForegroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSession {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1185,7 +1185,7 @@ impl ::core::fmt::Debug for PrintWorkflowForegroundSetupRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowForegroundSetupRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSetupRequestedEventArgs;{bbe38247-9c1b-4dd3-9b2b-c80468d941b3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSetupRequestedEventArgs;{bbe38247-9c1b-4dd3-9b2b-c80468d941b3})");
 }
 impl ::core::clone::Clone for PrintWorkflowForegroundSetupRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1201,7 +1201,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowForegroundSetupRequested
 impl ::windows::core::RuntimeName for PrintWorkflowForegroundSetupRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSetupRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowForegroundSetupRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowForegroundSetupRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowForegroundSetupRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1264,7 +1264,7 @@ impl ::core::fmt::Debug for PrintWorkflowJobActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowJobActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobActivatedEventArgs;{d4bd5e6d-034e-5e00-a616-f961a033dcc8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobActivatedEventArgs;{d4bd5e6d-034e-5e00-a616-f961a033dcc8})");
 }
 impl ::core::clone::Clone for PrintWorkflowJobActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -1280,7 +1280,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowJobActivatedEventArgs {
 impl ::windows::core::RuntimeName for PrintWorkflowJobActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowJobActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowJobActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<PrintWorkflowJobActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -1385,7 +1385,7 @@ impl ::core::fmt::Debug for PrintWorkflowJobBackgroundSession {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowJobBackgroundSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession;{c5ec6ad8-20c9-5d51-8507-2734b46f96c5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession;{c5ec6ad8-20c9-5d51-8507-2734b46f96c5})");
 }
 impl ::core::clone::Clone for PrintWorkflowJobBackgroundSession {
     fn clone(&self) -> Self {
@@ -1401,7 +1401,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowJobBackgroundSession {
 impl ::windows::core::RuntimeName for PrintWorkflowJobBackgroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowJobBackgroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowJobBackgroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowJobBackgroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobBackgroundSession {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1444,7 +1444,7 @@ impl ::core::fmt::Debug for PrintWorkflowJobNotificationEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowJobNotificationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobNotificationEventArgs;{0ae16fba-5398-5eba-b472-978650186a9a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobNotificationEventArgs;{0ae16fba-5398-5eba-b472-978650186a9a})");
 }
 impl ::core::clone::Clone for PrintWorkflowJobNotificationEventArgs {
     fn clone(&self) -> Self {
@@ -1460,7 +1460,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowJobNotificationEventArgs
 impl ::windows::core::RuntimeName for PrintWorkflowJobNotificationEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobNotificationEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowJobNotificationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowJobNotificationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowJobNotificationEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobNotificationEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1509,7 +1509,7 @@ impl ::core::fmt::Debug for PrintWorkflowJobStartingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowJobStartingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs;{e3d99ba8-31ad-5e09-b0d7-601b97f161ad})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs;{e3d99ba8-31ad-5e09-b0d7-601b97f161ad})");
 }
 impl ::core::clone::Clone for PrintWorkflowJobStartingEventArgs {
     fn clone(&self) -> Self {
@@ -1525,7 +1525,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowJobStartingEventArgs {
 impl ::windows::core::RuntimeName for PrintWorkflowJobStartingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowJobStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowJobStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowJobStartingEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobStartingEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1552,7 +1552,7 @@ impl ::core::fmt::Debug for PrintWorkflowJobTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowJobTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobTriggerDetails;{ff296129-60e2-51db-ba8c-e2ccddb516b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobTriggerDetails;{ff296129-60e2-51db-ba8c-e2ccddb516b9})");
 }
 impl ::core::clone::Clone for PrintWorkflowJobTriggerDetails {
     fn clone(&self) -> Self {
@@ -1568,7 +1568,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowJobTriggerDetails {
 impl ::windows::core::RuntimeName for PrintWorkflowJobTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobTriggerDetails";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowJobTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowJobTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowJobTriggerDetails {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobTriggerDetails {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1629,7 +1629,7 @@ impl ::core::fmt::Debug for PrintWorkflowJobUISession {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowJobUISession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobUISession;{00c8736b-7637-5687-a302-0f664d2aac65})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobUISession;{00c8736b-7637-5687-a302-0f664d2aac65})");
 }
 impl ::core::clone::Clone for PrintWorkflowJobUISession {
     fn clone(&self) -> Self {
@@ -1645,7 +1645,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowJobUISession {
 impl ::windows::core::RuntimeName for PrintWorkflowJobUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobUISession";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowJobUISession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowJobUISession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowJobUISession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobUISession {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1666,7 +1666,7 @@ impl PrintWorkflowObjectModelSourceFileContent {
     }
     #[doc(hidden)]
     pub fn IPrintWorkflowObjectModelSourceFileContentFactory<R, F: FnOnce(&IPrintWorkflowObjectModelSourceFileContentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PrintWorkflowObjectModelSourceFileContent, IPrintWorkflowObjectModelSourceFileContentFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PrintWorkflowObjectModelSourceFileContent, IPrintWorkflowObjectModelSourceFileContentFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1682,7 +1682,7 @@ impl ::core::fmt::Debug for PrintWorkflowObjectModelSourceFileContent {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowObjectModelSourceFileContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent;{c36c8a6a-8a2a-419a-b3c3-2090e6bfab2f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent;{c36c8a6a-8a2a-419a-b3c3-2090e6bfab2f})");
 }
 impl ::core::clone::Clone for PrintWorkflowObjectModelSourceFileContent {
     fn clone(&self) -> Self {
@@ -1698,7 +1698,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowObjectModelSourceFileCon
 impl ::windows::core::RuntimeName for PrintWorkflowObjectModelSourceFileContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowObjectModelSourceFileContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowObjectModelSourceFileContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowObjectModelSourceFileContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelSourceFileContent {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1717,7 +1717,7 @@ impl ::core::fmt::Debug for PrintWorkflowObjectModelTargetPackage {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowObjectModelTargetPackage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelTargetPackage;{7d96bc74-9b54-4ca1-ad3a-979c3d44ddac})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelTargetPackage;{7d96bc74-9b54-4ca1-ad3a-979c3d44ddac})");
 }
 impl ::core::clone::Clone for PrintWorkflowObjectModelTargetPackage {
     fn clone(&self) -> Self {
@@ -1733,7 +1733,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowObjectModelTargetPackage
 impl ::windows::core::RuntimeName for PrintWorkflowObjectModelTargetPackage {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelTargetPackage";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowObjectModelTargetPackage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowObjectModelTargetPackage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowObjectModelTargetPackage {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelTargetPackage {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1783,7 +1783,7 @@ impl ::core::fmt::Debug for PrintWorkflowPdlConverter {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowPdlConverter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter;{40604b62-0ae4-51f1-818f-731dc0b005ab})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter;{40604b62-0ae4-51f1-818f-731dc0b005ab})");
 }
 impl ::core::clone::Clone for PrintWorkflowPdlConverter {
     fn clone(&self) -> Self {
@@ -1799,7 +1799,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowPdlConverter {
 impl ::windows::core::RuntimeName for PrintWorkflowPdlConverter {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowPdlConverter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowPdlConverter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowPdlConverter {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlConverter {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1849,7 +1849,7 @@ impl ::core::fmt::Debug for PrintWorkflowPdlDataAvailableEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowPdlDataAvailableEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlDataAvailableEventArgs;{d4ad6b50-1547-5991-a0ef-e2ee20211518})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlDataAvailableEventArgs;{d4ad6b50-1547-5991-a0ef-e2ee20211518})");
 }
 impl ::core::clone::Clone for PrintWorkflowPdlDataAvailableEventArgs {
     fn clone(&self) -> Self {
@@ -1865,7 +1865,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowPdlDataAvailableEventArg
 impl ::windows::core::RuntimeName for PrintWorkflowPdlDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlDataAvailableEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowPdlDataAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowPdlDataAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowPdlDataAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlDataAvailableEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1992,7 +1992,7 @@ impl ::core::fmt::Debug for PrintWorkflowPdlModificationRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowPdlModificationRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs;{1a339a61-2e13-5edd-a707-ceec61d7333b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs;{1a339a61-2e13-5edd-a707-ceec61d7333b})");
 }
 impl ::core::clone::Clone for PrintWorkflowPdlModificationRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -2008,7 +2008,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowPdlModificationRequested
 impl ::windows::core::RuntimeName for PrintWorkflowPdlModificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowPdlModificationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowPdlModificationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowPdlModificationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlModificationRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2053,7 +2053,7 @@ impl ::core::fmt::Debug for PrintWorkflowPdlSourceContent {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowPdlSourceContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlSourceContent;{92f7fc41-32b8-56ab-845e-b1e68b3aedd5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlSourceContent;{92f7fc41-32b8-56ab-845e-b1e68b3aedd5})");
 }
 impl ::core::clone::Clone for PrintWorkflowPdlSourceContent {
     fn clone(&self) -> Self {
@@ -2069,7 +2069,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowPdlSourceContent {
 impl ::windows::core::RuntimeName for PrintWorkflowPdlSourceContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlSourceContent";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowPdlSourceContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowPdlSourceContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowPdlSourceContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlSourceContent {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2102,7 +2102,7 @@ impl ::core::fmt::Debug for PrintWorkflowPdlTargetStream {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowPdlTargetStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlTargetStream;{a742dfe5-1ee3-52a9-9f9f-2e2043180fd1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlTargetStream;{a742dfe5-1ee3-52a9-9f9f-2e2043180fd1})");
 }
 impl ::core::clone::Clone for PrintWorkflowPdlTargetStream {
     fn clone(&self) -> Self {
@@ -2118,7 +2118,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowPdlTargetStream {
 impl ::windows::core::RuntimeName for PrintWorkflowPdlTargetStream {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlTargetStream";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowPdlTargetStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowPdlTargetStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowPdlTargetStream {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlTargetStream {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2222,7 +2222,7 @@ impl ::core::fmt::Debug for PrintWorkflowPrinterJob {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowPrinterJob {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob;{12009f94-0d14-5443-bc09-250311ce570b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob;{12009f94-0d14-5443-bc09-250311ce570b})");
 }
 impl ::core::clone::Clone for PrintWorkflowPrinterJob {
     fn clone(&self) -> Self {
@@ -2238,7 +2238,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowPrinterJob {
 impl ::windows::core::RuntimeName for PrintWorkflowPrinterJob {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowPrinterJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowPrinterJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowPrinterJob {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPrinterJob {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2281,7 +2281,7 @@ impl ::core::fmt::Debug for PrintWorkflowSourceContent {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowSourceContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent;{1a28c641-ceb1-4533-bb73-fbe63eefdb18})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent;{1a28c641-ceb1-4533-bb73-fbe63eefdb18})");
 }
 impl ::core::clone::Clone for PrintWorkflowSourceContent {
     fn clone(&self) -> Self {
@@ -2297,7 +2297,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowSourceContent {
 impl ::windows::core::RuntimeName for PrintWorkflowSourceContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowSourceContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowSourceContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowSourceContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSourceContent {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2326,7 +2326,7 @@ impl ::core::fmt::Debug for PrintWorkflowSpoolStreamContent {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowSpoolStreamContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent;{72e55ece-e406-4b74-84e1-3ff3fdcdaf70})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent;{72e55ece-e406-4b74-84e1-3ff3fdcdaf70})");
 }
 impl ::core::clone::Clone for PrintWorkflowSpoolStreamContent {
     fn clone(&self) -> Self {
@@ -2342,7 +2342,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowSpoolStreamContent {
 impl ::windows::core::RuntimeName for PrintWorkflowSpoolStreamContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowSpoolStreamContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowSpoolStreamContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowSpoolStreamContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSpoolStreamContent {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2371,7 +2371,7 @@ impl ::core::fmt::Debug for PrintWorkflowStreamTarget {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowStreamTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowStreamTarget;{b23bba84-8565-488b-9839-1c9e7c7aa916})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowStreamTarget;{b23bba84-8565-488b-9839-1c9e7c7aa916})");
 }
 impl ::core::clone::Clone for PrintWorkflowStreamTarget {
     fn clone(&self) -> Self {
@@ -2387,7 +2387,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowStreamTarget {
 impl ::windows::core::RuntimeName for PrintWorkflowStreamTarget {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowStreamTarget";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowStreamTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowStreamTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowStreamTarget {}
 unsafe impl ::core::marker::Sync for PrintWorkflowStreamTarget {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2432,7 +2432,7 @@ impl ::core::fmt::Debug for PrintWorkflowSubmittedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowSubmittedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs;{3add0a41-3794-5569-5c87-40e8ff720f83})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs;{3add0a41-3794-5569-5c87-40e8ff720f83})");
 }
 impl ::core::clone::Clone for PrintWorkflowSubmittedEventArgs {
     fn clone(&self) -> Self {
@@ -2448,7 +2448,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowSubmittedEventArgs {
 impl ::windows::core::RuntimeName for PrintWorkflowSubmittedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowSubmittedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowSubmittedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowSubmittedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2486,7 +2486,7 @@ impl ::core::fmt::Debug for PrintWorkflowSubmittedOperation {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowSubmittedOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation;{2e4e6216-3be1-5f0f-5c81-a5a2bd4eab0e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation;{2e4e6216-3be1-5f0f-5c81-a5a2bd4eab0e})");
 }
 impl ::core::clone::Clone for PrintWorkflowSubmittedOperation {
     fn clone(&self) -> Self {
@@ -2502,7 +2502,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowSubmittedOperation {
 impl ::windows::core::RuntimeName for PrintWorkflowSubmittedOperation {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowSubmittedOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowSubmittedOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowSubmittedOperation {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedOperation {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2536,7 +2536,7 @@ impl ::core::fmt::Debug for PrintWorkflowTarget {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowTarget;{29da276c-0a73-5aed-4f3d-970d3251f057})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowTarget;{29da276c-0a73-5aed-4f3d-970d3251f057})");
 }
 impl ::core::clone::Clone for PrintWorkflowTarget {
     fn clone(&self) -> Self {
@@ -2552,7 +2552,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowTarget {
 impl ::windows::core::RuntimeName for PrintWorkflowTarget {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowTarget";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowTarget {}
 unsafe impl ::core::marker::Sync for PrintWorkflowTarget {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2579,7 +2579,7 @@ impl ::core::fmt::Debug for PrintWorkflowTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowTriggerDetails;{5739d868-9d86-4052-b0cb-f310becd59bb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowTriggerDetails;{5739d868-9d86-4052-b0cb-f310becd59bb})");
 }
 impl ::core::clone::Clone for PrintWorkflowTriggerDetails {
     fn clone(&self) -> Self {
@@ -2595,7 +2595,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowTriggerDetails {
 impl ::windows::core::RuntimeName for PrintWorkflowTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowTriggerDetails";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowTriggerDetails {}
 unsafe impl ::core::marker::Sync for PrintWorkflowTriggerDetails {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2658,7 +2658,7 @@ impl ::core::fmt::Debug for PrintWorkflowUIActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowUIActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowUIActivatedEventArgs;{bc8a844d-09eb-5746-72a6-8dc8b5edbe9b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowUIActivatedEventArgs;{bc8a844d-09eb-5746-72a6-8dc8b5edbe9b})");
 }
 impl ::core::clone::Clone for PrintWorkflowUIActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -2674,7 +2674,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowUIActivatedEventArgs {
 impl ::windows::core::RuntimeName for PrintWorkflowUIActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowUIActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowUIActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowUIActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<PrintWorkflowUIActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -2754,7 +2754,7 @@ impl ::core::fmt::Debug for PrintWorkflowUILauncher {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowUILauncher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowUILauncher;{64e9e22f-14cc-5828-96fb-39163fb6c378})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowUILauncher;{64e9e22f-14cc-5828-96fb-39163fb6c378})");
 }
 impl ::core::clone::Clone for PrintWorkflowUILauncher {
     fn clone(&self) -> Self {
@@ -2770,7 +2770,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowUILauncher {
 impl ::windows::core::RuntimeName for PrintWorkflowUILauncher {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowUILauncher";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowUILauncher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowUILauncher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowUILauncher {}
 unsafe impl ::core::marker::Sync for PrintWorkflowUILauncher {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2806,7 +2806,7 @@ impl ::core::fmt::Debug for PrintWorkflowXpsDataAvailableEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowXpsDataAvailableEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs;{4d11c331-54d1-434e-be0e-82c5fa58e5b2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs;{4d11c331-54d1-434e-be0e-82c5fa58e5b2})");
 }
 impl ::core::clone::Clone for PrintWorkflowXpsDataAvailableEventArgs {
     fn clone(&self) -> Self {
@@ -2822,7 +2822,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowXpsDataAvailableEventArg
 impl ::windows::core::RuntimeName for PrintWorkflowXpsDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintWorkflowXpsDataAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintWorkflowXpsDataAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowXpsDataAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowXpsDataAvailableEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2890,7 +2890,7 @@ impl ::core::ops::Not for PdlConversionHostBasedProcessingOperations {
     }
 }
 impl ::windows::core::RuntimeType for PdlConversionHostBasedProcessingOperations {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PdlConversionHostBasedProcessingOperations;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PdlConversionHostBasedProcessingOperations;u4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
@@ -2921,7 +2921,7 @@ impl ::core::fmt::Debug for PrintWorkflowAttributesMergePolicy {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowAttributesMergePolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowAttributesMergePolicy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowAttributesMergePolicy;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
@@ -2951,7 +2951,7 @@ impl ::core::fmt::Debug for PrintWorkflowJobAbortReason {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowJobAbortReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowJobAbortReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowJobAbortReason;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
@@ -2982,7 +2982,7 @@ impl ::core::fmt::Debug for PrintWorkflowPdlConversionType {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowPdlConversionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConversionType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConversionType;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
@@ -3014,7 +3014,7 @@ impl ::core::fmt::Debug for PrintWorkflowPrinterJobStatus {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowPrinterJobStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJobStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJobStatus;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
@@ -3047,7 +3047,7 @@ impl ::core::fmt::Debug for PrintWorkflowSessionStatus {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowSessionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSessionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSessionStatus;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
@@ -3078,7 +3078,7 @@ impl ::core::fmt::Debug for PrintWorkflowSubmittedStatus {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowSubmittedStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
@@ -3110,7 +3110,7 @@ impl ::core::fmt::Debug for PrintWorkflowUICompletionStatus {
     }
 }
 impl ::windows::core::RuntimeType for PrintWorkflowUICompletionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowUICompletionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowUICompletionStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
