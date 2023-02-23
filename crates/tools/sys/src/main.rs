@@ -30,7 +30,7 @@ const EXCLUDE_NAMESPACES: [&str; 28] = [
     "Windows.Win32.System.SideShow",
     "Windows.Win32.System.TransactionServer",
     "Windows.Win32.System.WinRT",
-    "Windows.Win32.Web",
+    "Windows.Win32.Web.MsHtml",
     "Windows.Win32.UI.Xaml",
 ];
 
