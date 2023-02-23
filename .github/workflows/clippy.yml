@@ -78,6 +78,7 @@ jobs:
           cargo clippy -p test_const_ptrs &&
           cargo clippy -p test_core &&
           cargo clippy -p test_debug &&
+          cargo clippy -p test_debug_inspectable &&
           cargo clippy -p test_debugger_visualizer_x &&
           cargo clippy -p test_deprecated &&
           cargo clippy -p test_dispatch &&
