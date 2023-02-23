@@ -22,7 +22,7 @@
     <DisplayString>{(HRESULT)__0}</DisplayString>
   </Type>
 
-  <Type Name="windows::core::ref_count::RefCount">
+  <Type Name="windows::imp::ref_count::RefCount">
     <DisplayString>{__0}</DisplayString>
   </Type>
 
